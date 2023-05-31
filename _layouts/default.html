@@ -3,7 +3,8 @@
 	<head>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	    <meta name="description" content="{{ page.description | default: site.data.en.i18n.description }}">
+	    {% assign desc = site.data.en[1] %}
+	    <meta name="description" content="{{ page.description | default: desc.description }}">
 	    <meta name="author" content="{{ page.author | default: site.email }}">
 	    <link rel="canonical" href="{{ page.url | default: site.url }}">
 	    <link rel="icon" type="image/x-icon" href="{{ site.url }}/favicon.ico">
