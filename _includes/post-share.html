@@ -1,0 +1,10 @@
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}{{ page.url | relative_url }}">Facebook</a>,</li>
+        {% assign hashtags = page.tags | join:',' %}
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url={{ site.url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}{{ page.url | relative_url }}&hashtags={{ hashtags }}"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}{{ page.url | relative_url }}"> Linkedin</a></li>
+    </ul>
+</div>

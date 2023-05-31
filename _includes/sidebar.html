@@ -1,0 +1,60 @@
+<div class="sidebar">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="sidebar-item search">
+				<form id="search_form" name="gs" method="GET" action="#">
+					<input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
+				</form>
+			</div>
+		</div>
+		<div class="col-lg-12">
+			<div class="sidebar-item recent-posts">
+				<div class="sidebar-heading">
+					<h2>Recent Posts</h2>
+				</div>
+				<div class="content">
+					<ul>
+						{% for post in site.related_posts %}
+						<li><a href="{{ site.url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}{{ post.url | relative_url }}">
+						<h5>{{ post.title }}</h5>
+						<span>{{ post.date | date: '%B %d, %Y' }}</span>
+						</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-12">
+			<div class="sidebar-item categories">
+				<div class="sidebar-heading">
+					<h2>Categories</h2>
+				</div>
+				<div class="content">
+					<ul>
+						{% for category in site.categories %}
+						{% capture category_name %}{{ category | first }}{% endcapture %}
+						{% capture category_keyword %}{{ category_name | slugify }}{% endcapture %}
+						<li><a href="{{ site.url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}/category/{{ category_keyword }}">- {{ category_name | escape }} ({{ site.categories[category_name].size }})</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-12">
+			<div class="sidebar-item tags">
+				<div class="sidebar-heading">
+					<h2>Tags</h2>
+				</div>
+				<div class="content">
+					<ul>
+						{% for tag in site.tags %}
+						{% capture tag_name %}{{ tag | first }}{% endcapture %}
+						{% capture tag_keyword %}{{ tag_name | slugify }}{% endcapture %}
+						<li><a href="{{ site.url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}/tag/{{ tag_keyword }}">{{ tag_name | escape }} ({{ site.tags[tag_name].size }})</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
