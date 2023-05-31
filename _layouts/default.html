@@ -3,7 +3,7 @@
 	<head>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	    <meta name="description" content="{{ page.description | default: site.data.i18n.description }}">
+	    <meta name="description" content="{{ page.description | default: site.data.en.i18n.description }}">
 	    <meta name="author" content="{{ page.author | default: site.email }}">
 	    <link rel="canonical" href="{{ page.url | default: site.url }}">
 	    <link rel="icon" type="image/x-icon" href="{{ site.url }}/favicon.ico">
@@ -54,7 +54,7 @@
 					<div class="collapse navbar-collapse" id="navbarResponsive">
 						<ul class="navbar-nav ms-auto">
 							<li class="nav-item {% if page.url == site.baseurl %}active{% endif %}">
-								<a class="nav-link" href="{{ site.url | relative_url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}">{{ site.data.i18n.en.menu0 }}
+								<a class="nav-link" href="{{ site.url | relative_url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}">{{ site.data.en.i18n.menu0 }}
 									{% if page.url == site.baseurl %}<span class="sr-only">(current)</span>{% endif %}
 								</a>
 							</li>
