@@ -1,13 +1,13 @@
 ---
 layout: post
-lang: zh
+lang: en
 title: "Gentoo Linux Installation Guide with Screenshots (amd64 Architecture, Glibc library, gcc Compiler, openRC Service Manager, GRUB Bootloader)"
 thumb: "gentoo-01.jpg"
 eyebrow: "Operating System"
 description: "This step-by-step installation guide with screenshots will walk you through the process of installing Gentoo Linux on an AMD64 system using the Glibc library, GCC compiler, OpenRC init system, and GRUB Bootloader."
 date: 2023-05-31 11:44:59 +0700
 author: Samuel Yang
-categories: ["Gentoo Linux", "Virtualbox"]
+categories: ["Gentoo Linux", "Virtualbox", "year-2023", "month-05", "day-31"]
 tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
 ---
 
@@ -57,7 +57,7 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
 
         <h4 class="post-subtitle">Creating GPT Disk Partitions</h4>
 
-        <p>To begin, SCSI and Serial ATA drives are both labeled under device handles such as: /dev/sda, /dev/sdb, /dev/sdc, etc. On more modern machines, PCI Express based NVMe solid state disks have device handles such as /dev/nvme0n1, /dev/nvme0n2, etc.</p>
+        <p>To begin, SCSI and Serial ATA drives are both labeled under device handles such as: <code>/dev/sda</code>, <code>/dev/sdb</code>, <code>/dev/sdc</code>, etc. On more modern machines, PCI Express based NVMe solid state disks have device handles such as <code>/dev/nvme0n1</code>, <code>/dev/nvme0n2</code>, etc.</p>
 
         <table class="table table-bordered border-primary">
             <thead>
@@ -69,22 +69,22 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
             <tr>
                 <td>SATA, SAS, SCSI, or USB flash</td>
                 <td>
-                    /dev/sda<br>
-                    /dev/sdb<br>
-                    /dev/sdc<br>
+                    <code>/dev/sda</code><br>
+                    <code>/dev/sdb</code><br>
+                    <code>/dev/sdc</code><br>
                     etc
                 </td>
-                <td>These types of devices can be connected via the SATA bus, SCSI, USB bus as block storage. As example, the first partition on the first SATA device is called /dev/sda1.</td>
+                <td>These types of devices can be connected via the SATA bus, SCSI, USB bus as block storage. As example, the first partition on the first SATA device is called <code>/dev/sda1</code>.</td>
             </tr>
             <tr>
                 <td>NVM Express (NVMe)</td>
                 <td>
-                    /dev/nvme0n1<br>
-                    /dev/nvme0n2<br>
-                    /dev/nvme0n3<br>
+                    <code>/dev/nvme0n1</code><br>
+                    <code>/dev/nvme0n2</code><br>
+                    <code>/dev/nvme0n3</code><br>
                     etc
                 </td>
-                <td>NVMe drives are connected to the PCI Express bus. The first partition on the first NVMe device is called /dev/nvme0n1p1.</td>
+                <td>NVMe drives are connected to the PCI Express bus. The first partition on the first NVMe device is called <code>/dev/nvme0n1p1</code>.</td>
             </tr>
             </tbody>
         </table>
@@ -100,25 +100,25 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
             </thead>
             <tbody>
             <tr>
-                <td>/dev/nvme0n1p1</td>
+                <td><code>/dev/nvme0n1p1</code></td>
                 <td>fat32 (UEFI)</td>
                 <td>128M</td>
                 <td>EFI system partition</td>
             </tr>
             <tr>
-                <td>/dev/nvme0n1p2</td>
+                <td><code>/dev/nvme0n1p2</code></td>
                 <td>ext4</td>
                 <td>256M</td>
                 <td>Boot partition</td>
             </tr>
             <tr>
-                <td>/dev/nvme0n1p3</td>
+                <td><code>/dev/nvme0n1p3</code></td>
                 <td>(swap)</td>
                 <td>RAM size * 2</td>
                 <td>Swap partition</td>
             </tr>
             <tr>
-                <td>/dev/nvme0n1p4</td>
+                <td><code>/dev/nvme0n1p4</code></td>
                 <td>ext4</td>
                 <td>Rest of the disk</td>
                 <td>Root partition</td>
@@ -160,7 +160,7 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
             <img src="/assets/images/carbon-05.png" alt="fdisk 5">
         </figure>        
 
-        <p>After all this is done, type t to set the partition type, 3 to select the partition just created and then type in 19 to set the partition type to "Linux Swap".</p>
+        <p>After all this is done, type <code>t</code> to set the partition type, <code>3</code> to select the partition just created and then type in <code>19</code> to set the partition type to "Linux Swap".</p>
 
         <figure class="post-figure">
             <img src="/assets/images/carbon-06.png" alt="fdisk 6">

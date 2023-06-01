@@ -4,7 +4,7 @@
 			<div class="col-12">
 				<div class="section-heading d-flex align-items-center">  
 					<h2>Related Posts</h2>
-					<a href="{{ site.url | relative_url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+					<a href="{{ site.url }}{{ lang }}/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
 				</div>
 				<div class="related-posts">
 					<div class="row">
@@ -17,10 +17,10 @@
 						<div class="col-md-6 col-lg-4">
 							<div class="blog-post">
 								<div class="blog-thumb">
-									<a href="{{ site.url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}{{ post.url | relative_url }}"><img src="{{ site.url }}/assets/images/{{ post.thumb }}" alt=""></a>
+									<a href="{{ site.url }}{{ lang }}{{ post.url }}"><img src="{{ site.url }}/assets/images/{{ post.thumb }}" alt=""></a>
 								</div>
 								<div class="blog-eyebrow">{{ post.eyebrow }}</div>
-								<h3 class="blog-title"><a href="{{ site.url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+								<h3 class="blog-title"><a href="{{ site.url }}{{ lang }}{{ post.url }}">{{ post.title }}</a></h3>
 							</div>
 						</div>
 						{% assign count = count | plus: 1 %}

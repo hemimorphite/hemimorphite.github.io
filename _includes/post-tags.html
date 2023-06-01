@@ -2,6 +2,6 @@
 	<li><i class="fa-solid fa-tags"></i></li>
 	{% for tag in page.tags %}
 	{% assign no_comma = forloop.last %}
-	<li><a href="{{ site.url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}/tag/{{ tag | slugize }}">{{ tag | escape }}</a>{% unless no_comma %},{% endunless %}</li>
+	<li><a href="{{ site.url }}{{ lang }}/tag/{{ tag | slugify }}">{{ tag }}</a>{% unless no_comma %},{% endunless %}</li>
 	{% endfor %}
 </ul>

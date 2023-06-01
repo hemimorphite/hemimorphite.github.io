@@ -1,7 +1,11 @@
 ---
 layout: category
-title: Category Gentoo Linux
+title: "CATEGORY: Gentoo Linux"
 category: "Gentoo Linux"
 lang: en
 permalink: '/category/gentoo-linux'
+pagination:
+    enabled: true
+    category: "Gentoo Linux"
+    permalink: /page/:num/
 ---

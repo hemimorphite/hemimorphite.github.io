@@ -7,7 +7,7 @@ layout: default
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-2">
-				<a href="{{ site.url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+				<a href="{{ site.url }}{{ lang }}/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
 			</div>
 			<div class="col-lg-10">
 				{{ content }}

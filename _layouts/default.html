@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: "en" }}">
 	<head>
+		{% if site.active_lang != "en" %}
+	    	{% assign lang = site.active_lang | prepend: '/' %}
+	    {% else %}
+	    	{% assign lang = '' %}
+	    {% endif %}
+
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	    {% assign desc = site.data.en[1] %}
 	    <meta name="description" content="{{ page.description | default: site.data.i18n.description }}">
 	    <meta name="author" content="{{ page.author | default: site.email }}">
-	    <link rel="canonical" href="{{ page.url | default: site.url }}">
+	    <link rel="canonical" href="{{ site.url }}{{ lang }}{{ page.url }}">
 	    <link rel="icon" type="image/x-icon" href="{{ site.url }}/favicon.ico">
 		<meta property="og:title" content="{{ page.title | default: "Welcome to hemimorphite" }}">
-		<meta property="og:site_name" content="{{ site.title | escape }}">
-		<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+		<meta property="og:site_name" content="{{ site.title }}">
+		<meta property="og:url" content="{{ site.url }}{{ lang }}{{ page.url }}">
 		<meta property="og:description" content="{{ page.description | default: site.data.i18n.description }}">
 		<meta property="og:image" content="{{ page.thumb | default: site.image }}">
 
@@ -43,20 +48,20 @@
 	        </div>
 	    </div>  
 	    <!-- ***** Preloader End ***** -->
-
+	    
 	    <!-- Header -->
 	    <header>
 			<nav class="navbar navbar-expand-lg">
 				<div class="container">
-					<h2 class="navbar-brand"><a href="{{ site.url | relative_url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}">Hemimorphite</a></h2>
+					<h2 class="navbar-brand"><a href="{{ site.url }}{{ lang }}/">Hemimorphite</a></h2>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarResponsive">
 						<ul class="navbar-nav ms-auto">
-							<li class="nav-item {% if page.url == site.baseurl %}active{% endif %}">
-								<a class="nav-link" href="{{ site.url | relative_url }}{% if site.active_lang != "en" %}/{{ site.active_lang }}{% endif %}">{{ site.data.en.i18n.menu0 }}
-									{% if page.url == site.baseurl %}<span class="sr-only">(current)</span>{% endif %}
+							<li class="nav-item {% if page.url == '/index.html' %}active{% endif %}">
+								<a class="nav-link" href="{{ site.url }}{{ lang }}/">{{ site.data.i18n.menu0 }}
+									{% if page.url == '/index.html' %}<span class="sr-only">(current)</span>{% endif %}
 								</a>
 							</li>
 						{% assign pages = site.pages %}
@@ -69,7 +74,7 @@
 						{% if node.title != null and node.title != 404 %}
 						  	{% if node.layout == "default" %}
 						  	<li class="nav-item {% if page.url == node.url %}active{% endif %}">
-								<a class="nav-link" href="{{ node.url | relative_url }}">{{ node.title }}
+								<a class="nav-link" href="{{ site.url }}{{ lang }}{{ node.url }}">{{ node.title }}
 									{% if page.url == node.url %}<span class="sr-only">(current)</span>{% endif %}
 								</a>
 							</li>
@@ -82,8 +87,7 @@
 				</div>
 			</nav>
 	    </header>
-{% assign desc = site.data.en[1] %}
-	    {{ desc }}
+
 	    {{ content }}
 
 	    <footer>
@@ -104,7 +108,7 @@
 	    <!-- Additional Scripts -->
 	    <script src="{{ site.url }}/assets/js/custom.js"></script>
 	    <script>
-	    	let url = new URL("{{ site.url }}{{ page.url }}");
+	    	let url = new URL("{{ site.url }}{{ lang }}{{ page.url }}");
 			let paths = url.pathname.split('/').slice(1);
 
 		    /**
@@ -112,7 +116,7 @@
 		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
 		    if(typeof paths[3] !== 'undefined') {
 		    	var disqus_config = function () {
-			    this.page.url = "{{ site.url }}{{ page.url }}";  // Replace PAGE_URL with your page's canonical URL variable
+			    this.page.url = "{{ site.url }}{{ lang }}{{ page.url }}";  // Replace PAGE_URL with your page's canonical URL variable
 			    this.page.identifier = paths[3]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 			    };
 			    
