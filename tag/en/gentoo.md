@@ -8,4 +8,5 @@ pagination:
     enabled: true
     tag: "gentoo"
     permalink: /page/:num/
+    locale: en
 ---

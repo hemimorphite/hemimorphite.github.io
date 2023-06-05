@@ -8,4 +8,5 @@ pagination:
     enabled: true
     tag: "glibc"
     permalink: /page/:num/
+    locale: en
 ---

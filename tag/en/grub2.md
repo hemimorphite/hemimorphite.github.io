@@ -8,4 +8,5 @@ pagination:
     enabled: true
     tag: "grub2"
     permalink: /page/:num/
+    locale: en
 ---

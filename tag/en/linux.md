@@ -8,4 +8,5 @@ pagination:
     enabled: true
     tag: "linux"
     permalink: /page/:num/
+    locale: en
 ---

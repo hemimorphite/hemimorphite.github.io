@@ -8,4 +8,5 @@ pagination:
     enabled: true
     tag: "gcc"
     permalink: /page/:num/
+    locale: en
 ---

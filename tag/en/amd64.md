@@ -8,4 +8,5 @@ pagination:
     enabled: true
     tag: "amd64"
     permalink: /page/:num/
+    locale: en
 ---

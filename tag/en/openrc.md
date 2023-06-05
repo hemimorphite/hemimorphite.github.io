@@ -8,4 +8,5 @@ pagination:
     enabled: true
     tag: "openrc"
     permalink: /page/:num/
+    locale: en
 ---

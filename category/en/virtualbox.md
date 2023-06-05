@@ -8,4 +8,5 @@ pagination:
     enabled: true
     category: "Virtualbox"
     permalink: /page/:num/
+    locale: en
 ---

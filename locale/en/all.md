@@ -6,4 +6,5 @@ permalink: '/'
 pagination:
     enabled: true
     permalink: /page/:num/
+    locale: en
 ---
