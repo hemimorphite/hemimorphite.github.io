@@ -27,7 +27,7 @@
 	
 	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 
-	    <title>{{ site.data.i18n.title | default:page.title | default: site.title }}</title>
+	    <title>{{ page.title | default: site.data.i18n.title }}</title>
 
 	    <!-- Bootstrap core CSS -->
 	    <link href="{{ site.url }}/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -35,7 +35,6 @@
 	    <!-- Additional CSS Files -->
 	    <link rel="stylesheet" href="{{ site.url }}/assets/css/fontawesome.css">
 	    <link rel="stylesheet" href="{{ site.url }}/assets/css/templatemo-stand-blog.css">
-	    <!--<link rel="stylesheet" href="assets/css/owl.css">-->
   	</head>
 
   	<body>
