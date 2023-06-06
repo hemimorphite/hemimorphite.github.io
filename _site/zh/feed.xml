@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/zh/" rel="alternate" type="text/html" /><updated>2023-06-05T18:51:53+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Hemimorphite</title><subtitle>{&quot;en&quot;=&gt;&quot;Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.&quot;}</subtitle><entry xml:lang="en"><title type="html">Gentoo Linux Installation Guide with Screenshots (amd64 Architecture, Glibc library, gcc Compiler, openRC Service Manager, GRUB Bootloader)</title><link href="http://localhost:4000/zh/2023/05/31/gentoo-linux-installation-guide-with-screenshots-amd64-architecture-v1/" rel="alternate" type="text/html" title="Gentoo Linux Installation Guide with Screenshots (amd64 Architecture, Glibc library, gcc Compiler, openRC Service Manager, GRUB Bootloader)" /><published>2023-05-31T11:44:59+07:00</published><updated>2023-05-31T11:44:59+07:00</updated><id>http://localhost:4000/2023/05/31/gentoo-linux-installation-guide-with-screenshots-amd64-architecture-v1</id><content type="html" xml:base="http://localhost:4000/2023/05/31/gentoo-linux-installation-guide-with-screenshots-amd64-architecture-v1/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/zh/" rel="alternate" type="text/html" /><updated>2023-06-06T14:02:51+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Gentoo Linux Installation Guide with Screenshots (amd64 Architecture, Glibc library, gcc Compiler, openRC Service Manager, GRUB Bootloader)</title><link href="http://localhost:4000/zh/2023/05/31/gentoo-linux-installation-guide-with-screenshots-amd64-architecture-v1/" rel="alternate" type="text/html" title="Gentoo Linux Installation Guide with Screenshots (amd64 Architecture, Glibc library, gcc Compiler, openRC Service Manager, GRUB Bootloader)" /><published>2023-05-31T11:44:59+07:00</published><updated>2023-05-31T11:44:59+07:00</updated><id>http://localhost:4000/2023/05/31/gentoo-linux-installation-guide-with-screenshots-amd64-architecture-v1</id><content type="html" xml:base="http://localhost:4000/2023/05/31/gentoo-linux-installation-guide-with-screenshots-amd64-architecture-v1/"><![CDATA[<div class="blog-post">
     <div class="post-date">Published May 31, 2023</div>
 <h2 class="post-title">Gentoo Linux Installation Guide with Screenshots (amd64 Architecture, Glibc library, gcc Compiler, openRC Service Manager, GRUB Bootloader)</h2>
 <div class="post-author">
@@ -506,13 +506,13 @@
 
         <pre class="command">emerge --ask sys-kernel/dracut</pre>
         
-        <p>Before we generate an initramfs, we must know the kernel version installed on the system. To check the kernel version of system, enter:</p>
+        <p>Before we generate an initramfs, we must know the version of the chosen kernel sources. To check the version of the chosen kernel sources, enter:</p>
 
-        <pre class="command">uname -r</pre>
+        <pre class="command">eselect kernel list</pre>
 
         <p>This command must return the output similar to:</p>
 
-        <pre class="command">6.1.28-gentoo-x86_64</pre>
+        <pre class="command">Available kernel symlink targets:<br>  [1]   linux-6.1.28-gentoo *</pre>
 
         <p>Then have it generate an initramfs:</p>
         
@@ -554,9 +554,23 @@
 
         <pre class="command">emerge --ask net-misc/dhcpcd</pre>
 
+        <h4 class="post-subtitle">Setting the hostname</h4>
+
+        <pre class="command">echo codingempire > /etc/hostname</pre>
+
         <h4 class="post-subtitle">Setting hosts file</h4>
         
         <p><code>/etc/hosts</code> helps in resolving host names to IP addresses for hosts that aren't resolved by the nameserver.</p>
+
+        <h4 class="post-subtitle">Setting root user profile</h4>
+
+        <p>Create a root user profile:</p>
+
+        <pre class="command">touch ~/.profile</pre>
+
+        <p>Then add the <code>PS1</code> variable in the <code>.profile</code> file:</p>        
+
+        <pre class="command">PS1='\u@\h:\W\$ '</pre>
 
         <h4 class="post-subtitle">Setting root password</h4>
 
@@ -614,6 +628,14 @@
         
         <h4 class="post-subtitle">Remote shell access</h4>
 
+        <p>Change SSH Configuration file (<code>/etc/ssh/sshd_config</code>), uncomment the <code>Port</code> option to enable SSH client connects to SSH server on port 22.</p>
+
+        <pre class="command">Port 22</pre>
+
+        <p>Uncomment the <code>PermitRootLogin</code> option and set the value to <code>yes</code> to enable root login.</p>
+
+        <pre class="command">PermitRootLogin yes</pre>
+
         <p>To add the <code>sshd</code> init script to the default runlevel on OpenRC:</p>
 
         <pre class="command">rc-update add sshd default</pre>
@@ -628,7 +650,7 @@
 
         <pre class="command">emerge --ask sys-boot/grub</pre>  
 
-        <p>Next, install the GRUB EFI file (grubx64.efi) to the <code>/boot/efi/</code> directory via the <code>grub-install</code> command. Run <code>grub-install</code> command:</p>
+        <p>Next, install the GRUB EFI file (<code>grubx64.efi</code>) to the <code>/boot/efi/</code> directory via the <code>grub-install</code> command. Run <code>grub-install</code> command:</p>
 
         <pre class="command">grub-install --target=x86_64-efi --efi-directory=/boot/efi</pre>
 

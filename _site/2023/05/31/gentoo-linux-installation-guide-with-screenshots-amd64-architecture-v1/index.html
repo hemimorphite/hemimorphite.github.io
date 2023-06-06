@@ -23,15 +23,14 @@
 	
 	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 
-	    <title>My Site</title>
+	    <title>Gentoo Linux Installation Guide with Screenshots (amd64 Architecture, Glibc library, gcc Compiler, openRC Service Manager, GRUB Bootloader)</title>
 
 	    <!-- Bootstrap core CSS -->
 	    <link href="http://localhost:4000/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 	    <!-- Additional CSS Files -->
 	    <link rel="stylesheet" href="http://localhost:4000/assets/css/fontawesome.css">
-	    <link rel="stylesheet" href="http://localhost:4000/assets/css/templatemo-stand-blog.css">
-	    <!--<link rel="stylesheet" href="assets/css/owl.css">-->
+	    <link rel="stylesheet" href="http://localhost:4000/assets/css/hemimorphite.css">
   	</head>
 
   	<body>
@@ -709,13 +708,13 @@
 
         <pre class="command">emerge --ask sys-kernel/dracut</pre>
         
-        <p>Before we generate an initramfs, we must know the kernel version installed on the system. To check the kernel version of system, enter:</p>
+        <p>Before we generate an initramfs, we must know the version of the chosen kernel sources. To check the version of the chosen kernel sources, enter:</p>
 
-        <pre class="command">uname -r</pre>
+        <pre class="command">eselect kernel list</pre>
 
         <p>This command must return the output similar to:</p>
 
-        <pre class="command">6.1.28-gentoo-x86_64</pre>
+        <pre class="command">Available kernel symlink targets:<br>  [1]   linux-6.1.28-gentoo *</pre>
 
         <p>Then have it generate an initramfs:</p>
         
@@ -757,9 +756,23 @@
 
         <pre class="command">emerge --ask net-misc/dhcpcd</pre>
 
+        <h4 class="post-subtitle">Setting the hostname</h4>
+
+        <pre class="command">echo codingempire > /etc/hostname</pre>
+
         <h4 class="post-subtitle">Setting hosts file</h4>
         
         <p><code>/etc/hosts</code> helps in resolving host names to IP addresses for hosts that aren't resolved by the nameserver.</p>
+
+        <h4 class="post-subtitle">Setting root user profile</h4>
+
+        <p>Create a root user profile:</p>
+
+        <pre class="command">touch ~/.profile</pre>
+
+        <p>Then add the <code>PS1</code> variable in the <code>.profile</code> file:</p>        
+
+        <pre class="command">PS1='\u@\h:\W\$ '</pre>
 
         <h4 class="post-subtitle">Setting root password</h4>
 
@@ -817,6 +830,14 @@
         
         <h4 class="post-subtitle">Remote shell access</h4>
 
+        <p>Change SSH Configuration file (<code>/etc/ssh/sshd_config</code>), uncomment the <code>Port</code> option to enable SSH client connects to SSH server on port 22.</p>
+
+        <pre class="command">Port 22</pre>
+
+        <p>Uncomment the <code>PermitRootLogin</code> option and set the value to <code>yes</code> to enable root login.</p>
+
+        <pre class="command">PermitRootLogin yes</pre>
+
         <p>To add the <code>sshd</code> init script to the default runlevel on OpenRC:</p>
 
         <pre class="command">rc-update add sshd default</pre>
@@ -831,7 +852,7 @@
 
         <pre class="command">emerge --ask sys-boot/grub</pre>  
 
-        <p>Next, install the GRUB EFI file (grubx64.efi) to the <code>/boot/efi/</code> directory via the <code>grub-install</code> command. Run <code>grub-install</code> command:</p>
+        <p>Next, install the GRUB EFI file (<code>grubx64.efi</code>) to the <code>/boot/efi/</code> directory via the <code>grub-install</code> command. Run <code>grub-install</code> command:</p>
 
         <pre class="command">grub-install --target=x86_64-efi --efi-directory=/boot/efi</pre>
 
@@ -969,6 +990,6 @@
 		    }
 		    
 		</script>
-	    <script id="dsq-count-scr" src="//hemimorphite-github-io.disqus.com/count.js" async></script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
   	</body>
 </html>

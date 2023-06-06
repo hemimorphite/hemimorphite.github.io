@@ -39,6 +39,7 @@ permalink: /:year/:month/:day/:title/
 languages: ["en", "zh"]
 default_lang: "en"
 exclude_from_localization: ["assets/css", "assets/js", "assets/images", "assets/fonts", "assets/webfonts", "assets/vendor"]
+lang_from_path: true
 
 pagination:
   # Site-wide kill switch, disabled here it doesn't run at all 
