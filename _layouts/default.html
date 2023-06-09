@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: "en" }}">
 	<head>
-	    <!-- Google tag (gtag.js) -->
-	    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5NWQN6SRZ4"></script>
-	    <script>
-	        window.dataLayer = window.dataLayer || [];
-	        function gtag(){dataLayer.push(arguments);}
-	        gtag('js', new Date());
-
-	        gtag('config', 'G-5NWQN6SRZ4');
-	    </script>
 		{% if site.active_lang != "en" %}
 	    	{% assign lang = site.active_lang | prepend: '/' %}
 	    {% else %}
@@ -124,8 +115,8 @@
 		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
 		    if(typeof paths[3] !== 'undefined') {
 		    	var disqus_config = function () {
-			    this.page.url = "{{ site.url }}{{ lang }}{{ page.url }}";  // Replace PAGE_URL with your page's canonical URL variable
-			    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+				    this.page.url = "{{ site.url }}{{ lang }}{{ page.url }}";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 			    };
 			    
 			    (function() { // DON'T EDIT BELOW THIS LINE

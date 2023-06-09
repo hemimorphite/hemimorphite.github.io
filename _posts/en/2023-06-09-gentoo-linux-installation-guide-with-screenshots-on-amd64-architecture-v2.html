@@ -2,14 +2,14 @@
 layout: post
 lang: en
 locale: en
-title: "Gentoo Linux Installation Guide with Screenshots (amd64 Architecture, Glibc library, gcc Compiler, openRC Service Manager, GRUB Bootloader)"
+title: "Gentoo Linux Installation Guide with Screenshots (amd64 Architecture, Glibc library, gcc Compiler, systemd Service Manager, GRUB Bootloader)"
 thumb: "gentoo-01.jpg"
 eyebrow: "Operating System"
-description: "This step-by-step installation guide with screenshots will walk you through the process of installing Gentoo Linux on an AMD64 system using the Glibc library, GCC compiler, OpenRC init system, and GRUB Bootloader."
-date: 2023-05-31 11:44:59 +0700
+description: "This step-by-step installation guide with screenshots will walk you through the process of installing Gentoo Linux on an AMD64 system using the Glibc library, GCC compiler, systemd init system, and GRUB Bootloader."
+date: 2023-06-09 11:44:59 +0700
 author: Samuel Yang
-categories: ["Gentoo Linux", "Virtualbox", "year-2023", "month-05", "day-31"]
-tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
+categories: ["Gentoo Linux", "Virtualbox", "year-2023", "month-06", "day-09"]
+tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2"]
 ---
 
 <div class="blog-post">
@@ -18,10 +18,10 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
     <article class="post-content">
         <h4 class="post-subtitle">Gentoo Linux installation media</h4>
 
-        <p>This tutorial is intended to work on AMD64-compatible processors, Glibc C library, GCC C Compiler, and OpenRC service manager. Get the minimal Installation CD file at <a href="https://www.gentoo.org/downloads/">https://www.gentoo.org/downloads/</a>. Pick the one that belongs to AMD64 architecture.</p>
+        <p>This tutorial is intended to work on AMD64-compatible processors, Glibc C library, GCC C Compiler, and systemd service manager. Get the minimal Installation CD file at <a href="https://www.gentoo.org/downloads/">https://www.gentoo.org/downloads/</a>. Pick the one that belongs to AMD64 architecture.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/image-01.jpg" alt="Gentoo minimal Installation CD">
+            <img src="/assets/images/image-06.jpg" alt="Gentoo minimal Installation CD">
         </figure>
 
         <h4 class="post-subtitle">Setting up a Virtual Machine with Virtualbox</h4>
@@ -358,14 +358,10 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
 
         <p>Suppose the timezone of choice is <code>Asia/Jakarta</code>.</p>
 
-        <p>We write the timezone name into the <code>/etc/timezone</code> file.</p>
+        <p>We create a symbolic link into the file named <code>/etc/localtime</code>.</p>
 
-        <pre class="command">echo "Asia/Jakarta" > /etc/timezone</pre>
+        <pre class="command">ln -s /usr/share/zoneinfo/Asia/Jakarta > /etc/timezone</pre>
 
-        <p>Next, reconfigure the <code>sys-libs/timezone-data</code> package, which will update the <code>/etc/localtime</code>, based on the /etc/timezone entry. The <code>/etc/localtime</code> file is used by the system C library to know the timezone the system is in.</p>
-
-        <pre class="command">emerge --config sys-libs/timezone-data</pre>  
-        
         <h4 class="post-subtitle">Setting Locale</h4>
 
         <p>Locales specify not only the language that the user should use to interact with the system, but also the rules for sorting strings, displaying dates and times, etc. Locales are case sensitive and must be represented exactly as described. A full listing of available locales can be found in the <code>/usr/share/i18n/SUPPORTED</code> file.</p>
@@ -436,10 +432,10 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
 
         <pre class="command">make menuconfig</pre>
 
-        <p>Enabling Gentoo-specific options and enabling openRC support:</p>
+        <p>Enabling Gentoo-specific options and enabling systemd support:</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/carbon-14.png" alt="Kernel configuration">
+            <img src="/assets/images/carbon-25.png" alt="Kernel configuration">
         </figure>        
 
         <p>Enabling devtmpfs support (<code>CONFIG_DEVTMPFS</code>):</p>
@@ -546,7 +542,6 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
         <p>Add these rules in the <code>/etc/fstab</code> file.</p>
 
         <pre class="command">/dev/nvme0n1p2   /boot            ext4    defaults,noatime     0 2<br>/dev/nvme0n1p1   /boot/efi        vfat    defaults,noatime     0 2<br>/dev/nvme0n1p3   none             swap    sw                   0 0<br>/dev/nvme0n1p4   /                ext4    noatime              0 1<br>/dev/cdrom       /mnt/cdrom       auto    noauto,user          0 0</pre>
-        
 
         <figure class="post-figure">
             <img src="/assets/images/carbon-10.png" alt="fstab">
@@ -558,13 +553,27 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
 
         <h4 class="post-subtitle">Configuring the network</h4>
 
-        <p>First install <code>net-misc/netifrc</code>:</p>
+        <p>First, we list all available physical network interfaces:</p>
 
-        <pre class="command">emerge --ask --noreplace net-misc/netifrc</pre>
+        <pre class="command">find /sys/class/net -type l -not -lname '*virtual*' -printf '%f\n'</pre>
 
-        <p>DHCP is used by default. For DHCP to work, a DHCP client needs to be installed.</p>
+        <p>The <code>-type l</code> option tells to look for symbolic links.</p>
+        
+        <p>The <code>-lname '*virtual*'</code> option tells to ignore the path that contains the virtual string.</p>
 
-        <pre class="command">emerge --ask net-misc/dhcpcd</pre>
+        <p>The <code>-printf '%f\n'</code> option tells to print only the basename of the path.</p>
+
+        <p>The output of the command must show that at least one physical network interface is found:</p>
+
+        <pre class="command">enp0s3</pre>
+
+        <p>Next we set up dynamic IP address by creating a file named <code>enp0s3.network</code> in the <code>/etc/systemd/network/</code> directory. The network configuration for systemd are placed in the <code>/etc/systemd/network/</code> directory.</p>
+
+        <pre class="command">touch /etc/systemd/network/enp0s3.network</pre>
+
+        <p>Add these rules in the <code>/etc/systemd/network/enp0s3.network</code> file.</p>
+
+        <pre class="command">[Match]<br>Name=enp0s3<br><br>[Network]<br>DHCP=yes</pre>
 
         <h4 class="post-subtitle">Setting hosts file</h4>
         
@@ -588,44 +597,30 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
 
         <h4 class="post-subtitle">Init and boot configuration</h4>
 
-        <p>When using OpenRC with Gentoo, it uses <code>/etc/rc.conf</code> to configure the services, startup, and shutdown of a system.</p>
+        <p>The command <code>systemd-firstboot</code> allows for setting of basic system settings before or during the first boot of a newly created system. The tool is able of initialize the following system settings: timezone, locale, hostname, the root password, as well as automated generation of a machine ID.</p>
 
-        <pre class="command">nano /etc/rc.conf</pre>
+        <pre class="command">systemd-firstboot --prompt --setup-machine-id</pre>
 
-        <p>Next, open <code>/etc/conf.d/keymaps</code> to handle keyboard configuration. Edit it to configure and select the right keyboard.</p>
+        <p>Next users should run <code>systemctl</code> to reset all installed unit files to the preset policy values:</p>
 
-        <pre class="command">nano /etc/conf.d/keymaps</pre>
+        <pre class="command">systemctl preset-all --preset-mode=enable-only</pre>
 
-        <p>Finally, edit <code>/etc/conf.d/hwclock</code> to set the clock options. If the hardware clock is not using UTC, then it is necessary to set <code>clock="local"</code> in the file.</p>      
-        
-        <pre class="command">nano /etc/conf.d/hwclock</pre>
+        <p>These two steps will help ensure a smooth transition from the live environment to the installation's first boot.</p>      
 
         <h4 class="post-subtitle">System logger</h4>    
         
-        <p>Install and activate <code>app-admin/sysklogd</code> as the system's syslog utility:</p>
+        <p>Systemd includes a built-in logger called the <code>systemd-journald</code> service.</p>
 
-        <pre class="command">emerge --ask app-admin/sysklogd</pre>
-
-        <pre class="command">rc-update add sysklogd default</pre>     
-        
         <h4 class="post-subtitle">Cron daemon</h4>
 
-        <p>A cron daemon executes commands on scheduled intervals. Internals could be daily, weekly, or monthly, once every Tuesday, once every other week, etc.</p>
-
-        <p>All cron daemons support high levels of granularity for scheduled tasks, and generally include the ability to send an email or other form of notification if a scheduled task does not complete as expected.</p>  
-
-        <p>Install and activate <code>sys-process/cronie</code>:</p>
-
-        <pre class="command">emerge --ask sys-process/cronie</pre>
-
-        <pre class="command">rc-update add cronie default</pre>
+        <p>Systemd-based systems include support for scheduled tasks out-of-the-box in the form of timers. systemd timers can run at a system-level or a user-level and include the same functionality that a traditional cron daemon would provide.</p>
 
         <h4 class="post-subtitle">File indexing</h4>
         
         <p>In order to index the file system to provide faster file location capabilities, install <code>sys-apps/mlocate</code>.</p>
 
         <pre class="command">emerge --ask sys-apps/mlocate</pre>
-        
+
         <h4 class="post-subtitle">Remote shell access</h4>
 
         <p>Change SSH Configuration file (<code>/etc/ssh/sshd_config</code>), uncomment the <code>Port</code> option to enable SSH client connects to SSH server on port 22.</p>
@@ -636,18 +631,20 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
 
         <pre class="command">PermitRootLogin yes</pre>
 
-        <p>To add the <code>sshd</code> init script to the default runlevel on OpenRC:</p>
+        <p>To enable the SSH server, run:</p>
 
-        <pre class="command">rc-update add sshd default</pre>
+        <pre class="command">systemctl enable sshd</pre>
 
         <h4 class="post-subtitle">Time synchronization</h4>
 
-        <p>Install and activate <code>net-misc/chrony</code>:</p>
+        <p>Chronyd is a better choice for most networks than ntpd for keeping computers synchronized with the Network Time Protocol.</p>
 
         <pre class="command">emerge --ask net-misc/chrony</pre>
 
-        <pre class="command">rc-update add chronyd default</pre>
-        
+        <p>To enable the chrony, run:</p>
+
+        <pre class="command">systemctl enable chronyd.service</pre>
+
         <h4 class="post-subtitle">Configuring the GRUB bootloader</h4>
         
         <p>The boot loader is responsible for firing up the Linux kernel upon boot - without it, the system would not know how to proceed when the power button has been pressed.</p>
