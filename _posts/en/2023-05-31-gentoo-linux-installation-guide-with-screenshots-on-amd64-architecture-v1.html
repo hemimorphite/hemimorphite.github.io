@@ -562,9 +562,39 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2"]
 
         <pre class="command">emerge --ask --noreplace net-misc/netifrc</pre>
 
-        <p>DHCP is used by default. For DHCP to work, a DHCP client needs to be installed.</p>
+        <p><code>net-misc/netifrc</code> package needs <code>net-misc/dhcpcd</code> to obtain an IP address.</p>
+        
+        <pre class="command">emerge --ask --noreplace net-misc/dhcpcd</pre>
+                
+        <p>Then we list all available physical network interfaces:</p>
 
-        <pre class="command">emerge --ask net-misc/dhcpcd</pre>
+        <pre class="command">find /sys/class/net -type l -not -lname '*virtual*' -printf '%f\n'</pre>
+
+        <p>The <code>-type l</code> option tells to look for symbolic links.</p>
+        
+        <p>The <code>-lname '*virtual*'</code> option tells to ignore the path that contains the virtual string.</p>
+
+        <p>The <code>-printf '%f\n'</code> option tells to print only the basename of the path.</p>
+
+        <p>The output of the command must show that at least one physical network interface is found:</p>
+
+        <pre class="command">enp0s3</pre>
+
+        <p>Then we create <code>/etc/conf.d/net</code> file.</p>
+
+        <pre class="command">touch /etc/conf.d/net</pre>
+
+        <p>Next we set DHCP on that physical network interface. Add these rules in the <code>/etc/conf.d/net</code> file.</p>
+
+        <pre class="command">config_enp0s3="dhcp"</pre>
+
+        <p>Now that the interface name is determined and configuration is done in <code>/etc/conf.d/net</code>, the service script must be created by creating a symlink to <code>/etc/init.de/net.lo</code>:</p>
+
+        <pre class="command">ln -s /etc/init.d/net.lo /etc/init.d/net.enp0s3</pre>
+
+        <p>Finally, enable it at boot:</p>
+
+        <pre class="command">rc-update add net.enp0s3 default</pre>
 
         <h4 class="post-subtitle">Setting hosts file</h4>
         
