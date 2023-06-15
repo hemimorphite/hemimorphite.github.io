@@ -4,11 +4,11 @@ lang: en
 locale: en
 title: "Gentoo Linux Installation Guide with Screenshots (amd64 Architecture, Glibc library, gcc Compiler, systemd Service Manager, GRUB Bootloader)"
 thumb: "gentoo-01.jpg"
-eyebrow: "Operating System"
+eyebrow: "Best Practices"
 description: "This step-by-step installation guide with screenshots will walk you through the process of installing Gentoo Linux on an AMD64 system using the Glibc library, GCC compiler, systemd init system, and GRUB Bootloader."
 date: 2023-06-09 11:44:59 +0700
 author: Samuel Yang
-categories: ["Gentoo Linux", "Virtualbox", "year-2023", "month-06", "day-09"]
+categories: ["Best Practices", "year-2023", "month-06", "day-09"]
 tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2"]
 ---
 
@@ -567,11 +567,19 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2"]
 
         <pre class="command">enp0s3</pre>
 
-        <p>Next we set up dynamic IP address by creating a file named <code>enp0s3.network</code> in the <code>/etc/systemd/network/</code> directory. The network configuration for systemd are placed in the <code>/etc/systemd/network/</code> directory.</p>
+        <p>Then we create <code>/etc/conf.d/net</code> file.</p>
 
-        <pre class="command">touch /etc/systemd/network/enp0s3.network</pre>
+        <pre class="command">touch /etc/conf.d/net</pre>
 
-        <p>Add these rules in the <code>/etc/systemd/network/enp0s3.network</code> file.</p>
+        <p>Next we set DHCP on that physical network interface in <code>/etc/conf.d/net</code> file.</p>
+
+        <pre class="command">config_enp0s3="dhcp"</pre>
+
+        <p>Next we set up dynamic IP address by creating a file named <code>10-enp0s3.network</code> in the <code>/etc/systemd/network/</code> directory. The network configuration for systemd are placed in the <code>/etc/systemd/network/</code> directory.</p>
+
+        <pre class="command">touch /etc/systemd/network/10-enp0s3.network</pre>
+
+        <p>Add these rules in the <code>/etc/systemd/network/10-enp0s3.network</code> file.</p>
 
         <pre class="command">[Match]<br>Name=enp0s3<br><br>[Network]<br>DHCP=yes</pre>
 
