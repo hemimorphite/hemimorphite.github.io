@@ -1,0 +1,34 @@
+---
+layout: post
+lang: en
+locale: en
+title: "tar: Cannot create symlink to XXX: Operation not permitted"
+thumb: "tar.png"
+eyebrow: "Troubleshooting"
+description: "If you're receiving a "tar: cannot create symlink to XXX: operation not permitted" error, it may be due to filesystem type. Learn how to fix this error here."
+date: 2023-06-20 22:38:59 +0700
+author: Samuel Yang
+categories: ["Troubleshooting", "year-2023", "month-06", "day-20"]
+tags: ["tar", "linux"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>If you're seeing the <b>"tar: Cannot create symlink to XXX: Operation not permitted"</b> error message, it means you're trying to extract a tar archive and create symlinks on a filesystem that doesn't support them such as exFat, NTFS, FAT32, FAT16, etc.</p>
+
+        <p>On the Linux OS or Mac OS, to dtermine what filesystem a directory exists on, use <code>df</code> command.</p>
+
+        <pre class="command">df</pre>
+
+        <p>The solution to fix the issue is, if you are using Linux OS or Mac OS, move the tar archive to the directory which its filesystem supports symlink and then extract the tar archive.</p>    
+
+        <p>If you are using Windows OS, you can use 7-Zip software. To extract the tar archive, you must run the terminal as administrator or the 7-Zip GUI as administrator.</p>
+
+    </article>
+
+  {% include post-tags.html %}
+
+  {% include post-share.html %}
+</div>
