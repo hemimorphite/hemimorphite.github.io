@@ -1,0 +1,44 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Explorer.exe Command Not Found in WSL"
+thumb: "wsl.jpg"
+eyebrow: "Troubleshooting"
+description: "If you're encountering the Explorer.exe Command Not Found error in WSL, don't worry - there are easy solutions you can try to resolve the issue and get your system up and running again."
+date: 2023-06-20 14:38:59 +0700
+author: Samuel Yang
+categories: ["Troubleshooting", "year-2023", "month-06", "day-20"]
+tags: ["wsl", "windows"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>If you encounter the "explorer.exe command not found" error in Windows Subsystem for Linux (WSL), there is a easy solution to fix the issue.</p>
+
+        <p>First, go to the home directory of the current user:</p>
+
+        <pre class="command">cd ~</pre>
+
+        <p>Open <code>.bashrc</code> file:</p>
+
+        <pre class="command">vi .bashrc</pre> 
+        
+        <p>Add the following line to the file.</p>
+
+        <pre class="command">export PATH="/mnt/c/Windows:$PATH"</pre>   
+
+        <p>Save the file and exit.</p>
+
+        <p>Use <code>source</code> command to reload the <code>.bashrc</code> file.</p>
+
+        <pre class="command">source .bashrc</pre>  
+
+    </article>
+
+  {% include post-tags.html %}
+
+  {% include post-share.html %}
+</div>
