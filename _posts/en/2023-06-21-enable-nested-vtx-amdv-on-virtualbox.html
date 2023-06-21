@@ -1,0 +1,57 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Enable Nested VT-x/AMD-V on Virtualbox"
+thumb: "virtualbox.jpg"
+eyebrow: "Tutorial"
+description: "Learn how to enable nested virtualization on VirtualBox through this step-by-step tutorial."
+date: 2023-06-21 20:38:50 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2023", "month-06", "day-21"]
+tags: ["virtualbox", "windows"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>First, run command prompt as administrator. Then add Virtualbox folder to system PATH environment variable:</p>
+
+        <pre class="command">SET PATH=%PATH%;C:\Program Files\Oracle\VirtualBox</pre>
+
+        <p>To enable the Nested VT-x/AMD-v in VirtualBox, you need to know your VM name (eg. UbuntuVM) and use <code>VBoxManage</code> command:</p>
+
+        <pre class="command">VBoxManage modifyvm UbuntuVM --nested-hw-virt on</pre>
+
+        <p>Then you have to verify if the change have affected VM System settings in the VirtualBox. See if tick mark on <b>Enable Nested VT-x/AMD-v</b> option appears as expected.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/vbox-01.jpg" alt="Virtualbox Settings">
+        </figure>
+
+        <p>Next start the VM and test if the nested virtualization support is enabled in the VM.</p>
+
+        <pre class="command">grep -E "(vmx|svm)" /proc/cpuinfo</pre>
+
+        <p>The output similars to:</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/vbox-02.jpg" alt="Nested virtualization">
+        </figure>        
+
+        <p>If the output shows nothing then you need to disable Hyper-V in your Windows System. Once again, run command prompt as administrator. Then run the following commands:</p>
+
+        <pre class="command">DISM /Online /Disable-Feature:Microsoft-Hyper-V</pre>
+
+        <pre class="command">PowerShell Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor -All</pre>
+
+        <pre class="command">bcdedit /set hypervisorlaunchtype off</pre>
+
+        <p>After that you restart your Windows. Now you can try to start the VM again and test if the nested virtualization support is enabled in the VM.</p>
+    </article>
+
+  {% include post-tags.html %}
+
+  {% include post-share.html %}
+</div>
