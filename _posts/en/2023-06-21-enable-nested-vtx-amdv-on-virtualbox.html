@@ -34,7 +34,7 @@ tags: ["virtualbox", "windows"]
 
         <pre class="command">grep -E "(vmx|svm)" /proc/cpuinfo</pre>
 
-        <p>The output similars to:</p>
+        <p>The output should similar to:</p>
 
         <figure class="post-figure">
             <img src="/assets/images/vbox-02.jpg" alt="Nested virtualization">
@@ -48,7 +48,9 @@ tags: ["virtualbox", "windows"]
 
         <pre class="command">bcdedit /set hypervisorlaunchtype off</pre>
 
-        <p>After that you restart your Windows. Now you can try to start the VM again and test if the nested virtualization support is enabled in the VM.</p>
+        <p>After that you restart your Windows.</p> 
+
+        <p>Now you can try to start the VM again and test if the nested virtualization support is enabled in the VM.</p>
     </article>
 
   {% include post-tags.html %}
