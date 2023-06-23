@@ -731,46 +731,6 @@ footer p a:hover {
 	color: #f48840;
 }
 
-/* About Us */
-
-.about-us {
-	margin-top: 100px;
-	text-align: center;
-}
-
-.about-us img {
-	width: 100%;
-	overflow: hidden;
-}
-
-.about-us p {
-	margin: 40px 0px;
-	border-bottom: 1px solid #eee;
-	padding-bottom: 40px;
-}
-
-.about-us ul li {
-	display: inline-block;
-	margin: 0px 5px;
-}
-
-.about-us ul li a {
-	width: 40px;
-	height: 40px;
-	text-align: center;
-	line-height: 40px;
-	display: inline-block;
-	background-color: #212931;
-	color: #fff;
-	border-radius: 50%;
-	transition: all .3s;
-}
-
-.about-us ul li a:hover {
-	background-color: #f48840;
-}
-
-
 /* Responsive Style */
 @media (max-width: 992px) {
 	.navbar .navbar-brand {
@@ -862,8 +822,9 @@ footer p a:hover {
 	content: "\f0c9";	
 }
 
+/* About */
 .about {
-	height: 25rem;
+	/*height: 25rem;*/
 }
 .about .heading {
 	margin-bottom: 2rem;
@@ -871,6 +832,11 @@ footer p a:hover {
 .about p {
 	margin-bottom: 1rem;
 }
+.about img {
+	width: 100%;
+}
+
+/* 404 */
 
 .not-found {
 	height: 20rem;
