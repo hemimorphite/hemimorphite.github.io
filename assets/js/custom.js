@@ -4,7 +4,7 @@
 document.addEventListener("DOMContentLoaded", (event) => {
     var pres = document.querySelectorAll("pre>code");
     for (var i = 0; i < pres.length; i++) {
-        hljs.highlightBlock(pres[i]);
+        hljs.highlightElement(pres[i]);
     }
 
     /* double click */
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }, !1);
 
     var options = {
-        contentSelector: ".blog-posts",
+        contentSelector: ".post-content",
         loadDelay:0,
         copyIconClass: "code-badge-copy-icon",
         checkIconClass: "code-badge-check-icon",
