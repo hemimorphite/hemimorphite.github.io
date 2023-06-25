@@ -310,19 +310,19 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "openrc", "grub2", "uefi"]
 
         <p>The <code>/proc/</code> location will be mounted on <code>/mnt/gentoo/proc/</code> whereas the others are bind-mounted. For instance, <code>/mnt/gentoo/sys/</code> will actually be <code>/sys/</code> (it is just a second entry point to the same filesystem) whereas <code>/mnt/gentoo/proc/</code> is a new mount of the filesystem.</p>
 
-        <pre class="command">mount --types proc /proc /mnt/gentoo/proc</pre>
-        <pre class="command">mount --rbind /sys /mnt/gentoo/sys</pre>
-        <pre class="command">mount --make-rslave /mnt/gentoo/sys</pre>
-        <pre class="command">mount --rbind /dev /mnt/gentoo/dev</pre>
-        <pre class="command">mount --make-rslave /mnt/gentoo/dev</pre>
-        <pre class="command">mount --bind /run /mnt/gentoo/run</pre>
-        <pre class="command">mount --make-slave /mnt/gentoo/run</pre>
+        <pre><code class="language-bash hljs">mount --types proc /proc /mnt/gentoo/proc</code></pre>
+        <pre><code class="language-bash hljs">mount --rbind /sys /mnt/gentoo/sys</code></pre>
+        <pre><code class="language-bash hljs">mount --make-rslave /mnt/gentoo/sys</code></pre>
+        <pre><code class="language-bash hljs">mount --rbind /dev /mnt/gentoo/dev</code></pre>
+        <pre><code class="language-bash hljs">mount --make-rslave /mnt/gentoo/dev</code></pre>
+        <pre><code class="language-bash hljs">mount --bind /run /mnt/gentoo/run</code></pre>
+        <pre><code class="language-bash hljs">mount --make-slave /mnt/gentoo/run</code></pre>
 
         <p>Now that all partitions are initialized and the base environment installed, it is time to enter the new installation environment by chrooting into it. This means that the session will change its root from the current installation environment (installation CD) to the installation system (namely the initialized partitions).</p>
 
         <p>First, we change root location from <code>/</code> (on the installation medium) to <code>/mnt/gentoo/</code> (on the partitions) using <code>chroot</code>.</p>
 
-        <pre class="command">chroot /mnt/gentoo /bin/bash</pre>
+        <pre><code class="language-bash hljs">chroot /mnt/gentoo /bin/bash</code></pre>
 
         <p>Then, reload <code>/etc/profile</code> in memory using the <code>source</code> command.</p>
 

@@ -32,7 +32,10 @@
 	    <title>{{ page.title | default: site.data.i18n.title }}</title>
 
 	    <!-- Bootstrap core CSS -->
-	    <link href="{{ site.url }}/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+	    <link rel="stylesheet" href="{{ site.url }}/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <link rel="stylesheet" href="{{ site.url }}/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="{{ site.url }}/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
 
 	    <!-- Additional CSS Files -->
 	    <link rel="stylesheet" href="{{ site.url }}/assets/css/fontawesome.css">
@@ -105,7 +108,8 @@
 
 		<script src="{{ site.url }}/assets/vendor/jquery/jquery.min.js"></script>
 	    <script src="{{ site.url }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+	    <script src="{{ site.url }}/assets/vendor/highlight.js/js/highlight.min.js"></script>
+	    
 	    <!-- Additional Scripts -->
 	    <script src="{{ site.url }}/assets/js/custom.js"></script>
 	    <script>

@@ -1,6 +1,8 @@
 jQuery( document ).ready(function( $ ) {
 	"use strict";
-        
+    
+    hljs.highlightAll();
+
     // Page loading animation
 
     $("#preloader").animate({
