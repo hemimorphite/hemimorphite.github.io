@@ -424,7 +424,8 @@ header {
 .blog-post .post-content h6 + p {
 	margin-top: 0rem;
 }
-.blog-post .post-content pre + p {
+.blog-post .post-content pre + p,
+.blog-post .post-content .post-figure + p {
 	margin-top: 1.5rem;	
 }
 .blog-post .post-content pre,
