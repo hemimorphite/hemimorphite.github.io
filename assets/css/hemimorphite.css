@@ -411,12 +411,17 @@ header {
 .blog-post .post-content {
 	margin-bottom: 2rem;
 }
-.blog-post .post-content p:first-child,
-.blog-post .post-content h4 ~ p:first-child {
-	margin-top: 0rem;
-}
 .blog-post .post-content p {
 	margin-top: 1rem;
+}
+.blog-post .post-content p:first-child,
+.blog-post .post-content h1 ~ p:first-child,
+.blog-post .post-content h2 ~ p:first-child,
+.blog-post .post-content h3 ~ p:first-child,
+.blog-post .post-content h4 ~ p:first-child,
+.blog-post .post-content h5 ~ p:first-child,
+.blog-post .post-content h6 ~ p:first-child {
+	margin-top: 0rem;
 }
 .blog-post .post-content pre ~ p:first-child {
 	margin-top: 1.5rem;	
