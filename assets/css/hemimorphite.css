@@ -412,11 +412,14 @@ header {
 	margin-bottom: 2rem;
 }
 .blog-post .post-content p:first-child,
-.blog-post .post-content h4 ~ p {
+.blog-post .post-content h4 ~ p:first-child {
 	margin-top: 0rem;
 }
 .blog-post .post-content p {
 	margin-top: 1rem;
+}
+.blog-post .post-content pre ~ p:first-child {
+	margin-top: 1.5rem;	
 }
 .blog-post .post-content pre,
 .blog-post .post-content figure {
