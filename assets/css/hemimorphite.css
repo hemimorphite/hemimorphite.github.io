@@ -402,11 +402,12 @@ header {
 }
 .blog-post .post-figure {
 	text-align: center;
-	margin-top: 1rem;
-	margin-bottom: 2.5rem;
 }
 .blog-post .post-figure img {
 	width: 80%;
+}
+.blog-post .post-figure.vertical img {
+	width: 50%;
 }
 .blog-post .post-content {
 	margin-bottom: 2rem;
@@ -427,7 +428,7 @@ header {
 	margin-top: 1.5rem;	
 }
 .blog-post .post-content pre,
-.blog-post .post-content figure {
+.blog-post .post-content .post-figure {
 	margin-top: 0.5rem;
 }
 .blog-post .post-content ul {
