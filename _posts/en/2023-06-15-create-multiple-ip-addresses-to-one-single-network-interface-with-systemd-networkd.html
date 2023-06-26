@@ -20,11 +20,26 @@ tags: ["systemd", "systemd-networkd"]
 
         <p>Edit the network configuration file <code>/etc/systemd/network/10-enp0s3.network</code>. Add <code>Address=</code> more than once to configure multiple IPv4 or IPv6 addresses.</p>
 
-        <pre class="command">[Match]<br>Name=enp0s3<br><br>[Network]<br>Address=10.10.10.100/24<br>Address=10.10.10.101/24<br>Address=10.10.10.102/24<br>Address=10.10.10.103/24<br>Address=10.10.10.104/24<br>Address=fd3c:b8f6:7506:cb1b::64/64<br>Address=fd3c:b8f6:7506:cb1b::65/64<br>Address=fd3c:b8f6:7506:cb1b::66/64<br>Address=fd3c:b8f6:7506:cb1b::67/64<br>Address=fd3c:b8f6:7506:cb1b::68/64<br>Gateway=10.10.10.1<br>Gateway=fd3c:b8f6:7506:cb1b::1</pre>
+        <pre><code class="language-bash hljs">[Match]
+            Name=enp0s3
+
+            [Network]
+            Address=10.10.10.100/24
+            Address=10.10.10.101/24
+            Address=10.10.10.102/24
+            Address=10.10.10.103/24
+            Address=10.10.10.104/24
+            Address=fd3c:b8f6:7506:cb1b::64/64
+            Address=fd3c:b8f6:7506:cb1b::65/64
+            Address=fd3c:b8f6:7506:cb1b::66/64
+            Address=fd3c:b8f6:7506:cb1b::67/64
+            Address=fd3c:b8f6:7506:cb1b::68/64
+            Gateway=10.10.10.1
+        Gateway=fd3c:b8f6:7506:cb1b::1</code></pre>
 
         <p>Then restart <code>systemd-networkd</code> service:</p>
 
-        <pre class="command">systemctl restart systemd-networkd</pre>        
+        <pre><code class="language-bash hljs">systemctl restart systemd-networkd</code></pre>        
     </article>
 
   {% include post-tags.html %}

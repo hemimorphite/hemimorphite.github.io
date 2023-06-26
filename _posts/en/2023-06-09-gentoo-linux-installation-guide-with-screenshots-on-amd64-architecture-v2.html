@@ -129,7 +129,7 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>Fire up <code>fdisk</code> against the disk:</p>
 
-        <pre class="command">fdisk /dev/nvme0n1</pre>
+        <pre><code class="language-bash hljs">fdisk /dev/nvme0n1</code></pre>
 
         <p>When using UEFI, type <code>g</code> to create a new GPT disklabel on the disk; this will remove all existing partitions.</p>
 
@@ -189,45 +189,45 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>Create FAT32 filesystem on the EFI system partition (<code>/dev/nvme0n1p1</code>).</p>
 
-        <pre class="command">mkfs.vfat -F 32 /dev/nvme0n1p1</pre>
+        <pre><code class="language-bash hljs">mkfs.vfat -F 32 /dev/nvme0n1p1</code></pre>
 
         <p>Create <code>ext4</code> filesystem on the boot partition (<code>/dev/nvme0n1p2</code>).</p>
 
-        <pre class="command">mkfs.ext4 /dev/nvme0n1p2</pre>
+        <pre><code class="language-bash hljs">mkfs.ext4 /dev/nvme0n1p2</code></pre>
 
         <p>Create swap area on the swap partition.</p>
 
-        <pre class="command">mkswap /dev/nvme0n1p3</pre>
+        <pre><code class="language-bash hljs">mkswap /dev/nvme0n1p3</code></pre>
 
         <p>Activate the swap partition:</p>
 
-        <pre class="command">swapon /dev/nvme0n1p3</pre>
+        <pre><code class="language-bash hljs">swapon /dev/nvme0n1p3</code></pre>
 
         <p>Create <code>ext4</code> filesystem on the root partition (<code>/dev/nvme0n1p4</code>).</p>
 
-        <pre class="command">mkfs.ext4 /dev/nvme0n1p4</pre>
+        <pre><code class="language-bash hljs">mkfs.ext4 /dev/nvme0n1p4</code></pre>
 
         <h4 class="post-subtitle">Mounting File Systems</h4>
 
         <p>Create a mount point for the root partition.</p>
 
-        <pre class="command">mkdir --parents /mnt/gentoo</pre>
+        <pre><code class="language-bash hljs">mkdir --parents /mnt/gentoo</code></pre>
 
         <p>Then we mount the root partition on <code>/mnt/gentoo</code>.</p>
 
-        <pre class="command">mount /dev/nvme0n1p4 /mnt/gentoo</pre>
+        <pre><code class="language-bash hljs">mount /dev/nvme0n1p4 /mnt/gentoo</code></pre>
 
         <p>Go to the Gentoo mount point where the root file system is mounted.</p>
 
-        <pre class="command">cd /mnt/gentoo</pre>
+        <pre><code class="language-bash hljs">cd /mnt/gentoo</code></pre>
 
         <p>Download the stage tarball that is intended for AMD64-compatible processors and using Glibc as C library, GCC as C Compiler, and OpenRC as service manager. Use the <code>wget</code> utility to proceed:</p>
 
-        <pre class="command">wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20230521T160357Z/stage3-amd64-openrc-20230521T160357Z.tar.xz</pre>
+        <pre><code class="language-bash hljs">wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20230521T160357Z/stage3-amd64-openrc-20230521T160357Z.tar.xz</code></pre>
 
         <p>Now unpack the downloaded stage onto the system. Use the <code>tar</code> utility to proceed:</p>
 
-        <pre class="command">tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner</pre>
+        <pre><code class="language-bash hljs">tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner</code></pre>
 
         <p>The <code>x</code> stands for extract, the <code>p</code> for preserve permissions and the <code>f</code> to denote that we want to extract a file (not standard input). <code>--xattrs-include='*.*'</code> is to include preservation of the the extended attributes in all namespaces stored in the archive. Finally, <code>--numeric-owner</code> is used to ensure that the user and group IDs of the files being extracted from the tarball will remain the same as Gentoo's release engineering team intended.</p>
 
@@ -235,15 +235,15 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>Next we mount the boot partition on <code>/mnt/gentoo/boot</code>.</p>
 
-        <pre class="command">mount /dev/nvme0n1p2 /mnt/gentoo/boot</pre>
+        <pre><code class="language-bash hljs">mount /dev/nvme0n1p2 /mnt/gentoo/boot</code></pre>
 
         <p>Create a mount point for the efi system partition.</p>
 
-        <pre class="command">mkdir /mnt/gentoo/boot/efi</pre>
+        <pre><code class="language-bash hljs">mkdir /mnt/gentoo/boot/efi</code></pre>
 
         <p>After that we mount the efi system partition on <code>/mnt/gentoo/boot/efi</code>.</p>
 
-        <pre class="command">mount /dev/nvme0n1p1 /mnt/gentoo/boot/efi</pre>
+        <pre><code class="language-bash hljs">mount /dev/nvme0n1p1 /mnt/gentoo/boot/efi</code></pre>
 
         <p>The organization of the Linux Filesystem is defined by the Filesystem Hierarchy Standard. This standard enables Software and users to predict the location of installed files and directories. We will just indicates to what use are the first level directories are intended for:</p>
 
@@ -287,15 +287,15 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>Configuring the repository can be done in a few simple steps. First, if it does not exist, create the <code>repos.conf</code> directory:</p>
 
-        <pre class="command">mkdir --parents /mnt/gentoo/etc/portage/repos.conf</pre>
+        <pre><code class="language-bash hljs">mkdir --parents /mnt/gentoo/etc/portage/repos.conf</code></pre>
 
         <p>Next, copy the Gentoo repository configuration file provided by Portage to the (newly created) <code>repos.conf</code> directory:</p>
 
-        <pre class="command">cp /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf</pre>
+        <pre><code class="language-bash hljs">cp /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf</code></pre>
 
         <p>Next thing to be done is copying over the DNS information in <code>/etc/resolv.conf</code> to the new environment. <code>/etc/resolv.conf</code> contains the name servers (DNS servers) for name resolution. Priorities to nameservers are given in the order the system finds an entry in the file.</p>
 
-        <pre class="command">cp --dereference /etc/resolv.conf /mnt/gentoo/etc/</pre>
+        <pre><code class="language-bash hljs">cp --dereference /etc/resolv.conf /mnt/gentoo/etc/</code></pre>
 
         <p>The <code>--dereference</code> option ensures that, if <code>/etc/resolv.conf</code> is a symbolic link, that the link's target file is copied instead of the symbolic link itself.</p>
 
@@ -310,33 +310,33 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>The <code>/proc/</code> location will be mounted on <code>/mnt/gentoo/proc/</code> whereas the others are bind-mounted. For instance, <code>/mnt/gentoo/sys/</code> will actually be <code>/sys/</code> (it is just a second entry point to the same filesystem) whereas <code>/mnt/gentoo/proc/</code> is a new mount of the filesystem.</p>
 
-        <pre class="command">mount --types proc /proc /mnt/gentoo/proc</pre>
-        <pre class="command">mount --rbind /sys /mnt/gentoo/sys</pre>
-        <pre class="command">mount --make-rslave /mnt/gentoo/sys</pre>
-        <pre class="command">mount --rbind /dev /mnt/gentoo/dev</pre>
-        <pre class="command">mount --make-rslave /mnt/gentoo/dev</pre>
-        <pre class="command">mount --bind /run /mnt/gentoo/run</pre>
-        <pre class="command">mount --make-slave /mnt/gentoo/run</pre>
+        <pre><code class="language-bash hljs">mount --types proc /proc /mnt/gentoo/proc</code></pre>
+        <pre><code class="language-bash hljs">mount --rbind /sys /mnt/gentoo/sys</code></pre>
+        <pre><code class="language-bash hljs">mount --make-rslave /mnt/gentoo/sys</code></pre>
+        <pre><code class="language-bash hljs">mount --rbind /dev /mnt/gentoo/dev</code></pre>
+        <pre><code class="language-bash hljs">mount --make-rslave /mnt/gentoo/dev</code></pre>
+        <pre><code class="language-bash hljs">mount --bind /run /mnt/gentoo/run</code></pre>
+        <pre><code class="language-bash hljs">mount --make-slave /mnt/gentoo/run</code></pre>
 
         <p>Now that all partitions are initialized and the base environment installed, it is time to enter the new installation environment by chrooting into it. This means that the session will change its root from the current installation environment (installation CD) to the installation system (namely the initialized partitions).</p>
 
         <p>First, we change root location from <code>/</code> (on the installation medium) to <code>/mnt/gentoo/</code> (on the partitions) using <code>chroot</code>.</p>
 
-        <pre class="command">chroot /mnt/gentoo /bin/bash</pre>
+        <pre><code class="language-bash hljs">chroot /mnt/gentoo /bin/bash</code></pre>
 
         <p>Then, reload <code>/etc/profile</code> in memory using the <code>source</code> command.</p>
 
-        <pre class="command">source /etc/profile</pre>
+        <pre><code class="language-bash hljs">source /etc/profile</code></pre>
 
         <p>Change primary prompt to help us remember that this session is inside a chroot environment.</p>
 
-        <pre class="command">export PS1="(chroot) ${PS1}"</pre>
+        <pre><code class="language-bash hljs">export PS1="(chroot) ${PS1}"</code></pre>
 
         <h4 class="post-subtitle">Configuring Portage</h4>
 
         <p>Next step is to install a snapshot of the Gentoo ebuild repository. This snapshot contains a collection of files that informs Portage about available software titles (for installation), which profiles the system administrator can select, package or profile specific news items, etc.</p>
 
-        <pre class="command">emerge-webrsync</pre>
+        <pre><code class="language-bash hljs">emerge-webrsync</code></pre>
 
         <p>During this operation, emerge-webrsync might complain about a missing <code>/var/db/repos/gentoo/</code> location. This is to be expected and nothing to worry about - the tool will create the location.</p>    
         
@@ -344,23 +344,23 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>Install package <code>app-portage/cpuid2cpuflags</code>:</p>
         
-        <pre class="command">emerge --ask app-portage/cpuid2cpuflags</pre>  
+        <pre><code class="language-bash hljs">emerge --ask app-portage/cpuid2cpuflags</code></pre>  
         
         <p>Then copy the output into <code>package.use</code>:</p>
 
-        <pre class="command">echo "*/* $(cpuid2cpuflags)" > /etc/portage/package.use/00cpu-flags</pre>     
+        <pre><code class="language-bash hljs">echo "*/* $(cpuid2cpuflags)" > /etc/portage/package.use/00cpu-flags</code></pre>     
 
         <h4 class="post-subtitle">Setting Timezone</h4> 
 
         <p>Select the timezone for the system. Look for the available timezones in <code>/usr/share/zoneinfo/</code>:</p>
 
-        <pre class="command">ls /usr/share/zoneinfo</pre>
+        <pre><code class="language-bash hljs">ls /usr/share/zoneinfo</code></pre>
 
         <p>Suppose the timezone of choice is <code>Asia/Jakarta</code>.</p>
 
         <p>We create a symbolic link into the file named <code>/etc/localtime</code>.</p>
 
-        <pre class="command">ln -s /usr/share/zoneinfo/Asia/Jakarta > /etc/timezone</pre>
+        <pre><code class="language-bash hljs">ln -s /usr/share/zoneinfo/Asia/Jakarta > /etc/timezone</code></pre>
 
         <h4 class="post-subtitle">Setting Locale</h4>
 
@@ -368,13 +368,13 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>Supported system locales must be defined in the <code>/etc/locale.gen</code> file.</p>
 
-        <pre class="command">nano -w /etc/locale.gen</pre>
+        <pre><code class="language-bash hljs">nano -w /etc/locale.gen</code></pre>
 
         <p>The next step is to run the <code>locale-gen</code> command. This command generates all locales specified in the <code>/etc/locale.gen</code> file.</p>
 
         <p>To display information about the current locales</p>
 
-        <pre class="command">locale -a</pre>
+        <pre><code class="language-bash hljs">locale -a</code></pre>
 
         <h4 class="post-subtitle">Kernel configuration</h4>
         
@@ -382,11 +382,11 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>Some packages will only be allowed to be installed by accepting its license. Update <code>/etc/portage/make.conf</code> and add the following variable:</p>
 
-        <pre class="command">ACCEPT_LICENSE="-* @FREE @BINARY-REDISTRIBUTABLE"</pre>
+        <pre><code class="language-bash hljs">ACCEPT_LICENSE="-* @FREE @BINARY-REDISTRIBUTABLE"</code></pre>
 
         <p>Then we install the <code>sys-kernel/linux-firmware</code> package.</p>
 
-        <pre class="command">emerge --ask sys-kernel/linux-firmware</pre>
+        <pre><code class="language-bash hljs">emerge --ask sys-kernel/linux-firmware</code></pre>
 
         <p>There are two approach to configure and compile the kernel:</p>
         <ul>
@@ -400,27 +400,27 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>Before installing the distribution kernels, first we install <code>installkernel</code> package:</p>
 
-        <pre class="command">emerge --ask sys-kernel/installkernel-gentoo</pre>
+        <pre><code class="language-bash hljs">emerge --ask sys-kernel/installkernel-gentoo</code></pre>
 
         <p>Then we install the distribution kernels:</p> 
 
-        <pre class="command">emerge --ask sys-kernel/gentoo-kernel-bin</pre>
+        <pre><code class="language-bash hljs">emerge --ask sys-kernel/gentoo-kernel-bin</code></pre>
 
         <h5 class="post-subtitle">Full manual approach</h5>
 
         <p>First, install the <code>sys-kernel/gentoo-sources</code> package.</p>
 
-        <pre class="command">emerge --ask sys-kernel/gentoo-sources</pre>
+        <pre><code class="language-bash hljs">emerge --ask sys-kernel/gentoo-sources</code></pre>
 
         <p>Setting the symlink with the <code>eselect</code> tool:</p>
 
-        <pre class="command">eselect kernel list</pre>
+        <pre><code class="language-bash hljs">eselect kernel list</code></pre>
 
-        <pre class="command">eselect kernel set 1</pre>
+        <pre><code class="language-bash hljs">eselect kernel set 1</code></pre>
 
         <p>A symbolic link called <code>linux</code> is created.</p>
 
-        <pre class="command">ls -l /usr/src/linux</pre>
+        <pre><code class="language-bash hljs">ls -l /usr/src/linux</code></pre>
 
         <figure class="post-figure">
             <img src="/assets/images/carbon-13.png" alt="Kernel symlink">
@@ -428,9 +428,9 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>Now go to the kernel source directory and execute <code>make menuconfig</code>. This will fire up menu-driven configuration screen.</p>
 
-        <pre class="command">cd /usr/src/linux</pre>
+        <pre><code class="language-bash hljs">cd /usr/src/linux</code></pre>
 
-        <pre class="command">make menuconfig</pre>
+        <pre><code class="language-bash hljs">make menuconfig</code></pre>
 
         <p>Enabling Gentoo-specific options and enabling systemd support:</p>
 
@@ -500,27 +500,27 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>With the configuration now done, it is time to compile and install the kernel. Exit the configuration and start the compilation process:</p>
 
-        <pre class="command">make && make modules_install</pre>
+        <pre><code class="language-bash hljs">make && make modules_install</code></pre>
 
         <p>When the kernel has finished compiling, copy the kernel image to <code>/boot/</code>. This is handled by the <code>make install</code> command:
 
-        <pre class="command">make install</pre>
+        <pre><code class="language-bash hljs">make install</code></pre>
 
         <p>To build an initramfs, install <code>sys-kernel/dracut</code> package:</p>
 
-        <pre class="command">emerge --ask sys-kernel/dracut</pre>
+        <pre><code class="language-bash hljs">emerge --ask sys-kernel/dracut</code></pre>
         
         <p>Before we generate an initramfs, we must know the version of the chosen kernel sources. To check the version of the chosen kernel sources, enter:</p>
 
-        <pre class="command">eselect kernel list</pre>
+        <pre><code class="language-bash hljs">eselect kernel list</code></pre>
 
         <p>This command must return the output similar to:</p>
 
-        <pre class="command">Available kernel symlink targets:<br>  [1]   linux-6.1.28-gentoo *</pre>
+        <pre><code class="language-bash hljs">Available kernel symlink targets:<br>  [1]   linux-6.1.28-gentoo *</code></pre>
 
         <p>Then have it generate an initramfs:</p>
         
-        <pre class="command">dracut --kver=6.1.28-gentoo</pre>
+        <pre><code class="language-bash hljs">dracut --kver=6.1.28-gentoo</code></pre>
 
         <p>The initramfs will be stored in <code>/boot/</code>.</p>
 
@@ -541,7 +541,7 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>Add these rules in the <code>/etc/fstab</code> file.</p>
 
-        <pre class="command">/dev/nvme0n1p2   /boot            ext4    defaults,noatime     0 2<br>/dev/nvme0n1p1   /boot/efi        vfat    defaults,noatime     0 2<br>/dev/nvme0n1p3   none             swap    sw                   0 0<br>/dev/nvme0n1p4   /                ext4    noatime              0 1<br>/dev/cdrom       /mnt/cdrom       auto    noauto,user          0 0</pre>
+        <pre><code class="language-bash hljs">/dev/nvme0n1p2   /boot            ext4    defaults,noatime     0 2<br>/dev/nvme0n1p1   /boot/efi        vfat    defaults,noatime     0 2<br>/dev/nvme0n1p3   none             swap    sw                   0 0<br>/dev/nvme0n1p4   /                ext4    noatime              0 1<br>/dev/cdrom       /mnt/cdrom       auto    noauto,user          0 0</code></pre>
 
         <figure class="post-figure">
             <img src="/assets/images/carbon-10.png" alt="fstab">
@@ -549,13 +549,13 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <h4 class="post-subtitle">Setting the hostname</h4>
 
-        <pre class="command">echo codingempire > /etc/hostname</pre>
+        <pre><code class="language-bash hljs">echo codingempire > /etc/hostname</code></pre>
 
         <h4 class="post-subtitle">Configuring the network</h4>
 
         <p>First, we list all available physical network interfaces:</p>
 
-        <pre class="command">find /sys/class/net -type l -not -lname '*virtual*' -printf '%f\n'</pre>
+        <pre><code class="language-bash hljs">find /sys/class/net -type l -not -lname '*virtual*' -printf '%f\n'</code></pre>
 
         <p>The <code>-type l</code> option tells to look for symbolic links.</p>
         
@@ -565,23 +565,23 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>The output of the command must show that at least one physical network interface is found:</p>
 
-        <pre class="command">enp0s3</pre>
+        <pre><code class="language-bash hljs">enp0s3</code></pre>
 
         <p>Then we create <code>/etc/conf.d/net</code> file.</p>
 
-        <pre class="command">touch /etc/conf.d/net</pre>
+        <pre><code class="language-bash hljs">touch /etc/conf.d/net</code></pre>
 
         <p>Next we set DHCP on that physical network interface in <code>/etc/conf.d/net</code> file.</p>
 
-        <pre class="command">config_enp0s3="dhcp"</pre>
+        <pre><code class="language-bash hljs">config_enp0s3="dhcp"</code></pre>
 
         <p>Next we set up dynamic IP address by creating a file named <code>10-enp0s3.network</code> in the <code>/etc/systemd/network/</code> directory. The network configuration for systemd are placed in the <code>/etc/systemd/network/</code> directory.</p>
 
-        <pre class="command">touch /etc/systemd/network/10-enp0s3.network</pre>
+        <pre><code class="language-bash hljs">touch /etc/systemd/network/10-enp0s3.network</code></pre>
 
         <p>Add these rules in the <code>/etc/systemd/network/10-enp0s3.network</code> file.</p>
 
-        <pre class="command">[Match]<br>Name=enp0s3<br><br>[Network]<br>DHCP=yes</pre>
+        <pre><code class="language-bash hljs">[Match]<br>Name=enp0s3<br><br>[Network]<br>DHCP=yes</code></pre>
 
         <h4 class="post-subtitle">Setting hosts file</h4>
         
@@ -591,27 +591,27 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>Create a root user profile:</p>
 
-        <pre class="command">touch ~/.profile</pre>
+        <pre><code class="language-bash hljs">touch ~/.profile</code></pre>
 
         <p>Then add the <code>PS1</code> variable in the <code>.profile</code> file:</p>        
 
-        <pre class="command">PS1='\u@\h:\w\$ '</pre>
+        <pre><code class="language-bash hljs">PS1='\u@\h:\w\$ '</code></pre>
 
         <h4 class="post-subtitle">Setting root password</h4>
 
         <p>Set the root password using the <code>passwd</code> command.</p>
 
-        <pre class="command">passwd</pre>
+        <pre><code class="language-bash hljs">passwd</code></pre>
 
         <h4 class="post-subtitle">Init and boot configuration</h4>
 
         <p>The command <code>systemd-firstboot</code> allows for setting of basic system settings before or during the first boot of a newly created system. The tool is able of initialize the following system settings: timezone, locale, hostname, the root password, as well as automated generation of a machine ID.</p>
 
-        <pre class="command">systemd-firstboot --prompt --setup-machine-id</pre>
+        <pre><code class="language-bash hljs">systemd-firstboot --prompt --setup-machine-id</code></pre>
 
         <p>Next users should run <code>systemctl</code> to reset all installed unit files to the preset policy values:</p>
 
-        <pre class="command">systemctl preset-all --preset-mode=enable-only</pre>
+        <pre><code class="language-bash hljs">systemctl preset-all --preset-mode=enable-only</code></pre>
 
         <p>These two steps will help ensure a smooth transition from the live environment to the installation's first boot.</p>      
 
@@ -627,31 +627,31 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
         
         <p>In order to index the file system to provide faster file location capabilities, install <code>sys-apps/mlocate</code>.</p>
 
-        <pre class="command">emerge --ask sys-apps/mlocate</pre>
+        <pre><code class="language-bash hljs">emerge --ask sys-apps/mlocate</code></pre>
 
         <h4 class="post-subtitle">Remote shell access</h4>
 
         <p>Change SSH Configuration file (<code>/etc/ssh/sshd_config</code>), uncomment the <code>Port</code> option to enable SSH client connects to SSH server on port 22.</p>
 
-        <pre class="command">Port 22</pre>
+        <pre><code class="language-bash hljs">Port 22</code></pre>
 
         <p>Uncomment the <code>PermitRootLogin</code> option and set the value to <code>yes</code> to enable root login.</p>
 
-        <pre class="command">PermitRootLogin yes</pre>
+        <pre><code class="language-bash hljs">PermitRootLogin yes</code></pre>
 
         <p>To enable the SSH server, run:</p>
 
-        <pre class="command">systemctl enable sshd</pre>
+        <pre><code class="language-bash hljs">systemctl enable sshd</code></pre>
 
         <h4 class="post-subtitle">Time synchronization</h4>
 
         <p>Chronyd is a better choice for most networks than ntpd for keeping computers synchronized with the Network Time Protocol.</p>
 
-        <pre class="command">emerge --ask net-misc/chrony</pre>
+        <pre><code class="language-bash hljs">emerge --ask net-misc/chrony</code></pre>
 
         <p>To enable the chrony, run:</p>
 
-        <pre class="command">systemctl enable chronyd.service</pre>
+        <pre><code class="language-bash hljs">systemctl enable chronyd.service</code></pre>
 
         <h4 class="post-subtitle">Configuring the GRUB bootloader</h4>
         
@@ -659,17 +659,17 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
 
         <p>A note for UEFI users: running the above command will output the enabled <code>GRUB_PLATFORMS</code> values before emerging. When using UEFI capable systems, users will need to ensure <code>GRUB_PLATFORMS="efi-64"</code> is enabled. If that is not the case for the setup, <code>GRUB_PLATFORMS="efi-64"</code> will need to be added to the <code>/etc/portage/make.conf</code> file before emerging GRUB so that the package will be built with EFI functionality:</p>
 
-        <pre class="command">echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf</pre>
+        <pre><code class="language-bash hljs">echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf</code></pre>
 
-        <pre class="command">emerge --ask sys-boot/grub</pre>  
+        <pre><code class="language-bash hljs">emerge --ask sys-boot/grub</code></pre>  
 
         <p>Next, install the GRUB EFI file (<code>grubx64.efi</code>) to the <code>/boot/efi/</code> directory via the <code>grub-install</code> command. Run <code>grub-install</code> command:</p>
 
-        <pre class="command">grub-install --target=x86_64-efi --efi-directory=/boot/efi</pre>
+        <pre><code class="language-bash hljs">grub-install --target=x86_64-efi --efi-directory=/boot/efi</code></pre>
 
         <p>Next, generate the GRUB configuration based on the user configuration specified in the <code>/etc/default/grub</code> file and <code>/etc/grub.d scripts</code>. Run the <code>grub-mkconfig</code> command:</p>
 
-        <pre class="command">grub-mkconfig -o /boot/grub/grub.cfg</pre>
+        <pre><code class="language-bash hljs">grub-mkconfig -o /boot/grub/grub.cfg</code></pre>
         
         <p>The output of the command must mention that at least one Linux image is found, as those are needed to boot the system. If an initramfs is used, the correct initrd image should be detected as well.</p>
 
@@ -681,15 +681,15 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
         
         <p>Exit the chrooted environment and unmount all mounted partitions.</p>
 
-        <pre class="command">exit</pre>
+        <pre><code class="language-bash hljs">exit</code></pre>
 
-        <pre class="command">cd</pre>
+        <pre><code class="language-bash hljs">cd</code></pre>
 
-        <pre class="command">umount -l /mnt/gentoo/dev{/shm,/pts,}</pre>
+        <pre><code class="language-bash hljs">umount -l /mnt/gentoo/dev{/shm,/pts,}</code></pre>
 
-        <pre class="command">umount -R /mnt/gentoo</pre>
+        <pre><code class="language-bash hljs">umount -R /mnt/gentoo</code></pre>
 
-        <pre class="command">reboot</pre>
+        <pre><code class="language-bash hljs">reboot</code></pre>
     </article>
 
   {% include post-tags.html %}

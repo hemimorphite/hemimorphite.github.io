@@ -20,22 +20,21 @@ tags: ["wsl", "windows"]
 
         <p>First, go to the home directory of the current user:</p>
 
-        <pre class="command">cd ~</pre>
+        <pre><code class="language-bash hljs">cd ~</code></pre>
 
         <p>Open <code>.bashrc</code> file:</p>
 
-        <pre class="command">vi .bashrc</pre> 
+        <pre><code class="language-bash hljs">vi .bashrc</code></pre> 
         
         <p>Add the following line to the file.</p>
 
-        <pre class="command">export PATH="/mnt/c/Windows:$PATH"</pre>   
+        <pre><code class="language-bash hljs">export PATH="/mnt/c/Windows:$PATH"</code></pre>   
 
         <p>Save the file and exit.</p>
 
         <p>Use <code>source</code> command to reload the <code>.bashrc</code> file.</p>
 
-        <pre class="command">source .bashrc</pre>  
-
+        <pre><code class="language-bash hljs">source .bashrc</code></pre>
     </article>
 
   {% include post-tags.html %}

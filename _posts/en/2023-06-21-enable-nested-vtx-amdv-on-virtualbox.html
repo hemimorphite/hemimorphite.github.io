@@ -18,11 +18,11 @@ tags: ["virtualbox", "windows"]
     <article class="post-content">
         <p>First, run command prompt as administrator. Then add Virtualbox folder to system PATH environment variable:</p>
 
-        <pre class="command">SET PATH=%PATH%;C:\Program Files\Oracle\VirtualBox</pre>
+        <pre><code class="language-bash hljs">SET PATH=%PATH%;C:\Program Files\Oracle\VirtualBox</code></pre>
 
         <p>To enable the Nested VT-x/AMD-v in VirtualBox, you need to know your VM name (eg. UbuntuVM) and use <code>VBoxManage</code> command:</p>
 
-        <pre class="command">VBoxManage modifyvm UbuntuVM --nested-hw-virt on</pre>
+        <pre><code class="language-bash hljs">VBoxManage modifyvm UbuntuVM --nested-hw-virt on</code></pre>
 
         <p>Then you have to verify if the change have affected VM System settings in the VirtualBox. See if tick mark on <b>Enable Nested VT-x/AMD-v</b> option appears as expected.</p>
 
@@ -32,7 +32,7 @@ tags: ["virtualbox", "windows"]
 
         <p>Next start the VM and test if the nested virtualization support is enabled in the VM.</p>
 
-        <pre class="command">grep -E "(vmx|svm)" /proc/cpuinfo</pre>
+        <pre><code class="language-bash hljs">grep -E "(vmx|svm)" /proc/cpuinfo</code></pre>
 
         <p>The output should similar to:</p>
 
@@ -42,11 +42,11 @@ tags: ["virtualbox", "windows"]
 
         <p>If the output shows nothing then you need to disable Hyper-V in your Windows System. Once again, run command prompt as administrator. Then run the following commands:</p>
 
-        <pre class="command">DISM /Online /Disable-Feature:Microsoft-Hyper-V</pre>
+        <pre><code class="language-bash hljs">DISM /Online /Disable-Feature:Microsoft-Hyper-V</code></pre>
 
         <pre class="command">PowerShell Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor -All</pre>
 
-        <pre class="command">bcdedit /set hypervisorlaunchtype off</pre>
+        <pre><code class="language-bash hljs">bcdedit /set hypervisorlaunchtype off</code></pre>
 
         <p>After that you restart your Windows.</p> 
 
