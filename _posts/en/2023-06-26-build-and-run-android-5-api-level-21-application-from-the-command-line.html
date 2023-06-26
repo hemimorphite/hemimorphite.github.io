@@ -18,15 +18,15 @@ tags: ["android 5", "api level 21", "linux", "genymotion"]
     <article class="post-content">
         <p>In this tutorial, I will show you how you can build an APK (an Android app) using terminal on Linux without IDE or Android Studio.</p>
 
-        <h4>Install JDK 7</h4>
+        <h4 class="post-subtitle">Install JDK 7</h4>
 
         <p>Remove the existing OpenJDK, execute the following command on terminal:</p>
 
         <pre><code class="language-bash hljs">sudo apt-get remove openjdk*</code></pre>
 
-        <p>Download jdk 7 on the <a href="https://www.oracle.com/id/java/technologies/javase/javase7-archive-downloads.html">official website</a>.</p>
+        <p>Download oracle jdk 7 on the <a href="https://www.oracle.com/id/java/technologies/javase/javase7-archive-downloads.html">official website</a>.</p>
 
-        <p>Extract the jdk 7 tarball to your home directory:</p>
+        <p>Extract the oracle jdk 7 tarball to your home directory:</p>
 
         <pre><code class="language-bash hljs">tar -zxvf jdk-7u80-linux-x64.tar.gz --directory $HOME</code></pre>        
 
@@ -48,7 +48,7 @@ tags: ["android 5", "api level 21", "linux", "genymotion"]
 
         <pre><code class="language-bash hljs">java -version</code></pre>
 
-        <h4>Install Android SDK Tools 23.0.5</h4>
+        <h4 class="post-subtitle">Install Android SDK Tools 23.0.5</h4>
 
         <p>The SDK Tools package is deprecated and no longer used in Android 8. Since Android 8, it use the new Android SDK Command-Line tools package.</p> 
 
@@ -69,7 +69,7 @@ tags: ["android 5", "api level 21", "linux", "genymotion"]
         <p>Change the Android SDK Tools directory permissions and ownership:</p>
 
         <pre><code class="language-bash hljs">sudo chmod -R 755 $HOME/android5sdk/tools</code></pre>
-        <pre><code class="language-bash hljs">sudo chown -R $USER:$USER $HOME/android5sdk/tools</pre>
+        <pre><code class="language-bash hljs">sudo chown -R $USER:$USER $HOME/android5sdk/tools</code></pre>
 
         <p>Open the <code>.bashrc</code> file.</p>
 
@@ -86,7 +86,7 @@ tags: ["android 5", "api level 21", "linux", "genymotion"]
         
         <pre><code class="language-bash hljs">source $HOME/.bashrc</code></pre>        
 
-        <h4>Install Android SDK Build-tools 23.0.1</h4>
+        <h4 class="post-subtitle">Install Android SDK Build-tools 23.0.1</h4>
 
         <p>Run <code>android</code> command on the terminal and <b>Android SDK Manager</b> window will show up:</p>
 
@@ -124,7 +124,7 @@ tags: ["android 5", "api level 21", "linux", "genymotion"]
         
         <pre><code class="language-bash hljs">source $HOME/.bashrc</code></pre>
 
-        <h4>Install SDK Platform for Android 5 API Level 21</h4>
+        <h4 class="post-subtitle">Install SDK Platform for Android 5 API Level 21</h4>
 
         <p>Run <code>android</code> command on the terminal and <b>Android SDK Manager</b> window will show up:</p>
 
@@ -148,7 +148,7 @@ tags: ["android 5", "api level 21", "linux", "genymotion"]
             <img src="/assets/images/android5-06.jpg" alt="Android SDK Manager">
         </figure>
 
-        <h4>Create and Build an Simple Android Project</h4>
+        <h4 class="post-subtitle">Create and Build an Simple Android Project</h4>
 
         <p>First, we need to make a project directory on the home directory:</p>
 
@@ -338,7 +338,7 @@ Enter key password for
             <li><code>4</code> option instructs the <code>zipalign</code> to align to 4 bytes on both 32-bit and 64-bit systems</li>
         </ul>
 
-        <h4>Run the APK File on Android Emulator</h4>
+        <h4 class="post-subtitle">Run the APK File on Android Emulator</h4>
 
         <p>Download the genymotion installer on the <a href="https://www.genymotion.com/download/">official website</a>.</p>
 
