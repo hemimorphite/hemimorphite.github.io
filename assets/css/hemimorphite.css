@@ -460,10 +460,15 @@ header {
 .blog-post .post-share .item,
 .blog-post .post-tags {
 	display: flex;
+	flex-wrap: wrap;
 }
 .blog-post .post-share .item li,
 .blog-post .post-tags li {
 	margin-right: 0.2rem;
+}
+.blog-post .post-share .item li > a,
+.blog-post .post-tags li > a {
+	line-height: 1;
 }
 .blog-post .post-share .item li > i,
 .blog-post .post-tags li > i {
@@ -472,11 +477,11 @@ header {
 }
 .blog-post .post-share .item li:first-child,
 .blog-post .post-tags li:first-child {
-	margin-right: 0.5rem;
+	margin-right: 0.3rem;
 }
 .blog-post .post-share .item li:first-child > i,
 .blog-post .post-tags li:first-child > i {
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
 ul.page-numbers {
 	text-align: center;
