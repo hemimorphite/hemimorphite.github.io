@@ -1,0 +1,106 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Install Virtualbox on Ubuntu 22.04 with UEFI Secure Boot Enable by Using the Deb File"
+thumb: "ubuntuvirtualbox.jpg"
+eyebrow: "Tutorial"
+description: "In this tutorial, we will guide you on how to install Virtualbox on Ubuntu 22.04 with UEFI Secure Boot Enabled by using the Deb file."
+date: 2023-06-27 20:38:50 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2023", "month-06", "day-27"]
+tags: ["virtualbox", "ubuntu", "secure boot", "uefi"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Go to <a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="blank">virtual official website</a> and download the virtualbox debian package file.</p>
+
+        <p>Change the virtualbox package file permissions:</p>
+
+        <pre><code class="language-bash hljs">sudo chmod 755 virtualbox-7.0_7.0.8-156879~Ubuntu~jammy_amd64.deb</code></pre>
+
+        <p>Open terminal and use <code>apt</code> command to install the virtualbox package file with its dependencies.</p>
+
+        <pre><code class="language-bash hljs">sudo apt install ./virtualbox-7.0_7.0.8-156879~Ubuntu~jammy_amd64.deb</code></pre>        
+
+        <p>It will prompt you to create a new MOK, and will guide you through the steps to enroll that key in your system's firmware. This process requires a reboot.</p>
+
+        <p>Select <b>Ok</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/secureboot-01.jpg" alt="Configuring Secure Boot">
+        </figure>
+
+        <p>Enter a password for secure boot and remember the password since it will be asked again after a reboot. Then select <b>Ok</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/secureboot-02.jpg" alt="Configuring Secure Boot">
+        </figure>        
+
+        <p>Enter the same password again. Then select <b>Ok</b> and press enter.</p>                
+
+        <figure class="post-figure">
+            <img src="/assets/images/secureboot-03.jpg" alt="Configuring Secure Boot">
+        </figure>
+
+        <p>At the end of the installation process, <code>apt</code> displays an error due to installing a downloaded package. You can ignore this error message.</p>
+
+        <pre><code class="language-bash hljs">N: Download is performed unsandboxed as root, as file '/home/codingemperor/Downloads/virtualbox-7.0_7.0.8-156879~Ubuntu~jammy_amd64.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)</code></pre>
+
+        <p>Now reboot the machine, and you will see the blue screen as below.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-01.jpg" alt="Configuring Secure Boot">
+        </figure>        
+
+        <p>Press any key as suggested, and we will see the next screen. Select <b>Enroll MOK</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-02.jpg" alt="Configuring Secure Boot">
+        </figure>
+
+        <p>Select <b>View Key 0</b> to view the key the and press enter</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/shim-03.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-09.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Press any key to close. Then select <b>Continue</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-05.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Select <b>Yes</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-06.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Enter the password which we entered when we used <code>mokutil</code> command and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-07.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Select <b>Reboot</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-08.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>After your Ubuntu is rebooted completely, you can launch virtualBox to start using virtual machines on your system.</p>
+
+    </article>
+
+  {% include post-tags.html %}
+
+  {% include post-share.html %}
+</div>

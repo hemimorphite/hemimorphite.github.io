@@ -3,7 +3,7 @@ layout: tag
 title: "TAG: Android 5"
 tag: "android 5"
 lang: en
-permalink: '/tag/android5'
+permalink: '/tag/android-5'
 pagination:
     enabled: true
     tag: "android 5"
