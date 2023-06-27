@@ -1,0 +1,151 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Signing Virtualbox Kernel Modules"
+thumb: "virtualbox.jpg"
+eyebrow: "Tutorial"
+description: "Learn how to enable nested virtualization on VirtualBox through this step-by-step tutorial."
+date: 2023-06-21 20:38:50 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2023", "month-06", "day-21"]
+tags: ["virtualbox", "ubuntu"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>When Secure Boot is enabled, the computer's Linux kernel checks the PKI signature of each kernel module before it is loaded. It won't load unsigned kernel modules, nor modules with invalid signatures.</p>
+
+        <p>To begin with signing things for UEFI Secure Boot, you need to create a X509 certificate that can be imported in firmware; either directly though the manufacturer firmware, or more easily, by way of shim.</p>
+
+        <p>First, let's create some config to let openssl know what we want to create (let’s call it <code>openssl.conf</code>):</p>
+
+        <pre><code class="language-bash hljs"># This definition stops the following lines choking if HOME isn't
+# defined.
+HOME                    = .
+RANDFILE                = $ENV::HOME/.rnd 
+[ req ]
+distinguished_name      = req_distinguished_name
+x509_extensions         = v3
+string_mask             = utf8only
+prompt                  = no
+
+[ req_distinguished_name ]
+countryName             = ID
+stateOrProvinceName     = Jakarta
+localityName            = Jakarta
+organizationName        = hemimorphite
+commonName              = Secure Boot Signing
+emailAddress            = yangsamuel91@gmail.com
+
+[ v3 ]
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid:always,issuer
+basicConstraints        = critical,CA:FALSE
+extendedKeyUsage        = codeSigning,1.3.6.1.4.1.311.10.3.6,1.3.6.1.4.1.2312.16.1.2
+nsComment               = "OpenSSL Generated Certificate"</code></pre>
+
+
+        <p>Update the values under <code>[ req_distinguished_name ]</code> for the certificate identification.</p>
+
+        <p>The identification itself does not matter much, but some of the later values are important: for example, we do want to make sure <code>1.3.6.1.4.1.2312.16.1.2</code> is included in <code>extendedKeyUsage</code>, and it is that OID that will tell shim this is meant to be a module signing certificate.</p>
+
+        <p>Now, create public and private keys using <code>openssl</code> command:</p>
+
+        <pre><code class="language-bash hljs">openssl req -config openssl.conf -new -x509 -newkey rsa:2048 -nodes -days 36500 -outform DER -keyout "MOK.priv" -out "MOK.der"</code></pre>
+
+        <ul>
+            <li><code>openssl req</code> command instructs to create and process certificate requests in PKCS#10 format</li>
+            <li><code>-config</code> option specifies the configuration file</li>
+            <li><code>-new</code> option specifies to generate a new certificate request</li>
+            <li><code>-x509</code> option specifies a self signed certificate instead of a certificate request</li>
+            <li><code>-newkey</code> option specifies to create a new certificate request and a new private key</li>
+            <li><code>rsa:2048</code> argument means generating an RSA key 2048 in size</li>
+            <li><code>-nodes</code> option specifies the created private key will not be encrypted</li>
+            <li><code>-days</code> option specifies the number of days to certify the certificate for</li>
+            <li><code>-outform</code> option specifies the output format</li>
+            <li><code>-keyout</code> option specifies the filename of the newly created private key</li>
+            <li><code>-out</code> option specifies the output filename to write to or standard output by default</li>
+        </ul>
+
+        <p>The command will create the <code>MOK.priv</code> and <code>MOK.der</code> files in present working directory by accepting <code>openssl.conf</code> as input file.</p>
+
+        <p>The next step is to enroll this keys with the SHIM UEFI Bootloader (<b>SHIM</b> is a simple software package that is designed to work as a first-stage bootloader on UEFI systems).</p>
+
+        <pre><code class="language-bash hljs">sudo mokutil --import MOK.der</code></pre>
+
+        <p>When prompted, supply the password and remember the password, as we would need to enter the password when we reboot the machine.</p>
+        
+        <p>Now reboot the machine, and you will see the blue screen as below, during the next boot. The screen is of Shim UEFI Key Management.</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/shim-01.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Press any key as suggested, and we will see the next screen. Select <b>Enroll MOK</b> and press enter</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-02.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Select <b>View Key 0</b> to view the key the and press enter</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/shim-03.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Press enter to close. Then select <b>Continue</b> to view the key the and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-04.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Select <b>Yes</b> the and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-05.jpg" alt="Shim UEFI Key Management">
+        </figure>        
+
+        <p>Enter the password which we entered when we used <code>mokutil</code> command and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-06.jpg" alt="Shim UEFI Key Management">
+        </figure>    
+
+          
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-07.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Select <b>Reboot</b> and press enter.</p>  
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-08.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>After your Ubuntu is rebooted completely, let's make sure the key we added really is seen by the kernel. Just make sure a key exists there with the commonName attribute you entered earlier. To do this, we can go look at <code>/proc/keys</code>:</p>
+
+        <pre><code class="language-bash hljs">cat /proc/keys | grep "Secure Boot Signing"</code></pre>
+
+        <p>The output should similar to:</p> 
+
+        <pre><code class="language-bash hljs">0033c1a8 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (2019): c0746fd6c5da3ae827864651ad66ae47fe24b3e8: X509.rsa fe24b3e8 []
+0add8950 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (2021 v3): 100437bb6de6e469b581e61cd66bce3ef4ed53af: X509.rsa f4ed53af []
+11a7dae8 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing: 61482aa2830d0ab2ad5af10b7250da9033ddcef0: X509.rsa 33ddcef0 []
+1cc2f418 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (2021 v1): a8d54bbb3825cfb94fa13c9f8a594a195c107b8d: X509.rsa 5c107b8d []
+1fc89e93 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (2021 v2): 4cf046892d6fd3c9a5b03f98d845f90851dc6a8c: X509.rsa 51dc6a8c []
+235d3b1b I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (2017): 242ade75ac4a15e50d50c84b0d45ff3eae707a03: X509.rsa ae707a03 []
+39df0956 I------     1 perm 1f010000     0     0 asymmetri hemimorphite: Secure Boot Signing: 86f0ddb595b4f13bcb1eb858835a8305809b431a: X509.rsa 809b431a []
+3ea57f35 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (Ubuntu Core 2019): c1d57b8f6b743f23ee41f4f7ee292f06eecadfb9: X509.rsa eecadfb9 []
+3ff61f7a I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (ESM 2018): 365188c1d374d6b0</code></pre>   
+
+        <p>To sign kernel modules, we can use the <code>kmodsign</code> command:</p>
+    </article>
+
+  {% include post-tags.html %}
+
+  {% include post-share.html %}
+</div>

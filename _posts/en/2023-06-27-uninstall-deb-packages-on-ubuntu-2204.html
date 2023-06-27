@@ -1,0 +1,46 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Uninstall Deb Packages on Ubuntu"
+thumb: "jellyfish.jpg"
+eyebrow: "Tutorial"
+description: "Learn how to uninstall deb packages on Ubuntu with this step-by-step tutorial. It's easy to follow and will guide you through the process, ensuring a clean removal of the package from your system."
+date: 2023-06-27 22:38:50 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2023", "month-06", "day-27"]
+tags: ["ubuntu"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Assume you don't know the exact name of the application command. You can list the installed applications with <code>apt</code> command and use <code>grep</code> to search for the application name by guessing.</p>
+
+        <p>For example, you can do smart-guessing that the Google Chrome package should have chrome in its name. You may search it like this:</p>
+
+        <pre><code class="language-bash hljs">sudo apt list --installed | grep -i chrome</code></pre>
+
+        <figure class="post-figure">
+            <img src="/assets/images/apt-01.jpg" alt="Search package">
+        </figure>
+
+        <p>If you are not sure what the package does, you can always get its detail with:</p>
+
+        <pre><code class="language-bash hljs">sudo apt info google-chrome-stable</code></pre>
+
+        <figure class="post-figure">
+            <img src="/assets/images/apt-02.jpg" alt="Show package information">
+        </figure>
+
+        <p>Once you know the exact package name, you can delete it using the <code>apt autoremove</code>  command.</p>
+
+        <pre><code class="language-bash hljs">sudo apt autoremove google-chrome-stable</code></pre>        
+
+    </article>
+
+  {% include post-tags.html %}
+
+  {% include post-share.html %}
+</div>
