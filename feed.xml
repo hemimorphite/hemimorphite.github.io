@@ -1,0 +1,1477 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2023-06-27T16:08:37+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Uninstall Deb Packages on Ubuntu</title><link href="https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/" rel="alternate" type="text/html" title="Uninstall Deb Packages on Ubuntu" /><published>2023-06-27T15:38:50+00:00</published><updated>2023-06-27T15:38:50+00:00</updated><id>https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/"><![CDATA[<div class="blog-post">
+    <div class="post-date">Published June 27, 2023</div>
+<h2 class="post-title">Uninstall Deb Packages on Ubuntu</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">By <b>Samuel Yang</b></span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/&hashtags=ubuntu"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/jellyfish.jpg" alt="Gentoo Linux">
+</figure>
+
+    <article class="post-content">
+        <p>Assume you don't know the exact name of the application command. You can list the installed applications with <code>apt</code> command and use <code>grep</code> to search for the application name by guessing.</p>
+
+        <p>For example, you can do smart-guessing that the Google Chrome package should have chrome in its name. You may search it like this:</p>
+
+        <pre><code class="language-bash hljs">sudo apt list --installed | grep -i chrome</code></pre>
+
+        <figure class="post-figure">
+            <img src="/assets/images/apt-01.jpg" alt="Search package">
+        </figure>
+
+        <p>If you are not sure what the package does, you can always get its detail with:</p>
+
+        <pre><code class="language-bash hljs">sudo apt info google-chrome-stable</code></pre>
+
+        <figure class="post-figure">
+            <img src="/assets/images/apt-02.jpg" alt="Show package information">
+        </figure>
+
+        <p>Once you know the exact package name, you can delete it using the <code>apt autoremove</code>  command.</p>
+
+        <pre><code class="language-bash hljs">sudo apt autoremove google-chrome-stable</code></pre>        
+
+    </article>
+
+  <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/ubuntu">ubuntu</a></li>
+	
+</ul>
+
+  <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/&hashtags=ubuntu"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-06" /><category term="day-27" /><category term="ubuntu" /><summary type="html"><![CDATA[Learn how to uninstall deb packages on Ubuntu with this step-by-step tutorial. It's easy to follow and will guide you through the process, ensuring a clean removal of the package from your system.]]></summary></entry><entry xml:lang="en"><title type="html">Install Virtualbox on Ubuntu 22.04 with UEFI Secure Boot Enable by Using the Deb File</title><link href="https://hemimorphite.github.io/2023/06/27/install-virtualbox-on-ubuntu-2204-by-using-the-deb-file/" rel="alternate" type="text/html" title="Install Virtualbox on Ubuntu 22.04 with UEFI Secure Boot Enable by Using the Deb File" /><published>2023-06-27T13:38:50+00:00</published><updated>2023-06-27T13:38:50+00:00</updated><id>https://hemimorphite.github.io/2023/06/27/install-virtualbox-on-ubuntu-2204-by-using-the-deb-file</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/27/install-virtualbox-on-ubuntu-2204-by-using-the-deb-file/"><![CDATA[<div class="blog-post">
+    <div class="post-date">Published June 27, 2023</div>
+<h2 class="post-title">Install Virtualbox on Ubuntu 22.04 with UEFI Secure Boot Enable by Using the Deb File</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">By <b>Samuel Yang</b></span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/27/install-virtualbox-on-ubuntu-2204-by-using-the-deb-file/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/27/install-virtualbox-on-ubuntu-2204-by-using-the-deb-file/&hashtags=virtualbox,ubuntu,secure boot,uefi"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/27/install-virtualbox-on-ubuntu-2204-by-using-the-deb-file/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/ubuntuvirtualbox.jpg" alt="Gentoo Linux">
+</figure>
+
+    <article class="post-content">
+        <p>Go to <a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="blank">Virtualbox official website</a> and download the virtualbox debian package file.</p>
+
+        <p>Change the virtualbox package file permissions:</p>
+
+        <pre><code class="language-bash hljs">sudo chmod 755 virtualbox-7.0_7.0.8-156879~Ubuntu~jammy_amd64.deb</code></pre>
+
+        <p>Open terminal and use <code>apt</code> command to install the virtualbox package file with its dependencies.</p>
+
+        <pre><code class="language-bash hljs">sudo apt install ./virtualbox-7.0_7.0.8-156879~Ubuntu~jammy_amd64.deb</code></pre>        
+
+        <p>It will prompt you to create a new MOK, and will guide you through the steps to enroll that key in your system's firmware. This process requires a reboot.</p>
+
+        <p>Select <b>Ok</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/secureboot-01.png" alt="Configuring Secure Boot">
+        </figure>
+
+        <p>Enter a password for secure boot and remember the password since it will be asked again after a reboot. Then select <b>Ok</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/secureboot-02.png" alt="Configuring Secure Boot">
+        </figure>        
+
+        <p>Enter the same password again. Then select <b>Ok</b> and press enter.</p>                
+
+        <figure class="post-figure">
+            <img src="/assets/images/secureboot-03.png" alt="Configuring Secure Boot">
+        </figure>
+
+        <p>At the end of the installation process, <code>apt</code> displays an error due to installing a downloaded package. You can ignore this error message.</p>
+
+        <pre><code class="language-bash hljs">N: Download is performed unsandboxed as root, as file '/home/codingemperor/Downloads/virtualbox-7.0_7.0.8-156879~Ubuntu~jammy_amd64.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)</code></pre>
+
+        <p>Now reboot the machine, and you will see the blue screen as below.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-01.jpg" alt="Configuring Secure Boot">
+        </figure>        
+
+        <p>Press any key as suggested, and we will see the next screen. Select <b>Enroll MOK</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-02.jpg" alt="Configuring Secure Boot">
+        </figure>
+
+        <p>Select <b>View Key 0</b> to view the key the and press enter</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/shim-03.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-09.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Press any key to close. Then select <b>Continue</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-05.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Select <b>Yes</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-06.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Enter the password which we entered before and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-07.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Select <b>Reboot</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-08.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>After your Ubuntu is rebooted completely, you can launch virtualBox to start using virtual machines on your system.</p>
+
+    </article>
+
+  <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/virtualbox">virtualbox</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/ubuntu">ubuntu</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/secure-boot">secure boot</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/uefi">uefi</a></li>
+	
+</ul>
+
+  <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/27/install-virtualbox-on-ubuntu-2204-by-using-the-deb-file/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/27/install-virtualbox-on-ubuntu-2204-by-using-the-deb-file/&hashtags=virtualbox,ubuntu,secure boot,uefi"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/27/install-virtualbox-on-ubuntu-2204-by-using-the-deb-file/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-06" /><category term="day-27" /><category term="virtualbox" /><category term="ubuntu" /><category term="secure boot" /><category term="uefi" /><summary type="html"><![CDATA[In this tutorial, we will guide you on how to install Virtualbox on Ubuntu 22.04 with UEFI Secure Boot Enabled by using the Deb file.]]></summary></entry><entry xml:lang="en"><title type="html">Build and Run Android 5 API Level 21 Application from the Command Line</title><link href="https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/" rel="alternate" type="text/html" title="Build and Run Android 5 API Level 21 Application from the Command Line" /><published>2023-06-26T08:38:50+00:00</published><updated>2023-06-26T08:38:50+00:00</updated><id>https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/"><![CDATA[<div class="blog-post">
+    <div class="post-date">Published June 26, 2023</div>
+<h2 class="post-title">Build and Run Android 5 API Level 21 Application from the Command Line</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">By <b>Samuel Yang</b></span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/&hashtags=android 5,api level 21,linux,genymotion"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/android5.jpg" alt="Gentoo Linux">
+</figure>
+
+    <article class="post-content">
+        <p>In this tutorial, I will show you how you can build an APK (an Android app) using terminal on Linux without IDE or Android Studio.</p>
+
+        <h4 class="post-subtitle">Install JDK 7</h4>
+
+        <p>Remove the existing OpenJDK, execute the following command on terminal:</p>
+
+        <pre><code class="language-bash hljs">sudo apt-get remove openjdk*</code></pre>
+
+        <p>Download oracle jdk 7 on the <a href="https://www.oracle.com/id/java/technologies/javase/javase7-archive-downloads.html">official website</a>. Extract the oracle jdk 7 tarball to your home directory:</p>
+
+        <pre><code class="language-bash hljs">tar -zxvf jdk-7u80-linux-x64.tar.gz --directory $HOME</code></pre>        
+
+        <p>Open the <code>.bashrc</code> file.</p>
+
+        <pre><code class="language-bash hljs">vi $HOME/.bashrc</code></pre>
+
+        <p>Add the following line to set the JDK 7 path:</p>
+
+        <pre><code class="language-bash hljs">export PATH="$HOME/jdk1.7.0_80/bin:$PATH"</code></pre>
+
+        <p>Save the file and exit.</p>
+
+        <p>Then Reload the <code>.bashrc</code> file:</p>        
+        
+        <pre><code class="language-bash hljs">source $HOME/.bashrc</code></pre>
+
+        <p>Check if the jdk path has been set up correctly:</p>
+
+        <pre><code class="language-bash hljs">java -version</code></pre>
+
+        <h4 class="post-subtitle">Install Android SDK Tools 23.0.5</h4>
+
+        <p>The SDK Tools package is deprecated and no longer used in Android 8. Since Android 8, it use the new Android SDK Command-Line tools package.</p> 
+
+        <p>As stated in <a href="https://developer.android.com/tools/releases/platforms">https://developer.android.com/tools/releases/platforms</a>, the required Android SDK Tools version is 23.0.5.</p>
+
+        <p>Download Android SDK Tools 23.0.5 on <a href="http://dl-ssl.google.com/android/repository/tools_r23.0.5-linux.zip">http://dl-ssl.google.com/android/repository/tools_r23.0.5-linux.zip</a></p>
+
+        <pre><code class="language-bash hljs">wget http://dl-ssl.google.com/android/repository/tools_r23.0.5-linux.zip</code></pre>
+
+        <p>Create Android SDK installation directory on your home directory.</p>
+        
+        <pre><code class="language-bash hljs">mkdir $HOME/android5sdk</code></pre>
+
+        <p>Extract the Android SDK Tools to Android SDK installation directory:</p>
+
+        <pre><code class="language-bash hljs">unzip tools_r23.0.5-linux.zip -d $HOME/android5sdk</code></pre>
+
+        <p>Change the Android SDK Tools directory permissions and ownership:</p>
+
+        <pre><code class="language-bash hljs">sudo chmod -R 755 $HOME/android5sdk/tools</code></pre>
+        <pre><code class="language-bash hljs">sudo chown -R $USER:$USER $HOME/android5sdk/tools</code></pre>
+
+        <p>Open the <code>.bashrc</code> file.</p>
+
+        <pre><code class="language-bash hljs">vi $HOME/.bashrc</code></pre>
+
+        <p>Add the following lines to set Android SDK environment variable <code>ANDROID_HOME</code> and the Android SDK Tools path:</p>
+
+        <pre><code class="language-bash hljs">export ANDROID_HOME="$HOME/android5sdk"</code></pre>
+        <pre><code class="language-bash hljs">export PATH="$HOME/jdk1.7.0_80/bin:$ANDROID_HOME/tools:$PATH"</code></pre>
+
+        <p>Save the file and exit.</p>
+
+        <p>Then reload the <code>.bashrc</code> file:</p>        
+        
+        <pre><code class="language-bash hljs">source $HOME/.bashrc</code></pre>        
+
+        <h4 class="post-subtitle">Install Android SDK Build-tools 23.0.1</h4>
+
+        <p>Run <code>android</code> command on the terminal and <b>Android SDK Manager</b> window will show up:</p>
+
+        <pre><code class="language-bash hljs">android</code></pre>
+
+        <p>Click <b>Deselect All</b></p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-01.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <p>Check <b>Android SDK Build-tools</b> version 23.0.1 option. Then click <b>Install package</b></p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-02.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <p>A prompt shows up and click <b>Accept License</b>. Then click <b>Install</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-03.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-04.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <p>After the installation process finished, open the <code>.bashrc</code> file and set the Android SDK Build-tools path.</p>
+
+        <pre><code class="language-bash hljs">export PATH="$HOME/jdk1.7.0_80/bin:$ANDROID_HOME/tools:$ANDROID_HOME/build-tools/23.0.1:$PATH"</code></pre>
+
+        <p>Save the file and exit.</p>
+
+        <p>Then Reload the <code>.bashrc</code> file:</p>        
+        
+        <pre><code class="language-bash hljs">source $HOME/.bashrc</code></pre>
+
+        <h4 class="post-subtitle">Install SDK Platform for Android 5 API Level 21</h4>
+
+        <p>Run <code>android</code> command on the terminal and <b>Android SDK Manager</b> window will show up:</p>
+
+        <pre><code class="language-bash hljs">android</code></pre>
+
+        <p>Click <b>Deselect All</b></p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-01.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <p>Find and check the <b>SDK Platform</b> API Level 21 option. Then click <b>Install package</b></p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-05.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <p>A prompt appears and click <b>Accept License</b>. Then click <b>Install</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-06.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <h4 class="post-subtitle">Create and Build an Simple Android Project</h4>
+
+        <p>First, we need to make a project directory on the home directory:</p>
+
+        <pre><code class="language-bash hljs">mkdir $HOME/HelloAndroid</code></pre>
+        
+        <pre><code class="language-bash hljs">cd $HOME/HelloAndroid</code></pre>
+
+        <p>Open the <code>.bashrc</code> file and set the Android project path.</p>
+
+        <pre><code class="language-bash hljs">export PROJ="$HOME/HelloAndroid"</code></pre>
+
+        <p>Create the <code>src</code> directory that contains all <code>.java</code> (JAVA) files.</p>
+
+        <pre><code class="language-bash hljs">mkdir src</code></pre>
+
+        <p>Every Android app has a unique application ID that looks like a Java package name, such as <code>com.example.myapplication</code>. This ID uniquely identifies your app in Google Play Store. If you want to upload a new version of your app, the application ID (and the certificate you sign it with) must be the same as the original APK. if you change the application ID, Google Play Store treats the APK as a completely different app.</p>      
+
+        <p>Create the unique application ID directory structure inside the <code>src</code> directory.</p>
+
+        <pre><code class="language-bash hljs">mkdir -p src/com/example/helloandroid</code></pre>
+
+        <p>Create the <code>layout</code> directory holds all the XML layout files for your projects.</p>  
+        
+        <pre><code class="language-bash hljs">mkdir -p res/layout</code></pre>     
+
+        <p>Create the <code>drawable</code> directory holds all the images for your project.</p> 
+
+        <pre><code class="language-bash hljs">mkdir -p res/drawable</code></pre>
+
+        <p>Create the <code>values</code> directory is used to store the values for the resources that are used in android projects to include features of color, styles, dimensions etc.</p>
+
+        <pre><code class="language-bash hljs">mkdir -p res/values</code></pre>
+
+        <p>Every app project must have an <code>AndroidManifest.xml</code> file, with precisely that name, at the project directory. The manifest file describes essential information about your app to the Android build tools, the Android operating system, and Google Play.</p>  
+
+        <p>Create a <code>AndroidManifest.xml</code> file contains information of your package, including components of the application such as activities, services, broadcast receivers, content providers etc. Add the following lines:</p>
+
+        <pre><code class="language-xml hljs">&lt;?xml version='1.0'?&gt;
+&lt;manifest xmlns:a='http://schemas.android.com/apk/res/android' package='com.example.helloandroid' a:versionCode='0' a:versionName='0'&gt;
+    &lt;application a:label='A Hello Android'&gt;
+        &lt;activity a:name='com.example.helloandroid.MainActivity'&gt;
+             &lt;intent-filter&gt;
+                &lt;category a:name='android.intent.category.LAUNCHER'/&gt;
+                &lt;action a:name='android.intent.action.MAIN'/&gt;
+             &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+&lt;/manifest&gt;</code></pre>
+
+        <p>Create a <code>src/com/example/helloandroid/MainActivity.java</code> file and add the following codes:</p>
+
+        <pre><code class="language-java hljs">package com.example.helloandroid;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class MainActivity extends Activity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   }
+}</code></pre>
+
+        <p>Create a <code>res/values/strings.xml</code> file which contains all the strings which will be used frequently in project and add the following codes:</p>
+
+        <pre><code class="language-xml hljs">&lt;resources&gt;
+    &lt;string name="app_name"&gt;A Hello Android&lt;/string&gt;
+    &lt;string name="hello_msg"&gt;Hello Android!&lt;/string&gt;
+&lt;/resources&gt;</code></pre>
+
+        <p>Create a <code>res/values/activity_main.xml</code> file which defines the architecture for the UI in an Activity or a component of a UI and add the following lines:</p>
+
+        <pre><code class="language-xml hljs">&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent" &gt;
+   
+   &lt;TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_centerVertical="true"
+      android:text="@string/hello_msg"
+      tools:context=".MainActivity" /&gt;
+&lt;/RelativeLayout&gt;</code></pre>
+
+        <p>Now, we need generate the <code>R.java</code> file:</p>
+        
+        <pre><code class="language-bash hljs">aapt package -f -m -J $PROJ/src -M $PROJ/AndroidManifest.xml -S $PROJ/res -I $ANDROID_HOME/platforms/android-21/android.jar</code></pre>
+
+        <ul>
+            <li><code>-f</code> option instructs <code>aapt</code> to force overwrite of existing files</li>
+            <li><code>-m</code> option instructs <code>aapt</code> to create directories under the location specified by <code>-J</code> option</li>
+            <li><code>-J</code> option specifies where <code>R.java</code> file will be created</li>
+            <li><code>-S</code> option specifies where the resource directory is</li>
+            <li><code>-I</code> option instructs <code>aapt</code> to include the <code>android.jar</code></li>
+        </ul>
+
+        <p>Next, we compile the <code>.java</code> files:</p>
+
+        <pre><code class="language-bash hljs">javac -d obj -sourcepath src -classpath $ANDROID_HOME/platforms/android-21/android.jar src/com/example/helloandroid/*.java</code></pre>   
+        
+        <ul>
+            <li><code>-d</code> option specifies where the class files (compiled <code>.java</code> files) will be saved</li>
+            <li><code>-sourcepath</code> option specifies where to find source files (<code>.java</code> files)</li>
+            <li><code>-classpath</code> option specifies where the android library (<code>.jar</code> files) or the external libraries are. Use <code>:</code> to separate the <code>.jar</code> files</li>
+        </ul>
+
+        <p>The compiled <code>.class</code> files are in <code>obj</code> directory, but Android runtime can't read them. We have to translate them in a file called <code>classes.dex</code> which will be read by the dalvik Android runtime:</p>
+
+        <pre><code class="language-bash hljs">dx --dex --output=$PROJ/bin/classes.dex $PROJ/obj</code></pre>
+
+        <p>But if your project uses external libraries, then:</p>
+    
+        <pre><code class="language-bash hljs">dx --dex --output=$PROJ/bin/classes.dex $PROJ/*.jar $PROJ/obj</code></pre>
+
+        <p>Now we create the APK file:</p>
+    
+        <pre><code class="language-bash hljs">aapt package -f -m -F $PROJ/bin/hello.unaligned.apk -M $PROJ/AndroidManifest.xml -S $PROJ/res -I $ANDROID_HOME/platforms/android-21/android.jar</code></pre>
+
+        <ul>
+            <li><code>-f</code> option instructs <code>aapt</code> to force overwrite of existing files</li>
+            <li><code>-m</code> option instructs <code>aapt</code> to create directories under the location specified by <code>-J</code> option</li>
+            <li><code>-F</code> option specifies where the APK file will be created</li>
+            <li><code>-M</code> option specifies full path to <code>AndroidManifest.xml</code> to include in APK file</li>
+            <li><code>-S</code> option specifies directory in which to find resources</li>
+            <li><code>-I</code> option instructs <code>aapt</code> to include the <code>android.jar</code></li>
+        </ul>
+
+        <p>Add the <code>classes.dex</code> file to the APK file:</p>
+
+        <pre><code class="language-bash hljs">aapt add $PROJ/bin/hello.unaligned.apk $PROJ/bin/classes.dex</code></pre>
+
+        <p>The generated APK can’t be installed yet by Android because it's unaligned and unsigned.</p>
+
+        <p>To sign the APK, we firstly create a new keystore with the command <code>keytool</code> given by Java JDK:</p>
+
+        <pre><code class="language-bash hljs">keytool -genkeypair -alias samuel -validity 365 -keystore mykey.keystore -keyalg RSA -keysize 2048</code></pre>
+
+        <ul>
+            <li><code>-genkeypair</code> option instructs <code>keytool</code> to generate a public key/private key pair and the generated key pair is inserted into a Java KeyStore file as a self signed key pair</li>
+            <li><code>-alias</code> option specifies the name for the certificate</li>
+            <li><code>-validity</code> option specifies the number of days the certificate attached to the key pair should be valid</li>
+            <li><code>-keystore</code> option specifies the name of the KeyStore file to store the generated key pair in</li>
+            <li><code>-keyalg</code> option specifies the name of the algorithm used to generate the key</li>
+            <li><code>-keysize</code> option specifies the size in bits of the key to generate</li>
+        </ul>
+
+        <p>When prompted, supply the certificate and password information.</p>
+
+        <pre><code class="language-bash hljs">Enter keystore password:  (choose a password)
+What is your first and last name?
+  [Unknown]:  samuel yang
+What is the name of your organizational unit?
+  [Unknown]:  development
+What is the name of your organization?
+  [Unknown]:  hemimorphite
+What is the name of your City or Locality?
+  [Unknown]:  jakarta
+What is the name of your State or Province?
+  [Unknown]:  jakarta
+What is the two-letter country code for this unit?
+  [Unknown]:  id
+Is CN=samuel yang, OU=development, O=hemimorphite, L=jakarta, ST=jakarta, C=id correct?
+  [no]:  yes
+
+Enter key password for 
+        (RETURN if same as keystore password):  (choose a password or enter)</code></pre>        
+
+        <p>Next, we sign the APK file with the command <code>jarsigner</code> given by Java JDK:</p>
+
+        <pre><code class="language-bash hljs">jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore mykey.keystore $PROJ/bin/hello.unaligned.apk</code></pre>
+
+        <ul>
+            <li><code>-verbose</code> option indicates that the <code>jarsigner</code> use the verbose mode when signing</li>
+            <li><code>-sigalg</code> option specifies the name of the signature algorithm to use to sign the APK file.</li>
+            <li><code>-digestalg</code> option specifies the name of the message digest algorithm to use when digesting the entries of a APK file.</li>
+            <li><code>-keystore</code> option specifies the name of the KeyStore file to be used</li>
+        </ul>
+
+        <p>Next, we align the APK file to optimize your APK file.</p>
+
+        <pre><code class="language-bash hljs">zipalign -f 4 $PROJ/bin/hello.unaligned.apk $PROJ/bin/hello.apk</code></pre>   
+        
+        <ul>
+            <li><code>-f</code> option instructs the <code>zipalign</code> to overwrite existing output file</li>
+            <li><code>4</code> option instructs the <code>zipalign</code> to align to 4 bytes on both 32-bit and 64-bit systems</li>
+        </ul>
+
+        <h4 class="post-subtitle">Run the APK File on Android Emulator</h4>
+
+        <p>Download the genymotion installer on the <a href="https://www.genymotion.com/download/">official website</a>.</p>
+
+        <p>Next, open terminal and run the installer:</p>
+
+        <pre><code class="language-bash hljs">./genymotion-3.4.0-linux_x64.bin</code></pre>
+
+        <p>After finished installing, open the emulator and click add virtual machine.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-01.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <p>A window will show up, search the virtual device name (eg. Samsung Galaxy S5) and double click the virtual device.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-02.jpg" alt="Genymotion Emulator">
+        </figure>        
+
+        <p>Just click <b>Next</b> and then click <b>Install</b>.</p>   
+        
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-03.jpg" alt="Genymotion Emulator">
+        </figure>        
+
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-04.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-05.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-06.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <p>Wait until the download is complete.</p>
+
+        <p>After the download is complete, start the virtual device.</p>
+
+        <figure class="post-figure vertical">
+            <img src="/assets/images/genymotion-07.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <figure class="post-figure vertical">
+            <img src="/assets/images/genymotion-08.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <p>Drag and drop the APK file into the emulator. A window will show up. Click <b>continue</b>.</p>
+
+        <figure class="post-figure vertical">
+            <img src="/assets/images/genymotion-09.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <p>if everything is fine with your set-up and application, it will display following emulator window.</p>
+
+        <figure class="post-figure vertical">
+            <img src="/assets/images/genymotion-10.jpg" alt="Genymotion Emulator">
+        </figure> 
+    </article>
+
+  <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/android-5">android 5</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/api-level-21">api level 21</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/linux">linux</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/genymotion">genymotion</a></li>
+	
+</ul>
+
+  <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/&hashtags=android 5,api level 21,linux,genymotion"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-06" /><category term="day-26" /><category term="android 5" /><category term="api level 21" /><category term="linux" /><category term="genymotion" /><summary type="html"><![CDATA[This tutorial will guide you on how to build and run an Android 5 API level 21 application from the command line, providing a step-by-step approach with code examples and screenshots.]]></summary></entry><entry xml:lang="en"><title type="html">Ubuntu 22.04 Installation Guide on the External HDD/SSD Connected via USB</title><link href="https://hemimorphite.github.io/2023/06/23/ubuntu-2204-installation-guide-on-external-ssd-connected-via-usb/" rel="alternate" type="text/html" title="Ubuntu 22.04 Installation Guide on the External HDD/SSD Connected via USB" /><published>2023-06-23T13:38:50+00:00</published><updated>2023-06-23T13:38:50+00:00</updated><id>https://hemimorphite.github.io/2023/06/23/ubuntu-2204-installation-guide-on-external-ssd-connected-via-usb</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/23/ubuntu-2204-installation-guide-on-external-ssd-connected-via-usb/"><![CDATA[<div class="blog-post">
+    <div class="post-date">Published June 23, 2023</div>
+<h2 class="post-title">Ubuntu 22.04 Installation Guide on the External HDD/SSD Connected via USB</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">By <b>Samuel Yang</b></span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/23/ubuntu-2204-installation-guide-on-external-ssd-connected-via-usb/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/23/ubuntu-2204-installation-guide-on-external-ssd-connected-via-usb/&hashtags=ubuntu,linux,uefi"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/23/ubuntu-2204-installation-guide-on-external-ssd-connected-via-usb/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/jellyfish.jpg" alt="Gentoo Linux">
+</figure>
+
+    <article class="post-content">
+        <p>The one major problem with Ubuntu installation on UEFI systems is that the system can only have one active EFI system partition at a time.</p>
+
+        <p>When installing Ubuntu, even if you choose the external hard drive/SSD as the destination for the bootloader, the EFI file of the Ubuntu distribution will be placed in the internal (the first) hard drive/SSD EFI system partition. This causes the Ubuntu won't boot and is not available in boot options.</p>
+
+        <p>The solution or workaround to the bootloader problem is removing the internal (the first) hard drive/SSD during the Ubuntu Installation process.</p>
+
+        <p>Then you attach the external hard drive/SSD to the laptop/PC via USB.</p> 
+
+        <p>Now let's install Ubuntu to the external hard drive/SSD.</p>
+
+        <h4 class="post-subtitle">Create a bootable Ubuntu USB Stick</h4>
+
+        <p>First, download the latest Ubuntu image on <a href="https://ubuntu.com/download/desktop" target="blank">the official website</a> and download rufus on <a href="https://rufus.ie/en/" target="blank">the official website</a>.</p>
+
+        <p>Open the Rufus and locate your USB under the <b>Device</b> option:</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/rufus-01.jpg" alt="Bootable USB">
+        </figure>
+
+        <p>Click on the <b>Select</b> button and load the ISO file of Ubuntu 22.04 from your computer:</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/rufus-02.png" alt="Bootable USB">
+        </figure>
+
+        <p>Click the <b>Partition scheme</b> selection box and choose <b>GPT</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/rufus-03.jpg" alt="Bootable USB">
+        </figure>
+
+        <p>Click on the <b>Start</b> button.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/rufus-04.jpg" alt="Bootable USB">
+        </figure>
+
+        <p>If you see the message, ISOHybrid image detected, select <b>Write in ISO Image mode (recommended)</b>, as shown below, and click <b>OK</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/rufus-05.jpg" alt="Bootable USB">
+        </figure>
+
+        <p>A warning pop-up shows up, asking you to confirm that it is ok to destroy all data on the USB flash drive. Click <b>OK</b> to continue.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/rufus-06.jpg" alt="Bootable USB">
+        </figure>
+
+        <p>Rufus starts processing the bootable USB drive.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/rufus-07.jpg" alt="Bootable USB">
+        </figure>
+
+        <p>if Rufus has finished writing to the bootable USB, the <b>Status</b> will change to Ready. Click <b>CLOSE</b> to exit Rufus.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/rufus-08.jpg" alt="Bootable USB">
+        </figure>
+
+        <h4 class="post-subtitle">Install Ubuntu on the external hard drive/SSD</h4>
+
+        <p>Restart your computer and press <b>the boot key</b> repeatedly as the computer turns on to access the boot menu. The boot key differs based on the manufacturer:</p>
+
+        <table class="table table-bordered border-primary">
+            <thead>
+                <tr>
+                    <th>Manufacturer</th>
+                    <th>Boot Key</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Acer</td>
+                    <td><strong>F12</strong></td>
+                </tr>
+                <tr>
+                    <td>Asus</td>
+                    <td><strong>F8</strong> or <strong>Esc</strong></td>
+                </tr>
+                <tr>
+                    <td>Compaq</td>
+                    <td><strong>F9</strong> or <strong>Esc</strong></td>
+                </tr>
+                <tr>
+                    <td>Dell</td>
+                    <td><strong>F12</strong></td>
+                </tr>
+                <tr>
+                    <td>HP</td>
+                    <td><strong>F9</strong> or <strong>Esc</strong></td>
+                </tr>
+                <tr>
+                    <td>Lenovo</td>
+                    <td><strong>F8</strong>, <strong>F10</strong>, or <strong>F12</strong></td>
+                </tr>
+                <tr>
+                    <td>Samsung</td>
+                    <td><strong>F2</strong>, <strong>F12</strong>, or <strong>Esc</strong></td>
+                </tr>
+                <tr>
+                    <td>Toshiba</td>
+                    <td><strong>F12</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Once the system is fully booted from Live USB or DVD, you will get the OS installer window like below.</p>
+
+        <p>To install Ubuntu 22.04, click on <b>Install Ubuntu</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-01.jpg" alt="Ubuntu Installation">
+        </figure>
+
+        <p>Select your language.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-02.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>Select your keyboard layout. If you are unsure about your keyboard layout, use the <b>Detect Keyboard Layout option</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-03.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>Next you need to choose the type of Ubuntu installation. You can either choose to install updates and other third-party software during the Ubuntu 22.04 installation or leave it.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-04.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>On the Installation type page, select <b>Something else</b> and click <b>Continue</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-05.jpg" alt="Ubuntu Installation">
+        </figure>
+
+        <p>The menu shows the disk as <b>/dev/sda</b>. Click <b>+</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-06.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>Create a partition for the EFI system.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-07.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>Next, create a partition for the root file system.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-08.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>Then create a partition for the user file system.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-09.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>The disk partitioning is complete. Select the root file system <b>/dev/sda2</b> and click <b>Install Now</b> to begin the installation.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-10.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>Then you need to set the time zone. Search for a location in the search box and click <b>Continue</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-11.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>The confirmation prompt appears, click <b>Continue</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-12.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>Next, enter your name, computer name, username, and password, and click <b>Continue</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-13.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>At this point, the process will install Ubuntu on the external hard drive/SSD, and you only need to wait for the setup to finish.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-14.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>When the installation finishes, a prompt appears and click <b>Restart now</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/ubuntuos-15.png" alt="Ubuntu Installation">
+        </figure>
+
+        <p>Press <b>the bios key</b> repeatedly as the computer turns on to access the boot settings. The bios key differs based on the manufacturer:</p>
+
+        <table class="table table-bordered border-primary">
+            <thead>
+                <tr>
+                    <th>Manufacturer</th>
+                    <th>Boot Key</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Acer</td>
+                    <td><strong>F2</strong> or <strong>Del</strong></td>
+                </tr>
+                <tr>
+                    <td>Asus</td>
+                    <td><strong>F2</strong> or <strong>Del</strong></td>
+                </tr>
+                <tr>
+                    <td>Compaq</td>
+                    <td><strong>F10</strong></td>
+                </tr>
+                <tr>
+                    <td>Dell</td>
+                    <td><strong>F2</strong>or <strong>F12</strong></td>
+                </tr>
+                <tr>
+                    <td>HP</td>
+                    <td><strong>F10</strong></td>
+                </tr>
+                <tr>
+                    <td>Lenovo</td>
+                    <td><strong>F1</strong></td>
+                </tr>
+                <tr>
+                    <td>Samsung</td>
+                    <td><strong>F2</strong></td>
+                </tr>
+                <tr>
+                    <td>Toshiba</td>
+                    <td><strong>F2</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>In the boot settings, make sure that <b>Secure Boot</b> is turned on. It should be under the <b>Boot tab</b>.</p>
+
+        <p>Go to Security tab and look for <b>Select an UEFI file as trusted for executing</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/boot-01.jpg" alt="Boot Settings">
+        </figure>
+
+        <p>You should see your hard drive/SSD like USB0 since it is connected via USB. Press Enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/boot-02.jpg" alt="Boot Settings">
+        </figure>
+
+        <p>Then you should see <b>&lt;EFI&gt;</b>. Press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/boot-03.jpg" alt="Boot Settings">
+        </figure>
+
+        <p>Next You should see <b>&lt;ubuntu&gt;</b>. Press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/boot-04.jpg" alt="Boot Settings">
+        </figure>
+
+        <p>You'll see <b>shimx64.efi</b>, <b>grubx64.efi</b> and <b>MokManager.efi</b> file here. Select <b>shimx64.efi</b> and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/boot-05.jpg" alt="Boot Settings">
+        </figure>
+
+        <p>A prompt shows up, type the boot name (eg. <b>SSDUSB0</b>) and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/boot-06.jpg" alt="Boot Settings">
+        </figure>
+
+        <p>The <b>shimx64.efi</b> has been added as trused EFI file to be executed, press <b>F10</b> to save and exit.</p>
+
+        <p>Press <b>the boot key</b> repeatedly as the computer turns on to access the boot menu. You should see the boot name (<b>SSDUSB0</b>) on the boot menu. Select it and press enter.</p>
+
+        <p>You should be able to boot into Ubuntu on the external hard drive/SSD and <strong>you must always attach the external hard drive/SSD on the same USB port</strong>.</p>  
+
+        <p>Finally, you can place back the internal hard drive/SSD.</p>
+    </article>
+
+  <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/ubuntu">ubuntu</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/linux">linux</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/uefi">uefi</a></li>
+	
+</ul>
+
+  <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/23/ubuntu-2204-installation-guide-on-external-ssd-connected-via-usb/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/23/ubuntu-2204-installation-guide-on-external-ssd-connected-via-usb/&hashtags=ubuntu,linux,uefi"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/23/ubuntu-2204-installation-guide-on-external-ssd-connected-via-usb/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-06" /><category term="day-23" /><category term="ubuntu" /><category term="linux" /><category term="uefi" /><summary type="html"><![CDATA[This step-by-step tutorial will guide you through the process of installing Ubuntu 22.04 on an external hard drive/SSD connected via USB. With clear and easy-to-follow instructions, you can have your Ubuntu system up and running in no time.]]></summary></entry><entry xml:lang="en"><title type="html">Enable Nested VT-x/AMD-V on Virtualbox</title><link href="https://hemimorphite.github.io/2023/06/21/enable-nested-vtx-amdv-on-virtualbox/" rel="alternate" type="text/html" title="Enable Nested VT-x/AMD-V on Virtualbox" /><published>2023-06-21T13:38:50+00:00</published><updated>2023-06-21T13:38:50+00:00</updated><id>https://hemimorphite.github.io/2023/06/21/enable-nested-vtx-amdv-on-virtualbox</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/21/enable-nested-vtx-amdv-on-virtualbox/"><![CDATA[<div class="blog-post">
+    <div class="post-date">Published June 21, 2023</div>
+<h2 class="post-title">Enable Nested VT-x/AMD-V on Virtualbox</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">By <b>Samuel Yang</b></span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/21/enable-nested-vtx-amdv-on-virtualbox/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/21/enable-nested-vtx-amdv-on-virtualbox/&hashtags=virtualbox,windows"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/21/enable-nested-vtx-amdv-on-virtualbox/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/virtualbox.jpg" alt="Gentoo Linux">
+</figure>
+
+    <article class="post-content">
+        <p>First, run command prompt as administrator. Then add Virtualbox folder to system PATH environment variable:</p>
+
+        <pre><code class="language-bash hljs">SET PATH=%PATH%;C:\Program Files\Oracle\VirtualBox</code></pre>
+
+        <p>To enable the Nested VT-x/AMD-v in VirtualBox, you need to know your VM name (eg. UbuntuVM) and use <code>VBoxManage</code> command:</p>
+
+        <pre><code class="language-bash hljs">VBoxManage modifyvm UbuntuVM --nested-hw-virt on</code></pre>
+
+        <p>Then you have to verify if the change have affected VM System settings in the VirtualBox. See if tick mark on <b>Enable Nested VT-x/AMD-v</b> option appears as expected.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/vbox-01.jpg" alt="Virtualbox Settings">
+        </figure>
+
+        <p>Next start the VM and test if the nested virtualization support is enabled in the VM.</p>
+
+        <pre><code class="language-bash hljs">grep -E "(vmx|svm)" /proc/cpuinfo</code></pre>
+
+        <p>The output should similar to:</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/vbox-02.jpg" alt="Nested virtualization">
+        </figure>        
+
+        <p>If the output shows nothing then you need to disable Hyper-V in your Windows System. Once again, run command prompt as administrator. Then run the following commands:</p>
+
+        <pre><code class="language-bash hljs">DISM /Online /Disable-Feature:Microsoft-Hyper-V</code></pre>
+
+        <pre class="command">PowerShell Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor -All</pre>
+
+        <pre><code class="language-bash hljs">bcdedit /set hypervisorlaunchtype off</code></pre>
+
+        <p>After that you restart your Windows.</p> 
+
+        <p>Now you can try to start the VM again and test if the nested virtualization support is enabled in the VM.</p>
+    </article>
+
+  <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/virtualbox">virtualbox</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/windows">windows</a></li>
+	
+</ul>
+
+  <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/21/enable-nested-vtx-amdv-on-virtualbox/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/21/enable-nested-vtx-amdv-on-virtualbox/&hashtags=virtualbox,windows"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/21/enable-nested-vtx-amdv-on-virtualbox/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-06" /><category term="day-21" /><category term="virtualbox" /><category term="windows" /><summary type="html"><![CDATA[Learn how to enable nested virtualization on VirtualBox through this step-by-step tutorial.]]></summary></entry><entry xml:lang="en"><title type="html">Signing Virtualbox Kernel Modules</title><link href="https://hemimorphite.github.io/2023/06/21/signing-virtualbox-kernel-modules/" rel="alternate" type="text/html" title="Signing Virtualbox Kernel Modules" /><published>2023-06-21T13:38:50+00:00</published><updated>2023-06-21T13:38:50+00:00</updated><id>https://hemimorphite.github.io/2023/06/21/signing-virtualbox-kernel-modules</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/21/signing-virtualbox-kernel-modules/"><![CDATA[<div class="blog-post">
+    <div class="post-date">Published June 21, 2023</div>
+<h2 class="post-title">Signing Virtualbox Kernel Modules</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">By <b>Samuel Yang</b></span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/21/signing-virtualbox-kernel-modules/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/21/signing-virtualbox-kernel-modules/&hashtags=virtualbox,ubuntu"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/21/signing-virtualbox-kernel-modules/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/virtualbox.jpg" alt="Gentoo Linux">
+</figure>
+
+    <article class="post-content">
+        <p>When Secure Boot is enabled, the computer's Linux kernel checks the PKI signature of each kernel module before it is loaded. It won't load unsigned kernel modules, nor modules with invalid signatures.</p>
+
+        <p>To begin with signing things for UEFI Secure Boot, you need to create a X509 certificate that can be imported in firmware; either directly though the manufacturer firmware, or more easily, by way of shim.</p>
+
+        <p>First, let's create some config to let openssl know what we want to create (let’s call it <code>openssl.conf</code>):</p>
+
+        <pre><code class="language-bash hljs"># This definition stops the following lines choking if HOME isn't
+# defined.
+HOME                    = .
+RANDFILE                = $ENV::HOME/.rnd 
+[ req ]
+distinguished_name      = req_distinguished_name
+x509_extensions         = v3
+string_mask             = utf8only
+prompt                  = no
+
+[ req_distinguished_name ]
+countryName             = ID
+stateOrProvinceName     = Jakarta
+localityName            = Jakarta
+organizationName        = hemimorphite
+commonName              = Secure Boot Signing
+emailAddress            = yangsamuel91@gmail.com
+
+[ v3 ]
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid:always,issuer
+basicConstraints        = critical,CA:FALSE
+extendedKeyUsage        = codeSigning,1.3.6.1.4.1.311.10.3.6,1.3.6.1.4.1.2312.16.1.2
+nsComment               = "OpenSSL Generated Certificate"</code></pre>
+
+
+        <p>Update the values under <code>[ req_distinguished_name ]</code> for the certificate identification.</p>
+
+        <p>The identification itself does not matter much, but some of the later values are important: for example, we do want to make sure <code>1.3.6.1.4.1.2312.16.1.2</code> is included in <code>extendedKeyUsage</code>, and it is that OID that will tell shim this is meant to be a module signing certificate.</p>
+
+        <p>Now, create public and private keys using <code>openssl</code> command:</p>
+
+        <pre><code class="language-bash hljs">openssl req -config openssl.conf -new -x509 -newkey rsa:2048 -nodes -days 36500 -outform DER -keyout "MOK.priv" -out "MOK.der"</code></pre>
+
+        <ul>
+            <li><code>openssl req</code> command instructs to create and process certificate requests in PKCS#10 format</li>
+            <li><code>-config</code> option specifies the configuration file</li>
+            <li><code>-new</code> option specifies to generate a new certificate request</li>
+            <li><code>-x509</code> option specifies a self signed certificate instead of a certificate request</li>
+            <li><code>-newkey</code> option specifies to create a new certificate request and a new private key</li>
+            <li><code>rsa:2048</code> argument means generating an RSA key 2048 in size</li>
+            <li><code>-nodes</code> option specifies the created private key will not be encrypted</li>
+            <li><code>-days</code> option specifies the number of days to certify the certificate for</li>
+            <li><code>-outform</code> option specifies the output format</li>
+            <li><code>-keyout</code> option specifies the filename of the newly created private key</li>
+            <li><code>-out</code> option specifies the output filename to write to or standard output by default</li>
+        </ul>
+
+        <p>The command will create the <code>MOK.priv</code> and <code>MOK.der</code> files in present working directory by accepting <code>openssl.conf</code> as input file.</p>
+
+        <p>The next step is to enroll this keys with the SHIM UEFI Bootloader (<b>SHIM</b> is a simple software package that is designed to work as a first-stage bootloader on UEFI systems).</p>
+
+        <pre><code class="language-bash hljs">sudo mokutil --import MOK.der</code></pre>
+
+        <p>When prompted, supply the password and remember the password, as we would need to enter the password when we reboot the machine.</p>
+        
+        <p>Now reboot the machine, and you will see the blue screen as below, during the next boot. The screen is of Shim UEFI Key Management.</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/shim-01.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Press any key as suggested, and we will see the next screen. Select <b>Enroll MOK</b> and press enter</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-02.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Select <b>View Key 0</b> to view the key the and press enter</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/shim-03.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Press enter to close. Then select <b>Continue</b> to view the key the and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-04.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Select <b>Yes</b> the and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-05.jpg" alt="Shim UEFI Key Management">
+        </figure>        
+
+        <p>Enter the password which we entered when we used <code>mokutil</code> command and press enter.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-06.jpg" alt="Shim UEFI Key Management">
+        </figure>    
+
+          
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-07.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>Select <b>Reboot</b> and press enter.</p>  
+
+        <figure class="post-figure">
+            <img src="/assets/images/shim-08.jpg" alt="Shim UEFI Key Management">
+        </figure>
+
+        <p>After your Ubuntu is rebooted completely, let's make sure the key we added really is seen by the kernel. Just make sure a key exists there with the commonName attribute you entered earlier. To do this, we can go look at <code>/proc/keys</code>:</p>
+
+        <pre><code class="language-bash hljs">cat /proc/keys | grep "Secure Boot Signing"</code></pre>
+
+        <p>The output should similar to:</p> 
+
+        <pre><code class="language-bash hljs">0033c1a8 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (2019): c0746fd6c5da3ae827864651ad66ae47fe24b3e8: X509.rsa fe24b3e8 []
+0add8950 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (2021 v3): 100437bb6de6e469b581e61cd66bce3ef4ed53af: X509.rsa f4ed53af []
+11a7dae8 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing: 61482aa2830d0ab2ad5af10b7250da9033ddcef0: X509.rsa 33ddcef0 []
+1cc2f418 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (2021 v1): a8d54bbb3825cfb94fa13c9f8a594a195c107b8d: X509.rsa 5c107b8d []
+1fc89e93 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (2021 v2): 4cf046892d6fd3c9a5b03f98d845f90851dc6a8c: X509.rsa 51dc6a8c []
+235d3b1b I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (2017): 242ade75ac4a15e50d50c84b0d45ff3eae707a03: X509.rsa ae707a03 []
+39df0956 I------     1 perm 1f010000     0     0 asymmetri hemimorphite: Secure Boot Signing: 86f0ddb595b4f13bcb1eb858835a8305809b431a: X509.rsa 809b431a []
+3ea57f35 I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (Ubuntu Core 2019): c1d57b8f6b743f23ee41f4f7ee292f06eecadfb9: X509.rsa eecadfb9 []
+3ff61f7a I------     1 perm 1f030000     0     0 asymmetri Canonical Ltd. Secure Boot Signing (ESM 2018): 365188c1d374d6b0</code></pre>   
+
+        <p>To sign kernel modules, we can use the <code>kmodsign</code> command:</p>
+    </article>
+
+  <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/virtualbox">virtualbox</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/ubuntu">ubuntu</a></li>
+	
+</ul>
+
+  <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/21/signing-virtualbox-kernel-modules/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/21/signing-virtualbox-kernel-modules/&hashtags=virtualbox,ubuntu"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/21/signing-virtualbox-kernel-modules/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-06" /><category term="day-21" /><category term="virtualbox" /><category term="ubuntu" /><summary type="html"><![CDATA[Learn how to enable nested virtualization on VirtualBox through this step-by-step tutorial.]]></summary></entry><entry xml:lang="en"><title type="html">tar: Cannot create symlink to XXX: Operation not permitted</title><link href="https://hemimorphite.github.io/2023/06/20/tar-cannot-create-symlink-to-xxx-operation-not-permitted/" rel="alternate" type="text/html" title="tar: Cannot create symlink to XXX: Operation not permitted" /><published>2023-06-20T15:38:59+00:00</published><updated>2023-06-20T15:38:59+00:00</updated><id>https://hemimorphite.github.io/2023/06/20/tar-cannot-create-symlink-to-xxx-operation-not-permitted</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/20/tar-cannot-create-symlink-to-xxx-operation-not-permitted/"><![CDATA[<div class="blog-post">
+    <div class="post-date">Published June 20, 2023</div>
+<h2 class="post-title">tar: Cannot create symlink to XXX: Operation not permitted</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">By <b>Samuel Yang</b></span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/20/tar-cannot-create-symlink-to-xxx-operation-not-permitted/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/20/tar-cannot-create-symlink-to-xxx-operation-not-permitted/&hashtags=tar,linux"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/20/tar-cannot-create-symlink-to-xxx-operation-not-permitted/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/tar.png" alt="Gentoo Linux">
+</figure>
+
+    <article class="post-content">
+        <p>If you're seeing the <b>"tar: Cannot create symlink to XXX: Operation not permitted"</b> error message, it means you're trying to extract a tar archive and create symlinks on a filesystem that doesn't support them such as exFat, NTFS, FAT32, FAT16, etc.</p>
+
+        <p>On the Linux OS or Mac OS, to dtermine what filesystem type a directory exists on, use <code>df</code> command.</p>
+
+        <pre><code class="language-bash hljs">df -T</code></pre>
+
+        <p>The solution to fix the issue is, if you are using Linux OS or Mac OS, move the tar archive to the directory which its filesystem supports symlink and then extract the tar archive.</p>    
+
+        <p>If you are using Windows OS, you can use 7-Zip software. To extract the tar archive, you must run the terminal as administrator or the 7-Zip GUI as administrator.</p>
+
+    </article>
+
+  <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/tar">tar</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/linux">linux</a></li>
+	
+</ul>
+
+  <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/20/tar-cannot-create-symlink-to-xxx-operation-not-permitted/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/20/tar-cannot-create-symlink-to-xxx-operation-not-permitted/&hashtags=tar,linux"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/20/tar-cannot-create-symlink-to-xxx-operation-not-permitted/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Troubleshooting" /><category term="year-2023" /><category term="month-06" /><category term="day-20" /><category term="tar" /><category term="linux" /><summary type="html"><![CDATA[If you're receiving a tar: cannot create symlink to XXX: operation not permitted error, it may be due to filesystem type. Learn how to fix this error here.]]></summary></entry><entry xml:lang="en"><title type="html">Explorer.exe Command Not Found in WSL</title><link href="https://hemimorphite.github.io/2023/06/20/explorer-exe-command-not-found-in-wsl/" rel="alternate" type="text/html" title="Explorer.exe Command Not Found in WSL" /><published>2023-06-20T07:38:59+00:00</published><updated>2023-06-20T07:38:59+00:00</updated><id>https://hemimorphite.github.io/2023/06/20/explorer-exe-command-not-found-in-wsl</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/20/explorer-exe-command-not-found-in-wsl/"><![CDATA[<div class="blog-post">
+    <div class="post-date">Published June 20, 2023</div>
+<h2 class="post-title">Explorer.exe Command Not Found in WSL</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">By <b>Samuel Yang</b></span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/20/explorer-exe-command-not-found-in-wsl/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/20/explorer-exe-command-not-found-in-wsl/&hashtags=wsl,windows"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/20/explorer-exe-command-not-found-in-wsl/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/wsl.jpg" alt="Gentoo Linux">
+</figure>
+
+    <article class="post-content">
+        <p>If you encounter the "explorer.exe command not found" error in Windows Subsystem for Linux (WSL), there is a easy solution to fix the issue.</p>
+
+        <p>First, go to the home directory of the current user:</p>
+
+        <pre><code class="language-bash hljs">cd ~</code></pre>
+
+        <p>Open <code>.bashrc</code> file:</p>
+
+        <pre><code class="language-bash hljs">vi .bashrc</code></pre> 
+        
+        <p>Add the following line to the file.</p>
+
+        <pre><code class="language-bash hljs">export PATH="/mnt/c/Windows:$PATH"</code></pre>   
+
+        <p>Save the file and exit.</p>
+
+        <p>Use <code>source</code> command to reload the <code>.bashrc</code> file.</p>
+
+        <pre><code class="language-bash hljs">source .bashrc</code></pre>
+    </article>
+
+  <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/wsl">wsl</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/windows">windows</a></li>
+	
+</ul>
+
+  <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/20/explorer-exe-command-not-found-in-wsl/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/20/explorer-exe-command-not-found-in-wsl/&hashtags=wsl,windows"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/20/explorer-exe-command-not-found-in-wsl/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Troubleshooting" /><category term="year-2023" /><category term="month-06" /><category term="day-20" /><category term="wsl" /><category term="windows" /><summary type="html"><![CDATA[If you're encountering the Explorer.exe Command Not Found error in WSL, don't worry - there are easy solutions you can try to resolve the issue and get your system up and running again.]]></summary></entry><entry xml:lang="en"><title type="html">Create Multiple IP Addresses to One Single Network Interface with Systemd-Networkd</title><link href="https://hemimorphite.github.io/2023/06/15/create-multiple-ip-addresses-to-one-single-network-interface-with-systemd-networkd/" rel="alternate" type="text/html" title="Create Multiple IP Addresses to One Single Network Interface with Systemd-Networkd" /><published>2023-06-15T04:44:59+00:00</published><updated>2023-06-15T04:44:59+00:00</updated><id>https://hemimorphite.github.io/2023/06/15/create-multiple-ip-addresses-to-one-single-network-interface-with-systemd-networkd</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/15/create-multiple-ip-addresses-to-one-single-network-interface-with-systemd-networkd/"><![CDATA[<div class="blog-post">
+    <div class="post-date">Published June 15, 2023</div>
+<h2 class="post-title">Create Multiple IP Addresses to One Single Network Interface with Systemd-Networkd</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">By <b>Samuel Yang</b></span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/15/create-multiple-ip-addresses-to-one-single-network-interface-with-systemd-networkd/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/15/create-multiple-ip-addresses-to-one-single-network-interface-with-systemd-networkd/&hashtags=systemd,systemd-networkd"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/15/create-multiple-ip-addresses-to-one-single-network-interface-with-systemd-networkd/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/systemd-dark.png" alt="Gentoo Linux">
+</figure>
+
+    <article class="post-content">
+        <p>Creating or configuring multiple IP addresses on a single network interface is called IP aliasing.</p>
+
+        <p>Edit the network configuration file <code>/etc/systemd/network/10-enp0s3.network</code>. Add <code>Address=</code> more than once to configure multiple IPv4 or IPv6 addresses.</p>
+
+        <pre><code class="language-bash hljs">[Match]
+            Name=enp0s3
+
+            [Network]
+            Address=10.10.10.100/24
+            Address=10.10.10.101/24
+            Address=10.10.10.102/24
+            Address=10.10.10.103/24
+            Address=10.10.10.104/24
+            Address=fd3c:b8f6:7506:cb1b::64/64
+            Address=fd3c:b8f6:7506:cb1b::65/64
+            Address=fd3c:b8f6:7506:cb1b::66/64
+            Address=fd3c:b8f6:7506:cb1b::67/64
+            Address=fd3c:b8f6:7506:cb1b::68/64
+            Gateway=10.10.10.1
+        Gateway=fd3c:b8f6:7506:cb1b::1</code></pre>
+
+        <p>Then restart <code>systemd-networkd</code> service:</p>
+
+        <pre><code class="language-bash hljs">systemctl restart systemd-networkd</code></pre>        
+    </article>
+
+  <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/systemd">systemd</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/systemd-networkd">systemd-networkd</a></li>
+	
+</ul>
+
+  <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/15/create-multiple-ip-addresses-to-one-single-network-interface-with-systemd-networkd/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/15/create-multiple-ip-addresses-to-one-single-network-interface-with-systemd-networkd/&hashtags=systemd,systemd-networkd"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/15/create-multiple-ip-addresses-to-one-single-network-interface-with-systemd-networkd/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-06" /><category term="day-15" /><category term="systemd" /><category term="systemd-networkd" /><summary type="html"><![CDATA[Learn how to create multiple IP addresses for a single network interface using systemd-networkd with our comprehensive tips and tricks guide.]]></summary></entry><entry xml:lang="en"><title type="html">Restarting Systemd-Networkd has no effect</title><link href="https://hemimorphite.github.io/2023/06/14/restarting-systemd-networkd-has-no-effect/" rel="alternate" type="text/html" title="Restarting Systemd-Networkd has no effect" /><published>2023-06-14T13:40:59+00:00</published><updated>2023-06-14T13:40:59+00:00</updated><id>https://hemimorphite.github.io/2023/06/14/restarting-systemd-networkd-has-no-effect</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/14/restarting-systemd-networkd-has-no-effect/"><![CDATA[<div class="blog-post">
+    <div class="post-date">Published June 14, 2023</div>
+<h2 class="post-title">Restarting Systemd-Networkd has no effect</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">By <b>Samuel Yang</b></span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/14/restarting-systemd-networkd-has-no-effect/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/14/restarting-systemd-networkd-has-no-effect/&hashtags=systemd,systemd-networkd"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/14/restarting-systemd-networkd-has-no-effect/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/systemd-dark.png" alt="Gentoo Linux">
+</figure>
+
+    <article class="post-content">
+        <p>If restarting <code>systemd-networkd</code> service takes no effect after making changes to a configuration file, it's probably because you didn't prefix your configuration file with a number.</p>
+
+        <p>The <code>.network</code> files are read from the files located in the system network directories <code>/usr/lib/systemd/network</code> and <code>/usr/local/lib/systemd/network</code>, the volatile runtime network directory <code>/run/systemd/network</code> and the local administration network directory <code>/etc/systemd/network</code>. All configuration files are collectively sorted and processed in alphanumeric order, regardless of the directories in which they live. However, files with identical filenames replace each other. <b>It is recommended that each filename is prefixed with a number (e.g. <code>10-eth0.network</code>)</b>. Otherwise, the default <code>.network</code> files or those generated by <code>systemd-network-generator.service</code> may take precedence over user configured files. Files in <code>/etc/</code> have the highest priority, files in <code>/run/</code> take precedence over files with the same name under <code>/usr/</code>. This can be used to override a system-supplied configuration file with a local file if needed.</p>
+    </article>
+
+    <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/systemd">systemd</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/systemd-networkd">systemd-networkd</a></li>
+	
+</ul>
+
+    <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/14/restarting-systemd-networkd-has-no-effect/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/14/restarting-systemd-networkd-has-no-effect/&hashtags=systemd,systemd-networkd"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/14/restarting-systemd-networkd-has-no-effect/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Troubleshooting" /><category term="year-2023" /><category term="month-06" /><category term="day-14" /><category term="systemd" /><category term="systemd-networkd" /><summary type="html"><![CDATA[If restarting systemd-networkd on your Linux system has no effect, there may be an underlying issue preventing the service from properly functioning. Here are some steps you can take to troubleshoot the problem and get your network connection up and running again.]]></summary></entry></feed>
