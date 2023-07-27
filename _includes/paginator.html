@@ -13,7 +13,7 @@
 		{% elsif pageminus2 >= 1 and paginator.total_pages <= 5 %}
 			{% assign finish = pageminus2 %}
 			{% for i in (1..finish) %}
-				{% if pageminus1 == 1 %}
+				{% if i == 1 %}
 				<li><a href="{{ site.url }}{{ lang }}">1</a></li>
 				{% else %}
 				<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
