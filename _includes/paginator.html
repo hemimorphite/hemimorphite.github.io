@@ -44,7 +44,7 @@
 		{% if pageplus2 < paginator.total_pages and paginator.total_pages > 5 %}
 		<li class="disabled"><a>...</a></li>
 		{% elsif pageplus2 <= paginator.total_pages and paginator.total_pages <= 5 %}
-			{% assign start = paginator.total_pages | minus: pageplus1 %}
+			{% assign start = pageplus2 %}
 			{% assign finish = paginator.total_pages %}
 			{% for i in (start..finish) %}
 				<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>

@@ -63,9 +63,9 @@
 					</button>
 					<div class="collapse navbar-collapse" id="navbarResponsive">
 						<ul class="navbar-nav ms-auto">
-							<li class="nav-item {% if page.url == '/index.html' %}active{% endif %}">
+							<li class="nav-item {% if page.url contains '/index.html' %}active{% endif %}">
 								<a class="nav-link" href="{{ site.url }}{{ lang }}/">{{ site.data.i18n.menu0 }}
-									{% if page.url == '/index.html' %}<span class="sr-only">(current)</span>{% endif %}
+									{% if page.url contains '/index.html' %}<span class="sr-only">(current)</span>{% endif %}
 								</a>
 							</li>
 						{% assign pages = site.pages %}
