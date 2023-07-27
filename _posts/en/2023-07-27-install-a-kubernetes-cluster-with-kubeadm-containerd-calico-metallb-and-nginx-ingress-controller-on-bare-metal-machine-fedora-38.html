@@ -34,187 +34,195 @@ tags: ["virtualbox", "fedora", "linux", "kubernetes", "kubeadm", "containerd", "
             <li>Worker Node's IP address is 172.16.0.22</li>
         </ul>
 
-        <h4>Install Fedora Server 38 on Virtualbox</h4>
+        <h4 class="post-subtitle">Install Fedora Server 38 on Virtualbox</h4>
 
         <p>Download Fedora image file by visiting <a href="https://fedoraproject.org/server/download/">Fedora's official website</a>.</p>
 
         <p>Start the virtualbox and click on the <b>New</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-01.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-1.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Write the name of the VM. Select the OS type and version. Click on <b>Next</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-02.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-2.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>The minimum Kubernetes requirements are: 2 GB or more of RAM and 2 CPUs or more. Check the <b>Enable EFI (special OSes only)</b> and click on <b>Next</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-03.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-3.jpg" alt="Fedora Server installation">
         </figure>        
 
         <p>Select <b>Create a Virtual Hard Disk Now</b> and allocate how much space to your VM. Click on <b>Next</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-04.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-4.jpg" alt="Fedora Server installation">
         </figure> 
 
         <p>Next, click on <b>Finish</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-05.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-5.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Then, click on <b>Setting</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-06.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-6.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Select <b>Storage</b> menu and click on <b>Adds optical drive</b>. Navigate to where the Fedora Server ISO image saved. Then click on <b>Ok</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-07.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-7.jpg" alt="Fedora Server installation">
         </figure>
 
-        <p>After that, open terminal and add new nat networks for kubernetes nodes and local clients using <code>VBoxManage</code> command.</p>
+        <p>Open terminal and add new nat networks for kubernetes nodes and local clients using <code>VBoxManage</code> command.</p>
 
         <pre><code class="language-bash hljs">VBoxManage natnetwork add --netname natnet1 --network "172.16.0.0/24" --enable --ipv6 on --dhcp on</code></pre>
 
         <pre><code class="language-bash hljs">VBoxManage natnetwork add --netname natnet2 --network "114.122.37.0/24" --enable --ipv6 on --dhcp on</code></pre>
 
+        <p>Go back to Virtualbox. Click on <b>Setting</b> button again. Then go to <b>Network</b> menu. Set network adapter 1 type and network adapter 2 type to <b>NAT Network</b>. Then click on <b>Ok</b> button.</p>
+
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-08.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-8.jpg" alt="Fedora Server installation">
         </figure>
 
-        <p>Go back to Virtualbox. Click on <b>Setting</b> button again. Then go to <b>Network</b> menu and set the network adapter type to <b>NAT Network</b>. Then click on <b>Ok</b> button.</p>
-
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-09.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-9.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Click on <b>Start</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-10.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-10.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Select <b>Install Fedora 38</b> on the boot menu.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-11.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-11.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Select your language and click <b>Continue</b>.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-12.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-12.jpg" alt="Fedora Server installation">
         </figure>
 
-        <p>Configure the installation destination.</p>
+        <p>Configure Timezone.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-13.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-13.jpg" alt="Fedora Server installation">
+        </figure>
+
+        <p>Select your region and city. Then click <b>Done</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/fedoraserver38-14.jpg" alt="Fedora Server installation">
+        </figure>
+
+        <p>Configure Software Selection.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/fedoraserver38-15.jpg" alt="Fedora Server installation">
+        </figure>
+
+        <p>Select minimal install. Then click <b>Done</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/fedoraserver38-16.jpg" alt="Fedora Server installation">
+        </figure>
+
+        <p>Configure installation destination.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/fedoraserver38-17.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>On the <b>Storage Configuration</b>, choose <b>custom</b>. Then click <b>Done</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-14.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-18.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Choose <b>LVM</b> filesystem.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-19.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-19.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Then click the + symbol to add <b>boot</b> partition and the desired capacity 1GB. Click <b>Add mount point</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-20.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-20.jpg" alt="Fedora Server installation">
         </figure>        
 
         <p>Pick <b>ext4</b> as its default filesystem.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-21.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-21.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Click the + symbol again to add <b>EFI</b> partition and the desired capacity 512MB. Click <b>Add mount point</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-22.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-22.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Pick <b>EFI System Partition</b> as its default filesystem.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-23.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-23.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Click the + symbol again to add <b>root</b> partition and don't need to fill the desired capacity. Click <b>Add mount point</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-24.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-24.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Pick <b>LVM</b> as its device type and <b>ext4</b> ad its filesystem. Click <b>Done</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-25.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-26.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>A window show up, and click <b>Accept Changes</b>.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-26.jpg" alt="Fedora Server installation">
-        </figure>
-
-        <p>Next, configure the software selection.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/fedoravm-27.jpg" alt="Fedora Server installation">
-        </figure>
-        
-        <p>Choose <b>Minimal Install</b>. Then click <b>Done</b> button.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/fedoravm-28.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-27.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Next, configure the user creation.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-15.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-28.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Create a common user account. Then click <b>Done</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-16.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-29.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>After that, click <b>Begin Installation</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-17.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-30.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>Once the Fedora 38 installation is completed, click <b>Reboot System</b> button.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-18.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-31.jpg" alt="Fedora Server installation">
         </figure>
         
         <p>Close the virtual machine. Then select <b>Power off the machine</b> and click on <b>Ok</b> button.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/fedoravm-30.jpg" alt="Fedora Server installation">
-        </figure>
 
         <p>Open terminal, run the following command to clone the VM and make sure not be run as root:</p>
 
@@ -233,14 +241,14 @@ tags: ["virtualbox", "fedora", "linux", "kubernetes", "kubeadm", "containerd", "
         <pre><code class="language-bash hljs">0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
 Machine has been successfully cloned as "kubeworker1"</code></pre>
 
-        <h4>Setting Static IP Address on Master Node</h4>
+        <h4 class="post-subtitle">Setting Static IP Address on Master Node</h4>
 
         <p>Use <code>ip</code> command to identify the name of the ethernet interface you want to configure:</p>
 
         <pre><code class="language-bash hljs">ip addr show</code></pre>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-33.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-33.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>The interface named <code>lo</code> is the loopback interface, used for processes that communicate via the IP protocol. The important interfaces in the listing are <code>enp0s3</code> and <code>enp0s8</code>, the Ethernet interfaces.</p>
@@ -279,7 +287,7 @@ Machine has been successfully cloned as "kubeworker1"</code></pre>
 
         <pre><code class="language-bash hljs">sudo nmcli connection up enp0s8</code></pre>     
 
-        <h4>Setting hostname on Master Node</h4>
+        <h4 class="post-subtitle">Setting hostname on Master Node</h4>
 
         <p>Set the hostname using the following command:</p>
 
@@ -289,7 +297,7 @@ Machine has been successfully cloned as "kubeworker1"</code></pre>
 
         <pre><code class="language-bash hljs">172.16.0.21    kubemaster</code></pre>
 
-        <h4>Disable systemd-resolved service on Master Node</h4>
+        <h4 class="post-subtitle">Disable systemd-resolved service on Master Node</h4>
 
         <p>The <code>systemd-resolved</code> service can be disabled with:</p>
 
@@ -309,7 +317,7 @@ sudo systemctl mask systemd-resolved</code></pre>
 
         <pre><code class="language-bash hljs">nameserver 172.16.0.1</code></pre>
 
-        <h4>Install containerd (container runtime) on Master Node</h4>
+        <h4 class="post-subtitle">Install containerd (container runtime) on Master Node</h4>
 
         <p>First, install the required packages to run kubernetes:</p>
 
@@ -407,16 +415,12 @@ sudo containerd config default > /etc/containerd/config.toml</code></pre>
   ...
   [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
     SystemdCgroup = true</code></pre> 
-    
-        <figure class="post-figure">
-            <img src="/assets/images/fedoravm-32.jpg" alt="Fedora Server installation">
-        </figure>
 
         <p>To apply the changes, restart the <code>containerd</code> service.</p>
 
         <pre><code class="language-bash hljs">sudo systemctl restart containerd</code></pre>
 
-        <h4>Install kubectl, kubeadm, and kubelet on Master Node</h4>
+        <h4 class="post-subtitle">Install kubectl, kubeadm, and kubelet on Master Node</h4>
 
         <p>You will install these packages on all of your nodes (master node and worker node):</p>
 
@@ -451,10 +455,6 @@ sudo containerd config default > /etc/containerd/config.toml</code></pre>
         <pre><code class="language-bash hljs">systemd-machine-id-setup</code></pre>
 
         <p>You can get the MAC address of the network interfaces using the command <code>ip link</code>.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/fedoravm-29.jpg" alt="Fedora Server installation">
-        </figure>        
 
         <p>To generate the new MAC address of the network interfaces, run the following command on terminal.</p>
 
@@ -600,10 +600,6 @@ sudo firewall-cmd --reload</code></pre>
             <li><code>cat /proc/swaps</code> and <code>swapon -s</code> to see which swap devices are being used</li>
             <li><code>vmstat</code> for current virtual memory statistics</li>
         </ul>
-
-        <figure class="post-figure">
-            <img src="/assets/images/fedoravm-31.jpg" alt="Fedora Server installation">
-        </figure>
 
         <p>To permanently disable swap:</p>
 
@@ -838,7 +834,7 @@ deployment.apps/coredns   0/2     2            0           2m44s
 NAME                                 DESIRED   CURRENT   READY   AGE
 replicaset.apps/coredns-5d78c9869d   2         2         0       2m32s</code></pre>
         
-        <h4>Install calico (container network) on Master Node</h4>
+        <h4 class="post-subtitle">Install calico (container network) on Master Node</h4>
 
         <p>The ports required for master node are:</p>
 
@@ -1007,7 +1003,7 @@ replicaset.apps/coredns-5d78c9869d   2         2         2       43m</code></pre
 
         <pre><code class="language-bash hljs">chmod +x /usr/local/bin/calicoctl</code></pre>
 
-        <h4>Change MAC Address of the network interface on Worker Node</h4>
+        <h4 class="post-subtitle">Change MAC Address of the network interface on Worker Node</h4>
 
         <p>First, make sure your Worker Node VM is off.</p>
 
@@ -1028,7 +1024,7 @@ replicaset.apps/coredns-5d78c9869d   2         2         2       43m</code></pre
 
         <pre><code class="language-bash hljs">VBoxManage modifyvm "kubeworker1" --natnetwork1 "natnet1"</code></pre>
 
-        <h4>Change Hardware ID on Worker Node</h4>
+        <h4 class="post-subtitle">Change Hardware ID on Worker Node</h4>
 
         <p>Make sure your Worker Node VM is off.</p>
 
@@ -1094,14 +1090,14 @@ UUID changed to: 0b43b0b9-b2b9-456c-b271-3619069072c5</code></pre>
 
         <pre><code class="language-bash hljs">VBoxManage storageattach "kubeworker1" --storagectl "NVMe" --port 0 --device 0 --type hdd --medium $HOME/kubeworker1/kubeworker1.vdi</code></pre>
 
-        <h4>Setting Static IP Address on Worker Node</h4>
+        <h4 class="post-subtitle">Setting Static IP Address on Worker Node</h4>
 
         <p>Use <code>ip</code> command to identify the name of the ethernet interface you want to configure:</p>
 
         <pre><code class="language-bash hljs">ip addr show</code></pre>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-19.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-33.jpg" alt="Fedora Server installation">
         </figure>
 
         <p>The interface named <code>lo</code> is the loopback interface, used for processes that communicate via the IP protocol. The important interface in the listing is <code>enp0s3</code>, the Ethernet interface.</p>
@@ -1128,7 +1124,7 @@ UUID changed to: 0b43b0b9-b2b9-456c-b271-3619069072c5</code></pre>
 
         <pre><code class="language-bash hljs">sudo nmcli connection up enp0s3</code></pre>     
 
-        <h4>Setting hostname on Worker Node</h4>
+        <h4 class="post-subtitle">Setting hostname on Worker Node</h4>
 
         <p>Set the hostname using the following command:</p>
 
@@ -1139,7 +1135,7 @@ UUID changed to: 0b43b0b9-b2b9-456c-b271-3619069072c5</code></pre>
         <pre><code class="language-bash hljs">172.16.0.21    kubemaster
 172.16.0.22    kubeworker1</code></pre>
 
-        <h4>Disable systemd-resolved service on Worker Node</h4>
+        <h4 class="post-subtitle">Disable systemd-resolved service on Worker Node</h4>
 
         <p>The <code>systemd-resolved</code> service can be disabled with:</p>
 
@@ -1159,7 +1155,7 @@ sudo systemctl mask systemd-resolved</code></pre>
 
         <pre><code class="language-bash hljs">nameserver 172.16.0.1</code></pre>
 
-        <h4>Setting Machine ID on Worker Node</h4>
+        <h4 class="post-subtitle">Setting Machine ID on Worker Node</h4>
 
         <p>First, remove the <code>/etc/machine-id</code> file:</p>
         
@@ -1169,7 +1165,7 @@ sudo systemctl mask systemd-resolved</code></pre>
 
         <pre><code class="language-bash hljs">systemd-machine-id-setup</code></pre>
 
-        <h4>Install containerd (container runtime) on Worker Node</h4>
+        <h4 class="post-subtitle">Install containerd (container runtime) on Worker Node</h4>
 
         <p>First, install the required packages to run kubernetes:</p>
 
@@ -1257,16 +1253,12 @@ sudo containerd config default > /etc/containerd/config.toml</code></pre>
   ...
   [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
     SystemdCgroup = true</code></pre> 
-    
-        <figure class="post-figure">
-            <img src="/assets/images/fedoravm-32.jpg" alt="Fedora Server installation">
-        </figure>
 
         <p>To apply the changes, restart the <code>containerd</code> service.</p>
 
         <pre><code class="language-bash hljs">sudo systemctl restart containerd</code></pre>
 
-        <h4>Install kubectl, kubeadm, and kubelet on Worker Node</h4>
+        <h4 class="post-subtitle">Install kubectl, kubeadm, and kubelet on Worker Node</h4>
 
         <p>The ports required for worker node are:</p>
 
@@ -1711,7 +1703,7 @@ IPv4 BGP status
 IPv6 BGP status
 No IPv6 peers found.</code></pre>
 
-        <h4>Install MetalLB (Load Balancer) on Master Node</h4>
+        <h4 class="post-subtitle">Install MetalLB (Load Balancer) on Master Node</h4>
 
         <p>Download the MetalLB manifest for the Kubernetes clusters.</p>
 
@@ -1893,7 +1885,7 @@ sudo firewall-cmd --reload</code></pre>
 kubemaster    Ready    control-plane   2d1h   v1.27.3   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=kubemaster,kubernetes.io/os=linux,node-role.kubernetes.io/control-plane=,node.kubernetes.io/exclude-from-external-load-balancers=
 kubeworker1   Ready    &lt;none&gt;          26h    v1.27.4   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=kubeworker1,kubernetes.io/os=linux,nodelabel=kubeworker1</code></pre>                        
         
-        <h4>Install Nginx Ingress Controller on Master Node</h4>
+        <h4 class="post-subtitle">Install Nginx Ingress Controller on Master Node</h4>
 
         <p>Nginx Ingress controller is an Ingress controller for Kubernetes using NGINX as a reverse proxy and load balancer.</p>
 
@@ -1905,7 +1897,7 @@ kubeworker1   Ready    &lt;none&gt;          26h    v1.27.4   beta.kubernetes.io
 
         <pre><code class="language-bash hljs">sed -i 's/failurePolicy: Fail/failurePolicy: Ignore/' ingress-nginx.yaml</code></pre>
 
-        <pre><code class="language-bash hljs">sed -i 's/--patch-failure-policy=Fail/--patch-failure-policy=Ignore/' ingress-nginx.yaml</code>
+        <pre><code class="language-bash hljs">sed -i 's/--patch-failure-policy=Fail/--patch-failure-policy=Ignore/' ingress-nginx.yaml</code></pre>
 
         <p>Apply Nginx ingress controller manifest deployment file:</p>
 
@@ -2253,7 +2245,7 @@ sudo firewall-cmd --permanent --policy cali7368eccef27pol --add-egress-zone cali
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-        <h4>Deploy a web-application using Nginx server to Worker Node from Master Node</h4>
+        <h4 class="post-subtitle">Deploy a web-application using Nginx server to Worker Node from Master Node</h4>
 
         <p>First generate a self signed rsa key and certificate that the server can use for TLS:</p>
 
@@ -2885,5 +2877,5 @@ curl https://114.122.37.100/something</code></pre>
         <p>Opening a web browser and navigating to <code>http://114.122.37.100/something</code> or <code>https://114.122.37.100/something</code>.</p>
 
         <figure class="post-figure">
-            <img src="/assets/images/fedoravm-34.jpg" alt="Fedora Server installation">
+            <img src="/assets/images/fedoraserver38-34.jpg" alt="Fedora Server installation">
         </figure>        

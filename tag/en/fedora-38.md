@@ -1,12 +1,12 @@
 ---
 layout: tag
-title: "TAG: Windows 11"
-tag: "windows 11"
+title: "TAG: Fedora 38"
+tag: "fedora 38"
 lang: en
-permalink: '/tag/windows-11'
+permalink: '/tag/fedora-38'
 pagination:
     enabled: true
-    tag: "windows 11"
+    tag: "fedora 38"
     permalink: /page/:num/
     locale: en
 ---

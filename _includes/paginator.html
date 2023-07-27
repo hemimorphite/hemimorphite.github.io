@@ -10,7 +10,15 @@
 		{% assign pageminus2 = paginator.page | minus: 2 %}
 		{% if pageminus2 > 1 and paginator.total_pages > 5 %}
 		<li class="disabled"><a>...</a></li>
-		{% elsif pageminus2 == 1 and paginator.total_pages == 5 %}
+		{% elsif pageminus2 >= 1 and paginator.total_pages <= 5 %}
+			{% assign finish = paginator.total_pages %}
+			{% for i in (1..finish) %}
+				{% if pageminus1 == 1 %}
+				<li><a href="{{ site.url }}{{ lang }}">1</a></li>
+				{% else %}
+				<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
+				{% endif %}
+			{% endfor %}
 		<li><a href="{{ site.url }}{{ lang }}">1</a></li>
 		{% endif %}
 
@@ -35,8 +43,12 @@
 		{% assign pageplus2 = paginator.page | plus: 2 %}
 		{% if pageplus2 < paginator.total_pages and paginator.total_pages > 5 %}
 		<li class="disabled"><a>...</a></li>
-		{% elsif pageplus2 == paginator.total_pages and paginator.total_pages == 5 %}
-		<li><a href="{{ site.url }}{{ lang }}/page/{{ pageplus2 }}">{{ pageplus2 }}</a></li>
+		{% elsif pageplus2 <= paginator.total_pages and paginator.total_pages <= 5 %}
+			{% assign start = paginator.total_pages | minus: pageplus1 %}
+			{% assign finish = paginator.total_pages %}
+			{% for i in (start..finish) %}
+				<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
+			{% endfor %}
 		{% endif %}
 
 		{% if paginator.next_page %}
