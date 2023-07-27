@@ -542,10 +542,10 @@ tags: ["gentoo", "linux", "amd64", "glibc", "gcc", "systemd", "grub2", "uefi"]
         <p>Add these rules in the <code>/etc/fstab</code> file.</p>
 
         <pre><code class="language-bash hljs">/dev/nvme0n1p2   /boot            ext4    defaults,noatime     0 2
-            /dev/nvme0n1p1   /boot/efi        vfat    defaults,noatime     0 2
-            /dev/nvme0n1p3   none             swap    sw                   0 0
-            /dev/nvme0n1p4   /                ext4    noatime              0 1
-        /dev/cdrom       /mnt/cdrom       auto    noauto,user          0 0</code></pre>
+/dev/nvme0n1p1   /boot/efi        vfat    defaults,noatime     0 2
+/dev/nvme0n1p3   none             swap    sw                   0 0
+/dev/nvme0n1p4   /                ext4    noatime              0 1
+/dev/cdrom       /mnt/cdrom       auto    noauto,user          0 0</code></pre>
 
         <figure class="post-figure">
             <img src="/assets/images/carbon-10.png" alt="fstab">

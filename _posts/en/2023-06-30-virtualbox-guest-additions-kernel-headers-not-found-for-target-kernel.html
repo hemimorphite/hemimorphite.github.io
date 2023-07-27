@@ -1,0 +1,67 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Virtualbox Guest Additions: Kernel headers not found for target kernel (Fedora)"
+thumb: "vguest.jpg"
+eyebrow: "Troubleshooting"
+description: "If you encounter the error "Kernel headers not found for target kernel" while installing VirtualBox Guest Additions, don't worry. This troubleshooting guide will provide step-by-step instructions to help you resolve the issue and successfully install the Guest Additions."
+date: 2023-06-30 15:38:50 +0700
+author: Samuel Yang
+categories: ["Troubleshooting", "year-2023", "month-06", "day-30"]
+tags: ["virtualbox", "fedora", "linux"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>If you are encountering the error "<b>Kernel headers not found for target kernel</b>" while installing VirtualBox Guest Additions, the solution to resolve the issue is by installing <code>kernel-devel</code> package.</p>
+
+        <p>Open terminal and run command <code>uname -r</code> to list current linux kernel version:</p>
+
+        <pre><code class="language-bash hljs">uname -r</code></pre>
+
+        <p>The output is similar to:</p>
+
+        <pre><code class="language-bash hljs">6.2.9-300.fc38.x86_64</code></pre>        
+
+        <p>Then install the <code>kernel-devel</code> package which matches the current linux kernel version:</p>
+
+        <pre><code class="language-bash hljs">sudo dnf install kernel-devel-6.2.9-300.fc38</code></pre>
+
+        <p>When the installation is complete, go to directory where VirtualBox Guest Additions image file is mounted.</p>
+
+        <pre><code class="language-bash hljs">cd /run/media/$USER/VBox_GAs_7.0.8/</code></pre>  
+        
+        <p>Then install the VirtualBox Guest Additions again</p>   
+
+        <pre><code class="language-bash hljs">sudo ./VBoxLinuxAdditions.run</code></pre>
+
+        <p>The error should disappear now.</p>   
+
+        <figure class="post-figure">
+            <img src="/assets/images/vbox-01.jpg" alt="VirtualBox Guest Additions">
+        </figure>
+
+        <p>Then restart your system.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/fedora-01.jpg" alt="Fedora VM">
+        </figure>
+
+        <p>If the Fedora guest still doesn't fit screen, try to resize the window.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/fedora-02.jpg" alt="Fedora VM">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/fedora-03.jpg" alt="Fedora VM">
+        </figure>
+    </article>
+
+  {% include post-tags.html %}
+
+  {% include post-share.html %}
+</div>
