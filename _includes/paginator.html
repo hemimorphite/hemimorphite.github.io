@@ -10,14 +10,14 @@
 		{% assign pageminus2 = paginator.page | minus: 2 %}
 		{% if pageminus2 > 1 and paginator.total_pages > 5 %}
 		<li class="disabled"><a>...</a></li>
-		{% elseif pageminus2 == 1 and paginator.total_pages == 5 %}
+		{% elsif pageminus2 == 1 and paginator.total_pages == 5 %}
 		<li><a href="{{ site.url }}{{ lang }}">1</a></li>
 		{% endif %}
 
 		{% assign pageminus1 = paginator.page | minus: 1 %}
 		{% if pageminus1 == 1 %}
 		<li><a href="{{ site.url }}{{ lang }}">1</a></li>
-		{% elseif pageminus1 > 1 %}
+		{% elsif pageminus1 > 1 %}
 		<li><a href="{{ site.url }}{{ lang }}/page/{{ pageminus1 }}">{{ pageminus1 }}</a></li>
 		{% endif %}
 
@@ -35,7 +35,7 @@
 		{% assign pageplus2 = paginator.page | plus: 2 %}
 		{% if pageplus2 < paginator.total_pages and paginator.total_pages > 5 %}
 		<li class="disabled"><a>...</a></li>
-		{% elseif pageplus2 == paginator.total_pages and paginator.total_pages == 5 %}
+		{% elsif pageplus2 == paginator.total_pages and paginator.total_pages == 5 %}
 		<li><a href="{{ site.url }}{{ lang }}/page/{{ pageplus2 }}">{{ pageplus2 }}</a></li>
 		{% endif %}
 
