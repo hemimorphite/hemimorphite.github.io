@@ -1,0 +1,102 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Getting Started with Qemu amd64 on Ubuntu 22.04"
+thumb: "qemu.jpg"
+eyebrow: "Tutorial"
+description: "This tutorial provides a step-by-step guide on how to get started with Qemu amd64 on Ubuntu 22.04. Learn how to set up and use Qemu to run virtual machines on your Ubuntu system."
+date: 2023-07-31 14:38:59 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2023", "month-07", "day-31"]
+tags: ["qemu", "linux"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Installing QEMU on Ubuntu is pretty straightforward, run:</p>
+        
+        <pre><code class="language-bash hljs">sudo apt install qemu qemu-kvm</code></pre>
+
+        <p>Run the following command to create an qcow2 image file 100GB in size in the current directory:</p>
+
+        <pre><code class="language-bash hljs">qemu-img create -f qcow2 ubuntu.img 100G</code></pre>
+
+        <p>Next, run the following command to start the Ubuntu installation:</p>
+
+        <pre><code class="language-bash hljs">sudo qemu-system-x86_64 -name "Ubuntu Server 22.04" \
+-machine type=pc-q35-2.12 -accel kvm \
+-m 4G -cpu host \
+-display sdl \
+-bios /usr/share/ovmf/OVMF.fd \
+-boot menu=on \
+-device VGA,addr=01.0 \
+-drive file=ubuntu.img,if=none,id=drive0 \
+-device nvme,serial=694740036639,addr=02.0,bus=pcie.0,drive=drive0 \
+-drive file=ubuntu-22.04.2-live-server-amd64.iso,format=raw,if=none,id=drive1 \
+-device ich9-ahci,id=ahci0,addr=03.0,bus=pcie.0 \
+-device ide-cd,serial=278674617506,drive=drive1,bus=ahci0.0 \
+-netdev user,id=net0,ipv4=on,net=172.16.0.0/24,ipv6=on,ipv6-net=fdcc:7647:d52a:2cff::/64,dns=172.16.0.1,ipv6-dns=fdcc:7647:d52a:2cff::1 \
+-device e1000-82545em,addr=04.0,bus=pcie.0,mac=b6:94:1b:12:34:56,netdev=net0</code></pre>
+
+        <ul>
+            <li><code>-name "Ubuntu Server 22.04"</code> specifies the name of the running guest system. The name is displayed in the window caption</li>
+            <li>
+                <code>-machine type=pc-q35-2.12</code> specifies the type of the emulated machine.<br>
+                Run <code>qemu-system-x86_64 -machine help</code> to view a list of supported machine types.<br>
+                Run <code>qemu-system-x86_64 -machine type=pc-q35-2.12,help</code> to list all available properties of <code>pc-q35-2.12</code> machine.     
+            </li>
+            <li><code>-accel kvm</code> specifies to use the hardware acceleration provided by kvm</li>
+            <li><code>-boot menu=on</code> specifies manually to select boot drive</li>
+            <li><code>-bios /usr/share/ovmf/OVMF.fd</code> specifies to boot with the TianoCore UEFI firmware</li>
+            <li>
+                <code>-cpu host</code> specifies to emulate the host processor<br>
+                Run <code>qemu-system-x86_64 -cpu help</code> to view a list of supported processors
+            </li> 
+            <li><code>-smp 2</code> specifies how many CPUs will be emulated</li>
+            
+            <li><code>-m 4G</code> specifies the amount of memory (M stands for Megabyte, G for Gigabyte)</li>
+            
+            <li><code>-display sdl</code> specifies to display video output via SDL (usually in a separate graphics window)</li>
+
+            <li>
+                <code>-device VGA,addr=01.0</code> specifies the type of the video card.<br>
+                Run <code>qemu-system-x86_64 -device help</code> to view a list of video card types.<br>
+                Run <code>qemu-system-x86_64 -device VGA,help</code> to list all available properties of <code>VGA</code> video card.
+            </li>
+            
+            <li><code>-drive file=ubuntu.img,if=none,id=drive0</code> specifies a virtual hard drive and use <code>ubuntu.img</code> image file</li>
+
+            <li><code>-device nvme,serial=694740036639,addr=02.0,bus=pcie.0,drive=drive0</code> specifies to add a nvme storage device with serial number 694740036639 and PCIe address 02.0 (device number 02 and function number 0) on <code>pcie.0</code> bus (Root Bus)</li>
+            
+            <li><code>-drive file=ubuntu-22.04.2-live-server-amd64.iso,format=raw,if=none,id=drive1</code> specifies a virtual hard drive and use <code>ubuntu-22.04.2-live-server-amd64.iso</code> image file</li>
+
+            <li><code>-device ich9-ahci,id=ahci0,addr=03.0,bus=pcie.0</code> specifies a virtual hard drive and use <code>ubuntu-22.04.2-live-server-amd64.iso</code> image file</li>
+
+            <li><code>-device ide-cd,serial=278674617506,drive=drive1,bus=ahci0.0</code> specifies a virtual ide disk with serial number 278674617506 and ahci bus</li>
+
+            <li><code>-netdev user,id=net0,ipv4=on,net=172.16.0.0/24,ipv6=on,ipv6-net=fdcc:7647:d52a:2cff::/64,dns=172.16.0.1,ipv6-dns=fdcc:7647:d52a:2cff::1</code> specifies to use user-mode networking with a built-in DHCPv4 server in the address range 172.16.0.0/24, a built-in DHCPv6 server in the address range fdcc:7647:d52a:2cff::/64, a IPv4 DNS Server 172.16.0.1 and a IPv6 DNS Server fdcc:7647:d52a:2cff::1</li>
+
+            <li><code>-device e1000-82545em,addr=04.0,bus=pcie.0,mac=b6:94:1b:12:34:56,netdev=net0</code> specifies a virtual network device with mac address b6:94:1b:12:34:56 and PCIe address 04.0 (device number 04 and function number 0) on <code>pcie.0</code> bus (Root Bus)</li>
+        </ul>
+
+        <p>If you stopped the virtual machine after the installation or rebooted your system, you can start the existing virtual machine again with almost the same command as for the installation. We just don't need to specify the ISO image file this time.</p>
+
+        <pre><code class="language-bash hljs">sudo qemu-system-x86_64 -name "Ubuntu Server 22.04" \
+-machine type=pc-q35-2.12 -accel kvm \
+-m 4G -cpu host \
+-display sdl \
+-bios /usr/share/ovmf/OVMF.fd \
+-device VGA,addr=01.0 \
+-drive file=ubuntus01.img,if=none,id=drive0 \
+-device nvme,serial=694740036639,addr=02.0,bus=pcie.0,drive=drive0 \
+-netdev user,id=net0,ipv4=on,net=172.16.0.0/24,ipv6=on,ipv6-net=fdcc:7647:d52a:2cff::/64,dns=172.16.0.1,ipv6-dns=fdcc:7647:d52a:2cff::1 \
+-device e1000-82545em,addr=04.0,bus=pcie.0,mac=b6:94:1b:12:34:56,netdev=net0</code></pre>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
