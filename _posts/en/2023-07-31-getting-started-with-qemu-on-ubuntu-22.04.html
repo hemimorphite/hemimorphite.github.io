@@ -9,7 +9,7 @@ description: "This tutorial provides a step-by-step guide on how to get started 
 date: 2023-07-31 14:38:59 +0700
 author: Samuel Yang
 categories: ["Tutorials", "year-2023", "month-07", "day-31"]
-tags: ["qemu", "linux"]
+tags: ["qemu", "linux", "ubuntu 22.04"]
 ---
 
 <div class="blog-post">
@@ -26,13 +26,13 @@ tags: ["qemu", "linux"]
 
         <p>Next, run the following command to start the Ubuntu installation:</p>
 
-        <pre><code class="language-bash hljs">sudo qemu-system-x86_64 -name "Ubuntu Server 22.04" \
+        <pre><code class="language-bash hljs">qemu-system-x86_64 -name "Ubuntu Server 22.04" \
 -machine type=pc-q35-2.12 -accel kvm \
 -m 4G -cpu host \
 -display sdl \
 -bios /usr/share/ovmf/OVMF.fd \
 -boot menu=on \
--device VGA,addr=01.0 \
+-device virtio-vga,addr=01.0 \
 -drive file=ubuntu.img,if=none,id=drive0 \
 -device nvme,serial=694740036639,addr=02.0,bus=pcie.0,drive=drive0 \
 -drive file=ubuntu-22.04.2-live-server-amd64.iso,format=raw,if=none,id=drive1 \
@@ -84,7 +84,7 @@ tags: ["qemu", "linux"]
 
         <p>If you stopped the virtual machine after the installation or rebooted your system, you can start the existing virtual machine again with almost the same command as for the installation. We just don't need to specify the ISO image file this time.</p>
 
-        <pre><code class="language-bash hljs">sudo qemu-system-x86_64 -name "Ubuntu Server 22.04" \
+        <pre><code class="language-bash hljs">qemu-system-x86_64 -name "Ubuntu Server 22.04" \
 -machine type=pc-q35-2.12 -accel kvm \
 -m 4G -cpu host \
 -display sdl \
@@ -94,6 +94,7 @@ tags: ["qemu", "linux"]
 -device nvme,serial=694740036639,addr=02.0,bus=pcie.0,drive=drive0 \
 -netdev user,id=net0,ipv4=on,net=172.16.0.0/24,ipv6=on,ipv6-net=fdcc:7647:d52a:2cff::/64,dns=172.16.0.1,ipv6-dns=fdcc:7647:d52a:2cff::1 \
 -device e1000-82545em,addr=04.0,bus=pcie.0,mac=b6:94:1b:12:34:56,netdev=net0</code></pre>
+
     </article>
 
     {% include post-tags.html %}
