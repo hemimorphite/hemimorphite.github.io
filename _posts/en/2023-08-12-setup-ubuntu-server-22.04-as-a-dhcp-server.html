@@ -1,0 +1,169 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2"
+thumb: "qemu.jpg"
+eyebrow: "Tutorial"
+description: "This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a DHCP server. Learn step-by-step instructions to set up and optimize your Ubuntu server as a router gateway."
+date: 2023-08-12 22:38:59 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2023", "month-08", "day-12"]
+tags: ["qemu", "linux", "ubuntu 22.04", "ufw", "DHCP"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Welcome to configuring Ubuntu Server 22.04 as a router tutorial series!</p>
+
+        <ol>
+            <li><a href="">Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</a></li>
+            <li><a href=""><b>Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</b></a></li>
+        </ol>
+
+        <p>One of the most popular programs for Linux operating systems providing DHCP service is dnsmasq.</p>
+        
+        <p>Install dnsmasq:</p>
+
+        <pre><code class="language-bash hljs">sudo apt -y install dnsmasq</code></pre>
+
+        <p>The response should look similar to this:</p>
+        
+        <pre><code class="language-bash hljs">Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  dns-root-data dnsmasq-base
+Suggested packages:
+  resolvconf
+The following NEW packages will be installed:
+  dns-root-data dnsmasq dnsmasq-base
+0 upgraded, 3 newly installed, 0 to remove and 49 not upgraded.
+Need to get 379 kB of archives.
+After this operation, 974 kB of additional disk space will be used.
+Get:1 http://id.archive.ubuntu.com/ubuntu jammy/main amd64 dns-root-data all 2021011101 [5256 B]
+Get:2 http://id.archive.ubuntu.com/ubuntu jammy-updates/main amd64 dnsmasq-base amd64 2.86-1.1ubuntu0.3 [354 kB]
+Get:3 http://id.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 dnsmasq all 2.86-1.1ubuntu0.3 [19.2 kB]
+Fetched 379 kB in 1s (575 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package dns-root-data.
+(Reading database ... 67590 files and directories currently installed.)
+Preparing to unpack .../dns-root-data_2021011101_all.deb ...
+Unpacking dns-root-data (2021011101) ...
+Selecting previously unselected package dnsmasq-base.
+Preparing to unpack .../dnsmasq-base_2.86-1.1ubuntu0.3_amd64.deb ...
+Unpacking dnsmasq-base (2.86-1.1ubuntu0.3) ...
+Selecting previously unselected package dnsmasq.
+Preparing to unpack .../dnsmasq_2.86-1.1ubuntu0.3_all.deb ...
+Unpacking dnsmasq (2.86-1.1ubuntu0.3) ...
+Setting up dnsmasq-base (2.86-1.1ubuntu0.3) ...
+Setting up dns-root-data (2021011101) ...
+Setting up dnsmasq (2.86-1.1ubuntu0.3) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/dnsmasq.service → /lib/systemd/system/dnsmasq.service.
+Job for dnsmasq.service failed because the control process exited with error code.
+See "systemctl status dnsmasq.service" and "journalctl -xeu dnsmasq.service" for details.
+invoke-rc.d: initscript dnsmasq, action "start" failed.
+× dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server
+     Loaded: loaded (/lib/systemd/system/dnsmasq.service; enabled; vendor preset: enabled)
+     Active: failed (Result: exit-code) since Fri 2023-08-11 16:02:30 UTC; 12ms ago
+    Process: 1011 ExecStartPre=/etc/init.d/dnsmasq checkconfig (code=exited, status=0/SUCCESS)
+    Process: 1032 ExecStart=/etc/init.d/dnsmasq systemd-exec (code=exited, status=2)
+        CPU: 30ms
+
+Aug 11 16:02:30 metapod systemd[1]: Starting dnsmasq - A lightweight DHCP and caching DNS server...
+Aug 11 16:02:30 metapod dnsmasq[1032]: dnsmasq: failed to create listening socket for port 53: Address already in use
+Aug 11 16:02:30 metapod dnsmasq[1032]: failed to create listening socket for port 53: Address already in use
+Aug 11 16:02:30 metapod dnsmasq[1032]: FAILED to start up
+Aug 11 16:02:30 metapod systemd[1]: dnsmasq.service: Control process exited, code=exited, status=2/INVALIDARGUMENT
+Aug 11 16:02:30 metapod systemd[1]: dnsmasq.service: Failed with result 'exit-code'.
+Aug 11 16:02:30 metapod systemd[1]: Failed to start dnsmasq - A lightweight DHCP and caching DNS server.
+Processing triggers for dbus (1.12.20-2ubuntu4.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 78.)
+debconf: falling back to frontend: Readline
+Scanning processes...                                                                                                     
+Scanning linux images...                                                                                                  
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.</code></pre>
+
+        <p>If it complain about "dnsmasq: failed to create listening socket for port 53: Address already in use", you can ignore it.</p>
+
+        <p>To enable DHCP service, you need to configure <code>/etc/dnsmasq.conf</code>.</p>
+
+        <p>By default dnsmasq enables DNS service. You can turn it off by changing the port to 0:</p>
+
+        <pre><code class="language-bash hljs">port=0</code></pre>
+        
+        <p>The DHCPv4 server is activated by specifying an IPv4 address range and a router:</p>
+
+        <pre><code class="language-bash hljs">dhcp-range=set:enp0s5v4,172.16.0.2,172.16.0.254,255.255.255.0,12h
+
+dhcp-option=tag:enp0s5v4,option:router,172.16.0.1</code></pre>
+
+        <p>The above configuration instructs dnsmasq to offer IPv4 addresses between <code>172.16.0.2</code> and <code>172.16.0.254</code> with a subnet <code>255.255.255.0</code> on the interface <code>enp0s5</code>. Issued IPs will have a lease lifetime of twelve hours, after which clients will need to request a renewed lease.</p>
+
+        <p>Restart the dnsmasq service to apply your changes:</p>
+
+        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>        
+
+        <p>By default DHCP uses UDP ports 68 and 67 to initiate communication between the IPv4 client and server. If port 67 is in use by another process, DHCP server cannot communicate with DHCPv4 clients.</p>
+
+        <p>To open UDP port 67 in ufw, run:</p>
+
+        <pre><code class="language-bash hljs">sudo ufw allow 67/udp</code></pre>
+
+        <p>Dnsmasq also provides full IPv6 support.</p>
+                
+        <p>The DHCPv6 server is activated by specifying an IPv6 address range and enabling IPv6 Router Advertisement feature:</p>
+
+        <pre><code class="language-bash hljs">dhcp-range=set:enp0s5v6,::2,::ffff,constructor:enp0s5,slaac,64,12h
+
+enable-ra</code></pre>
+        
+        <p>The above configuration instructs dnsmasq to offer IPv6 addresses between <code>fde0:fa74:a7a2:87e4::2</code> and <code>fde0:fa74:a7a2:87e4::ffff</code> with prefix length 64 bits on the interface <code>enp0s5</code>.</p>
+
+        <p>Restart the dnsmasq service to apply your changes:</p>
+
+        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>
+
+        <p>By default DHCP uses UDP ports 546 and 547 to initiate communication between the IPv6 client and server. If port 547 is in use by another process, DHCP server cannot communicate with DHCPv6 clients.</p>
+
+        <p>To open UDP port 547 in ufw, run:</p>
+
+        <pre><code class="language-bash hljs">sudo ufw allow 547/udp</code></pre>
+
+        <p>Now the client computers should obtain IPv4 address and IPv6 address automatically.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/dhcpserver-01.jpg" alt="configuring Ubuntu Server 22.04 as DHCP server">
+        </figure>
+
+        <p>If the client computers still don't obtain IPv4 address and IPv6 address, you can use <code>dhclient</code> command to get IP address.</p>
+
+        <p>To get IPv4 address, run:</p>
+
+        <pre><code class="language-bash hljs">sudo dhclient -v -r enp0s4</code></pre>
+
+        <p>To get IPv6 address, run:</p>
+
+        <pre><code class="language-bash hljs">sudo dhclient -6 -v -r enp0s4</code></pre>        
+
+        <figure class="post-figure">
+            <img src="/assets/images/dhcpserver-02.jpg" alt="configuring Ubuntu Server 22.04 as DHCP server">
+        </figure>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>

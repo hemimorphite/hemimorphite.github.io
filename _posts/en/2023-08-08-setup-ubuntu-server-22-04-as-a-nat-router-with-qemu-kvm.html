@@ -2,24 +2,31 @@
 layout: post
 lang: en
 locale: en
-title: "Create a Virtual Ubuntu Server 22.04 Router Gateway with Qemu/KVM (Configure Ubuntu Server 22.04 to Function as Router Gateway)"
+title: "Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1"
 thumb: "qemu.jpg"
 eyebrow: "Tutorial"
-description: "This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a router gateway. Learn step-by-step instructions to set up and optimize your Ubuntu server as a router gateway."
+description: "This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a NAT router. Learn step-by-step instructions to set up and optimize your Ubuntu server as a NAT router."
 date: 2023-08-08 22:38:59 +0700
 author: Samuel Yang
 categories: ["Tutorials", "year-2023", "month-08", "day-08"]
-tags: ["qemu", "linux", "ubuntu 22.04", "ufw"]
+tags: ["qemu", "linux", "ubuntu 22.04", "ufw", "NAT"]
 ---
 
 <div class="blog-post">
     {% include post-header.html %}
 
     <article class="post-content">
+        <p>Welcome to configuring Ubuntu Server 22.04 as a router tutorial series!</p>
+
+        <ol>
+            <li><a href=""><b>Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</b></a></li>
+            <li><a href="">Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</a></li>
+        </ol>
+
         <p>This is how it will look like the virtual network we are going to build:</p>
         
         <figure class="post-figure">
-            <img src="/assets/images/gateway.jpg" alt="Virtual Ubuntu Server 22.04 Gateway">
+            <img src="/assets/images/nat-01.jpg" alt="configuring Ubuntu Server 22.04 as a NAT router">
         </figure>
 
         <ul>
@@ -51,15 +58,15 @@ tags: ["qemu", "linux", "ubuntu 22.04", "ufw"]
 
         <p>We need to create a tap interface for each of the virtual machines, then we will need to create three different tap interfaces:</p>
 
-        <pre><code class="language-bash hljs">sudo ip link set dev tap1 up 
-sudo ip link set dev tap2 up
-sudo ip link set dev tap3 up</code></pre>
-
-        <p>Next, we bring the tap interfaces up:</p>
-
         <pre><code class="language-bash hljs">sudo tunctl -u $USER -t tap1
 sudo tunctl -u $USER -t tap2
 sudo tunctl -u $USER -t tap3</code></pre>
+
+        <p>Next, we bring the tap interfaces up:</p>
+
+        <pre><code class="language-bash hljs">sudo ip link set dev tap1 up 
+sudo ip link set dev tap2 up
+sudo ip link set dev tap3 up</code></pre>
         
         <p>Then, we create a network bridge using <code>brctl</code> command:</p>
 
@@ -95,7 +102,7 @@ sudo brctl addif br0 tap3</code></pre>
         <pre><code class="language-bash hljs">ip addr show</code></pre>
 
         <figure class="post-figure">
-            <img src="/assets/images/ubuntugateway-01.jpg" alt="Virtual Ubuntu Server 22.04 Gateway">
+            <img src="/assets/images/nat-02.jpg" alt="configuring Ubuntu Server 22.04 as a NAT router">
         </figure>
 
         <p>WAN interface <code>enp0s4</code> sets to DHCP and LAN interface <code>enp0s5</code> sets to static IP.</p>
@@ -115,10 +122,8 @@ Name=enp0s5
 
 [Network]
 DHCP=no
-
-[Address]
 Address=172.16.0.1/24
-Broadcast=172.16.0.255</code></pre>        
+Address=fde0:fa74:a7a2:87e4::1/64</code></pre>        
         
         <p>To apply the configuration, run:</p>
 
@@ -196,7 +201,9 @@ Name=enp0s4
 [Network]
 DHCP=no
 Address=172.16.0.11/24
-Gateway=172.16.0.1</code></pre>
+Gateway=172.16.0.1
+Address=fde0:fa74:a7a2:87e4::11/64
+Gateway=fde0:fa74:a7a2:87e4::1</code></pre>
         
         <p>On the second client:</p>
 
@@ -206,7 +213,9 @@ Name=enp0s4
 [Network]
 DHCP=no
 Address=172.16.0.12/24
-Gateway=172.16.0.1</code></pre>
+Gateway=172.16.0.1
+Address=fde0:fa74:a7a2:87e4::12/64
+Gateway=fde0:fa74:a7a2:87e4::1</code></pre>
         
         <p>To apply the configuration, run:</p>
 
