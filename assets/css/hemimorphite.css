@@ -31,7 +31,7 @@ body {
 }
 
 p {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 	font-size: 1rem;
 	font-weight: 400;
 	color: #212427;
@@ -68,7 +68,7 @@ h3 {
 	font-weight: 500;
 	/*padding: 12px 20px;*/
 	text-transform: uppercase;
-	transition: all .3s;
+	transition: all 2s ease-in;
 }
 
 .main-button a:hover {
@@ -383,17 +383,17 @@ header {
 	height: 5rem;
 	display: inline-block;
 	border-radius: 50%;
-	border: 0.2rem solid #f48840;
-	background-image: url('../images/avatar.png');
+	/*border: 0.2rem solid #f48840;*/
+	background-image: url('../images/avatar.jpg');
   background-repeat: no-repeat;
-  
   background-position: center; 
   background-size: contain;
 }
 
 .blog-post .post-author .author-name {
 	color: #20232e;
-	margin-left: 0.5rem;
+	font-weight: 700;
+	margin-left: 0.7rem;
 }
 .blog-post .post-image {
 	margin-bottom: 2rem;
@@ -433,15 +433,27 @@ header {
 .blog-post .post-content .post-figure {
 	margin-top: 0.5rem;
 }
-.blog-post .post-content ul {
+.blog-post .post-content ul,
+.blog-post .post-content ol {
 	margin-top: 1rem;
 }
-.blog-post .post-content ul li::before {
+.blog-post .post-content ul li::before,
+.blog-post .post-content ol li::before {
   content: "•";
-  color: #4A90E2;
+  color: #d1d5db;
   font-weight: bold;
   display: inline-block;
   width: 1rem;
+}
+.blog-post .post-content ul li a,
+.blog-post .post-content ol li a {
+  color: #212427;
+  font-weight: 400;
+}
+.blog-post .post-content ul li.active a,
+.blog-post .post-content ol li.active a {
+  color: #f48840;
+  font-weight: 400;
 }
 .blog-post .post-tags {
 	margin-top: 5rem;
@@ -506,6 +518,7 @@ ul.page-numbers li.active a {
 	background-color: #f48840;
 	border-color: #f48840;
 	color: #fff;
+	transition: all 2s ease-in;
 }
 
 ul.page-numbers li.active a:hover {
@@ -565,6 +578,7 @@ ul.page-numbers li.disabled a:hover {
   text-transform: capitalize;
   font-weight: 900;
   color: #20232e;
+  transition: all 2s ease-in;
 }
 
 .related-posts .blog-post .blog-title a:hover {
@@ -628,7 +642,7 @@ ul.page-numbers li.disabled a:hover {
 	font-size: 1.1rem;
 	font-weight: 900;
 	color: #20232e;
-	transition: all 0.3s;
+	transition: all 2s ease-in;
 }
 
 .sidebar .recent-posts ul li h5:hover {
@@ -654,7 +668,7 @@ ul.page-numbers li.disabled a:hover {
 	font-size: 1rem;
 	font-weight: 700;
 	color: #20232e;
-	transition: all .3s;
+	transition: all 2s ease-in;
 }
 
 .sidebar .categories ul li a:hover {
@@ -674,7 +688,7 @@ ul.page-numbers li.disabled a:hover {
 	display: inline-block;
 	border: 0.1rem solid #eee;
 	padding: 0.4rem 1rem;
-	transition: all .3s;
+	transition: all 2s ease-in;
 }
 
 .sidebar .tags ul li a:hover {
@@ -724,7 +738,7 @@ footer ul.social-icons li a {
 	color: #fff;
 	font-weight: 500;
 	letter-spacing: 0.25px;
-	transition: all .3s;
+	transition: all 2s ease-in;
 }
 
 footer ul.social-icons li a:hover {
@@ -795,6 +809,7 @@ footer p a:hover {
 
 .section-heading .btn-all {
 	border: 0.1rem solid #eee;
+	transition: all 2s ease-in;
 }
 .section-heading .btn-all:hover {
 	border: 0.1rem solid #f48840;	
@@ -803,6 +818,7 @@ footer p a:hover {
 	color: #7a7a7a;
 	border: 0.1rem solid #eee;
 	margin-bottom: 1rem;
+	transition: all 2s ease-in;
 }
 .btn-all:hover {
 	color: #f48840;
