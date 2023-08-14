@@ -1,0 +1,215 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3"
+thumb: "ubuntu2204.jpg"
+eyebrow: "Tutorial"
+description: "This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a DNS server. Learn step-by-step instructions to set up and optimize your Ubuntu server as a DNS server."
+date: 2023-08-13 22:48:59 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2023", "month-08", "day-13"]
+tags: ["qemu", "linux", "ubuntu 22.04", "ufw", "DNS"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Welcome to configuring Ubuntu Server 22.04 as a router tutorial series!</p>
+
+        <ol>
+            <li><a href="https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</a></li>
+            <li><a href="https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</a></li>
+            <li class="active"><a href="https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3</a></li>
+        </ol>
+
+        <p>One of the most popular programs for Linux operating systems providing DNS forwarder service is dnsmasq.</p>
+        
+        <p>Ubuntu 22.04 comes with <code>systemd-resolved</code> which you need to disable since it binds to port 53 which will conflict with dnsmasq port.</p>
+
+        <p>Disable the systemd-resolved DNS listeners to free up port 53 by uncommenting <code>DNSStubListener</code> and setting it to <code>no</code> in <code>/etc/systemd/resolved.conf</code>.</p>
+
+        <pre><code class="language-bash hljs">DNSStubListener=no</code></pre>        
+
+        <p>Once that is done, install dnsmasq:</p>
+
+        <pre><code class="language-bash hljs">sudo apt -y install dnsmasq</code></pre>
+
+        <p>To enable DNS forwarder service, you need to configure <code>/etc/dnsmasq.conf</code>.</p>
+
+        <p>Set the port on which dnsmasq will listen for DNS requests. This default to UDP port 53.</p>
+
+        <pre><code class="language-bash hljs">port=53</code></pre>
+
+        <p>Disable forwarding of names without a dot or domain part by uncommenting:</p>
+
+        <pre><code class="language-bash hljs">domain-needed</code></pre>
+
+        <p>Add a local-only domain:</p>
+
+        <pre><code class="language-bash hljs">local=/app/</code></pre>
+
+        <p>Restart the dnsmasq service to apply your changes:</p>
+
+        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>
+
+        <p>By default, DNS uses UDP port 53. Open the DNS port, run:</p>
+
+        <pre><code class="language-bash hljs">sudo ufw allow 53/udp</code></pre>
+
+        <p>Next, you will need to edit your <code>/etc/hosts</code> file and add the local DNS server entries.</p>
+
+        <pre><code class="language-bash hljs">172.16.0.100    bulbasaur.app
+172.16.0.101    ivysaur.app
+172.16.0.102    venusaur.app</code></pre>        
+
+        <p>Restart the dnsmasq service to apply your changes:</p>
+
+        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>
+        
+        <p>Install <code>dnsutils</code> package:</p>
+
+        <pre><code class="language-bash hljs">sudo apt -y install dnsutils</code></pre>
+
+        <p>To test if the local DNS server is working or not, run:</p>
+
+        <pre><code class="language-bash hljs">dig bulbasaur.app
+dig ivysaur.app
+dig venusaur.app</code></pre>
+        
+        <p>The response should look similar to this:</p>
+
+        <pre><code class="language-bash hljs">; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; bulbasaur.app
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 62416
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;bulbasaur.app.         IN  A
+
+;; ANSWER SECTION:
+bulbasaur.app.      0   IN  A   172.16.0.100
+
+;; Query time: 0 msec
+;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
+;; WHEN: Mon Aug 14 13:24:05 UTC 2023
+;; MSG SIZE  rcvd: 58
+
+
+; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; ivysaur.app
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 33069
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;ivysaur.app.           IN  A
+
+;; ANSWER SECTION:
+ivysaur.app.        0   IN  A   172.16.0.101
+
+;; Query time: 0 msec
+;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
+;; WHEN: Mon Aug 14 13:24:05 UTC 2023
+;; MSG SIZE  rcvd: 56
+
+
+; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; venusaur.app
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 50282
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;venusaur.app.          IN  A
+
+;; ANSWER SECTION:
+venusaur.app.       0   IN  A   172.16.0.102
+
+;; Query time: 0 msec
+;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
+;; WHEN: Mon Aug 14 13:24:05 UTC 2023
+;; MSG SIZE  rcvd: 57</code></pre>
+
+        <p>To test a reverse IP lookup, run:</p>
+
+        <pre><code class="language-bash hljs">dig -x 172.16.0.100
+dig -x 172.16.0.101
+dig -x 172.16.0.102</code></pre>        
+        
+        <p>The response should look similar to this:</p>
+
+        <pre><code class="language-bash hljs">; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; -x 172.16.0.100
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 13755
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;100.0.16.172.in-addr.arpa. IN  PTR
+
+;; ANSWER SECTION:
+100.0.16.172.in-addr.arpa. 0    IN  PTR bulbasaur.app.
+
+;; Query time: 0 msec
+;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
+;; WHEN: Mon Aug 14 13:26:19 UTC 2023
+;; MSG SIZE  rcvd: 81
+
+
+; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; -x 172.16.0.101
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 15516
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;101.0.16.172.in-addr.arpa. IN  PTR
+
+;; ANSWER SECTION:
+101.0.16.172.in-addr.arpa. 0    IN  PTR ivysaur.app.
+
+;; Query time: 0 msec
+;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
+;; WHEN: Mon Aug 14 13:26:19 UTC 2023
+;; MSG SIZE  rcvd: 79
+
+
+; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; -x 172.16.0.102
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 47090
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;102.0.16.172.in-addr.arpa. IN  PTR
+
+;; ANSWER SECTION:
+102.0.16.172.in-addr.arpa. 0    IN  PTR venusaur.app.
+
+;; Query time: 0 msec
+;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
+;; WHEN: Mon Aug 14 13:26:19 UTC 2023
+;; MSG SIZE  rcvd: 80</code></pre>
+
+        <p>Run the tests on the client computers as well to check if the local DNS server is working or not.</p>        
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>

@@ -3,7 +3,7 @@ layout: post
 lang: en
 locale: en
 title: "Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1"
-thumb: "qemu.jpg"
+thumb: "ubuntu2204.jpg"
 eyebrow: "Tutorial"
 description: "This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a NAT router. Learn step-by-step instructions to set up and optimize your Ubuntu server as a NAT router."
 date: 2023-08-08 22:38:59 +0700
@@ -21,6 +21,7 @@ tags: ["qemu", "linux", "ubuntu 22.04", "ufw", "NAT"]
         <ol>
             <li class="active"><a href="https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</a></li>
             <li><a href="https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</a></li>
+            <li><a href="https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3</a></li>
         </ol>
 
         <p>This is how it will look like the virtual network we are going to build:</p>
@@ -167,6 +168,20 @@ net.ipv6.conf.default.forwarding=1</code></pre>
 
         <pre><code class="language-bash hljs">sudo sysctl -p</code></pre>
 
+        <p>Dynamic Host Configuration Protocol or DHCP is an IP network protocol that relies on client-server architecture to automatically set IP addresses and other attributes to an IP host to enable information transfer between network nodes.</p>
+
+        <p>DHCPv4 servers have a UDP port number of 67, so listen for messages addressed to this port number. On the other hand, DHCPv4 clients have the UDP port number 68 and only respond to messages sent to number 68.</p>
+
+        <p>DHCPv4 and DHCPv6 UDP port numbers are different. DHCPv6 servers have a UDP port number of 547 and DHCPv6 clients have the UDP port number 546.</p>
+
+        <p>In order to enable communication between the built-in DHCPv4 server of <code>systemd-networkd</code> on UDP port 67 and the built-in DHCPv4 client of <code>systemd-networkd</code> on UDP port 68, you need to open UDP port 67 in ufw:</p>
+
+        <pre><code class="language-bash hljs">sudo ufw allow 67/udp</code></pre>
+
+        <p>The same as DHCPv6 server of <code>systemd-networkd</code> on UDP port 547 and the built-in DHCPv6 client of <code>systemd-networkd</code> on UDP port 546, you need to open UDP port 547 in ufw:</p>
+
+        <pre><code class="language-bash hljs">sudo ufw allow 547/udp</code></pre>
+
         <p>Start the Ubuntu Desktop 22.04 virtual machines by specifying one network interface (only LAN interface) with unique mac addresses:</p>
 
         <pre><code class="language-bash hljs">qemu-system-x86_64 -name "Ubuntu Desktop 22.04 Client 1" \
@@ -221,9 +236,9 @@ Gateway=fde0:fa74:a7a2:87e4::1</code></pre>
 
         <pre><code class="language-bash hljs">sudo systemctl restart systemd-networkd</code></pre>
 
-        <p>Configure <code>systemd-resolved</code> to use a Google DNS nameserver so your system has internet access. Edit <code>/etc/systemd/resolved.conf</code>, uncomment and change the <code>DNS</code> to <code>8.8.8.8</code></p>
+        <p>Configure <code>systemd-resolved</code> to use NAT gateway IP address as DNS nameserver so your system can have internet access. Edit <code>/etc/systemd/resolved.conf</code>, uncomment and change the <code>DNS</code> to <code>172.16.0.1</code></p>
 
-        <pre><code class="language-bash hljs">DNS=8.8.8.8</code></pre>        
+        <pre><code class="language-bash hljs">DNS=172.16.0.1</code></pre>        
 
         <p>To apply the configuration, run:</p>
 
