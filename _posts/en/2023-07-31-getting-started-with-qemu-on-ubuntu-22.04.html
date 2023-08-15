@@ -44,16 +44,20 @@ tags: ["qemu", "linux", "ubuntu 22.04"]
         <ul>
             <li><code>-name "Ubuntu Server 22.04"</code> specifies the name of the running guest system. The name is displayed in the window caption</li>
             <li>
+                <span>
                 <code>-machine type=pc-q35-2.12</code> specifies the type of the emulated machine.<br>
                 Run <code>qemu-system-x86_64 -machine help</code> to view a list of supported machine types.<br>
-                Run <code>qemu-system-x86_64 -machine type=pc-q35-2.12,help</code> to list all available properties of <code>pc-q35-2.12</code> machine.     
+                Run <code>qemu-system-x86_64 -machine type=pc-q35-2.12,help</code> to list all available properties of <code>pc-q35-2.12</code> machine.
+                </span>     
             </li>
             <li><code>-accel kvm</code> specifies to use the hardware acceleration provided by kvm</li>
             <li><code>-boot menu=on</code> specifies manually to select boot drive</li>
             <li><code>-bios /usr/share/ovmf/OVMF.fd</code> specifies to boot with the TianoCore UEFI firmware</li>
             <li>
+                <span>
                 <code>-cpu host</code> specifies to emulate the host processor<br>
                 Run <code>qemu-system-x86_64 -cpu help</code> to view a list of supported processors
+                </span>
             </li> 
             <li><code>-smp 2</code> specifies how many CPUs will be emulated</li>
             
@@ -62,9 +66,11 @@ tags: ["qemu", "linux", "ubuntu 22.04"]
             <li><code>-display sdl</code> specifies to display video output via SDL (usually in a separate graphics window)</li>
 
             <li>
+                <span>
                 <code>-device VGA,addr=01.0</code> specifies the type of the video card.<br>
                 Run <code>qemu-system-x86_64 -device help</code> to view a list of video card types.<br>
                 Run <code>qemu-system-x86_64 -device VGA,help</code> to list all available properties of <code>VGA</code> video card.
+                </span>
             </li>
             
             <li><code>-drive file=ubuntu.img,if=none,id=drive0</code> specifies a virtual hard drive and use <code>ubuntu.img</code> image file</li>
