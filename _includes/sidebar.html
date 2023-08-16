@@ -18,9 +18,9 @@
 						<li><a href="{{ site.url }}{{ lang }}{{ post.url }}">
 						{% assign length = post.title | size | plus: 0 %}
 						{% if length > 66  %}
-						<h5>{{ post.title | slice: 0, 65 }}...</h5>
+						{{ post.title | slice: 0, 65 }}...
 						{% else  %}
-						<h5>{{ post.title }}</h5>
+						{{ post.title }}
 						{% endif  %}
 						<span>{{ post.date | date: '%B %d, %Y' }}</span>
 						</a></li>

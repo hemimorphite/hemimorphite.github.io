@@ -50,6 +50,10 @@ ul, ol {
 	margin: 0;
 	color: #212427;
 }
+ul li, 
+ol li {
+	padding-left: 0.5rem;
+}
 
 h1,h2,h3,h4,h5,h6 {
 	margin: 0;
@@ -290,6 +294,7 @@ header {
 }
 .blog-posts .blog-post .down-content ul {
 	list-style: none;
+	padding: 0;
 }
 .blog-posts .blog-post .down-content ul.post-info li {
 	display: inline-block;
@@ -333,6 +338,7 @@ header {
 .blog-posts .blog-post .down-content ul.post-tags li:first-child i,
 .blog-posts .blog-post .down-content ul.post-share li:first-child i {
 	color: #7a7a7a;
+	font-size: 0.8rem;
 }
 
 .blog-posts .down-content ul.post-tags li a,
@@ -426,10 +432,6 @@ header {
 .blog-post .post-content ol li a {
   font-weight: 400;
 }
-.blog-post .post-content ul li.active a,
-.blog-post .post-content ol li.active a {
-  color: #f48840;
-}
 .blog-post .post-tags {
 	margin-top: 5rem;
 }
@@ -448,6 +450,7 @@ header {
 	display: flex;
 	flex-wrap: wrap;
 	list-style: none;
+	padding: 0;
 }
 .blog-post .post-share ul li,
 .blog-post .post-tags li {
@@ -466,6 +469,7 @@ header {
 ul.page-numbers {
 	text-align: center;
 	list-style: none;
+	padding: 0;
 }
 
 ul.page-numbers li {
@@ -600,8 +604,43 @@ ul.page-numbers li.disabled a:hover {
 .sidebar .search input::placeholder {
 	color: #aaa;
 }
+.sidebar .recent-posts ul {
+	list-style: none;
+}
+.sidebar .recent-posts ul li {
+	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 0.1rem solid #eee;
+}
+
+.sidebar .recent-posts ul li:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+.sidebar .recent-posts ul li a {
+	font-size: 1.1rem;
+	font-weight: 900;
+	color: #20232e;
+	transition: all 0.5s ease-in;
+}
+
+.sidebar .recent-posts ul li a:hover {
+	color: #f48840;
+	text-decoration: none;
+}
+
+.sidebar .recent-posts ul li span {
+	display: block;
+	font-size: 0.8rem;
+	color: #aaa;
+	margin-top: 0.5rem;
+}
+
 .sidebar .categories ul {
 	list-style: none;
+	padding: 0;
 }
 .sidebar .categories ul li {
 	margin-bottom: 1rem;
@@ -624,6 +663,7 @@ ul.page-numbers li.disabled a:hover {
 }
 .sidebar .tags ul {
 	list-style: none;
+	padding: 0;
 }
 .sidebar .tags ul li {
 	margin-right: 0.2rem;
@@ -746,6 +786,7 @@ footer p a:hover {
 	.navbar .navbar-nav .nav-link.show,
 	.navbar .navbar-nav .show>.nav-link {
 		color: #f48840!important;
+		text-decoration: none;
 	}
 	
 	.sidebar {
@@ -776,6 +817,7 @@ footer p a:hover {
 .btn-all:hover {
 	color: #f48840;
 	border: 0.1rem solid #f48840;
+	text-decoration: none;
 }
 
 @media (min-width: 992px) {
@@ -820,7 +862,6 @@ footer p a:hover {
 }
 
 /* 404 */
-
 .not-found {
 	height: 20rem;
 	text-align: center;
