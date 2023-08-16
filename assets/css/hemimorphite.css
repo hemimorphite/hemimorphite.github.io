@@ -46,7 +46,7 @@ a:hover {
 }
 
 ul, ol {
-	padding: 1rem;
+	padding-left: 1rem;
 	margin: 0;
 	color: #212427;
 }
@@ -299,6 +299,7 @@ header {
 .blog-posts .blog-post .down-content ul.post-info li {
 	display: inline-block;
 	margin-right: 0.3rem;
+	padding: 0;
 }
 .blog-posts .blog-post .down-content ul.post-info li:after {
 	content: '|';
@@ -323,6 +324,7 @@ header {
 	margin-top: 0;
 	margin-bottom: 0;
 	list-style: none;
+	padding: 0;
 }
 
 .blog-posts .blog-post .down-content ul.post-share {
@@ -333,6 +335,7 @@ header {
 .blog-posts .blog-post .down-content ul.post-share li {
 	font-size: 0.8rem;
 	display: inline-block;
+	padding: 0;
 }
 
 .blog-posts .blog-post .down-content ul.post-tags li:first-child i,
@@ -425,7 +428,7 @@ header {
 }
 .blog-post .post-content ul li::marker,
 .blog-post .post-content ol li::marker {
-  color: #d1d5db;
+  color: #7a7a7a;
   font-weight: bold;
 }
 .blog-post .post-content ul li a,
@@ -454,8 +457,9 @@ header {
 }
 .blog-post .post-share ul li,
 .blog-post .post-tags li {
-	margin-right: 0.2rem;
+	margin-right: 0.3rem;
 	line-height: 1.2;
+	padding: 0;
 }
 .blog-post .post-share ul li:first-child,
 .blog-post .post-tags li:first-child {
@@ -475,6 +479,7 @@ ul.page-numbers {
 ul.page-numbers li {
 	display: inline-block;
 	margin: 0 0.2rem;
+	padding: 0;
 }
 
 ul.page-numbers li a {
@@ -606,11 +611,13 @@ ul.page-numbers li.disabled a:hover {
 }
 .sidebar .recent-posts ul {
 	list-style: none;
+	padding: 0;
 }
 .sidebar .recent-posts ul li {
 	margin-bottom: 1rem;
 	padding-bottom: 1rem;
 	border-bottom: 0.1rem solid #eee;
+	padding: 0;
 }
 
 .sidebar .recent-posts ul li:last-child {
@@ -628,7 +635,7 @@ ul.page-numbers li.disabled a:hover {
 
 .sidebar .recent-posts ul li a:hover {
 	color: #f48840;
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 .sidebar .recent-posts ul li span {
@@ -644,6 +651,7 @@ ul.page-numbers li.disabled a:hover {
 }
 .sidebar .categories ul li {
 	margin-bottom: 1rem;
+	padding: 0;
 }
 
 .sidebar .categories ul li:last-child {
@@ -669,6 +677,7 @@ ul.page-numbers li.disabled a:hover {
 	margin-right: 0.2rem;
 	margin-bottom: 0.8rem;
 	display: inline-block;
+	padding: 0;
 }
 
 .sidebar .tags ul li a {
