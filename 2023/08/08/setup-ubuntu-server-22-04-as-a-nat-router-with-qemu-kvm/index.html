@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a NAT router. Learn step-by-step instructions to set up and optimize your Ubuntu server as a NAT router.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">
+		<meta property="og:description" content="This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a NAT router. Learn step-by-step instructions to set up and optimize your Ubuntu server as a NAT router.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/ubuntu2204.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1">
+		<meta name="twitter:description" content="This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a NAT router. Learn step-by-step instructions to set up and optimize your Ubuntu server as a NAT router.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/ubuntu2204.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+
+	    <!-- Additional CSS Files -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <div class="post-date">Published August 08, 2023</div>
+<h2 class="post-title">Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">Samuel Yang</span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/&hashtags=qemu,linux,ubuntu 22.04,ufw,NAT"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/ubuntu2204.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Welcome to configuring Ubuntu Server 22.04 as a router tutorial series!</p>
+
+        <ol>
+            <li class="active"><a href="https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</a></li>
+            <li><a href="https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</a></li>
+            <li><a href="https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/">Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3</a></li>
+        </ol>
+
+        <p>This is how it will look like the virtual network we are going to build:</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/nat-01.jpg" alt="configuring Ubuntu Server 22.04 as a NAT router">
+        </figure>
+
+        <ul>
+            <li><b>enp0s4</b>: WAN interface</li>
+            <li><b>enp0s5</b>: LAN interface with a ipv4 subnet prefix address 172.16.0.0/24</li>
+            <li><b>192.168.0.15</b>: the first IPv4 address of Ubuntu Server 22.04 as WAN IPv4 address</li>
+            <li><b>172.16.0.1</b>: the second IPv4 address of Ubuntu Server 22.04 as LAN IPv4 Gateway</li>
+            <li><b>172.16.0.11</b>: the IPv4 address of the first client</li>
+            <li><b>172.16.0.12</b>: the IPv4 address of the second client</li>
+        </ul>
+
+        <p>First, we need to have three qemu images:</p>
+
+        <ul>
+            <li>Ubuntu Server 22.04 distro as a router gateway</li>
+            <li>Ubuntu Desktop 22.04 distro as a client 1</li>
+            <li>Ubuntu Desktop 22.04 distro as a client 2</li>
+        </ul>
+
+        <p>Then, we need set up a linux bridge (which will act as a layer 2 switch) and three tap interfaces on the host computer to connect three qemu images to each other.</p>
+
+        <p>We can create a new tap interface using <code>tunctl</code> command. In order to use <code>tunctl</code> command, you need to install <code>uml-utilities</code> package on Ubuntu:</p>
+
+        <pre><code class="language-bash hljs">sudo apt install uml-utilities</code></pre>
+
+        <p>Or <code>tunctl</code> package on Fedora:</p>
+
+        <pre><code class="language-bash hljs">sudo dnf install tunctl</code></pre>
+
+        <p>We need to create a tap interface for each of the virtual machines, then we will need to create three different tap interfaces:</p>
+
+        <pre><code class="language-bash hljs">sudo tunctl -u $USER -t tap1
+sudo tunctl -u $USER -t tap2
+sudo tunctl -u $USER -t tap3</code></pre>
+
+        <p>Next, we bring the tap interfaces up:</p>
+
+        <pre><code class="language-bash hljs">sudo ip link set dev tap1 up 
+sudo ip link set dev tap2 up
+sudo ip link set dev tap3 up</code></pre>
+        
+        <p>Then, we create a network bridge using <code>brctl</code> command:</p>
+
+        <pre><code class="language-bash hljs">sudo brctl addbr br0</code></pre>
+
+        <p>Bring up the network bridge:</p>
+
+        <pre><code class="language-bash hljs">sudo ip link set dev br0 up</code></pre>
+
+        <p>Then we attach the tap interfaces to the bridge interface:</p>
+
+        <pre><code class="language-bash hljs">sudo brctl addif br0 tap1
+sudo brctl addif br0 tap2
+sudo brctl addif br0 tap3</code></pre>
+        
+        <p>Start the Ubuntu Server 22.04 virtual machine by specifying two network interfaces (WAN interface and LAN interface) with unique mac addresses:</p>
+        
+        <pre><code class="language-bash hljs">qemu-system-x86_64 -name "Ubuntu Server 22.04 Router Gateway" \
+-machine type=pc-q35-2.12 -accel kvm \
+-m 4G -cpu host \
+-display sdl \
+-bios /usr/share/ovmf/OVMF.fd \
+-device virtio-vga,addr=01.0 \
+-drive file=ubunturouter.img,if=none,id=drive0 \
+-device nvme,serial=364740043439,addr=02.0,bus=pcie.0,drive=drive0 \
+-netdev user,id=net0,ipv4=on,net=192.168.0.0/24,ipv6=on,ipv6-net=fdc8:45c7:c72b:b1e5::/64,dns=192.168.0.1,ipv6-dns=fdc8:45c7:c72b:b1e5::1 \
+-device e1000-82545em,addr=04.0,bus=pcie.0,mac=38:24:10:62:34:78,netdev=net0 \
+-netdev tap,id=net1,ifname="tap1",script=no,downscript=no \
+-device e1000-82545em,addr=05.0,bus=pcie.0,mac=98:73:37:90:34:57,netdev=net1</code></pre>
+        
+        <p>List the network interfaces using <code>ip</code> command:</p>
+
+        <pre><code class="language-bash hljs">ip addr show</code></pre>
+
+        <figure class="post-figure">
+            <img src="/assets/images/nat-02.jpg" alt="configuring Ubuntu Server 22.04 as a NAT router">
+        </figure>
+
+        <p>WAN interface <code>enp0s4</code> sets to DHCP and LAN interface <code>enp0s5</code> sets to static IP.</p>
+
+        <p>Create a network configuration file for WAN interface, <code>10-enp0s4.network</code>, in the <code>/etc/systemd/network/</code> directory.</p>
+
+        <pre><code class="language-bash hljs">[Match]
+Name=enp0s4
+
+[Network]
+DHCP=yes</code></pre>
+
+        <p>And create a network configuration file for LAN interface, <code>10-enp0s5.network</code>, in the <code>/etc/systemd/network/</code> directory.</p>
+
+        <pre><code class="language-bash hljs">[Match]
+Name=enp0s5
+
+[Network]
+DHCP=no
+Address=172.16.0.1/24
+Address=fde0:fa74:a7a2:87e4::1/64</code></pre>        
+        
+        <p>To apply the configuration, run:</p>
+
+        <pre><code class="language-bash hljs">sudo systemctl restart systemd-networkd</code></pre>
+
+        <p>Then, we install <code>ufw</code> firewall:</p>
+
+        <pre><code class="language-bash hljs">sudo apt install ufw</code></pre>
+
+        <p>To enable UFW, use this command:</p>
+
+        <pre><code class="language-bash hljs">sudo ufw enable</code></pre>
+
+        <p>Next, we need to enable IP Masquerading. The purpose of IP Masquerading is to allow machines with private IP addresses on your network to access the Internet through the machine doing the masquerading.</p>
+
+        <p>Now add rules to the <code>/etc/ufw/before.rules</code> file. The default rules only configure the filter table, and to enable masquerading the nat table will need to be configured. Add the following to the end of the file just after the <code>COMMIT</code>:</p>
+
+        <pre><code class="language-bash hljs"># nat Table rules
+*nat
+:POSTROUTING ACCEPT [0:0]
+
+# Forward traffic from eth1 through enp0s4.
+-A POSTROUTING -o enp0s4 -j MASQUERADE
+
+# don't delete the 'COMMIT' line or these nat table rules won't be processed
+COMMIT</code></pre> 
+        
+        <p>IP forwarding plays a fundamental role on a router. This is the functionality that allows a router to forward traffic from one network interface to another network interface.</p>
+        
+        <p>Packet forwarding needs to be enabled in ufw and ensure that ufw is configured to support IPv6 so that it will manage firewall rules for IPv6 in addition to IPv4. Edit <code>/etc/default/ufw</code> change the <code>DEFAULT_FORWARD_POLICY</code> to <code>"ACCEPT"</code> and <code>IPV6</code> to <code>yes</code></p>
+
+        <p>Finally, disable and re-enable ufw to apply the changes:</p>
+
+        <pre><code class="language-bash hljs">sudo ufw disable && sudo ufw enable</code></pre>               
+
+        <p>Then, we also need to IP forwarding on the Ubuntu Server system by editing <code>/etc/sysctl.conf</code> and uncomment the following line:.</p>        
+
+        <pre><code class="language-bash hljs">net.ipv4.ip_forward=1
+
+net.ipv6.conf.default.forwarding=1</code></pre>        
+
+        <p>Next, execute the <code>sysctl</code> command to enable the new settings in the configuration file:</p>
+
+        <pre><code class="language-bash hljs">sudo sysctl -p /etc/sysctl.conf</code></pre>
+
+        <p>Dynamic Host Configuration Protocol or DHCP is an IP network protocol that relies on client-server architecture to automatically set IP addresses and other attributes to an IP host to enable information transfer between network nodes.</p>
+
+        <p>DHCPv4 servers have a UDP port number of 67, so listen for messages addressed to this port number. On the other hand, DHCPv4 clients have the UDP port number 68 and only respond to messages sent to number 68.</p>
+
+        <p>DHCPv4 and DHCPv6 UDP port numbers are different. DHCPv6 servers have a UDP port number of 547 and DHCPv6 clients have the UDP port number 546.</p>
+
+        <p>In order to enable communication between the built-in DHCPv4 server of <code>systemd-networkd</code> on UDP port 67 and the built-in DHCPv4 client of <code>systemd-networkd</code> on UDP port 68, you need to open UDP port 67 in ufw:</p>
+
+        <pre><code class="language-bash hljs">sudo ufw allow 67/udp</code></pre>
+
+        <p>The same as DHCPv6 server of <code>systemd-networkd</code> on UDP port 547 and the built-in DHCPv6 client of <code>systemd-networkd</code> on UDP port 546, you need to open UDP port 547 in ufw:</p>
+
+        <pre><code class="language-bash hljs">sudo ufw allow 547/udp</code></pre>
+
+        <p>Start the Ubuntu Desktop 22.04 virtual machines by specifying one network interface (only LAN interface) with unique mac addresses:</p>
+
+        <pre><code class="language-bash hljs">qemu-system-x86_64 -name "Ubuntu Desktop 22.04 Client 1" \
+-machine type=pc-q35-2.12 -accel kvm \
+-m 4G -cpu host \
+-display sdl \
+-bios /usr/share/ovmf/OVMF.fd \
+-device virtio-vga,addr=01.0 \
+-drive file=ubuntuclient1.img,if=none,id=drive0 \
+-device nvme,serial=364740043439,addr=02.0,bus=pcie.0,drive=drive0 \
+-netdev tap,id=net0,ifname="tap2",script=no,downscript=no \
+-device e1000-82545em,addr=04.0,bus=pcie.0,mac=68:98:35:90:34:56,netdev=net0</code></pre>
+        
+        <pre><code class="language-bash hljs">qemu-system-x86_64 -name "Ubuntu Desktop 22.04 Client 2" \
+-machine type=pc-q35-2.12 -accel kvm \
+-m 4G -cpu host \
+-display sdl \
+-bios /usr/share/ovmf/OVMF.fd \
+-device virtio-vga,addr=01.0 \
+-drive file=ubuntuclient1.img,if=none,id=drive0 \
+-device nvme,serial=364740043439,addr=02.0,bus=pcie.0,drive=drive0 \
+-netdev tap,id=net0,ifname="tap3",script=no,downscript=no \
+-device e1000-82545em,addr=04.0,bus=pcie.0,mac=82:54:65:76:38:28,netdev=net0</code></pre>
+        
+        <p>Create a network configuration file for LAN interface, <code>10-enp0s4.network</code>, in the <code>/etc/systemd/network/</code> directory.</p>
+
+        <p>On the first client:</p>
+
+        <pre><code class="language-bash hljs">[Match]
+Name=enp0s4
+
+[Network]
+DHCP=no
+Address=172.16.0.11/24
+Gateway=172.16.0.1
+Address=fde0:fa74:a7a2:87e4::11/64
+Gateway=fde0:fa74:a7a2:87e4::1</code></pre>
+        
+        <p>On the second client:</p>
+
+        <pre><code class="language-bash hljs">[Match]
+Name=enp0s4
+
+[Network]
+DHCP=no
+Address=172.16.0.12/24
+Gateway=172.16.0.1
+Address=fde0:fa74:a7a2:87e4::12/64
+Gateway=fde0:fa74:a7a2:87e4::1</code></pre>
+        
+        <p>To apply the configuration, run:</p>
+
+        <pre><code class="language-bash hljs">sudo systemctl restart systemd-networkd</code></pre>
+
+        <p>Configure <code>systemd-resolved</code> to use Google Public DNS so your system can have internet access. Edit <code>/etc/systemd/resolved.conf</code>, uncomment and change the <code>DNS</code> to <code>8.8.8.8</code></p>
+
+        <pre><code class="language-bash hljs">DNS=8.8.8.8</code></pre>        
+
+        <p>To apply the configuration, run:</p>
+
+        <pre><code class="language-bash hljs">sudo systemctl restart systemd-resolved</code></pre>
+
+        <p>Try to ping google.com to check internet connectivity. You should have internet access now.</p>
+    </article>
+
+    <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/qemu">qemu</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/linux">linux</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/ubuntu-22-04">ubuntu 22.04</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/ufw">ufw</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/nat">NAT</a></li>
+	
+</ul>
+
+    <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/&hashtags=qemu,linux,ubuntu 22.04,ufw,NAT"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>
+
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server/"><img src="https://hemimorphite.github.io/assets/images/fedora38.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server/">Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3</a></h3>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/"><img src="https://hemimorphite.github.io/assets/images/fedora38.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/">Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2</a></h3>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/"><img src="https://hemimorphite.github.io/assets/images/fedora38.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/">Setup Fedora Server 38 as a NAT Router with Qemu/KVM, Part 1</a></h3>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/"><img src="https://hemimorphite.github.io/assets/images/ubuntu2204.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/">Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3</a></h3>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/"><img src="https://hemimorphite.github.io/assets/images/ubuntu2204.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</a></h3>
+							</div>
+						</div>
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/"><img src="https://hemimorphite.github.io/assets/images/qemu.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/">Getting Started with Qemu amd64 on Ubuntu 22.04</a></h3>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2023 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+  	</body>
+</html>

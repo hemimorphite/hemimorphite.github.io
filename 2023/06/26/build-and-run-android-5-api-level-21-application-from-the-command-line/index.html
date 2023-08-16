@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="This tutorial will guide you on how to build and run an Android 5 API level 21 application from the command line, providing a step-by-step approach with code examples and screenshots.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Build and Run Android 5 API Level 21 Application from the Command Line">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/">
+		<meta property="og:description" content="This tutorial will guide you on how to build and run an Android 5 API level 21 application from the command line, providing a step-by-step approach with code examples and screenshots.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/android5.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Build and Run Android 5 API Level 21 Application from the Command Line">
+		<meta name="twitter:description" content="This tutorial will guide you on how to build and run an Android 5 API level 21 application from the command line, providing a step-by-step approach with code examples and screenshots.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/android5.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Build and Run Android 5 API Level 21 Application from the Command Line</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+
+	    <!-- Additional CSS Files -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <div class="post-date">Published June 26, 2023</div>
+<h2 class="post-title">Build and Run Android 5 API Level 21 Application from the Command Line</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">Samuel Yang</span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/&hashtags=android 5,api level 21,linux,genymotion"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/android5.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>In this tutorial, I will show you how you can build an APK (an Android app) using terminal on Linux without IDE or Android Studio.</p>
+
+        <h4 class="post-subtitle">Install JDK 7</h4>
+
+        <p>Remove the existing OpenJDK, execute the following command on terminal:</p>
+
+        <pre><code class="language-bash hljs">sudo apt-get remove openjdk*</code></pre>
+
+        <p>Download oracle jdk 7 on the <a href="https://www.oracle.com/id/java/technologies/javase/javase7-archive-downloads.html">official website</a>. Extract the oracle jdk 7 tarball to your home directory:</p>
+
+        <pre><code class="language-bash hljs">tar -zxvf jdk-7u80-linux-x64.tar.gz --directory $HOME</code></pre>        
+
+        <p>Open the <code>.bashrc</code> file.</p>
+
+        <pre><code class="language-bash hljs">vi $HOME/.bashrc</code></pre>
+
+        <p>Add the following line to set the JDK 7 path:</p>
+
+        <pre><code class="language-bash hljs">export PATH="$HOME/jdk1.7.0_80/bin:$PATH"</code></pre>
+
+        <p>Save the file and exit.</p>
+
+        <p>Then Reload the <code>.bashrc</code> file:</p>        
+        
+        <pre><code class="language-bash hljs">source $HOME/.bashrc</code></pre>
+
+        <p>Check if the jdk path has been set up correctly:</p>
+
+        <pre><code class="language-bash hljs">java -version</code></pre>
+
+        <h4 class="post-subtitle">Install Android SDK Tools 23.0.5</h4>
+
+        <p>The SDK Tools package is deprecated and no longer used in Android 8. Since Android 8, it use the new Android SDK Command-Line tools package.</p> 
+
+        <p>As stated in <a href="https://developer.android.com/tools/releases/platforms">https://developer.android.com/tools/releases/platforms</a>, the required Android SDK Tools version is 23.0.5.</p>
+
+        <p>Download Android SDK Tools 23.0.5 on <a href="http://dl-ssl.google.com/android/repository/tools_r23.0.5-linux.zip">http://dl-ssl.google.com/android/repository/tools_r23.0.5-linux.zip</a></p>
+
+        <pre><code class="language-bash hljs">wget http://dl-ssl.google.com/android/repository/tools_r23.0.5-linux.zip</code></pre>
+
+        <p>Create Android SDK installation directory on your home directory.</p>
+        
+        <pre><code class="language-bash hljs">mkdir $HOME/android5sdk</code></pre>
+
+        <p>Extract the Android SDK Tools to Android SDK installation directory:</p>
+
+        <pre><code class="language-bash hljs">unzip tools_r23.0.5-linux.zip -d $HOME/android5sdk</code></pre>
+
+        <p>Change the Android SDK Tools directory permissions and ownership:</p>
+
+        <pre><code class="language-bash hljs">sudo chmod -R 755 $HOME/android5sdk/tools</code></pre>
+        <pre><code class="language-bash hljs">sudo chown -R $USER:$USER $HOME/android5sdk/tools</code></pre>
+
+        <p>Open the <code>.bashrc</code> file.</p>
+
+        <pre><code class="language-bash hljs">vi $HOME/.bashrc</code></pre>
+
+        <p>Add the following lines to set Android SDK environment variable <code>ANDROID_HOME</code> and the Android SDK Tools path:</p>
+
+        <pre><code class="language-bash hljs">export ANDROID_HOME="$HOME/android5sdk"</code></pre>
+        <pre><code class="language-bash hljs">export PATH="$HOME/jdk1.7.0_80/bin:$ANDROID_HOME/tools:$PATH"</code></pre>
+
+        <p>Save the file and exit.</p>
+
+        <p>Then reload the <code>.bashrc</code> file:</p>        
+        
+        <pre><code class="language-bash hljs">source $HOME/.bashrc</code></pre>        
+
+        <h4 class="post-subtitle">Install Android SDK Build-tools 23.0.1</h4>
+
+        <p>Run <code>android</code> command on the terminal and <b>Android SDK Manager</b> window will show up:</p>
+
+        <pre><code class="language-bash hljs">android</code></pre>
+
+        <p>Click <b>Deselect All</b></p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-01.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <p>Check <b>Android SDK Build-tools</b> version 23.0.1 option. Then click <b>Install package</b></p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-02.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <p>A prompt shows up and click <b>Accept License</b>. Then click <b>Install</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-03.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-04.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <p>After the installation process finished, open the <code>.bashrc</code> file and set the Android SDK Build-tools path.</p>
+
+        <pre><code class="language-bash hljs">export PATH="$HOME/jdk1.7.0_80/bin:$ANDROID_HOME/tools:$ANDROID_HOME/build-tools/23.0.1:$PATH"</code></pre>
+
+        <p>Save the file and exit.</p>
+
+        <p>Then Reload the <code>.bashrc</code> file:</p>        
+        
+        <pre><code class="language-bash hljs">source $HOME/.bashrc</code></pre>
+
+        <h4 class="post-subtitle">Install SDK Platform for Android 5 API Level 21</h4>
+
+        <p>Run <code>android</code> command on the terminal and <b>Android SDK Manager</b> window will show up:</p>
+
+        <pre><code class="language-bash hljs">android</code></pre>
+
+        <p>Click <b>Deselect All</b></p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-01.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <p>Find and check the <b>SDK Platform</b> API Level 21 option. Then click <b>Install package</b></p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-05.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <p>A prompt appears and click <b>Accept License</b>. Then click <b>Install</b>.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/android5-06.jpg" alt="Android SDK Manager">
+        </figure>
+
+        <h4 class="post-subtitle">Create and Build an Simple Android Project</h4>
+
+        <p>First, we need to make a project directory on the home directory:</p>
+
+        <pre><code class="language-bash hljs">mkdir $HOME/HelloAndroid</code></pre>
+        
+        <pre><code class="language-bash hljs">cd $HOME/HelloAndroid</code></pre>
+
+        <p>Open the <code>.bashrc</code> file and set the Android project path.</p>
+
+        <pre><code class="language-bash hljs">export PROJ="$HOME/HelloAndroid"</code></pre>
+
+        <p>Create the <code>src</code> directory that contains all <code>.java</code> (JAVA) files.</p>
+
+        <pre><code class="language-bash hljs">mkdir src</code></pre>
+
+        <p>Every Android app has a unique application ID that looks like a Java package name, such as <code>com.example.myapplication</code>. This ID uniquely identifies your app in Google Play Store. If you want to upload a new version of your app, the application ID (and the certificate you sign it with) must be the same as the original APK. if you change the application ID, Google Play Store treats the APK as a completely different app.</p>      
+
+        <p>Create the unique application ID directory structure inside the <code>src</code> directory.</p>
+
+        <pre><code class="language-bash hljs">mkdir -p src/com/example/helloandroid</code></pre>
+
+        <p>Create the <code>layout</code> directory holds all the XML layout files for your projects.</p>  
+        
+        <pre><code class="language-bash hljs">mkdir -p res/layout</code></pre>     
+
+        <p>Create the <code>drawable</code> directory holds all the images for your project.</p> 
+
+        <pre><code class="language-bash hljs">mkdir -p res/drawable</code></pre>
+
+        <p>Create the <code>values</code> directory is used to store the values for the resources that are used in android projects to include features of color, styles, dimensions etc.</p>
+
+        <pre><code class="language-bash hljs">mkdir -p res/values</code></pre>
+
+        <p>Every app project must have an <code>AndroidManifest.xml</code> file, with precisely that name, at the project directory. The manifest file describes essential information about your app to the Android build tools, the Android operating system, and Google Play.</p>  
+
+        <p>Create a <code>AndroidManifest.xml</code> file contains information of your package, including components of the application such as activities, services, broadcast receivers, content providers etc. Add the following lines:</p>
+
+        <pre><code class="language-xml hljs">&lt;?xml version='1.0'?&gt;
+&lt;manifest xmlns:a='http://schemas.android.com/apk/res/android' package='com.example.helloandroid' a:versionCode='0' a:versionName='0'&gt;
+    &lt;application a:label='A Hello Android'&gt;
+        &lt;activity a:name='com.example.helloandroid.MainActivity'&gt;
+             &lt;intent-filter&gt;
+                &lt;category a:name='android.intent.category.LAUNCHER'/&gt;
+                &lt;action a:name='android.intent.action.MAIN'/&gt;
+             &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+&lt;/manifest&gt;</code></pre>
+
+        <p>Create a <code>src/com/example/helloandroid/MainActivity.java</code> file and add the following codes:</p>
+
+        <pre><code class="language-java hljs">package com.example.helloandroid;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class MainActivity extends Activity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   }
+}</code></pre>
+
+        <p>Create a <code>res/values/strings.xml</code> file which contains all the strings which will be used frequently in project and add the following codes:</p>
+
+        <pre><code class="language-xml hljs">&lt;resources&gt;
+    &lt;string name="app_name"&gt;A Hello Android&lt;/string&gt;
+    &lt;string name="hello_msg"&gt;Hello Android!&lt;/string&gt;
+&lt;/resources&gt;</code></pre>
+
+        <p>Create a <code>res/values/activity_main.xml</code> file which defines the architecture for the UI in an Activity or a component of a UI and add the following lines:</p>
+
+        <pre><code class="language-xml hljs">&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent" &gt;
+   
+   &lt;TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_centerVertical="true"
+      android:text="@string/hello_msg"
+      tools:context=".MainActivity" /&gt;
+&lt;/RelativeLayout&gt;</code></pre>
+
+        <p>Now, we need generate the <code>R.java</code> file:</p>
+        
+        <pre><code class="language-bash hljs">aapt package -f -m -J $PROJ/src -M $PROJ/AndroidManifest.xml -S $PROJ/res -I $ANDROID_HOME/platforms/android-21/android.jar</code></pre>
+
+        <ul>
+            <li><code>-f</code> option instructs <code>aapt</code> to force overwrite of existing files</li>
+            <li><code>-m</code> option instructs <code>aapt</code> to create directories under the location specified by <code>-J</code> option</li>
+            <li><code>-J</code> option specifies where <code>R.java</code> file will be created</li>
+            <li><code>-S</code> option specifies where the resource directory is</li>
+            <li><code>-I</code> option instructs <code>aapt</code> to include the <code>android.jar</code></li>
+        </ul>
+
+        <p>Next, we compile the <code>.java</code> files:</p>
+
+        <pre><code class="language-bash hljs">javac -d obj -sourcepath src -classpath $ANDROID_HOME/platforms/android-21/android.jar src/com/example/helloandroid/*.java</code></pre>   
+        
+        <ul>
+            <li><code>-d</code> option specifies where the class files (compiled <code>.java</code> files) will be saved</li>
+            <li><code>-sourcepath</code> option specifies where to find source files (<code>.java</code> files)</li>
+            <li><code>-classpath</code> option specifies where the android library (<code>.jar</code> files) or the external libraries are. Use <code>:</code> to separate the <code>.jar</code> files</li>
+        </ul>
+
+        <p>The compiled <code>.class</code> files are in <code>obj</code> directory, but Android runtime can't read them. We have to translate them in a file called <code>classes.dex</code> which will be read by the dalvik Android runtime:</p>
+
+        <pre><code class="language-bash hljs">dx --dex --output=$PROJ/bin/classes.dex $PROJ/obj</code></pre>
+
+        <p>But if your project uses external libraries, then:</p>
+    
+        <pre><code class="language-bash hljs">dx --dex --output=$PROJ/bin/classes.dex $PROJ/*.jar $PROJ/obj</code></pre>
+
+        <p>Now we create the APK file:</p>
+    
+        <pre><code class="language-bash hljs">aapt package -f -m -F $PROJ/bin/hello.unaligned.apk -M $PROJ/AndroidManifest.xml -S $PROJ/res -I $ANDROID_HOME/platforms/android-21/android.jar</code></pre>
+
+        <ul>
+            <li><code>-f</code> option instructs <code>aapt</code> to force overwrite of existing files</li>
+            <li><code>-m</code> option instructs <code>aapt</code> to create directories under the location specified by <code>-J</code> option</li>
+            <li><code>-F</code> option specifies where the APK file will be created</li>
+            <li><code>-M</code> option specifies full path to <code>AndroidManifest.xml</code> to include in APK file</li>
+            <li><code>-S</code> option specifies directory in which to find resources</li>
+            <li><code>-I</code> option instructs <code>aapt</code> to include the <code>android.jar</code></li>
+        </ul>
+
+        <p>Add the <code>classes.dex</code> file to the APK file:</p>
+
+        <pre><code class="language-bash hljs">aapt add $PROJ/bin/hello.unaligned.apk $PROJ/bin/classes.dex</code></pre>
+
+        <p>The generated APK can’t be installed yet by Android because it's unaligned and unsigned.</p>
+
+        <p>To sign the APK, we firstly create a new keystore with the command <code>keytool</code> given by Java JDK:</p>
+
+        <pre><code class="language-bash hljs">keytool -genkeypair -alias samuel -validity 365 -keystore mykey.keystore -keyalg RSA -keysize 2048</code></pre>
+
+        <ul>
+            <li><code>-genkeypair</code> option instructs <code>keytool</code> to generate a public key/private key pair and the generated key pair is inserted into a Java KeyStore file as a self signed key pair</li>
+            <li><code>-alias</code> option specifies the name for the certificate</li>
+            <li><code>-validity</code> option specifies the number of days the certificate attached to the key pair should be valid</li>
+            <li><code>-keystore</code> option specifies the name of the KeyStore file to store the generated key pair in</li>
+            <li><code>-keyalg</code> option specifies the name of the algorithm used to generate the key</li>
+            <li><code>-keysize</code> option specifies the size in bits of the key to generate</li>
+        </ul>
+
+        <p>When prompted, supply the certificate and password information.</p>
+
+        <pre><code class="language-bash hljs">Enter keystore password:  (choose a password)
+What is your first and last name?
+  [Unknown]:  samuel yang
+What is the name of your organizational unit?
+  [Unknown]:  development
+What is the name of your organization?
+  [Unknown]:  hemimorphite
+What is the name of your City or Locality?
+  [Unknown]:  jakarta
+What is the name of your State or Province?
+  [Unknown]:  jakarta
+What is the two-letter country code for this unit?
+  [Unknown]:  id
+Is CN=samuel yang, OU=development, O=hemimorphite, L=jakarta, ST=jakarta, C=id correct?
+  [no]:  yes
+
+Enter key password for 
+        (RETURN if same as keystore password):  (choose a password or enter)</code></pre>        
+
+        <p>Next, we sign the APK file with the command <code>jarsigner</code> given by Java JDK:</p>
+
+        <pre><code class="language-bash hljs">jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore mykey.keystore $PROJ/bin/hello.unaligned.apk</code></pre>
+
+        <ul>
+            <li><code>-verbose</code> option indicates that the <code>jarsigner</code> use the verbose mode when signing</li>
+            <li><code>-sigalg</code> option specifies the name of the signature algorithm to use to sign the APK file.</li>
+            <li><code>-digestalg</code> option specifies the name of the message digest algorithm to use when digesting the entries of a APK file.</li>
+            <li><code>-keystore</code> option specifies the name of the KeyStore file to be used</li>
+        </ul>
+
+        <p>Next, we align the APK file to optimize your APK file.</p>
+
+        <pre><code class="language-bash hljs">zipalign -f 4 $PROJ/bin/hello.unaligned.apk $PROJ/bin/hello.apk</code></pre>   
+        
+        <ul>
+            <li><code>-f</code> option instructs the <code>zipalign</code> to overwrite existing output file</li>
+            <li><code>4</code> option instructs the <code>zipalign</code> to align to 4 bytes on both 32-bit and 64-bit systems</li>
+        </ul>
+
+        <h4 class="post-subtitle">Run the APK File on Android Emulator</h4>
+
+        <p>Download the genymotion installer on the <a href="https://www.genymotion.com/download/">official website</a>.</p>
+
+        <p>Next, open terminal and run the installer:</p>
+
+        <pre><code class="language-bash hljs">./genymotion-3.4.0-linux_x64.bin</code></pre>
+
+        <p>After finished installing, open the emulator and click add virtual machine.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-01.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <p>A window will show up, search the virtual device name (eg. Samsung Galaxy S5) and double click the virtual device.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-02.jpg" alt="Genymotion Emulator">
+        </figure>        
+
+        <p>Just click <b>Next</b> and then click <b>Install</b>.</p>   
+        
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-03.jpg" alt="Genymotion Emulator">
+        </figure>        
+
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-04.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-05.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/genymotion-06.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <p>Wait until the download is complete.</p>
+
+        <p>After the download is complete, start the virtual device.</p>
+
+        <figure class="post-figure vertical">
+            <img src="/assets/images/genymotion-07.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <figure class="post-figure vertical">
+            <img src="/assets/images/genymotion-08.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <p>Drag and drop the APK file into the emulator. A window will show up. Click <b>continue</b>.</p>
+
+        <figure class="post-figure vertical">
+            <img src="/assets/images/genymotion-09.jpg" alt="Genymotion Emulator">
+        </figure>
+
+        <p>if everything is fine with your set-up and application, it will display following emulator window.</p>
+
+        <figure class="post-figure vertical">
+            <img src="/assets/images/genymotion-10.jpg" alt="Genymotion Emulator">
+        </figure> 
+    </article>
+
+  <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/android-5">android 5</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/api-level-21">api level 21</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/linux">linux</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/tag/genymotion">genymotion</a></li>
+	
+</ul>
+
+  <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/&hashtags=android 5,api level 21,linux,genymotion"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>
+
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2023 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/2023/06/26/build-and-run-android-5-api-level-21-application-from-the-command-line/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+  	</body>
+</html>

@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a DHCP server. Learn step-by-step instructions to set up and optimize your Ubuntu server as a DHCP server.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/zh/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/zh/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/zh/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">
+		<meta property="og:description" content="This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a DHCP server. Learn step-by-step instructions to set up and optimize your Ubuntu server as a DHCP server.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/ubuntu2204.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2">
+		<meta name="twitter:description" content="This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a DHCP server. Learn step-by-step instructions to set up and optimize your Ubuntu server as a DHCP server.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/ubuntu2204.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+
+	    <!-- Additional CSS Files -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/zh/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <div class="post-date">Published August 12, 2023</div>
+<h2 class="post-title">Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</h2>
+<div class="post-author">
+    <span class="author-avatar"></span>
+    <span class="author-name">Samuel Yang</span>
+</div>
+
+<div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/&hashtags=qemu,linux,ubuntu 22.04,ufw,DHCP"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/"> Linkedin</a></li>
+    </ul>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/ubuntu2204.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Welcome to configuring Ubuntu Server 22.04 as a router tutorial series!</p>
+
+        <ol>
+            <li><a href="https://hemimorphite.github.io/zh/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</a></li>
+            <li class="active"><a href="https://hemimorphite.github.io/zh/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</a></li>
+            <li><a href="https://hemimorphite.github.io/zh/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/">Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3</a></li>
+        </ol>
+
+        <p>One of the most popular programs for Linux operating systems providing DHCP service is dnsmasq.</p>
+        
+        <p>Install dnsmasq:</p>
+
+        <pre><code class="language-bash hljs">sudo apt -y install dnsmasq</code></pre>
+
+        <p>The response should look similar to this:</p>
+        
+        <pre><code class="language-bash hljs">Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  dns-root-data dnsmasq-base
+Suggested packages:
+  resolvconf
+The following NEW packages will be installed:
+  dns-root-data dnsmasq dnsmasq-base
+0 upgraded, 3 newly installed, 0 to remove and 49 not upgraded.
+Need to get 379 kB of archives.
+After this operation, 974 kB of additional disk space will be used.
+Get:1 http://id.archive.ubuntu.com/ubuntu jammy/main amd64 dns-root-data all 2021011101 [5256 B]
+Get:2 http://id.archive.ubuntu.com/ubuntu jammy-updates/main amd64 dnsmasq-base amd64 2.86-1.1ubuntu0.3 [354 kB]
+Get:3 http://id.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 dnsmasq all 2.86-1.1ubuntu0.3 [19.2 kB]
+Fetched 379 kB in 1s (575 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package dns-root-data.
+(Reading database ... 67590 files and directories currently installed.)
+Preparing to unpack .../dns-root-data_2021011101_all.deb ...
+Unpacking dns-root-data (2021011101) ...
+Selecting previously unselected package dnsmasq-base.
+Preparing to unpack .../dnsmasq-base_2.86-1.1ubuntu0.3_amd64.deb ...
+Unpacking dnsmasq-base (2.86-1.1ubuntu0.3) ...
+Selecting previously unselected package dnsmasq.
+Preparing to unpack .../dnsmasq_2.86-1.1ubuntu0.3_all.deb ...
+Unpacking dnsmasq (2.86-1.1ubuntu0.3) ...
+Setting up dnsmasq-base (2.86-1.1ubuntu0.3) ...
+Setting up dns-root-data (2021011101) ...
+Setting up dnsmasq (2.86-1.1ubuntu0.3) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/dnsmasq.service → /lib/systemd/system/dnsmasq.service.
+Job for dnsmasq.service failed because the control process exited with error code.
+See "systemctl status dnsmasq.service" and "journalctl -xeu dnsmasq.service" for details.
+invoke-rc.d: initscript dnsmasq, action "start" failed.
+× dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server
+     Loaded: loaded (/lib/systemd/system/dnsmasq.service; enabled; vendor preset: enabled)
+     Active: failed (Result: exit-code) since Fri 2023-08-11 16:02:30 UTC; 12ms ago
+    Process: 1011 ExecStartPre=/etc/init.d/dnsmasq checkconfig (code=exited, status=0/SUCCESS)
+    Process: 1032 ExecStart=/etc/init.d/dnsmasq systemd-exec (code=exited, status=2)
+        CPU: 30ms
+
+Aug 11 16:02:30 metapod systemd[1]: Starting dnsmasq - A lightweight DHCP and caching DNS server...
+Aug 11 16:02:30 metapod dnsmasq[1032]: dnsmasq: failed to create listening socket for port 53: Address already in use
+Aug 11 16:02:30 metapod dnsmasq[1032]: failed to create listening socket for port 53: Address already in use
+Aug 11 16:02:30 metapod dnsmasq[1032]: FAILED to start up
+Aug 11 16:02:30 metapod systemd[1]: dnsmasq.service: Control process exited, code=exited, status=2/INVALIDARGUMENT
+Aug 11 16:02:30 metapod systemd[1]: dnsmasq.service: Failed with result 'exit-code'.
+Aug 11 16:02:30 metapod systemd[1]: Failed to start dnsmasq - A lightweight DHCP and caching DNS server.
+Processing triggers for dbus (1.12.20-2ubuntu4.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 78.)
+debconf: falling back to frontend: Readline
+Scanning processes...                                                                                                     
+Scanning linux images...                                                                                                  
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.</code></pre>
+
+        <p>If it complain about "dnsmasq: failed to create listening socket for port 53: Address already in use", you can ignore it.</p>
+
+        <p>To enable DHCP service, you need to configure <code>/etc/dnsmasq.conf</code>.</p>
+
+        <p>By default dnsmasq enables DNS service. You can turn it off by changing the port to 0:</p>
+
+        <pre><code class="language-bash hljs">port=0</code></pre>
+        
+        <p>The DHCPv4 server is activated by specifying an IPv4 address range and a router:</p>
+
+        <pre><code class="language-bash hljs">dhcp-range=set:enp0s5v4,172.16.0.2,172.16.0.254,255.255.255.0,12h
+
+dhcp-option=tag:enp0s5v4,option:router,172.16.0.1</code></pre>
+
+        <p>The above configuration instructs dnsmasq to offer IPv4 addresses between <code>172.16.0.2</code> and <code>172.16.0.254</code> with a subnet <code>255.255.255.0</code> on the interface <code>enp0s5</code>. Issued IPs will have a lease lifetime of twelve hours, after which clients will need to request a renewed lease.</p>
+
+        <p>Restart the dnsmasq service to apply your changes:</p>
+
+        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>        
+
+        <p>By default DHCP uses UDP ports 68 and 67 to initiate communication between the IPv4 client and server. If port 67 is in use by another process, DHCP server cannot communicate with DHCPv4 clients.</p>
+
+        <p>To open UDP port 67 in ufw, run:</p>
+
+        <pre><code class="language-bash hljs">sudo ufw allow 67/udp</code></pre>
+
+        <p>Dnsmasq also provides full IPv6 support.</p>
+                
+        <p>The DHCPv6 server is activated by specifying an IPv6 address range and enabling IPv6 Router Advertisement feature:</p>
+
+        <pre><code class="language-bash hljs">dhcp-range=set:enp0s5v6,::2,::ffff,constructor:enp0s5,slaac,64,12h
+
+enable-ra</code></pre>
+        
+        <p>The above configuration instructs dnsmasq to offer IPv6 addresses between <code>fde0:fa74:a7a2:87e4::2</code> and <code>fde0:fa74:a7a2:87e4::ffff</code> with prefix length 64 bits on the interface <code>enp0s5</code>.</p>
+
+        <p>Restart the dnsmasq service to apply your changes:</p>
+
+        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>
+
+        <p>By default DHCP uses UDP ports 546 and 547 to initiate communication between the IPv6 client and server. If port 547 is in use by another process, DHCP server cannot communicate with DHCPv6 clients.</p>
+
+        <p>To open UDP port 547 in ufw, run:</p>
+
+        <pre><code class="language-bash hljs">sudo ufw allow 547/udp</code></pre>
+
+        <p>Now the client computers should obtain IPv4 address and IPv6 address automatically.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/dhcpserver-01.jpg" alt="configuring Ubuntu Server 22.04 as DHCP server">
+        </figure>
+
+    </article>
+
+    <ul class="post-tags">
+	<li><i class="fa-solid fa-tags"></i></li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/zh/tag/qemu">qemu</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/zh/tag/linux">linux</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04">ubuntu 22.04</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/zh/tag/ufw">ufw</a>,</li>
+	
+	
+	<li><a href="https://hemimorphite.github.io/zh/tag/dhcp">DHCP</a></li>
+	
+</ul>
+
+    <div class="post-share">
+    <div class="caption">SHARE THIS POST</div>
+    <ul class="item">
+        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Facebook</a>,</li>
+        
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/&hashtags=qemu,linux,ubuntu 22.04,ufw,DHCP"> Twitter</a>,</li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/"> Linkedin</a></li>
+    </ul>
+</div>
+</div>
+
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dns-server/"><img src="https://hemimorphite.github.io/assets/images/fedora38.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dns-server/">Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3</a></h3>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/"><img src="https://hemimorphite.github.io/assets/images/fedora38.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/">Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2</a></h3>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/"><img src="https://hemimorphite.github.io/assets/images/fedora38.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/zh/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/">Setup Fedora Server 38 as a NAT Router with Qemu/KVM, Part 1</a></h3>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/"><img src="https://hemimorphite.github.io/assets/images/ubuntu2204.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/zh/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/">Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3</a></h3>
+							</div>
+						</div>
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/"><img src="https://hemimorphite.github.io/assets/images/ubuntu2204.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/zh/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</a></h3>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/"><img src="https://hemimorphite.github.io/assets/images/qemu.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h3 class="blog-title"><a href="https://hemimorphite.github.io/zh/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/">Getting Started with Qemu amd64 on Ubuntu 22.04</a></h3>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2023 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/zh/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/zh/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+  	</body>
+</html>
