@@ -1,0 +1,151 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2"
+thumb: "fedora38.jpg"
+eyebrow: "Tutorial"
+description: "This tutorial provides step-by-step instructions on how to set up Fedora Server 38 as a DHCP Server using Qemu/KVM. Learn how to configure network settings and create virtual machines to build your own virtual network infrastructure."
+date: 2023-08-16 16:38:59 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2023", "month-08", "day-16"]
+tags: ["qemu", "linux", "fedora 38", "firewalld", "DHCP"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Welcome to configuring Fedora Server 38 as a router tutorial series!</p>
+
+        <ol>
+            <li class="active"><a href="https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</a></li>
+            <li><a href="https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</a></li>
+            <li><a href="https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/">Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3</a></li>
+        </ol>
+
+        <p>One of the most popular programs for Linux operating systems providing DHCP service is dnsmasq.</p>
+        
+        <p>Install dnsmasq:</p>
+
+        <pre><code class="language-bash hljs">sudo dnf -y install dnsmasq</code></pre>
+
+        <p>The response should look similar to this:</p>
+        
+        <pre><code class="language-bash hljs">Fedora 38 - x86_64                                                                        1.3 MB/s |  83 MB     01:02    
+Fedora 38 openh264 (From Cisco) - x86_64                                                  504  B/s | 2.5 kB     00:05    
+Fedora Modular 38 - x86_64                                                                376 kB/s | 2.8 MB     00:07    
+Fedora 38 - x86_64 - Updates                                                              1.4 MB/s |  30 MB     00:21    
+Fedora Modular 38 - x86_64 - Updates                                                      402 kB/s | 2.1 MB     00:05    
+Dependencies resolved.
+==========================================================================================================================
+ Package                     Architecture               Version                         Repository                   Size
+==========================================================================================================================
+Installing:
+ dnsmasq                     x86_64                     2.89-5.fc38                     updates                     357 k
+
+Transaction Summary
+==========================================================================================================================
+Install  1 Package
+
+Total download size: 357 k
+Installed size: 768 k
+Downloading Packages:
+dnsmasq-2.89-5.fc38.x86_64.rpm                                                            253 kB/s | 357 kB     00:01    
+--------------------------------------------------------------------------------------------------------------------------
+Total                                                                                     126 kB/s | 357 kB     00:02     
+Fedora 38 - x86_64 - Updates                                                              1.2 MB/s | 1.6 kB     00:00    
+Importing GPG key 0xEB10B464:
+ Userid     : "Fedora (38) &lt;fedora-38-primary@fedoraproject.org&gt;"
+ Fingerprint: 6A51 BBAB BA3D 5467 B617 1221 809A 8D7C EB10 B464
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-38-x86_64
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                  1/1 
+  Running scriptlet: dnsmasq-2.89-5.fc38.x86_64                                                                       1/1 
+  Installing       : dnsmasq-2.89-5.fc38.x86_64                                                                       1/1 
+  Running scriptlet: dnsmasq-2.89-5.fc38.x86_64                                                                       1/1 
+  Verifying        : dnsmasq-2.89-5.fc38.x86_64                                                                       1/1 
+
+Installed:
+  dnsmasq-2.89-5.fc38.x86_64                                                                                              
+
+Complete!</code></pre>
+
+        <p>To enable DHCP service, you need to configure <code>/etc/dnsmasq.conf</code>.</p>
+
+        <p>By default dnsmasq enables DNS service. You can turn it off by changing the port to 0:</p>
+
+        <pre><code class="language-bash hljs">port=0</code></pre>
+        
+        <p>The DHCPv4 server is activated by specifying an IPv4 address range and a router:</p>
+
+        <pre><code class="language-bash hljs">dhcp-range=set:enp0s5v4,172.16.0.2,172.16.0.254,255.255.255.0,12h
+
+dhcp-option=tag:enp0s5v4,option:router,172.16.0.1</code></pre>
+
+        <p>The above configuration instructs dnsmasq to offer IPv4 addresses between <code>172.16.0.2</code> and <code>172.16.0.254</code> with a subnet <code>255.255.255.0</code> on the interface <code>enp0s5</code>. Issued IPs will have a lease lifetime of twelve hours, after which clients will need to request a renewed lease.</p>
+
+        <p>Make sure the following options and other options are commented out:</p>
+
+        <pre><code class="language-bash hljs">#interface=lo
+
+#bind-interfaces</code></pre>
+
+        <pre><code class="language-bash hljs">dhcp-range=set:enp0s5v4,172.16.0.2,172.16.0.254,255.255.255.0,12h
+
+dhcp-option=tag:enp0s5v4,option:router,172.16.0.1</code></pre>
+
+        <p>Restart the dnsmasq service to apply your changes:</p>
+
+        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>        
+
+        <p>By default DHCP uses UDP ports 68 and 67 to initiate communication between the IPv4 client and server. If port 67 is in use by another process, DHCP server cannot communicate with DHCPv4 clients.</p>
+
+        <p>To open UDP port 67 in ufw, run:</p>
+
+        <pre><code class="language-bash hljs">sudo firewall-cmd --zone=public --permanent --add-port=67/udp</code></pre>
+
+        <p>To apply the configuration, run:</p>
+
+        <pre><code class="language-bash hljs">sudo firewall-cmd --reload</code></pre>
+
+        <p>Dnsmasq also provides full IPv6 support.</p>
+                
+        <p>The DHCPv6 server is activated by specifying an IPv6 address range and enabling IPv6 Router Advertisement feature:</p>
+
+        <pre><code class="language-bash hljs">dhcp-range=set:enp0s5v6,::2,::ffff,constructor:enp0s5,slaac,64,12h
+
+enable-ra</code></pre>
+        
+        <p>The above configuration instructs dnsmasq to offer IPv6 addresses between <code>fd62:bf06:3a25:7670::2</code> and <code>fd62:bf06:3a25:7670::ffff</code> with prefix length 64 bits on the interface <code>enp0s5</code>.</p>
+
+        <p>Restart the dnsmasq service to apply your changes:</p>
+
+        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>
+
+        <p>By default DHCP uses UDP ports 546 and 547 to initiate communication between the IPv6 client and server. If port 547 is in use by another process, DHCP server cannot communicate with DHCPv6 clients.</p>
+
+        <p>To open UDP port 547 in ufw, run:</p>
+
+        <pre><code class="language-bash hljs">sudo firewall-cmd --zone=public --permanent --add-port=547/udp</code></pre>
+
+        <p>To apply the configuration, run:</p>
+
+        <pre><code class="language-bash hljs">sudo firewall-cmd --reload</code></pre>
+
+        <p>Now the client computers should obtain IPv4 address and IPv6 address automatically.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/fedoradhcpserver-01.jpg" alt="configuring Fedora Server 38 as DHCP server">
+        </figure>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>

@@ -42,13 +42,12 @@ a {
 }
 
 a:hover {
-	text-decoration: underline;
+	text-decoration: underline !important;
 }
 
 ul, ol {
-	padding: 0;
+	padding: 1rem;
 	margin: 0;
-	/*list-style: none;*/
 	color: #212427;
 }
 
@@ -70,9 +69,8 @@ h3 {
 	color: #fff;
 	font-size: 0.8rem;
 	font-weight: 500;
-	/*padding: 12px 20px;*/
 	text-transform: uppercase;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in-out 0s;
 }
 
 .main-button a:hover {
@@ -165,10 +163,7 @@ header {
 	width: 100%;
 	background-color: #fff;
 	margin-bottom: 3rem;
-	-webkit-transition: all 0.3s ease-in-out 0s;
-    -moz-transition: all 0.3s ease-in-out 0s;
-    -o-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
 }
 
 @media (min-width: 576px) {
@@ -210,10 +205,10 @@ header {
 	color: #1e1e1e;
 	text-transform: uppercase;
 	font-weight: 900;
-	-webkit-transition: all .3s ease 0s;
-    -moz-transition: all .3s ease 0s;
-    -o-transition: all .3s ease 0s;
-    transition: all .3s ease 0s;
+}
+
+.navbar .navbar-brand > a:hover {
+	text-decoration: none !important;
 }
 
 #navbarResponsive {
@@ -231,7 +226,7 @@ header {
 	font-weight: 800;
 	text-transform: uppercase;
 	color: #1e1e1e;
-	transition: all 0.3s;
+	transition: all 0.3s ease-in-out 0s;
 }
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .active>.nav-link,
@@ -251,7 +246,7 @@ header {
 }
 
 /* Blog Posts */
-.blog-posts .category-heading {
+.blog-posts .blog-post .category-heading {
 	margin-bottom: 2rem;
 	font-weight: 900;
 }
@@ -260,79 +255,83 @@ header {
 	margin-bottom: 3rem;
 }
 
-.blog-posts .blog-thumb img {
+.blog-posts .blog-post .blog-thumb img {
 	width: 100%;
 	overflow: hidden;
 }
 
-.blog-posts .down-content {
+.blog-posts .blog-post .down-content {
 	padding: 1.2rem;
 	border-right: 0.15rem solid #eee;
 	border-left: 0.15rem solid #eee;
 	border-bottom: 0.15rem solid #eee;
 }
 
-.blog-posts .down-content .post-eyebrow {
+.blog-posts .blog-post .down-content .post-eyebrow {
 	font-size: 1rem;
 	text-transform: uppercase;
 	font-weight: 900;
 	color: #f48840;
 }
 
-.blog-posts .down-content h4 {
+.blog-posts .blog-post .down-content h4 {
 	margin-bottom: 1rem;
 }
-.blog-posts .down-content h4 a {
+.blog-posts .blog-post .down-content h4 a {
 	font-size: 1.4rem;
 	text-transform: capitalize;
 	font-weight: 900;
 	color: #20232e;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in-out 0s;
 }
-.blog-posts .down-content h4 a:hover {
+.blog-posts .blog-post .down-content h4 a:hover {
 	color: #f48840;
 	text-decoration: none !important;
 }
-.blog-posts .down-content ul.post-info li {
+.blog-posts .blog-post .down-content ul {
+	list-style: none;
+}
+.blog-posts .blog-post .down-content ul.post-info li {
 	display: inline-block;
 	margin-right: 0.3rem;
 }
-.blog-posts .down-content ul.post-info li:after {
+.blog-posts .blog-post .down-content ul.post-info li:after {
 	content: '|';
 	margin-left: 0.5rem;
 }
-.blog-posts .down-content ul.post-info li:last-child::after {
+.blog-posts .blog-post .down-content ul.post-info li:last-child::after {
 	display: none;
 }
-.blog-posts .down-content ul.post-info li a {
+.blog-posts .blog-post .down-content ul.post-info li a {
 	font-size: 0.8rem;
 	font-weight: 400;
 }
-.blog-posts .down-content p {
+.blog-posts .blog-post .down-content p {
 	padding: 1.5rem 0;
 	margin: 1.5rem 0;
 	border-top: 0.1rem solid #eee;
 	border-bottom: 0.1rem solid #eee;
 }
 
-.blog-posts .down-content ul.post-tags,
-.blog-posts .down-content ul.post-share {
+.blog-posts .blog-post .down-content ul.post-tags,
+.blog-posts .blog-post .down-content ul.post-share {
 	margin-top: 0;
 	margin-bottom: 0;
+	list-style: none;
 }
 
-.blog-posts .down-content ul.post-share {
+.blog-posts .blog-post .down-content ul.post-share {
 	text-align: right;
 }
 
-.blog-posts .down-content ul.post-tags li,
-.blog-posts .down-content ul.post-share li {
+.blog-posts .blog-post .down-content ul.post-tags li,
+.blog-posts .blog-post .down-content ul.post-share li {
 	font-size: 0.8rem;
 	display: inline-block;
 }
 
-.blog-posts .down-content ul.post-tags li:first-child i,
-.blog-posts .down-content ul.post-share li:first-child i {
+.blog-posts .blog-post .down-content ul.post-tags li:first-child i,
+.blog-posts .blog-post .down-content ul.post-share li:first-child i {
 	color: #7a7a7a;
 }
 
@@ -422,8 +421,6 @@ header {
 .blog-post .post-content ol li::marker {
   color: #d1d5db;
   font-weight: bold;
-  display: inline-block;
-  width: 1rem;
 }
 .blog-post .post-content ul li a,
 .blog-post .post-content ol li a {
@@ -450,6 +447,7 @@ header {
 .blog-post .post-tags {
 	display: flex;
 	flex-wrap: wrap;
+	list-style: none;
 }
 .blog-post .post-share ul li,
 .blog-post .post-tags li {
@@ -467,6 +465,7 @@ header {
 }
 ul.page-numbers {
 	text-align: center;
+	list-style: none;
 }
 
 ul.page-numbers li {
@@ -484,23 +483,24 @@ ul.page-numbers li a {
 	color: #7a7a7a;
 	border: 0.15rem solid #eee;
 	font-weight: 500;
-	transition: all 0.3s;
+	transition: all 0.3s ease-in-out 0s;
 }
 
 ul.page-numbers li.active a {
 	background-color: #f48840;
 	border-color: #f48840;
 	color: #fff;
-	transition: all 0.5s ease-in;
 }
 
 ul.page-numbers li.active a:hover {
 	color: #fff;
+	text-decoration: none !important;
 }
 
 ul.page-numbers li a:hover {
 	border-color: #f48840;
 	color: #f48840;
+	text-decoration: none !important;
 }
 
 ul.page-numbers li.disabled a {
@@ -511,6 +511,7 @@ ul.page-numbers li.disabled a {
 
 ul.page-numbers li.disabled a:hover {
 	color: #eee;
+	text-decoration: none !important;
 }
 
 .related-posts {
@@ -551,11 +552,12 @@ ul.page-numbers li.disabled a:hover {
   text-transform: capitalize;
   font-weight: 900;
   color: #20232e;
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in-out 0s;
 }
 
 .related-posts .blog-post .blog-title a:hover {
 	color: #f48840;
+	text-decoration: none !important;
 }
 
 /* Sidebar */
@@ -598,56 +600,31 @@ ul.page-numbers li.disabled a:hover {
 .sidebar .search input::placeholder {
 	color: #aaa;
 }
-
-.sidebar .recent-posts ul li {
-	margin-bottom: 1rem;
-	padding-bottom: 1rem;
-	border-bottom: 0.1rem solid #eee;
+.sidebar .categories ul {
+	list-style: none;
 }
-
-.sidebar .recent-posts ul li:last-child {
-	margin-bottom: 0px;
-	padding-bottom: 0px;
-	border-bottom: none;
-}
-
-.sidebar .recent-posts ul li h5 {
-	font-size: 1.1rem;
-	font-weight: 900;
-	color: #20232e;
-	transition: all 0.5s ease-in;
-}
-
-.sidebar .recent-posts ul li h5:hover {
-	color: #f48840;
-}
-
-.sidebar .recent-posts ul li span {
-	display: block;
-	font-size: 0.8rem;
-	color: #aaa;
-	margin-top: 0.5rem;
-}
-
 .sidebar .categories ul li {
-	margin-bottom: 15px;
+	margin-bottom: 1rem;
 }
 
 .sidebar .categories ul li:last-child {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .sidebar .categories ul li a {
 	font-size: 1rem;
 	font-weight: 700;
 	color: #20232e;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in-out 0s;
 }
 
 .sidebar .categories ul li a:hover {
 	color: #f48840;
+	text-decoration: none !important;
 }
-
+.sidebar .tags ul {
+	list-style: none;
+}
 .sidebar .tags ul li {
 	margin-right: 0.2rem;
 	margin-bottom: 0.8rem;
@@ -661,7 +638,7 @@ ul.page-numbers li.disabled a:hover {
 	display: inline-block;
 	border: 0.1rem solid #eee;
 	padding: 0.4rem 1rem;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in-out 0s;
 }
 
 .sidebar .tags ul li a:hover {
@@ -711,11 +688,12 @@ footer ul.social-icons li a {
 	color: #fff;
 	font-weight: 500;
 	letter-spacing: 0.25px;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in-out 0s;
 }
 
 footer ul.social-icons li a:hover {
 	color: #f48840;
+	text-decoration: none !important;
 }
 
 footer p {
@@ -726,11 +704,12 @@ footer p {
 
 footer p a {
 	color: #f48840;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in-out 0s;
 }
 
 footer p a:hover {
 	color: #f48840;
+	text-decoration: none !important;
 }
 
 /* Responsive Style */
@@ -783,7 +762,7 @@ footer p a:hover {
 
 .section-heading .btn-all {
 	border: 0.1rem solid #eee;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in-out 0s;
 }
 .section-heading .btn-all:hover {
 	border: 0.1rem solid #f48840;	
@@ -792,7 +771,7 @@ footer p a:hover {
 	color: #7a7a7a;
 	border: 0.1rem solid #eee;
 	margin-bottom: 1rem;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in-out 0s;
 }
 .btn-all:hover {
 	color: #f48840;

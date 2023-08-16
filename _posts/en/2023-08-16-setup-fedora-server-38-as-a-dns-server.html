@@ -2,14 +2,14 @@
 layout: post
 lang: en
 locale: en
-title: "Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3"
-thumb: "ubuntu2204.jpg"
+title: "Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3"
+thumb: "fedora38.jpg"
 eyebrow: "Tutorial"
-description: "This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a DNS server. Learn step-by-step instructions to set up and optimize your Ubuntu server as a DNS server."
-date: 2023-08-13 22:48:59 +0700
+description: "This tutorial provides step-by-step instructions on how to set up Fedora Server 38 as a DNS Server using Qemu/KVM. Learn how to configure network settings and create virtual machines to build your own virtual network infrastructure."
+date: 2023-08-16 22:00:59 +0700
 author: Samuel Yang
-categories: ["Tutorials", "year-2023", "month-08", "day-13"]
-tags: ["qemu", "linux", "ubuntu 22.04", "ufw", "DNS"]
+categories: ["Tutorials", "year-2023", "month-08", "day-16"]
+tags: ["qemu", "linux", "fedora 38", "ufw", "DNS"]
 ---
 
 <div class="blog-post">
@@ -26,7 +26,7 @@ tags: ["qemu", "linux", "ubuntu 22.04", "ufw", "DNS"]
 
         <p>One of the most popular programs for Linux operating systems providing DNS forwarder service is dnsmasq.</p>
         
-        <p>Ubuntu 22.04 comes with <code>systemd-resolved</code> which you need to disable since it binds to port 53 which will conflict with dnsmasq port.</p>
+        <p>Fedora Server 38 comes with <code>systemd-resolved</code> which you need to disable since it binds to port 53 which will conflict with dnsmasq port.</p>
 
         <p>Disable the systemd-resolved DNS listeners to free up port 53 by uncommenting <code>DNSStubListener</code> and setting it to <code>no</code> in <code>/etc/systemd/resolved.conf</code>.</p>
 
@@ -74,6 +74,10 @@ LLMNR=no</code></pre>
         <pre><code class="language-bash hljs">sudo firewall-cmd --zone=public --permanent --add-port=53/tcp
 sudo firewall-cmd --zone=public --permanent --add-port=53/udp</code></pre>
 
+        <p>To apply the configuration, run:</p>
+
+        <pre><code class="language-bash hljs">sudo firewall-cmd --reload</code></pre>
+
         <p>Next, you will need to edit your <code>/etc/hosts</code> file and add the local DNS server entries.</p>
 
         <pre><code class="language-bash hljs">172.16.0.100    bulbasaur.app
@@ -86,7 +90,7 @@ sudo firewall-cmd --zone=public --permanent --add-port=53/udp</code></pre>
         
         <p>Install <code>dnsutils</code> package:</p>
 
-        <pre><code class="language-bash hljs">sudo apt -y install dnsutils</code></pre>
+        <pre><code class="language-bash hljs">sudo dnf -y install dnsutils</code></pre>
 
         <p>To test if the local DNS server is working or not, run:</p>
 
@@ -96,63 +100,63 @@ dig venusaur.app</code></pre>
         
         <p>The response should look similar to this:</p>
 
-        <pre><code class="language-bash hljs">; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; bulbasaur.app
+        <pre><code class="language-bash hljs">; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; bulbasaur.app
 ;; global options: +cmd
 ;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 62416
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 39436
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
 ;; QUESTION SECTION:
-;bulbasaur.app.         IN  A
+;bulbasaur.app.                 IN      A
 
 ;; ANSWER SECTION:
-bulbasaur.app.      0   IN  A   172.16.0.100
+bulbasaur.app.          0       IN      A       172.16.0.100
 
 ;; Query time: 0 msec
-;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
-;; WHEN: Mon Aug 14 13:24:05 UTC 2023
+;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
+;; WHEN: Wed Aug 16 21:51:03 WIB 2023
 ;; MSG SIZE  rcvd: 58
 
 
-; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; ivysaur.app
+; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; ivysaur.app
 ;; global options: +cmd
 ;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 33069
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 28024
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
 ;; QUESTION SECTION:
-;ivysaur.app.           IN  A
+;ivysaur.app.                   IN      A
 
 ;; ANSWER SECTION:
-ivysaur.app.        0   IN  A   172.16.0.101
+ivysaur.app.            0       IN      A       172.16.0.101
 
 ;; Query time: 0 msec
-;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
-;; WHEN: Mon Aug 14 13:24:05 UTC 2023
+;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
+;; WHEN: Wed Aug 16 21:51:03 WIB 2023
 ;; MSG SIZE  rcvd: 56
 
 
-; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; venusaur.app
+; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; venusaur.app
 ;; global options: +cmd
 ;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 50282
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 7234
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
 ;; QUESTION SECTION:
-;venusaur.app.          IN  A
+;venusaur.app.                  IN      A
 
 ;; ANSWER SECTION:
-venusaur.app.       0   IN  A   172.16.0.102
+venusaur.app.           0       IN      A       172.16.0.102
 
-;; Query time: 0 msec
-;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
-;; WHEN: Mon Aug 14 13:24:05 UTC 2023
+;; Query time: 1 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
+;; WHEN: Wed Aug 16 21:51:03 WIB 2023
 ;; MSG SIZE  rcvd: 57</code></pre>
 
         <p>To test a reverse IP lookup, run:</p>
@@ -163,63 +167,63 @@ dig -x 172.16.0.102</code></pre>
         
         <p>The response should look similar to this:</p>
 
-        <pre><code class="language-bash hljs">; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; -x 172.16.0.100
+        <pre><code class="language-bash hljs">; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; -x 172.16.0.100
 ;; global options: +cmd
 ;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 13755
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 24505
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
 ;; QUESTION SECTION:
-;100.0.16.172.in-addr.arpa. IN  PTR
+;100.0.16.172.in-addr.arpa.     IN      PTR
 
 ;; ANSWER SECTION:
-100.0.16.172.in-addr.arpa. 0    IN  PTR bulbasaur.app.
+100.0.16.172.in-addr.arpa. 0    IN      PTR     bulbasaur.app.
 
 ;; Query time: 0 msec
-;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
-;; WHEN: Mon Aug 14 13:26:19 UTC 2023
+;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
+;; WHEN: Wed Aug 16 21:52:03 WIB 2023
 ;; MSG SIZE  rcvd: 81
 
 
-; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; -x 172.16.0.101
+; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; -x 172.16.0.101
 ;; global options: +cmd
 ;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 15516
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 45987
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
 ;; QUESTION SECTION:
-;101.0.16.172.in-addr.arpa. IN  PTR
+;101.0.16.172.in-addr.arpa.     IN      PTR
 
 ;; ANSWER SECTION:
-101.0.16.172.in-addr.arpa. 0    IN  PTR ivysaur.app.
+101.0.16.172.in-addr.arpa. 0    IN      PTR     ivysaur.app.
 
 ;; Query time: 0 msec
-;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
-;; WHEN: Mon Aug 14 13:26:19 UTC 2023
+;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
+;; WHEN: Wed Aug 16 21:52:03 WIB 2023
 ;; MSG SIZE  rcvd: 79
 
 
-; &lt;&lt;&gt;&gt; DiG 9.18.12-0ubuntu0.22.04.2-Ubuntu &lt;&lt;&gt;&gt; -x 172.16.0.102
+; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; -x 172.16.0.102
 ;; global options: +cmd
 ;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 47090
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 32116
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
 ;; QUESTION SECTION:
-;102.0.16.172.in-addr.arpa. IN  PTR
+;102.0.16.172.in-addr.arpa.     IN      PTR
 
 ;; ANSWER SECTION:
-102.0.16.172.in-addr.arpa. 0    IN  PTR venusaur.app.
+102.0.16.172.in-addr.arpa. 0    IN      PTR     venusaur.app.
 
-;; Query time: 0 msec
-;; SERVER: fe80::9a73:37ff:fe90:3457%3#53(fe80::9a73:37ff:fe90:3457%3%3) (UDP)
-;; WHEN: Mon Aug 14 13:26:19 UTC 2023
+;; Query time: 1 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
+;; WHEN: Wed Aug 16 21:52:03 WIB 2023
 ;; MSG SIZE  rcvd: 80</code></pre>
 
         <p>Run the tests on the client computers as well to check if the local DNS server is working or not.</p>        

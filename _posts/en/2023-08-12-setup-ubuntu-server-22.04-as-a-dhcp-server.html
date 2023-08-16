@@ -149,19 +149,6 @@ enable-ra</code></pre>
             <img src="/assets/images/dhcpserver-01.jpg" alt="configuring Ubuntu Server 22.04 as DHCP server">
         </figure>
 
-        <p>If the client computers still don't obtain IPv4 address and IPv6 address, you can use <code>dhclient</code> command to get IP address.</p>
-
-        <p>To get IPv4 address, run:</p>
-
-        <pre><code class="language-bash hljs">sudo dhclient -v -r enp0s4</code></pre>
-
-        <p>To get IPv6 address, run:</p>
-
-        <pre><code class="language-bash hljs">sudo dhclient -6 -v -r enp0s4</code></pre>        
-
-        <figure class="post-figure">
-            <img src="/assets/images/dhcpserver-02.jpg" alt="configuring Ubuntu Server 22.04 as DHCP server">
-        </figure>
     </article>
 
     {% include post-tags.html %}

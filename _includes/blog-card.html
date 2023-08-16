@@ -26,7 +26,6 @@
 				<ul class="post-share">
 					<li><i class="fa fa-share-alt"></i></li>
 					<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ lang }}{{ post.url }}">Facebook</a>,</li>
-					{% assign hashtags = post.tags | join:',' %}
 					<li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url={{ site.url }}{{ lang }}{{ post.url }}&hashtags={{ hashtags }}"> Twitter</a>,</li>
 					<li><a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ lang }}{{ post.url }}"> Linkedin</a></li>
 				</ul>

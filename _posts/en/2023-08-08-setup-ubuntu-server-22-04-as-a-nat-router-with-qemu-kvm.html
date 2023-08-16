@@ -140,8 +140,6 @@ Address=fde0:fa74:a7a2:87e4::1/64</code></pre>
 
         <p>Next, we need to enable IP Masquerading. The purpose of IP Masquerading is to allow machines with private IP addresses on your network to access the Internet through the machine doing the masquerading.</p>
 
-        <p>Packet forwarding needs to be enabled in ufw and ensure that ufw is configured to support IPv6 so that it will manage firewall rules for IPv6 in addition to IPv4. Edit <code>/etc/default/ufw</code> change the <code>DEFAULT_FORWARD_POLICY</code> to <code>"ACCEPT"</code> and <code>IPV6</code> to <code>yes</code></p>
-
         <p>Now add rules to the <code>/etc/ufw/before.rules</code> file. The default rules only configure the filter table, and to enable masquerading the nat table will need to be configured. Add the following to the end of the file just after the <code>COMMIT</code>:</p>
 
         <pre><code class="language-bash hljs"># nat Table rules
@@ -153,6 +151,10 @@ Address=fde0:fa74:a7a2:87e4::1/64</code></pre>
 
 # don't delete the 'COMMIT' line or these nat table rules won't be processed
 COMMIT</code></pre> 
+        
+        <p>IP forwarding plays a fundamental role on a router. This is the functionality that allows a router to forward traffic from one network interface to another network interface.</p>
+        
+        <p>Packet forwarding needs to be enabled in ufw and ensure that ufw is configured to support IPv6 so that it will manage firewall rules for IPv6 in addition to IPv4. Edit <code>/etc/default/ufw</code> change the <code>DEFAULT_FORWARD_POLICY</code> to <code>"ACCEPT"</code> and <code>IPV6</code> to <code>yes</code></p>
 
         <p>Finally, disable and re-enable ufw to apply the changes:</p>
 
@@ -166,7 +168,7 @@ net.ipv6.conf.default.forwarding=1</code></pre>
 
         <p>Next, execute the <code>sysctl</code> command to enable the new settings in the configuration file:</p>
 
-        <pre><code class="language-bash hljs">sudo sysctl -p</code></pre>
+        <pre><code class="language-bash hljs">sudo sysctl -p /etc/sysctl.conf</code></pre>
 
         <p>Dynamic Host Configuration Protocol or DHCP is an IP network protocol that relies on client-server architecture to automatically set IP addresses and other attributes to an IP host to enable information transfer between network nodes.</p>
 
@@ -236,9 +238,9 @@ Gateway=fde0:fa74:a7a2:87e4::1</code></pre>
 
         <pre><code class="language-bash hljs">sudo systemctl restart systemd-networkd</code></pre>
 
-        <p>Configure <code>systemd-resolved</code> to use NAT gateway IP address as DNS nameserver so your system can have internet access. Edit <code>/etc/systemd/resolved.conf</code>, uncomment and change the <code>DNS</code> to <code>172.16.0.1</code></p>
+        <p>Configure <code>systemd-resolved</code> to use Google Public DNS so your system can have internet access. Edit <code>/etc/systemd/resolved.conf</code>, uncomment and change the <code>DNS</code> to <code>8.8.8.8</code></p>
 
-        <pre><code class="language-bash hljs">DNS=172.16.0.1</code></pre>        
+        <pre><code class="language-bash hljs">DNS=8.8.8.8</code></pre>        
 
         <p>To apply the configuration, run:</p>
 
