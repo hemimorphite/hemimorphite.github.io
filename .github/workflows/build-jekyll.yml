@@ -24,7 +24,6 @@ jobs:
         with:
           ruby-version: '2.7.0' # Not needed with a .ruby-version file
       - run: bundle install
-      - run: bundle exec rake
 
       # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.4.0
