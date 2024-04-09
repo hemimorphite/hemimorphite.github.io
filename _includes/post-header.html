@@ -1,11 +1,8 @@
-<div class="post-date">Published {{ page.date | date: '%B %d, %Y' }}</div>
 <h2 class="post-title">{{ page.title }}</h2>
 <div class="post-author">
-    <span class="author-avatar"></span>
-    <span class="author-name">{{ page.author }}</span>
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published {{ page.date | date: '%B %d, %Y' }}</span><br><span class="name">By {{ page.author }}</span></span>
 </div>
-
-{% include post-share.html %}
 
 <figure class="post-image">
     <img src="/assets/images/{{ page.thumb }}" alt="Blog Cover">
