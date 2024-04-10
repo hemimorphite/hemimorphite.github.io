@@ -1,0 +1,56 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Install Jekyll on Ubuntu 22.04"
+thumb: "jekyll.jpg"
+eyebrow: "Tutorial"
+description: "Learn how to install Jekyll on Ubuntu 22.04 with step-by-step instructions in this comprehensive guide. Explore the process of setting up Jekyll to build static websites on your Ubuntu system."
+date: 2024-04-09 22:10:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-04", "day-09"]
+tags: ["linux", "ubuntu 22.04", "jekyll"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Install Ruby:</p>
+        
+        <pre><code class="language-bash hljs">sudo apt-get install -y build-essential ruby-dev git</code></pre>        
+
+        <p>Avoid installing RubyGems packages (called gems) as the root user. Set up a gem installation directory for your user account. The following commands will add environment variables to your <code>~/.bashrc</code> file to configure the gem installation path:</p>
+
+        <pre><code class="language-bash hljs">echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc</code></pre>
+
+        <p>Install Jekyll and Bundler:</p>
+
+        <pre><code class="language-bash hljs">gem install jekyll bundler</code></pre>
+
+        <p>Clone the <a href="https://github.com/daattali/beautiful-jekyll" target="_blank">Beautiful Jekyll repo</a>:</p>
+
+        <pre><code class="language-bash hljs">git clone https://github.com/daattali/beautiful-jekyll.git</code></pre>
+
+        <p>Navigate to your blog directory and install all dependencies:</p>
+
+        <pre><code class="language-bash hljs">cd beautiful-jekyll
+bundle install</code></pre>
+
+        <p>Run your site locally:</p>
+
+        <pre><code class="language-bash hljs">bundle exec jekyll serve</code></pre>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/jekyll-01.png" alt="Run Jekyll">
+        </figure>
+
+        <p>You can now view your site at http://localhost:4000.</p>        
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>

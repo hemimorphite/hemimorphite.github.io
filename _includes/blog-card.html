@@ -6,6 +6,6 @@
 		<div class="post-eyebrow">{{ post.eyebrow }}</div>
 		<h4 class="post-heading"><a href="{{ site.url }}{{ lang }}{{ post.url }}">{{ post.title }}</a></h4>
 		<p class="post-description">{{ post.description }}</p>
-		<div class="post-info"><span>Published: <a href="{{ site.url }}{{ lang }}/category/{{ post.date | date: '%Y' }}/{{ post.date | date: '%m' }}/{{ post.date | date: '%d' }}/" class="date">{{ post.date | date: '%B %d, %Y' }}</a></span><span>By {{ post.author }}</span></div>
+		<div class="post-info"><span>Published: <a href="{{ site.url }}{{ lang }}/category/{{ post.date | date: '%Y' }}/{{ post.date | date: '%m' }}/{{ post.date | date: '%d' }}/" class="date">{{ post.date | date: '%B %d, %Y' }}</a></span> <span>By {{ post.author }}</span></div>
 	</div>
 </div>

@@ -27,7 +27,7 @@ url: "https://hemimorphite.github.io" # the base hostname & protocol for your si
 image: "wallpaper.png"
 
 # Build settings
-theme: minima
+# theme: minima
 plugins:
   - jekyll-feed
   - jekyll-polyglot
