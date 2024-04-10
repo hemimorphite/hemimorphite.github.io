@@ -25,7 +25,7 @@ jobs:
           ruby-version: 3.2
 
       - name: Build
-        run: jekyll build
+        run: bundle exec jekyll build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
@@ -35,4 +35,4 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_sites
+          publish_dir: ./_site
