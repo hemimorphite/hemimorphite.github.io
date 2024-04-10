@@ -81,8 +81,12 @@
 <lastmod>2023-08-16T15:00:59+00:00</lastmod>
 </url>
 <url>
-<loc>https://hemimorphite.github.io/2024/04/09/install-jekyll-on-ubuntu/</loc>
+<loc>https://hemimorphite.github.io/2024/04/09/install-jekyll-on-ubuntu-22.04/</loc>
 <lastmod>2024-04-09T15:10:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://hemimorphite.github.io/2024/04/10/deploy-a-jekyll-site-to-github-pages-Copy/</loc>
+<lastmod>2024-04-10T13:30:00+00:00</lastmod>
 </url>
 <url>
 <loc>https://hemimorphite.github.io/404</loc>
@@ -278,6 +282,9 @@
 </url>
 <url>
 <loc>https://hemimorphite.github.io/category/tutorials/page/3/</loc>
+</url>
+<url>
+<loc>https://hemimorphite.github.io/category/tutorials/page/4/</loc>
 </url>
 <url>
 <loc>https://hemimorphite.github.io/tag/ubuntu-22-04/</loc>

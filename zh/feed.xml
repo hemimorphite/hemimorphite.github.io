@@ -1,4 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-04-10T08:01:35+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Install Jekyll on Ubuntu 22.04</title><link href="https://hemimorphite.github.io/zh/2024/04/09/install-jekyll-on-ubuntu/" rel="alternate" type="text/html" title="Install Jekyll on Ubuntu 22.04" /><published>2024-04-09T15:10:00+00:00</published><updated>2024-04-09T15:10:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/09/install-jekyll-on-ubuntu</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/09/install-jekyll-on-ubuntu/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-04-10T13:41:05+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Deploy a Jekyll Site to Github Pages</title><link href="https://hemimorphite.github.io/zh/2024/04/10/deploy-a-jekyll-site-to-github-pages-Copy/" rel="alternate" type="text/html" title="Deploy a Jekyll Site to Github Pages" /><published>2024-04-10T13:30:00+00:00</published><updated>2024-04-10T13:30:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/10/deploy-a-jekyll-site-to-github-pages-%20Copy</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/10/deploy-a-jekyll-site-to-github-pages-Copy/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Deploy a Jekyll Site to Github Pages</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published April 10, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/githubpages.png" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Create a new repository on Github by clicking the new button</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-01.png" alt="Create a new repository">
+        </figure>
+
+        <p>Your repository must be named <code>&lt;username&gt;.github.io</code> and must be public. Then click Create Repository button.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-02.png" alt="repository name">
+        </figure>
+
+        <p>Fork the <a href="https://github.com/daattali/beautiful-jekyll" target="_blank">Beautiful Jekyll repo</a>:</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-03.png" alt="Fork repository">
+        </figure>
+
+        <p>Rename the repository name to <code>&lt;username&gt;.github.io</code> and click Create Fork button.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-04.png" alt="Create Fork">
+        </figure>
+
+        <p>Click on the repository settings tab.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-05.png" alt="Setting repository">
+        </figure>
+
+        <p>From the left-hand side menu, click Pages under the Code and Automation section.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-06.png" alt="Pages menu">
+        </figure>
+
+        <p>In the Build and Deployment section, choose the branch (i.e. <code>master</code>) from which you would like GitHub Pages to deploy your website and click save button.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-07.png" alt="Choose branch to publish Github Pages">
+        </figure>
+
+        <p>Edit the <code>_config.yml</code> file to change any settings you want. To edit the file, first click on it to view the file, and on the next page click on the pencil icon to edit it. After changing the settings, click the green Commit changes button to save these edits.</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-08.png" alt="Edit the _config.yml">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-09.png" alt="Edit button">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-10.png" alt="Commit Changes">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-11.png" alt="Commit Changes">
+        </figure>
+
+        <p>You can now view your site at https://chonkarexsaurus.github.io.</p>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/jekyll" class="tag">jekyll</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/github-pages" class="tag">github pages</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-10" /><category term="jekyll" /><category term="github pages" /><summary type="html"><![CDATA[Learn how to deploy your Jekyll site to GitHub Pages with our step-by-step guide. Easy instructions for hosting your site on GitHub Pages.]]></summary></entry><entry xml:lang="en"><title type="html">Install Jekyll on Ubuntu 22.04</title><link href="https://hemimorphite.github.io/zh/2024/04/09/install-jekyll-on-ubuntu-22.04/" rel="alternate" type="text/html" title="Install Jekyll on Ubuntu 22.04" /><published>2024-04-09T15:10:00+00:00</published><updated>2024-04-09T15:10:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/09/install-jekyll-on-ubuntu-22.04</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/09/install-jekyll-on-ubuntu-22.04/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Install Jekyll on Ubuntu 22.04</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -4502,83 +4597,4 @@ curl https://114.122.37.100/something</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-07" /><category term="day-27" /><category term="virtualbox" /><category term="fedora" /><category term="linux" /><category term="kubernetes" /><category term="kubeadm" /><category term="containerd" /><category term="project calico" /><category term="metallb" /><category term="nginx" /><category term="ingress controller" /><category term="firewalld" /><summary type="html"><![CDATA[Learn how to create a Kubernetes cluster with Kubeadm, Containerd, Calico, MetalLB, and NGINX Ingress Controller on Bare Metal Machine Fedora 38 using a step-by-step guide. Simplify the process and get your cluster up and running efficiently.]]></summary></entry><entry xml:lang="en"><title type="html">Virtualbox Guest Additions: Kernel headers not found for target kernel (Fedora)</title><link href="https://hemimorphite.github.io/zh/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel/" rel="alternate" type="text/html" title="Virtualbox Guest Additions: Kernel headers not found for target kernel (Fedora)" /><published>2023-06-30T08:38:50+00:00</published><updated>2023-06-30T08:38:50+00:00</updated><id>https://hemimorphite.github.io/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Virtualbox Guest Additions: Kernel headers not found for target kernel (Fedora)</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published June 30, 2023</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/vguest.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>If you are encountering the error "<b>Kernel headers not found for target kernel</b>" while installing VirtualBox Guest Additions, the solution to resolve the issue is by installing <code>kernel-devel</code> package.</p>
-
-        <p>Open terminal and run command <code>uname -r</code> to list current linux kernel version:</p>
-
-        <pre><code class="language-bash hljs">uname -r</code></pre>
-
-        <p>The output is similar to:</p>
-
-        <pre><code class="language-bash hljs">6.2.9-300.fc38.x86_64</code></pre>        
-
-        <p>Then install the <code>kernel-devel</code> package which matches the current linux kernel version:</p>
-
-        <pre><code class="language-bash hljs">sudo dnf install kernel-devel-6.2.9-300.fc38</code></pre>
-
-        <p>When the installation is complete, go to directory where VirtualBox Guest Additions image file is mounted.</p>
-
-        <pre><code class="language-bash hljs">cd /run/media/$USER/VBox_GAs_7.0.8/</code></pre>  
-        
-        <p>Then install the VirtualBox Guest Additions again</p>   
-
-        <pre><code class="language-bash hljs">sudo ./VBoxLinuxAdditions.run</code></pre>
-
-        <p>The error should disappear now.</p>   
-
-        <figure class="post-figure">
-            <img src="/assets/images/vbox-01.jpg" alt="VirtualBox Guest Additions">
-        </figure>
-
-        <p>Then restart your system.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/fedora-01.jpg" alt="Fedora VM">
-        </figure>
-
-        <p>If the Fedora guest still doesn't fit screen, try to resize the window.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/fedora-02.jpg" alt="Fedora VM">
-        </figure>
-
-        <figure class="post-figure">
-            <img src="/assets/images/fedora-03.jpg" alt="Fedora VM">
-        </figure>
-    </article>
-
-  <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/virtualbox" class="tag">virtualbox</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/fedora" class="tag">fedora</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
-		
-	</ul>
-</div>
-
-
-  <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Troubleshooting" /><category term="year-2023" /><category term="month-06" /><category term="day-30" /><category term="virtualbox" /><category term="fedora" /><category term="linux" /><summary type="html"><![CDATA[If you encounter the error Kernel headers not found for target kernel while installing VirtualBox Guest Additions, don't worry. This troubleshooting guide will provide step-by-step instructions to help you resolve the issue and successfully install the Guest Additions.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-07" /><category term="day-27" /><category term="virtualbox" /><category term="fedora" /><category term="linux" /><category term="kubernetes" /><category term="kubeadm" /><category term="containerd" /><category term="project calico" /><category term="metallb" /><category term="nginx" /><category term="ingress controller" /><category term="firewalld" /><summary type="html"><![CDATA[Learn how to create a Kubernetes cluster with Kubeadm, Containerd, Calico, MetalLB, and NGINX Ingress Controller on Bare Metal Machine Fedora 38 using a step-by-step guide. Simplify the process and get your cluster up and running efficiently.]]></summary></entry></feed>
