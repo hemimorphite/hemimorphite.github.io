@@ -14,16 +14,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
         t.selectNodeContents(this), e.removeAllRanges(), e.addRange(t)
     }, !1);
 
-    var options = {
-        contentSelector: ".post-content",
-        loadDelay:0,
-        copyIconClass: "code-badge-copy-icon",
-        checkIconClass: "code-badge-check-icon",
-        onBeforeTextCopied: function(text, codeElement) {
-            return text;   
-        }
-    };
-    window.highlightJsBadge(options);
+    if(pres.length > 0) {
+        var options = {
+            contentSelector: ".post-content",
+            loadDelay:0,
+            copyIconClass: "code-badge-copy-icon",
+            checkIconClass: "code-badge-check-icon",
+            onBeforeTextCopied: function(text, codeElement) {
+                return text;   
+            }
+        };
+        window.highlightJsBadge(options);
+    }
+    
 });
 
 jQuery( document ).ready(function( $ ) {

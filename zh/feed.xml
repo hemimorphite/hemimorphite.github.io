@@ -1,20 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2023-08-16T17:33:28+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3</title><link href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dns-server/" rel="alternate" type="text/html" title="Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3" /><published>2023-08-16T15:00:59+00:00</published><updated>2023-08-16T15:00:59+00:00</updated><id>https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server</id><content type="html" xml:base="https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server/"><![CDATA[<div class="blog-post">
-    <div class="post-date">Published August 16, 2023</div>
-<h2 class="post-title">Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-04-10T08:01:35+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Install Jekyll on Ubuntu 22.04</title><link href="https://hemimorphite.github.io/zh/2024/04/09/install-jekyll-on-ubuntu/" rel="alternate" type="text/html" title="Install Jekyll on Ubuntu 22.04" /><published>2024-04-09T15:10:00+00:00</published><updated>2024-04-09T15:10:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/09/install-jekyll-on-ubuntu</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/09/install-jekyll-on-ubuntu/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Install Jekyll on Ubuntu 22.04</h2>
 <div class="post-author">
-    <span class="author-avatar"></span>
-    <span class="author-name">Samuel Yang</span>
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published April 09, 2024</span><br><span class="name">By Samuel Yang</span></span>
 </div>
 
-<div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server/">Facebook</a>,</li>
+<figure class="post-image">
+    <img src="/assets/images/jekyll.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Install Ruby:</p>
         
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server/&hashtags=qemu,linux,fedora 38,ufw,DNS"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server/"> Linkedin</a></li>
+        <pre><code class="language-bash hljs">sudo apt-get install -y build-essential ruby-dev git</code></pre>        
+
+        <p>Avoid installing RubyGems packages (called gems) as the root user. Set up a gem installation directory for your user account. The following commands will add environment variables to your <code>~/.bashrc</code> file to configure the gem installation path:</p>
+
+        <pre><code class="language-bash hljs">echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc</code></pre>
+
+        <p>Install Jekyll and Bundler:</p>
+
+        <pre><code class="language-bash hljs">gem install jekyll bundler</code></pre>
+
+        <p>Clone the <a href="https://github.com/daattali/beautiful-jekyll" target="_blank">Beautiful Jekyll repo</a>:</p>
+
+        <pre><code class="language-bash hljs">git clone https://github.com/daattali/beautiful-jekyll.git</code></pre>
+
+        <p>Navigate to your blog directory and install all dependencies:</p>
+
+        <pre><code class="language-bash hljs">cd beautiful-jekyll
+bundle install</code></pre>
+
+        <p>Run your site locally:</p>
+
+        <pre><code class="language-bash hljs">bundle exec jekyll serve</code></pre>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/jekyll-01.png" alt="Run Jekyll">
+        </figure>
+
+        <p>You can now view your site at http://localhost:4000.</p>        
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/jekyll" class="tag">jekyll</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-09" /><category term="linux" /><category term="ubuntu 22.04" /><category term="jekyll" /><summary type="html"><![CDATA[Learn how to install Jekyll on Ubuntu 22.04 with step-by-step instructions in this comprehensive guide. Explore the process of setting up Jekyll to build static websites on your Ubuntu system.]]></summary></entry><entry xml:lang="en"><title type="html">Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3</title><link href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dns-server/" rel="alternate" type="text/html" title="Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3" /><published>2023-08-16T15:00:59+00:00</published><updated>2023-08-16T15:00:59+00:00</updated><id>https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server</id><content type="html" xml:base="https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published August 16, 2023</span><br><span class="name">By Samuel Yang</span></span>
 </div>
 
 <figure class="post-image">
@@ -235,53 +291,37 @@ dig -x 172.16.0.102</code></pre>
         <p>Run the tests on the client computers as well to check if the local DNS server is working or not.</p>        
     </article>
 
-    <ul class="post-tags">
-	<li><i class="fa-solid fa-tags"></i></li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/qemu">qemu</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/linux">linux</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/fedora-38">fedora 38</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/ufw">ufw</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/dns">DNS</a></li>
-	
-</ul>
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/qemu" class="tag">qemu</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/fedora-38" class="tag">fedora 38</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ufw" class="tag">ufw</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/dns" class="tag">DNS</a></li>
+		
+	</ul>
+</div>
+
 
     <div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server/&hashtags=qemu,linux,fedora 38,ufw,DNS"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server/"> Linkedin</a></li>
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
 </div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-08" /><category term="day-16" /><category term="qemu" /><category term="linux" /><category term="fedora 38" /><category term="ufw" /><category term="DNS" /><summary type="html"><![CDATA[This tutorial provides step-by-step instructions on how to set up Fedora Server 38 as a DNS Server using Qemu/KVM. Learn how to configure network settings and create virtual machines to build your own virtual network infrastructure.]]></summary></entry><entry xml:lang="en"><title type="html">Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2</title><link href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" rel="alternate" type="text/html" title="Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2" /><published>2023-08-16T09:38:59+00:00</published><updated>2023-08-16T09:38:59+00:00</updated><id>https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server</id><content type="html" xml:base="https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/"><![CDATA[<div class="blog-post">
-    <div class="post-date">Published August 16, 2023</div>
-<h2 class="post-title">Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2</h2>
+    <h2 class="post-title">Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2</h2>
 <div class="post-author">
-    <span class="author-avatar"></span>
-    <span class="author-name">Samuel Yang</span>
-</div>
-
-<div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&hashtags=qemu,linux,fedora 38,firewalld,DHCP"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/"> Linkedin</a></li>
-    </ul>
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published August 16, 2023</span><br><span class="name">By Samuel Yang</span></span>
 </div>
 
 <figure class="post-image">
@@ -418,53 +458,37 @@ enable-ra</code></pre>
         </figure>
     </article>
 
-    <ul class="post-tags">
-	<li><i class="fa-solid fa-tags"></i></li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/qemu">qemu</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/linux">linux</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/fedora-38">fedora 38</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/firewalld">firewalld</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/dhcp">DHCP</a></li>
-	
-</ul>
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/qemu" class="tag">qemu</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/fedora-38" class="tag">fedora 38</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/firewalld" class="tag">firewalld</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/dhcp" class="tag">DHCP</a></li>
+		
+	</ul>
+</div>
+
 
     <div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&hashtags=qemu,linux,fedora 38,firewalld,DHCP"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/"> Linkedin</a></li>
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
 </div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-08" /><category term="day-16" /><category term="qemu" /><category term="linux" /><category term="fedora 38" /><category term="firewalld" /><category term="DHCP" /><summary type="html"><![CDATA[This tutorial provides step-by-step instructions on how to set up Fedora Server 38 as a DHCP Server using Qemu/KVM. Learn how to configure network settings and create virtual machines to build your own virtual network infrastructure.]]></summary></entry><entry xml:lang="en"><title type="html">Setup Fedora Server 38 as a NAT Router with Qemu/KVM, Part 1</title><link href="https://hemimorphite.github.io/zh/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/" rel="alternate" type="text/html" title="Setup Fedora Server 38 as a NAT Router with Qemu/KVM, Part 1" /><published>2023-08-15T13:10:20+00:00</published><updated>2023-08-15T13:10:20+00:00</updated><id>https://hemimorphite.github.io/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm</id><content type="html" xml:base="https://hemimorphite.github.io/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/"><![CDATA[<div class="blog-post">
-    <div class="post-date">Published August 15, 2023</div>
-<h2 class="post-title">Setup Fedora Server 38 as a NAT Router with Qemu/KVM, Part 1</h2>
+    <h2 class="post-title">Setup Fedora Server 38 as a NAT Router with Qemu/KVM, Part 1</h2>
 <div class="post-author">
-    <span class="author-avatar"></span>
-    <span class="author-name">Samuel Yang</span>
-</div>
-
-<div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/&hashtags=qemu,linux,fedora 38,firewalld,NAT"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/"> Linkedin</a></li>
-    </ul>
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published August 15, 2023</span><br><span class="name">By Samuel Yang</span></span>
 </div>
 
 <figure class="post-image">
@@ -725,53 +749,37 @@ sudo nmcli connection mod enp0s4 ipv6.method manual</code></pre>
         <p>Try to ping google.com to check internet connectivity. You should have internet access now.</p>
     </article>
 
-    <ul class="post-tags">
-	<li><i class="fa-solid fa-tags"></i></li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/qemu">qemu</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/linux">linux</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/fedora-38">fedora 38</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/firewalld">firewalld</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/nat">NAT</a></li>
-	
-</ul>
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/qemu" class="tag">qemu</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/fedora-38" class="tag">fedora 38</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/firewalld" class="tag">firewalld</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/nat" class="tag">NAT</a></li>
+		
+	</ul>
+</div>
+
 
     <div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/&hashtags=qemu,linux,fedora 38,firewalld,NAT"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/"> Linkedin</a></li>
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
 </div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-08" /><category term="day-15" /><category term="qemu" /><category term="linux" /><category term="fedora 38" /><category term="firewalld" /><category term="NAT" /><summary type="html"><![CDATA[This tutorial provides step-by-step instructions on how to set up Fedora Server 38 as a NAT router using Qemu/KVM. Learn how to configure network settings and create virtual machines to build your own virtual network infrastructure.]]></summary></entry><entry xml:lang="en"><title type="html">Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3</title><link href="https://hemimorphite.github.io/zh/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/" rel="alternate" type="text/html" title="Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3" /><published>2023-08-13T15:48:59+00:00</published><updated>2023-08-13T15:48:59+00:00</updated><id>https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server</id><content type="html" xml:base="https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/"><![CDATA[<div class="blog-post">
-    <div class="post-date">Published August 13, 2023</div>
-<h2 class="post-title">Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3</h2>
+    <h2 class="post-title">Setup Ubuntu Server 22.04 as a DNS Server with Qemu/KVM, Part 3</h2>
 <div class="post-author">
-    <span class="author-avatar"></span>
-    <span class="author-name">Samuel Yang</span>
-</div>
-
-<div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/&hashtags=qemu,linux,ubuntu 22.04,ufw,DNS"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/"> Linkedin</a></li>
-    </ul>
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published August 13, 2023</span><br><span class="name">By Samuel Yang</span></span>
 </div>
 
 <figure class="post-image">
@@ -988,53 +996,37 @@ dig -x 172.16.0.102</code></pre>
         <p>Run the tests on the client computers as well to check if the local DNS server is working or not.</p>        
     </article>
 
-    <ul class="post-tags">
-	<li><i class="fa-solid fa-tags"></i></li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/qemu">qemu</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/linux">linux</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04">ubuntu 22.04</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/ufw">ufw</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/dns">DNS</a></li>
-	
-</ul>
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/qemu" class="tag">qemu</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ufw" class="tag">ufw</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/dns" class="tag">DNS</a></li>
+		
+	</ul>
+</div>
+
 
     <div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/&hashtags=qemu,linux,ubuntu 22.04,ufw,DNS"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/13/setup-ubuntu-server-22.04-as-a-dns-server/"> Linkedin</a></li>
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
 </div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-08" /><category term="day-13" /><category term="qemu" /><category term="linux" /><category term="ubuntu 22.04" /><category term="ufw" /><category term="DNS" /><summary type="html"><![CDATA[This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a DNS server. Learn step-by-step instructions to set up and optimize your Ubuntu server as a DNS server.]]></summary></entry><entry xml:lang="en"><title type="html">Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</title><link href="https://hemimorphite.github.io/zh/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/" rel="alternate" type="text/html" title="Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2" /><published>2023-08-12T15:38:59+00:00</published><updated>2023-08-12T15:38:59+00:00</updated><id>https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server</id><content type="html" xml:base="https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/"><![CDATA[<div class="blog-post">
-    <div class="post-date">Published August 12, 2023</div>
-<h2 class="post-title">Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</h2>
+    <h2 class="post-title">Setup Ubuntu Server 22.04 as a DHCP Server with Qemu/KVM, Part 2</h2>
 <div class="post-author">
-    <span class="author-avatar"></span>
-    <span class="author-name">Samuel Yang</span>
-</div>
-
-<div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/&hashtags=qemu,linux,ubuntu 22.04,ufw,DHCP"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/"> Linkedin</a></li>
-    </ul>
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published August 12, 2023</span><br><span class="name">By Samuel Yang</span></span>
 </div>
 
 <figure class="post-image">
@@ -1177,53 +1169,37 @@ enable-ra</code></pre>
 
     </article>
 
-    <ul class="post-tags">
-	<li><i class="fa-solid fa-tags"></i></li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/qemu">qemu</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/linux">linux</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04">ubuntu 22.04</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/ufw">ufw</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/dhcp">DHCP</a></li>
-	
-</ul>
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/qemu" class="tag">qemu</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ufw" class="tag">ufw</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/dhcp" class="tag">DHCP</a></li>
+		
+	</ul>
+</div>
+
 
     <div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/&hashtags=qemu,linux,ubuntu 22.04,ufw,DHCP"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/12/setup-ubuntu-server-22.04-as-a-dhcp-server/"> Linkedin</a></li>
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
 </div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-08" /><category term="day-12" /><category term="qemu" /><category term="linux" /><category term="ubuntu 22.04" /><category term="ufw" /><category term="DHCP" /><summary type="html"><![CDATA[This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a DHCP server. Learn step-by-step instructions to set up and optimize your Ubuntu server as a DHCP server.]]></summary></entry><entry xml:lang="en"><title type="html">Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</title><link href="https://hemimorphite.github.io/zh/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/" rel="alternate" type="text/html" title="Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1" /><published>2023-08-08T15:38:59+00:00</published><updated>2023-08-08T15:38:59+00:00</updated><id>https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm</id><content type="html" xml:base="https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/"><![CDATA[<div class="blog-post">
-    <div class="post-date">Published August 08, 2023</div>
-<h2 class="post-title">Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</h2>
+    <h2 class="post-title">Setup Ubuntu Server 22.04 as a NAT Router with Qemu/KVM, Part 1</h2>
 <div class="post-author">
-    <span class="author-avatar"></span>
-    <span class="author-name">Samuel Yang</span>
-</div>
-
-<div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/&hashtags=qemu,linux,ubuntu 22.04,ufw,NAT"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/"> Linkedin</a></li>
-    </ul>
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published August 08, 2023</span><br><span class="name">By Samuel Yang</span></span>
 </div>
 
 <figure class="post-image">
@@ -1464,53 +1440,37 @@ Gateway=fde0:fa74:a7a2:87e4::1</code></pre>
         <p>Try to ping google.com to check internet connectivity. You should have internet access now.</p>
     </article>
 
-    <ul class="post-tags">
-	<li><i class="fa-solid fa-tags"></i></li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/qemu">qemu</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/linux">linux</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04">ubuntu 22.04</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/ufw">ufw</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/nat">NAT</a></li>
-	
-</ul>
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/qemu" class="tag">qemu</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ufw" class="tag">ufw</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/nat" class="tag">NAT</a></li>
+		
+	</ul>
+</div>
+
 
     <div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/&hashtags=qemu,linux,ubuntu 22.04,ufw,NAT"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/08/setup-ubuntu-server-22-04-as-a-nat-router-with-qemu-kvm/"> Linkedin</a></li>
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
 </div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-08" /><category term="day-08" /><category term="qemu" /><category term="linux" /><category term="ubuntu 22.04" /><category term="ufw" /><category term="NAT" /><summary type="html"><![CDATA[This tutorial will guide you through the process of configuring Ubuntu Server 22.04 to function as a NAT router. Learn step-by-step instructions to set up and optimize your Ubuntu server as a NAT router.]]></summary></entry><entry xml:lang="en"><title type="html">Getting Started with Qemu amd64 on Ubuntu 22.04</title><link href="https://hemimorphite.github.io/zh/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/" rel="alternate" type="text/html" title="Getting Started with Qemu amd64 on Ubuntu 22.04" /><published>2023-07-31T07:38:59+00:00</published><updated>2023-07-31T07:38:59+00:00</updated><id>https://hemimorphite.github.io/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04</id><content type="html" xml:base="https://hemimorphite.github.io/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/"><![CDATA[<div class="blog-post">
-    <div class="post-date">Published July 31, 2023</div>
-<h2 class="post-title">Getting Started with Qemu amd64 on Ubuntu 22.04</h2>
+    <h2 class="post-title">Getting Started with Qemu amd64 on Ubuntu 22.04</h2>
 <div class="post-author">
-    <span class="author-avatar"></span>
-    <span class="author-name">Samuel Yang</span>
-</div>
-
-<div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/&hashtags=qemu,linux,ubuntu 22.04"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/"> Linkedin</a></li>
-    </ul>
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 31, 2023</span><br><span class="name">By Samuel Yang</span></span>
 </div>
 
 <figure class="post-image">
@@ -1605,47 +1565,33 @@ Gateway=fde0:fa74:a7a2:87e4::1</code></pre>
 
     </article>
 
-    <ul class="post-tags">
-	<li><i class="fa-solid fa-tags"></i></li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/qemu">qemu</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/linux">linux</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04">ubuntu 22.04</a></li>
-	
-</ul>
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/qemu" class="tag">qemu</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
+		
+	</ul>
+</div>
+
 
     <div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/&hashtags=qemu,linux,ubuntu 22.04"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/07/31/getting-started-with-qemu-on-ubuntu-22.04/"> Linkedin</a></li>
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
 </div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-07" /><category term="day-31" /><category term="qemu" /><category term="linux" /><category term="ubuntu 22.04" /><summary type="html"><![CDATA[This tutorial provides a step-by-step guide on how to get started with Qemu amd64 on Ubuntu 22.04. Learn how to set up and use Qemu to run virtual machines on your Ubuntu system.]]></summary></entry><entry xml:lang="en"><title type="html">Create a Kubernetes Cluster with Kubeadm, Containerd, Calico, MetalLB, and NGINX Ingress Controller on Bare Metal Machine Fedora 38</title><link href="https://hemimorphite.github.io/zh/2023/07/27/create-a-kubernetes-cluster-with-kubeadm-containerd-calico-metallb-and-nginx-ingress-controller-on-bare-metal-machine-fedora-38/" rel="alternate" type="text/html" title="Create a Kubernetes Cluster with Kubeadm, Containerd, Calico, MetalLB, and NGINX Ingress Controller on Bare Metal Machine Fedora 38" /><published>2023-07-27T09:30:50+00:00</published><updated>2023-07-27T09:30:50+00:00</updated><id>https://hemimorphite.github.io/2023/07/27/create-a-kubernetes-cluster-with-kubeadm-containerd-calico-metallb-and-nginx-ingress-controller-on-bare-metal-machine-fedora-38</id><content type="html" xml:base="https://hemimorphite.github.io/2023/07/27/create-a-kubernetes-cluster-with-kubeadm-containerd-calico-metallb-and-nginx-ingress-controller-on-bare-metal-machine-fedora-38/"><![CDATA[<div class="blog-post">
-    <div class="post-date">Published July 27, 2023</div>
-<h2 class="post-title">Create a Kubernetes Cluster with Kubeadm, Containerd, Calico, MetalLB, and NGINX Ingress Controller on Bare Metal Machine Fedora 38</h2>
+    <h2 class="post-title">Create a Kubernetes Cluster with Kubeadm, Containerd, Calico, MetalLB, and NGINX Ingress Controller on Bare Metal Machine Fedora 38</h2>
 <div class="post-author">
-    <span class="author-avatar"></span>
-    <span class="author-name">Samuel Yang</span>
-</div>
-
-<div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/07/27/create-a-kubernetes-cluster-with-kubeadm-containerd-calico-metallb-and-nginx-ingress-controller-on-bare-metal-machine-fedora-38/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/07/27/create-a-kubernetes-cluster-with-kubeadm-containerd-calico-metallb-and-nginx-ingress-controller-on-bare-metal-machine-fedora-38/&hashtags=virtualbox,fedora,linux,kubernetes,kubeadm,containerd,project calico,metallb,nginx,ingress controller,firewalld"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/07/27/create-a-kubernetes-cluster-with-kubeadm-containerd-calico-metallb-and-nginx-ingress-controller-on-bare-metal-machine-fedora-38/"> Linkedin</a></li>
-    </ul>
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 27, 2023</span><br><span class="name">By Samuel Yang</span></span>
 </div>
 
 <figure class="post-image">
@@ -4518,71 +4464,49 @@ curl https://114.122.37.100/something</code></pre>
         </figure>        
     </article>
 
-    <ul class="post-tags">
-	<li><i class="fa-solid fa-tags"></i></li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/virtualbox">virtualbox</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/fedora">fedora</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/linux">linux</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/kubernetes">kubernetes</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/kubeadm">kubeadm</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/containerd">containerd</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/project-calico">project calico</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/metallb">metallb</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/nginx">nginx</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/ingress-controller">ingress controller</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/firewalld">firewalld</a></li>
-	
-</ul>
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/virtualbox" class="tag">virtualbox</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/fedora" class="tag">fedora</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/kubernetes" class="tag">kubernetes</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/kubeadm" class="tag">kubeadm</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/containerd" class="tag">containerd</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/project-calico" class="tag">project calico</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/metallb" class="tag">metallb</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/nginx" class="tag">nginx</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ingress-controller" class="tag">ingress controller</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/firewalld" class="tag">firewalld</a></li>
+		
+	</ul>
+</div>
+
 
     <div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/07/27/create-a-kubernetes-cluster-with-kubeadm-containerd-calico-metallb-and-nginx-ingress-controller-on-bare-metal-machine-fedora-38/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/07/27/create-a-kubernetes-cluster-with-kubeadm-containerd-calico-metallb-and-nginx-ingress-controller-on-bare-metal-machine-fedora-38/&hashtags=virtualbox,fedora,linux,kubernetes,kubeadm,containerd,project calico,metallb,nginx,ingress controller,firewalld"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/07/27/create-a-kubernetes-cluster-with-kubeadm-containerd-calico-metallb-and-nginx-ingress-controller-on-bare-metal-machine-fedora-38/"> Linkedin</a></li>
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
 </div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-07" /><category term="day-27" /><category term="virtualbox" /><category term="fedora" /><category term="linux" /><category term="kubernetes" /><category term="kubeadm" /><category term="containerd" /><category term="project calico" /><category term="metallb" /><category term="nginx" /><category term="ingress controller" /><category term="firewalld" /><summary type="html"><![CDATA[Learn how to create a Kubernetes cluster with Kubeadm, Containerd, Calico, MetalLB, and NGINX Ingress Controller on Bare Metal Machine Fedora 38 using a step-by-step guide. Simplify the process and get your cluster up and running efficiently.]]></summary></entry><entry xml:lang="en"><title type="html">Virtualbox Guest Additions: Kernel headers not found for target kernel (Fedora)</title><link href="https://hemimorphite.github.io/zh/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel/" rel="alternate" type="text/html" title="Virtualbox Guest Additions: Kernel headers not found for target kernel (Fedora)" /><published>2023-06-30T08:38:50+00:00</published><updated>2023-06-30T08:38:50+00:00</updated><id>https://hemimorphite.github.io/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel/"><![CDATA[<div class="blog-post">
-    <div class="post-date">Published June 30, 2023</div>
-<h2 class="post-title">Virtualbox Guest Additions: Kernel headers not found for target kernel (Fedora)</h2>
+    <h2 class="post-title">Virtualbox Guest Additions: Kernel headers not found for target kernel (Fedora)</h2>
 <div class="post-author">
-    <span class="author-avatar"></span>
-    <span class="author-name">Samuel Yang</span>
-</div>
-
-<div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel/&hashtags=virtualbox,fedora,linux"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel/"> Linkedin</a></li>
-    </ul>
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published June 30, 2023</span><br><span class="name">By Samuel Yang</span></span>
 </div>
 
 <figure class="post-image">
@@ -4635,94 +4559,26 @@ curl https://114.122.37.100/something</code></pre>
         </figure>
     </article>
 
-  <ul class="post-tags">
-	<li><i class="fa-solid fa-tags"></i></li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/virtualbox">virtualbox</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/fedora">fedora</a>,</li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/linux">linux</a></li>
-	
-</ul>
+  <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/virtualbox" class="tag">virtualbox</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/fedora" class="tag">fedora</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+	</ul>
+</div>
+
 
   <div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel/&hashtags=virtualbox,fedora,linux"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/30/virtualbox-guest-additions-kernel-headers-not-found-for-target-kernel/"> Linkedin</a></li>
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Troubleshooting" /><category term="year-2023" /><category term="month-06" /><category term="day-30" /><category term="virtualbox" /><category term="fedora" /><category term="linux" /><summary type="html"><![CDATA[If you encounter the error Kernel headers not found for target kernel while installing VirtualBox Guest Additions, don't worry. This troubleshooting guide will provide step-by-step instructions to help you resolve the issue and successfully install the Guest Additions.]]></summary></entry><entry xml:lang="en"><title type="html">Uninstall Deb Packages on Ubuntu</title><link href="https://hemimorphite.github.io/zh/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/" rel="alternate" type="text/html" title="Uninstall Deb Packages on Ubuntu" /><published>2023-06-27T15:38:50+00:00</published><updated>2023-06-27T15:38:50+00:00</updated><id>https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204</id><content type="html" xml:base="https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/"><![CDATA[<div class="blog-post">
-    <div class="post-date">Published June 27, 2023</div>
-<h2 class="post-title">Uninstall Deb Packages on Ubuntu</h2>
-<div class="post-author">
-    <span class="author-avatar"></span>
-    <span class="author-name">Samuel Yang</span>
-</div>
-
-<div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/&hashtags=ubuntu"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/"> Linkedin</a></li>
-    </ul>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/jellyfish.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Assume you don't know the exact name of the application command. You can list the installed applications with <code>apt</code> command and use <code>grep</code> to search for the application name by guessing.</p>
-
-        <p>For example, you can do smart-guessing that the Google Chrome package should have chrome in its name. You may search it like this:</p>
-
-        <pre><code class="language-bash hljs">sudo apt list --installed | grep -i chrome</code></pre>
-
-        <figure class="post-figure">
-            <img src="/assets/images/apt-01.jpg" alt="Search package">
-        </figure>
-
-        <p>If you are not sure what the package does, you can always get its detail with:</p>
-
-        <pre><code class="language-bash hljs">sudo apt info google-chrome-stable</code></pre>
-
-        <figure class="post-figure">
-            <img src="/assets/images/apt-02.jpg" alt="Show package information">
-        </figure>
-
-        <p>Once you know the exact package name, you can delete it using the <code>apt autoremove</code>  command.</p>
-
-        <pre><code class="language-bash hljs">sudo apt autoremove google-chrome-stable</code></pre>        
-
-    </article>
-
-  <ul class="post-tags">
-	<li><i class="fa-solid fa-tags"></i></li>
-	
-	
-	<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu">ubuntu</a></li>
-	
-</ul>
-
-  <div class="post-share">
-    <div class="caption">SHARE THIS POST</div>
-    <ul class="item">
-        <li><i class="fa-solid fa-share-nodes"></i></li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/">Facebook</a>,</li>
-        
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&url=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/&hashtags=ubuntu"> Twitter</a>,</li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/06/27/uninstall-deb-packages-on-ubuntu-2204/"> Linkedin</a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-06" /><category term="day-27" /><category term="ubuntu" /><summary type="html"><![CDATA[Learn how to uninstall deb packages on Ubuntu with this step-by-step tutorial. It's easy to follow and will guide you through the process, ensuring a clean removal of the package from your system.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Troubleshooting" /><category term="year-2023" /><category term="month-06" /><category term="day-30" /><category term="virtualbox" /><category term="fedora" /><category term="linux" /><summary type="html"><![CDATA[If you encounter the error Kernel headers not found for target kernel while installing VirtualBox Guest Additions, don't worry. This troubleshooting guide will provide step-by-step instructions to help you resolve the issue and successfully install the Guest Additions.]]></summary></entry></feed>
