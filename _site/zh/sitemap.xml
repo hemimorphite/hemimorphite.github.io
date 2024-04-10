@@ -81,8 +81,12 @@
 <lastmod>2023-08-16T22:00:59+07:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/2024/04/09/install-jekyll-on-ubuntu/</loc>
+<loc>http://localhost:4000/2024/04/09/install-jekyll-on-ubuntu-22.04/</loc>
 <lastmod>2024-04-09T22:10:00+07:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2024/04/10/deploy-a-jekyll-site-to-github-pages-Copy/</loc>
+<lastmod>2024-04-10T20:30:00+07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/404</loc>
@@ -278,6 +282,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/category/tutorials/page/3/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/category/tutorials/page/4/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/tag/ubuntu-22-04/</loc>

@@ -1,0 +1,85 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Deploy a Jekyll Site to Github Pages"
+thumb: "githubpages.png"
+eyebrow: "Tutorial"
+description: "Learn how to deploy your Jekyll site to GitHub Pages with our step-by-step guide. Easy instructions for hosting your site on GitHub Pages."
+date: 2024-04-10 20:30:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-04", "day-10"]
+tags: ["jekyll", "github pages"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Create a new repository on Github by clicking the new button</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-01.png" alt="Create a new repository">
+        </figure>
+
+        <p>Your repository must be named <code>&lt;username&gt;.github.io</code> and must be public. Then click Create Repository button.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-02.png" alt="repository name">
+        </figure>
+
+        <p>Fork the <a href="https://github.com/daattali/beautiful-jekyll" target="_blank">Beautiful Jekyll repo</a>:</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-03.png" alt="Fork repository">
+        </figure>
+
+        <p>Rename the repository name to <code>&lt;username&gt;.github.io</code> and click Create Fork button.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-04.png" alt="Create Fork">
+        </figure>
+
+        <p>Click on the repository settings tab.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-05.png" alt="Setting repository">
+        </figure>
+
+        <p>From the left-hand side menu, click Pages under the Code and Automation section.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-06.png" alt="Pages menu">
+        </figure>
+
+        <p>In the Build and Deployment section, choose the branch (i.e. <code>master</code>) from which you would like GitHub Pages to deploy your website and click save button.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-07.png" alt="Choose branch to publish Github Pages">
+        </figure>
+
+        <p>Edit the <code>_config.yml</code> file to change any settings you want. To edit the file, first click on it to view the file, and on the next page click on the pencil icon to edit it. After changing the settings, click the green Commit changes button to save these edits.</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-08.png" alt="Edit the _config.yml">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-09.png" alt="Edit button">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-10.png" alt="Commit Changes">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/githubpages-11.png" alt="Commit Changes">
+        </figure>
+
+        <p>You can now view your site at https://chonkarexsaurus.github.io.</p>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
