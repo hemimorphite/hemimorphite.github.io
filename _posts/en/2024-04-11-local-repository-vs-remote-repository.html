@@ -1,0 +1,92 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Local Repository vs Remote Repository"
+thumb: "gitrepository.jpg"
+eyebrow: "Tutorial"
+description: "Understand the differences between local repository and remote repository in Git. Learn how to effectively manage your code and collaborate with teams using Git."
+date: 2024-04-11 14:30:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-04", "day-11"]
+tags: ["git", "local repository", "remote repository"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <h4>Local Repository</h4>
+
+        <p>A local repository is hosted on a local machine for an individual user.</p>
+
+        <p>Some essential Git commands for working with a local repository:</p>
+
+        <p>1. Set Git configuration values like username and email on a global level:</p>
+
+        <pre><code class="language-bash hljs">git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com</code></pre>
+
+        <p>2. Initialize a new local repository:</p>
+
+        <pre><code class="language-bash hljs">git init</code></pre>
+
+        <p>3. Add files or directories to the staging area:</p>
+
+        <pre><code class="language-bash hljs">git add &lt;file1/directory1&gt; &lt;file2/directory2&gt;</code></pre>
+
+        <p>4. View the state of the working directory and the staging area:</p>
+
+        <pre><code class="language-bash hljs">git status</code></pre>
+
+        <p>5. Commit changes to the local repository:</p>
+
+        <pre><code class="language-bash hljs">git commit -m "Commit message"</code></pre>
+
+        <p>6. View the commit history:</p>
+
+        <pre><code class="language-bash hljs">git log</code></pre>
+        
+        <p>7. Create a new branch:</p>
+
+        <pre><code class="language-bash hljs">git branch &lt;branch-name&gt;</code></pre>
+        
+        <p>8. Switch to a different branch:</p>
+
+        <pre><code class="language-bash hljs">git checkout &lt;branch-name&gt;</code></pre>
+        
+        <h4>Remote Repository</h4>
+
+        <p>A remote repository is hosted on a remote (this could be on the internet or an off-site server; it could even be the same machine in a different path) and is shared among multiple team members.</p>
+        
+        <p>Some essential Git commands for working with a remote repository:</p>
+        
+        <p>1. Clone a remote repository:</p>
+
+        <pre><code class="language-bash hljs">git clone &lt;remote-url&gt;</code></pre>
+        
+        <p>2. Add a remote repository:</p>
+
+        <pre><code class="language-bash hljs">git remote add &lt;remote-name&gt; &lt;remote-url&gt;</code></pre>
+
+        <p>3. Push local commits to a remote repository:</p>
+
+        <pre><code class="language-bash hljs">git push &lt;remote-name&gt; &lt;branch-name&gt;</code></pre>
+
+        <p>4. Pull the latest changes from a remote repository:</p>
+
+        <pre><code class="language-bash hljs">git pull &lt;remote-name&gt; &lt;branch-name&gt;</code></pre>
+
+        <p>5. Fetch the latest changes from a remote repository:</p>
+
+        <pre><code class="language-bash hljs">git fetch &lt;remote-name&gt;</code></pre>
+
+        <p>6. Create a new branch in the remote repository:</p>
+
+        <pre><code class="language-bash hljs">git push &lt;remote-name&gt; &lt;local-branch-name&gt;:&lt;remote-branch-name&gt;</code></pre>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
