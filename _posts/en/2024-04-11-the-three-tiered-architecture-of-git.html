@@ -1,0 +1,38 @@
+---
+layout: post
+lang: en
+locale: en
+title: "The Three-Tiered Architecture of Git"
+thumb: "threetieredgit.jpg"
+eyebrow: "Tutorial"
+description: "The three-tiered architecture of Git is a fundamental concept that underpins how Git works. Understanding this architecture can help you make the most out of your version control system."
+date: 2024-04-11 15:30:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-04", "day-11"]
+tags: ["git", "three-tier architecture"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Git has a three-stage architecture, consisting of the working directory, the staging area, and the repository.</p>
+
+        <h4>Working Directory</h4>
+
+        <p>The working directory is basically an area, where developers make changes to their code. When a developer modifies or adds or removes a file, the changes are made in the working directory.</p>
+
+        <h4>Staging Area</h4>
+
+        <p>Staging Area is used to prepare changes before they are committed to the repository. Developers can selectively choose which changes they want to include in the next commit by adding them to the staging area. If developers want certain files not to go for the commit, then don't add those files to the staging area.</p>
+
+        <h4>Repository</h4>
+
+        <p>The repository is where Git stores the history of changes made to the codebase. It contains all versions of the codebase, including the current version and all previous versions. When a developer makes a commit, Git takes the changes from the staging area and creates a snapshot of the project, which is then stored in the repository.</p>
+        
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
