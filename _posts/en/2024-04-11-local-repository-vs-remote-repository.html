@@ -34,24 +34,32 @@ git config --global user.email johndoe@example.com</code></pre>
         <p>3. Add files or directories to the staging area:</p>
 
         <pre><code class="language-bash hljs">git add &lt;file1/directory1&gt; &lt;file2/directory2&gt;</code></pre>
+        
+        <p>4. Remove files or directories from a Git repository:</p>
 
-        <p>4. View the state of the working directory and the staging area:</p>
+        <pre><code class="language-bash hljs"># remove files
+git rm &lt;file1&gt; &lt;file2&gt;
+
+# remove directories
+git rm -r &lt;directory1&gt; &lt;directory2&gt;</code></pre>
+
+        <p>5. View the state of the working directory and the staging area:</p>
 
         <pre><code class="language-bash hljs">git status</code></pre>
 
-        <p>5. Commit changes to the local repository:</p>
+        <p>6. Commit changes to the local repository:</p>
 
         <pre><code class="language-bash hljs">git commit -m "Commit message"</code></pre>
 
-        <p>6. View the commit history:</p>
+        <p>7. View the commit history:</p>
 
         <pre><code class="language-bash hljs">git log</code></pre>
         
-        <p>7. Create a new branch:</p>
+        <p>8. Create a new branch:</p>
 
         <pre><code class="language-bash hljs">git branch &lt;branch-name&gt;</code></pre>
         
-        <p>8. Switch to a different branch:</p>
+        <p>9. Switch to a different branch:</p>
 
         <pre><code class="language-bash hljs">git checkout &lt;branch-name&gt;</code></pre>
         
