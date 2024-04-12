@@ -1,0 +1,364 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Undo Changes in Git Repository"
+thumb: "git.jpg"
+eyebrow: "Tutorial"
+description: "Learn how to undo local changes, specific commits, and last commits in Git through this comprehensive guide. Master the commands and steps to keep your projects clean and error-free."
+date: 2024-04-12 20:50:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-04", "day-12"]
+tags: ["git", "undo changes"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Sometimes you make a mistake and want to go back to a previous version. Here's how to rollback changes.</p>
+
+        <h4>Undo Unstaged Changes</h4>
+
+        <p>You made changes to a file, saved the file and not yet added the file to the staging area. Then you decide that you don't want to keep these changes.</p>
+
+        <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
+
+        <pre><code class="language-bash hljs"># made a repo directory 
+mkdir projectrepo && cd projectrepo
+
+# initialize the repo and specify the initial branch name
+git init --initial-branch=main
+
+# add a file
+touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
+
+# add the new file to the Staging area
+git add page1.html
+
+# create a Commit
+git commit -m "create page1"
+
+# make some changes to the page1.html
+echo "&lt;p&gt;content for page 1&lt;/p&gt;" &gt;&gt; page1.html
+
+# the content of page1.html after changes
+cat page1.html
+
+# undo the changes
+git checkout page1.html
+# or
+git restore page1.html
+
+# the content of page1.html after undo changes
+cat page1.html</code></pre>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-01.jpg" alt="Undo Unstaged Changes">
+        </figure>
+
+        <h4>Undo Staged Changes</h4>
+
+        <p>You made changes to a file, saved the file and added the file to the staging area. Then you decide that you don't want to keep these changes.</p>
+        
+        <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
+
+        <pre><code class="language-bash hljs"># made a repo directory 
+mkdir projectrepo && cd projectrepo
+
+# initialize the repo and specify the initial branch name
+git init --initial-branch=main
+
+# add a file
+touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
+
+# add the new file to the Staging area
+git add page1.html
+
+# create a Commit
+git commit -m "create page1"
+
+# make some changes to the page1.html
+echo "&lt;p&gt;content for page 1&lt;/p&gt;" &gt;&gt; page1.html
+
+# the content of page1.html after changes
+cat page1.html
+
+# add the modified file to the Staging area
+git add page1.html
+
+# remove the modified file from the staging area
+git reset page1.html
+# or
+git restore --staged page1.html
+
+# undo the changes
+git restore page1.html
+
+# the content of page1.html after undo changes
+cat page1.html</code></pre>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-02.jpg" alt="Undo staged Changes">
+        </figure>
+
+        <h4>Remove Commits and Keep the Changes and Keep the Untracked Files</h4>
+        
+        <p>You made commits. Then you decide that you want to remove several previous commits.</p>
+
+        <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
+
+        <pre><code class="language-bash hljs"># made a repo directory 
+mkdir projectrepo && cd projectrepo
+
+# initialize the repo and specify the initial branch name
+git init --initial-branch=main
+
+# add first file
+touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
+
+# add the first file to the Staging area
+git add page1.html
+
+# create first Commit
+git commit -m "create page1"
+
+# add second file
+touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
+
+# add the second file to the Staging area
+git add page2.html
+
+# create second Commit
+git commit -m "create page2"
+
+# add third file
+touch page3.html && echo "&lt;h1&gt;Header for page 3&lt;/h1&gt;" &gt; page3.html
+
+# add the third file to the Staging area
+git add page2.html
+
+# create third Commit
+git commit -m "create page3"
+
+# make some changes to the page1.html
+echo "&lt;p&gt;content for page 1&lt;/p&gt;" &gt;&gt; page1.html
+
+# the content of page1.html after changes
+cat page1.html
+
+# add the modified file to the Staging area
+git add page1.html
+
+# create forth Commit
+git commit -m "content page1"
+
+# list all files
+ls
+
+# view the commit history
+git log
+
+# remove the last three commits
+git reset e1a3b1434e3a146d36bb4ba3f587ba752c5cf48b
+# Or
+git reset HEAD~3
+
+# list all files and page2.html and page2.html still exist
+ls
+
+# the changes of page1.html still exist
+cat page1.html
+
+# view the commit history and the three commits are removed
+git log</code></pre>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-03.jpg" alt="Remove Commits">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-04.jpg" alt="Remove Commits">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-05.jpg" alt="Remove Commits">
+        </figure>
+
+        <h4>Remove Commits and Undo Changes And Remove the Untracked Files Permanently</h4>
+                
+        <p>You made commits. Then you decide that you want to remove several previous commits and undo the changes and remove the untracked files permanently.</p>
+
+        <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
+
+        <pre><code class="language-bash hljs"># made a repo directory 
+mkdir projectrepo && cd projectrepo
+
+# initialize the repo and specify the initial branch name
+git init --initial-branch=main
+
+# add first file
+touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
+
+# add the first file to the Staging area
+git add page1.html
+
+# create first Commit
+git commit -m "create page1"
+
+# add second file
+touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
+
+# add the second file to the Staging area
+git add page2.html
+
+# create second Commit
+git commit -m "create page2"
+
+# add third file
+touch page3.html && echo "&lt;h1&gt;Header for page 3&lt;/h1&gt;" &gt; page3.html
+
+# add the third file to the Staging area
+git add page2.html
+
+# create third Commit
+git commit -m "create page3"
+
+# make some changes to the page1.html
+echo "&lt;p&gt;content for page 1&lt;/p&gt;" &gt;&gt; page1.html
+
+# the content of page1.html after changes
+cat page1.html
+
+# add the modified file to the Staging area
+git add page1.html
+
+# create forth Commit
+git commit -m "content page1"
+
+# list all files
+ls
+
+# view the commit history 
+git log
+
+# remove the last three commits and Undo the changes
+git reset 31207f129056d79913cae19606b273606ab072b8 && git restore .
+# Or
+git reset HEAD~3 && git restore .
+# Or
+git reset --hard
+
+# remove untracked files permanently
+git clean -df
+
+# list all files
+ls
+
+# view content of page1.html
+cat page1.html
+
+# view the commit history and the three commits are removed
+git log</code></pre>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-03.jpg" alt="Remove Commits">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-06.jpg" alt="Remove Commits">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-07.jpg" alt="Remove Commits">
+        </figure>
+
+        <h4>Undo a Commit (Remove Created Files and Changes in the Commit) Without Remove the Commit History</h4>
+                        
+        <p>You made a commit. Then you decide that you want to undo a commit.</p>
+
+        <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
+
+        <pre><code class="language-bash hljs"># made a repo directory 
+mkdir projectrepo && cd projectrepo
+
+# initialize the repo and specify the initial branch name
+git init --initial-branch=main
+
+# add first file
+touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
+
+# add the first file to the Staging area
+git add page1.html
+
+# create first Commit
+git commit -m "create page1"
+
+# add second file
+touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
+
+# add the second file to the Staging area
+git add page2.html
+
+# create second Commit
+git commit -m "create page2"
+
+# add third file
+touch page3.html && echo "&lt;h1&gt;Header for page 3&lt;/h1&gt;" &gt; page3.html
+
+# add the third file to the Staging area
+git add page2.html
+
+# create third Commit
+git commit -m "create page3"
+
+# make some changes to the page1.html
+echo "&lt;p&gt;content for page 1&lt;/p&gt;" &gt;&gt; page1.html
+
+# add the modified file to the Staging area
+git add page1.html
+
+# create forth Commit
+git commit -m "content page1"
+
+# view the commit history 
+git log
+
+# undo the third commit and ctrl + X
+git revert 1bfe6eb289196beda543c44a4cfdf30eec331475
+
+# view the commit history
+git log
+
+# list all files and file page2.html is removed
+ls</code></pre>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-09.jpg" alt="Undo Commits">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-10.jpg" alt="Undo Commits">
+        </figure>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-11.jpg" alt="Undo Commits">
+        </figure>
+
+        <p>To recover the removed files and changes in the third commit is by reverting back</p>      
+
+        <pre><code class="language-bash hljs"># undo the revert
+git revert 8d4c1ddf0cb02fcbdbd2820af5ee74594289384f
+
+# list all files and file page2.html is back
+ls</code></pre>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-12.jpg" alt="Undo Commits">
+        </figure>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
