@@ -1,0 +1,89 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Branching in Git"
+thumb: "git.jpg"
+eyebrow: "Tutorial"
+description: "Learn about branching in Git with this comprehensive guide. Understand how to create, switch to, merge, push, and delete branches using git branch commands."
+date: 2024-04-17 23:55:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-04", "day-17"]
+tags: ["git", "github", "gitlab", "branch"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Git Branches are one of the fundamental features that make Git so useful. Git Branches allow developers to create parallel versions of their codebase, where they can experiment with new features, make changes, and fix bugs without affecting the main codebase.</p>
+        
+        <p>To lists all the branches in the current Git repository (local braches and remote branches), you can use the <code>git branch</code> command</p>
+
+        <pre><code class="language-bash hljs">git branch</code></pre>
+
+        <p>To switch to the specified branch, you can use the <code>git branch</code> command followed by the branch name.</p>
+
+        <pre><code class="language-bash hljs">git branch &lt;branch-name&gt;</code></pre>
+
+        <p>To create a new branch with the specified name and switch to it, you can use the <code>git branch</code> command followed by <code>-b</code> flag and the branch name.</p>
+
+        <pre><code class="language-bash hljs">git branch -b &lt;branch-name&gt;</code></pre>
+
+        <p>To create a new local branch and push it to remote repository, you can use the <code>git branch</code> command and <code>git push</code> command.</p>
+
+        <pre><code class="language-bash hljs">git checkout -b &lt;branch-name&gt;
+git remote add &lt;remote-name&gt; &lt;remote-url&gt;
+git push &lt;remote-name&gt; -u &lt;branch-name&gt;</code></pre>
+        
+        <p>To delete a branch, you can use the <code>git branch</code> command followed by <code>-d</code> flag and the branch name.</p>
+
+        <pre><code class="language-bash hljs">git branch -d &lt;branch-name&gt;</code></pre>
+        
+        <p>To delete a remote branch on remote repository, you can use the <code>git branch</code> command and <code>git push</code> command.</p>
+
+        <pre><code class="language-bash hljs">git checkout -d &lt;branch-name&gt;
+git remote add &lt;remote-name&gt; &lt;remote-url&gt;
+git push &lt;remote-name&gt; -u &lt;branch-name&gt;</code></pre>
+        
+        <p>To rename the local branch from the old name to the new name, you can use the <code>git branch</code> command followed by <code>-m</code> flag, the current branch name and the new branch name.</p>
+
+        <pre><code class="language-bash hljs">git branch -m &lt;old-branch-name&gt; &lt;new-branch-name&gt;</code></pre>
+        
+        <p>To rename the upstream branch from the old name to the new name, you can use the <code>git push</code> command.</p>
+
+        <pre><code class="language-bash hljs">git remote add &lt;remote-name&gt; &lt;remote-url&gt;
+git push &lt;remote-name&gt; -d &lt;old-branch-name&gt;
+git push &lt;remote-name&gt; -u &lt;new-branch-name&gt;</code></pre>
+        
+        <p>To list all local and remote branches from the master in the current Git repository, you can use the <code>git branch</code> command followed by <code>-a</code> flag.</p>
+
+        <pre><code class="language-bash hljs">git branch -a</code></pre>
+        
+        <p>To list all remote branches in the current Git repository, you can use the <code>git branch</code> command followed by <code>-r</code> flag.</p>
+
+        <pre><code class="language-bash hljs">git branch -r</code></pre>
+        
+        <p>To list all branches with the last commit message in the current directory, you can use the <code>git branch</code> command followed by <code>-v</code> flag.</p>
+
+        <pre><code class="language-bash hljs">git branch -v</code></pre>
+        
+        <p>To list all branches that have been merged into the <code>main</code> branch, you can use the <code>git branch</code> command followed by <code>--merged</code> flag.</p>
+
+        <pre><code class="language-bash hljs">git branch --merged</code></pre>
+        
+        <p>To list all branches that have not been merged into the default branches, you can use the <code>git branch</code> command followed by <code>--no-merged</code> flag.</p>
+
+        <pre><code class="language-bash hljs">git branch --no-merged</code></pre>
+        
+        <p>To create a new local branch that matches name for a remote tracking branch, you can use the <code>git branch</code> command followed by <code>-t</code> flag, remote name and remote branch name.</p>
+
+        <pre><code class="language-bash hljs">git remote add &lt;remote-name&gt; &lt;remote-url&gt;
+git branch -t &lt;remote-name&gt;/&lt;remote-branch-name&gt;</code></pre>
+  
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
