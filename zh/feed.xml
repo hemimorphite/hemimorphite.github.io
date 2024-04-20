@@ -1,4 +1,149 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-04-19T18:22:42+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Working with Remote Repositories</title><link href="https://hemimorphite.github.io/zh/2024/04/19/working-with-remote-repositories/" rel="alternate" type="text/html" title="Working with Remote Repositories" /><published>2024-04-19T03:50:00+00:00</published><updated>2024-04-19T03:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/19/working-with-remote-repositories</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/19/working-with-remote-repositories/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-04-20T16:31:52+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Tracking Branch in Git</title><link href="https://hemimorphite.github.io/zh/2024/04/20/tracking-branch-in-git/" rel="alternate" type="text/html" title="Tracking Branch in Git" /><published>2024-04-20T15:38:00+00:00</published><updated>2024-04-20T15:38:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/20/tracking-branch-in-git</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/20/tracking-branch-in-git/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Tracking Branch in Git</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published April 20, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/git.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>A tracking branch is a branch that is linked to a remote branch.</p>
+
+        <p>A local branch can track a remote branch using <code>git branch</code> command with long option <code>--set-upstream-to=</code> or short option <code>-u</code> followed by a branch name. If no branch name is specified, then it defaults to the current branch. For example,</p>
+
+        <pre><code class="language-bash hljs">git branch -u origin/issue-1</code></pre>
+
+        <p>or longer option:</p>
+
+        <pre><code class="language-bash hljs">git branch --set-upstream-to=origin/issue-1</code></pre>
+
+        <p>When you clone a repository, it generally automatically creates a <code>main</code> branch that tracks <code>origin/main</code>. That's why <code>git push</code> and <code>git pull</code> work out of the box with no other arguments.</p>
+
+        <p>You can Check out a local branch from a remote branch by creating what is called a tracking branch. Tracking branches are local branches that have a direct relationship to a remote branch. If you're on a tracking branch and type <code>git push</code>, Git automatically knows which server and branch to push to. Also, running <code>git pull</code> while on one of these branches fetches all the remote references and then automatically merges in the corresponding remote branch.</p>
+
+        <pre><code class="language-bash hljs">git checkout --track origin/serverfix</code></pre>
+
+        <p>That command creates a local <code>serverfix</code> branch with the same content of <code>origin/serverfix</code>, and makes it a tracking branch of <code>origin/serverfix</code>.</p>
+
+        <p>To set up a local branch with a different name than the remote branch:</p>
+
+        <pre><code class="language-bash hljs">git checkout -b sf --track origin/serverfix</code></pre>
+
+        <p>That command creates a local <code>sf</code> branch with the same content of <code>origin/serverfix</code>, and makes it a tracking branch of <code>origin/serverfix</code>.</p>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/git" class="tag">git</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/github" class="tag">github</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/gitlab" class="tag">gitlab</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/tracking-branch" class="tag">tracking branch</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-20" /><category term="git" /><category term="github" /><category term="gitlab" /><category term="tracking branch" /><summary type="html"><![CDATA[A tracking branch in Git is associated with a remote branch and allows you to easily push and pull changes. Learn how to set up and work with tracking branches effectively.]]></summary></entry><entry xml:lang="en"><title type="html">Clone Remote Branches in Git</title><link href="https://hemimorphite.github.io/zh/2024/04/20/clone-remote-branches-in-git/" rel="alternate" type="text/html" title="Clone Remote Branches in Git" /><published>2024-04-20T08:16:00+00:00</published><updated>2024-04-20T08:16:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/20/clone-remote-branches-in-git</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/20/clone-remote-branches-in-git/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Clone Remote Branches in Git</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published April 20, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/git.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <h4>Clone Only Single, Specific Remote Branch in Git</h4>
+
+        <p>To clone only single, specific a remote branch, use the <code>git clone</code> command followed by <code>--single-branch</code> flag, <code>--branch</code> flag and the remote repository url.</p>
+
+        <pre><code class="language-bash hljs">git clone --branch &lt;remote-branch-name&gt; --single-branch &lt;remote-repo-url&gt;</code></pre>
+
+        <h4>Clone All Remote Branches in Git</h4>
+
+        <p>The <code>git clone</code> command is used to create a copy of a remote repository on your local machine. By default, this command only clones the <code>main</code> branch (usually <code>master</code> or <code>main</code>).</p>
+
+        <pre><code class="language-bash hljs">git clone &lt;remote-repo-url&gt;</code></pre>
+
+        <p>When you run <code>git clone</code> without followed by flags, the following actions occur:</p>
+
+        <ol>
+            <li>A new folder called <code>repo</code> is made</li>
+            <li>It is initialized as a Git repository</li>
+            <li>A remote named <code>origin</code> is created, pointing to the URL you cloned from
+            </li>
+            <li>All of the repository's files and commits are downloaded there</li>
+            <li>The default branch is checked out</li>
+        </ol>
+
+        <p>After cloning, navigate to the directory of the cloned repository:</p>
+
+        <pre><code class="language-bash hljs">cd &lt;repository-name&gt;</code></pre>
+
+        <p>To fetch all branches from the remote, you can use:</p>
+
+        <pre><code class="language-bash hljs">git fetch --all</code></pre>
+
+        <p>This command fetches all objects from the remote repository but doesn't create local branches for them.</p>
+
+        <p>After fetching, you can show all branches, including remote ones by <code>git branch -a</code> command.</p>
+
+        <p>To create local branches from remote branches, you have to check out each branch:</p>
+
+        <pre><code class="language-bash hljs">git checkout -b &lt;local-branch-name&gt; &lt;origin/remote-branch-name&gt;</code></pre>
+
+        <p>Manually checking out each branch can be tiresome if the repository has numerous branches. Here's a simple command to automate the process:</p>
+
+        <pre><code class="language-bash hljs">for branch in `git branch -r | grep -v HEAD`;do
+    git checkout -b $branch $branch
+done</code></pre>
+        
+        <p>This command loops through each remote branch and creates a corresponding local branch.</p>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/git" class="tag">git</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/github" class="tag">github</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/gitlab" class="tag">gitlab</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/clone-branches" class="tag">clone branches</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-20" /><category term="git" /><category term="github" /><category term="gitlab" /><category term="clone branches" /><summary type="html"><![CDATA[Learn how to effectively clone remote branches in Git, whether you need to clone all branches or just a specific branch. This guide provides step-by-step instructions on how to accomplish this task.]]></summary></entry><entry xml:lang="en"><title type="html">Working with Remote Repositories</title><link href="https://hemimorphite.github.io/zh/2024/04/19/working-with-remote-repositories/" rel="alternate" type="text/html" title="Working with Remote Repositories" /><published>2024-04-19T03:50:00+00:00</published><updated>2024-04-19T03:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/19/working-with-remote-repositories</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/19/working-with-remote-repositories/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Working with Remote Repositories</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -10,7 +155,7 @@
 </figure>
 
     <article class="post-content">
-        <p>The <code>git remote</code> command lets you create, view, and delete connections to other repositories. Remote connections are more like bookmarks rather than direct links into other repositories.</p>
+        <p>URLs are long, complicated, and easy to mistype. It's much easier to give each remote a name. The <code>git remote</code> command lets us manage a list of remotes for each git repository.</p>
 
         <p>To add a new remote repository, you can use the <code>git remote add</code> command, followed by a remote name for the remote repository and remote repository URL.</p>
 
@@ -1001,422 +1146,4 @@ bundle install</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-09" /><category term="linux" /><category term="ubuntu 22.04" /><category term="jekyll" /><summary type="html"><![CDATA[Learn how to install Jekyll on Ubuntu 22.04 with step-by-step instructions in this comprehensive guide. Explore the process of setting up Jekyll to build static websites on your Ubuntu system.]]></summary></entry><entry xml:lang="en"><title type="html">Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3</title><link href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dns-server/" rel="alternate" type="text/html" title="Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3" /><published>2023-08-16T15:00:59+00:00</published><updated>2023-08-16T15:00:59+00:00</updated><id>https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server</id><content type="html" xml:base="https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dns-server/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published August 16, 2023</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/fedora38.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Welcome to configuring Fedora Server 38 as a router tutorial series!</p>
-
-        <ol>
-            <li><a href="https://hemimorphite.github.io/zh/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/">Setup Fedora Server 38 as a NAT Router with Qemu/KVM, Part 1</a></li>
-            <li><a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/">Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2</a></li>
-            <li><a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dns-server/">Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3</a></li>
-        </ol>
-
-        <p>One of the most popular programs for Linux operating systems providing DNS forwarder service is dnsmasq.</p>
-        
-        <p>Fedora Server 38 comes with <code>systemd-resolved</code> which you need to disable since it binds to port 53 which will conflict with dnsmasq port.</p>
-
-        <p>Disable the systemd-resolved DNS listeners to free up port 53 by uncommenting <code>DNSStubListener</code> and setting it to <code>no</code> in <code>/etc/systemd/resolved.conf</code>.</p>
-
-        <pre><code class="language-bash hljs">DNSStubListener=no</code></pre>        
-
-        <p>Disable the systemd-resolved DNSSEC, DNSOverTLS, LLMNR, and MulticastDNS by uncommenting them and setting it to <code>no</code> in <code>/etc/systemd/resolved.conf</code>.</p>
-
-        <pre><code class="language-bash hljs">DNSSEC=no
-DNSOverTLS=no
-MulticastDNS=no
-LLMNR=no</code></pre>
-
-        <p>In order to configure dnsmasq to act as cache for the host on which it is running, uncomment <code>DNS</code> and set it to <code>127.0.0.1</code> to force host to perform local DNS lookup.</p>
-
-        <pre><code class="language-bash hljs">DNS=127.0.0.1</code></pre>
-
-        <p>Restart the <code>systemd-resolved</code> service to apply your changes:</p>
-
-        <pre><code class="language-bash hljs">sudo systemctl restart systemd-resolved</code></pre>
-
-        <p>Once that is done, install dnsmasq:</p>
-
-        <pre><code class="language-bash hljs">sudo apt -y install dnsmasq</code></pre>
-
-        <p>To enable DNS forwarder service, you need to configure <code>/etc/dnsmasq.conf</code>.</p>
-
-        <p>Set the port on which dnsmasq will listen for DNS requests. This default to UDP port 53.</p>
-
-        <pre><code class="language-bash hljs">port=53</code></pre>
-
-        <p>Disable forwarding of names without a dot or domain part by uncommenting:</p>
-
-        <pre><code class="language-bash hljs">domain-needed</code></pre>
-
-        <p>Add a local-only domain:</p>
-
-        <pre><code class="language-bash hljs">local=/app/</code></pre>
-
-        <p>Restart the dnsmasq service to apply your changes:</p>
-
-        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>
-
-        <p>By default, DNS uses TCP and UDP port 53. Open the DNS port, run:</p>
-
-        <pre><code class="language-bash hljs">sudo firewall-cmd --zone=public --permanent --add-port=53/tcp
-sudo firewall-cmd --zone=public --permanent --add-port=53/udp</code></pre>
-
-        <p>To apply the configuration, run:</p>
-
-        <pre><code class="language-bash hljs">sudo firewall-cmd --reload</code></pre>
-
-        <p>Next, you will need to edit your <code>/etc/hosts</code> file and add the local DNS server entries.</p>
-
-        <pre><code class="language-bash hljs">172.16.0.100    bulbasaur.app
-172.16.0.101    ivysaur.app
-172.16.0.102    venusaur.app</code></pre>        
-
-        <p>Restart the dnsmasq service to apply your changes:</p>
-
-        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>
-        
-        <p>Install <code>dnsutils</code> package:</p>
-
-        <pre><code class="language-bash hljs">sudo dnf -y install dnsutils</code></pre>
-
-        <p>To test if the local DNS server is working or not, run:</p>
-
-        <pre><code class="language-bash hljs">dig bulbasaur.app
-dig ivysaur.app
-dig venusaur.app</code></pre>
-        
-        <p>The response should look similar to this:</p>
-
-        <pre><code class="language-bash hljs">; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; bulbasaur.app
-;; global options: +cmd
-;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 39436
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-;; QUESTION SECTION:
-;bulbasaur.app.                 IN      A
-
-;; ANSWER SECTION:
-bulbasaur.app.          0       IN      A       172.16.0.100
-
-;; Query time: 0 msec
-;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
-;; WHEN: Wed Aug 16 21:51:03 WIB 2023
-;; MSG SIZE  rcvd: 58
-
-
-; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; ivysaur.app
-;; global options: +cmd
-;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 28024
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-;; QUESTION SECTION:
-;ivysaur.app.                   IN      A
-
-;; ANSWER SECTION:
-ivysaur.app.            0       IN      A       172.16.0.101
-
-;; Query time: 0 msec
-;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
-;; WHEN: Wed Aug 16 21:51:03 WIB 2023
-;; MSG SIZE  rcvd: 56
-
-
-; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; venusaur.app
-;; global options: +cmd
-;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 7234
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-;; QUESTION SECTION:
-;venusaur.app.                  IN      A
-
-;; ANSWER SECTION:
-venusaur.app.           0       IN      A       172.16.0.102
-
-;; Query time: 1 msec
-;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
-;; WHEN: Wed Aug 16 21:51:03 WIB 2023
-;; MSG SIZE  rcvd: 57</code></pre>
-
-        <p>To test a reverse IP lookup, run:</p>
-
-        <pre><code class="language-bash hljs">dig -x 172.16.0.100
-dig -x 172.16.0.101
-dig -x 172.16.0.102</code></pre>        
-        
-        <p>The response should look similar to this:</p>
-
-        <pre><code class="language-bash hljs">; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; -x 172.16.0.100
-;; global options: +cmd
-;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 24505
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-;; QUESTION SECTION:
-;100.0.16.172.in-addr.arpa.     IN      PTR
-
-;; ANSWER SECTION:
-100.0.16.172.in-addr.arpa. 0    IN      PTR     bulbasaur.app.
-
-;; Query time: 0 msec
-;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
-;; WHEN: Wed Aug 16 21:52:03 WIB 2023
-;; MSG SIZE  rcvd: 81
-
-
-; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; -x 172.16.0.101
-;; global options: +cmd
-;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 45987
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-;; QUESTION SECTION:
-;101.0.16.172.in-addr.arpa.     IN      PTR
-
-;; ANSWER SECTION:
-101.0.16.172.in-addr.arpa. 0    IN      PTR     ivysaur.app.
-
-;; Query time: 0 msec
-;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
-;; WHEN: Wed Aug 16 21:52:03 WIB 2023
-;; MSG SIZE  rcvd: 79
-
-
-; &lt;&lt;&gt;&gt; DiG 9.18.17 &lt;&lt;&gt;&gt; -x 172.16.0.102
-;; global options: +cmd
-;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 32116
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-;; QUESTION SECTION:
-;102.0.16.172.in-addr.arpa.     IN      PTR
-
-;; ANSWER SECTION:
-102.0.16.172.in-addr.arpa. 0    IN      PTR     venusaur.app.
-
-;; Query time: 1 msec
-;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
-;; WHEN: Wed Aug 16 21:52:03 WIB 2023
-;; MSG SIZE  rcvd: 80</code></pre>
-
-        <p>Run the tests on the client computers as well to check if the local DNS server is working or not.</p>        
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/qemu" class="tag">qemu</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/fedora-38" class="tag">fedora 38</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/ufw" class="tag">ufw</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/dns" class="tag">DNS</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-08" /><category term="day-16" /><category term="qemu" /><category term="linux" /><category term="fedora 38" /><category term="ufw" /><category term="DNS" /><summary type="html"><![CDATA[This tutorial provides step-by-step instructions on how to set up Fedora Server 38 as a DNS Server using Qemu/KVM. Learn how to configure network settings and create virtual machines to build your own virtual network infrastructure.]]></summary></entry><entry xml:lang="en"><title type="html">Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2</title><link href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" rel="alternate" type="text/html" title="Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2" /><published>2023-08-16T09:38:59+00:00</published><updated>2023-08-16T09:38:59+00:00</updated><id>https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server</id><content type="html" xml:base="https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published August 16, 2023</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/fedora38.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Welcome to configuring Fedora Server 38 as a router tutorial series!</p>
-
-        <ol>
-            <li><a href="https://hemimorphite.github.io/zh/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/">Setup Fedora Server 38 as a NAT Router with Qemu/KVM, Part 1</a></li>
-            <li><a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/">Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2</a></li>
-            <li><a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dns-server/">Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3</a></li>
-        </ol>
-
-        <p>One of the most popular programs for Linux operating systems providing DHCP service is dnsmasq.</p>
-        
-        <p>Install dnsmasq:</p>
-
-        <pre><code class="language-bash hljs">sudo dnf -y install dnsmasq</code></pre>
-
-        <p>The response should look similar to this:</p>
-        
-        <pre><code class="language-bash hljs">Fedora 38 - x86_64                                                                        1.3 MB/s |  83 MB     01:02    
-Fedora 38 openh264 (From Cisco) - x86_64                                                  504  B/s | 2.5 kB     00:05    
-Fedora Modular 38 - x86_64                                                                376 kB/s | 2.8 MB     00:07    
-Fedora 38 - x86_64 - Updates                                                              1.4 MB/s |  30 MB     00:21    
-Fedora Modular 38 - x86_64 - Updates                                                      402 kB/s | 2.1 MB     00:05    
-Dependencies resolved.
-==========================================================================================================================
- Package                     Architecture               Version                         Repository                   Size
-==========================================================================================================================
-Installing:
- dnsmasq                     x86_64                     2.89-5.fc38                     updates                     357 k
-
-Transaction Summary
-==========================================================================================================================
-Install  1 Package
-
-Total download size: 357 k
-Installed size: 768 k
-Downloading Packages:
-dnsmasq-2.89-5.fc38.x86_64.rpm                                                            253 kB/s | 357 kB     00:01    
---------------------------------------------------------------------------------------------------------------------------
-Total                                                                                     126 kB/s | 357 kB     00:02     
-Fedora 38 - x86_64 - Updates                                                              1.2 MB/s | 1.6 kB     00:00    
-Importing GPG key 0xEB10B464:
- Userid     : "Fedora (38) &lt;fedora-38-primary@fedoraproject.org&gt;"
- Fingerprint: 6A51 BBAB BA3D 5467 B617 1221 809A 8D7C EB10 B464
- From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-38-x86_64
-Key imported successfully
-Running transaction check
-Transaction check succeeded.
-Running transaction test
-Transaction test succeeded.
-Running transaction
-  Preparing        :                                                                                                  1/1 
-  Running scriptlet: dnsmasq-2.89-5.fc38.x86_64                                                                       1/1 
-  Installing       : dnsmasq-2.89-5.fc38.x86_64                                                                       1/1 
-  Running scriptlet: dnsmasq-2.89-5.fc38.x86_64                                                                       1/1 
-  Verifying        : dnsmasq-2.89-5.fc38.x86_64                                                                       1/1 
-
-Installed:
-  dnsmasq-2.89-5.fc38.x86_64                                                                                              
-
-Complete!</code></pre>
-
-        <p>To enable DHCP service, you need to configure <code>/etc/dnsmasq.conf</code>.</p>
-
-        <p>By default dnsmasq enables DNS service. You can turn it off by changing the port to 0:</p>
-
-        <pre><code class="language-bash hljs">port=0</code></pre>
-        
-        <p>The DHCPv4 server is activated by specifying an IPv4 address range and a router:</p>
-
-        <pre><code class="language-bash hljs">dhcp-range=set:enp0s5v4,172.16.0.2,172.16.0.254,255.255.255.0,12h
-
-dhcp-option=tag:enp0s5v4,option:router,172.16.0.1</code></pre>
-
-        <p>The above configuration instructs dnsmasq to offer IPv4 addresses between <code>172.16.0.2</code> and <code>172.16.0.254</code> with a subnet <code>255.255.255.0</code> on the interface <code>enp0s5</code>. Issued IPs will have a lease lifetime of twelve hours, after which clients will need to request a renewed lease.</p>
-
-        <p>Make sure the following options and other options are commented out:</p>
-
-        <pre><code class="language-bash hljs">#interface=lo
-
-#bind-interfaces</code></pre>
-
-        <pre><code class="language-bash hljs">dhcp-range=set:enp0s5v4,172.16.0.2,172.16.0.254,255.255.255.0,12h
-
-dhcp-option=tag:enp0s5v4,option:router,172.16.0.1</code></pre>
-
-        <p>Restart the dnsmasq service to apply your changes:</p>
-
-        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>        
-
-        <p>By default DHCP uses UDP ports 68 and 67 to initiate communication between the IPv4 client and server. If port 67 is in use by another process, DHCP server cannot communicate with DHCPv4 clients.</p>
-
-        <p>To open UDP port 67 in ufw, run:</p>
-
-        <pre><code class="language-bash hljs">sudo firewall-cmd --zone=public --permanent --add-port=67/udp</code></pre>
-
-        <p>To apply the configuration, run:</p>
-
-        <pre><code class="language-bash hljs">sudo firewall-cmd --reload</code></pre>
-
-        <p>Dnsmasq also provides full IPv6 support.</p>
-                
-        <p>The DHCPv6 server is activated by specifying an IPv6 address range and enabling IPv6 Router Advertisement feature:</p>
-
-        <pre><code class="language-bash hljs">dhcp-range=set:enp0s5v6,::2,::ffff,constructor:enp0s5,slaac,64,12h
-
-enable-ra</code></pre>
-        
-        <p>The above configuration instructs dnsmasq to offer IPv6 addresses between <code>fd62:bf06:3a25:7670::2</code> and <code>fd62:bf06:3a25:7670::ffff</code> with prefix length 64 bits on the interface <code>enp0s5</code>.</p>
-
-        <p>Restart the dnsmasq service to apply your changes:</p>
-
-        <pre><code class="language-bash hljs">sudo systemctl restart dnsmasq</code></pre>
-
-        <p>By default DHCP uses UDP ports 546 and 547 to initiate communication between the IPv6 client and server. If port 547 is in use by another process, DHCP server cannot communicate with DHCPv6 clients.</p>
-
-        <p>To open UDP port 547 in ufw, run:</p>
-
-        <pre><code class="language-bash hljs">sudo firewall-cmd --zone=public --permanent --add-port=547/udp</code></pre>
-
-        <p>To apply the configuration, run:</p>
-
-        <pre><code class="language-bash hljs">sudo firewall-cmd --reload</code></pre>
-
-        <p>Now the client computers should obtain IPv4 address and IPv6 address automatically.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/fedoradhcpserver-01.jpg" alt="configuring Fedora Server 38 as DHCP server">
-        </figure>
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/qemu" class="tag">qemu</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/fedora-38" class="tag">fedora 38</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/firewalld" class="tag">firewalld</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/dhcp" class="tag">DHCP</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2023" /><category term="month-08" /><category term="day-16" /><category term="qemu" /><category term="linux" /><category term="fedora 38" /><category term="firewalld" /><category term="DHCP" /><summary type="html"><![CDATA[This tutorial provides step-by-step instructions on how to set up Fedora Server 38 as a DHCP Server using Qemu/KVM. Learn how to configure network settings and create virtual machines to build your own virtual network infrastructure.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-09" /><category term="linux" /><category term="ubuntu 22.04" /><category term="jekyll" /><summary type="html"><![CDATA[Learn how to install Jekyll on Ubuntu 22.04 with step-by-step instructions in this comprehensive guide. Explore the process of setting up Jekyll to build static websites on your Ubuntu system.]]></summary></entry></feed>
