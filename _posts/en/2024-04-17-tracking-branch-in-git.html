@@ -1,0 +1,47 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Tracking Branch in Git"
+thumb: "git.jpg"
+eyebrow: "Tutorial"
+description: "A tracking branch in Git is associated with a remote branch and allows you to easily push and pull changes. Learn how to set up and work with tracking branches effectively."
+date: 2024-04-20 22:38:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-04", "day-20"]
+tags: ["git", "github", "gitlab", "tracking branch"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>A tracking branch is a branch that is linked to a remote branch.</p>
+
+        <p>A local branch can track a remote branch using <code>git branch</code> command with long option <code>--set-upstream-to=</code> or short option <code>-u</code> followed by a branch name. If no branch name is specified, then it defaults to the current branch. For example,</p>
+
+        <pre><code class="language-bash hljs">git branch -u origin/issue-1</code></pre>
+
+        <p>or longer option:</p>
+
+        <pre><code class="language-bash hljs">git branch --set-upstream-to=origin/issue-1</code></pre>
+
+        <p>When you clone a repository, it generally automatically creates a <code>main</code> branch that tracks <code>origin/main</code>. That's why <code>git push</code> and <code>git pull</code> work out of the box with no other arguments.</p>
+
+        <p>You can Check out a local branch from a remote branch by creating what is called a tracking branch. Tracking branches are local branches that have a direct relationship to a remote branch. If you're on a tracking branch and type <code>git push</code>, Git automatically knows which server and branch to push to. Also, running <code>git pull</code> while on one of these branches fetches all the remote references and then automatically merges in the corresponding remote branch.</p>
+
+        <pre><code class="language-bash hljs">git checkout --track origin/serverfix</code></pre>
+
+        <p>That command creates a local <code>serverfix</code> branch with the same content of <code>origin/serverfix</code>, and makes it a tracking branch of <code>origin/serverfix</code>.</p>
+
+        <p>To set up a local branch with a different name than the remote branch:</p>
+
+        <pre><code class="language-bash hljs">git checkout -b sf --track origin/serverfix</code></pre>
+
+        <p>That command creates a local <code>sf</code> branch with the same content of <code>origin/serverfix</code>, and makes it a tracking branch of <code>origin/serverfix</code>.</p>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
