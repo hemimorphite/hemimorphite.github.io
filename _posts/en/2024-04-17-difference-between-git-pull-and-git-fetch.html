@@ -1,0 +1,141 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Difference Between Git Pull and Git Fetch"
+thumb: "git.jpg"
+eyebrow: "Tutorial"
+description: "Understand the key differences between Git pull and Git fetch. Learn when to use each command to effectively manage your Git repositories and collaborate with your team."
+date: 2024-04-21 15:10:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-04", "day-21"]
+tags: ["git", "github", "gitlab", "git pull", "git fetch"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Create a repository on Github</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-18.jpg" alt="Create a repository on Github">
+        </figure>
+
+        <p>Generate a personal access token on GitHub to authenticate the access to the GitHub repo. Navigate to your Github <b>account settings</b>, then <b>Developer Settings</b>. Click the <b>Personal access tokens</b> menu, then click <b>Generate new token</b>.</p>
+
+        <p>Enter a name for the token under <b>Token Name</b>, choose the expiry time. Under the <b>Repository access</b> section choose <b>only selected repositories</b>. Click the "Select Repositories" button and choose the repository created. Under the "Permissions" section expand "Repository Permissions". Scroll down to "Contents" and select "Access: Read and Write". Scroll down to the bottom and click Generate token.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-19.jpg" alt="Generate a personal access token on GitHub">
+        </figure>
+
+        <p>Then create a new local repository</p>  
+
+        <pre><code class="language-bash hljs">mkdir fantastic-blog && cd fantastic-blog
+git init --initial-branch=main</code></pre>
+
+        <p>Create a new file <code>home.html</code> with contents</p>
+
+        <pre><code class="language-bash hljs">touch home.html
+echo "&lt;h1&gt;Blog Header&lt;/h1&gt;" > home.html</code></pre>
+        
+        <p>Add <code>home.html</code> to the repository staging area and create a commit</p>
+        
+        <pre><code class="language-bash hljs">git add home.html
+git commit -m "added home.html to the repo"</code></pre>
+        
+        <p>Create a remote branch and push the local repo to remote repo</p>
+        
+        <pre><code class="language-bash hljs">git remote add origin https://github.com/chonkarexsaurus/fantastic-blog.git
+git push origin main</code></pre>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-24.png" alt="create a local repository">
+        </figure>
+
+        <p>Now both the local and remote repositories are in sync.</p>
+
+        <p>Update the <code>home.html</code> file in the Github repository by adding a <code>&lt;p&gt;paragraph one&lt;/p&gt;</code> in the file.</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-20.jpg" alt="update remote repository">
+        </figure>
+
+        <p>Now the local repository has 1 commit but the remote repository already has 2 commits.</p>
+        
+        <p>Download the latest changes by using <code>git fetch</code> command.</p>
+
+        <pre><code class="language-bash hljs">git fetch origin</code></pre>
+        
+        <p>Now that you've downloaded the latest changes, you can compare your local branch to remote branch</p>
+        
+        <pre><code class="language-bash hljs">git diff main origin/main</code></pre>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-21.jpg" alt="fetch remote repository">
+        </figure>
+
+        <p>To approve the changes and merge them into your local <code>main</code> branch use <code>git merge</code> command:</p>
+
+        <pre><code class="language-bash hljs">git checkout main
+git merge origin/main</code></pre>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-22.jpg" alt="merge remote repository">
+        </figure>
+
+        <p>The <code>origin/main</code> and <code>main</code> branches now point to the same commit, and you are synchronized with the upstream developments.</p>
+
+        <p>Let's add another line of code in our <code>home.html</code> file in the remote repository.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-23.jpg" alt="update remote repository">
+        </figure>
+
+        <p>Now there are 3 commits in the remote repository, and 2 commits in the local repository</p>
+
+        <p>To synchronize your local repository with the central repository's <code>main</code> branch run <code>git pull</code> command.</p>
+
+        <pre><code class="language-bash hljs">git pull origin main</code></pre>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-25.jpg" alt="synchronize repository">
+        </figure>
+
+        <p>Difference between Git Fetch and Git Pull</p>
+
+        <table class="table table-bordered border-primary">
+            <thead>
+                <th>Git Fetch</th>
+                <th>Git Pull</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Used to fetch all changes from the remote repository to the local repository without merging into the current working directory</td>
+                <td>Brings the copy of all the changes from a remote repository and merges them into the current working directory</td>
+            </tr>
+            <tr>
+                <td>Repository data is updated in the .git directory</td>
+                <td>The working directory is updated directly</td>
+            </tr>
+            <tr>
+                <td>Review of commits and changes can be done</td>
+                <td>Updates the changes to the local repository immediately</td>
+            </tr>
+            <tr>
+                <td>No possibility of merge conflicts</td>
+                <td>Merge conflicts are possible if the remote and the local repositories have done changes at the same place</td>
+            </tr>
+            <tr>
+                <td>Git fetch basically imports the commits to local branches so as to keep up-to-date that what everybody is working on</td>
+                <td>Git Pull basically brings the local branch up-to-date with the remote copy that will also updates the other remote tracking branches</td>
+            </tr>
+            </tbody>
+        </table>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
