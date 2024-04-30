@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-04-21T08:59:01+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Difference Between Git Pull and Git Fetch</title><link href="https://hemimorphite.github.io/zh/2024/04/21/difference-between-git-pull-and-git-fetch/" rel="alternate" type="text/html" title="Difference Between Git Pull and Git Fetch" /><published>2024-04-21T08:10:00+00:00</published><updated>2024-04-21T08:10:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/21/difference-between-git-pull-and-git-fetch</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/21/difference-between-git-pull-and-git-fetch/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-04-30T17:10:19+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Difference Between Git Pull and Git Fetch</title><link href="https://hemimorphite.github.io/zh/2024/04/21/difference-between-git-pull-and-git-fetch/" rel="alternate" type="text/html" title="Difference Between Git Pull and Git Fetch" /><published>2024-04-21T08:10:00+00:00</published><updated>2024-04-21T08:10:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/21/difference-between-git-pull-and-git-fetch</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/21/difference-between-git-pull-and-git-fetch/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Difference Between Git Pull and Git Fetch</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -606,7 +606,87 @@ git branch -t &lt;remote-name&gt;/&lt;remote-branch-name&gt;</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-17" /><category term="git" /><category term="github" /><category term="gitlab" /><category term="branch" /><summary type="html"><![CDATA[Learn about branching in Git with this comprehensive guide. Understand how to create, switch to, merge, push, and delete branches using git branch commands.]]></summary></entry><entry xml:lang="en"><title type="html">Undo Changes in Git</title><link href="https://hemimorphite.github.io/zh/2024/04/12/undo-changes-in-git-repository/" rel="alternate" type="text/html" title="Undo Changes in Git" /><published>2024-04-12T13:50:00+00:00</published><updated>2024-04-12T13:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-17" /><category term="git" /><category term="github" /><category term="gitlab" /><category term="branch" /><summary type="html"><![CDATA[Learn about branching in Git with this comprehensive guide. Understand how to create, switch to, merge, push, and delete branches using git branch commands.]]></summary></entry><entry xml:lang="en"><title type="html">Move WSL File System to Another Drive</title><link href="https://hemimorphite.github.io/zh/2024/04/15/move-wsl-file-system-to-another-drive/" rel="alternate" type="text/html" title="Move WSL File System to Another Drive" /><published>2024-04-15T16:50:00+00:00</published><updated>2024-04-15T16:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/15/move-wsl-file-system-to-another-drive</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/15/move-wsl-file-system-to-another-drive/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Move WSL File System to Another Drive</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published April 15, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/wsldistribution.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>First, you need to know the WSL distribution name which you want to move to another drive. List the installed WSL distributions on your computer:</p>
+
+        <pre><code class="language-bash hljs"># PowerShell
+wsl -l -v</code></pre>
+
+        <p>If you are using a username different than <code>root</code>, you need to check the username:</p>
+        
+        <pre><code class="language-bash hljs"># Linux Terminal
+whoami</code></pre>
+
+        <p>Shut down all the WSL distros running on Windows:</p>
+        
+        <pre><code class="language-bash hljs"># PowerShell
+wsl --shutdown</code></pre>
+
+        <p>Next, you are going to create a backup for your WSL distribution <code>Ubuntu</code>:</p>
+
+        <pre><code class="language-bash hljs"># PowerShell
+mkdir D:\backup
+wsl --export Ubuntu D:\backup\ubuntu.tar</code></pre>
+        
+        <p>Wait till the WSL export is over (it may take much time). A TAR archive with your WSL distribution file system will appear in the target directory.</p>
+
+        <p>When finished, you can remove the WSL distribution to free up the disk space</p>
+
+        <pre><code class="language-bash hljs"># PowerShell
+wsl --unregister Ubuntu</code></pre>
+
+        <p>Create a directory for your WSL distribution on a new drive and import the TAR archive to WSL using this command:</p>
+        
+        <pre><code class="language-bash hljs"># PowerShell
+mkdir D:\WSL
+wsl --import Ubuntu D:\WSL\ D:\backup\ubuntu.tar</code></pre>
+
+        <p>By default Ubuntu will use <code>root</code> as the default user, to change it to another user name (we got it earlier), run:</p>
+        
+        <pre><code class="language-bash hljs"># PowerShell
+cd $env:USERPROFILE\AppData\Local\Microsoft\WindowsApps
+ubuntu config --default-user johndoe</code></pre>
+        
+        <p>Start the WSL distribution:</p>
+
+        <pre><code class="language-bash hljs">wsl -d Ubuntu</code></pre>
+
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/windows" class="tag">windows</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/wsl" class="tag">wsl</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-30" /><category term="linux" /><category term="windows" /><category term="wsl" /><summary type="html"><![CDATA[Learn how to move the Windows Subsystem for Linux (WSL) file system to another drive with step-by-step instructions, ensuring a smooth transition and efficient use of storage space.]]></summary></entry><entry xml:lang="en"><title type="html">Undo Changes in Git</title><link href="https://hemimorphite.github.io/zh/2024/04/12/undo-changes-in-git-repository/" rel="alternate" type="text/html" title="Undo Changes in Git" /><published>2024-04-12T13:50:00+00:00</published><updated>2024-04-12T13:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Undo Changes in Git</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -1140,99 +1220,4 @@ git rm -rf &lt;directory1&gt; &lt;directory2&gt;</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-11" /><category term="git" /><category term="local repository" /><category term="remote repository" /><summary type="html"><![CDATA[Understand the differences between local repository and remote repository in Git. Learn how to effectively manage your code and collaborate with teams using Git.]]></summary></entry><entry xml:lang="en"><title type="html">Deploy a Jekyll Site to Github Pages</title><link href="https://hemimorphite.github.io/zh/2024/04/10/deploy-a-jekyll-site-to-github-pages/" rel="alternate" type="text/html" title="Deploy a Jekyll Site to Github Pages" /><published>2024-04-10T13:30:00+00:00</published><updated>2024-04-10T13:30:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/10/deploy-a-jekyll-site-to-github-pages</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/10/deploy-a-jekyll-site-to-github-pages/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Deploy a Jekyll Site to Github Pages</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published April 10, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/githubpages.png" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Create a new repository on Github by clicking the new button</p>
-        
-        <figure class="post-figure">
-            <img src="/assets/images/githubpages-01.png" alt="Create a new repository">
-        </figure>
-
-        <p>Your repository must be named <code>&lt;username&gt;.github.io</code> and must be public. Then click Create Repository button.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/githubpages-02.png" alt="repository name">
-        </figure>
-
-        <p>Fork the <a href="https://github.com/daattali/beautiful-jekyll" target="_blank">Beautiful Jekyll repo</a>:</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/githubpages-03.png" alt="Fork repository">
-        </figure>
-
-        <p>Rename the repository name to <code>&lt;username&gt;.github.io</code> and click Create Fork button.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/githubpages-04.png" alt="Create Fork">
-        </figure>
-
-        <p>Click on the repository settings tab.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/githubpages-05.png" alt="Setting repository">
-        </figure>
-
-        <p>From the left-hand side menu, click Pages under the Code and Automation section.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/githubpages-06.png" alt="Pages menu">
-        </figure>
-
-        <p>In the Build and Deployment section, choose the branch (i.e. <code>master</code>) from which you would like GitHub Pages to deploy your website and click save button.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/githubpages-07.png" alt="Choose branch to publish Github Pages">
-        </figure>
-
-        <p>Edit the <code>_config.yml</code> file to change any settings you want. To edit the file, first click on it to view the file, and on the next page click on the pencil icon to edit it. After changing the settings, click the green Commit changes button to save these edits.</p>
-        
-        <figure class="post-figure">
-            <img src="/assets/images/githubpages-08.png" alt="Edit the _config.yml">
-        </figure>
-
-        <figure class="post-figure">
-            <img src="/assets/images/githubpages-09.png" alt="Edit button">
-        </figure>
-
-        <figure class="post-figure">
-            <img src="/assets/images/githubpages-10.png" alt="Commit Changes">
-        </figure>
-
-        <figure class="post-figure">
-            <img src="/assets/images/githubpages-11.png" alt="Commit Changes">
-        </figure>
-
-        <p>You can now view your site at https://chonkarexsaurus.github.io.</p>
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/jekyll" class="tag">jekyll</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/github-pages" class="tag">github pages</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-10" /><category term="jekyll" /><category term="github pages" /><summary type="html"><![CDATA[Learn how to deploy your Jekyll site to GitHub Pages with our step-by-step guide. Easy instructions for hosting your site on GitHub Pages.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-11" /><category term="git" /><category term="local repository" /><category term="remote repository" /><summary type="html"><![CDATA[Understand the differences between local repository and remote repository in Git. Learn how to effectively manage your code and collaborate with teams using Git.]]></summary></entry></feed>
