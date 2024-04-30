@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-04-30T17:10:19+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Difference Between Git Pull and Git Fetch</title><link href="https://hemimorphite.github.io/2024/04/21/difference-between-git-pull-and-git-fetch/" rel="alternate" type="text/html" title="Difference Between Git Pull and Git Fetch" /><published>2024-04-21T08:10:00+00:00</published><updated>2024-04-21T08:10:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/21/difference-between-git-pull-and-git-fetch</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/21/difference-between-git-pull-and-git-fetch/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-04-30T17:27:32+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Move WSL File System to Another Drive</title><link href="https://hemimorphite.github.io/2024/04/30/move-wsl-file-system-to-another-drive/" rel="alternate" type="text/html" title="Move WSL File System to Another Drive" /><published>2024-04-30T16:50:00+00:00</published><updated>2024-04-30T16:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/30/move-wsl-file-system-to-another-drive</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/30/move-wsl-file-system-to-another-drive/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Move WSL File System to Another Drive</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published April 30, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/wsldistribution.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>First, you need to know the WSL distribution name which you want to move to another drive. List the installed WSL distributions on your computer:</p>
+
+        <pre><code class="language-bash hljs"># PowerShell
+wsl -l -v</code></pre>
+
+        <p>If you are using a username different than <code>root</code>, you need to check the username:</p>
+        
+        <pre><code class="language-bash hljs"># Linux Terminal
+whoami</code></pre>
+
+        <p>Shut down all the WSL distros running on Windows:</p>
+        
+        <pre><code class="language-bash hljs"># PowerShell
+wsl --shutdown</code></pre>
+
+        <p>Next, you are going to create a backup for your WSL distribution <code>Ubuntu</code>:</p>
+
+        <pre><code class="language-bash hljs"># PowerShell
+mkdir D:\backup
+wsl --export Ubuntu D:\backup\ubuntu.tar</code></pre>
+        
+        <p>Wait till the WSL export is over (it may take much time). A TAR archive with your WSL distribution file system will appear in the target directory.</p>
+
+        <p>When finished, you can remove the WSL distribution to free up the disk space</p>
+
+        <pre><code class="language-bash hljs"># PowerShell
+wsl --unregister Ubuntu</code></pre>
+
+        <p>Create a directory for your WSL distribution on a new drive and import the TAR archive to WSL using this command:</p>
+        
+        <pre><code class="language-bash hljs"># PowerShell
+mkdir D:\WSL
+wsl --import Ubuntu D:\WSL\ D:\backup\ubuntu.tar</code></pre>
+
+        <p>By default Ubuntu will use <code>root</code> as the default user, to change it to another user name (we got it earlier), run:</p>
+        
+        <pre><code class="language-bash hljs"># PowerShell
+cd $env:USERPROFILE\AppData\Local\Microsoft\WindowsApps
+ubuntu config --default-user johndoe</code></pre>
+        
+        <p>Start the WSL distribution:</p>
+
+        <pre><code class="language-bash hljs">wsl -d Ubuntu</code></pre>
+
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/windows" class="tag">windows</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/wsl" class="tag">wsl</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-30" /><category term="linux" /><category term="windows" /><category term="wsl" /><summary type="html"><![CDATA[Learn how to move the Windows Subsystem for Linux (WSL) file system to another drive with step-by-step instructions, ensuring a smooth transition and efficient use of storage space.]]></summary></entry><entry xml:lang="en"><title type="html">Difference Between Git Pull and Git Fetch</title><link href="https://hemimorphite.github.io/2024/04/21/difference-between-git-pull-and-git-fetch/" rel="alternate" type="text/html" title="Difference Between Git Pull and Git Fetch" /><published>2024-04-21T08:10:00+00:00</published><updated>2024-04-21T08:10:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/21/difference-between-git-pull-and-git-fetch</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/21/difference-between-git-pull-and-git-fetch/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Difference Between Git Pull and Git Fetch</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -606,87 +686,7 @@ git branch -t &lt;remote-name&gt;/&lt;remote-branch-name&gt;</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-17" /><category term="git" /><category term="github" /><category term="gitlab" /><category term="branch" /><summary type="html"><![CDATA[Learn about branching in Git with this comprehensive guide. Understand how to create, switch to, merge, push, and delete branches using git branch commands.]]></summary></entry><entry xml:lang="en"><title type="html">Move WSL File System to Another Drive</title><link href="https://hemimorphite.github.io/2024/04/15/move-wsl-file-system-to-another-drive/" rel="alternate" type="text/html" title="Move WSL File System to Another Drive" /><published>2024-04-15T16:50:00+00:00</published><updated>2024-04-15T16:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/15/move-wsl-file-system-to-another-drive</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/15/move-wsl-file-system-to-another-drive/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Move WSL File System to Another Drive</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published April 15, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/wsldistribution.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>First, you need to know the WSL distribution name which you want to move to another drive. List the installed WSL distributions on your computer:</p>
-
-        <pre><code class="language-bash hljs"># PowerShell
-wsl -l -v</code></pre>
-
-        <p>If you are using a username different than <code>root</code>, you need to check the username:</p>
-        
-        <pre><code class="language-bash hljs"># Linux Terminal
-whoami</code></pre>
-
-        <p>Shut down all the WSL distros running on Windows:</p>
-        
-        <pre><code class="language-bash hljs"># PowerShell
-wsl --shutdown</code></pre>
-
-        <p>Next, you are going to create a backup for your WSL distribution <code>Ubuntu</code>:</p>
-
-        <pre><code class="language-bash hljs"># PowerShell
-mkdir D:\backup
-wsl --export Ubuntu D:\backup\ubuntu.tar</code></pre>
-        
-        <p>Wait till the WSL export is over (it may take much time). A TAR archive with your WSL distribution file system will appear in the target directory.</p>
-
-        <p>When finished, you can remove the WSL distribution to free up the disk space</p>
-
-        <pre><code class="language-bash hljs"># PowerShell
-wsl --unregister Ubuntu</code></pre>
-
-        <p>Create a directory for your WSL distribution on a new drive and import the TAR archive to WSL using this command:</p>
-        
-        <pre><code class="language-bash hljs"># PowerShell
-mkdir D:\WSL
-wsl --import Ubuntu D:\WSL\ D:\backup\ubuntu.tar</code></pre>
-
-        <p>By default Ubuntu will use <code>root</code> as the default user, to change it to another user name (we got it earlier), run:</p>
-        
-        <pre><code class="language-bash hljs"># PowerShell
-cd $env:USERPROFILE\AppData\Local\Microsoft\WindowsApps
-ubuntu config --default-user johndoe</code></pre>
-        
-        <p>Start the WSL distribution:</p>
-
-        <pre><code class="language-bash hljs">wsl -d Ubuntu</code></pre>
-
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/tag/linux" class="tag">linux</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/windows" class="tag">windows</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/wsl" class="tag">wsl</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-30" /><category term="linux" /><category term="windows" /><category term="wsl" /><summary type="html"><![CDATA[Learn how to move the Windows Subsystem for Linux (WSL) file system to another drive with step-by-step instructions, ensuring a smooth transition and efficient use of storage space.]]></summary></entry><entry xml:lang="en"><title type="html">Undo Changes in Git</title><link href="https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository/" rel="alternate" type="text/html" title="Undo Changes in Git" /><published>2024-04-12T13:50:00+00:00</published><updated>2024-04-12T13:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-17" /><category term="git" /><category term="github" /><category term="gitlab" /><category term="branch" /><summary type="html"><![CDATA[Learn about branching in Git with this comprehensive guide. Understand how to create, switch to, merge, push, and delete branches using git branch commands.]]></summary></entry><entry xml:lang="en"><title type="html">Undo Changes in Git</title><link href="https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository/" rel="alternate" type="text/html" title="Undo Changes in Git" /><published>2024-04-12T13:50:00+00:00</published><updated>2024-04-12T13:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Undo Changes in Git</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -706,7 +706,7 @@ ubuntu config --default-user johndoe</code></pre>
 
         <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
 
-        <pre><code class="language-bash hljs"># made a repo directory 
+        <pre><code class="language-bash hljs"># make a repo directory 
 mkdir projectrepo && cd projectrepo
 
 # initialize the repo and specify the initial branch name
@@ -745,7 +745,7 @@ cat page1.html</code></pre>
         
         <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
 
-        <pre><code class="language-bash hljs"># made a repo directory 
+        <pre><code class="language-bash hljs"># make a repo directory 
 mkdir projectrepo && cd projectrepo
 
 # initialize the repo and specify the initial branch name
@@ -790,7 +790,7 @@ cat page1.html</code></pre>
 
         <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
 
-        <pre><code class="language-bash hljs"># made a repo directory 
+        <pre><code class="language-bash hljs"># make a repo directory 
 mkdir projectrepo && cd projectrepo
 
 # initialize the repo and specify the initial branch name
@@ -873,7 +873,7 @@ git log</code></pre>
 
         <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
 
-        <pre><code class="language-bash hljs"># made a repo directory 
+        <pre><code class="language-bash hljs"># make a repo directory 
 mkdir projectrepo && cd projectrepo
 
 # initialize the repo and specify the initial branch name
@@ -961,7 +961,7 @@ git log</code></pre>
 
         <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
 
-        <pre><code class="language-bash hljs"># made a repo directory 
+        <pre><code class="language-bash hljs"># make a repo directory 
 mkdir projectrepo && cd projectrepo
 
 # initialize the repo and specify the initial branch name
