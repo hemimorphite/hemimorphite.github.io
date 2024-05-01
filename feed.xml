@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-04-30T17:27:32+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Move WSL File System to Another Drive</title><link href="https://hemimorphite.github.io/2024/04/30/move-wsl-file-system-to-another-drive/" rel="alternate" type="text/html" title="Move WSL File System to Another Drive" /><published>2024-04-30T16:50:00+00:00</published><updated>2024-04-30T16:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/30/move-wsl-file-system-to-another-drive</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/30/move-wsl-file-system-to-another-drive/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-05-01T07:31:03+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">List of Common WSL Commands</title><link href="https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands/" rel="alternate" type="text/html" title="List of Common WSL Commands" /><published>2024-05-01T07:28:00+00:00</published><updated>2024-05-01T07:28:00+00:00</updated><id>https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands-</id><content type="html" xml:base="https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">List of Common WSL Commands</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published May 01, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/wsldistribution.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Here is a list of some of the most common WSL commands:</p>
+
+        <ul>
+            <li><code>wsl</code>: This command will start a new WSL session.</li>
+            <li><code>wsl -l</code>: This command will list all of the installed WSL distributions.</li>
+            <li><code>wsl -d &lt;distribution name&gt;</code>: This command will list all of the installed WSL distributions.</li>
+            <li><code>wsl --shutdown</code>: This command will shut down all running WSL sessions.</li>
+            <li><code>wsl --terminate &lt;distribution name&gt;</code>: This command will terminate the WSL session for the specified distribution.</li>
+            <li><code>wsl --set-version &lt;version number&gt;</code>: This command will set the default WSL version.</li>
+            <li><code>wsl --status</code>:  This command will display the status of all running WSL sessions.</li>
+            <li><code>wsl --import &lt;distribution name&gt; &lt;tarball path&gt;</tarball></code>: This command will import a new WSL distribution from a tarball file.</li>
+            <li><code>wsl --mount &lt;source path&gt; &lt;source path&gt;</code>: This command will mount a Windows file system path to a WSL mount point.</li>
+            <li><code>wsl --unmount &lt;mount point&gt;</code>: This command will unmount a WSL mount point.</li>
+            <li><code>wsl --default &lt;distribution name&gt;</code>: This command will set the default WSL distribution.</li>
+        </ul>
+
+        <p>In WSL, your Windows drives are mounted under the <code>/mnt</code> directory. So, for example, your C drive would be available at <code>/mnt/c/</code>. <code>cd /mnt/c/Users/&lt;YourWindowsUsername&gt;/</code></p>
+
+        <p>For WSL 2, you can access the Linux file system by navigating to <code>\\wsl$\&lt;DistributionName&gt;</code> in File Explorer.</p>
+
+        <p>WSL configurations can be modified by editing the file: <code>C:\Users\&lt;YourWindowsUsername&gt;\.wslconfig</code>.</p>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/windows" class="tag">windows</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/wsl" class="tag">wsl</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-05" /><category term="day-01" /><category term="linux" /><category term="windows" /><category term="wsl" /><summary type="html"><![CDATA[Looking for a quick reference guide to WSL commands? Look no further! Our website provides a comprehensive list to help you navigate the Windows Subsystem for Linux effortlessly.]]></summary></entry><entry xml:lang="en"><title type="html">Move WSL File System to Another Drive</title><link href="https://hemimorphite.github.io/2024/04/30/move-wsl-file-system-to-another-drive/" rel="alternate" type="text/html" title="Move WSL File System to Another Drive" /><published>2024-04-30T16:50:00+00:00</published><updated>2024-04-30T16:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/30/move-wsl-file-system-to-another-drive</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/30/move-wsl-file-system-to-another-drive/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Move WSL File System to Another Drive</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -1108,116 +1165,4 @@ ls</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-11" /><category term="git" /><category term="three-tier architecture" /><summary type="html"><![CDATA[The three-tiered architecture of Git is a fundamental concept that underpins how Git works. Understanding this architecture can help you make the most out of your version control system.]]></summary></entry><entry xml:lang="en"><title type="html">Local Repository vs Remote Repository</title><link href="https://hemimorphite.github.io/2024/04/11/local-repository-vs-remote-repository/" rel="alternate" type="text/html" title="Local Repository vs Remote Repository" /><published>2024-04-11T07:30:00+00:00</published><updated>2024-04-11T07:30:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/11/local-repository-vs-remote-repository</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/11/local-repository-vs-remote-repository/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Local Repository vs Remote Repository</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published April 11, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/gitrepository.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <h4>Local Repository</h4>
-
-        <p>A local repository is hosted on a local machine for an individual user.</p>
-
-        <p>Some essential Git commands for working with a local repository:</p>
-
-        <p>1. Set Git configuration values like username and email on a global level:</p>
-
-        <pre><code class="language-bash hljs">git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com</code></pre>
-
-        <p>2. Initialize a new local repository:</p>
-
-        <pre><code class="language-bash hljs">git init</code></pre>
-
-        <p>3. Add files or directories to the staging area:</p>
-
-        <pre><code class="language-bash hljs">git add &lt;file1/directory1&gt; &lt;file2/directory2&gt;</code></pre>
-        
-        <p>4. Remove files or directories from a Git repository:</p>
-
-        <pre><code class="language-bash hljs"># remove files
-git rm &lt;file1&gt; &lt;file2&gt;
-
-# remove directories
-git rm -rf &lt;directory1&gt; &lt;directory2&gt;</code></pre>
-
-        <p>5. View the state of the working directory and the staging area:</p>
-
-        <pre><code class="language-bash hljs">git status</code></pre>
-
-        <p>6. Commit changes to the local repository:</p>
-
-        <pre><code class="language-bash hljs">git commit -m "Commit message"</code></pre>
-
-        <p>7. View the commit history:</p>
-
-        <pre><code class="language-bash hljs">git log</code></pre>
-        
-        <p>8. Create a new branch:</p>
-
-        <pre><code class="language-bash hljs">git branch &lt;branch-name&gt;</code></pre>
-        
-        <p>9. Switch to a different branch:</p>
-
-        <pre><code class="language-bash hljs">git checkout &lt;branch-name&gt;</code></pre>
-        
-        <h4>Remote Repository</h4>
-
-        <p>A remote repository is hosted on a remote (this could be on the internet or an off-site server; it could even be the same machine in a different path) and is shared among multiple team members.</p>
-        
-        <p>Some essential Git commands for working with a remote repository:</p>
-        
-        <p>1. Clone a remote repository:</p>
-
-        <pre><code class="language-bash hljs">git clone &lt;remote-url&gt;</code></pre>
-        
-        <p>2. Add a remote repository:</p>
-
-        <pre><code class="language-bash hljs">git remote add &lt;remote-name&gt; &lt;remote-url&gt;</code></pre>
-
-        <p>3. Push local commits to a remote repository:</p>
-
-        <pre><code class="language-bash hljs">git push &lt;remote-name&gt; &lt;branch-name&gt;</code></pre>
-
-        <p>4. Pull the latest changes from a remote repository:</p>
-
-        <pre><code class="language-bash hljs">git pull &lt;remote-name&gt; &lt;branch-name&gt;</code></pre>
-
-        <p>5. Fetch the latest changes from a remote repository:</p>
-
-        <pre><code class="language-bash hljs">git fetch &lt;remote-name&gt;</code></pre>
-
-        <p>6. Create a new branch in the remote repository:</p>
-
-        <pre><code class="language-bash hljs">git push &lt;remote-name&gt; &lt;local-branch-name&gt;:&lt;remote-branch-name&gt;</code></pre>
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/tag/git" class="tag">git</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/local-repository" class="tag">local repository</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/remote-repository" class="tag">remote repository</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-11" /><category term="git" /><category term="local repository" /><category term="remote repository" /><summary type="html"><![CDATA[Understand the differences between local repository and remote repository in Git. Learn how to effectively manage your code and collaborate with teams using Git.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-11" /><category term="git" /><category term="three-tier architecture" /><summary type="html"><![CDATA[The three-tiered architecture of Git is a fundamental concept that underpins how Git works. Understanding this architecture can help you make the most out of your version control system.]]></summary></entry></feed>
