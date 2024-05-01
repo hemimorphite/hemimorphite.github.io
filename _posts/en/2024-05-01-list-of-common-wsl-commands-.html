@@ -1,0 +1,45 @@
+---
+layout: post
+lang: en
+locale: en
+title: "List of Common WSL Commands"
+thumb: "wsldistribution.jpg"
+eyebrow: "Tutorial"
+description: "Looking for a quick reference guide to WSL commands? Look no further! Our website provides a comprehensive list to help you navigate the Windows Subsystem for Linux effortlessly."
+date: 2024-05-01 14:28:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-05", "day-01"]
+tags: ["linux", "windows", "wsl"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Here is a list of some of the most common WSL commands:</p>
+
+        <ul>
+            <li><code>wsl</code>: This command will start a new WSL session.</li>
+            <li><code>wsl -l</code>: This command will list all of the installed WSL distributions.</li>
+            <li><code>wsl -d &lt;distribution name&gt;</code>: This command will list all of the installed WSL distributions.</li>
+            <li><code>wsl --shutdown</code>: This command will shut down all running WSL sessions.</li>
+            <li><code>wsl --terminate &lt;distribution name&gt;</code>: This command will terminate the WSL session for the specified distribution.</li>
+            <li><code>wsl --set-version &lt;version number&gt;</code>: This command will set the default WSL version.</li>
+            <li><code>wsl --status</code>:  This command will display the status of all running WSL sessions.</li>
+            <li><code>wsl --import &lt;distribution name&gt; &lt;tarball path&gt;</tarball></code>: This command will import a new WSL distribution from a tarball file.</li>
+            <li><code>wsl --mount &lt;source path&gt; &lt;source path&gt;</code>: This command will mount a Windows file system path to a WSL mount point.</li>
+            <li><code>wsl --unmount &lt;mount point&gt;</code>: This command will unmount a WSL mount point.</li>
+            <li><code>wsl --default &lt;distribution name&gt;</code>: This command will set the default WSL distribution.</li>
+        </ul>
+
+        <p>In WSL, your Windows drives are mounted under the <code>/mnt</code> directory. So, for example, your C drive would be available at <code>/mnt/c/</code>. <code>cd /mnt/c/Users/&lt;YourWindowsUsername&gt;/</code></p>
+
+        <p>For WSL 2, you can access the Linux file system by navigating to <code>\\wsl$\&lt;DistributionName&gt;</code> in File Explorer.</p>
+
+        <p>WSL configurations can be modified by editing the file: <code>C:\Users\&lt;YourWindowsUsername&gt;\.wslconfig</code>.</p>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
