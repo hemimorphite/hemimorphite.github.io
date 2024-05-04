@@ -1,4 +1,339 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-05-01T07:31:03+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">List of Common WSL Commands</title><link href="https://hemimorphite.github.io/zh/2024/05/01/list-of-common-wsl-commands/" rel="alternate" type="text/html" title="List of Common WSL Commands" /><published>2024-05-01T07:28:00+00:00</published><updated>2024-05-01T07:28:00+00:00</updated><id>https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands-</id><content type="html" xml:base="https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-05-04T07:19:43+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Difference Between Git Merge and Git Rebase</title><link href="https://hemimorphite.github.io/zh/2024/05/04/difference-between-git-merge-and-git-rebase/" rel="alternate" type="text/html" title="Difference Between Git Merge and Git Rebase" /><published>2024-05-04T06:50:00+00:00</published><updated>2024-05-04T06:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase</id><content type="html" xml:base="https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Difference Between Git Merge and Git Rebase</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published May 04, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/git.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Managing repository history is one of the critical parts of keeping your code base scalable. Many approaches might be helpful in one case and not work in another.</p>
+        
+        <p><code>git rebase</code> and <code>git merge</code> are two git utilities that are designed to combine commit history from one branch to another branch.</p>
+
+        <h4>Git Merge</h4>
+
+        <p><code>git merge</code> is a command used to combine changes from two or more branches into a single branch. When a merge is performed, Git creates a new commit that incorporates the changes from both branches. The resulting commit history looks like a tree, with multiple branches merging into a single trunk.</p>
+
+        <p>To perform a merge, first, ensure you are on the branch that you want to merge changes into (e.g., <code>main</code> branch). Then, run the following command:</p>
+
+        <pre><code class="language-bash hljs">git merge &lt;branch-name&gt;</code></pre>
+
+        <p>where <code>&lt;branch-name&gt;</code> is the name of the branch containing the changes you want to merge. Git will create a new merge commit that combines the changes from both branches. If there are conflicts between the changes in the two branches, Git will prompt you to resolve them before the merge can be completed.</p>
+
+        <p>There are two types of merge:</p>
+
+        <ol>
+            <li>Fast-forward merge</li>
+            <li>Three-way merge</li>
+        </ol>
+
+        <h5>Fast-forward Merge</h5>
+
+        <p>Imagine we are having two branches:</p>
+
+        <ol>
+            <li>Parent branch (<code>main</code>)</li>
+            <li>Child branch (<code>feature</code>)</li>
+        </ol>
+
+        <p>We made changes and commits to the <code>main</code> branch.</p>
+
+        <p>At the second commit on <code>main</code> branch the <code>feature</code> branch got created, and then we made changes and commits to the <code>feature</code> branch only. We didn't make any changes and commits on the <code>main</code> branch.</p>
+
+        <p>If there will be only two branches <code>main</code> and <code>feature</code>, and no new changes and commits have been performed on your <code>main</code> branch since the <code>feature</code> branch got created in this case git will perform fast-forward merge.</p>
+
+        <p>In the Fast-forward merge, git simply moves the pointer from the <code>main</code> branch to the last commit of the <code>feature</code> branch.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-28.jpg" alt="Fast-forward Merge">
+        </figure>
+
+        <p>In the Fast-forward merge, there is no chance of conflicts because the changes and commits are in the <code>feature</code> branch only, not on the <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs"># make a repo directory
+mkdir projecta && cd projecta
+
+# initialize the repo and specify the initial branch name
+git init --initial-branch=main
+
+# add a file
+touch home.html && echo "&lt;h1&gt;Header for homepage&lt;/h1&gt;" &gt; home.html
+
+# add home.html to the Staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 1"
+
+# add some content to the home.html
+echo "&lt;p&gt;content for homepage&lt;/p&gt;" &gt;&gt; home.html
+
+# add home.html to the Staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 2"</code></pre>
+
+        <p>Now, there are two commits available at the <code>main</code> branch. To confirm that we'll check the log using <code>git log</code> command</p>
+
+        <p>Now we'll create a <code>feature</code> branch and switch to <code>feature</code> branch.</p>
+        
+        <pre><code class="language-bash hljs">git checkout -b feature</code></pre>
+        
+        <pre><code class="language-bash hljs"># add some content again to the home.html
+echo "&lt;p&gt;content 2 for homepage&lt;/p&gt;" &gt;&gt; home.html
+
+# add home.html to the Staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 3"
+
+# add some content again to the home.html
+echo "&lt;p&gt;content 3 for homepage&lt;/p&gt;" &gt;&gt; home.html
+
+# add home.html to the Staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 4"</code></pre>
+        
+        <p>Now, there will be four commits available at the <code>feature</code> branch.</p>
+
+        <p>Next we'll merge the <code>feature</code> branch to the <code>main</code> branch.</p>
+
+        <p>Switch back to the <code>main</code> branch and merge the <code>feature</code> branch with the <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs"># switch to main branch
+git switch main
+            
+# merge feature branch to main branch
+git merge feature</code></pre>
+
+        <p>Now, there will be four commits available at the <code>main</code> branch.</p>
+
+        <h5>Three-way Merge</h5>
+
+        <p>Three-way merge is a common merging strategy used in Git to combine changes from two different branches or commits into a single unified result. It is designed to handle situations where multiple branches have made conflicting changes to the same file or lines of code.</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-27.jpg" alt="Three-way Merge">
+        </figure>
+
+        <p>When performing a three-way merge, Git identifies three versions of the code:</p>
+
+        <ol>
+            <li>The common ancestor: This is the base version of the code that both branches originally diverged from. It represents the last common commit between the two branches.</li>
+            <li>The ours version: This represents the version of the code in the branch you are currently on (usually the branch you are merging into).</li>
+            <li>The theirs version: This represents the version of the code in the branch you are merging in (usually the branch being merged into the current branch).</li>
+        </ol>
+
+        <p>Git uses these three versions of the code to intelligently merge the changes. It compares the differences between the common ancestor and the ours version and also between the common ancestor and the theirs version. Then, it combines these changes, considering both sets of modifications, to create a merged version of the file.</p>
+
+        <p>During the merge process, if there are conflicting changes (i.e., changes that overlap and cannot be automatically merged), Git will mark those conflicts and pause the merge. It prompts the user to manually resolve the conflicts by editing the affected file(s) to choose which changes to keep. Once the conflicts are resolved, the user can complete the merge by committing the changes.</p>
+
+        <p>Now, we'll create two files named <code>home.html</code> and <code>about.html</code> and create two commits.</p>
+
+        <pre><code class="language-bash hljs"># make a repo directory
+mkdir projectb && cd projectb
+
+# initialize the repo and specify the initial branch name
+git init --initial-branch=main
+
+# add home.html file
+touch home.html && echo "&lt;h1&gt;Header for homepage&lt;/h1&gt;" &gt; home.html
+
+# add home.html to the staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 1"
+
+# add about.html
+touch about.html && echo "&lt;h1&gt;Header for about&lt;/h1&gt;" &gt; about.html
+
+# add about.html to the staging area
+git add about.html
+
+# commit that file to the Local Repository
+git commit -m "commit 2"</code></pre>  
+
+        <p>Now, there are two commits available at the <code>main</code> branch.</p>
+        
+        <p>Next we'll create a <code>feature</code> branch and switch to <code>feature</code> branch.</p>
+        
+        <pre><code class="language-bash hljs">git checkout -b feature</code></pre>
+        
+        <pre><code class="language-bash hljs"># add page1.html file
+touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
+
+# add page1.html to the staging area
+git add page1.html
+
+# commit that file to the Local Repository
+git commit -m "child commit 1"
+
+# add about.html
+touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
+
+# add about.html to the staging area
+git add page2.html
+
+# commit that file to the Local Repository
+git commit -m "child commit 2"</code></pre>
+        
+        <p>Then there will be a total of four commits at the <code>feature</code> branch. Two commits from the <code>main</code> branch and the other two commits from <code>feature</code> branch i.e. the child branch.</p>
+
+        <p>Now we'll switch back to the <code>main</code> branch and create a file <code>contact.html</code> on the <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs"># switch to main branch
+git checkout main
+
+# add contact.html file
+touch contact.html && echo "&lt;h1&gt;Header for contact&lt;/h1&gt;" &gt; contact.html
+
+# add contact.html to the staging area
+git add contact.html
+
+# commit that file to the Local Repository
+git commit -m "commit 3"</code></pre>
+
+        <p>So, There will be three commits available at the <code>main</code> branch.</p>
+
+        <p>Next we'll merge the <code>feature</code> branch to the <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs"># switch to main branch
+git switch main
+            
+# merge feature branch to main branch
+git merge feature</code></pre>
+
+        <p>A new commit will be created. That commit is considered as the merge commit.</p>
+
+        <h4>Git Rebase</h4>
+
+        <p>Rebasing is often used as an alternative to merging. Rebasing a branch updates one branch with another by applying the commits of one branch on top of the commits of another branch. For example, if working on a <code>feature</code> branch that is out of date with a <code>main</code> branch, rebasing the feature <code>feature</code> onto <code>main</code> will allow all the new commits from <code>main</code> to be included in <code>feature</code>.</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-29.jpg" alt="Rebase">
+        </figure>
+
+        <p>For the above example, this is what it looks like from the command line:</p>
+
+        <pre><code class="language-bash hljs">git rebase feature main</code></pre>
+
+        <p>However, it is more common to first checkout a branch and then run the rebase command with the name of the branch you wish to rebase on to:</p>
+
+        <pre><code class="language-bash hljs">git checkout feature
+git rebase main</code></pre>
+
+        <p>The golden rule of <code>git rebase</code> is to never use it on public branches.</p>
+
+        <p>For example, think about what would happen if you rebased <code>main</code> onto your <code>feature</code> branch. The rebase moves all of the commits in <code>main</code> onto the tip of <code>feature</code>. The problem is that this only happened in your repository. All of the other developers are still working with the original <code>main</code>.</p>
+
+        <pre><code class="language-bash hljs"># make a repo directory
+mkdir projectc && cd projectc
+
+# initialize the repo and specify the initial branch name
+git init --initial-branch=main
+
+# add home.html file
+touch home.html && echo "&lt;h1&gt;Header for homepage&lt;/h1&gt;" &gt; home.html
+
+# add home.html to the staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 1"
+
+# add about.html
+touch about.html && echo "&lt;h1&gt;Header for about&lt;/h1&gt;" &gt; about.html
+
+# add about.html to the staging area
+git add about.html
+
+# commit that file to the Local Repository
+git commit -m "commit 2"
+
+# create feature branch and switch to it
+git checkout -b feature
+
+# add page1.html file
+touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
+
+# add page1.html to the staging area
+git add page1.html
+
+# commit that file to the Local Repository
+git commit -m "child commit 1"
+
+# add about.html
+touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
+
+# add about.html to the staging area
+git add page2.html
+
+# commit that file to the Local Repository
+git commit -m "child commit 2"
+
+# switch to main branch
+git checkout main
+
+# add contact.html file
+touch contact.html && echo "&lt;h1&gt;Header for contact&lt;/h1&gt;" &gt; contact.html
+
+# add contact.html to the staging area
+git add contact.html
+
+# commit that file to the Local Repository
+git commit -m "commit 3"</code></pre>
+
+        <p>Now we come back to the <code>feature</code> branch, but we want to have a linear history, moving the <code>feature</code> to the tip of <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs">git checkout feature
+git rebase main</code></pre>
+
+        <p>To confirm that we'll check the log using <code>git log</code> command</p>
+
+        <pre><code class="language-bash hljs">git log --graph</code></pre>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-30.jpg" alt="linear history">
+        </figure>
+
+        <p>Having a linear history, we can do a fast-forward merge by merging the <code>feature</code> branch with the <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs">git checkout main
+git merge feature</code></pre>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/git" class="tag">git</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/git-merge" class="tag">git merge</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/git-rebase" class="tag">git rebase</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-05" /><category term="day-04" /><category term="git" /><category term="git merge" /><category term="git rebase" /><summary type="html"><![CDATA[Understanding the difference between Git merge and Git rebase is crucial for effective version control and collaboration. Learn the distinctions between these two essential Git commands.]]></summary></entry><entry xml:lang="en"><title type="html">List of Common WSL Commands</title><link href="https://hemimorphite.github.io/zh/2024/05/01/list-of-common-wsl-commands/" rel="alternate" type="text/html" title="List of Common WSL Commands" /><published>2024-05-01T07:28:00+00:00</published><updated>2024-05-01T07:28:00+00:00</updated><id>https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands-</id><content type="html" xml:base="https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">List of Common WSL Commands</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -13,17 +348,21 @@
         <p>Here is a list of some of the most common WSL commands:</p>
 
         <ul>
-            <li><code>wsl</code>: This command will start a new WSL session.</li>
-            <li><code>wsl -l</code>: This command will list all of the installed WSL distributions.</li>
-            <li><code>wsl -d &lt;distribution name&gt;</code>: This command will list all of the installed WSL distributions.</li>
-            <li><code>wsl --shutdown</code>: This command will shut down all running WSL sessions.</li>
-            <li><code>wsl --terminate &lt;distribution name&gt;</code>: This command will terminate the WSL session for the specified distribution.</li>
-            <li><code>wsl --set-version &lt;version number&gt;</code>: This command will set the default WSL version.</li>
-            <li><code>wsl --status</code>:  This command will display the status of all running WSL sessions.</li>
-            <li><code>wsl --import &lt;distribution name&gt; &lt;tarball path&gt;</tarball></code>: This command will import a new WSL distribution from a tarball file.</li>
-            <li><code>wsl --mount &lt;source path&gt; &lt;source path&gt;</code>: This command will mount a Windows file system path to a WSL mount point.</li>
-            <li><code>wsl --unmount &lt;mount point&gt;</code>: This command will unmount a WSL mount point.</li>
-            <li><code>wsl --default &lt;distribution name&gt;</code>: This command will set the default WSL distribution.</li>
+            <li><code>wsl</code>: This command will start a new WSL session</li>
+            <li><code>wsl -l</code>: This command will list all of the installed WSL distributions</li>
+            <li><code>wsl --list --online</code>: This command will list all of the available WSL distributions</li>
+            <li><code>wsl --list --running</code>: This command will list all of the running WSL distributions</li>
+            <li><code>wsl -d &lt;distribution name&gt;</code>: This command will run the specified distribution</li>
+            <li><code>wsl --install &lt;distribution name&gt;</code>: This command will install the specified distribution</li>
+            <li><code>wsl --unregister &lt;distribution name&gt;</code>: This command will remove the specified distribution to free up the disk space</li>
+            <li><code>wsl --shutdown</code>: This command will shut down all running WSL sessions</li>
+            <li><code>wsl --terminate &lt;distribution name&gt;</code>: This command will terminate the WSL session for the specified distribution</li>
+            <li><code>wsl --set-version &lt;version number&gt;</code>: This command will set the default WSL version</li>
+            <li><code>wsl --status</code>:  This command will display the status of all running WSL sessions</li>
+            <li><code>wsl --import &lt;distribution name&gt; &lt;tarball path&gt;</tarball></code>: This command will import a new WSL distribution from a tarball file</li>
+            <li><code>wsl --mount &lt;source path&gt; &lt;source path&gt;</code>: This command will mount a Windows file system path to a WSL mount point</li>
+            <li><code>wsl --unmount &lt;mount point&gt;</code>: This command will unmount a WSL mount point</li>
+            <li><code>wsl --default &lt;distribution name&gt;</code>: This command will set the default WSL distribution</li>
         </ul>
 
         <p>In WSL, your Windows drives are mounted under the <code>/mnt</code> directory. So, for example, your C drive would be available at <code>/mnt/c/</code>. <code>cd /mnt/c/Users/&lt;YourWindowsUsername&gt;/</code></p>
@@ -1117,52 +1456,4 @@ ls</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-12" /><category term="git" /><category term="undo changes" /><summary type="html"><![CDATA[Learn how to undo local changes, specific commits, and last commits in Git through this comprehensive guide. Master the commands and steps to keep your projects clean and error-free.]]></summary></entry><entry xml:lang="en"><title type="html">The Three-Tiered Architecture of Git</title><link href="https://hemimorphite.github.io/zh/2024/04/11/the-three-tiered-architecture-of-git/" rel="alternate" type="text/html" title="The Three-Tiered Architecture of Git" /><published>2024-04-11T08:30:00+00:00</published><updated>2024-04-11T08:30:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/11/the-three-tiered-architecture-of-git</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/11/the-three-tiered-architecture-of-git/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">The Three-Tiered Architecture of Git</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published April 11, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/threetieredgit.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Git has a three-stage architecture, consisting of the working directory, the staging area, and the repository.</p>
-
-        <h4>Working Directory</h4>
-
-        <p>The working directory is basically an area, where developers make changes to their code. When a developer modifies or adds or removes a file, the changes are made in the working directory.</p>
-
-        <h4>Staging Area</h4>
-
-        <p>Staging Area is used to prepare changes before they are committed to the repository. Developers can selectively choose which changes they want to include in the next commit by adding them to the staging area. If developers want certain files not to go for the commit, then don't add those files to the staging area.</p>
-
-        <h4>Repository</h4>
-
-        <p>The repository is where Git stores the history of changes made to the codebase. It contains all versions of the codebase, including the current version and all previous versions. When a developer makes a commit, Git takes the changes from the staging area and creates a snapshot of the project, which is then stored in the repository.</p>
-        
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git" class="tag">git</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/three-tier-architecture" class="tag">three-tier architecture</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-11" /><category term="git" /><category term="three-tier architecture" /><summary type="html"><![CDATA[The three-tiered architecture of Git is a fundamental concept that underpins how Git works. Understanding this architecture can help you make the most out of your version control system.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-12" /><category term="git" /><category term="undo changes" /><summary type="html"><![CDATA[Learn how to undo local changes, specific commits, and last commits in Git through this comprehensive guide. Master the commands and steps to keep your projects clean and error-free.]]></summary></entry></feed>

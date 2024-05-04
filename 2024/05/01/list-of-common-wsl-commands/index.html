@@ -657,17 +657,21 @@
         <p>Here is a list of some of the most common WSL commands:</p>
 
         <ul>
-            <li><code>wsl</code>: This command will start a new WSL session.</li>
-            <li><code>wsl -l</code>: This command will list all of the installed WSL distributions.</li>
-            <li><code>wsl -d &lt;distribution name&gt;</code>: This command will list all of the installed WSL distributions.</li>
-            <li><code>wsl --shutdown</code>: This command will shut down all running WSL sessions.</li>
-            <li><code>wsl --terminate &lt;distribution name&gt;</code>: This command will terminate the WSL session for the specified distribution.</li>
-            <li><code>wsl --set-version &lt;version number&gt;</code>: This command will set the default WSL version.</li>
-            <li><code>wsl --status</code>:  This command will display the status of all running WSL sessions.</li>
-            <li><code>wsl --import &lt;distribution name&gt; &lt;tarball path&gt;</tarball></code>: This command will import a new WSL distribution from a tarball file.</li>
-            <li><code>wsl --mount &lt;source path&gt; &lt;source path&gt;</code>: This command will mount a Windows file system path to a WSL mount point.</li>
-            <li><code>wsl --unmount &lt;mount point&gt;</code>: This command will unmount a WSL mount point.</li>
-            <li><code>wsl --default &lt;distribution name&gt;</code>: This command will set the default WSL distribution.</li>
+            <li><code>wsl</code>: This command will start a new WSL session</li>
+            <li><code>wsl -l</code>: This command will list all of the installed WSL distributions</li>
+            <li><code>wsl --list --online</code>: This command will list all of the available WSL distributions</li>
+            <li><code>wsl --list --running</code>: This command will list all of the running WSL distributions</li>
+            <li><code>wsl -d &lt;distribution name&gt;</code>: This command will run the specified distribution</li>
+            <li><code>wsl --install &lt;distribution name&gt;</code>: This command will install the specified distribution</li>
+            <li><code>wsl --unregister &lt;distribution name&gt;</code>: This command will remove the specified distribution to free up the disk space</li>
+            <li><code>wsl --shutdown</code>: This command will shut down all running WSL sessions</li>
+            <li><code>wsl --terminate &lt;distribution name&gt;</code>: This command will terminate the WSL session for the specified distribution</li>
+            <li><code>wsl --set-version &lt;version number&gt;</code>: This command will set the default WSL version</li>
+            <li><code>wsl --status</code>:  This command will display the status of all running WSL sessions</li>
+            <li><code>wsl --import &lt;distribution name&gt; &lt;tarball path&gt;</tarball></code>: This command will import a new WSL distribution from a tarball file</li>
+            <li><code>wsl --mount &lt;source path&gt; &lt;source path&gt;</code>: This command will mount a Windows file system path to a WSL mount point</li>
+            <li><code>wsl --unmount &lt;mount point&gt;</code>: This command will unmount a WSL mount point</li>
+            <li><code>wsl --default &lt;distribution name&gt;</code>: This command will set the default WSL distribution</li>
         </ul>
 
         <p>In WSL, your Windows drives are mounted under the <code>/mnt</code> directory. So, for example, your C drive would be available at <code>/mnt/c/</code>. <code>cd /mnt/c/Users/&lt;YourWindowsUsername&gt;/</code></p>
