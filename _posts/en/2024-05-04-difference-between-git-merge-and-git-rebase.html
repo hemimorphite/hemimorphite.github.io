@@ -1,0 +1,323 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Difference Between Git Merge and Git Rebase"
+thumb: "git.jpg"
+eyebrow: "Tutorial"
+description: "Understanding the difference between Git merge and Git rebase is crucial for effective version control and collaboration. Learn the distinctions between these two essential Git commands."
+date: 2024-05-04 13:50:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-05", "day-04"]
+tags: ["git", "git merge", "git rebase"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Managing repository history is one of the critical parts of keeping your code base scalable. Many approaches might be helpful in one case and not work in another.</p>
+        
+        <p><code>git rebase</code> and <code>git merge</code> are two git utilities that are designed to combine commit history from one branch to another branch.</p>
+
+        <h4>Git Merge</h4>
+
+        <p><code>git merge</code> is a command used to combine changes from two or more branches into a single branch. When a merge is performed, Git creates a new commit that incorporates the changes from both branches. The resulting commit history looks like a tree, with multiple branches merging into a single trunk.</p>
+
+        <p>To perform a merge, first, ensure you are on the branch that you want to merge changes into (e.g., <code>main</code> branch). Then, run the following command:</p>
+
+        <pre><code class="language-bash hljs">git merge &lt;branch-name&gt;</code></pre>
+
+        <p>where <code>&lt;branch-name&gt;</code> is the name of the branch containing the changes you want to merge. Git will create a new merge commit that combines the changes from both branches. If there are conflicts between the changes in the two branches, Git will prompt you to resolve them before the merge can be completed.</p>
+
+        <p>There are two types of merge:</p>
+
+        <ol>
+            <li>Fast-forward merge</li>
+            <li>Three-way merge</li>
+        </ol>
+
+        <h5>Fast-forward Merge</h5>
+
+        <p>Imagine we are having two branches:</p>
+
+        <ol>
+            <li>Parent branch (<code>main</code>)</li>
+            <li>Child branch (<code>feature</code>)</li>
+        </ol>
+
+        <p>We made changes and commits to the <code>main</code> branch.</p>
+
+        <p>At the second commit on <code>main</code> branch the <code>feature</code> branch got created, and then we made changes and commits to the <code>feature</code> branch only. We didn't make any changes and commits on the <code>main</code> branch.</p>
+
+        <p>If there will be only two branches <code>main</code> and <code>feature</code>, and no new changes and commits have been performed on your <code>main</code> branch since the <code>feature</code> branch got created in this case git will perform fast-forward merge.</p>
+
+        <p>In the Fast-forward merge, git simply moves the pointer from the <code>main</code> branch to the last commit of the <code>feature</code> branch.</p>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-28.jpg" alt="Fast-forward Merge">
+        </figure>
+
+        <p>In the Fast-forward merge, there is no chance of conflicts because the changes and commits are in the <code>feature</code> branch only, not on the <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs"># make a repo directory
+mkdir projecta && cd projecta
+
+# initialize the repo and specify the initial branch name
+git init --initial-branch=main
+
+# add a file
+touch home.html && echo "&lt;h1&gt;Header for homepage&lt;/h1&gt;" &gt; home.html
+
+# add home.html to the Staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 1"
+
+# add some content to the home.html
+echo "&lt;p&gt;content for homepage&lt;/p&gt;" &gt;&gt; home.html
+
+# add home.html to the Staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 2"</code></pre>
+
+        <p>Now, there are two commits available at the <code>main</code> branch. To confirm that we'll check the log using <code>git log</code> command</p>
+
+        <p>Now we'll create a <code>feature</code> branch and switch to <code>feature</code> branch.</p>
+        
+        <pre><code class="language-bash hljs">git checkout -b feature</code></pre>
+        
+        <pre><code class="language-bash hljs"># add some content again to the home.html
+echo "&lt;p&gt;content 2 for homepage&lt;/p&gt;" &gt;&gt; home.html
+
+# add home.html to the Staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 3"
+
+# add some content again to the home.html
+echo "&lt;p&gt;content 3 for homepage&lt;/p&gt;" &gt;&gt; home.html
+
+# add home.html to the Staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 4"</code></pre>
+        
+        <p>Now, there will be four commits available at the <code>feature</code> branch.</p>
+
+        <p>Next we'll merge the <code>feature</code> branch to the <code>main</code> branch.</p>
+
+        <p>Switch back to the <code>main</code> branch and merge the <code>feature</code> branch with the <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs"># switch to main branch
+git switch main
+            
+# merge feature branch to main branch
+git merge feature</code></pre>
+
+        <p>Now, there will be four commits available at the <code>main</code> branch.</p>
+
+        <h5>Three-way Merge</h5>
+
+        <p>Three-way merge is a common merging strategy used in Git to combine changes from two different branches or commits into a single unified result. It is designed to handle situations where multiple branches have made conflicting changes to the same file or lines of code.</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-27.jpg" alt="Three-way Merge">
+        </figure>
+
+        <p>When performing a three-way merge, Git identifies three versions of the code:</p>
+
+        <ol>
+            <li>The common ancestor: This is the base version of the code that both branches originally diverged from. It represents the last common commit between the two branches.</li>
+            <li>The ours version: This represents the version of the code in the branch you are currently on (usually the branch you are merging into).</li>
+            <li>The theirs version: This represents the version of the code in the branch you are merging in (usually the branch being merged into the current branch).</li>
+        </ol>
+
+        <p>Git uses these three versions of the code to intelligently merge the changes. It compares the differences between the common ancestor and the ours version and also between the common ancestor and the theirs version. Then, it combines these changes, considering both sets of modifications, to create a merged version of the file.</p>
+
+        <p>During the merge process, if there are conflicting changes (i.e., changes that overlap and cannot be automatically merged), Git will mark those conflicts and pause the merge. It prompts the user to manually resolve the conflicts by editing the affected file(s) to choose which changes to keep. Once the conflicts are resolved, the user can complete the merge by committing the changes.</p>
+
+        <p>Now, we'll create two files named <code>home.html</code> and <code>about.html</code> and create two commits.</p>
+
+        <pre><code class="language-bash hljs"># make a repo directory
+mkdir projectb && cd projectb
+
+# initialize the repo and specify the initial branch name
+git init --initial-branch=main
+
+# add home.html file
+touch home.html && echo "&lt;h1&gt;Header for homepage&lt;/h1&gt;" &gt; home.html
+
+# add home.html to the staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 1"
+
+# add about.html
+touch about.html && echo "&lt;h1&gt;Header for about&lt;/h1&gt;" &gt; about.html
+
+# add about.html to the staging area
+git add about.html
+
+# commit that file to the Local Repository
+git commit -m "commit 2"</code></pre>  
+
+        <p>Now, there are two commits available at the <code>main</code> branch.</p>
+        
+        <p>Next we'll create a <code>feature</code> branch and switch to <code>feature</code> branch.</p>
+        
+        <pre><code class="language-bash hljs">git checkout -b feature</code></pre>
+        
+        <pre><code class="language-bash hljs"># add page1.html file
+touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
+
+# add page1.html to the staging area
+git add page1.html
+
+# commit that file to the Local Repository
+git commit -m "child commit 1"
+
+# add about.html
+touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
+
+# add about.html to the staging area
+git add page2.html
+
+# commit that file to the Local Repository
+git commit -m "child commit 2"</code></pre>
+        
+        <p>Then there will be a total of four commits at the <code>feature</code> branch. Two commits from the <code>main</code> branch and the other two commits from <code>feature</code> branch i.e. the child branch.</p>
+
+        <p>Now we'll switch back to the <code>main</code> branch and create a file <code>contact.html</code> on the <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs"># switch to main branch
+git checkout main
+
+# add contact.html file
+touch contact.html && echo "&lt;h1&gt;Header for contact&lt;/h1&gt;" &gt; contact.html
+
+# add contact.html to the staging area
+git add contact.html
+
+# commit that file to the Local Repository
+git commit -m "commit 3"</code></pre>
+
+        <p>So, There will be three commits available at the <code>main</code> branch.</p>
+
+        <p>Next we'll merge the <code>feature</code> branch to the <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs"># switch to main branch
+git switch main
+            
+# merge feature branch to main branch
+git merge feature</code></pre>
+
+        <p>A new commit will be created. That commit is considered as the merge commit.</p>
+
+        <h4>Git Rebase</h4>
+
+        <p>Rebasing is often used as an alternative to merging. Rebasing a branch updates one branch with another by applying the commits of one branch on top of the commits of another branch. For example, if working on a <code>feature</code> branch that is out of date with a <code>main</code> branch, rebasing the feature <code>feature</code> onto <code>main</code> will allow all the new commits from <code>main</code> to be included in <code>feature</code>.</p>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/git-29.jpg" alt="Rebase">
+        </figure>
+
+        <p>For the above example, this is what it looks like from the command line:</p>
+
+        <pre><code class="language-bash hljs">git rebase feature main</code></pre>
+
+        <p>However, it is more common to first checkout a branch and then run the rebase command with the name of the branch you wish to rebase on to:</p>
+
+        <pre><code class="language-bash hljs">git checkout feature
+git rebase main</code></pre>
+
+        <p>The golden rule of <code>git rebase</code> is to never use it on public branches.</p>
+
+        <p>For example, think about what would happen if you rebased <code>main</code> onto your <code>feature</code> branch. The rebase moves all of the commits in <code>main</code> onto the tip of <code>feature</code>. The problem is that this only happened in your repository. All of the other developers are still working with the original <code>main</code>.</p>
+
+        <pre><code class="language-bash hljs"># make a repo directory
+mkdir projectc && cd projectc
+
+# initialize the repo and specify the initial branch name
+git init --initial-branch=main
+
+# add home.html file
+touch home.html && echo "&lt;h1&gt;Header for homepage&lt;/h1&gt;" &gt; home.html
+
+# add home.html to the staging area
+git add home.html
+
+# commit that file to the Local Repository
+git commit -m "commit 1"
+
+# add about.html
+touch about.html && echo "&lt;h1&gt;Header for about&lt;/h1&gt;" &gt; about.html
+
+# add about.html to the staging area
+git add about.html
+
+# commit that file to the Local Repository
+git commit -m "commit 2"
+
+# create feature branch and switch to it
+git checkout -b feature
+
+# add page1.html file
+touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
+
+# add page1.html to the staging area
+git add page1.html
+
+# commit that file to the Local Repository
+git commit -m "child commit 1"
+
+# add about.html
+touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
+
+# add about.html to the staging area
+git add page2.html
+
+# commit that file to the Local Repository
+git commit -m "child commit 2"
+
+# switch to main branch
+git checkout main
+
+# add contact.html file
+touch contact.html && echo "&lt;h1&gt;Header for contact&lt;/h1&gt;" &gt; contact.html
+
+# add contact.html to the staging area
+git add contact.html
+
+# commit that file to the Local Repository
+git commit -m "commit 3"</code></pre>
+
+        <p>Now we come back to the <code>feature</code> branch, but we want to have a linear history, moving the <code>feature</code> to the tip of <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs">git checkout feature
+git rebase main</code></pre>
+
+        <p>To confirm that we'll check the log using <code>git log</code> command</p>
+
+        <pre><code class="language-bash hljs">git log --graph</code></pre>
+
+        <figure class="post-figure">
+            <img src="/assets/images/git-30.jpg" alt="linear history">
+        </figure>
+
+        <p>Having a linear history, we can do a fast-forward merge by merging the <code>feature</code> branch with the <code>main</code> branch.</p>
+
+        <pre><code class="language-bash hljs">git checkout main
+git merge feature</code></pre>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
