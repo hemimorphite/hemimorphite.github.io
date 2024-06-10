@@ -1,4 +1,188 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-05-04T09:03:06+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Difference Between Git Merge and Git Rebase</title><link href="https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase/" rel="alternate" type="text/html" title="Difference Between Git Merge and Git Rebase" /><published>2024-05-04T06:50:00+00:00</published><updated>2024-05-04T06:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase</id><content type="html" xml:base="https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-06-10T12:31:50+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04</title><link href="https://hemimorphite.github.io/2024/06/10/build-powershell-version-7.4.2-on-ubuntu-22.04/" rel="alternate" type="text/html" title="Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04" /><published>2024-06-10T12:00:00+00:00</published><updated>2024-06-10T12:00:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/10/build-powershell-version-7.4.2-on-ubuntu-22.04</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/10/build-powershell-version-7.4.2-on-ubuntu-22.04/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published June 10, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/dotnet.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <h4>Step 1: Get the PowerShell version 7.4.2 release</h4>
+
+        <p>Download a release version of PowerShell <code>powershell-7.4.2-linux-x64.tar.gz
+        </code> from <a href="https://github.com/PowerShell/PowerShell/releases/download/v7.4.2/powershell-7.4.2-linux-x64.tar.gz">Github</a></p>
+
+        <pre><code class="language-bash hljs">wget https://github.com/PowerShell/PowerShell/releases/download/v7.4.2/powershell-7.4.2-linux-x64.tar.gz</code></pre>
+
+        <p>Create powershell directory.</p>
+
+        <pre><code class="language-bash hljs">sudo mkdir /opt/powershell-7.4.2</code></pre>
+
+        <p>Extract the files in <code>powershell-7.4.2-linux-x64.tar.gz</code> to <code>/opt/powershell-7.4.2</code></p>
+
+        <pre><code class="language-bash hljs">sudo tar -zxf powershell-7.4.2-linux-x64.tar.gz -C /opt/powershell</code></pre>
+
+        <p>Install PowerShell using <code>update-alternatives</code> command with <code>--install</code> option.</p>
+
+        <pre><code class="language-bash hljs">sudo update-alternatives --install /usr/bin/pwsh pwsh /opt/powershell-7.4.2/pwsh 10</code></pre>
+
+        <h4>Step 2: Install Prerequisite Packages</h4>
+
+        <p>Install the prerequisite packages for running <code>pwsh</code> command.</p>
+
+        <pre><code class="language-bash hljs">sudo apt install -y libicu-dev</code></pre>
+
+        <p>Install the prerequisite packages for building powershell from source.</p>
+
+        <pre><code class="language-bash hljs">sudo apt install -y git</code></pre>
+
+        <p>Download dotnet SDK Version 8.0.204 from <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">Microsoft</a></p>
+
+        <pre><code class="language-bash hljs">wget https://download.visualstudio.microsoft.com/download/pr/0a1b3cbd-b4af-4d0d-9ed7-0054f0e200b4/4bcc533c66379caaa91770236667aacb/dotnet-sdk-8.0.204-linux-x64.tar.gz</code></pre>
+
+        <p>Create dotnet directory.</p>
+
+        <pre><code class="language-bash hljs">sudo mkdir /opt/dotnet-sdk-8.0.204</code></pre>
+
+        <p>Extract the files to <code>/opt</code> directory.</p>
+
+        <pre><code class="language-bash hljs">sudo tar -zxf dotnet-sdk-8.0.204-linux-x64.tar.gz -C /opt/dotnet-sdk-8.0.204</code></pre>
+
+        <p>Install dotnet using <code>update-alternatives</code> command with <code>--install</code> option.</p>
+
+        <pre><code class="language-bash hljs">sudo update-alternatives --install /usr/bin/dotnet dotnet /opt/dotnet-sdk-8.0.204/dotnet 10</code></pre>
+
+        <h4>Step 3: Download PowerShell's sources</h4>
+
+        <p>Clone the PowerShell repository from <a href="https://github.com/PowerShell/PowerShell">Github</a>.</p>
+
+        <pre><code class="language-bash hljs">git clone https://github.com/PowerShell/PowerShell.git</code></pre>
+
+        <p>Check out a tag version 7.4.2:</p>
+
+        <pre><code class="language-bash hljs">git checkout tags/v7.4.2</code></pre>
+
+        <p>Change directory to powershell source directory.</p>
+
+        <pre><code class="language-bash hljs">cd PowerShell-7.4.2</code></pre>
+
+        <h4>Step 4: Build PowerShell's sources</h4>
+
+        <p>Run <code>pwsh</code> command.</p>
+
+        <pre><code class="language-bash hljs">pwsh</code></pre>
+
+        <p>Then run the following commands for building the PowerShell source.</p>
+
+        <pre><code class="language-bash hljs">Import-Module ./build.psm1
+Start-PSBuild</code></pre>
+        
+        <p>If everything went right, PowerShell is now built. The <code>Start-PSBuild</code> script will output the location of the executable:</p>
+
+        <pre><code class="language-bash hljs">./src/powershell-unix/bin/Debug/net8.0/linux-x64/pwsh</code></pre>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/powershell" class="tag">powershell</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/dotnet" class="tag">dotnet</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-10" /><category term="ubuntu 22.04" /><category term="powershell" /><category term="dotnet" /><summary type="html"><![CDATA[Learn how to build PowerShell version 7.4.2 on Ubuntu 22.04 with step-by-step instructions and guidelines. Master the process of compiling and installing PowerShell on your Ubuntu system.]]></summary></entry><entry xml:lang="en"><title type="html">Manage Multiple Versions of Packages with update-alternatives Command on Ubuntu 22.04</title><link href="https://hemimorphite.github.io/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command/" rel="alternate" type="text/html" title="Manage Multiple Versions of Packages with update-alternatives Command on Ubuntu 22.04" /><published>2024-06-10T06:50:00+00:00</published><updated>2024-06-10T06:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Manage Multiple Versions of Packages with update-alternatives Command on Ubuntu 22.04</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published June 10, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/ubuntu2204.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p><code>update-alternatives</code> is a command line utility in Linux systems that is used to maintain symbolic links for determining the default commands. It is commonly used in systems with multiple versions of the same command installed, such as different versions of Java, Python, or editors like Vim or Emacs. <code>update-alternatives</code> allows you to choose which version of the command should be used as the default system-wide.</p>
+
+        <p>When you install multiple versions of a command or program, they are usually installed in different directories. <code>update-alternatives</code> creates symbolic links in the system's <code>bin</code> directories (e.g., <code>/usr/bin</code>) to point to the specific version of the program you want to use. These symbolic links are used as the default command when you run the command's name in the terminal.</p>
+
+        <p>For example, suppose you have multiple versions of Java installed on your system, such as Java 17, 21, and 22. If you want to use Java 21 as the default Java version, you can use the <code>update-alternatives</code> command to create a symbolic link for the <code>java</code> command to point to the Java 21 binary. This will make Java 21 the default version that is used when you run <code>java</code> in the terminal.</p>
+
+        <p>Download multiple versions of Java using <code>wget</code> command.</p>
+
+        <pre><code class="language-bash hljs">wget https://download.oracle.com/java/22/latest/jdk-22_linux-x64_bin.tar.gz
+wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz
+wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz</code></pre>
+        
+        <p>Extract it to <code>opt</code> directory</p>
+
+        <pre><code class="language-bash hljs">sudo tar -zxf jdk-22_linux-x64_bin.tar.gz -C /opt
+sudo tar -zxf jdk-21_linux-x64_bin.tar.gz -C /opt
+sudo tar -zxf jdk-17_linux-x64_bin.tar.gz -C /opt</code></pre>
+        
+        <p>Install multiple versions of Java using <code>update-alternatives</code> command with <code>--install</code> option.</p>
+        
+        <pre><code class="language-bash hljs">sudo update-alternatives --install /usr/bin/java java /opt/jdk-17.0.11/bin/java 10
+sudo update-alternatives --install /usr/bin/java java /opt/jdk-21.0.3/bin/java 20
+sudo update-alternatives --install /usr/bin/java java /opt/jdk-22.0.1/bin/java 30</code></pre>
+        
+        <p><code>/usr/bin/java</code> is the path of the symlink, <code>java</code> is the name of the symlink, <code>/opt/jdk-17.0.11/bin/java</code> is the path of the binary file for which you want to create the symbolic link, <code>10</code> is the priority.</p>
+
+        <p>To list all entries of alternatives in the system, use</p>
+        
+        <pre><code class="language-bash hljs">sudo update-alternatives --get-selections</code></pre>
+        
+        <p>To list all alternatives of java, use</p>
+
+        <pre><code class="language-bash hljs">sudo update-alternatives --list java</code></pre>
+        
+        <p>In automatic mode, the alternatives pointed to java version which have the highest priority. To switch to automatic mode, use</p>
+
+        <pre><code class="language-bash hljs">sudo update-alternatives --auto java</code></pre>
+        
+        <p>To remove an alternative of java, use</p>
+
+        <pre><code class="language-bash hljs">sudo update-alternatives --remove java /opt/jdk-17.0.11/bin/java</code></pre>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/update-alternatives" class="tag">update-alternatives</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-10" /><category term="ubuntu 22.04" /><category term="update-alternatives" /><summary type="html"><![CDATA[Learn how to effectively manage multiple versions of packages using the update-alternatives command in Ubuntu 22.04. This command allows you to easily switch between different versions of software packages on your system.]]></summary></entry><entry xml:lang="en"><title type="html">Difference Between Git Merge and Git Rebase</title><link href="https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase/" rel="alternate" type="text/html" title="Difference Between Git Merge and Git Rebase" /><published>2024-05-04T06:50:00+00:00</published><updated>2024-05-04T06:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase</id><content type="html" xml:base="https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Difference Between Git Merge and Git Rebase</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -979,481 +1163,4 @@ J = F^2  = B^3^2   = A^^3^2</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-18" /><category term="git" /><category term="github" /><category term="gitlab" /><category term="Git HEAD" /><category term="Git Refs" /><category term="Git Heads" /><summary type="html"><![CDATA[Learn about Git Refs, Git Heads, and Git HEAD in version control systems. Understand the differences and how they can be used in your Git workflows. Explore the concepts of HEAD^ and HEAD~.]]></summary></entry><entry xml:lang="en"><title type="html">Branching in Git</title><link href="https://hemimorphite.github.io/2024/04/17/branching-in-git/" rel="alternate" type="text/html" title="Branching in Git" /><published>2024-04-17T16:55:00+00:00</published><updated>2024-04-17T16:55:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/17/branching-in-git</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/17/branching-in-git/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Branching in Git</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published April 17, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/git.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Git Branches are one of the fundamental features that make Git so useful. Git Branches allow developers to create parallel versions of their codebase, where they can experiment with new features, make changes, and fix bugs without affecting the main codebase.</p>
-        
-        <p>To lists all the branches in the current Git repository (local braches and remote branches), you can use the <code>git branch</code> command</p>
-
-        <pre><code class="language-bash hljs">git branch</code></pre>
-
-        <p>To switch to the specified branch, you can use the <code>git branch</code> command followed by the branch name.</p>
-
-        <pre><code class="language-bash hljs">git branch &lt;branch-name&gt;</code></pre>
-
-        <p>To create a new branch with the specified name and switch to it, you can use the <code>git branch</code> command followed by <code>-b</code> flag and the branch name.</p>
-
-        <pre><code class="language-bash hljs">git branch -b &lt;branch-name&gt;</code></pre>
-
-        <p>To create a new local branch and push it to remote repository, you can use the <code>git branch</code> command and <code>git push</code> command.</p>
-
-        <pre><code class="language-bash hljs">git checkout -b &lt;branch-name&gt;
-git remote add &lt;remote-name&gt; &lt;remote-url&gt;
-git push &lt;remote-name&gt; -u &lt;branch-name&gt;</code></pre>
-        
-        <p>To delete a branch, you can use the <code>git branch</code> command followed by <code>-d</code> flag and the branch name.</p>
-
-        <pre><code class="language-bash hljs">git branch -d &lt;branch-name&gt;</code></pre>
-        
-        <p>To delete a remote branch on remote repository, you can use the <code>git branch</code> command and <code>git push</code> command.</p>
-
-        <pre><code class="language-bash hljs">git checkout -d &lt;branch-name&gt;
-git remote add &lt;remote-name&gt; &lt;remote-url&gt;
-git push &lt;remote-name&gt; -u &lt;branch-name&gt;</code></pre>
-        
-        <p>To rename the local branch from the old name to the new name, you can use the <code>git branch</code> command followed by <code>-m</code> flag, the current branch name and the new branch name.</p>
-
-        <pre><code class="language-bash hljs">git branch -m &lt;old-branch-name&gt; &lt;new-branch-name&gt;</code></pre>
-        
-        <p>To rename the upstream branch from the old name to the new name, you can use the <code>git push</code> command.</p>
-
-        <pre><code class="language-bash hljs">git remote add &lt;remote-name&gt; &lt;remote-url&gt;
-git push &lt;remote-name&gt; -d &lt;old-branch-name&gt;
-git push &lt;remote-name&gt; -u &lt;new-branch-name&gt;</code></pre>
-        
-        <p>To list all local and remote branches from the master in the current Git repository, you can use the <code>git branch</code> command followed by <code>-a</code> flag.</p>
-
-        <pre><code class="language-bash hljs">git branch -a</code></pre>
-        
-        <p>To list all remote branches in the current Git repository, you can use the <code>git branch</code> command followed by <code>-r</code> flag.</p>
-
-        <pre><code class="language-bash hljs">git branch -r</code></pre>
-        
-        <p>To list all branches with the last commit message in the current directory, you can use the <code>git branch</code> command followed by <code>-v</code> flag.</p>
-
-        <pre><code class="language-bash hljs">git branch -v</code></pre>
-        
-        <p>To list all branches that have been merged into the <code>main</code> branch, you can use the <code>git branch</code> command followed by <code>--merged</code> flag.</p>
-
-        <pre><code class="language-bash hljs">git branch --merged</code></pre>
-        
-        <p>To list all branches that have not been merged into the default branches, you can use the <code>git branch</code> command followed by <code>--no-merged</code> flag.</p>
-
-        <pre><code class="language-bash hljs">git branch --no-merged</code></pre>
-        
-        <p>To create a new local branch that matches name for a remote tracking branch, you can use the <code>git branch</code> command followed by <code>-t</code> flag, remote name and remote branch name.</p>
-
-        <pre><code class="language-bash hljs">git remote add &lt;remote-name&gt; &lt;remote-url&gt;
-git branch -t &lt;remote-name&gt;/&lt;remote-branch-name&gt;</code></pre>
-  
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/tag/git" class="tag">git</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/github" class="tag">github</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/gitlab" class="tag">gitlab</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/branch" class="tag">branch</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-17" /><category term="git" /><category term="github" /><category term="gitlab" /><category term="branch" /><summary type="html"><![CDATA[Learn about branching in Git with this comprehensive guide. Understand how to create, switch to, merge, push, and delete branches using git branch commands.]]></summary></entry><entry xml:lang="en"><title type="html">Undo Changes in Git</title><link href="https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository/" rel="alternate" type="text/html" title="Undo Changes in Git" /><published>2024-04-12T13:50:00+00:00</published><updated>2024-04-12T13:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository</id><content type="html" xml:base="https://hemimorphite.github.io/2024/04/12/undo-changes-in-git-repository/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Undo Changes in Git</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published April 12, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/git.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Sometimes you make a mistake and want to go back to a previous version. Here's how to rollback changes.</p>
-
-        <h4>Undo Unstaged Changes</h4>
-
-        <p>You made changes to a file, saved the file and not yet added the file to the staging area. Then you decide that you don't want to keep these changes.</p>
-
-        <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
-
-        <pre><code class="language-bash hljs"># make a repo directory 
-mkdir projectrepo && cd projectrepo
-
-# initialize the repo and specify the initial branch name
-git init --initial-branch=main
-
-# add a file
-touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
-
-# add the new file to the Staging area
-git add page1.html
-
-# create a Commit
-git commit -m "create page1"
-
-# make some changes to the page1.html
-echo "&lt;p&gt;content for page 1&lt;/p&gt;" &gt;&gt; page1.html
-
-# the content of page1.html after changes
-cat page1.html
-
-# undo the changes
-git checkout page1.html
-# or
-git restore page1.html
-
-# the content of page1.html after undo changes
-cat page1.html</code></pre>
-        
-        <figure class="post-figure">
-            <img src="/assets/images/git-01.jpg" alt="Undo Unstaged Changes">
-        </figure>
-
-        <h4>Undo Staged Changes</h4>
-
-        <p>You made changes to a file, saved the file and added the file to the staging area. Then you decide that you don't want to keep these changes.</p>
-        
-        <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
-
-        <pre><code class="language-bash hljs"># make a repo directory 
-mkdir projectrepo && cd projectrepo
-
-# initialize the repo and specify the initial branch name
-git init --initial-branch=main
-
-# add a file
-touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
-
-# add the new file to the Staging area
-git add page1.html
-
-# create a Commit
-git commit -m "create page1"
-
-# make some changes to the page1.html
-echo "&lt;p&gt;content for page 1&lt;/p&gt;" &gt;&gt; page1.html
-
-# the content of page1.html after changes
-cat page1.html
-
-# add the modified file to the Staging area
-git add page1.html
-
-# remove the modified file from the staging area
-git reset page1.html
-# or
-git restore --staged page1.html
-
-# undo the changes
-git restore page1.html
-
-# the content of page1.html after undo changes
-cat page1.html</code></pre>
-        
-        <figure class="post-figure">
-            <img src="/assets/images/git-02.jpg" alt="Undo staged Changes">
-        </figure>
-
-        <h4>Remove Commits and Keep the Changes and Keep the Untracked Files</h4>
-        
-        <p>You made commits. Then you decide that you want to remove several previous commits.</p>
-
-        <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
-
-        <pre><code class="language-bash hljs"># make a repo directory 
-mkdir projectrepo && cd projectrepo
-
-# initialize the repo and specify the initial branch name
-git init --initial-branch=main
-
-# add first file
-touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
-
-# add the first file to the Staging area
-git add page1.html
-
-# create first Commit
-git commit -m "create page1"
-
-# add second file
-touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
-
-# add the second file to the Staging area
-git add page2.html
-
-# create second Commit
-git commit -m "create page2"
-
-# add third file
-touch page3.html && echo "&lt;h1&gt;Header for page 3&lt;/h1&gt;" &gt; page3.html
-
-# add the third file to the Staging area
-git add page2.html
-
-# create third Commit
-git commit -m "create page3"
-
-# make some changes to the page1.html
-echo "&lt;p&gt;content for page 1&lt;/p&gt;" &gt;&gt; page1.html
-
-# the content of page1.html after changes
-cat page1.html
-
-# add the modified file to the Staging area
-git add page1.html
-
-# create forth Commit
-git commit -m "content page1"
-
-# list all files
-ls
-
-# view the commit history
-git log
-
-# remove the last three commits
-git reset e1a3b1434e3a146d36bb4ba3f587ba752c5cf48b
-# Or
-git reset HEAD~3
-
-# list all files and page2.html and page2.html still exist
-ls
-
-# the changes of page1.html still exist
-cat page1.html
-
-# view the commit history and the three commits are removed
-git log</code></pre>
-
-        <figure class="post-figure">
-            <img src="/assets/images/git-03.jpg" alt="Remove Commits">
-        </figure>
-
-        <figure class="post-figure">
-            <img src="/assets/images/git-04.jpg" alt="Remove Commits">
-        </figure>
-
-        <figure class="post-figure">
-            <img src="/assets/images/git-05.jpg" alt="Remove Commits">
-        </figure>
-
-        <h4>Remove Commits and Undo Changes And Remove the Untracked Files Permanently</h4>
-                
-        <p>You made commits. Then you decide that you want to remove several previous commits and undo the changes and remove the untracked files permanently.</p>
-
-        <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
-
-        <pre><code class="language-bash hljs"># make a repo directory 
-mkdir projectrepo && cd projectrepo
-
-# initialize the repo and specify the initial branch name
-git init --initial-branch=main
-
-# add first file
-touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
-
-# add the first file to the Staging area
-git add page1.html
-
-# create first Commit
-git commit -m "create page1"
-
-# add second file
-touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
-
-# add the second file to the Staging area
-git add page2.html
-
-# create second Commit
-git commit -m "create page2"
-
-# add third file
-touch page3.html && echo "&lt;h1&gt;Header for page 3&lt;/h1&gt;" &gt; page3.html
-
-# add the third file to the Staging area
-git add page2.html
-
-# create third Commit
-git commit -m "create page3"
-
-# make some changes to the page1.html
-echo "&lt;p&gt;content for page 1&lt;/p&gt;" &gt;&gt; page1.html
-
-# the content of page1.html after changes
-cat page1.html
-
-# add the modified file to the Staging area
-git add page1.html
-
-# create forth Commit
-git commit -m "content page1"
-
-# list all files
-ls
-
-# view the commit history 
-git log
-
-# remove the last three commits and Undo the changes
-git reset 31207f129056d79913cae19606b273606ab072b8 && git restore .
-# Or
-git reset HEAD~3 && git restore .
-# Or
-git reset --hard
-
-# remove untracked files permanently
-git clean -df
-
-# list all files
-ls
-
-# view content of page1.html
-cat page1.html
-
-# view the commit history and the three commits are removed
-git log</code></pre>
-        
-        <figure class="post-figure">
-            <img src="/assets/images/git-03.jpg" alt="Remove Commits">
-        </figure>
-
-        <figure class="post-figure">
-            <img src="/assets/images/git-06.jpg" alt="Remove Commits">
-        </figure>
-
-        <figure class="post-figure">
-            <img src="/assets/images/git-07.jpg" alt="Remove Commits">
-        </figure>
-
-        <h4>Undo a Commit (Remove Created Files and Changes in the Commit) Without Remove the Commit History</h4>
-                        
-        <p>You made a commit. Then you decide that you want to undo a commit.</p>
-
-        <p>Here's a quick, real-world example of how to undo the unstaged changes of a file:</p>
-
-        <pre><code class="language-bash hljs"># make a repo directory 
-mkdir projectrepo && cd projectrepo
-
-# initialize the repo and specify the initial branch name
-git init --initial-branch=main
-
-# add first file
-touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
-
-# add the first file to the Staging area
-git add page1.html
-
-# create first Commit
-git commit -m "create page1"
-
-# add second file
-touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
-
-# add the second file to the Staging area
-git add page2.html
-
-# create second Commit
-git commit -m "create page2"
-
-# add third file
-touch page3.html && echo "&lt;h1&gt;Header for page 3&lt;/h1&gt;" &gt; page3.html
-
-# add the third file to the Staging area
-git add page2.html
-
-# create third Commit
-git commit -m "create page3"
-
-# make some changes to the page1.html
-echo "&lt;p&gt;content for page 1&lt;/p&gt;" &gt;&gt; page1.html
-
-# add the modified file to the Staging area
-git add page1.html
-
-# create forth Commit
-git commit -m "content page1"
-
-# view the commit history 
-git log
-
-# undo the third commit and ctrl + X
-git revert 1bfe6eb289196beda543c44a4cfdf30eec331475
-
-# view the commit history
-git log
-
-# list all files and file page2.html is removed
-ls</code></pre>
-        
-        <figure class="post-figure">
-            <img src="/assets/images/git-09.jpg" alt="Undo Commits">
-        </figure>
-
-        <figure class="post-figure">
-            <img src="/assets/images/git-10.jpg" alt="Undo Commits">
-        </figure>
-
-        <figure class="post-figure">
-            <img src="/assets/images/git-11.jpg" alt="Undo Commits">
-        </figure>
-
-        <p>To recover the removed files and changes in the third commit is by reverting back</p>      
-
-        <pre><code class="language-bash hljs"># undo the revert
-git revert 8d4c1ddf0cb02fcbdbd2820af5ee74594289384f
-
-# list all files and file page2.html is back
-ls</code></pre>
-        
-        <figure class="post-figure">
-            <img src="/assets/images/git-12.jpg" alt="Undo Commits">
-        </figure>
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/tag/git" class="tag">git</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/undo-changes" class="tag">undo changes</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-12" /><category term="git" /><category term="undo changes" /><summary type="html"><![CDATA[Learn how to undo local changes, specific commits, and last commits in Git through this comprehensive guide. Master the commands and steps to keep your projects clean and error-free.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-04" /><category term="day-18" /><category term="git" /><category term="github" /><category term="gitlab" /><category term="Git HEAD" /><category term="Git Refs" /><category term="Git Heads" /><summary type="html"><![CDATA[Learn about Git Refs, Git Heads, and Git HEAD in version control systems. Understand the differences and how they can be used in your Git workflows. Explore the concepts of HEAD^ and HEAD~.]]></summary></entry></feed>
