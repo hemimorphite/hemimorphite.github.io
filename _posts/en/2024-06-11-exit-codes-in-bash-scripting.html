@@ -1,0 +1,114 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Exit Codes In Bash Scripting"
+thumb: "bashscripting.jpg"
+eyebrow: "Tutorial"
+description: "Learn about exit codes in Bash scripts, including a comprehensive list of common exit codes and their meanings to help you troubleshoot and debug your bash scripts effectively."
+date: 2024-06-11 19:10:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-06", "day-11"]
+tags: ["ubuntu 22.04", "shell script", "bash"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>In Linux, Signals are the interrupts that are sent to the program to specify that an important event has occurred. Events can vary from user requests to invalid memory access errors. Various signals, like the interrupt signal, means that the user has asked the program to perform something which is not present in the user flow of control.</p>
+
+        <p>You can use special shell variable called <code>$?</code> to get the exit status of the previously executed command.</p>
+
+        <p>List of reserved exit codes for bash scripting.</p>
+
+        <table class="table table-bordered border-primary">
+            <thead>
+                <th>Exit Code Number</th>
+                <th>Meaning</th>
+                <th>Description</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Catchall for general errors</td>
+                <td>Miscellaneous errors, such as divide by zero and other impermissible operations</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Misuse of shell builtins</td>
+                <td>Invalid option of bash builtin, trying to access a file or directory that doesn't exist or requires permissions</td>
+            </tr>
+            <tr>
+                <td>126</td>
+                <td>Command invoked can't be executed</td>
+                <td>Permission problem or command is not an executable</td>
+            </tr>
+            <tr>
+                <td>127</td>
+                <td>Command not found</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>128</td>
+                <td>Invalid argument to <code>exit</code></td>
+                <td><code>exit</code> takes only integer args in the range 0 - 255 </td>
+            </tr>
+            <tr>
+                <td>128+n</td>
+                <td>Fatal error signal "n"</td>
+                <td>In Linux, programs might send one of 31 different standard signals. When a program terminates after receiving one of these signals, it returns an error code equal to 128 + signal-number.</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>According to the above table, exit codes 1 - 2, and 126 - 165 have special meanings, and should therefore be avoided for user-specified exit parameters.</p>
+
+        <p>Let's simulate the exit codes</p>
+
+        <h5>General Error: 1</h5>
+
+        <pre><code class="language-bash hljs">$ echo $((10 / 0))
+bash: 10 / 0: division by 0 (error token is "0")
+$ echo $?
+1</code></pre>
+
+        <h5>Misuse of Shell Built-in: 2</h5>
+
+        <pre><code class="language-bash hljs">$ ls nonexistdirectory/
+ls: cannot access 'nonexistdirectory/': No such file or directory
+$ echo $?
+2</code></pre>
+        
+        <h5>Cannot Execute: 126</h5>
+
+        <pre><code class="language-bash hljs">$ cat nonexecutablescript.sh
+#!/bin/bash
+
+echo hello
+$ chmod -x nonexecutablescript.sh
+$ ./nonexecutablescript.sh
+bash: ./nonexecutablescript.sh: Permission denied
+$ echo $?
+126</code></pre>
+        
+        <h5>Command Not Found: 127</h5>
+
+        <pre><code class="language-bash hljs">$ execute
+bash: execute: command not found
+$ echo $?
+127</code></pre>
+
+        <h5>Fatal Error Signal n: 128+n</h5>
+        
+        <p>When we terminate a program by using Ctrl+C, we effectively send it a <code>SIGINT</code> signal. This signal has a value of 2. Therefore, the program will stop executing and return an exit code with a value 128 + 2 = 130.</p>
+
+        <pre><code class="language-bash hljs">$ ^C
+        $ echo $?
+        130</code></pre>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
