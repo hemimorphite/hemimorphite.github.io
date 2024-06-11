@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-06-11T15:38:10+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Linux Signals</title><link href="https://hemimorphite.github.io/zh/2024/06/11/linux-signals/" rel="alternate" type="text/html" title="Linux Signals" /><published>2024-06-11T15:20:00+00:00</published><updated>2024-06-11T15:20:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/11/linux-signals</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/11/linux-signals/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-06-11T16:02:54+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Linux Signals</title><link href="https://hemimorphite.github.io/zh/2024/06/11/linux-signals/" rel="alternate" type="text/html" title="Linux Signals" /><published>2024-06-11T15:20:00+00:00</published><updated>2024-06-11T15:20:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/11/linux-signals</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/11/linux-signals/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Linux Signals</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -376,7 +376,7 @@ int main()
 </figure>
 
     <article class="post-content">
-        <p>In Linux, Signals are the interrupts that are sent to the program to specify that an important event has occurred. Events can vary from user requests to invalid memory access errors. Various signals, like the interrupt signal, means that the user has asked the program to perform something which is not present in the user flow of control.</p>
+        <p>Every Linux or Unix command executed by the shell script or user, has an exit status. The exit status is an integer number. For the bash shell's purposes, a command which exits with a zero (0) exit status has succeeded. A non-zero (1-255) exit status indicates failure. All of the Bash builtins return exit status of zero if they succeed and a non-zero status on failure.</p>
 
         <p>You can use special shell variable called <code>$?</code> to get the exit status of the previously executed command.</p>
 
@@ -426,21 +426,21 @@ int main()
 
         <p>Let's simulate the exit codes</p>
 
-        <h5>General Error: 1</h5>
+        <h6>General Error: 1</h6>
 
         <pre><code class="language-bash hljs">$ echo $((10 / 0))
 bash: 10 / 0: division by 0 (error token is "0")
 $ echo $?
 1</code></pre>
 
-        <h5>Misuse of Shell Built-in: 2</h5>
+        <h6>Misuse of Shell Built-in: 2</h6>
 
         <pre><code class="language-bash hljs">$ ls nonexistdirectory/
 ls: cannot access 'nonexistdirectory/': No such file or directory
 $ echo $?
 2</code></pre>
         
-        <h5>Cannot Execute: 126</h5>
+        <h6>Cannot Execute: 126</h6>
 
         <pre><code class="language-bash hljs">$ cat nonexecutablescript.sh
 #!/bin/bash
@@ -452,14 +452,14 @@ bash: ./nonexecutablescript.sh: Permission denied
 $ echo $?
 126</code></pre>
         
-        <h5>Command Not Found: 127</h5>
+        <h6>Command Not Found: 127</h6>
 
         <pre><code class="language-bash hljs">$ execute
 bash: execute: command not found
 $ echo $?
 127</code></pre>
 
-        <h5>Fatal Error Signal n: 128+n</h5>
+        <h6>Fatal Error Signal n: 128+n</h6>
         
         <p>When we terminate a program by using Ctrl+C, we effectively send it a <code>SIGINT</code> signal. This signal has a value of 2. Therefore, the program will stop executing and return an exit code with a value 128 + 2 = 130.</p>
 
