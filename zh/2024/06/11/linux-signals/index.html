@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="Linux signals are a fundamental feature of the Linux operating system that allow processes to communicate with each other. This article explains how signals work in Linux and how they can be utilized.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/zh/2024/06/11/linux-signals/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/zh/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Linux Signals">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/zh/2024/06/11/linux-signals/">
+		<meta property="og:description" content="Linux signals are a fundamental feature of the Linux operating system that allow processes to communicate with each other. This article explains how signals work in Linux and how they can be utilized.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/clinux.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Linux Signals">
+		<meta name="twitter:description" content="Linux signals are a fundamental feature of the Linux operating system that allow processes to communicate with each other. This article explains how signals work in Linux and how they can be utilized.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/clinux.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Linux Signals</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+
+	    <!-- Additional CSS Files -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/zh/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">Linux Signals</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published June 11, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/clinux.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Signals are interruptions that are generated by the software and give us a way of handling asynchronous events. Those interruptions can be generated by things outside the process (like Ctrl+C from the user in the terminal) or from errors inside the process (like a math error for dividing with 0).</p>
+
+        <p>There are 31 standard signals, numbered 1-31. Each signal is named as "SIG" followed by a suffix. Starting from version 2.2, the Linux kernel supports 33 different real-time signals. These have numbers 32-64 but programmers should instead use SIGRTMIN+n notation. Standard signals have specific purposes but the use of SIGUSR1 and SIGUSR2 can be defined by applications. Real-time signals are also defined by applications.</p>
+
+        <table class="table table-bordered border-primary">
+            <thead>
+                <tr>
+                    <td><strong>Number</strong></td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Default Action</strong></td>
+                    <td><strong>Description</strong></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><code>SIGHUP</code></td>
+                    <td>Terminate</td>
+                    <td>Terminal line hangup or parent process terminated</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><code>SIGINT</code></td>
+                    <td>Terminate</td>
+                    <td>Interrupt from keyboard (<code>ctrl-c</code>)</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><code>SIGQUIT</code></td>
+                    <td>Terminate</td>
+                    <td>Quit from keyboard (<code>ctrl-\</code>)</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><code>SIGILL</code></td>
+                    <td>Terminate</td>
+                    <td>Illegal instruction</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><code>SIGTRAP</code></td>
+                    <td>Core</td>
+                    <td>Trace trap</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><code>SIGABRT</code></td>
+                    <td>Core</td>
+                    <td>Signal from <code>abort</code> function</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><code>SIGBUS</code></td>
+                    <td>Terminate</td>
+                    <td>Bus error</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><code>SIGFPE</code></td>
+                    <td>Core</td>
+                    <td>Floating-point exception</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><code>SIGKILL</code></td>
+                    <td>Terminate</td>
+                    <td>Kill program</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><code>SIGUSR1</code></td>
+                    <td>Terminate</td>
+                    <td>User-defined signal 1</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td><code>SIGSEGV</code></td>
+                    <td>Core</td>
+                    <td>Invalid memory reference (segfault)</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td><code>SIGUSR2</code></td>
+                    <td>Terminate</td>
+                    <td>User-defined signal 2</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td><code>SIGPIPE</code></td>
+                    <td>Terminate</td>
+                    <td>Write in pipe with no reader</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td><code>SIGALRM</code></td>
+                    <td>Terminate</td>
+                    <td>Timer signal from <code>alarm</code> function</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td><code>SIGTERM</code></td>
+                    <td>Terminate</td>
+                    <td>Software termination signal</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td><code>SIGSTKFLT</code></td>
+                    <td>Terminate</td>
+                    <td>Stack fault on coprocessor</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td><code>SIGCHLD</code></td>
+                    <td>Ignore</td>
+                    <td>Child process has stopped or terminated</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td><code>SIGCONT</code></td>
+                    <td>Ignore</td>
+                    <td>Continue process if stopped</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td><code>SIGSTOP</code></td>
+                    <td>Stop</td>
+                    <td>Stop signal not from terminal</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td><code>SIGTSTP</code></td>
+                    <td>Stop</td>
+                    <td>Stop signal from terminal (<code>ctrl-z</code>)</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td><code>SIGTTIN</code></td>
+                    <td>Stop</td>
+                    <td>Background process read from terminal</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td><code>SIGTTOU</code></td>
+                    <td>Stop</td>
+                    <td>Background process wrote to terminal</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td><code>SIGURG</code></td>
+                    <td>Ignore</td>
+                    <td>Urgent condition on socket</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td><code>SIGXCPU</code></td>
+                    <td>Terminate</td>
+                    <td>CPU time limit exceeded</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td><code>SIGXFSZ</code></td>
+                    <td>Terminate</td>
+                    <td>File size limit exceeded</td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td><code>SIGVTALRM</code></td>
+                    <td>Terminate</td>
+                    <td>Virtual timer expired</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td><code>SIGPROF</code></td>
+                    <td>Terminate</td>
+                    <td>Profiling timer expired</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td><code>SIGWINCH</code></td>
+                    <td>Ignore</td>
+                    <td>Window size changed</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td><code>SIGIO</code></td>
+                    <td>Terminate</td>
+                    <td>I/O now possible on a descriptor</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td><code>SIGPWR</code></td>
+                    <td>Terminate</td>
+                    <td>Power failure</td>
+                </tr>
+                <tr>
+                    <td>31</td>
+                    <td><code>SIGSYS</code></td>
+                    <td>Terminate</td>
+                    <td>Bad system call</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <p>Signals can be delivered to a process at any time during its execution, launched by events like user actions, hardware exceptions, or even more inter-process communication.</p>
+
+        <p>Signals can interrupt the normal flow of a process and require the process to handle or respond to the signal appropriately.</p>
+
+        <p>Signals are delivered by the operating system to the target process.</p>
+
+        <p>When a signal is generated, the operating system identifies the target process based on its process ID (PID).</p>
+        
+        <p>The operating system then interrupts the execution of the target process and delivers the signal by invoking the corresponding signal handler or performing the default action associated with the signal.</p>
+
+        <p>Signals can be delivered by various sources, including the user, hardware exceptions, or other processes involved in inter-process communication.</p>
+
+        <p>The delivery of signals involves coordination between the operating system and the target process.</p>
+        
+        <p>The operating system is responsible for identifying the target process, interrupting its execution, and delivering the signal, while the process handles the signal by executing the corresponding signal handler or default action.</p>
+
+        <p>Here are some common default actions:</p>
+
+        <ul>
+            <li>Termination Signals<br>
+                <ul>
+                    <li><code>SIGINT</code> (Interrupt): The process is terminated. This signal is generated by pressing Ctrl+C.</li>
+                </ul>
+            </li>
+            <li>Termination with Core Dump Signals<br>
+                A core dump is a file that contains a snapshot of a program's memory at the time of a crash or termination due to a critical error. It includes information about memory, registers, and program state.<br>
+                <ul>
+                    <li><code>SIGQUIT</code> (Quit): The process is terminated. This signal is triggered by pressing Ctrl+\ on the keyboard. A core dump is generated.</li>
+                    <li><code>SIGILL</code> (Illegal Instruction): The process is terminated with a core dump, indicating an illegal instruction.</li>
+                    <li><code>SIGABRT</code> (Abort): The process is terminated with a core dump, usually when an internal error or inconsistency is detected.</li>
+                    <li><code>SIGFPE</code> (Floating-Point Exception): The process is terminated with a core dump when a floating-point arithmetic exception occurs, such as division by zero.</li>
+                    <li><code>SIGSEGV</code> (Segmentation Fault): The default action for this signal is to terminate the process and generate a core dump. It occurs when the program attempts to access a memory location that it is not allowed to access, such as accessing an invalid pointer or accessing memory that has not been allocated.</li>
+                </ul>
+            </li>
+            <li>Ignored Signals<br>
+                <ul>
+                    <li><code>SIGCHLD</code> (Child Status Changed): The signal is ignored, indicating that the process does not want to be notified when child processes terminate.</li>
+                    <li><code>SIGURG</code> (Urgent Condition on Socket): The signal is ignored, typically used for out-of-band data in socket communication.</li>
+                </ul>
+            </li>
+            <li>Stop Signals<br>
+                <ul>
+                    <li><code>SIGSTOP</code> (Stop): The process is stopped (paused) and can be resumed later using SIGCONT.</li>
+                    <li><code>SIGTSTP</code> (Terminal Stop): The process is stopped (paused) by the user, typically through the Ctrl+Z combination.</li>
+                </ul>
+            </li>
+            <li>Continue Signal<br>
+                <ul>
+                    <li><code>SIGCONT</code> (Continue): The process is resumed after being stopped or paused.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>The purpose of signals is multifaceted and serves several important functions:</p>
+
+        <ul>
+            <li>Notify processes about events or conditions<br>
+                <ul>
+                    <li>Example 1: for a user action, sending a SIGINT signal (Ctrl+C) to notify a process to terminate gracefully in response to a user interrupt.</li>
+                    <li>Example 2: for a hardware exception, sending a SIGFPE signal, which indicates a floating-point arithmetic exception ( → division by zero).</li>
+                </ul>
+            </li>
+            <li>Handle asynchronous events efficiently<br>
+                <ul>
+                    <li>Example: receiving a SIGALRM signal to handle a timer or alarm event, allowing the process to perform a specific action after a specified time interval.</li>
+                </ul>
+            </li>
+            <li>Handle exceptional situations or errors<br>
+                <ul>
+                    <li>Example: catching a SIGSEGV signal (segmentation fault) to handle a memory access violation, enabling the process to log the error and gracefully recover or terminate.</li>
+                </ul>
+            </li>
+            <li>Facilitate inter-process communication<br>
+                <ul>
+                    <li>Example: sending a SIGUSR1 signal from one process to another as a custom communication mechanism, indicating a request for specific actions or data exchange between the processes.</li>
+                </ul>
+            </li>
+            <li>Enable graceful termination of processes<br>
+                <ul>
+                    <li>Example: receiving a SIGTERM signal to initiate a graceful termination process, allowing the process to perform cleanup tasks, release resources, and exit gracefully.</li>
+                </ul>
+            </li>
+            <li>Allow for custom behavior in response to signals<br>
+                <ul>
+                    <li>Example: registering a signal handler for a custom signal, such as SIGUSR2, to define a specific action that the process should take when receiving that signal, tailored to the specific needs of the application.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>To create a signal in C, you can use the <code>kill()</code> or <code>raise()</code> functions. To send a signal from one process to another process, you can use the <code>kill()</code> function. To send a signal to itself, a process can use the <code>raise()</code> function.</p>
+
+        <p>Here's an example of using <code>kill()</code> to send a <code>SIGTERM</code> signal to a process with a specific PID:</p>
+
+        
+        <pre><code class="language-bash hljs">#include &lt;sys/types.h&gt;
+#include &lt;signal.h&gt;
+
+int main() 
+{
+    pid_t pid = 1234; /* Replace it with the target process ID */
+
+    /* Send SIGTERM signal to the process */
+    int result = kill(pid, SIGTERM);
+    
+    if (result == 0) 
+    {
+        printf("Signal successfully sent.\n");
+    }
+    else 
+    {
+        printf("Failed to send signal.\n");
+    }
+    
+    return 0;
+}</code></pre>
+
+        <p>Here's an example of using raise() to send a SIGINT signal to the current process:</p>
+
+        <pre><code class="language-bash hljs">#include &lt;signal.h&gt;
+
+int main() 
+{
+    /* Send SIGINT signal to the current process */
+    raise(SIGINT);
+    
+    return 0;
+}</code></pre>
+        
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/signal" class="tag">signal</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/c" class="tag">c</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/05/01/list-of-common-wsl-commands/"><img src="https://hemimorphite.github.io/assets/images/wsldistribution.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/05/01/list-of-common-wsl-commands/">List of Common WSL Commands</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/04/30/move-wsl-file-system-to-another-drive/"><img src="https://hemimorphite.github.io/assets/images/wsldistribution.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/04/30/move-wsl-file-system-to-another-drive/">Move WSL File System to Another Drive</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/04/09/install-jekyll-on-ubuntu-22.04/"><img src="https://hemimorphite.github.io/assets/images/jekyll.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/04/09/install-jekyll-on-ubuntu-22.04/">Install Jekyll on Ubuntu 22.04</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dns-server/"><img src="https://hemimorphite.github.io/assets/images/fedora38.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dns-server/">Setup Fedora Server 38 as a DNS Server with Qemu/KVM, Part 3</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/"><img src="https://hemimorphite.github.io/assets/images/fedora38.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/">Setup Fedora Server 38 as a DHCP Server with Qemu/KVM, Part 2</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/"><img src="https://hemimorphite.github.io/assets/images/fedora38.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2023/08/15/setup-fedora-server-38-as-a-nat-router-with-qemu-kvm/">Setup Fedora Server 38 as a NAT Router with Qemu/KVM, Part 1</a></h4>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/zh/2024/06/11/linux-signals/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/zh/2024/06/11/linux-signals/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+  	</body>
+</html>
