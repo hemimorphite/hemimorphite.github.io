@@ -1,0 +1,196 @@
+---
+layout: post
+lang: en
+locale: en
+title: "mail Command on Ubuntu 22.04"
+thumb: "bashscripting.jfif"
+eyebrow: "Tutorial"
+description: "Learn how to use the mail command on Ubuntu 22.04 with this detailed guide. Includes examples and usage tips to help you master email management from the command line."
+date: 2024-06-13 23:55:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-06", "day-13"]
+tags: ["ubuntu 22.04", "mail"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <h5>Install mail Command</h5>
+
+        <p>Run the following command to install <code>mail</code></p>
+
+        <pre><code class="language-bash hljs">sudo apt install mailutils</code></pre>
+
+        <p>When prompted to configure the postfix package, press <b>TAB</b> to select <b>Ok</b> and confirm with <b>Enter</b>.</p>
+
+        <figure class="post-figure">
+        	<img src="/assets/images/postfix-01.png" alt="Postfix Configuration">
+        </figure>
+
+        <p>Select <b>Internet Site</b> in the package configuration window. Press <b>TAB</b> to select <b>Ok</b> and press <b>Enter</b> to confirm.</p>
+
+		<figure class="post-figure">
+        	<img src="/assets/images/postfix-02.png" alt="Postfix Configuration">
+        </figure>
+
+		<p>Complete the basic configuration by entering the system mail name (the machine's fully qualified domain name).</p>
+
+		<figure class="post-figure">
+        	<img src="/assets/images/postfix-03.png" alt="Postfix Configuration">
+        </figure>
+
+        <h5>mail Command Options</h5>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Argument</th>
+					<th>Description</th>
+					<th>Example</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>-s</code></td>
+					<td>Specifies the subject of the email.</td>
+					<td><code>mail -s 'Subject' user@example.com</code></td>
+				</tr>
+				<tr>
+					<td><code>-c</code></td>
+					<td>Sends a carbon copy of the email to the specified address.</td>
+					<td><code>echo 'Hello' | mail -s 'Subject' -c cc@example.com user@example.com</code></td>
+				</tr>
+				<tr>
+					<td><code>-b</code></td>
+					<td>Sends a blind carbon copy of the email to the specified address.</td>
+					<td><code>echo 'Hello' | mail -s 'Subject' -b bcc@example.com user@example.com</code></td>
+				</tr>
+				<tr>
+					<td><code>-a</code></td>
+					<td>Adds an attachment to the email.</td>
+					<td><code>echo 'Hello' | mail -s 'Subject' -a file.txt user@example.com</code></td>
+				</tr>
+				<tr>
+					<td><code>-q</code></td>
+					<td>Reads a message from the specified file.</td>
+					<td><code>mail -s 'Subject' -q file.txt user@example.com</code></td>
+				</tr>
+				<tr>
+					<td><code>-r</code></td>
+					<td>Specifies the return address for the email.</td>
+					<td><code>echo 'Hello' | mail -s 'Subject' -r from@example.com user@example.com</code></td>
+				</tr>
+				<tr>
+					<td><code>-v</code></td>
+					<td>Verbose mode. Displays the details of the email sending process.</td>
+					<td><code>echo 'Hello' | mail -s 'Subject' -v user@example.com</code></td>
+				</tr>
+				<tr>
+					<td><code>-f</code></td>
+					<td>Reads messages from the specified mailbox file.</td>
+					<td><code>mail -f /var/mail/user</code></td>
+				</tr>
+				<tr>
+					<td><code>-i</code></td>
+					<td>Ignores lines with only a dot.</td>
+					<td><code>mail -i -s 'Subject' user@example.com</code></td>
+				</tr>
+				<tr>
+					<td><code>-E</code></td>
+					<td>Does not send messages with an empty body.</td>
+					<td><code>echo '' | mail -E -s 'Subject' user@example.com</code></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h5>mail Command Examples</h5>
+
+		<h6>Example 1: Send Mail with Subject and Body</h6>
+
+        <p>The basic way of using <code>mail</code> to send emails is to specify the email subject using the <code>-s</code> flag and add the recipient. The command then enters the interactive mode, asking if you want to send Ccs and asking for the email body.</p>
+
+		<p>After entering all the information, press <b>Ctrl+D</b> to send the email.</p>
+
+		<pre><code class="language-bash hljs">[satella@ubuntu ~]$ mail -s "Email Subject" echidna
+Cc:
+This is the email body</code></pre>
+		
+		<h6>Example 2: Send Mail Using echo</h6>
+
+		<p>Use the <code>echo</code> command to send an email without entering the interactive mode of the <code>mail</code> command. Write the email body and pipe the echo command output to the <code>mail</code> command.</p>
+
+		<pre><code class="language-bash hljs">[satella@ubuntu ~]$ echo "This is the email body" | mail -s "Email Subject" echidna</code></pre>
+		
+		<h6>Example 3: Send Email Using Redirection</h6>
+		
+		<p>Another way to provide the email body is to use redirection (&lt;&lt;&lt;). Using redirection also avoids the <code>mail</code> command interactive mode and sends the email without any prompts.</p>
+		
+		<pre><code class="language-bash hljs">[satella@ubuntu ~]$ mail -s "Email Subject" echidna &lt;&lt;&lt; "this is the email body"</code></pre>
+
+		<h6>Example 4: Send Email from File</h6>
+
+        <p>The <code>mail</code> command allows users to provide the email body from an existing file. This option saves time and facilitates sending large messages without writing them in the command line.</p>
+
+        <pre><code class="language-bash hljs">[satella@ubuntu ~]$ echo "This is the email body" > file.txt
+[satella@ubuntu ~]$ mail -s "Email Subject" echidna < file.txt</code></pre>
+		
+		<h6>Example 4: Read Mail</h6>
+
+        <p>Check the mailbox for the current user by running the <code>mail</code> command without any options or flags.</p>
+        
+		<pre><code class="language-bash hljs">[minerva@ubuntu ~]$ mail
+"/var/mail/minerva": 8 messages 8 new
+U   1 satella@ubuntu Thu Jun 13 20:52  17/532   this is email subject
+U   2 satella@ubuntu Thu Jun 13 20:54  16/488   this is email subject
+U   3 satella@ubuntu Thu Jun 13 20:58  16/488   this is email subject
+U   4 satella@ubuntu Thu Jun 13 20:59  16/488   this is email subject
+U   5 satella@ubuntu Thu Jun 13 21:02  16/488   this is email subject
+U   6 satella@ubuntu Thu Jun 13 21:05  16/492   this is email subject 1
+U   7 satella@ubuntu Thu Jun 13 21:06  16/492   this is email subject 1
+U   8 satella@ubuntu Thu Jun 13 22:07  16/416   Subject
+?</code></pre>
+		
+		<p>To open an email, enter the email number and press Enter. For example, we will open email number 8:</p>
+
+		<pre><code class="language-bash hljs">? 8
+Return-Path: &lt;satella@ubuntu&gt;
+X-Original-To: minerva
+Delivered-To: minerva@ubuntu
+Received: by ubuntu (Postfix, from userid 1001)
+	id 453F4A257B; Thu, 13 Jun 2024 22:07:00 +0700 (WIB)
+Subject: Subject
+To: minerva@ubuntu
+User-Agent: mail (GNU Mailutils 3.14)
+Date: Thu, 13 Jun 2024 22:07:00 +0700
+Message-Id: &lt;20240613150700.453F4A257B@ubuntu&gt;
+From: satella@ubuntu
+X-UID: 8
+Status: O
+
+?</code></pre>
+
+        <p>After opening the email, the command waits for further input from the user. Open the next email by entering (+) in the prompt, or access the previous email by entering (-). Return to the mailbox by pressing Ctrl+D.</p>
+
+		<h6>Example 5: Delete Mail</h6>
+		
+		<p>To delete an email, open the email you want to delete, press <code>d</code>, and confirm with Enter. To delete multiple emails at once, open the mailbox and enter <code>d</code> followed by the email numbers you want to delete.</p>
+		
+		<p>For example, the following command deletes emails numbered 1 and 2:</p>
+
+        <pre><code class="language-bash hljs">d 1 2</code></pre>
+		
+		<p>To delete a range of emails, specify the first and last email in the range separated by a dash. For example, to delete emails 1-10, open the mailbox and run:</p>
+
+        <pre><code class="language-bash hljs">d 1-10</code></pre>
+
+        <p>To delete all received mail, open the mailbox and run:</p>
+
+        <pre><code class="language-bash hljs">d*</code></pre>
+
+	</article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
