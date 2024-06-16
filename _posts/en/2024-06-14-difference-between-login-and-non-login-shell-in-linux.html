@@ -1,0 +1,64 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Difference Between Login and Non-Login Shell in Linux"
+thumb: "linux.jpg"
+eyebrow: "Tutorial"
+description: "Learn about the key differences between login and non-login shells in Linux, how they are initiated, and what impact they have on the environment settings for users."
+date: 2024-06-14 21:20:00 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2024", "month-06", "day-14"]
+tags: ["linux", "login shell", "non-login shell"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Shell is a command interpreter or a program that reads and interprets commands issued to it by the user. The shell performs basic commands such as running programs, inputting text, and printing output. It is also responsible for handling errors and other situations that require user intervention. A shell can be used to automate existing tasks or to create new ones entirely.</p>
+
+        <h5 class="post-subtitle">Login Shell</h5>
+
+        <p>When a user successfully logs in to a Linux system via terminal, SSH, or switches to a user with the <code>su -</code> command, a Login shell is created.</p>
+
+        <p>When a login shell starts, it executes a set of pre-configured scripts to set up the environment. You may run this command on the terminal to discover which shell you are using.</p>
+
+        <pre><code class="language-bash hljs">echo $0</code></pre>
+
+        <p>If the result is <code>-bash</code> or <code>-su</code>, you are on the login shell. Be certain that it has a hyphen (-) as a prefix.</p>
+
+        <p>The following scripts are executed by the Login Shell:</p>
+
+        <ol>
+            <li>Login shell invokes <code>/etc/profile</code></li>
+            <li><code>/etc/profile</code> invokes scripts in <code>/etc/profile.d/*.sh</code></li>
+            <li>Then executes users <code>~/.bash_profile</code></li>
+            <li><code>~/.bash_profile</code> invokes users <code>~/.bashrc</code></li>
+        </ol>
+
+        <h5 class="post-subtitle">Non-Login Shell</h5>
+        
+        <p>A non-login shell is started by a login shell. For example, a shell that you start from another shell or from a program is a non-login shell.</p>
+
+        <p>A shell that is not used to log in to the system executes the following script to set the shell environment.</p>
+
+        <ol>
+            <li>Non login shell first executes <code>~/.bashrc</code></li>
+            <li>Then <code>~/.bashrc</code> executes <code>/etc/bashrc</code></li>
+            <li><code>/etc/bashrc</code> calls the scripts in <code>/etc/profile.d</code></li>
+        </ol>
+
+        <p>To find whether the current shell is a login shell or a non-login shell simply run the below command.</p>
+
+        <pre><code class="language-bash hljs">echo $0</code></pre>
+
+        <p>Login shell output will be <code>-bash</code> or <code>-su</code>.</p>
+
+        <p>Non-login shell output will be <code>bash</code> or <code>su</code></p>  
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>

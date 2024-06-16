@@ -66,21 +66,21 @@ tags: ["ubuntu 22.04", "shell script", "bash"]
 
         <p>Let's simulate the exit codes</p>
 
-        <h6>General Error: 1</h6>
+        <h6 class="post-subtitle">General Error: 1</h6>
 
         <pre><code class="language-bash hljs">$ echo $((10 / 0))
 bash: 10 / 0: division by 0 (error token is "0")
 $ echo $?
 1</code></pre>
 
-        <h6>Misuse of Shell Built-in: 2</h6>
+        <h6 class="post-subtitle">Misuse of Shell Built-in: 2</h6>
 
         <pre><code class="language-bash hljs">$ ls nonexistdirectory/
 ls: cannot access 'nonexistdirectory/': No such file or directory
 $ echo $?
 2</code></pre>
         
-        <h6>Cannot Execute: 126</h6>
+        <h6 class="post-subtitle">Cannot Execute: 126</h6>
 
         <pre><code class="language-bash hljs">$ cat nonexecutablescript.sh
 #!/bin/bash
@@ -92,14 +92,14 @@ bash: ./nonexecutablescript.sh: Permission denied
 $ echo $?
 126</code></pre>
         
-        <h6>Command Not Found: 127</h6>
+        <h6 class="post-subtitle">Command Not Found: 127</h6>
 
         <pre><code class="language-bash hljs">$ execute
 bash: execute: command not found
 $ echo $?
 127</code></pre>
 
-        <h6>Fatal Error Signal n: 128+n</h6>
+        <h6 class="post-subtitle">Fatal Error Signal n: 128+n</h6>
         
         <p>When we terminate a program by using Ctrl+C, we effectively send it a <code>SIGINT</code> signal. This signal has a value of 2. Therefore, the program will stop executing and return an exit code with a value 128 + 2 = 130.</p>
 

@@ -16,7 +16,7 @@ tags: ["ubuntu 22.04", "mail"]
     {% include post-header.html %}
 
     <article class="post-content">
-        <h5>Install mail Command</h5>
+        <h5 class="post-subtitle">Install mail Command</h5>
 
         <p>Run the following command to install <code>mail</code></p>
 
@@ -40,9 +40,9 @@ tags: ["ubuntu 22.04", "mail"]
         	<img src="/assets/images/postfix-03.png" alt="Postfix Configuration">
         </figure>
 
-        <h5>mail Command Options</h5>
+        <h5 class="post-subtitle">mail Command Options</h5>
 		
-		<table>
+		<table class="table table-bordered border-primary">
 			<thead>
 				<tr>
 					<th>Argument</th>
@@ -104,9 +104,9 @@ tags: ["ubuntu 22.04", "mail"]
 			</tbody>
 		</table>
 
-		<h5>mail Command Examples</h5>
+		<h5 class="post-subtitle">mail Command Examples</h5>
 
-		<h6>Example 1: Send Mail with Subject and Body</h6>
+		<h6 class="post-subtitle">Example 1: Send Mail with Subject and Body</h6>
 
         <p>The basic way of using <code>mail</code> to send emails is to specify the email subject using the <code>-s</code> flag and add the recipient. The command then enters the interactive mode, asking if you want to send Ccs and asking for the email body.</p>
 
@@ -116,26 +116,26 @@ tags: ["ubuntu 22.04", "mail"]
 Cc:
 This is the email body</code></pre>
 		
-		<h6>Example 2: Send Mail Using echo</h6>
+		<h6 class="post-subtitle">Example 2: Send Mail Using echo</h6>
 
 		<p>Use the <code>echo</code> command to send an email without entering the interactive mode of the <code>mail</code> command. Write the email body and pipe the echo command output to the <code>mail</code> command.</p>
 
 		<pre><code class="language-bash hljs">[satella@ubuntu ~]$ echo "This is the email body" | mail -s "Email Subject" echidna</code></pre>
 		
-		<h6>Example 3: Send Email Using Redirection</h6>
+		<h6 class="post-subtitle">Example 3: Send Email Using Redirection</h6>
 		
 		<p>Another way to provide the email body is to use redirection (&lt;&lt;&lt;). Using redirection also avoids the <code>mail</code> command interactive mode and sends the email without any prompts.</p>
 		
 		<pre><code class="language-bash hljs">[satella@ubuntu ~]$ mail -s "Email Subject" echidna &lt;&lt;&lt; "this is the email body"</code></pre>
 
-		<h6>Example 4: Send Email from File</h6>
+		<h6 class="post-subtitle">Example 4: Send Email from File</h6>
 
         <p>The <code>mail</code> command allows users to provide the email body from an existing file. This option saves time and facilitates sending large messages without writing them in the command line.</p>
 
         <pre><code class="language-bash hljs">[satella@ubuntu ~]$ echo "This is the email body" > file.txt
 [satella@ubuntu ~]$ mail -s "Email Subject" echidna < file.txt</code></pre>
 		
-		<h6>Example 4: Read Mail</h6>
+		<h6 class="post-subtitle">Example 4: Read Mail</h6>
 
         <p>Check the mailbox for the current user by running the <code>mail</code> command without any options or flags.</p>
         
@@ -172,7 +172,7 @@ Status: O
 
         <p>After opening the email, the command waits for further input from the user. Open the next email by entering (+) in the prompt, or access the previous email by entering (-). Return to the mailbox by pressing Ctrl+D.</p>
 
-		<h6>Example 5: Delete Mail</h6>
+		<h6 class="post-subtitle">Example 5: Delete Mail</h6>
 		
 		<p>To delete an email, open the email you want to delete, press <code>d</code>, and confirm with Enter. To delete multiple emails at once, open the mailbox and enter <code>d</code> followed by the email numbers you want to delete.</p>
 		
