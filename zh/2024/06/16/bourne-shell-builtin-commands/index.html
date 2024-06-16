@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="Learn how to properly use Bourne Shell builtin commands such as break, cd, continue, eval, exec, exit, export, getopts, hash, pwd, readonly, return, shift, times, trap, umask, unset and test with practical examples to enhance your shell scripting skills.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/zh/2024/06/16/bourne-shell-builtin-commands/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/zh/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Bourne Shell Builtin Commands">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/zh/2024/06/16/bourne-shell-builtin-commands/">
+		<meta property="og:description" content="Learn how to properly use Bourne Shell builtin commands such as break, cd, continue, eval, exec, exit, export, getopts, hash, pwd, readonly, return, shift, times, trap, umask, unset and test with practical examples to enhance your shell scripting skills.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/bashscripting.jfif">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Bourne Shell Builtin Commands">
+		<meta name="twitter:description" content="Learn how to properly use Bourne Shell builtin commands such as break, cd, continue, eval, exec, exit, export, getopts, hash, pwd, readonly, return, shift, times, trap, umask, unset and test with practical examples to enhance your shell scripting skills.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/bashscripting.jfif">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Bourne Shell Builtin Commands</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+
+	    <!-- Additional CSS Files -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/zh/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">Bourne Shell Builtin Commands</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published June 16, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/bashscripting.jfif" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>The shell uses the following environment variables.</p>
+
+        <h5 class="post-subtitle">: (a colon)</h5>
+
+        <p><code>:</code> is a shell builtin command inherited from the Bourne Shell. It does nothing beyond expanding arguments and performing redirection and has return status zero. <code>:</code> is a no-op operator similar to <code>true</code> and <code>false</code>.</p>
+
+        <p>The syntax of the <code>:</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">: [arguments]</code></pre>
+
+        <p>The example below illustrated how <code>:</code> is used in parameter expansion by setting a default value combined with <code>:</code>.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat ./input.sh
+#!/usr/bin/env bash
+read -p "Enter your name: " name
+: ${name:=Hemimorphite}  # if the user entered an empty string
+echo "$name"
+[hemimorphite@ubuntu ~]$ ./input.sh
+Enter your name:
+Hemimorphite</code></pre>
+        
+        <p>If <code>:</code> is omitted, the default value is passed and treated as a command.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat ./input.sh
+#!/usr/bin/env bash
+read -p "Enter your name: " name
+${name:=Hemimorphite}
+echo "$name"
+[hemimorphite@ubuntu ~]$ ./input.sh
+Enter your name:
+./input.sh: line 3: Hemimorphite: command not found
+Hemimorphite</code></pre>
+        
+        <p>The usual way to do infinite loop in bash is using the <code>true</code> command in a <code>while</code> loop.</p>
+        
+        <pre><code class="language-bash hljs">#!/usr/bin/env bash
+while true
+    do 
+    # ...
+done</code></pre>
+        
+        <p>Alternatively, we can use <code>:</code> instead of <code>true</code> to create an infinite loop.</p>
+
+        <h5 class="post-subtitle">. (a period)</h5>
+        
+        <p>The dot command (<code>.</code>) is a command used to execute commands from a file in the current shell. In Bash, the <code>source</code> command is synonym to the dot command (<code>.</code>)</p>
+        
+        <p>The syntax of the <code>.</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">. filename [arguments]</code></pre>
+
+        <p>When you run an executable script as <code>./hello.sh</code>, the commands are run in a new subshell, while when run as <code>. hello.sh</code> the current shell context will be used. This mean that the dot command will apply changes to your current shell.</p>
+
+        <p>Let's look at the simple example below.</p>
+
+        <pre><code class="language-bash hljs">#!/usr/bin/env bash
+export A="hello world"
+echo $A
+</code></pre>
+
+        <p>When run as an executable using <code>./hello.sh</code>, the <code>A</code> variable is not exported in your current shell and would just return an empty result.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./hello.sh 
+hello world
+[hemimorphite@ubuntu ~]$ echo $A</code></pre>
+
+        <p>When run the same script with the dot command using <code>. hello.sh</code>, your current shell context will be changed.</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ . hello.sh 
+hello world
+[hemimorphite@ubuntu ~]$ echo $A
+hello world</code></pre>
+        
+        <h5 class="post-subtitle">break</h5>
+
+        <p>Exit from a <code>for</code>, <code>while</code>, <code>until</code>, or <code>select</code> loop.</p>
+        
+        <p>The syntax of the <code>break</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">break [n]</code></pre>
+
+        <p><code>[n]</code> is an optional argument and must be greater than or equal to 1. When <code>[n]</code> is provided, the n-th enclosing loop is exited. <code>break 1</code> is equivalent to <code>break</code>.</p>
+
+        <p>Here is an example of using the <code>break</code> statement inside nested <code>for</code> loops.</p>
+
+        <p>When the argument <code>[n]</code> is not given, <code>break</code> terminates the innermost enclosing loop. The outer loops are not terminated:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat loop.sh
+#!/usr/bin/env bash
+
+for i in {1..3}; do
+    for j in {1..3}; do
+        if [[ $j -eq 2 ]]; then
+            break
+        fi
+        echo "j: $j"
+    done
+    echo "i: $i"
+done
+[hemimorphite@ubuntu ~]$ ./loop.sh
+j: 1
+i: 1
+j: 1
+i: 2
+j: 1
+i: 3</code></pre>
+        
+        <p>If you want to exit from the outer loop, use <code>break 2</code>. Argument 2 tells <code>break</code> to terminate the second enclosing loop:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat loop.sh
+#!/usr/bin/env bash
+
+for i in {1..3}; do
+    for j in {1..3}; do
+        if [[ $j -eq 2 ]]; then
+            break 2
+        fi
+        echo "j: $j"
+    done
+    echo "i: $i"
+done
+[hemimorphite@ubuntu ~]$ ./loop.sh
+j: 1</code></pre>
+        
+        <h5 class="post-subtitle">continue</h5>
+
+        <p>Resume the next iteration of a <code>for</code>, <code>while</code>, <code>until</code>, or <code>select</code> loop.</p>
+
+        <p>The syntax of the <code>continue</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">continue [n]</code></pre>
+
+        <p>The <code>[n]</code> argument is optional and can be greater than or equal to 1. When <code>[n]</code> is given, the n-th enclosing loop is resumed. <code>continue 1</code> is equivalent to <code>continue</code>.</p>
+        
+        <p>In the example below, once the current iterated item is equal to 9, the <code>continue</code> statement will cause execution to return to the beginning of the loop and to continue with the next iteration.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat loop.sh
+#!/usr/bin/env bash
+
+for i in {1..10}
+do
+    if [[ $i == '9' ]]
+    then
+        continue
+    fi
+    echo "Number $i!"
+done
+[hemimorphite@ubuntu ~]$ ./loop.sh
+Number: 1
+Number: 2
+Number: 3
+Number: 4
+Number: 5
+Number: 6
+Number: 7
+Number: 8
+Number: 10</code></pre>
+        
+        <p>If you want to continue from the outer loop, use <code>continue 2</code>. Argument 2 tells <code>continue</code> to continue the second enclosing loop:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat loop.sh
+#!/usr/bin/env bash
+
+for i in {1..5}
+do
+    for j in {1..5}
+    do
+        if [[ $j -eq 2 ]]
+        then
+            continue 2
+        fi
+        echo "j: $j"
+    done
+    echo "i: $i"
+done
+[hemimorphite@ubuntu ~]$ ./loop.sh
+j: 1
+j: 2
+j: 3
+i: 1
+j: 1
+j: 2
+j: 3
+i: 3</code></pre>
+        
+        <h5 class="post-subtitle">cd</h5>
+
+        <p>The <code>cd</code> command changes the working directory of the current shell execution environment to directory. If you specify directory as an absolute path name, beginning with /, this is the target directory. <code>cd</code> assumes the target directory to be the name just as you specified it. If you specify directory as a relative path name, cd assumes it to be relative to the current working directory.</p>
+        
+        <p>Two special symbols are also supported:</p>
+
+        <ul>
+            <li><code>.</code> Represents the current directory</li>
+            <li><code>..</code> Represents the parent of the current directory</li>
+        </ul>
+
+        <p>The syntax of the <code>cd</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">cd [-L|[-P [-e]] [directory]</code></pre>
+
+        <p>If <code>[directory]</code> is not supplied, the value of the <code>HOME</code> shell variable is used. If the shell variable <code>CDPATH</code> exists, it is used as a search path. If directory begins with a slash, <code>CDPATH</code> is not used.</p>
+
+        <p>The <code>-P</code> option means to not follow symbolic links: symbolic links are resolved while <code>cd</code> is traversing directory and before processing an instance of <code>..</code> in directory. For example,</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ mkdir -p gallery/album/photos
+[hemimorphite@ubuntu ~]$ ln -s gallery/album/photos myalbum
+[hemimorphite@ubuntu ~]$ cd -P myalbum
+[hemimorphite@ubuntu ~/gallery/album/photos]$ pwd
+/home/hemimorphite/gallery/album/photos</code></pre>
+        
+        <p>By default, the <code>-L</code> option is supplied, symbolic links in directory are resolved after <code>cd</code> processes an instance of <code>..</code> in directory.</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ mkdir -p gallery/album/photos
+[hemimorphite@ubuntu ~]$ ln -s gallery/album/photos myalbum
+[hemimorphite@ubuntu ~]$ cd myalbum
+[hemimorphite@ubuntu ~/myalbum]$ pwd
+/home/hemimorphite/myalbum</code></pre>
+        
+        <p>If the <code>-e</code> option is supplied with <code>-P</code> and the current working directory cannot be successfully determined after a successful directory change, <code>cd</code> will return an unsuccessful status.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ mkdir -p gallery/album/photos
+[hemimorphite@ubuntu ~]$ cd gallery/album/photos
+[hemimorphite@ubuntu ~/gallery/album/photos]$ rmdir ../photos ../../album
+[hemimorphite@ubuntu ~/gallery/album/photos]$ cd ..
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+[hemimorphite@ubuntu ~/gallery/album/photos/..]$ echo $?
+0</code></pre>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ mkdir -p gallery/album/photos
+[hemimorphite@ubuntu ~]$ cd gallery/album/photos
+[hemimorphite@ubuntu ~/gallery/album/photos]$ rmdir ../photos ../../album
+[hemimorphite@ubuntu ~/gallery/album/photos]$ cd -Pe ..
+cd: error retrieving current directory: getcwd: cannot access parent directories: No such file or directory
+[hemimorphite@ubuntu ~/gallery/album/photos/..]$ echo $?
+1</code></pre>
+
+        <p>In the shell, the command <code>cd -</code> is a special case that changes the current working directory to the previous working directory by exchanging the values of the variables <code>PWD</code> and <code>OLDPWD</code>.</p>
+
+        <p>In the following steps, the variable <code>curpath</code> represents an intermediate value used to simplify the description of the algorithm used by <code>cd</code>. There is no requirement that <code>curpath</code> be made visible to the application.</p>
+
+        <ol>
+            <li>
+                If no directory operand is given and the <code>HOME</code> environment variable is empty or undefined, the default behavior is implementation-defined and no further steps shall be taken.<br>
+                For example:<br>
+                <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ HOME=
+[hemimorphite@ubuntu ~]$ cd</code></pre>
+            </li>
+            <li>
+                If no directory operand is given and the <code>HOME</code> environment variable is set to a non-empty value, the <code>cd</code> command shall behave as if the directory named in the <code>HOME</code> environment variable was specified as the directory operand.<br>
+                For example:<br>
+                <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ HOME=/home/hemimorphite
+[hemimorphite@ubuntu ~]$ cd</code></pre>
+            </li>
+            <li>
+                If the directory operand begins with a slash <code>/</code> character, set <code>curpath</code> to the operand and proceed to step 7
+            </li>
+            <li>
+                If the directory operand is <code>.</code> or <code>..</code>, proceed to step 6
+            </li>
+            <li>
+                Starting with the first pathname in the colon-separated <code>:</code> pathnames of <code>CDPATH</code> if the pathname is non-null, test if the concatenation of that pathname, add a <code>/</code> character if that pathname did not end with a <code>/</code> character, and the directory operand names a directory. If the pathname is null, test if the concatenation of dot, a <code>/</code> character, and the operand names a directory. In either case, if the resulting string names an existing directory, set <code>curpath</code> to that string and proceed to step 7. Otherwise, repeat this step with the next pathname in <code>CDPATH</code> until all pathnames have been tested.
+            </li>
+            <li>
+                Set curpath to the directory operand.
+            </li>
+            <li>
+                If the <code>-P</code> option is in effect, proceed to step 10. If <code>curpath</code> does not begin with a <code>/</code> character, set <code>curpath</code> to the string formed by the concatenation of the value of <code>PWD</code>, a <code>/</code> character if the value of <code>PWD</code> did not end with a <code>/</code> character, and <code>curpath</code>.
+            </li>
+            <li>
+                The curpath value shall then be converted to canonical form as follows, considering each component from beginning to end, in sequence:
+                <ol type="a">
+                    <li><code>.</code> components and any <code>/</code> characters that separate them from the next component shall be deleted.</li>
+                    <li>For each dot-dot component, if there is a preceding component and it is neither root nor dot-dot, then:
+                        <ol type="i">
+                            <li>If the preceding component does not refer (in the context of pathname resolution with symbolic links followed) to a directory, then the <code>cd</code> command shall display an appropriate error message and no further steps shall be taken.</li>
+                            <li>The preceding component, all <code>/</code> characters separating the preceding component from dot-dot, dot-dot, and all <code>/</code> characters separating dot-dot from the following component (if any) shall be deleted.</li>
+                        </ol>
+                    </li>
+                    <li>An implementation may further simplify <code>curpath</code> by removing any trailing <code>/</code> characters that are not also leading <code>/</code> characters, replacing multiple non-leading consecutive <code>/</code> characters with a single <code>/</code>, and replacing three or more leading <code>/</code> characters with a single <code>/</code>. If, as a result of this canonicalization, the curpath variable is null, no further steps shall be taken.</li>
+                </ol>
+            </li>
+            <li>
+                If <code>curpath</code> is longer than {PATH_MAX} bytes (including the terminating null) and the directory operand was not longer than {PATH_MAX} bytes (including the terminating null), then <code>curpath</code> shall be converted from an absolute pathname to an equivalent relative pathname if possible. This conversion shall always be considered possible if the value of <code>PWD</code>, with a trailing <code>/</code> added if it does not already have one, is an initial substring of <code>curpath</code>.  Whether or not it is considered possible under other circumstances is unspecified. Implementations may also apply this conversion if <code>curpath</code> is not longer than {PATH_MAX} bytes or the directory operand was longer than {PATH_MAX} bytes.
+            </li>
+            <li>The <code>cd</code> command shall then perform actions equivalent to the <code>chdir()</code> function called with <code>curpath</code> as the path argument. If these actions fail for any reason, the <code>cd</code> command shall display an appropriate error message and the remainder of this step shall not be executed. If the <code>-P</code> option is not in effect, the <code>PWD</code> environment variable shall be set to the value that <code>curpath</code> had on entry to step 9 (i.e., before conversion to a relative pathname). If the <code>-P</code> option is in effect, the <code>PWD</code> environment variable shall be set to the string that would be output by <code>pwd -P</code>. If there is insufficient permission on the new directory, or on any parent of that directory, to determine the current working directory, the value of the <code>PWD</code> environment variable is unspecified.</li>
+        </ol>
+
+        <p>If, during the execution of the above steps, the <code>PWD</code> environment variable is set, the <code>OLDPWD</code> environment variable shall also be set to the value of the old working directory.</p>
+
+        <p>When specifying a directory to change to, you can use either absolute or relative path names. The absolute or full path starts from the system root <code>/</code>, and the relative path starts from your current directory.</p>
+
+        <p>By default, when you log into your Linux system, your current working directory is set to your home directory. Assuming that the <code>Downloads</code> directory exists in your home directory, you can navigate to it by using the relative path to the directory:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cd Downloads</code></pre>
+
+        <p>You can also navigate to the same directory by using its absolute path:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cd /home/hemimorphite/Downloads</code></pre>
+
+        <p>On Unix-like operating systems, the current working directory is represented by a single dot (.). Two dots (..), one after the other, represent the parent directory or the directory immediately above the current one.</p>
+
+        <p>If you type <code>cd .</code>, you will change into the current directory or, in other words, the command will do nothing.</p>
+
+        <p>Suppose you are currently in the <code>/usr/local/share</code> directory. To switch to the <code>/usr/local</code> directory (one level up from the current directory), you would type:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu /usr/local/share]$ cd ..
+[hemimorphite@ubuntu /usr/local]$</code></pre>
+
+        <p>To move two levels up to the <code>/usr</code> directory, you type:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu /usr/local/share]$ cd ../../
+[hemimorphite@ubuntu /usr]$</code></pre>
+        
+        <p>Let's say you are in the <code>/usr/local/share</code> directory, and you want to switch to the <code>/usr/local/src</code>. You can do that by typing:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu /usr/local/share]$ cd ../src
+[hemimorphite@ubuntu /usr/local/src]$</code></pre>
+        
+        <p>To change back to the previous working directory, pass the dash (-) character as an argument to the <code>cd</code> command:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu /usr/local/share]$ cd ../src
+[hemimorphite@ubuntu /usr/local/src]$ cd -
+[hemimorphite@ubuntu /usr/local/share]$</code></pre>
+        
+        <p>To navigate to your home directory, simply type <code>cd</code>. Another way to return directly to your home directory is to use the tilde (~) character, as shown below:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu /usr/local/share]$ cd ~
+[hemimorphite@ubuntu ~]$</code></pre>
+
+        <p>For example, if you want to navigate to the <code>Downloads</code> directory, which is inside your home directory, you would type:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu /usr/local/share]$ cd ~/Downloads
+[hemimorphite@ubuntu ~/Downloads]$</code></pre>
+
+        <p>You can also navigate to another user's home directory using the following syntax:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu /usr/local/share]$ cd ~satella
+[hemimorphite@ubuntu /home/satella]$</code></pre>
+        
+        <p>If the directory you want to change to has spaces in its name, you should either surround the path with quotes or use the backslash (\) character to escape the space:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ mkdir "hello world"
+[hemimorphite@ubuntu ~]$ cd "hello world"</code></pre>
+        
+        <p>Or</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ mkdir "hello world"
+[hemimorphite@ubuntu ~]$ cd hello\ world</code></pre>
+
+        <h5 class="post-subtitle">eval</h5>
+        
+        <p><code>eval</code> command is used on a Unix or Linux system to execute the arguments as a shell command. The <code>eval</code> command is helpful when you want to execute a Unix or Linux command that has been saved in a variable.</p>
+        
+        <p>The syntax of the <code>eval</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">eval [arguments]</code></pre>
+
+        <p>The command or script that must be evaluated and run in this case is represented by <code>[arguments]</code>. It may contain commands, variables, and even sophisticated expressions.</p>
+        
+        <p>Storing a command in a variable is useful, especially when you want to store it with an option or flag appended to the command. In the following example, we will store the <code>expr</code> command in a variable named <code>command</code>:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ var1=10
+[hemimorphite@ubuntu ~]$ var2=20
+[hemimorphite@ubuntu ~]$ command='expr $var1 + $var2'
+[hemimorphite@ubuntu ~]$ eval $command
+30</code></pre>
+        
+        <p>In the following example, the <code>eval</code> command substitutes the <code>date</code> command placed within a string stored in the command variable. <code>eval</code> evaluates the string and executes the result:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ command="echo \$(date)"
+[hemimorphite@ubuntu ~]$ eval $command
+Fri Jun 14 18:47:57 +07 2024</code></pre>
+
+        <h5 class="post-subtitle">exec</h5>
+
+        <p>The <code>exec</code> command executes a shell command without creating a new process. Instead, it replaces the currently open shell operation.</p>
+        
+        <p>The syntax of the <code>exec</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">exec [-cl] [-a name] [command [arguments]]</code></pre>
+        
+        <p>If the <code>-l</code> option is supplied, the shell places a dash at the beginning of the zeroth argument passed to command. So if we ran the following command:</p>
+
+        <pre><code class="language-bash hljs">exec -l tail -f /etc/passwd</code></pre>
+        
+        <p>Open a second terminal. Run the <code>ps auwwx</code> command and it would produce the following output in the process list.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ps auwwx | grep tail
+hemimor+    6977  0.0  0.0   8404  1008 pts/0    Ss+  22:03   0:00 -tail -f /etc/passwd
+hemimor+    7163  0.0  0.0   9212  2372 pts/1    S+   22:23   0:00 grep --color=auto /etc/passwd</code></pre>
+
+        <p>The <code>-c</code> option causes the supplied command to run with a empty environment. Environmental variables like <code>PATH</code>, are cleared before the command it run.</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ bash
+[hemimorphite@ubuntu ~]$ ps auwwx | grep tail
+SHELL=/bin/bash
+SESSION_MANAGER=local/ubuntu:@/tmp/.ICE-unix/1259,unix/ubuntu:/tmp/.ICE-unix/1259
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-cinnamon:/etc/xdg
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+LANGUAGE=en_US
+LC_ADDRESS=id_ID.UTF-8
+LC_NAME=id_ID.UTF-8
+[hemimorphite@ubuntu ~]$ exec -c printenv
+[hemimorphite@ubuntu ~]$<code></pre>
+
+        <p>The last option, <code>-a [name]</code>, will pass name as the first argument to command. The command will still run as expected, but the name of the process will change.</p>
+
+        <pre><code class="language-bash hljs">exec -a HEMIMORPHITE tail -f /etc/passwd</code></pre>
+        
+        <p>Open a second terminal. Run the <code>ps auwwx</code> command and it would produce the following output in the process list.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ps auwwx | grep HEMIMORPHITE
+hemimor+    6977  0.0  0.0   8404  1008 pts/0    Ss+  22:03   0:00 HEMIMORPHITE -f /etc/passwd
+hemimor+    7163  0.0  0.0   9212  2372 pts/1    S+   22:23   0:00 grep --color=auto HEMIMORPHITE</code></pre>
+
+        <p>As you can see, <code>exec</code> command passed HEMIMORPHITE as first argument to command, therefore it shows in the process list with that name.</p>
+
+        <p>The examples below demonstrate the behavior of the <code>exec</code> command in the terminal.</p>
+        
+        <p>Open the terminal and list the running processes</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ps
+ PID TTY          TIME CMD
+8185 pts/0    00:00:00 bash
+8192 pts/0    00:00:00 ps<code></pre>
+
+        <p>The output shows the currently running Bash shell and the <code>ps</code> command. The Bash shell has a unique PID.</p>
+
+        <p>To confirm, check the current process ID with:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ echo $$
+8185<code></pre>
+
+        <p>The PID is the same as the output from the <code>ps</code> command, indicating this is the currently running Bash process.</p>
+
+        <p>Now, run <code>exec</code> followed by the <code>sleep</code> command:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ exec sleep 100<code></pre>
+
+        <p>The <code>sleep</code> command waits for 100 seconds.</p>
+
+        <p>Open another terminal tab, list all currently running processes and use <code>grep</code> command to find <code>sleep</code> process:</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ps -ae | grep sleep
+8185 pts/0    00:00:00 sleep<code></pre>
+
+        <p>The PID for the process is the same as the Bash shell PID, indicating the <code>exec</code> command replaced the Bash shell process.</p>
+
+        <p>The Bash session (terminal tab) closes when the one hundred seconds are complete and the process ends.</p>
+
+        <p>Now, we will see how <code>exec</code> command works in Bash scripts.</p>
+
+        <p>Create a script file with the following content:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+
+while true
+do
+        echo "1. Update "
+        echo "2. Upgrade "
+        echo "3. Exit"
+    read Input
+    case "$Input" in
+        1) exec sudo apt update ;;
+        2) exec sudo apt upgrade  ;;
+        3) break
+    esac
+done<code></pre>
+
+        <p>Change the script permission to executable and run the script in the current environment to see the results:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ chmod +x demo.sh
+[hemimorphite@ubuntu ~]$ . demo.sh
+1. Update 
+2. Upgrade 
+3. Exit
+<code></pre>
+
+        <p>Executing the script with the <code>source</code> command applies the script behavior to the current Bash shell. Use <code>exec</code> to run Bash scripts within other programs for a clean exit.</p>
+
+        <p>The <code>exec</code> command finds use in manipulating file descriptors for error logging in Bash scripts. The default Linux file descriptors are:</p>
+
+        <ol>
+            <li>stdin (0) - Standard in</li>
+            <li>stdout (1) - Standard out</li>
+            <li>stderr (2) - Standard error</li>
+        </ol>
+
+        <p>Create a Bash script with the following content:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat logging.sh
+#!/bin/bash
+
+# Create test.log file
+touch test.log
+
+# Save test.log to log_file variable
+log_file="test.log"
+
+# Redirect stdin to $log_file
+exec 1>>$log_file
+
+# Redirect stderr to the same place as stdin
+exec 2>&1
+
+echo "This line is added to the log file"
+echo "And any other lines after"
+eho "This line has an error and is logged as stderr"<code></pre>
+
+        <p>Change the script permission to executable and run the script in the current environment to see the results:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ chmod +x logging.sh
+[hemimorphite@ubuntu ~]$ ./logging.sh<code></pre>
+
+        <p>The script does not output any code. Instead, all the output logs to the <code>test.log</code> file.</p>
+
+        <p>Use the <code>cat</code> command to see the <code>test.log</code> file contents:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat test.log
+This line is added to the log file
+And any other lines after
+./logging.sh: line 17: eho: command not found<code></pre>
+
+        <h5 class="post-subtitle">exit</h5>
+
+        <p><code>exit</code> command is used to exit the shell where it is currently running.</p>
+        
+        <p>The syntax of the <code>exit</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">exit [n]</code></pre>
+
+        <p>It takes one parameter as <code>[n]</code> and exits the shell with a return of status <code>n</code>. If <code>[n]</code> is not provided, then it simply returns the status of last command that is executed.</p>
+
+        <h5 class="post-subtitle">export</h5>
+
+        <p>The <code>export</code> command is used to export environmental variables that are accessible by all processes running in the current shell session and its child processes.</p>
+
+        <p>The syntax of the <code>export</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">export [-fn] [-p] [name[=value]]</code></pre>
+
+        <p>If the <code>-f</code> option is supplied, the names musrt refer to shell functions.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ example_function() {
+    echo "This is an example function."
+}
+[hemimorphite@ubuntu ~]$ export -f example_function 
+[hemimorphite@ubuntu ~]$ bash -c example_function
+This is an example function.</code></pre>
+        
+        <p>If the <code>-p</code> option is given or there is no option supplied, a list of names of all exported variables is displayed.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ export -p
+declare -x DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+declare -x DISPLAY=":0"
+declare -x HOME="/home/hemimorphite"
+declare -x HOSTTYPE="x86_64"
+declare -x LANG="C.UTF-8"
+declare -x LESSCLOSE="/usr/bin/lesspipe %s %s"
+declare -x LESSOPEN="| /usr/bin/lesspipe %s"
+declare -x LOGNAME="hemimorphite"
+declare -x LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:"
+declare -x MOTD_SHOWN="update-motd"
+declare -x NAME="DESKTOP-J3NDV0Q"
+declare -x OLDPWD
+declare -x PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+declare -x PULSE_SERVER="unix:/mnt/wslg/PulseServer"
+declare -x PWD="/home/hemimorphite"
+declare -x SHELL="/bin/bash"
+declare -x SHLVL="1"
+declare -x TERM="xterm-256color"
+declare -x USER="hemimorphite"
+declare -x WAYLAND_DISPLAY="wayland-0"
+declare -x WSL2_GUI_APPS_ENABLED="1"
+declare -x WSLENV=""
+declare -x WSL_DISTRO_NAME="Ubuntu"
+declare -x WSL_INTEROP="/run/WSL/247687_interop"
+declare -x XDG_DATA_DIRS="/usr/local/share:/usr/share:/var/lib/snapd/desktop"
+declare -x XDG_RUNTIME_DIR="/run/user/1000/"</code></pre>
+
+        <p>The output lists all the variables used in the current shell session, and it is usually the same as running <code>export</code> without options.</p>
+        
+        <p>The <code>-n</code> option removes the specified variables and functions from the list of exported variables.</p>
+        
+        <p>In the following example, we remove the <code>HOME</code> variable:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ export -n HOME
+[hemimorphite@ubuntu ~]$ export | grep HOME
+[hemimorphite@ubuntu ~]$</code></pre>
+        
+        <p>If a variable name is followed by =value, the value of the variable is set to value.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ export VARNAME="value"
+[hemimorphite@ubuntu ~]$ printenv VARNAME
+value</code></pre>
+
+        <p>You also can assign a value to a variable first before exporting it using the <code>export</code> command. For example:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ x=100
+[hemimorphite@ubuntu ~]$ export x
+[hemimorphite@ubuntu ~]$ printenv x
+100</code></pre>
+        
+        <h5 class="post-subtitle">getopts</h5>
+
+        <p>The <code>getopts</code> is used by shell scripts to parse positional parameters.</p>
+        
+        <p>The syntax of the <code>getopts</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">getopts optstring name [arg …]</code></pre>
+        
+        <p><code>optstring</code> contains the option characters to be recognized; if a character is followed by a colon, the <code>option</code> is expected to have an argument, which should be separated from it by whitespace.The colon (:) and question mark (?) may not be used as option characters. Each time it is invoked, <code>getopts</code> places the next option in the shell variable <code>name</code>, initializing name if it does not exist, and the index of the next argument to be processed into the variable <code>OPTIND</code>. <code>OPTIND</code> is initialized to 1 each time the shell or a shell script is invoked. When an option requires an argument, <code>getopts</code> places that argument into the variable <code>OPTARG</code>. The shell does not reset <code>OPTIND</code> automatically; it must be manually reset between multiple calls to <code>getopts</code> within the same shell invocation if a new set of parameters is to be used.</p>
+        
+        <p>Here's a simple example that demonstrates the basic usage of <code>getopts</code>:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+
+while getopts "a:b" option; do
+    echo "Processing $option : OPTIND is $OPTIND"
+    case $option in
+    a)
+        echo "Option a is set with argument: $OPTARG"
+        ;;
+    b)
+        echo "Option b is set"
+        ;;
+    \?)
+        echo "Invalid option: -$OPTARG"
+        ;;
+    esac
+done
+[hemimorphite@ubuntu ~]$ chmod +x demo.sh
+[hemimorphite@ubuntu ~]$ ./demo.sh -b -a value1
+Processing b : OPTIND is 2
+Option b is set
+Processing a : OPTIND is 4
+Option a is set with argument: value1
+[hemimorphite@ubuntu ~]$ ./demo.sh -a value1 -b
+Processing a : OPTIND is 3
+Option a is set with argument: value1
+Processing b : OPTIND is 4
+Option b is set</code></pre>
+        
+        <p>We mentioned above that the other variable that <code>getopts</code> will set for you is the index of where you are up to in processing the options; this is the <code>OPTIND</code> variable. It's the index of the next script argument to be processed, so if your script takes arguments: <code>demo.sh -b -a value1</code>, then as it's processing <code>-s</code>, the <code>OPTIND</code> is 2, because the next thing it will process will be the 2nd argument (<code>-a</code>). When it's processing <code>-a value1</code>, <code>OPTIND</code> is 4, because <code>value1</code> is the 3rd script argument and the next index is 4.</p>
+
+        <p>When <code>getopts</code> reaches the end of the options, it exits with a status value of 1. It also sets name to the character <code>?</code> and sets <code>OPTIND</code> to the index of non-option argument. <code>getopts</code> recognizes the end of the options by any of the following situations:</p>
+
+        <ul>
+            <li>Finding an option that require an argument but not supply with an argument</li>
+            <li>Finding an option that doesn't start with -</li>
+            <li>Encountering an error (for example, an unrecognized option letter)</li>
+        </ul>
+
+        <p>If an invalid option is seen or a required argument of an option is not found, a question mark (<code>?</code>>) is placed in <code>name</code> and, prints an error message and unsets <code>OPTARG</code>.</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+
+while getopts "a:b" option; do
+    echo "Processing $option : OPTIND is $OPTIND"
+    case $option in
+    a)
+        echo "Option a is set with argument: $OPTARG"
+        ;;
+    b)
+        echo "Option b is set"
+        ;;
+    \?)
+        echo "Invalid option: -$OPTARG"
+        ;;
+    esac
+done
+[hemimorphite@ubuntu ~]$ chmod +x demo.sh
+[hemimorphite@ubuntu ~]$ ./demo.sh -a
+./demo.sh: option requires an argument -- a
+Processing ? : OPTIND is 2
+Invalid option: -
+[hemimorphite@ubuntu ~]$ ./demo.sh -z
+./demo.sh: illegal option -- z
+Processing ? : OPTIND is 2
+Invalid option: -</code></pre>
+
+        <p>If the first character of <code>optstring</code> is a colon, silent error reporting is used.</p>
+        
+        <p>If an invalid option is seen and silent error reporting is used, a question mark (<code>?</code>>) is placed in <code>name</code> and, the option character found is placed in <code>OPTARG</code> and no error message is printed.</p>
+
+        <p>If a required argument of an option is not found and silent error reporting is used, then a colon (<code>:</code>) is placed in <code>name</code> and <code>OPTARG</code> is set to the option character found.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+
+while getopts ":a:b" option; do
+    echo "Processing $option : OPTIND is $OPTIND"
+    case $option in
+    a)
+        echo "Option a is set with argument: $OPTARG"
+        ;;
+    b)
+        echo "Option b is set"
+        ;;
+    :)
+        echo "Argument missing"
+        ;;
+    \?)
+        echo "Invalid option: -$OPTARG"
+        ;;
+    esac
+done
+[hemimorphite@ubuntu ~]$ chmod +x demo.sh
+[hemimorphite@ubuntu ~]$ ./demo.sh -a
+Processing : : OPTIND is 2
+Argument missing
+[hemimorphite@ubuntu ~]$ ./demo.sh -z
+Processing ? : OPTIND is 2
+Invalid option: -z</code></pre>
+
+        <h5 class="post-subtitle">hash</h5>
+
+        <p>The <code>hash</code> command affects the way the current shell remembers a command's path name, either by adding a path name to a list or purging the contents of the list.</p>
+
+        <p>The syntax of the <code>hash</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">hash [-r] [-p filename] [-dt] [name]</code></pre>
+
+        <p>When we run any commands or programs in the Linux shells, it records the location of the binary of these commands in a hash table.</p>
+        
+        <p>The commands are found by searching through the directories listed in <code>PATH</code>.</p>
+
+        <p>To list the entries in the hash table, we can run the <code>hash</code> command without any arguments:</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ hash
+hash: hash table empty</code></pre>
+        
+        <p>Since we haven't run any commands, there are no entries in the hash table.</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ls >/dev/null
+[hemimorphite@ubuntu ~]$ ls >/dev/null
+[hemimorphite@ubuntu ~]$ which ls >/dev/null
+[hemimorphite@ubuntu ~]$ hash
+hits	command
+    1	/usr/bin/which
+    2	/usr/bin/ls</code></pre>
+
+        <p>We can run the hash command to add commands into the hash table without running it.</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ hash whoami grep xargs
+[hemimorphite@ubuntu ~]$ hash
+hits	command
+    0	/usr/bin/grep
+    0	/usr/bin/whoami
+    0	/usr/bin/xargs</code></pre>
+
+        <p>The <code>hash</code> command resets the table when we supply the <code>-r</code> option:</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ hash whoami grep xargs
+[hemimorphite@ubuntu ~]$ hash
+hits	command
+    0	/usr/bin/grep
+    0	/usr/bin/whoami
+    0	/usr/bin/xargs
+[hemimorphite@ubuntu ~]$ hash -r
+[hemimorphite@ubuntu ~]$ hash
+hash: hash table empty</code></pre>
+
+        <p>We can remove specific commands from the table using the <code>-d</code> option followed by the command name.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ls >/dev/null
+[hemimorphite@ubuntu ~]$ ls >/dev/null
+[hemimorphite@ubuntu ~]$ which ls >/dev/null
+[hemimorphite@ubuntu ~]$ hash -d ls
+[hemimorphite@ubuntu ~]$ hash
+hits	command
+    1	/usr/bin/which</code></pre>
+        
+        <p>The <code>hash</code> command provides us a way to set the path of commands manually using the <code>–p</code> option. We specify the <code>-p</code> option followed by the path to the binary and then the command name we want to associate it with.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ hash -p /usr/bin/date another-date
+[hemimorphite@ubuntu ~]$ another-date
+Sat Jun 15 07:17:01 PM WIB 2024</code></pre>
+        
+        <p>The <code>hash</code> command provides us a way to display the lists of commands in the hash table  using the <code>–l</code> option.</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ls
+[hemimorphite@ubuntu ~]$ mkdir example
+[hemimorphite@ubuntu ~]$ rmdir example
+[hemimorphite@ubuntu ~]$ touch file
+[hemimorphite@ubuntu ~]$ rm file
+[hemimorphite@ubuntu ~]$ hash -l
+builtin hash -p /usr/bin/ls ls
+builtin hash -p /usr/bin/mkdir mkdir
+builtin hash -p /usr/bin/rmdir rmdir
+builtin hash -p /usr/bin/touch touch
+builtin hash -p /usr/bin/rm rm</code></pre>
+
+        <p>The <code>hash</code> command doesn't report any shell built-in commands.</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ echo hello
+hello
+[hemimorphite@ubuntu ~]$ pwd
+/home/hemimorphite
+[hemimorphite@ubuntu ~]$ hash
+hash: hash table empty</code></pre>
+
+        <h5 class="post-subtitle">pwd</h5>
+
+        <p>The <code>pwd</code> (print working directory) command is used to displays the full pathname of the current directory.</p>
+
+        <p>The syntax of the <code>pwd</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">pwd [-LP]</code></pre>
+
+        <p>The <code>-L</code> option is used to display the logical current directory. This means it shows the path you used to get to the directory, even if it involves symbolic links. The default behavior of <code>pwd</code> command is the same as <code>pwd -L</code>.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ln -s /var/log link_to_log
+[hemimorphite@ubuntu ~]$ cd link_to_log
+[hemimorphite@ubuntu ~/link_to_log]$ pwd -L
+/home/hemimorphite/link_to_log</code></pre>
+
+        <p>When we use <code>pwd -L</code>, it returns <code>/home/hemimorphite/link_to_log</code>, which is the logical path we used.</p>
+
+        <p>The <code>-P</code> option is used to display the physical current directory. This means it shows the actual location of the directory, ignoring symbolic links.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ln -s /var/log link_to_log
+[hemimorphite@ubuntu ~]$ cd link_to_log
+[hemimorphite@ubuntu ~/link_to_log]$ pwd -P
+/var/log</code></pre>
+
+        <p>After navigating to <code>link_to_log</code>, when we use <code>pwd -P</code>, it returns <code>/var/log</code>, which is the actual location of the directory.</p>
+        
+        <h5 class="post-subtitle">readonly</h5>
+
+        <p>The <code>readonly</code> command is used to mark shell variables and functions as unchangeable. Once a variable or function is set as readonly, its value or function definition cannot be changed or unset.</p>
+
+        <p>The syntax of the <code>readonly</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">readonly [-aAf] [-p] [name[=value]] …</code></pre>
+        
+        <p>The <code>readonly</code> command without option is used to mark shell variables as readonly or unchangeable.</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ var1="Initial value"
+[hemimorphite@ubuntu ~]$ readonly var1
+[hemimorphite@ubuntu ~]$ var1="New value"
+bash: var1: readonly variable</code></pre>
+
+        <p>The <code>-f</code> option is used to mark shell functions as readonly or unchangeable.</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ func1() {
+>   echo "This function is readonly"
+> }
+[hemimorphite@ubuntu ~]$ readonly -f func1
+[hemimorphite@ubuntu ~]$ func1() {
+>   echo "Change function output"
+> }
+bash: func1: readonly function</code></pre>
+
+        <p>The <code>-a</code> option is used to mark indexed array variables as readonly or unchangeable.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ declare -a countries
+[hemimorphite@ubuntu ~]$ countries=("India" "France" "United Kingdom")
+[hemimorphite@ubuntu ~]$ readonly -a countries
+[hemimorphite@ubuntu ~]$ countries=("Japan" "Spanyol" "United State")
+bash: countries: readonly variable</code></pre>
+
+        <p>The <code>-A</code> option is used to mark associative array variables as readonly or unchangeable.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ declare -A country_capitals
+[hemimorphite@ubuntu ~]$ country_capitals=(["India"]="New Delhi" ["France"]="Paris" ["United Kingdom"]="London")
+[hemimorphite@ubuntu ~]$ readonly -A country_capitals
+[hemimorphite@ubuntu ~]$ country_capitals=(["Japan"]="Tokyo" ["Spanyol"]="Madrid" ["United State"]="Washington")
+bash: country_capitals: readonly variable</code></pre>
+
+        <p>The <code>-p</code> option is used to display the list of all readonly variables.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ readonly -p
+declare -r BASHOPTS="checkwinsize:cmdhist:complete_fullquote:expand_aliases:extglob:extquote:force_fignore:globasciiranges:histappend:interactive_comments:login_shell:progcomp:promptvars:sourcepath"
+declare -ar BASH_VERSINFO=([0]="5" [1]="1" [2]="16" [3]="1" [4]="release" [5]="x86_64-pc-linux-gnu")
+declare -ir EUID="1000"
+declare -ir PPID="260303"
+declare -r SHELLOPTS="braceexpand:emacs:hashall:histexpand:history:interactive-comments:monitor"
+declare -ir UID="1000"</code></pre>
+
+        <p>The <code>-f</code> option is also used to display the list of all readonly functions.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ func1() {
+>   echo "This function is readonly"
+> }
+[hemimorphite@ubuntu ~]$ readonly -f func1
+[hemimorphite@ubuntu ~]$ readonly -f
+func1 ()
+{
+    echo "This function is readonly"
+}
+declare -fr func1</code></pre>
+        
+        <h5 class="post-subtitle">return</h5>
+
+        <p>The <code>return</code> command is used in the script to return the value called in the function. The <code>return</code> command is always used in the function, if used outside the function it has no effect. This command stops the execution of the function where it is used.</p>
+
+        <p>The syntax of the <code>return</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">return [n]</code></pre>
+
+        <p>The <code>return</code> command takes a parameter <code>[n]</code>, if n is mentioned then it returns <code>[n]</code> and if n is not mentioned then it returns the status of the last command executed within the function or script. n can only be a numeric value.</p>
+
+        <p>The special variable <code>$?</code> is used to hold the return value and the status of last executed command.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ add() {
+>   add=$(($1+$2))
+>   return $add
+> }
+[hemimorphite@ubuntu ~]$ add 25 26
+[hemimorphite@ubuntu ~]$ echo $?
+51</code></pre>
+
+        <h5 class="post-subtitle">shift</h5>
+
+        <p>The <code>shift</code> command is used to shift the positional parameters (such as arguments passed to a bash script) to the left, putting each parameter in a lower position.</p>
+
+        <p>The syntax of the <code>shift</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">shift [n]</code></pre>
+
+        <p>The <code>shift</code> command takes a parameter <code>[n]</code>, if <code>[n]</code> is mentioned then the current positional parameters are shifted left <code>[n]</code> times. If <code>[n]</code> is not specified, the default value of n is 1. So the commands <code>shift 1</code> and <code>shift</code> (with no argument) do the same thing</p>
+
+        <p>If a parameter is shifted to a position with a number less than 1, its value is discarded. So the command <code>shift</code> always discards the previous value of <code>$1</code>, and <code>shift 2</code> always discards the previous values of <code>$1</code> and <code>$2</code>.</p>
+
+        <p>The special positional parameter <code>$0</code> is excluded from all shift operations, and never modified by the <code>shift</code> command.</p>
+        
+        <p>Parameters with a number 10 or greater can be referenced by putting the number in brackets, for example <code>${10}</code>, <code>${11}</code>, or <code>${12345}</code>.</p>
+
+        <p>Bash keeps track of the total number of positional parameters. This number is stored in the special shell variable <code>$#</code>.</p>
+                
+        <p>The value of <code>$#</code> decreases by n every time you run <code>shift</code>.</p>
+        
+        <p>You can pass arguments to a bash script by typing them after the script's name when running it. Each argument should be separated by a space.</p>
+
+        <p>Inside the script, you can access these arguments using special variables. <code>$1</code> represents the first argument, <code>$2</code> the second, and so on. Let's look at an example:</p>
+        
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+echo 1: $1
+echo 1: $2
+[hemimorphite@ubuntu ~]$ chmod +x demo.sh
+[hemimorphite@ubuntu ~]$ ./demo.sh one two
+1: one
+1: two</code></pre>
+        
+        <p>You will encounter situations that require more than just <code>$1</code>, <code>$2</code>, etc. Bash provides <code>shift</code> command to help you manage these scenarios.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+
+USAGE="usage: $0 arg1 arg2 ... argN"
+
+if (( $# == 0 )) 
+then
+    echo "$USAGE"
+    exit 1 
+fi
+n=1
+print "The arguments to the script are:" 
+while (($#)) 
+do
+    echo $n: $1 
+    n=$((n+1))
+    shift 
+done
+[hemimorphite@ubuntu ~]$ chmod +x demo.sh
+[hemimorphite@ubuntu ~]$ ./demo.sh one two three four five six
+The arguments to the script are: 
+1: one 
+2: two 
+3: three 
+4: four
+5: five
+6: six</code></pre>
+        
+        <h5 class="post-subtitle">times</h5>
+
+        <p>The <code>shift</code> command is used to print out the user and system times used by the shell and its children.</p>
+        
+        <h5 class="post-subtitle">trap</h5>
+        
+        <p>The <code>trap</code> command is used to catch any supported signal and react upon it.</p>
+
+        <p>The syntax of the <code>trap</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">trap [-lp] [arg] [sigspec …]</code></pre>
+
+        <p>If <code>arg</code> is absent (and there is a single <code>sigspec</code>) or equal to -, each specified signal's disposition is reset to the value it had when the shell was started. For example:</p>
+
+        <pre><code class="language-bash hljs">trap - SIGINT SIGABRT</code></pre>
+
+        <p>If <code>arg</code> is the null string, then the signal specified by each <code>sigspec</code> is ignored by the shell; in other words, the signal specified by each <code>sigspec</code> is disabled.</p>
+        
+        <pre><code class="language-bash hljs">trap "" SIGINT SIGABRT</code></pre>
+
+        <p>The <code>-l</code> option causes the shell to print a list of all the signals and their numbers.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ trap -l
+ 1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
+ 6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1
+11) SIGSEGV     12) SIGUSR2     13) SIGPIPE     14) SIGALRM     15) SIGTERM
+16) SIGSTKFLT   17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP
+21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU     25) SIGXFSZ
+26) SIGVTALRM   27) SIGPROF     28) SIGWINCH    29) SIGIO       30) SIGPWR
+31) SIGSYS      34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3
+38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13
+48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
+53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
+58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+63) SIGRTMAX-1  64) SIGRTMAX</code></pre>
+
+        <p>The <code>trap -l</code> command doesn't display signals 32 and 33 in the output because they aren't supported on Linux.</p>
+
+        <p>The <code>-p</code> option is used to display the trap commands.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ trap "echo SIGINT terminated the process" SIGINT
+[hemimorphite@ubuntu ~]$ trap "echo SIGTERM terminated the process" SIGTERM
+[hemimorphite@ubuntu ~]$ trap -p
+trap -- 'echo SIGINT terminated the process' SIGINT
+trap -- 'echo SIGTERM terminated the process' SIGTERM
+[hemimorphite@ubuntu ~]$ trap -p SIGINT
+trap -- 'echo SIGINT terminated the process' SIGINT
+[hemimorphite@ubuntu ~]$ trap - SIGINT SIGTERM</code></pre>
+
+        <p>If a <code>sigspec</code> is <code>0</code> or <code>EXIT</code>, <code>arg</code> is executed when the shell or subshell exits.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+
+# this executes when the subshell exits
+trap "echo Exiting subshell..." EXIT
+[hemimorphite@ubuntu ~]$ chmod +x demo.sh
+[hemimorphite@ubuntu ~]$ ./demo.sh
+Exiting subshell...</code></pre>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+
+# this executes when the shell exits
+trap "echo Exiting shell..." EXIT
+
+exit
+[hemimorphite@ubuntu ~]$ chmod +x demo.sh
+[hemimorphite@ubuntu ~]$ . demo.sh
+Exiting shell...
+[hemimorphite@ubuntu ~]$ trap - EXIT</code></pre>
+        
+        <p>If a <code>sigspec</code> is <code>RETURN</code>, the command <code>arg</code> is executed each time the shell script finishes executing by the <code>.</code> or <code>source</code> builtins.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+
+# this executes when the script finishes executing
+trap "echo Returning..." RETURN
+[hemimorphite@ubuntu ~]$ . demo.sh
+Returning...
+[hemimorphite@ubuntu ~]$ trap - RETURN</code></pre>
+        
+        <p>If a <code>sigspec</code> is <code>DEBUG</code>, the command <code>arg</code> is executed before every simple command, <code>for</code> command, <code>case</code> command, <code>select</code> command, every arithmetic for command, and before the first command executes in a shell function.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+
+trap "echo Executing..." DEBUG
+
+echo Hello World
+
+whoami
+
+which echo
+[hemimorphite@ubuntu ~]$ ./demo.sh
+Executing...
+Hello World
+Executing...
+hemimorphite
+Executing...
+/usr/bin/echo</code></pre>
+
+        <p>If a <code>sigspec</code> is <code>ERR</code>, the command <code>arg</code> is executed whenever a pipeline (which may consist of a single simple command), a list, or a compound command returns a non-zero exit status. The <code>ERR</code> trap is not executed if the failed command is part of the command list immediately following an <code>until</code> or <code>while</code> keyword, part of the test following the <code>if</code> or <code>elif</code> reserved words, part of a command executed in a <code>&&</code> or <code>||</code> list except the command following the final <code>&&</code> or <code>||</code>, any command in a pipeline but the last, or if the command's return status is being inverted using <code>!</code>. These are the same conditions obeyed by the <code>errexit</code> (<code>-e</code>) option.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+
+trap "echo An error occurred." ERR
+
+# unknown command
+getcommand
+[hemimorphite@ubuntu ~]$ ./demo.sh
+./demo.sh: line 6: getcommand: command not found
+An error occurred.</code></pre>
+        
+        <p>We can use the <code>trap</code> command to intercept signals so that we can handle them.</p>
+
+        <p>We can set and invoke handlers for any and all available signals</p>
+        
+        <p>We can even prevent the default action for all signals except <code>SIGKILL</code> and <code>SIGSTOP</code>:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat demo.sh
+#!/bin/bash
+
+trap "echo 'sending SIGHUP signal'" 1
+trap "echo 'sending SIGINT signal'" 2
+trap "echo 'sending SIGQUIT signal'" 3
+trap "echo 'sending SIGILL signal'" 4
+trap "echo 'sending SIGTRAP signal'" 5
+trap "echo 'sending SIGABRT signal'" 6
+trap "echo 'sending SIGBUS signal'" 7
+trap "echo 'sending SIGFPE signal'" 8
+#trap "echo 'sending SIGKILL signal'" 9
+trap "echo 'sending SIGUSR1 signal'" 10
+trap "echo 'sending SIGSEGV signal'" 11
+trap "echo 'sending SIGUSR2 signal'" 12
+trap "echo 'sending SIGPIPE signal'" 13
+trap "echo 'sending SIGALRM signal'" 14
+trap "echo 'sending SIGTERM signal'" 15
+trap "echo 'sending SIGSTKFLT signal'" 16
+trap "echo 'sending SIGCHLD signal'" 17
+trap "echo 'sending SIGCONT signal'" 18
+#trap "echo 'sending SIGSTOP signal'" 19
+trap "echo 'sending SIGTSTP signal'" 20
+trap "echo 'sending SIGTTIN signal'" 21
+trap "echo 'sending SIGTTOU signal'" 22
+trap "echo 'sending SIGURG signal'" 23
+trap "echo 'sending SIGXCPU signal'" 24
+trap "echo 'sending SIGXFSZ signal'" 25
+trap "echo 'sending SIGVTALRM signal'" 26
+trap "echo 'sending SIGPROF signal'" 27
+trap "echo 'sending SIGWINCH signal'" 28
+trap "echo 'sending SIGIO signal'" 29
+trap "echo 'sending SIGPWR signal'" 30
+trap "echo 'sending SIGTSTP signal'" 31
+[hemimorphite@ubuntu ~]$ chmod +x demo.sh
+[hemimorphite@ubuntu ~]$ . demo.sh
+[hemimorphite@ubuntu ~]$ kill -SIGHUP $$
+sending SIGHUP signal
+[hemimorphite@ubuntu ~]$ kill -SIGINT $$
+sending SIGINT signal
+[hemimorphite@ubuntu ~]$ kill -SIGQUIT $$
+sending SIGQUIT signal
+[hemimorphite@ubuntu ~]$ kill -SIGILL $$
+sending SIGILL signal
+[hemimorphite@ubuntu ~]$ kill -SIGTRAP $$
+sending SIGTRAP signal
+[hemimorphite@ubuntu ~]$ kill -SIGABRT $$
+sending SIGABRT signal
+[hemimorphite@ubuntu ~]$ kill -SIGBUS $$
+sending SIGBUS signal
+[hemimorphite@ubuntu ~]$ kill -SIGFPE $$
+sending SIGFPE signal
+[hemimorphite@ubuntu ~]$ kill -SIGUSR1 $$
+sending SIGUSR1 signal
+[hemimorphite@ubuntu ~]$ kill -SIGSEGV $$
+sending SIGSEGV signal
+[hemimorphite@ubuntu ~]$ kill -SIGUSR2 $$
+sending SIGUSR2 signal
+[hemimorphite@ubuntu ~]$ kill -SIGPIPE $$
+sending SIGPIPE signal
+[hemimorphite@ubuntu ~]$ kill -SIGALRM $$
+sending SIGALRM signal
+[hemimorphite@ubuntu ~]$ kill -SIGTERM $$
+sending SIGTERM signal
+[hemimorphite@ubuntu ~]$ kill -SIGSTKFLT $$
+sending SIGSTKFLT signal
+[hemimorphite@ubuntu ~]$ kill -SIGCHLD $$
+sending SIGCHLD signal
+[hemimorphite@ubuntu ~]$ kill -SIGCONT $$
+sending SIGCONT signal
+[hemimorphite@ubuntu ~]$ kill -SIGTSTP $$
+sending SIGTSTP signal
+[hemimorphite@ubuntu ~]$ kill -SIGTTIN $$
+sending SIGTTIN signal
+[hemimorphite@ubuntu ~]$ kill -SIGTTOU $$
+sending SIGTTOU signal
+[hemimorphite@ubuntu ~]$ kill -SIGURG $$
+sending SIGURG signal
+[hemimorphite@ubuntu ~]$ kill -SIGXCPU $$
+sending SIGXCPU signal
+[hemimorphite@ubuntu ~]$ kill -SIGXFSZ $$
+sending SIGXFSZ signal
+[hemimorphite@ubuntu ~]$ kill -SIGVTALRM $$
+sending SIGVTALRM signal
+[hemimorphite@ubuntu ~]$ kill -SIGPROF $$
+sending SIGPROF signal
+[hemimorphite@ubuntu ~]$ kill -SIGWINCH $$
+sending SIGWINCH signal
+[hemimorphite@ubuntu ~]$ kill -SIGIO $$
+sending SIGIO signal
+[hemimorphite@ubuntu ~]$ kill -SIGPWR $$
+sending SIGPWR signal
+[hemimorphite@ubuntu ~]$ kill -SIGTSTP $$
+sending SIGTSTP signal
+[hemimorphite@ubuntu ~]$ trap - SIGHUP SIGINT SIGQUIT SIGILL SIGTRAP SIGABRT SIGBUS SIGFPE SIGUSR1 SIGSEGV SIGUSR2 SIGPIPE SIGALRM SIGTERM SIGSTKFLT SIGCHLD SIGCONT SIGTSTP SIGTTIN SIGTTOU SIGURG SIGXCPU SIGXFSZ SIGVTALRM SIGPROF SIGWINCH SIGIO SIGPWR SIGTSTP</code></pre>
+
+        <h5 class="post-subtitle">umask</h5>
+        
+        <p>The <code>umask</code> command is used to set default permissions for files or directories the user creates.</p>
+
+        <p>The syntax of the <code>umask</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">umask [-p] [-S] [mode]</code></pre>
+
+        <p>In Linux, each file is associated with an owner and a group and assigned with permission access rights for three different classes of users:</p>
+
+        <ul>
+            <li>The file owner</li>
+            <li>The group members</li>
+            <li>Everyone else</li>
+        </ul>
+
+        <p>There are three permissions types that apply to each class:</p>
+
+        <ul>
+            <li>The read permission</li>
+            <li>The write permission</li>
+            <li>The execute permission</li>
+        </ul>
+
+        <p>The following example shows the permissions for a directory:</p>
+
+        <pre><code class="language-bash hljs">drwxr-xr-x 12 hemimorphite hemimorphite 4.0K Jun  16 20:51 dirname
+|[-][-][-]    [----------] [----------]
+| |  |  |           |           |       
+| |  |  |           |           +----> Group
+| |  |  |           +----------------> Owner
+| |  |  +----------------------------> Others Permissions
+| |  +-------------------------------> Group Permissions
+| +----------------------------------> Owner Permissions
++------------------------------------> File Type</code></pre>
+        
+        <p>The first character represents the file type which can be a regular file (-), a directory (d), a symbolic link (l), or any other special type of file.</p>
+
+        <p>Character <code>r</code> with an octal value of <code>4</code> stands for <code>read</code>, <code>w</code> with an octal value of <code>2</code> for <code>write</code>, <code>x</code> with an octal value of <code>1</code> for <code>execute</code> permission, and (<code>-</code>) with an octal value of <code>0</code> for no permissions.</p>
+
+        <p>If we represent the file permissions using a numeric notation, we will come up to the number <code>755</code>:</p>
+
+        <ul>
+            <li>Owner: <code>rwx</code> = <code>4+2+1</code> = <code>7</code></li>
+            <li>Group: <code>r-x</code> = <code>4+0+1</code> = <code>5</code></li>
+            <li>Other: <code>r-x</code> = <code>4+0+1</code> = <code>5</code></li>
+        </ul>
+
+        <p>The first digit represents the special permissions, and if it is omitted, it means that no special permissions are set on the file. In the example above <code>755</code> is the same as <code>0755</code>. The first digit can be a combination of <code>4</code> for <code>setuid</code>, <code>2</code> for <code>setgid</code>, and <code>1</code> for Sticky Bit.</p>
+
+        <p>On Linux systems, the default creation permissions are <code>666</code> for files, which gives read and write permission to user, group, and others, and to <code>777</code> for directories, which means read, write and execute permission to user, group, and others. By default, Linux does not allow a file to be created with execute permissions.</p>
+
+        <p>The default creation permissions can be modified using the <code>umask</code> command.</p>
+
+        <p><code>umask</code> affects only the current shell environment. On most Linux distributions, the <code>umask</code> value is set in the <code>pam_umask.so</code> or <code>/etc/profile</code> file.</p>
+
+        <p>To view the current mask value:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ umask
+022</code></pre>
+        
+        <p>The <code>umask</code> value contains the permission bits that will NOT be set on the newly created files and directories.</p>
+
+        <p>Once we get the <code>umask</code> value, that is <code>022</code>, we can calculated the permissions for:</p>
+        
+        <ul>
+            <li>Files: <code>666 - 022 = 644</code> (the default creation permissions for file – umask value = the permissions for file). The owner can read and modify the files. Group and others can only read the files.</li>
+            <li>Directories: <code>777 - 022 = 755</code> (the default creation permissions for drectory – umask value = the permissions for drectory). The owner can <code>cd</code> into the directory, and list, read, modify, create or delete the files in the directory. Group and others can <code>cd</code> into the directory and list and read the files.</li>
+        </ul>
+
+        <p>If the <code>-S</code> option is supplied without a <code>mode</code> argument, the mask is printed in a symbolic format.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ umask -S
+u=rwx,g=rx,o=rx</code></pre>
+
+        <p>If the <code>-p</code> option is supplied, and <code>mode</code> is omitted, the output is in a form that may be reused as input.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ umask -p
+umask 0022</code></pre>
+
+        <h5 class="post-subtitle">unset</h5>
+
+        <p>The <code>unset</code> is used to unset or undefine values and attributes of variables and functions.</p>
+
+        <p>The syntax of the <code>unset</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">unset [-fnv] [name]</code></pre>
+
+        <p>If the <code>-v</code> option is given, each <code>name</code> refers to a shell variable and that variable is removed.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ varname="hemimorphite blog"
+[hemimorphite@ubuntu ~]$ echo $varname
+hemimorphite blog
+[hemimorphite@ubuntu ~]$ unset -v varname
+[hemimorphite@ubuntu ~]$ echo $varname
+
+[hemimorphite@ubuntu ~]$</code></pre>
+
+        <p>If the <code>-f</code> option is given, the names refer to shell functions, and the function definition is removed.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ getname() {
+>   echo "hemimorphite blog"
+> }
+[hemimorphite@ubuntu ~]$ getname
+hemimorphite blog
+[hemimorphite@ubuntu ~]$ unset -f getname
+[hemimorphite@ubuntu ~]$ getname
+
+[hemimorphite@ubuntu ~]$</code></pre>
+
+        <p>If the <ocde>-n</ocde> option is supplied, and <code>name</code> is a variable with the <code>nameref</code> attribute, <code>name</code> will be unset rather than the variable it references.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ var=blog
+[hemimorphite@ubuntu ~]$ declare -n varnameref=${var}name
+[hemimorphite@ubuntu ~]$ varnameref="hemimorphite blog"
+[hemimorphite@ubuntu ~]$ echo $blogname
+hemimorphite blog
+[hemimorphite@ubuntu ~]$ echo $varnameref
+hemimorphite blog
+[hemimorphite@ubuntu ~]$ unset -n varnameref
+[hemimorphite@ubuntu ~]$ echo $blogname
+hemimorphite blog
+[hemimorphite@ubuntu ~]$ echo $varnameref
+
+[hemimorphite@ubuntu ~]$</code></pre>
+
+        <p><code>-n</code> option has no effect if the <code>-f</code> option is supplied.</p>
+        
+        <p>If no options are supplied, each <code>name</code> refers to a variable or refers to a function; is removed.</p>
+
+        <p>Readonly variables and functions can't be unset.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ readonly blogname="hemimorphite"
+[hemimorphite@ubuntu ~]$ unset blogname
+-bash: unset: blogname: cannot unset: readonly variable</code></pre>
+        
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/shell-script" class="tag">shell script</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/bash" class="tag">bash</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/builtin-commands" class="tag">builtin commands</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/06/13/mail-command-on-ubuntu-22.04/"><img src="https://hemimorphite.github.io/assets/images/bashscripting.jfif" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/06/13/mail-command-on-ubuntu-22.04/">mail Command on Ubuntu 22.04</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/06/13/bourne-shell-environment-variables/"><img src="https://hemimorphite.github.io/assets/images/bashscripting.jfif" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/06/13/bourne-shell-environment-variables/">Bourne Shell Environment Variables</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/06/11/exit-codes-in-bash-scripting/"><img src="https://hemimorphite.github.io/assets/images/bashscripting.jfif" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/06/11/exit-codes-in-bash-scripting/">Exit Codes In Bash Scripting</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/06/10/build-coffeescript-from-source-on-ubuntu-22.04/"><img src="https://hemimorphite.github.io/assets/images/dotnet.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/06/10/build-coffeescript-from-source-on-ubuntu-22.04/">Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/06/10/build-powershell-version-7.4.2-on-ubuntu-22.04/"><img src="https://hemimorphite.github.io/assets/images/dotnet.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/06/10/build-powershell-version-7.4.2-on-ubuntu-22.04/">Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command/"><img src="https://hemimorphite.github.io/assets/images/ubuntu2204.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command/">Manage Multiple Versions of Packages with update-alternatives Command on Ubuntu 22.04</a></h4>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/zh/2024/06/16/bourne-shell-builtin-commands/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/zh/2024/06/16/bourne-shell-builtin-commands/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+  	</body>
+</html>

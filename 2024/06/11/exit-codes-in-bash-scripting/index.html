@@ -656,6 +656,20 @@
 						  	
 						
 						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
 						</ul>
 					</div>
 				</div>
@@ -732,21 +746,21 @@
 
         <p>Let's simulate the exit codes</p>
 
-        <h6>General Error: 1</h6>
+        <h6 class="post-subtitle">General Error: 1</h6>
 
         <pre><code class="language-bash hljs">$ echo $((10 / 0))
 bash: 10 / 0: division by 0 (error token is "0")
 $ echo $?
 1</code></pre>
 
-        <h6>Misuse of Shell Built-in: 2</h6>
+        <h6 class="post-subtitle">Misuse of Shell Built-in: 2</h6>
 
         <pre><code class="language-bash hljs">$ ls nonexistdirectory/
 ls: cannot access 'nonexistdirectory/': No such file or directory
 $ echo $?
 2</code></pre>
         
-        <h6>Cannot Execute: 126</h6>
+        <h6 class="post-subtitle">Cannot Execute: 126</h6>
 
         <pre><code class="language-bash hljs">$ cat nonexecutablescript.sh
 #!/bin/bash
@@ -758,14 +772,14 @@ bash: ./nonexecutablescript.sh: Permission denied
 $ echo $?
 126</code></pre>
         
-        <h6>Command Not Found: 127</h6>
+        <h6 class="post-subtitle">Command Not Found: 127</h6>
 
         <pre><code class="language-bash hljs">$ execute
 bash: execute: command not found
 $ echo $?
 127</code></pre>
 
-        <h6>Fatal Error Signal n: 128+n</h6>
+        <h6 class="post-subtitle">Fatal Error Signal n: 128+n</h6>
         
         <p>When we terminate a program by using Ctrl+C, we effectively send it a <code>SIGINT</code> signal. This signal has a value of 2. Therefore, the program will stop executing and return an exit code with a value 128 + 2 = 130.</p>
 
@@ -818,6 +832,19 @@ $ echo $?
 					<div class="row">
 						
 						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/"><img src="https://hemimorphite.github.io/assets/images/bashscripting.jfif" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/">Bourne Shell Builtin Commands</a></h4>
+							</div>
+						</div>
 						
 						
 						
@@ -883,19 +910,6 @@ $ echo $?
 								</div>
 								<div class="blog-eyebrow">Tutorial</div>
 								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command/">Manage Multiple Versions of Packages with update-alternatives Command on Ubuntu 22.04</a></h4>
-							</div>
-						</div>
-						
-						
-						
-						
-						<div class="col-md-6 col-lg-4">
-							<div class="blog-post">
-								<div class="blog-thumb">
-									<a href="https://hemimorphite.github.io/2024/04/09/install-jekyll-on-ubuntu-22.04/"><img src="https://hemimorphite.github.io/assets/images/jekyll.jpg" alt=""></a>
-								</div>
-								<div class="blog-eyebrow">Tutorial</div>
-								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/04/09/install-jekyll-on-ubuntu-22.04/">Install Jekyll on Ubuntu 22.04</a></h4>
 							</div>
 						</div>
 						
