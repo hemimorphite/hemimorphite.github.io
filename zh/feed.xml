@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-06-16T19:26:34+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Bourne Shell Builtin Commands</title><link href="https://hemimorphite.github.io/zh/2024/06/16/bourne-shell-builtin-commands/" rel="alternate" type="text/html" title="Bourne Shell Builtin Commands" /><published>2024-06-16T16:21:00+00:00</published><updated>2024-06-16T16:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-06-16T19:32:50+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Bourne Shell Builtin Commands</title><link href="https://hemimorphite.github.io/zh/2024/06/16/bourne-shell-builtin-commands/" rel="alternate" type="text/html" title="Bourne Shell Builtin Commands" /><published>2024-06-16T16:21:00+00:00</published><updated>2024-06-16T16:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Bourne Shell Builtin Commands</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -416,7 +416,7 @@ LANGUAGE=en_US
 LC_ADDRESS=id_ID.UTF-8
 LC_NAME=id_ID.UTF-8
 [hemimorphite@ubuntu ~]$ exec -c printenv
-[hemimorphite@ubuntu ~]$<code></pre>
+[hemimorphite@ubuntu ~]$</code></pre>
 
         <p>The last option, <code>-a [name]</code>, will pass name as the first argument to command. The command will still run as expected, but the name of the process will change.</p>
 
@@ -437,27 +437,27 @@ hemimor+    7163  0.0  0.0   9212  2372 pts/1    S+   22:23   0:00 grep --color=
         <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ps
  PID TTY          TIME CMD
 8185 pts/0    00:00:00 bash
-8192 pts/0    00:00:00 ps<code></pre>
+8192 pts/0    00:00:00 ps</code></pre>
 
         <p>The output shows the currently running Bash shell and the <code>ps</code> command. The Bash shell has a unique PID.</p>
 
         <p>To confirm, check the current process ID with:</p>
 
         <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ echo $$
-8185<code></pre>
+8185</code></pre>
 
         <p>The PID is the same as the output from the <code>ps</code> command, indicating this is the currently running Bash process.</p>
 
         <p>Now, run <code>exec</code> followed by the <code>sleep</code> command:</p>
 
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ exec sleep 100<code></pre>
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ exec sleep 100</code></pre>
 
         <p>The <code>sleep</code> command waits for 100 seconds.</p>
 
         <p>Open another terminal tab, list all currently running processes and use <code>grep</code> command to find <code>sleep</code> process:</p>
         
         <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ps -ae | grep sleep
-8185 pts/0    00:00:00 sleep<code></pre>
+8185 pts/0    00:00:00 sleep</code></pre>
 
         <p>The PID for the process is the same as the Bash shell PID, indicating the <code>exec</code> command replaced the Bash shell process.</p>
 
@@ -481,7 +481,7 @@ do
         2) exec sudo apt upgrade  ;;
         3) break
     esac
-done<code></pre>
+done</code></pre>
 
         <p>Change the script permission to executable and run the script in the current environment to see the results:</p>
 
@@ -490,7 +490,7 @@ done<code></pre>
 1. Update 
 2. Upgrade 
 3. Exit
-<code></pre>
+</code></pre>
 
         <p>Executing the script with the <code>source</code> command applies the script behavior to the current Bash shell. Use <code>exec</code> to run Bash scripts within other programs for a clean exit.</p>
 
@@ -521,12 +521,12 @@ exec 2>&1
 
 echo "This line is added to the log file"
 echo "And any other lines after"
-eho "This line has an error and is logged as stderr"<code></pre>
+eho "This line has an error and is logged as stderr"</code></pre>
 
         <p>Change the script permission to executable and run the script in the current environment to see the results:</p>
 
         <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ chmod +x logging.sh
-[hemimorphite@ubuntu ~]$ ./logging.sh<code></pre>
+[hemimorphite@ubuntu ~]$ ./logging.sh</code></pre>
 
         <p>The script does not output any code. Instead, all the output logs to the <code>test.log</code> file.</p>
 
@@ -535,7 +535,7 @@ eho "This line has an error and is logged as stderr"<code></pre>
         <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat test.log
 This line is added to the log file
 And any other lines after
-./logging.sh: line 17: eho: command not found<code></pre>
+./logging.sh: line 17: eho: command not found</code></pre>
 
         <h5 class="post-subtitle">exit</h5>
 
@@ -1918,7 +1918,7 @@ Hello hemimorphite</code></pre>
 </div>
 
 <figure class="post-image">
-    <img src="/assets/images/clinux.jpg" alt="Blog Cover">
+    <img src="/assets/images/linux.jpg" alt="Blog Cover">
 </figure>
 
     <article class="post-content">
