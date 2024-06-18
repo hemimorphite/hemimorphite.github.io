@@ -1,6 +1,6 @@
 ---
 layout: category
-title: "CATEGORY: Tips & Tricks"
+title: "Category: Tips & Tricks"
 category: "Tips and Tricks"
 lang: en
 permalink: '/category/tips-and-tricks'

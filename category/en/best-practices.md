@@ -1,6 +1,6 @@
 ---
 layout: category
-title: "CATEGORY: Best Practices"
+title: "Category: Best Practices"
 category: "Best Practices"
 lang: en
 permalink: '/category/best-practices'

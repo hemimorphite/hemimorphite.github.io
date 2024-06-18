@@ -7,49 +7,46 @@
 		<li class="disabled"><a><i class="fa fa-angle-double-left"></i></a></li>
 		{% endif %}
 
-		{% assign pageminus2 = paginator.page | minus: 2 %}
-		{% if pageminus2 > 1 and paginator.total_pages > 5 %}
-		<li class="disabled"><a>...</a></li>
-		{% elsif pageminus2 >= 1 and paginator.total_pages <= 5 %}
-			{% assign finish = pageminus2 %}
-			{% for i in (1..finish) %}
-				{% if i == 1 %}
-				<li><a href="{{ site.url }}{{ lang }}">1</a></li>
-				{% else %}
-				<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
+		{% for i in (1..paginator.total_pages) %}
+			{% if i == paginator.page %}
+			<li class="active"><a href="{{ site.url }}{{ lang }}/page/{{ paginator.page }}">{{ paginator.page }}</a></li>
+			{% elsif i == 1 %}
+			<li><a href="{{ site.url }}{{ lang }}">1</a></li>
+			{% elsif i == paginator.total_pages %}
+			<li><a href="{{ site.url }}{{ lang }}/page/{{ paginator.total_pages }}">{{ paginator.total_pages }}</a></li>
+			{% else %}
+				{% assign pageminus1 = paginator.page | minus: 1 %}
+				{% assign pageplus1 = paginator.page | plus: 1 %}
+
+				{% if pageminus1 >= 1 %}
+					{% if paginator.total_pages >= 6 %}
+						{% if pageminus1 > 2 %}
+						<li class="disabled"><a>...</a></li>
+						{% endif %}
+					{% endif %}
+					{% if i == pageminus1 %}
+					<li><a href="{{ site.url }}{{ lang }}/page/{{ pageminus1 }}">{{ pageminus1 }}</a></li>
+					{% endif %}
 				{% endif %}
-			{% endfor %}
-		{% endif %}
+				
+				{% if pageplus1 <= paginator.total_pages %}
+					{% if paginator.total_pages > 6 %}
+						{% if pageplus1 < paginator.total_pages %}
+						<li class="disabled"><a>...</a></li>
+						{% endif %}
+					{% endif %}
+					{% if i == pageplus1 %}
+					<li><a href="{{ site.url }}{{ lang }}/page/{{ pageplus1 }}">{{ pageplus1 }}</a></li>
+					{% endif %}
+				{% endif %}
+				
+				{% if paginator.total_pages >= 6 %}
 
-		{% assign pageminus1 = paginator.page | minus: 1 %}
-		{% if pageminus1 == 1 %}
-		<li><a href="{{ site.url }}{{ lang }}">1</a></li>
-		{% elsif pageminus1 > 1 %}
-		<li><a href="{{ site.url }}{{ lang }}/page/{{ pageminus1 }}">{{ pageminus1 }}</a></li>
-		{% endif %}
+				{% endif %}
+			{% endif %}
+		{% endfor %}
 
-		{% if paginator.page == 1 %}
-		<li class="active"><a href="{{ site.url }}{{ lang }}">1</a></li>
-		{% else %}
-		<li class="active"><a href="{{ site.url }}{{ lang }}/page/{{ paginator.page }}">{{ paginator.page }}</a></li>
-		{% endif %}
-
-		{% assign pageplus1 = paginator.page | plus: 1 %}
-		{% if pageplus1 <= paginator.total_pages %}
-		<li><a href="{{ site.url }}{{ lang }}/page/{{ pageplus1 }}">{{ pageplus1 }}</a></li>
-		{% endif %}		
-
-		{% assign pageplus2 = paginator.page | plus: 2 %}
-		{% if pageplus2 < paginator.total_pages and paginator.total_pages > 5 %}
-		<li class="disabled"><a>...</a></li>
-		{% elsif pageplus2 <= paginator.total_pages and paginator.total_pages <= 5 %}
-			{% assign start = pageplus2 %}
-			{% assign finish = paginator.total_pages %}
-			{% for i in (start..finish) %}
-				<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
-			{% endfor %}
-		{% endif %}
-
+		
 		{% if paginator.next_page %}
 		<li><a href="{{ site.url }}{{ lang }}{{ paginator.next_page_path }}"><i class="fa fa-angle-double-right"></i></a></li>
 		{% else %}

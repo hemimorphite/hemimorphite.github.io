@@ -1,6 +1,6 @@
 ---
 layout: category
-title: "CATEGORY: Tutorials"
+title: "Category: Tutorials"
 category: "Tutorials"
 lang: en
 permalink: '/category/tutorials'

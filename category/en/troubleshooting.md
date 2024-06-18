@@ -1,6 +1,6 @@
 ---
 layout: category
-title: "CATEGORY: Troubleshooting"
+title: "Category: Troubleshooting"
 category: "Troubleshooting"
 lang: en
 permalink: '/category/troubleshooting'
