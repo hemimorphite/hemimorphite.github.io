@@ -279,6 +279,10 @@ header {
 .blog-post .post-title {
 	margin-bottom: 1rem;
 }
+.blog-post .post-subtitle {
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+}
 .blog-post .post-author {
 	margin-bottom: 2rem;
 	display: flex;

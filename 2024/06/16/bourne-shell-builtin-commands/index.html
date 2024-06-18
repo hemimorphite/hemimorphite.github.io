@@ -738,6 +738,12 @@ while true
 done</code></pre>
         
         <p>Alternatively, we can use <code>:</code> instead of <code>true</code> to create an infinite loop.</p>
+        
+        <pre><code class="language-bash hljs">#!/usr/bin/env bash
+while :
+        do 
+        # ...
+done</code></pre>
 
         <h5 class="post-subtitle">. (a period)</h5>
         
@@ -2033,6 +2039,730 @@ hemimorphite blog
 [hemimorphite@ubuntu ~]$ unset blogname
 -bash: unset: blogname: cannot unset: readonly variable</code></pre>
         
+        <h5 class="post-subtitle">test</h5>
+
+        <p>The <code>test</code> command compares one element against another and returns true or false.</p>
+
+        <p>The syntax of the <code>test</code> command takes the following form:</p>
+
+        <pre><code class="language-bash hljs">test expr</code></pre>
+
+        <p>Or</p>
+
+        <pre><code class="language-bash hljs">[ expr ]</code></pre>
+
+        <p><code>test</code> exits with the status determined by <code>expr</code>. Placing the <code>expr</code> between square brackets ([ and ]) is the same as testing the <code>expr</code> with <code>test</code>. To see the exit status at the command prompt, <code>echo</code> the value <code>$?</code> A value of <code>0</code> means the expression evaluated as <code>true</code>, and a value of <code>1</code> means the expression evaluated as <code>false</code>.</p>
+
+        <p>Expressions of <code>test</code> command take the following forms:</p>
+        
+        <div class="overflow-x:auto;">
+        <table class="table table-bordered border-primary">
+            <thead>
+                <tr>
+                    <th>Expression</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <code>expression</code>
+                    </td>
+                    <td>
+                        <code>expression</code> is <code>true</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test -n hemimorphite
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -n hemimorphite ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>! expression</code>
+                    </td>
+                    <td>
+                        <code>expression</code> is <code>false</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test ! -z hemimorphite
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ ! -z hemimorphite ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>expression1 -a expression2</code>
+                    </td>
+                    <td>
+                        both <code>expression1</code> and <code>expression2</code> are <code>true</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test -n hemimorphite -a hemimorphite != Hemimorphite
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -n hemimorphite -a hemimorphite != Hemimorphite ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>expression1 -o expression2</code>
+                    </td>
+                    <td>either <code>expression1</code> or <code>expression2</code> is true </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test -z hemimorphite -o hemimorphite != Hemimorphite
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -z hemimorphite -o hemimorphite != Hemimorphite ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-n string</code>
+                    </td>
+                    <td>the length of <code>string</code> is nonzero </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test -n hemimorphite
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -n hemimorphite ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>string</code>
+                    </td>
+                    <td>
+                        equivalent to <code>-n string</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test hemimorphite
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ hemimorphite ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-z string</code>
+                    </td>
+                    <td>the length of <code>string</code> is zero</td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test -z ''
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -z '' ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>string1 = string2</code>
+                    </td>
+                    <td>
+                        the strings are equal
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test 'hemimorphite blog' = 'hemimorphite blog'
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ 'hemimorphite blog' = 'hemimorphite blog' ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>string1 != string2</code>
+                    </td>
+                    <td>the strings are not equal</td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test 'hemimorphite blog' != 'Hemimorphite Blog'
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ 'hemimorphite blog' != 'Hemimorphite Blog' ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>integer1 -eq integer2</code>
+                    </td>
+                    <td>
+                        <code>integer1</code> equals <code>integer2</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test 100 -eq 100
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ 100 -eq 100 ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>integer1 -ge integer2</code>
+                    </td>
+                    <td>
+                        <code>integer1</code> is greater than or equal to <code>integer2</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test 100 -ge 60
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ 100 -ge 60 ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>integer1 -gt integer2</code>
+                    </td>
+                    <td>
+                        <code>integer1</code> is greater than <code>integer2</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test 100 -gt 60
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ 100 -gt 60 ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>integer1 -le integer2</code>
+                    </td>
+                    <td>
+                        <code>integer1</code> is less than or equal to <code>integer2</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test 80 -le 120
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ 80 -le 120 ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>integer1 -lt integer2</code>
+                    </td>
+                    <td>
+                        <code>integer1</code> is less than <code>integer2</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test 80 -lt 120
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ 80 -lt 120 ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>integer1 -ne integer2</code>
+                    </td>
+                    <td>
+                        <code>integer1</code> is not equal to <code>integer2</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test 80 -ne 120
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ 80 -ne 120 ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>file1 -ef file2</code>
+                    </td>
+                    <td>
+                        <code>file1</code> and <code>file2</code> have the same device and inode (index node) numbers. The following metadata exists in an inode:
+                        <ul>
+                            <li>File type</li>
+                            <li>Permissions</li>
+                            <li>Owner ID</li>
+                            <li>Group ID</li>
+                            <li>Size of file</li>
+                            <li>Time last accessed</li>
+                            <li>Time last modified</li>
+                            <li>Soft/Hard Links</li>
+                            <li>Access Control List (ACLs)</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs"># create a file
+[hemimorphite@ubuntu ~]$ touch doc1.txt
+# create a hard link to doc1.txt
+[hemimorphite@ubuntu ~]$ ln doc1.txt doc2.txt
+# create a soft link to doc1.txt
+[hemimorphite@ubuntu ~]$ ln -s doc1.txt doc3.txt
+[hemimorphite@ubuntu ~]$ test doc1.txt -ef doc2.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ test doc1.txt -ef doc3.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ test doc2.txt -ef doc3.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ doc1.txt -ef doc2.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ doc1.txt -ef doc3.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ doc2.txt -ef doc3.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>file1 -nt file2</code>
+                    </td>
+                    <td>
+                        <code>file1</code> is newer (modification date) than <code>file2</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs"># create a file
+[hemimorphite@ubuntu ~]$ touch olddoc.txt
+# create a newer file
+[hemimorphite@ubuntu ~]$ touch newdoc.txt
+# create a soft link to doc1.txt
+[hemimorphite@ubuntu ~]$ test newdoc.txt -nt olddoc.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ newdoc.txt -nt olddoc.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>file1 -ot file2</code>
+                    </td>
+                    <td>
+                        <code>file1</code> is older (modification date) than <code>file2</code>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs"># create a file
+[hemimorphite@ubuntu ~]$ touch olddoc.txt
+# create a newer file
+[hemimorphite@ubuntu ~]$ touch newdoc.txt
+# create a soft link to doc1.txt
+[hemimorphite@ubuntu ~]$ test olddoc.txt -ot newdoc.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ olddoc.txt -ot newdoc.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-b file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and is block special (block device). A block special file acts as a direct interface to a block device. A block device is any device which performs data I/O in units of blocks.<br>
+                        Examples of block special files:
+                        <ul>
+                            <li><code>dev/fdn</code>: mounted partitions of floppy disks. The letter <code>n</code> refers to a physical device</li>
+                            <li><code>dev/scdn</code> or <code>dev/srn</code>: mounted partitions of SCSI CD-ROMs. The letter <code>n</code> refers to a physical device</li>
+                            <li><code>dev/hdxn</code>: mounted partitions of Integrated Drive Electronics (IDE) controllers. The letter <code>x</code> refers to a physical device, and the number <code>n</code> refers to a partition on that device. For instance, <code>/dev/hda1</code> is the first partition on the first physical storage device.</li>
+                            <li><code>dev/sdxn</code>: mounted partitions of SCSI disks. The letter <code>x</code> refers to a physical device, and the number <code>n</code> refers to a partition on that device. For instance, <code>/dev/sda1</code> is the first partition on the first physical storage device.</li>
+                            <li><code>dev/mmcblkxpn</code>: mounted partitions of SD/MMC cards. The letter <code>x</code> refers to a physical device, and the number <code>n</code> refers to a partition on that device. For instance, <code>/dev/sda1</code> is the first partition on the first physical storage device.</li>
+                            <li><code>/dev/loopn</code> — loop devices. These are special devices which allow a file in the filesystem to be used as a block device. The file may contain an entire filesystem of its own, and be accessed as if it were a mounted partition on a physical storage device. For example, an ISO disk image file may be mounted as a loop device.</li>
+                            <li>etc</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test -b /dev/sda1
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ test -b /dev/loop1
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -b /dev/sda1 ]
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -b /dev/loop1 ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-c file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and is character special. A character special file is similar to a block device, but data is written one character (eight bits, or one byte) at a time.<br>
+                        Examples of character special files:<br>
+                        <ul>
+                            <li><code>/dev/stdin</code> (Standard input)</li>
+                            <li><code>/dev/stdout</code> (Standard output.)</li>
+                            <li><code>/dev/stderr</code> (Standard error.)</li>
+                            <li><code>/dev/random</code> (PRNG which may delay returning a value to acquire additional entropy)</li>
+                            <li><code>/dev/urandom</code> (PRNG which always returns a value immediately, regardless of required entropy)</li>
+                            <li><code>/dev/null</code> (The null device. Reading from this file always gets a null byte; writing to this file successfully does nothing)</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ test -c /dev/stdin
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ test -c /dev/urandom
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -c /dev/stdin ]
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -c /dev/urandom ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-d file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and is a directory
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ mkdir docs
+[hemimorphite@ubuntu ~]$ test -d docs
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -d docs ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-e file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch specs.txt
+[hemimorphite@ubuntu ~]$ test -e specs.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -e specs.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-f file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and is a regular file
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch specs.txt
+[hemimorphite@ubuntu ~]$ test -f specs.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -f specs.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-g file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and is set-group-ID
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch specs.txt
+[hemimorphite@ubuntu ~]$ chmod g+s specs.txt
+[hemimorphite@ubuntu ~]$ test -g specs.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -g specs.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-G file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and is owned by the effective group ID
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch specs.txt
+[hemimorphite@ubuntu ~]$ ls -la specs.txt
+-rw-r--r-- 1 hemimorphite hemimorphite 0 Jun 18 01:00 specs.txt
+# user hemimorphite is in hemimorphite group and specs.txt is owned by hemimorphite group
+[hemimorphite@ubuntu ~]$ test -G specs.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -G specs.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-h file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and is a symbolic link (same as <code>-L</code>)
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch doc1.txt
+[hemimorphite@ubuntu ~]$ ln -s doc1.txt doc2.txt
+[hemimorphite@ubuntu ~]$ test -h doc2.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -h doc2.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-k file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and has its sticky bit set. When a directory or a file has the sticky bit set, its files can be deleted or renamed only by the file owner, directory owner and the root user.
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch doc1.txt
+[hemimorphite@ubuntu ~]$ chmod +t doc1.txt
+[hemimorphite@ubuntu ~]$ test -k doc2.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -k doc2.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-L file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and is a symbolic link (same as <code>-h</code>)
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch doc1.txt
+[hemimorphite@ubuntu ~]$ ln -s doc1.txt doc2.txt
+[hemimorphite@ubuntu ~]$ test -L doc2.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -L doc2.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-O file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and is owned by the effective user ID
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch specs.txt
+[hemimorphite@ubuntu ~]$ ls -la specs.txt
+-rw-r--r-- 1 hemimorphite hemimorphite 0 Jun 18 01:00 specs.txt
+# specs.txt is owned by hemimorphite
+[hemimorphite@ubuntu ~]$ test -O specs.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -O specs.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-p file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and is a named pipe
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ mkfifo pipeone
+[hemimorphite@ubuntu ~]$ test -p pipeone
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -p pipeone ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-r file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and read permission is granted
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch specs.txt
+[hemimorphite@ubuntu ~]$ ls -la specs.txt
+-rw-r--r-- 1 hemimorphite hemimorphite 0 Jun 18 01:00 specs.txt
+[hemimorphite@ubuntu ~]$ test -r specs.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -r specs.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-s file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and has a size greater than zero
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch specs.txt
+[hemimorphite@ubuntu ~]$ echo Bash Language Specification > specs.txt
+[hemimorphite@ubuntu ~]$ test -s specs.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -s specs.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-S file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and is a socket. Sockets are Linux file descriptors that serve as the communication end-points for processes running on that device.
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs"># create a socket
+[hemimorphite@ubuntu ~]$ nc -Ul server.sock &
+[hemimorphite@ubuntu ~]$ test -S server.sock
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -S server.sock ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-t fd</code>
+                    </td>
+                    <td>
+                        file descriptor <code>fd</code> is opened on a terminal. File Descriptors are positive integers that act as abstract handles for IO/resources and files. All file descriptors that a process contains are stored in the directory <code>/proc/&lt;PID&gt;/fd/</code>. &lt;PID&gt; stands for the process ID.
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch out.txt
+# Opening file descriptors #4 for reading and writing
+[hemimorphite@ubuntu ~]$ exec 4<>out.txt 
+# $$ is the process ID of the current instance of Bash
+[hemimorphite@ubuntu ~]$ test -t /proc/$$/fd/4
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -t /proc/$$/fd/4 ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-u file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and its set-user-ID bit is set
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch specs.txt
+[hemimorphite@ubuntu ~]$ chmod u+s specs.txt
+[hemimorphite@ubuntu ~]$ test -u specs.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -u specs.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-w file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and write permission is granted
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch specs.txt
+[hemimorphite@ubuntu ~]$ chmod u+w specs.txt
+[hemimorphite@ubuntu ~]$ ls -la specs.txt
+-rw-r--r-- 1 hemimorphite hemimorphite 0 Jun 18 01:00 specs.txt
+[hemimorphite@ubuntu ~]$ test -w specs.txt
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -w specs.txt ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>-x file</code>
+                    </td>
+                    <td>
+                        <code>file</code> exists and execute (or search) permission is granted
+                    </td>
+                    <td>
+                        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ touch build.sh
+[hemimorphite@ubuntu ~]$ chmod u+x build.sh
+[hemimorphite@ubuntu ~]$ ls -la build.sh
+-rwxr--r-- 1 hemimorphite hemimorphite 0 Jun 18 15:56 build.sh
+[hemimorphite@ubuntu ~]$ test -x build.sh
+[hemimorphite@ubuntu ~]$ echo $?
+0
+[hemimorphite@ubuntu ~]$ [ -x build.sh ]
+[hemimorphite@ubuntu ~]$ echo $?
+0</code></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
     </article>
 
     <div class="post-tags">
