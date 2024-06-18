@@ -7,6 +7,8 @@
 		<li class="disabled"><a><i class="fa fa-angle-double-left"></i></a></li>
 		{% endif %}
 
+		{% assign skip1 = 0 %}
+		{% assign skip2 = 0 %}
 		{% for i in (1..paginator.total_pages) %}
 			{% if i == paginator.page %}
 			<li class="active"><a href="{{ site.url }}{{ lang }}/page/{{ paginator.page }}">{{ paginator.page }}</a></li>
@@ -18,30 +20,25 @@
 				{% assign pageminus1 = paginator.page | minus: 1 %}
 				{% assign pageplus1 = paginator.page | plus: 1 %}
 
-				{% if pageminus1 >= 1 %}
-					{% if paginator.total_pages >= 6 %}
+				{% if paginator.total_pages > 7 %}
+					{% if skip1 == 0 %}
 						{% if pageminus1 > 2 %}
+						{% assign skip1 = 1 %}
 						<li class="disabled"><a>...</a></li>
 						{% endif %}
 					{% endif %}
 					{% if i == pageminus1 %}
 					<li><a href="{{ site.url }}{{ lang }}/page/{{ pageminus1 }}">{{ pageminus1 }}</a></li>
 					{% endif %}
-				{% endif %}
-				
-				{% if pageplus1 <= paginator.total_pages %}
-					{% if paginator.total_pages > 6 %}
-						{% if pageplus1 < paginator.total_pages %}
-						<li class="disabled"><a>...</a></li>
-						{% endif %}
-					{% endif %}
 					{% if i == pageplus1 %}
 					<li><a href="{{ site.url }}{{ lang }}/page/{{ pageplus1 }}">{{ pageplus1 }}</a></li>
 					{% endif %}
-				{% endif %}
-				
-				{% if paginator.total_pages >= 6 %}
-
+					{% if skip2 == 0 %}
+						{% if pageplus1 < paginator.total_pages %}
+						{% assign skip2 = 1 %}
+						<li class="disabled"><a>...</a></li>
+						{% endif %}
+					{% endif %}
 				{% endif %}
 			{% endif %}
 		{% endfor %}
