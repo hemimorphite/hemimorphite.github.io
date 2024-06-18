@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: API Level 21"
+title: "Tag: API Level 21"
 tag: "api level 21"
 lang: en
 permalink: '/tag/api-level-21'

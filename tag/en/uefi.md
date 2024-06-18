@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: UEFI"
+title: "Tag: UEFI"
 tag: "uefi"
 lang: en
 permalink: '/tag/uefi'

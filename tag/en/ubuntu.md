@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Ubuntu"
+title: "Tag: Ubuntu"
 tag: "ubuntu"
 lang: en
 permalink: '/tag/ubuntu'

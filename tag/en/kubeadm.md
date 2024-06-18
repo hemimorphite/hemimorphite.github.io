@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Kubeadm"
+title: "Tag: kubeadm"
 tag: "kubeadm"
 lang: en
 permalink: '/tag/kubeadm'

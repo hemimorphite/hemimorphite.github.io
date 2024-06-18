@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Kubernetes"
+title: "Tag: Kubernetes"
 tag: "kubernetes"
 lang: en
 permalink: '/tag/kubernetes'

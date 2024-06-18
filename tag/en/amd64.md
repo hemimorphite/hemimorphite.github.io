@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: amd64"
+title: "Tag: amd64"
 tag: "amd64"
 lang: en
 permalink: '/tag/amd64'

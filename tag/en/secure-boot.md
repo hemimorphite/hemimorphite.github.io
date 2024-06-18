@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Secure Boot"
+title: "Tag: Secure Boot"
 tag: "secure boot"
 lang: en
 permalink: '/tag/secure-boot'

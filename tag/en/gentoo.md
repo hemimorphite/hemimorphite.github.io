@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Gentoo"
+title: "Tag: Gentoo"
 tag: "gentoo"
 lang: en
 permalink: '/tag/gentoo'

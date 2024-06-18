@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: WSL"
+title: "Tag: WSL"
 tag: "wsl"
 lang: en
 permalink: '/tag/wsl'

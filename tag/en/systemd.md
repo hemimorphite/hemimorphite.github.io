@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: systemd"
+title: "Tag: systemd"
 tag: "systemd"
 lang: en
 permalink: '/tag/systemd'

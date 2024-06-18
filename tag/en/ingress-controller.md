@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Ingress Controller"
+title: "Tag: Ingress Controller"
 tag: "ingress controller"
 lang: en
 permalink: '/tag/ingress-controller'

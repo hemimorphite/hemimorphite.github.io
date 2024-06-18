@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Project Calico"
+title: "Tag: Project Calico"
 tag: "project calico"
 lang: en
 permalink: '/tag/project-calico'

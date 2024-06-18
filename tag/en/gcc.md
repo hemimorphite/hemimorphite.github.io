@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: gcc"
+title: "Tag: gcc"
 tag: "gcc"
 lang: en
 permalink: '/tag/gcc'

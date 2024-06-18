@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: linux"
+title: "Tag: Linux"
 tag: "linux"
 lang: en
 permalink: '/tag/linux'

@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: MetalLB"
+title: "Tag: MetalLB"
 tag: "metallb"
 lang: en
 permalink: '/tag/metallb'

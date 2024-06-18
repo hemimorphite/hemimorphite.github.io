@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Fedora"
+title: "Tag: Fedora"
 tag: "fedora"
 lang: en
 permalink: '/tag/fedora'

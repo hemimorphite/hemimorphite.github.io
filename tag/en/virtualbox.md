@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Virtualbox"
+title: "Tag: Virtualbox"
 tag: "virtualbox"
 lang: en
 permalink: '/tag/virtualbox'

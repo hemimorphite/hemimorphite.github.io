@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: systemd-networkd"
+title: "Tag: systemd-networkd"
 tag: "systemd-networkd"
 lang: en
 permalink: '/tag/systemd-networkd'

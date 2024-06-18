@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Tarball"
+title: "Tag: Tarball"
 tag: "tar"
 lang: en
 permalink: '/tag/tar'

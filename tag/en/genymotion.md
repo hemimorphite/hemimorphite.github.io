@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Genymotion"
+title: "Tag: Genymotion"
 tag: "genymotion"
 lang: en
 permalink: '/tag/genymotion'

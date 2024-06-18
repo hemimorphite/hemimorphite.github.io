@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Nginx"
+title: "Tah: Nginx"
 tag: "nginx"
 lang: en
 permalink: '/tag/nginx'

@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: openrc"
+title: "Tag: openrc"
 tag: "openrc"
 lang: en
 permalink: '/tag/openrc'

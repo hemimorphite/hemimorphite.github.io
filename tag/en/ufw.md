@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: UFW"
+title: "Tag: UFW"
 tag: "ufw"
 lang: en
 permalink: '/tag/ufw'

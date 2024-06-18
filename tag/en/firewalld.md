@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Firewalld"
+title: "Tag: Firewalld"
 tag: "firewalld"
 lang: en
 permalink: '/tag/firewalld'

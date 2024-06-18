@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Ubuntu 22.04"
+title: "Tag: Ubuntu 22.04"
 tag: "ubuntu 22.04"
 lang: en
 permalink: '/tag/ubuntu-22-04'

@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: Qemu"
+title: "Tag: Qemu"
 tag: "qemu"
 lang: en
 permalink: '/tag/qemu'

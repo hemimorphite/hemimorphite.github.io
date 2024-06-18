@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "TAG: nmcli"
+title: "Tag: nmcli"
 tag: "nmcli"
 lang: en
 permalink: '/tag/nmcli'

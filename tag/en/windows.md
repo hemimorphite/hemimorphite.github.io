@@ -1,12 +1,12 @@
 ---
 layout: tag
-title: "TAG: Windows 11"
-tag: "windows 11"
+title: "Tag: Windows"
+tag: "windows"
 lang: en
-permalink: '/tag/windows-11'
+permalink: '/tag/windows'
 pagination:
     enabled: true
-    tag: "windows 11"
+    tag: "windows"
     permalink: /page/:num/
     locale: en
 ---
