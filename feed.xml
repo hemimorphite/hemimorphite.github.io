@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-06-18T09:45:22+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Bourne Shell Builtin Commands</title><link href="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/" rel="alternate" type="text/html" title="Bourne Shell Builtin Commands" /><published>2024-06-16T16:21:00+00:00</published><updated>2024-06-16T16:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-06-18T19:24:30+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Bourne Shell Builtin Commands</title><link href="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/" rel="alternate" type="text/html" title="Bourne Shell Builtin Commands" /><published>2024-06-16T16:21:00+00:00</published><updated>2024-06-16T16:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Bourne Shell Builtin Commands</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -1369,13 +1369,13 @@ hemimorphite blog
 
         <p>Expressions of <code>test</code> command take the following forms:</p>
         
-        <div class="overflow-x:auto;">
+        
         <table class="table table-bordered border-primary">
             <thead>
                 <tr>
-                    <th>Expression</th>
-                    <th>Description</th>
-                    <th>Example</th>
+                    <th style="min-width:10rem;">Expression</th>
+                    <th style="min-width:30rem;">Description</th>
+                    <th style="min-width:auto;">Example</th>
                 </tr>
             </thead>
             <tbody>
@@ -2076,20 +2076,60 @@ hemimorphite blog
                 </tr>
             </tbody>
         </table>
-        </div>
+        
     </article>
 
     <div class="post-tags">
 	<div class="title">Tags</div>
 	<ul class="tags">
 		
-		<li><a href="https://hemimorphite.github.io/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
+		<li><a href="https://hemimorphite.github.io/tag/linux" class="tag">linux</a></li>
 		
-		<li><a href="https://hemimorphite.github.io/tag/shell-script" class="tag">shell script</a></li>
+		<li><a href="https://hemimorphite.github.io/tag/ubuntu" class="tag">ubuntu</a></li>
 		
-		<li><a href="https://hemimorphite.github.io/tag/bash" class="tag">bash</a></li>
+		<li><a href="https://hemimorphite.github.io/tag/bash-script" class="tag">bash script</a></li>
 		
-		<li><a href="https://hemimorphite.github.io/tag/builtin-commands" class="tag">builtin commands</a></li>
+		<li><a href="https://hemimorphite.github.io/tag/linux-command" class="tag">linux command</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/break" class="tag">break</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/" class="tag">:</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/" class="tag">.</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/cd" class="tag">cd</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/continue" class="tag">continue</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/eval" class="tag">eval</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/exec" class="tag">exec</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/exit" class="tag">exit</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/export" class="tag">export</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/getopts" class="tag">getopts</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/hash" class="tag">hash</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/pwd" class="tag">pwd</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/readonly" class="tag">readonly</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/return" class="tag">return</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/shift" class="tag">shift</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/times" class="tag">times</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/trap" class="tag">trap</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/umask" class="tag">umask</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/unset" class="tag">unset</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/test" class="tag">test</a></li>
 		
 	</ul>
 </div>
@@ -2103,7 +2143,7 @@ hemimorphite blog
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-16" /><category term="ubuntu 22.04" /><category term="shell script" /><category term="bash" /><category term="builtin commands" /><summary type="html"><![CDATA[Learn how to properly use Bourne Shell builtin commands such as break, cd, continue, eval, exec, exit, export, getopts, hash, pwd, readonly, return, shift, times, trap, umask, unset and test with practical examples to enhance your shell scripting skills.]]></summary></entry><entry xml:lang="en"><title type="html">Difference Between Login and Non-Login Shell in Linux</title><link href="https://hemimorphite.github.io/2024/06/14/difference-between-login-and-non-login-shell-in-linux/" rel="alternate" type="text/html" title="Difference Between Login and Non-Login Shell in Linux" /><published>2024-06-14T14:20:00+00:00</published><updated>2024-06-14T14:20:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/14/difference-between-login-and-non-login-shell-in-linux</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/14/difference-between-login-and-non-login-shell-in-linux/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Best Practices" /><category term="year-2024" /><category term="month-06" /><category term="day-16" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="linux command" /><category term="break" /><category term=":" /><category term="." /><category term="cd" /><category term="continue" /><category term="eval" /><category term="exec" /><category term="exit" /><category term="export" /><category term="getopts" /><category term="hash" /><category term="pwd" /><category term="readonly" /><category term="return" /><category term="shift" /><category term="times" /><category term="trap" /><category term="umask" /><category term="unset" /><category term="test" /><summary type="html"><![CDATA[Learn how to properly use Bourne Shell builtin commands such as . (dot), : (colon), break, cd, continue, eval, exec, exit, export, getopts, hash, pwd, readonly, return, shift, times, trap, umask, unset and test with practical examples to enhance your shell scripting skills.]]></summary></entry><entry xml:lang="en"><title type="html">Difference Between Login and Non-Login Shell in Linux</title><link href="https://hemimorphite.github.io/2024/06/14/difference-between-login-and-non-login-shell-in-linux/" rel="alternate" type="text/html" title="Difference Between Login and Non-Login Shell in Linux" /><published>2024-06-14T14:20:00+00:00</published><updated>2024-06-14T14:20:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/14/difference-between-login-and-non-login-shell-in-linux</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/14/difference-between-login-and-non-login-shell-in-linux/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Difference Between Login and Non-Login Shell in Linux</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -2620,13 +2660,33 @@ Hello hemimorphite</code></pre>
 	<div class="title">Tags</div>
 	<ul class="tags">
 		
-		<li><a href="https://hemimorphite.github.io/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
+		<li><a href="https://hemimorphite.github.io/tag/linux" class="tag">linux</a></li>
 		
-		<li><a href="https://hemimorphite.github.io/tag/shell-script" class="tag">shell script</a></li>
+		<li><a href="https://hemimorphite.github.io/tag/ubuntu" class="tag">ubuntu</a></li>
 		
-		<li><a href="https://hemimorphite.github.io/tag/bash" class="tag">bash</a></li>
+		<li><a href="https://hemimorphite.github.io/tag/bash-script" class="tag">bash script</a></li>
 		
-		<li><a href="https://hemimorphite.github.io/tag/environment-variables" class="tag">environment variables</a></li>
+		<li><a href="https://hemimorphite.github.io/tag/special-variables" class="tag">special variables</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/cdpath" class="tag">CDPATH</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/home" class="tag">HOME</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/ifs" class="tag">IFS</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/optarg" class="tag">OPTARG</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/opterr" class="tag">OPTERR</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/optind" class="tag">OPTIND</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/path" class="tag">PATH</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/mail" class="tag">MAIL</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/mailcheck" class="tag">MAILCHECK</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/mailpath" class="tag">MAILPATH</a></li>
 		
 	</ul>
 </div>
@@ -2640,7 +2700,7 @@ Hello hemimorphite</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-13" /><category term="ubuntu 22.04" /><category term="shell script" /><category term="bash" /><category term="environment variables" /><summary type="html"><![CDATA[Learn how to properly use Bourne Shell environment variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills.]]></summary></entry><entry xml:lang="en"><title type="html">Linux Signals</title><link href="https://hemimorphite.github.io/2024/06/11/linux-signals/" rel="alternate" type="text/html" title="Linux Signals" /><published>2024-06-11T15:20:00+00:00</published><updated>2024-06-11T15:20:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/11/linux-signals</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/11/linux-signals/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Best Practices" /><category term="year-2024" /><category term="month-06" /><category term="day-13" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="special variables" /><category term="CDPATH" /><category term="HOME" /><category term="IFS" /><category term="OPTARG" /><category term="OPTERR" /><category term="OPTIND" /><category term="PATH" /><category term="MAIL" /><category term="MAILCHECK" /><category term="MAILPATH" /><summary type="html"><![CDATA[Learn how to properly use Bourne Shell environment variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills.]]></summary></entry><entry xml:lang="en"><title type="html">Linux Signals</title><link href="https://hemimorphite.github.io/2024/06/11/linux-signals/" rel="alternate" type="text/html" title="Linux Signals" /><published>2024-06-11T15:20:00+00:00</published><updated>2024-06-11T15:20:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/11/linux-signals</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/11/linux-signals/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Linux Signals</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -3114,11 +3174,13 @@ $ echo $?
 	<div class="title">Tags</div>
 	<ul class="tags">
 		
-		<li><a href="https://hemimorphite.github.io/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
+		<li><a href="https://hemimorphite.github.io/tag/linux" class="tag">linux</a></li>
 		
-		<li><a href="https://hemimorphite.github.io/tag/shell-script" class="tag">shell script</a></li>
+		<li><a href="https://hemimorphite.github.io/tag/ubuntu" class="tag">ubuntu</a></li>
 		
-		<li><a href="https://hemimorphite.github.io/tag/bash" class="tag">bash</a></li>
+		<li><a href="https://hemimorphite.github.io/tag/bash-script" class="tag">bash script</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/exit-code" class="tag">exit code</a></li>
 		
 	</ul>
 </div>
@@ -3132,7 +3194,7 @@ $ echo $?
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-11" /><category term="ubuntu 22.04" /><category term="shell script" /><category term="bash" /><summary type="html"><![CDATA[Learn about exit codes in Bash scripts, including a comprehensive list of common exit codes and their meanings to help you troubleshoot and debug your bash scripts effectively.]]></summary></entry><entry xml:lang="en"><title type="html">Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04</title><link href="https://hemimorphite.github.io/2024/06/10/build-powershell-version-7.4.2-on-ubuntu-22.04/" rel="alternate" type="text/html" title="Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04" /><published>2024-06-10T12:00:00+00:00</published><updated>2024-06-10T12:00:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/10/build-powershell-version-7.4.2-on-ubuntu-22.04</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/10/build-powershell-version-7.4.2-on-ubuntu-22.04/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-11" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="exit code" /><summary type="html"><![CDATA[Learn about exit codes in Bash scripts, including a comprehensive list of common exit codes and their meanings to help you troubleshoot and debug your bash scripts effectively.]]></summary></entry><entry xml:lang="en"><title type="html">Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04</title><link href="https://hemimorphite.github.io/2024/06/10/build-powershell-version-7.4.2-on-ubuntu-22.04/" rel="alternate" type="text/html" title="Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04" /><published>2024-06-10T12:00:00+00:00</published><updated>2024-06-10T12:00:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/10/build-powershell-version-7.4.2-on-ubuntu-22.04</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/10/build-powershell-version-7.4.2-on-ubuntu-22.04/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -3223,11 +3285,15 @@ Start-PSBuild</code></pre>
 	<div class="title">Tags</div>
 	<ul class="tags">
 		
+		<li><a href="https://hemimorphite.github.io/tag/linux" class="tag">linux</a></li>
+		
 		<li><a href="https://hemimorphite.github.io/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
 		
 		<li><a href="https://hemimorphite.github.io/tag/powershell" class="tag">powershell</a></li>
 		
 		<li><a href="https://hemimorphite.github.io/tag/dotnet" class="tag">dotnet</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/building-source-code" class="tag">building source code</a></li>
 		
 	</ul>
 </div>
@@ -3241,116 +3307,7 @@ Start-PSBuild</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-10" /><category term="ubuntu 22.04" /><category term="powershell" /><category term="dotnet" /><summary type="html"><![CDATA[Learn how to build PowerShell version 7.4.2 on Ubuntu 22.04 with step-by-step instructions and guidelines. Master the process of compiling and installing PowerShell on your Ubuntu system.]]></summary></entry><entry xml:lang="en"><title type="html">Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04</title><link href="https://hemimorphite.github.io/2024/06/10/build-coffeescript-from-source-on-ubuntu-22.04/" rel="alternate" type="text/html" title="Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04" /><published>2024-06-10T12:00:00+00:00</published><updated>2024-06-10T12:00:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/10/build-coffeescript-from-source-on-ubuntu-22.04</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/10/build-coffeescript-from-source-on-ubuntu-22.04/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Build PowerShell Version 7.4.2 From Source On Ubuntu 22.04</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published June 10, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/dotnet.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <h4>Step 1: Get the PowerShell version 7.4.2 release</h4>
-
-        <p>Download a release version of PowerShell <code>powershell-7.4.2-linux-x64.tar.gz
-        </code> from <a href="https://github.com/PowerShell/PowerShell/releases/download/v7.4.2/powershell-7.4.2-linux-x64.tar.gz">Github</a></p>
-
-        <pre><code class="language-bash hljs">wget https://github.com/PowerShell/PowerShell/releases/download/v7.4.2/powershell-7.4.2-linux-x64.tar.gz</code></pre>
-
-        <p>Create powershell directory.</p>
-
-        <pre><code class="language-bash hljs">sudo mkdir /opt/powershell-7.4.2</code></pre>
-
-        <p>Extract the files in <code>powershell-7.4.2-linux-x64.tar.gz</code> to <code>/opt/powershell-7.4.2</code></p>
-
-        <pre><code class="language-bash hljs">sudo tar -zxf powershell-7.4.2-linux-x64.tar.gz -C /opt/powershell</code></pre>
-
-        <p>Install PowerShell using <code>update-alternatives</code> command with <code>--install</code> option.</p>
-
-        <pre><code class="language-bash hljs">sudo update-alternatives --install /usr/bin/pwsh pwsh /opt/powershell-7.4.2/pwsh 10</code></pre>
-
-        <h4>Step 2: Install Prerequisite Packages</h4>
-
-        <p>Install the prerequisite packages for running <code>pwsh</code> command.</p>
-
-        <pre><code class="language-bash hljs">sudo apt install -y libicu-dev</code></pre>
-
-        <p>Install the prerequisite packages for building powershell from source.</p>
-
-        <pre><code class="language-bash hljs">sudo apt install -y git</code></pre>
-
-        <p>Download dotnet SDK Version 8.0.204 from <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">Microsoft</a></p>
-
-        <pre><code class="language-bash hljs">wget https://download.visualstudio.microsoft.com/download/pr/0a1b3cbd-b4af-4d0d-9ed7-0054f0e200b4/4bcc533c66379caaa91770236667aacb/dotnet-sdk-8.0.204-linux-x64.tar.gz</code></pre>
-
-        <p>Create dotnet directory.</p>
-
-        <pre><code class="language-bash hljs">sudo mkdir /opt/dotnet-sdk-8.0.204</code></pre>
-
-        <p>Extract the files to <code>/opt</code> directory.</p>
-
-        <pre><code class="language-bash hljs">sudo tar -zxf dotnet-sdk-8.0.204-linux-x64.tar.gz -C /opt/dotnet-sdk-8.0.204</code></pre>
-
-        <p>Install dotnet using <code>update-alternatives</code> command with <code>--install</code> option.</p>
-
-        <pre><code class="language-bash hljs">sudo update-alternatives --install /usr/bin/dotnet dotnet /opt/dotnet-sdk-8.0.204/dotnet 10</code></pre>
-
-        <h4>Step 3: Download PowerShell's sources</h4>
-
-        <p>Clone the PowerShell repository from <a href="https://github.com/PowerShell/PowerShell">Github</a>.</p>
-
-        <pre><code class="language-bash hljs">git clone https://github.com/PowerShell/PowerShell.git</code></pre>
-
-        <p>Check out a tag version 7.4.2:</p>
-
-        <pre><code class="language-bash hljs">git checkout tags/v7.4.2</code></pre>
-
-        <p>Change directory to powershell source directory.</p>
-
-        <pre><code class="language-bash hljs">cd PowerShell-7.4.2</code></pre>
-
-        <h4>Step 4: Build PowerShell's sources</h4>
-
-        <p>Run <code>pwsh</code> command.</p>
-
-        <pre><code class="language-bash hljs">pwsh</code></pre>
-
-        <p>Then run the following commands for building the PowerShell source.</p>
-
-        <pre><code class="language-bash hljs">Import-Module ./build.psm1
-Start-PSBuild</code></pre>
-        
-        <p>If everything went right, PowerShell is now built. The <code>Start-PSBuild</code> script will output the location of the executable:</p>
-
-        <pre><code class="language-bash hljs">./src/powershell-unix/bin/Debug/net8.0/linux-x64/pwsh</code></pre>
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/powershell" class="tag">powershell</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/dotnet" class="tag">dotnet</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-10" /><category term="ubuntu 22.04" /><category term="powershell" /><category term="dotnet" /><summary type="html"><![CDATA[Learn how to build PowerShell version 7.4.2 on Ubuntu 22.04 with step-by-step instructions and guidelines. Master the process of compiling and installing PowerShell on your Ubuntu system.]]></summary></entry><entry xml:lang="en"><title type="html">Manage Multiple Versions of Packages with update-alternatives Command on Ubuntu 22.04</title><link href="https://hemimorphite.github.io/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command/" rel="alternate" type="text/html" title="Manage Multiple Versions of Packages with update-alternatives Command on Ubuntu 22.04" /><published>2024-06-10T06:50:00+00:00</published><updated>2024-06-10T06:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-10" /><category term="linux" /><category term="ubuntu 22.04" /><category term="powershell" /><category term="dotnet" /><category term="building source code" /><summary type="html"><![CDATA[Learn how to build PowerShell version 7.4.2 on Ubuntu 22.04 with step-by-step instructions and guidelines. Master the process of compiling and installing PowerShell on your Ubuntu system.]]></summary></entry><entry xml:lang="en"><title type="html">Manage Multiple Versions of Packages with update-alternatives Command on Ubuntu 22.04</title><link href="https://hemimorphite.github.io/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command/" rel="alternate" type="text/html" title="Manage Multiple Versions of Packages with update-alternatives Command on Ubuntu 22.04" /><published>2024-06-10T06:50:00+00:00</published><updated>2024-06-10T06:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/10/manage-multiple-versions-of-packages-with-update-alternatives-command/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Manage Multiple Versions of Packages with update-alternatives Command on Ubuntu 22.04</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -3409,6 +3366,8 @@ sudo update-alternatives --install /usr/bin/java java /opt/jdk-22.0.1/bin/java 3
 	<div class="title">Tags</div>
 	<ul class="tags">
 		
+		<li><a href="https://hemimorphite.github.io/tag/linux" class="tag">linux</a></li>
+		
 		<li><a href="https://hemimorphite.github.io/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
 		
 		<li><a href="https://hemimorphite.github.io/tag/update-alternatives" class="tag">update-alternatives</a></li>
@@ -3425,7 +3384,7 @@ sudo update-alternatives --install /usr/bin/java java /opt/jdk-22.0.1/bin/java 3
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-10" /><category term="ubuntu 22.04" /><category term="update-alternatives" /><summary type="html"><![CDATA[Learn how to effectively manage multiple versions of packages using the update-alternatives command in Ubuntu 22.04. This command allows you to easily switch between different versions of software packages on your system.]]></summary></entry><entry xml:lang="en"><title type="html">Difference Between Git Merge and Git Rebase</title><link href="https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase/" rel="alternate" type="text/html" title="Difference Between Git Merge and Git Rebase" /><published>2024-05-04T06:50:00+00:00</published><updated>2024-05-04T06:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase</id><content type="html" xml:base="https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-10" /><category term="linux" /><category term="ubuntu 22.04" /><category term="update-alternatives" /><summary type="html"><![CDATA[Learn how to effectively manage multiple versions of packages using the update-alternatives command in Ubuntu 22.04. This command allows you to easily switch between different versions of software packages on your system.]]></summary></entry><entry xml:lang="en"><title type="html">Difference Between Git Merge and Git Rebase</title><link href="https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase/" rel="alternate" type="text/html" title="Difference Between Git Merge and Git Rebase" /><published>2024-05-04T06:50:00+00:00</published><updated>2024-05-04T06:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase</id><content type="html" xml:base="https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Difference Between Git Merge and Git Rebase</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -3748,6 +3707,22 @@ git merge feature</code></pre>
 		
 		<li><a href="https://hemimorphite.github.io/tag/git-rebase" class="tag">git rebase</a></li>
 		
+		<li><a href="https://hemimorphite.github.io/tag/git-init" class="tag">git init</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/git-add" class="tag">git add</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/git-commit" class="tag">git commit</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/git-log" class="tag">git log</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/git-checkout" class="tag">git checkout</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/git-merge" class="tag">git merge</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/git-switch" class="tag">git switch</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/git-log" class="tag">git log</a></li>
+		
 	</ul>
 </div>
 
@@ -3760,4 +3735,65 @@ git merge feature</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-05" /><category term="day-04" /><category term="git" /><category term="git merge" /><category term="git rebase" /><summary type="html"><![CDATA[Understanding the difference between Git merge and Git rebase is crucial for effective version control and collaboration. Learn the distinctions between these two essential Git commands.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-05" /><category term="day-04" /><category term="git" /><category term="git merge" /><category term="git rebase" /><category term="git init" /><category term="git add" /><category term="git commit" /><category term="git log" /><category term="git checkout" /><category term="git merge" /><category term="git switch" /><category term="git log" /><summary type="html"><![CDATA[Understanding the difference between Git merge and Git rebase is crucial for effective version control and collaboration. Learn the distinctions between these two essential Git commands.]]></summary></entry><entry xml:lang="en"><title type="html">List of Common WSL Commands</title><link href="https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands/" rel="alternate" type="text/html" title="List of Common WSL Commands" /><published>2024-05-01T07:28:00+00:00</published><updated>2024-05-01T07:28:00+00:00</updated><id>https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands</id><content type="html" xml:base="https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">List of Common WSL Commands</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published May 01, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/wsldistribution.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Here is a list of some of the most common WSL commands:</p>
+
+        <ul>
+            <li><code>wsl</code>: This command will start a new WSL session</li>
+            <li><code>wsl -l</code>: This command will list all of the installed WSL distributions</li>
+            <li><code>wsl --list --online</code>: This command will list all of the available WSL distributions</li>
+            <li><code>wsl --list --running</code>: This command will list all of the running WSL distributions</li>
+            <li><code>wsl -d &lt;distribution name&gt;</code>: This command will run the specified distribution</li>
+            <li><code>wsl --install &lt;distribution name&gt;</code>: This command will install the specified distribution</li>
+            <li><code>wsl --unregister &lt;distribution name&gt;</code>: This command will remove the specified distribution to free up the disk space</li>
+            <li><code>wsl --shutdown</code>: This command will shut down all running WSL sessions</li>
+            <li><code>wsl --terminate &lt;distribution name&gt;</code>: This command will terminate the WSL session for the specified distribution</li>
+            <li><code>wsl --set-version &lt;version number&gt;</code>: This command will set the default WSL version</li>
+            <li><code>wsl --status</code>:  This command will display the status of all running WSL sessions</li>
+            <li><code>wsl --import &lt;distribution name&gt; &lt;tarball path&gt;</tarball></code>: This command will import a new WSL distribution from a tarball file</li>
+            <li><code>wsl --mount &lt;source path&gt; &lt;source path&gt;</code>: This command will mount a Windows file system path to a WSL mount point</li>
+            <li><code>wsl --unmount &lt;mount point&gt;</code>: This command will unmount a WSL mount point</li>
+            <li><code>wsl --default &lt;distribution name&gt;</code>: This command will set the default WSL distribution</li>
+        </ul>
+
+        <p>In WSL, your Windows drives are mounted under the <code>/mnt</code> directory. So, for example, your C drive would be available at <code>/mnt/c/</code>. <code>cd /mnt/c/Users/&lt;YourWindowsUsername&gt;/</code></p>
+
+        <p>For WSL 2, you can access the Linux file system by navigating to <code>\\wsl$\&lt;DistributionName&gt;</code> in File Explorer.</p>
+
+        <p>WSL configurations can be modified by editing the file: <code>C:\Users\&lt;YourWindowsUsername&gt;\.wslconfig</code>.</p>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/windows" class="tag">windows</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/wsl" class="tag">wsl</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-05" /><category term="day-01" /><category term="linux" /><category term="windows" /><category term="wsl" /><summary type="html"><![CDATA[Looking for a quick reference guide to WSL commands? Look no further! Our website provides a comprehensive list to help you navigate the Windows Subsystem for Linux effortlessly.]]></summary></entry></feed>

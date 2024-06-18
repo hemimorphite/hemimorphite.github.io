@@ -229,7 +229,7 @@ header {
 }
 
 /* Blog Posts */
-.blog-posts .blog-post .category-heading {
+.blog-posts .category-heading {
 	margin-bottom: 2rem;
 	font-weight: 900;
 }
@@ -281,7 +281,7 @@ header {
 }
 .blog-post .post-subtitle {
 	margin-bottom: 1rem;
-	margin-top: 1rem;
+	margin-top: 2rem;
 }
 .blog-post .post-author {
 	margin-bottom: 2rem;
@@ -353,7 +353,11 @@ header {
 }
 .blog-post .post-content ul,
 .blog-post .post-content ol {
-	margin-top: 1rem;
+	margin-top: 0rem;
+}
+.blog-post .post-content ul li,
+.blog-post .post-content ol li {
+	margin-top: 0.5rem;
 }
 .blog-post .post-content ul li::marker,
 .blog-post .post-content ol li::marker {
@@ -427,6 +431,14 @@ header {
 }
 .blog-post .post-share .rounded-social-buttons .social-button.linkedin {
 	background: #007bb5;
+}
+table {
+	overflow: auto;
+	display: block;
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+	margin-top: 1rem;
 }
 ul.page-numbers {
 	text-align: center;
