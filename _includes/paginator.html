@@ -9,34 +9,43 @@
 
 		{% assign skip1 = 0 %}
 		{% assign skip2 = 0 %}
+		{% assign count = 5 %}
 		{% for i in (1..paginator.total_pages) %}
 			{% if i == paginator.page %}
+			{% assign count = count | minus: 1 %}
 			<li class="active"><a href="{{ site.url }}{{ lang }}/page/{{ paginator.page }}">{{ paginator.page }}</a></li>
 			{% elsif i == 1 %}
+			{% assign count = count | minus: 1 %}
 			<li><a href="{{ site.url }}{{ lang }}">1</a></li>
 			{% elsif i == paginator.total_pages %}
+			{% assign count = count | minus: 1 %}
 			<li><a href="{{ site.url }}{{ lang }}/page/{{ paginator.total_pages }}">{{ paginator.total_pages }}</a></li>
 			{% else %}
 				{% assign pageminus1 = paginator.page | minus: 1 %}
 				{% assign pageplus1 = paginator.page | plus: 1 %}
+				{% assign gap1 = i | minus: paginator.page %}
+				{% assign gap2 = paginator.total_pages | minus: i %}
 
 				{% if paginator.total_pages > 7 %}
-					{% if skip1 == 0 %}
-						{% if pageminus1 > 2 %}
+					{% if gap1 > 1 %}
+						{% if skip1 == 0 %}
 						{% assign skip1 = 1 %}
+						{% assign count = count | minus: 1 %}
 						<li class="disabled"><a>...</a></li>
 						{% endif %}
 					{% endif %}
-					{% if i == pageminus1 %}
-					<li><a href="{{ site.url }}{{ lang }}/page/{{ pageminus1 }}">{{ pageminus1 }}</a></li>
+					
+					{% if count > 1 %}
+					{% assign count = count | minus: 1 %}
+					<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
 					{% endif %}
-					{% if i == pageplus1 %}
-					<li><a href="{{ site.url }}{{ lang }}/page/{{ pageplus1 }}">{{ pageplus1 }}</a></li>
-					{% endif %}
-					{% if skip2 == 0 %}
-						{% if pageplus1 < paginator.total_pages %}
+
+					{% if gap2 > 1 %}
+						{% if count == 1 %}
+						{% if skip2 == 0 %}
 						{% assign skip2 = 1 %}
 						<li class="disabled"><a>...</a></li>
+						{% endif %}
 						{% endif %}
 					{% endif %}
 				{% endif %}
