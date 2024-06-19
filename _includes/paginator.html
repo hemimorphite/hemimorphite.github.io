@@ -12,10 +12,17 @@
 		{% assign count = 6 %}
 		{% for i in (1..paginator.total_pages) %}
 			{% if i == 1 %}
-			{% assign count = count | minus: 1 %}
-			<li><a href="{{ site.url }}{{ lang }}">1</a></li>
+				{% if i == paginator.page %}
+					<li class="active"><a href="{{ site.url }}{{ lang }}">1</a></li>
+				{% else %}
+					<li><a href="{{ site.url }}{{ lang }}">1</a></li>
+				{% endif %}
 			{% elsif i == paginator.total_pages %}
-			<li><a href="{{ site.url }}{{ lang }}/page/{{ paginator.total_pages }}">{{ paginator.total_pages }}</a></li>
+				{% if i == paginator.page %}
+					<li class="active"><a href="{{ site.url }}{{ lang }}/page/{{ paginator.total_pages }}">{{ paginator.total_pages }}</a></li>
+				{% else %}
+					<li><a href="{{ site.url }}{{ lang }}/page/{{ paginator.total_pages }}">{{ paginator.total_pages }}</a></li>
+				{% endif %}
 			{% else %}
 				{% if paginator.total_pages > 7 %}
 					{% if i > 3 %}
