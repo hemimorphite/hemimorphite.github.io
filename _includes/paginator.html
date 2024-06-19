@@ -9,7 +9,7 @@
 
 		{% assign skip1 = 0 %}
 		{% assign skip2 = 0 %}
-		{% assign count = 6 %}
+		{% assign count = 5 %}
 		{% for i in (1..paginator.total_pages) %}
 			{% if i == 1 %}
 				{% if i == paginator.page %}
@@ -79,14 +79,14 @@
 								{% endif %}	
 							{% endif %}
 						{% else %}
-							{% if skip1 == 0 %}
-								{% assign skip1 = 1 %}
-								{% assign count = count | minus: 1 %}
-								<li class="disabled"><a>...</a></li>
-							{% endif %}
 							{% if count > 1 %}
-								{% assign count = count | minus: 1 %}
-								<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
+								{% if i == paginator.page %}
+									{% assign count = count | minus: 1 %}
+									<li class="active"><a href="{{ site.url }}{{ lang }}/page/{{ paginator.page }}">{{ paginator.page }}</a></li>
+								{% else %}
+									{% assign count = count | minus: 1 %}
+									<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
+								{% endif %}
 							{% endif %}
 							{% if i > paginator.page %}
 								{% if count == 1 %}
