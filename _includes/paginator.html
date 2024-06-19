@@ -11,32 +11,37 @@
 		{% assign skip2 = 0 %}
 		{% assign count = 6 %}
 		{% for i in (1..paginator.total_pages) %}
-			{% if i == paginator.page %}
-			{% assign count = count | minus: 1 %}
-			<li class="active"><a href="{{ site.url }}{{ lang }}/page/{{ paginator.page }}">{{ paginator.page }}</a></li>
-			{% elsif i == 1 %}
+			{% if i == 1 %}
 			{% assign count = count | minus: 1 %}
 			<li><a href="{{ site.url }}{{ lang }}">1</a></li>
 			{% elsif i == paginator.total_pages %}
 			<li><a href="{{ site.url }}{{ lang }}/page/{{ paginator.total_pages }}">{{ paginator.total_pages }}</a></li>
 			{% else %}
 				{% if paginator.total_pages > 7 %}
-					
 					{% if i > 3 %}
 						{% if paginator.page > 3 %}
 							{% assign j = paginator.total_pages | minus: paginator.page %}
-							{% if j > 1 %}
+							{% if j > 2 %}
 								{% if skip1 == 0 %}
 									{% assign skip1 = 1 %}
 									{% assign count = count | minus: 1 %}
 									<li class="disabled"><a>...</a></li>
 								{% endif %}
-								{% assign pagestart = paginator.page | minus: 1 %}
 								
-									{% if count > 1 %}
-									{% assign count = count | minus: 1 %}
-									<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
+								{% if count > 1 %}
+									{% assign pagebefore = paginator.page | minus: 1 %}
+									{% assign pageafter = paginator.page | plus: 1 %}
+									{% if i == paginator.page %}
+										{% assign count = count | minus: 1 %}
+										<li class="active"><a href="{{ site.url }}{{ lang }}/page/{{ paginator.page }}">{{ paginator.page }}</a></li>
+									{% elsif pagebefore == i %}
+										{% assign count = count | minus: 1 %}
+										<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
+									{% elsif pageafter == i %}
+										{% assign count = count | minus: 1 %}
+										<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
 									{% endif %}
+								{% endif %}
 								
 								{% if i > paginator.page %}
 									{% if count == 1 %}
@@ -53,9 +58,12 @@
 									{% assign count = count | minus: 1 %}
 									<li class="disabled"><a>...</a></li>
 								{% endif %}
-								{% if count > 0 %}
-									{% assign count = count | minus: 1 %}
-									<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
+								{% assign pagestart = paginator.total_pages | minus: 5 %}
+								{% if i > pagestart %}
+									{% if count > 0 %}
+										{% assign count = count | minus: 1 %}
+										<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
+									{% endif %}
 								{% endif %}	
 							{% endif %}
 						{% else %}
