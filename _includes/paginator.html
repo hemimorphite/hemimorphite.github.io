@@ -61,8 +61,13 @@
 								{% assign pagestart = paginator.total_pages | minus: 5 %}
 								{% if i > pagestart %}
 									{% if count > 0 %}
-										{% assign count = count | minus: 1 %}
-										<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
+										{% if i == paginator.page %}
+											{% assign count = count | minus: 1 %}
+											<li class="active"><a href="{{ site.url }}{{ lang }}/page/{{ paginator.page }}">{{ paginator.page }}</a></li>
+										{% else %}
+											{% assign count = count | minus: 1 %}
+											<li><a href="{{ site.url }}{{ lang }}/page/{{ i }}">{{ i }}</a></li>
+										{% endif %}
 									{% endif %}
 								{% endif %}	
 							{% endif %}
@@ -88,7 +93,6 @@
 			{% endif %}
 		{% endfor %}
 
-		
 		{% if paginator.next_page %}
 		<li><a href="{{ site.url }}{{ lang }}{{ paginator.next_page_path }}"><i class="fa fa-angle-double-right"></i></a></li>
 		{% else %}
