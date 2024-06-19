@@ -464,7 +464,7 @@ ul.page-numbers li.active a {
 	background-color: #1d1f20;
 	border: solid 0.1rem #1d1f20;
 }
-ul.page-numbers li.disabled a {
+ul.page-numbers li.disabled:hover a {
 	border: solid 0.1rem #d7d7d7;
 	color: #7d7d7d;
 }
