@@ -4,6 +4,7 @@ title: "Tag: unset"
 tag: "unset"
 lang: en
 permalink: '/tag/unset'
+path: '/tag/unset'
 pagination:
     enabled: true
     tag: "unset"

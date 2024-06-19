@@ -4,6 +4,7 @@ title: "Tag: return"
 tag: "return"
 lang: en
 permalink: '/tag/return'
+path: '/tag/return'
 pagination:
     enabled: true
     tag: "return"

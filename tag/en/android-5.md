@@ -4,6 +4,7 @@ title: "Tag: Android 5"
 tag: "android 5"
 lang: en
 permalink: '/tag/android-5'
+path: '/tag/android-5'
 pagination:
     enabled: true
     tag: "android 5"

@@ -4,6 +4,7 @@ title: "Tag: git restore"
 tag: "git restore"
 lang: en
 permalink: '/tag/git-restore'
+path: '/tag/git-restore'
 pagination:
     enabled: true
     tag: "git restore"

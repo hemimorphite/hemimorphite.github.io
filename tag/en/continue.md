@@ -4,6 +4,7 @@ title: "Tag: continue"
 tag: "continue"
 lang: en
 permalink: '/tag/continue'
+path: '/tag/continue'
 pagination:
     enabled: true
     tag: "continue"

@@ -4,6 +4,7 @@ title: "Tag: Firewalld"
 tag: "firewalld"
 lang: en
 permalink: '/tag/firewalld'
+path: '/tag/firewalld'
 pagination:
     enabled: true
     tag: "firewalld"

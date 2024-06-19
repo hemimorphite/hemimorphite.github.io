@@ -4,6 +4,7 @@ title: "Tag: git clean"
 tag: "git clean"
 lang: en
 permalink: '/tag/git-clean'
+path: '/tag/git-clean'
 pagination:
     enabled: true
     tag: "git clean"

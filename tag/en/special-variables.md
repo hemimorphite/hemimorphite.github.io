@@ -4,6 +4,7 @@ title: "Tag: Special Variables"
 tag: "special variables"
 lang: en
 permalink: '/tag/special-variables'
+path: '/tag/special-variables'
 pagination:
     enabled: true
     tag: "special variables"

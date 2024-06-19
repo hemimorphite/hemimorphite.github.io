@@ -4,6 +4,7 @@ title: "Tag: Qemu"
 tag: "qemu"
 lang: en
 permalink: '/tag/qemu'
+path: '/tag/qemu'
 pagination:
     enabled: true
     tag: "qemu"

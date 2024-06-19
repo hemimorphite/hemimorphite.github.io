@@ -4,6 +4,7 @@ title: "Tag: git checkout"
 tag: "git checkout"
 lang: en
 permalink: '/tag/git-checkout'
+path: '/tag/git-checkout'
 pagination:
     enabled: true
     tag: "wsl"

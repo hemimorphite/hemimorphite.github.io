@@ -4,6 +4,7 @@ title: "Tag: Linux Command"
 tag: "linux command"
 lang: en
 permalink: '/tag/linux-command'
+path: '/tag/linux-command'
 pagination:
     enabled: true
     tag: "linux command"

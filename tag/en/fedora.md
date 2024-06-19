@@ -4,6 +4,7 @@ title: "Tag: Fedora"
 tag: "fedora"
 lang: en
 permalink: '/tag/fedora'
+path: '/tag/fedora'
 pagination:
     enabled: true
     tag: "fedora"

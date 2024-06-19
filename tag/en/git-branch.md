@@ -4,6 +4,7 @@ title: "Tag: git branch"
 tag: "git branch"
 lang: en
 permalink: '/tag/git-branch'
+path: '/tag/git-branch'
 pagination:
     enabled: true
     tag: "git branch"

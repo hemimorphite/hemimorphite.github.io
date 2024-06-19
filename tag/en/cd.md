@@ -4,6 +4,7 @@ title: "Tag: cd"
 tag: "cd"
 lang: en
 permalink: '/tag/cd'
+path: '/tag/cd'
 pagination:
     enabled: true
     tag: "cd"

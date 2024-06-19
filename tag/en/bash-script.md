@@ -4,6 +4,7 @@ title: "Tag: Bash Script"
 tag: "bash script"
 lang: en
 permalink: '/tag/bash-script'
+path: '/tag/bash-script'
 pagination:
     enabled: true
     tag: "bash script"

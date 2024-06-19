@@ -4,6 +4,7 @@ title: "Tag: git clone"
 tag: "git clone"
 lang: en
 permalink: '/tag/git-clone'
+path: '/tag/git-clone'
 pagination:
     enabled: true
     tag: "git clone"

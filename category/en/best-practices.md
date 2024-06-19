@@ -4,6 +4,7 @@ title: "Category: Best Practices"
 category: "Best Practices"
 lang: en
 permalink: '/category/best-practices'
+path: '/category/best-practices'
 pagination:
     enabled: true
     category: "Best Practices"

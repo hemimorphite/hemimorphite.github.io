@@ -4,6 +4,7 @@ title: "Tag: git reset"
 tag: "git reset"
 lang: en
 permalink: '/tag/git-reset'
+path: '/tag/git-reset'
 pagination:
     enabled: true
     tag: "git reset"

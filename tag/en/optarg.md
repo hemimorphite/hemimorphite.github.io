@@ -4,6 +4,7 @@ title: "Tag: OPTARG"
 tag: "OPTARG"
 lang: en
 permalink: '/tag/OPTARG'
+path: '/tag/OPTARG'
 pagination:
     enabled: true
     tag: "OPTARG"

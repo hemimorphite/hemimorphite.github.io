@@ -4,6 +4,7 @@ title: "Tag: git remote"
 tag: "git remote"
 lang: en
 permalink: '/tag/git-remote'
+path: '/tag/git-remote'
 pagination:
     enabled: true
     tag: "git remote"
