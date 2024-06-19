@@ -440,6 +440,9 @@ table {
 	max-width: 100%;
 	margin-top: 1rem;
 }
+ul.page-numbers {
+	text-align: center;
+}
 ul.page-numbers,
 ul.page-numbers li {
 	list-style: none;
@@ -447,33 +450,36 @@ ul.page-numbers li {
 	padding-left: 0px;
 }
 ul.page-numbers li:hover a {
-  color: #fdfdfd;
-  background-color: #1d1f20;
-  border: solid 0.1rem #1d1f20;
+	color: #fdfdfd;
+	background-color: #1d1f20;
+	border: solid 0.1rem #1d1f20;
 }
 ul.page-numbers li.active a {
-  color: #fdfdfd;
-  background-color: #1d1f20;
-  border: solid 0.1rem #1d1f20;
+	color: #fdfdfd;
+	background-color: #1d1f20;
+	border: solid 0.1rem #1d1f20;
 }
-ul.page-numbers li:first-child {
+/*ul.page-numbers li:first-child {
   float: left;
 }
-
 ul.page-numbers li:last-child {
   float: right;
+}*/
+ul.page-numbers li.disabled a {
+	border: solid 0.1rem #d7d7d7;
+	color: #7d7d7d;
+}
+ul.page-numbers li a {
+	border: solid 0.1rem #d7d7d7;
+	border-radius: 0.2rem;
+	color: #7d7d7d;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: inline-block;
+	text-align: center;
+	padding: 0.5rem 0.9rem;
 }
 
-ul.page-numbers li a {
-  border: solid 0.1rem #d7d7d7;
-  border-radius: 0.2rem;
-  color: #7d7d7d;
-  text-decoration: none;
-  text-transform: uppercase;
-  display: inline-block;
-  text-align: center;
-  padding: 0.5rem 0.9rem;
-}
 
 /*ul.page-numbers {
 	text-align: center;
