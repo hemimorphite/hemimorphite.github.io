@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-06-22T15:30:27+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">UTF-8 Encoding and Decoding Algorithm</title><link href="https://hemimorphite.github.io/zh/2024/06/22/utf-8-encoding-and-decoding-algorithm/" rel="alternate" type="text/html" title="UTF-8 Encoding and Decoding Algorithm" /><published>2024-06-22T14:51:00+00:00</published><updated>2024-06-22T14:51:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/22/utf-8-encoding-and-decoding-algorithm</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/22/utf-8-encoding-and-decoding-algorithm/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-06-22T19:22:01+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">UCS-2 Encoding and Decoding Algorithm</title><link href="https://hemimorphite.github.io/zh/2024/06/22/ucs-2-encoding-and-decoding-algorithm/" rel="alternate" type="text/html" title="UCS-2 Encoding and Decoding Algorithm" /><published>2024-06-22T16:51:00+00:00</published><updated>2024-06-22T16:51:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/22/ucs-2-encoding-and-decoding-algorithm</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/22/ucs-2-encoding-and-decoding-algorithm/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">UCS-2 Encoding and Decoding Algorithm</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published June 22, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/unicode.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>In computer systems, characters are transformed and stored as numbers (sequences of bits) that can be handled by the processor. A code page is an encoding scheme that maps a specific sequence of bits to its character representation. Before Unicode, there were hundreds of different encoding schemes that assigned a number to each letter or character. Many such schemes included code pages that contained only 256 characters – each character requiring 8 bits of storage. While this was relatively compact, it was insufficient to hold ideographic character sets containing thousands of characters such as Chinese and Japanese, and also did not allow the character sets of many languages to co-exist with each other.</p>
+
+        <p>Unicode is an attempt to include all the different schemes into one universal text-encoding standard.</p>
+
+        <p>Unicode represents each individual character as a unique code point with a unique number. For example, the character <b>A</b> – <b>Latin Capital Letter A</b> – is represented as <b>U+0041</b> and the Hiragana <b>ふ</b> is <b>U+3075</b></p>
+
+        <p>An individual Unicode code point is expressed as <b>U+n</b>, where <b>n</b> is four to six hexadecimal digits, using the digits <b>0–9</b> and uppercase letters <b>A–F</b> (for 10 through 15, respectively). Leading zeros are omitted, unless the code point would have fewer than four hexadecimal digits. For example, <b>U+0001</b>, <b>U+0012</b>, <b>U+0123</b>, <b>U+1234</b>, <b>U+12345</b>, <b>U+102345</b>.</p>
+
+        <p>The Unicode code space is divided into seventeen planes (the basic multilingual plane, and 16 supplementary planes), each with 65,536 code points. Thus the total size of the Unicode code space is 17 × 65,536 = 1,114,112.</p>
+
+        <p>The first plane is called the Basic Multilingual Plane or BMP. It contains the code points from <b>U+0000</b> to <b>U+FFFF</b>, which are the most frequently used characters.</p>
+
+        <h5 class="post-subtitle">UCS-2 Encoding and Decoding</h5>
+
+        <p>UCS-2, also known as ISO-10646-UCS-2, represents each unicode code point as a two-byte, unsigned integer between 0 and 65,535.</p>
+        
+        <p>UCS-2 can only represent the code points of the first plane (<b>U+0000</b> to <b>U+FFFF</b>).</p>
+
+        <p>UCS-2 encoding and decoding are straightforward. Thus the capital letter A, code point U+0041 in Unicode, is represented by the two bytes 0x0041. The capital letter B, code point U+0042, is represented by the two bytes 0x0042. The two bytes 0x03A3 represent the capital Greek letter Σ, code point U+03A3.</p>
+
+        <h5 class="post-subtitle">Byte Order Mark (BOM)</h5>
+
+        <p>UCS-2 comes in two variations, big endian and little endian. In big-endian UCS-2, the most significant byte of the character comes first. In little-endian UCS-2, the order is reversed. Thus, in big-endian UCS-2, the letter A is <b>U+0041</b>. In little-endian UCS-2, the bytes are swapped, and A is <b>U+4100</b>. In big-endian UCS-2, the letter B is <b>U+0042</b>; in little-endian UCS-2, it's <b>U+4200</b>. In big-endian UCS-2, the letter Σ is <b>U+03A3</b>; in little-endian UCS-2, it's <b>U+A303</b>.</p>
+
+        <p>To distinguish between big-endian and little-endian UCS-2, a program can look at the first two bytes of a UCS-2 encoded document, a document encoded in big-endian UCS-2 begins with Unicode character <b>U+FEFF</b>, the zero-width nonbreaking space, more commonly called the byte-order mark. A document encoded in big-endian UCS-2 begins with the same Unicode character (<b>U+FEFF</b>) but the bytes is swapped (i.e. <b>U+FFFE</b>), the resulting <b>U+FFFE</b> character doesn't actually exist.</p>  
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/ucs-2" class="tag">UCS-2</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/unicode" class="tag">unicode</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/algorithm" class="tag">algorithm</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/encoding" class="tag">encoding</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/decoding" class="tag">decoding</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/byte-mark-order" class="tag">byte mark order</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-06" /><category term="day-22" /><category term="UCS-2" /><category term="unicode" /><category term="algorithm" /><category term="encoding" /><category term="decoding" /><category term="byte mark order" /><summary type="html"><![CDATA[This tutorial explains the UCS-2 encoding and decoding algorithm in detail, providing a comprehensive guide to understanding and implementing this encoding scheme.]]></summary></entry><entry xml:lang="en"><title type="html">UTF-8 Encoding and Decoding Algorithm</title><link href="https://hemimorphite.github.io/zh/2024/06/22/utf-8-encoding-and-decoding-algorithm/" rel="alternate" type="text/html" title="UTF-8 Encoding and Decoding Algorithm" /><published>2024-06-22T14:51:00+00:00</published><updated>2024-06-22T14:51:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/22/utf-8-encoding-and-decoding-algorithm</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/22/utf-8-encoding-and-decoding-algorithm/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">UTF-8 Encoding and Decoding Algorithm</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -124,9 +191,9 @@
                             <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
-                    <li>Final step: the UTF-8 sequence is the result of step 1</li>
+                    <li><b>Final step</b>: the UTF-8 sequence is the result of step 1</li>
                 </ul>
-                <br><br>
+                <br>
                 For example, encoding the character <b>$</b> (U+0024):<br>
                 <ul>
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
@@ -137,9 +204,9 @@
                             <li><b>Substep 4</b>: first byte of UTF-8 sequence = 0x24</li>
                         </ul>
                     </li>
-                    <li>Final step: the UTF-8 sequence of the character <b>$</b> (U+0024) is 0x24</li>
+                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>$</b> (U+0024) is 0x24</li>
                 </ul>
-                <br><br>
+                <br>
                 As you can see, for a single-byte UTF-8 sequence, the first byte is the code point itself.
             </li>
             <li>If the code point is less than U+0800 or between U+0080 and U+07FF, it is encoded in two bytes.<br>
@@ -161,11 +228,11 @@
                         </ul>
                     </li>
                     <li>
-                        Final step: combine the result of step 1 and the result of step 2 to form a UTF-8 sequence.
+                        <b>Final step</b>: combine the result of step 1 and the result of step 2 to form a UTF-8 sequence.
                     </li>
                 </ul>
                 
-                <br><br>
+                <br>
                 For example, encoding the Character <b>ü</b> (U+00FC):<br>
 
                 <ul>
@@ -185,7 +252,7 @@
                             <li><b>Substep 3</b>: second byte of UTF-8 sequence = 0xbc</li>
                         </ul>
                     </li>
-                    <li>Final step: the UTF-8 sequence of the character <b>ü</b> (U+00FC) is 0xc3bc</li>
+                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>ü</b> (U+00FC) is 0xc3bc</li>
                 </ul>
             </li>
             <li>If the code point is less than U+010000 or between U+0800 and U+FFFF, it is encoded in three bytes.<br>
@@ -214,10 +281,10 @@
                             <li><b>Substep 4</b>: the third byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
-                    <li>Final step: combine the first byte, second byte and the third byte to form a UTF-8 sequence</li>
+                    <li><b>Final step</b>: combine the first byte, second byte and the third byte to form a UTF-8 sequence</li>
                 </ul>
                 
-                <br><br>
+                <br>
                 For example, encoding the Character <b>€</b> (U+20AC):<br>
 
                 <ul>
@@ -245,7 +312,7 @@
                             <li><b>Substep 4</b>: third byte of UTF-8 sequence = 0xac</li>
                         </ul>
                     </li>
-                    <li>Final step: the UTF-8 sequence of the character <b>€</b> (U+20AC) is 0xe282ac</li>
+                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>€</b> (U+20AC) is 0xe282ac</li>
                 </ul>
             </li>
             <li>If the code point is less than U+110000 or between U+010000 and U+10FFFF, it is encoded in four bytes.<br>
@@ -282,10 +349,10 @@
                             <li><b>Substep 4</b>: the fourth byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
-                    <li>Final step: combine the first byte, second byte third byte, and the forth byte to form a UTF-8 sequence</li>
+                    <li><b>Final step</b>: combine the first byte, second byte third byte, and the forth byte to form a UTF-8 sequence</li>
                 </ul>
                 
-                <br><br>
+                <br>
                 For example, encoding the Character <b>😀</b> (U+1F600):<br>
                 <ul>
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
@@ -320,7 +387,7 @@
                             <li><b>Substep 4</b>: fourth byte of UTF-8 sequence = 0x80</li>
                         </ul>
                     </li>
-                    <li>Final step: the UTF-8 sequence of the character <b>😀</b> (U+1F600) is 0xf09f9880</li>
+                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>😀</b> (U+1F600) is 0xf09f9880</li>
                 </ul>  
             </li>
         </ol>
@@ -434,11 +501,11 @@
                         </ul>
                     </li>
                     <li>
-                        Final step: the code point of the UTF-8 sequence is the result of step 1
+                        <b>Final step</b>: the code point of the UTF-8 sequence is the result of step 1
                     </li>
                 </ul>
                 
-                <br><br>
+                <br>
                 For example, decoding the UTF-8 sequence 0x24:<br>
                 <ul>
                     <li><b>Step 1</b>: decode the first byte<br>
@@ -449,9 +516,9 @@
                             <li><b>Substep 4</b>: the decoded first byte = 0x24</li>
                         </ul>
                     </li>
-                    <li>Final step: the code point of the UTF-8 sequence 0x24 is U+0024</li>
+                    <li><b>Final step</b>: the code point of the UTF-8 sequence 0x24 is U+0024</li>
                 </ul>
-                <br><br>
+                <br>
                 As you can see, for a single-byte UTF-8 sequence, the first byte is the code point itself.
             </li>
             <li>If the first byte of UTF-8 sequence is between 0xC0 and 0xDF, the length of the UTF-8 sequence is two bytes. The maximum number of bits in two bytes is 16 bits and is represented as four hexadecimal digits.<br>
@@ -476,11 +543,11 @@
                         <b>Step 3</b>: perform the OR operation among the result of step 1 and the result of step 2 to get the code point value.
                     </li>
                     <li>
-                        Final step: the code point of UTF-8 sequence is the result of step 3
+                        <b>Final step</b>: the code point of UTF-8 sequence is the result of step 3
                     </li>
                 </ul>
 
-                <br><br>
+                <br>
                 For example, decoding the UTF-8 sequence 0xc3bc:<br>
 
                 <ul>
@@ -502,7 +569,7 @@
                     </li>
                     <li><b>Step 3</b>: 0x00c0 | 0x003c = 0x00fc</li>
                     <li>
-                        Final step: the code point of UTF-8 sequence 0xc3bc is U+00FC
+                        <b>Final step</b>: the code point of UTF-8 sequence 0xc3bc is U+00FC
                     </li>
                 </ul>
                 
@@ -537,11 +604,11 @@
                         <b>Step 4</b>: perform the OR operation among the result of step 1, the result of step 2 and the result of the step 3 to get the code point value.
                     </li>
                     <li>
-                        Final step: the code point of UTF-8 sequence is the result of step 4
+                        <b>Final step</b>: the code point of UTF-8 sequence is the result of step 4
                     </li>
                 </ul>
 
-                <br><br>
+                <br>
                 For example, decoding the UTF-8 sequence 0xe282ac:<br>
 
                 <ul>
@@ -571,7 +638,7 @@
                     </li>
                     <li><b>Step 4</b>: 0x002000 | 0x000080 | 0x00002c = 0x0020ac</li>
                     <li>
-                        Final step: the code point of UTF-8 sequence 0xc3bc is U+20AC
+                        <b>Final step</b>: the code point of UTF-8 sequence 0xc3bc is U+20AC
                     </li>
                 </ul>
             </li>
@@ -613,11 +680,11 @@
                         <b>Step 5</b>: perform the OR operation among the result of step 1, the result of step 2, the result of the step 3 and the result of the step 4 to get the code point value.
                     </li>
                     <li>
-                        Final step: the code point of UTF-8 sequence is the result of step 4
+                        <b>Final step</b>: the code point of UTF-8 sequence is the result of step 4
                     </li>
                 </ul>  
                 
-                <br><br>
+                <br>
                 For example, decoding the UTF-8 sequence 0xf09f9880:<br>
 
                 <ul>
@@ -655,7 +722,7 @@
                     </li>
                     <li><b>Step 5</b>: 0x00000000 | 0x0001f000 | 0x00000600 | 0x00000000 = 0x0001f600</li>
                     <li>
-                        Final step: the code point of UTF-8 sequence 0xf09f9880 is U+1F600
+                        <b>Final step</b>: the code point of UTF-8 sequence 0xf09f9880 is U+1F600
                     </li>
                 </ul>
             </li>
@@ -663,14 +730,12 @@
         
         <h5 class="post-subtitle">Byte Order Mark (BOM)</h5>
 
-        <p>The Byte Order Mark (BOM) in UTF-8 is represented by the Unicode code point U+FEFF. In UTF-8, this code point is encoded as the following three-byte sequence: <b>EF BB BF</b>. This sequence is placed at the beginning of a file or stream to indicate that the contents are encoded in UTF-8.</p>
+        <p>The Byte Order Mark (BOM) in UTF-8 is represented by the Unicode code point U+FEFF. In UTF-8, this code point is encoded as the following three-byte sequence: <b>EF BB BF</b>. This sequence is placed at the beginning of a file or stream to indicate that the contents are encoded in UTF-8. UTF-8 has no Litte-Endian or Big-Endian variants.</p>
 
         <p>For example, Suppose we have a text file containing the string "Hello, World!" encoded in UTF-8. The file would start with the BOM sequence EF BB BF, followed by the UTF-8 encoding of the string:</p>
 
         <p><b>EF BB BF 48 65 6C 6C 6F 2C 20 57 6F 72 6C 64 21</b></p>
 
-        <p>The BOM sequence EF BB BF indicates that the file is encoded in UTF-8, and the remaining bytes represent the UTF-8 encoding of the string "Hello, World!".</p>
-        
         <h5 class="post-subtitle">UTF-8 Encoding and Decoding Algorithm in Programming Languages</h5>
 
         <h6 class="post-subtitle">C Programming Language</h6>
@@ -4219,355 +4284,4 @@ sudo update-alternatives --install /usr/bin/java java /opt/jdk-22.0.1/bin/java 3
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-10" /><category term="linux" /><category term="ubuntu 22.04" /><category term="update-alternatives" /><summary type="html"><![CDATA[Learn how to effectively manage multiple versions of packages using the update-alternatives command in Ubuntu 22.04. This command allows you to easily switch between different versions of software packages on your system.]]></summary></entry><entry xml:lang="en"><title type="html">Difference Between Git Merge and Git Rebase</title><link href="https://hemimorphite.github.io/zh/2024/05/04/difference-between-git-merge-and-git-rebase/" rel="alternate" type="text/html" title="Difference Between Git Merge and Git Rebase" /><published>2024-05-04T06:50:00+00:00</published><updated>2024-05-04T06:50:00+00:00</updated><id>https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase</id><content type="html" xml:base="https://hemimorphite.github.io/2024/05/04/difference-between-git-merge-and-git-rebase/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Difference Between Git Merge and Git Rebase</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published May 04, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/git.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Managing repository history is one of the critical parts of keeping your code base scalable. Many approaches might be helpful in one case and not work in another.</p>
-        
-        <p><code>git rebase</code> and <code>git merge</code> are two git utilities that are designed to combine commit history from one branch to another branch.</p>
-
-        <h4>Git Merge</h4>
-
-        <p><code>git merge</code> is a command used to combine changes from two or more branches into a single branch. When a merge is performed, Git creates a new commit that incorporates the changes from both branches. The resulting commit history looks like a tree, with multiple branches merging into a single trunk.</p>
-
-        <p>To perform a merge, first, ensure you are on the branch that you want to merge changes into (e.g., <code>main</code> branch). Then, run the following command:</p>
-
-        <pre><code class="language-bash hljs">git merge &lt;branch-name&gt;</code></pre>
-
-        <p>where <code>&lt;branch-name&gt;</code> is the name of the branch containing the changes you want to merge. Git will create a new merge commit that combines the changes from both branches. If there are conflicts between the changes in the two branches, Git will prompt you to resolve them before the merge can be completed.</p>
-
-        <p>There are two types of merge:</p>
-
-        <ol>
-            <li>Fast-forward merge</li>
-            <li>Three-way merge</li>
-        </ol>
-
-        <h5 class="post-subtitle">Fast-forward Merge</h5>
-
-        <p>Imagine we are having two branches:</p>
-
-        <ol>
-            <li>Parent branch (<code>main</code>)</li>
-            <li>Child branch (<code>feature</code>)</li>
-        </ol>
-
-        <p>We made changes and commits to the <code>main</code> branch.</p>
-
-        <p>At the second commit on <code>main</code> branch the <code>feature</code> branch got created, and then we made changes and commits to the <code>feature</code> branch only. We didn't make any changes and commits on the <code>main</code> branch.</p>
-
-        <p>If there will be only two branches <code>main</code> and <code>feature</code>, and no new changes and commits have been performed on your <code>main</code> branch since the <code>feature</code> branch got created in this case git will perform fast-forward merge.</p>
-
-        <p>In the Fast-forward merge, git simply moves the pointer from the <code>main</code> branch to the last commit of the <code>feature</code> branch.</p>
-
-        <figure class="post-figure">
-            <img src="/assets/images/git-28.jpg" alt="Fast-forward Merge">
-        </figure>
-
-        <p>In the Fast-forward merge, there is no chance of conflicts because the changes and commits are in the <code>feature</code> branch only, not on the <code>main</code> branch.</p>
-
-        <pre><code class="language-bash hljs"># make a repo directory
-mkdir projecta && cd projecta
-
-# initialize the repo and specify the initial branch name
-git init --initial-branch=main
-
-# add a file
-touch home.html && echo "&lt;h1&gt;Header for homepage&lt;/h1&gt;" &gt; home.html
-
-# add home.html to the Staging area
-git add home.html
-
-# commit that file to the Local Repository
-git commit -m "commit 1"
-
-# add some content to the home.html
-echo "&lt;p&gt;content for homepage&lt;/p&gt;" &gt;&gt; home.html
-
-# add home.html to the Staging area
-git add home.html
-
-# commit that file to the Local Repository
-git commit -m "commit 2"</code></pre>
-
-        <p>Now, there are two commits available at the <code>main</code> branch. To confirm that we'll check the log using <code>git log</code> command</p>
-
-        <p>Now we'll create a <code>feature</code> branch and switch to <code>feature</code> branch.</p>
-        
-        <pre><code class="language-bash hljs">git checkout -b feature</code></pre>
-        
-        <pre><code class="language-bash hljs"># add some content again to the home.html
-echo "&lt;p&gt;content 2 for homepage&lt;/p&gt;" &gt;&gt; home.html
-
-# add home.html to the Staging area
-git add home.html
-
-# commit that file to the Local Repository
-git commit -m "commit 3"
-
-# add some content again to the home.html
-echo "&lt;p&gt;content 3 for homepage&lt;/p&gt;" &gt;&gt; home.html
-
-# add home.html to the Staging area
-git add home.html
-
-# commit that file to the Local Repository
-git commit -m "commit 4"</code></pre>
-        
-        <p>Now, there will be four commits available at the <code>feature</code> branch.</p>
-
-        <p>Next we'll merge the <code>feature</code> branch to the <code>main</code> branch.</p>
-
-        <p>Switch back to the <code>main</code> branch and merge the <code>feature</code> branch with the <code>main</code> branch.</p>
-
-        <pre><code class="language-bash hljs"># switch to main branch
-git switch main
-            
-# merge feature branch to main branch
-git merge feature</code></pre>
-
-        <p>Now, there will be four commits available at the <code>main</code> branch.</p>
-
-        <h5 class="post-subtitle">Three-way Merge</h5>
-
-        <p>Three-way merge is a common merging strategy used in Git to combine changes from two different branches or commits into a single unified result. It is designed to handle situations where multiple branches have made conflicting changes to the same file or lines of code.</p>
-        
-        <figure class="post-figure">
-            <img src="/assets/images/git-27.jpg" alt="Three-way Merge">
-        </figure>
-
-        <p>When performing a three-way merge, Git identifies three versions of the code:</p>
-
-        <ol>
-            <li>The common ancestor: This is the base version of the code that both branches originally diverged from. It represents the last common commit between the two branches.</li>
-            <li>The ours version: This represents the version of the code in the branch you are currently on (usually the branch you are merging into).</li>
-            <li>The theirs version: This represents the version of the code in the branch you are merging in (usually the branch being merged into the current branch).</li>
-        </ol>
-
-        <p>Git uses these three versions of the code to intelligently merge the changes. It compares the differences between the common ancestor and the ours version and also between the common ancestor and the theirs version. Then, it combines these changes, considering both sets of modifications, to create a merged version of the file.</p>
-
-        <p>During the merge process, if there are conflicting changes (i.e., changes that overlap and cannot be automatically merged), Git will mark those conflicts and pause the merge. It prompts the user to manually resolve the conflicts by editing the affected file(s) to choose which changes to keep. Once the conflicts are resolved, the user can complete the merge by committing the changes.</p>
-
-        <p>Now, we'll create two files named <code>home.html</code> and <code>about.html</code> and create two commits.</p>
-
-        <pre><code class="language-bash hljs"># make a repo directory
-mkdir projectb && cd projectb
-
-# initialize the repo and specify the initial branch name
-git init --initial-branch=main
-
-# add home.html file
-touch home.html && echo "&lt;h1&gt;Header for homepage&lt;/h1&gt;" &gt; home.html
-
-# add home.html to the staging area
-git add home.html
-
-# commit that file to the Local Repository
-git commit -m "commit 1"
-
-# add about.html
-touch about.html && echo "&lt;h1&gt;Header for about&lt;/h1&gt;" &gt; about.html
-
-# add about.html to the staging area
-git add about.html
-
-# commit that file to the Local Repository
-git commit -m "commit 2"</code></pre>  
-
-        <p>Now, there are two commits available at the <code>main</code> branch.</p>
-        
-        <p>Next we'll create a <code>feature</code> branch and switch to <code>feature</code> branch.</p>
-        
-        <pre><code class="language-bash hljs">git checkout -b feature</code></pre>
-        
-        <pre><code class="language-bash hljs"># add page1.html file
-touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
-
-# add page1.html to the staging area
-git add page1.html
-
-# commit that file to the Local Repository
-git commit -m "child commit 1"
-
-# add about.html
-touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
-
-# add about.html to the staging area
-git add page2.html
-
-# commit that file to the Local Repository
-git commit -m "child commit 2"</code></pre>
-        
-        <p>Then there will be a total of four commits at the <code>feature</code> branch. Two commits from the <code>main</code> branch and the other two commits from <code>feature</code> branch i.e. the child branch.</p>
-
-        <p>Now we'll switch back to the <code>main</code> branch and create a file <code>contact.html</code> on the <code>main</code> branch.</p>
-
-        <pre><code class="language-bash hljs"># switch to main branch
-git checkout main
-
-# add contact.html file
-touch contact.html && echo "&lt;h1&gt;Header for contact&lt;/h1&gt;" &gt; contact.html
-
-# add contact.html to the staging area
-git add contact.html
-
-# commit that file to the Local Repository
-git commit -m "commit 3"</code></pre>
-
-        <p>So, There will be three commits available at the <code>main</code> branch.</p>
-
-        <p>Next we'll merge the <code>feature</code> branch to the <code>main</code> branch.</p>
-
-        <pre><code class="language-bash hljs"># switch to main branch
-git switch main
-            
-# merge feature branch to main branch
-git merge feature</code></pre>
-
-        <p>A new commit will be created. That commit is considered as the merge commit.</p>
-
-        <h4>Git Rebase</h4>
-
-        <p>Rebasing is often used as an alternative to merging. Rebasing a branch updates one branch with another by applying the commits of one branch on top of the commits of another branch. For example, if working on a <code>feature</code> branch that is out of date with a <code>main</code> branch, rebasing the feature <code>feature</code> onto <code>main</code> will allow all the new commits from <code>main</code> to be included in <code>feature</code>.</p>
-        
-        <figure class="post-figure">
-            <img src="/assets/images/git-29.jpg" alt="Rebase">
-        </figure>
-
-        <p>For the above example, this is what it looks like from the command line:</p>
-
-        <pre><code class="language-bash hljs">git rebase feature main</code></pre>
-
-        <p>However, it is more common to first checkout a branch and then run the rebase command with the name of the branch you wish to rebase on to:</p>
-
-        <pre><code class="language-bash hljs">git checkout feature
-git rebase main</code></pre>
-
-        <p>The golden rule of <code>git rebase</code> is to never use it on public branches.</p>
-
-        <p>For example, think about what would happen if you rebased <code>main</code> onto your <code>feature</code> branch. The rebase moves all of the commits in <code>main</code> onto the tip of <code>feature</code>. The problem is that this only happened in your repository. All of the other developers are still working with the original <code>main</code>.</p>
-
-        <pre><code class="language-bash hljs"># make a repo directory
-mkdir projectc && cd projectc
-
-# initialize the repo and specify the initial branch name
-git init --initial-branch=main
-
-# add home.html file
-touch home.html && echo "&lt;h1&gt;Header for homepage&lt;/h1&gt;" &gt; home.html
-
-# add home.html to the staging area
-git add home.html
-
-# commit that file to the Local Repository
-git commit -m "commit 1"
-
-# add about.html
-touch about.html && echo "&lt;h1&gt;Header for about&lt;/h1&gt;" &gt; about.html
-
-# add about.html to the staging area
-git add about.html
-
-# commit that file to the Local Repository
-git commit -m "commit 2"
-
-# create feature branch and switch to it
-git checkout -b feature
-
-# add page1.html file
-touch page1.html && echo "&lt;h1&gt;Header for page 1&lt;/h1&gt;" &gt; page1.html
-
-# add page1.html to the staging area
-git add page1.html
-
-# commit that file to the Local Repository
-git commit -m "child commit 1"
-
-# add about.html
-touch page2.html && echo "&lt;h1&gt;Header for page 2&lt;/h1&gt;" &gt; page2.html
-
-# add about.html to the staging area
-git add page2.html
-
-# commit that file to the Local Repository
-git commit -m "child commit 2"
-
-# switch to main branch
-git checkout main
-
-# add contact.html file
-touch contact.html && echo "&lt;h1&gt;Header for contact&lt;/h1&gt;" &gt; contact.html
-
-# add contact.html to the staging area
-git add contact.html
-
-# commit that file to the Local Repository
-git commit -m "commit 3"</code></pre>
-
-        <p>Now we come back to the <code>feature</code> branch, but we want to have a linear history, moving the <code>feature</code> to the tip of <code>main</code> branch.</p>
-
-        <pre><code class="language-bash hljs">git checkout feature
-git rebase main</code></pre>
-
-        <p>To confirm that we'll check the log using <code>git log</code> command</p>
-
-        <pre><code class="language-bash hljs">git log --graph</code></pre>
-
-        <figure class="post-figure">
-            <img src="/assets/images/git-30.png" alt="linear history">
-        </figure>
-
-        <p>Having a linear history, we can do a fast-forward merge by merging the <code>feature</code> branch with the <code>main</code> branch.</p>
-
-        <pre><code class="language-bash hljs">git checkout main
-git merge feature</code></pre>
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git" class="tag">git</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git-merge" class="tag">git merge</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git-rebase" class="tag">git rebase</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git-init" class="tag">git init</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git-add" class="tag">git add</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git-commit" class="tag">git commit</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git-log" class="tag">git log</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git-checkout" class="tag">git checkout</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git-merge" class="tag">git merge</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git-switch" class="tag">git switch</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/git-log" class="tag">git log</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-05" /><category term="day-04" /><category term="git" /><category term="git merge" /><category term="git rebase" /><category term="git init" /><category term="git add" /><category term="git commit" /><category term="git log" /><category term="git checkout" /><category term="git merge" /><category term="git switch" /><category term="git log" /><summary type="html"><![CDATA[Understanding the difference between Git merge and Git rebase is crucial for effective version control and collaboration. Learn the distinctions between these two essential Git commands.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-10" /><category term="linux" /><category term="ubuntu 22.04" /><category term="update-alternatives" /><summary type="html"><![CDATA[Learn how to effectively manage multiple versions of packages using the update-alternatives command in Ubuntu 22.04. This command allows you to easily switch between different versions of software packages on your system.]]></summary></entry></feed>

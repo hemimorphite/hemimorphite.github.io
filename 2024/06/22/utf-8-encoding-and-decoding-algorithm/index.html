@@ -1475,9 +1475,9 @@
                             <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
-                    <li>Final step: the UTF-8 sequence is the result of step 1</li>
+                    <li><b>Final step</b>: the UTF-8 sequence is the result of step 1</li>
                 </ul>
-                <br><br>
+                <br>
                 For example, encoding the character <b>$</b> (U+0024):<br>
                 <ul>
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
@@ -1488,9 +1488,9 @@
                             <li><b>Substep 4</b>: first byte of UTF-8 sequence = 0x24</li>
                         </ul>
                     </li>
-                    <li>Final step: the UTF-8 sequence of the character <b>$</b> (U+0024) is 0x24</li>
+                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>$</b> (U+0024) is 0x24</li>
                 </ul>
-                <br><br>
+                <br>
                 As you can see, for a single-byte UTF-8 sequence, the first byte is the code point itself.
             </li>
             <li>If the code point is less than U+0800 or between U+0080 and U+07FF, it is encoded in two bytes.<br>
@@ -1512,11 +1512,11 @@
                         </ul>
                     </li>
                     <li>
-                        Final step: combine the result of step 1 and the result of step 2 to form a UTF-8 sequence.
+                        <b>Final step</b>: combine the result of step 1 and the result of step 2 to form a UTF-8 sequence.
                     </li>
                 </ul>
                 
-                <br><br>
+                <br>
                 For example, encoding the Character <b>ü</b> (U+00FC):<br>
 
                 <ul>
@@ -1536,7 +1536,7 @@
                             <li><b>Substep 3</b>: second byte of UTF-8 sequence = 0xbc</li>
                         </ul>
                     </li>
-                    <li>Final step: the UTF-8 sequence of the character <b>ü</b> (U+00FC) is 0xc3bc</li>
+                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>ü</b> (U+00FC) is 0xc3bc</li>
                 </ul>
             </li>
             <li>If the code point is less than U+010000 or between U+0800 and U+FFFF, it is encoded in three bytes.<br>
@@ -1565,10 +1565,10 @@
                             <li><b>Substep 4</b>: the third byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
-                    <li>Final step: combine the first byte, second byte and the third byte to form a UTF-8 sequence</li>
+                    <li><b>Final step</b>: combine the first byte, second byte and the third byte to form a UTF-8 sequence</li>
                 </ul>
                 
-                <br><br>
+                <br>
                 For example, encoding the Character <b>€</b> (U+20AC):<br>
 
                 <ul>
@@ -1596,7 +1596,7 @@
                             <li><b>Substep 4</b>: third byte of UTF-8 sequence = 0xac</li>
                         </ul>
                     </li>
-                    <li>Final step: the UTF-8 sequence of the character <b>€</b> (U+20AC) is 0xe282ac</li>
+                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>€</b> (U+20AC) is 0xe282ac</li>
                 </ul>
             </li>
             <li>If the code point is less than U+110000 or between U+010000 and U+10FFFF, it is encoded in four bytes.<br>
@@ -1633,10 +1633,10 @@
                             <li><b>Substep 4</b>: the fourth byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
-                    <li>Final step: combine the first byte, second byte third byte, and the forth byte to form a UTF-8 sequence</li>
+                    <li><b>Final step</b>: combine the first byte, second byte third byte, and the forth byte to form a UTF-8 sequence</li>
                 </ul>
                 
-                <br><br>
+                <br>
                 For example, encoding the Character <b>😀</b> (U+1F600):<br>
                 <ul>
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
@@ -1671,7 +1671,7 @@
                             <li><b>Substep 4</b>: fourth byte of UTF-8 sequence = 0x80</li>
                         </ul>
                     </li>
-                    <li>Final step: the UTF-8 sequence of the character <b>😀</b> (U+1F600) is 0xf09f9880</li>
+                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>😀</b> (U+1F600) is 0xf09f9880</li>
                 </ul>  
             </li>
         </ol>
@@ -1785,11 +1785,11 @@
                         </ul>
                     </li>
                     <li>
-                        Final step: the code point of the UTF-8 sequence is the result of step 1
+                        <b>Final step</b>: the code point of the UTF-8 sequence is the result of step 1
                     </li>
                 </ul>
                 
-                <br><br>
+                <br>
                 For example, decoding the UTF-8 sequence 0x24:<br>
                 <ul>
                     <li><b>Step 1</b>: decode the first byte<br>
@@ -1800,9 +1800,9 @@
                             <li><b>Substep 4</b>: the decoded first byte = 0x24</li>
                         </ul>
                     </li>
-                    <li>Final step: the code point of the UTF-8 sequence 0x24 is U+0024</li>
+                    <li><b>Final step</b>: the code point of the UTF-8 sequence 0x24 is U+0024</li>
                 </ul>
-                <br><br>
+                <br>
                 As you can see, for a single-byte UTF-8 sequence, the first byte is the code point itself.
             </li>
             <li>If the first byte of UTF-8 sequence is between 0xC0 and 0xDF, the length of the UTF-8 sequence is two bytes. The maximum number of bits in two bytes is 16 bits and is represented as four hexadecimal digits.<br>
@@ -1827,11 +1827,11 @@
                         <b>Step 3</b>: perform the OR operation among the result of step 1 and the result of step 2 to get the code point value.
                     </li>
                     <li>
-                        Final step: the code point of UTF-8 sequence is the result of step 3
+                        <b>Final step</b>: the code point of UTF-8 sequence is the result of step 3
                     </li>
                 </ul>
 
-                <br><br>
+                <br>
                 For example, decoding the UTF-8 sequence 0xc3bc:<br>
 
                 <ul>
@@ -1853,7 +1853,7 @@
                     </li>
                     <li><b>Step 3</b>: 0x00c0 | 0x003c = 0x00fc</li>
                     <li>
-                        Final step: the code point of UTF-8 sequence 0xc3bc is U+00FC
+                        <b>Final step</b>: the code point of UTF-8 sequence 0xc3bc is U+00FC
                     </li>
                 </ul>
                 
@@ -1888,11 +1888,11 @@
                         <b>Step 4</b>: perform the OR operation among the result of step 1, the result of step 2 and the result of the step 3 to get the code point value.
                     </li>
                     <li>
-                        Final step: the code point of UTF-8 sequence is the result of step 4
+                        <b>Final step</b>: the code point of UTF-8 sequence is the result of step 4
                     </li>
                 </ul>
 
-                <br><br>
+                <br>
                 For example, decoding the UTF-8 sequence 0xe282ac:<br>
 
                 <ul>
@@ -1922,7 +1922,7 @@
                     </li>
                     <li><b>Step 4</b>: 0x002000 | 0x000080 | 0x00002c = 0x0020ac</li>
                     <li>
-                        Final step: the code point of UTF-8 sequence 0xc3bc is U+20AC
+                        <b>Final step</b>: the code point of UTF-8 sequence 0xc3bc is U+20AC
                     </li>
                 </ul>
             </li>
@@ -1964,11 +1964,11 @@
                         <b>Step 5</b>: perform the OR operation among the result of step 1, the result of step 2, the result of the step 3 and the result of the step 4 to get the code point value.
                     </li>
                     <li>
-                        Final step: the code point of UTF-8 sequence is the result of step 4
+                        <b>Final step</b>: the code point of UTF-8 sequence is the result of step 4
                     </li>
                 </ul>  
                 
-                <br><br>
+                <br>
                 For example, decoding the UTF-8 sequence 0xf09f9880:<br>
 
                 <ul>
@@ -2006,7 +2006,7 @@
                     </li>
                     <li><b>Step 5</b>: 0x00000000 | 0x0001f000 | 0x00000600 | 0x00000000 = 0x0001f600</li>
                     <li>
-                        Final step: the code point of UTF-8 sequence 0xf09f9880 is U+1F600
+                        <b>Final step</b>: the code point of UTF-8 sequence 0xf09f9880 is U+1F600
                     </li>
                 </ul>
             </li>
@@ -2014,14 +2014,12 @@
         
         <h5 class="post-subtitle">Byte Order Mark (BOM)</h5>
 
-        <p>The Byte Order Mark (BOM) in UTF-8 is represented by the Unicode code point U+FEFF. In UTF-8, this code point is encoded as the following three-byte sequence: <b>EF BB BF</b>. This sequence is placed at the beginning of a file or stream to indicate that the contents are encoded in UTF-8.</p>
+        <p>The Byte Order Mark (BOM) in UTF-8 is represented by the Unicode code point U+FEFF. In UTF-8, this code point is encoded as the following three-byte sequence: <b>EF BB BF</b>. This sequence is placed at the beginning of a file or stream to indicate that the contents are encoded in UTF-8. UTF-8 has no Litte-Endian or Big-Endian variants.</p>
 
         <p>For example, Suppose we have a text file containing the string "Hello, World!" encoded in UTF-8. The file would start with the BOM sequence EF BB BF, followed by the UTF-8 encoding of the string:</p>
 
         <p><b>EF BB BF 48 65 6C 6C 6F 2C 20 57 6F 72 6C 64 21</b></p>
 
-        <p>The BOM sequence EF BB BF indicates that the file is encoded in UTF-8, and the remaining bytes represent the UTF-8 encoding of the string "Hello, World!".</p>
-        
         <h5 class="post-subtitle">UTF-8 Encoding and Decoding Algorithm in Programming Languages</h5>
 
         <h6 class="post-subtitle">C Programming Language</h6>
