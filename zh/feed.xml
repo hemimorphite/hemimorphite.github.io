@@ -1,4 +1,888 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-06-19T16:13:53+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Bourne Shell Builtin Commands</title><link href="https://hemimorphite.github.io/zh/2024/06/16/bourne-shell-builtin-commands/" rel="alternate" type="text/html" title="Bourne Shell Builtin Commands" /><published>2024-06-16T16:21:00+00:00</published><updated>2024-06-16T16:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-06-22T15:00:12+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">UTF-8 Encoding and Decoding Algorithm</title><link href="https://hemimorphite.github.io/zh/2024/06/22/utf-8-encoding-and-decoding-algorithm/" rel="alternate" type="text/html" title="UTF-8 Encoding and Decoding Algorithm" /><published>2024-06-22T14:51:00+00:00</published><updated>2024-06-22T14:51:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/22/utf-8-encoding-and-decoding-algorithm</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/22/utf-8-encoding-and-decoding-algorithm/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">UTF-8 Encoding and Decoding Algorithm</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published June 22, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/unicode.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>In computer systems, characters are transformed and stored as numbers (sequences of bits) that can be handled by the processor. A code page is an encoding scheme that maps a specific sequence of bits to its character representation. Before Unicode, there were hundreds of different encoding schemes that assigned a number to each letter or character. Many such schemes included code pages that contained only 256 characters – each character requiring 8 bits of storage. While this was relatively compact, it was insufficient to hold ideographic character sets containing thousands of characters such as Chinese and Japanese, and also did not allow the character sets of many languages to co-exist with each other.</p>
+
+        <p>Unicode is an attempt to include all the different schemes into one universal text-encoding standard.</p>
+
+        <p>Unicode represents each individual character as a unique code point with a unique number. For example, the character A – Latin Capital Letter A – is represented as U+0041 and the Hiragana ふ is U+3075</p>
+
+        <p>An individual Unicode code point is expressed as U+n, where n is four to six hexadecimal digits, using the digits 0–9 and uppercase letters A–F (for 10 through 15, respectively). Leading zeros are omitted, unless the code point would have fewer than four hexadecimal digits—for example, U+0001, U+0012, U+0123, U+1234, U+12345, U+102345.</p>
+
+        <p>Unicode also defines multiple encodings of its single character set: UTF-8, UTF-16, and UTF-32.</p>
+
+        <h5>UTF-8 Encoding</h5>
+
+        <p>UTF-8 is a byte encoding used to encode unicode characters. UTF-8 uses 1, 2, 3 or 4 bytes to represent a unicode character.</p>
+
+        <p>When representing characters in UTF-8, each code point is represented by a sequence of one or more bytes. The number of bytes used depends on the code point being represented by the character. Here's a breakdown of the usage range:</p>
+
+        <ul>
+            <li>code points in the ASCII range U+0000 - U+007F (0-127) are represented by a single byte</li>
+            <li>code points in the range U+0080 - U+07FF (128-2047) are represented by two bytes</li>
+            <li>code points in the range U+0800 - U+FFFF (2048-65535) are represented by three bytes</li>
+            <li>code points in the range U+010000 - U+10FFFF (65536-1114111) are represented by four bytes</li>
+        </ul>
+
+        <p>In the following table, the x characters are replaced by the bits of the code point:</p>
+
+        <table class="table table-bordered border-primary">
+            <tbody>
+                <tr>
+                    <th>First code point </th>
+                    <th>Last code point </th>
+                    <th>Byte 1 </th>
+                    <th>Byte 2 </th>
+                    <th>Byte 3 </th>
+                    <th>Byte 4 </th>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">
+                        U+00
+                        <span style="color:red;">0</span>
+                        <span style="color:purple;">0</span>
+                    </td>
+                    <td style="text-align: right;">
+                        U+00<span style="color:red;">7</span><span style="color:purple;">F</span>
+                    </td>
+                    <td>
+                        0
+                        <span style="color:red;">xxx</span>
+                        <span style="color:purple;">xxxx</span>
+                    </td>
+                    <td style="background: darkgray;" colspan="3"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">
+                        U+0<span style="color:green;">0</span>
+                        <span style="color:red;">8</span>
+                        <span style="color:purple;">0</span>
+                    </td>
+                    <td style="text-align: right;">U+0
+                        <span style="color:green;">7</span>
+                        <span style="color:red;">F</span>
+                        <span style="color:purple;">F</span>
+                    </td>
+                    <td>
+                        110
+                        <span style="color:green;">xxx</span>
+                        <span style="color:red;">xx</span>
+                    </td>
+                    <td>
+                        10
+                        <span style="color:red;">xx</span>
+                        <span style="color:purple;">xxxx</span>
+                    </td>
+                    <td style="background: darkgray;" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">
+                        U+
+                        <span style="color:blue;">0</span>
+                        <span style="color:green;">8</span>
+                        <span style="color:red;">0</span>
+                        <span style="color:purple;">0</span>
+                    </td>
+                    <td style="text-align: right;">
+                        U+
+                        <span style="color:blue;">F</span>
+                        <span style="color:green;">F</span>
+                        <span style="color:red;">F</span>
+                        <span style="color:purple;">F</span>
+                    </td>
+                    <td>
+                        1110
+                        <span style="color:blue;">xxxx</span>
+                    </td>
+                    <td>
+                        10
+                        <span style="color:green;">xxxx</span>
+                        <span style="color:red;">xx</span>
+                    </td>
+                    <td>
+                        10
+                        <span style="color:red;">xx</span>
+                        <span style="color:purple;">xxxx</span>
+                    </td>
+                    <td style="background: darkgray;"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">
+                        U+ 
+                        <span style="color:crimson;">0</span>
+                        <span style="color:orange;">1</span>
+                        <span style="color:blue;">0</span>
+                        <span style="color:green;">0</span>
+                        <span style="color:red;">0</span>
+                        <span style="color:purple;">0</span>
+                    </td>
+                    <td style="text-align: right;">
+                        U+
+                        <span style="color:crimson;">1</span>
+                        <span style="color:orange;">0</span>
+                        <span style="color:blue;">F</span>
+                        <span style="color:green;">F</span>
+                        <span style="color:red;">F</span>
+                        <span style="color:purple;">F</span>
+                    </td>
+                    <td>
+                        11110
+                        <span style="color:crimson;">x</span>
+                        <span style="color:orange;">xx</span>
+                    </td>
+                    <td>
+                        10
+                        <span style="color:orange;">xx</span>
+                        <span style="color:blue;">xxxx</span>
+                    </td>
+                    <td>
+                        10
+                        <span style="color:green;">xxxx</span>
+                        <span style="color:red;">xx</span>
+                    </td>
+                    <td>
+                        10
+                        <span style="color:red;">xx</span>
+                        <span style="color:purple;">xxxx</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ol>
+            <li>If the code point is less than U+0080 or between U+0000 and U+007F, it is encoded in a single byte.<br>
+                <ul>
+                    <li>Step 1: get the first byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: perform the right shift operation on the code point by 0 bit</li>
+                            <li>Substep 2: perform the masking using AND operator between the result of substep 1 with 0x7F (0b01111111) to extract the 7 bits in the result of step 1</li>
+                            <li>Substep 3: perform the masking using OR operator between the result of substep 2 with 0</li>
+                            <li>Substep 4: the first byte of UTF-8 sequence is the result of step 3</li>
+                        </ul>
+                    </li>
+                    <li>Final step: the UTF-8 sequence is the result of step 1</li>
+                </ul>
+                
+                For example, encoding the character <b>$</b> (U+0024):<br>
+                <ul>
+                    <li>Step 1: get the first byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: 0x24 >> 0 = 0x80</li>
+                            <li>Substep 2: 0x24 & 0x7F = 0x24</li>
+                            <li>Substep 3: 0x24 | 0x0 = 0x24</li>
+                            <li>Substep 4: first byte of UTF-8 sequence = 0x24</li>
+                        </ul>
+                    </li>
+                    <li>Final step: the UTF-8 sequence of the character <b>$</b> (U+0024) is 0x24</li>
+                </ul>
+
+                As you can see, for a single-byte UTF-8 sequence, the first byte is the code point itself.
+            </li>
+            <li>If the code point is less than U+0800 or between U+0080 and U+07FF, it is encoded in two bytes.<br>
+                <ul>
+                    <li>Step 1: get the first byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: perform the right shift operation on the code point by 6 bits</li>
+                            <li>Substep 2: perform the masking using AND operator between the result of substep 1 with 0x1F (0b00011111) to extract the trailing 5 bits of the result of substep 1</li>
+                            <li>Substep 3: perform the masking using OR operator between the result of substep 2 with 0xC0 (0b11000000) to add the leading 3 bits (i.e. 110) to the result of substep 2</li>
+                            <li>Substep 4: the first byte of UTF-8 sequence is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: get the second byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: perform the right shift operation on the code point by 0 bit</li>
+                            <li>Substep 2: perform the masking using AND operator between the result of substep 1 with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li>Substep 3: perform the masking using OR operator between the result of substep 2 with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li>Substep 4: the second byte of UTF-8 sequence is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Final step: combine the result of step 1 and the result of step 2 to form a UTF-8 sequence.
+                    </li>
+                </ul>
+                
+                For example, encoding the Character <b>ü</b> (U+00FC):<br>
+
+                <ul>
+                    <li>Step 1: get the first byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: 0xfc >> 6 = 0x03</li>
+                            <li>Substep 2: 0x03 & 0x1f = 0x03</li>
+                            <li>Substep 3: 0x03 | 0xc0 = 0xc3</li>
+                            <li>Substep 4: first byte of UTF-8 sequence = 0xc3</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: get the second byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: 0xfc >> 0 = 0xfc</li>
+                            <li>Substep 2: 0xfc & 0x3f = 0x3c</li>
+                            <li>Substep 3: 0x3c | 0x80 = 0xbc</li>
+                            <li>Substep 3: second byte of UTF-8 sequence = 0xbc</li>
+                        </ul>
+                    </li>
+                    <li>Final step: the UTF-8 sequence of the character <b>ü</b> (U+00FC) is 0xc3bc</li>
+                </ul>
+            </li>
+            <li>If the code point is less than U+010000 or between U+0800 and U+FFFF, it is encoded in three bytes.<br>
+                <ul>
+                    <li>Step 1: get the first byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: perform the right shift operation on the code point by 12 bits</li>
+                            <li>Substep 2: perform the masking using AND operator between the result of substep 1 with 0x0F  (0b00001111) to extract the trailing 4 bits of the result of substep 1</li>
+                            <li>Substep 3: perform the masking using OR operator between the result of substep 2 with 0xE0 (0b11100000) to add the leading 4 bits (i.e. 1110) to the result of substep 2</li>
+                            <li>Substep 4: the first byte of UTF-8 sequence is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: get the second byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: perform the right shift operation on the code point by 6 bits</li>
+                            <li>Substep 2: perform the masking using AND operator between the result of substep 1 with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li>Substep 3: perform the masking using OR operator between the result of substep 2 with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li>Substep 4: the second byte of UTF-8 sequence is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 3: get the third byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: perform the right shift operation on the code point by 0 bit</li>
+                            <li>Substep 2: perform the masking using AND operator between the result of substep 1 with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li>Substep 3: perform the masking using OR operator between the result of substep 2 with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li>Substep 4: the third byte of UTF-8 sequence is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Final step: combine the first byte, second byte and the third byte to form a UTF-8 sequence</li>
+                </ul>
+                
+                For example, encoding the Character <b>€</b> (U+20AC):<br>
+
+                <ul>
+                    <li>Step 1: get the first byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: 0x20ac >> 12 = 0x02</li>
+                            <li>Substep 2: 0x02 & 0xf = 0x02</li>
+                            <li>Substep 3: 0x02 | 0xe0 = 0xe2</li>
+                            <li>Substep 4: first byte of UTF-8 sequence = 0xe2</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: get the second byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: 0x20ac >> 6 = 0x82</li>
+                            <li>Substep 2: 0x82 & 0x3f = 0x02</li>
+                            <li>Substep 3: 0x02 | 0x80 = 0x82</li>
+                            <li>Substep 4: second byte of UTF-8 sequence = 0x82</li>
+                        </ul>
+                    </li>
+                    <li>Step 3: get the third byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: 0x20ac >> 0 = 0x20ac</li>
+                            <li>Substep 2: 0x20ac & 0x3f = 0x2c</li>
+                            <li>Substep 3: 0x2c | 0x80 = 0xac</li>
+                            <li>Substep 4: third byte of UTF-8 sequence = 0xac</li>
+                        </ul>
+                    </li>
+                    <li>Final step: the UTF-8 sequence of the character <b>€</b> (U+20AC) is 0xe282ac</li>
+                </ul>
+            </li>
+            <li>If the code point is less than U+110000 or between U+010000 and U+10FFFF, it is encoded in four bytes.<br>
+                <ul>
+                    <li>Step 1: get the first byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: perform the right shift operation on the code point by 18 bits</li>
+                            <li>Substep 2: perform the masking using AND operator between the result of substep 1 with 0x07  (0b00000111) to extract the trailing 3 bits of the result of substep 1</li>
+                            <li>Substep 3: perform the masking using OR operator between the result of substep 2 with 0xF0 (0b11110000) to add the leading 5 bits (i.e. 11110) to the result of substep 2</li>
+                            <li>Substep 4: the first byte of UTF-8 sequence is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: get the second byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: perform the right shift operation on the code point by 12 bits</li>
+                            <li>Substep 2: perform the masking using AND operator between the result of substep 1 with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li>Substep 3: perform the masking using OR operator between the result of substep 2 with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li>Substep 4: the second byte of UTF-8 sequence is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 3: get the third byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: perform the right shift operation on the code point by 6 bits</li>
+                            <li>Substep 2: perform the masking using AND operator between the result of substep 1 with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li>Substep 3: perform the masking using OR operator between the result of substep 2 with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li>Substep 4: the third byte of UTF-8 sequence is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 4: get the fourth byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: perform the right shift operation on the code point by 0 bit</li>
+                            <li>Substep 2: perform the masking using AND operator between the result of substep 1 with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li>Substep 3: perform the masking using OR operator between the result of substep 2 with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li>Substep 4: the fourth byte of UTF-8 sequence is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Final step: combine the first byte, second byte third byte, and the forth byte to form a UTF-8 sequence</li>
+                </ul>
+                
+                For example, encoding the Character <b>😀</b> (U+1F600):<br>
+                <ul>
+                    <li>Step 1: get the first byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: 0x1f600 >> 18 = 0x0</li>
+                            <li>Substep 2: 0x0 & 0x07 = 0x0</li>
+                            <li>Substep 3: 0x0 | 0xf0 = 0xf0</li>
+                            <li>Substep 4: first byte of UTF-8 sequence = 0xf0</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: get the second byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: 0x1f600 >> 12 = 0x1f</li>
+                            <li>Substep 2: 0x1f & 0x3f = 0x1f</li>
+                            <li>Substep 3: 0x1f | 0x80 = 0x9f</li>
+                            <li>Substep 4: second byte of UTF-8 sequence = 0x9f</li>
+                        </ul>
+                    </li>
+                    <li>Step 3: get the third byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: 0x1f600 >> 6 = 0x7d8</li>
+                            <li>Substep 2: 0x7d8 & 0x3f = 0x18</li>
+                            <li>Substep 3: 0x18 | 0x80 = 0x98</li>
+                            <li>Substep 4: third byte of UTF-8 sequence = 0x98</li>
+                        </ul>
+                    </li>
+                    <li>Step 4: get the fourth byte of UTF-8 sequence<br>
+                        <ul>
+                            <li>Substep 1: 0x1f600 >> 0 = 0x1f600</li>
+                            <li>Substep 2: 0x1f600 & 0x3f = 0x0</li>
+                            <li>Substep 3: 0x0 | 0x80 = 0x80</li>
+                            <li>Substep 4: fourth byte of UTF-8 sequence = 0x80</li>
+                        </ul>
+                    </li>
+                    <li>Final step: the UTF-8 sequence of the character <b>😀</b> (U+1F600) is 0xf09f9880</li>
+                </ul>  
+            </li>
+        </ol>
+
+        <p>The following table summarizes the conversion code points to UTF-8 sequence:</p>
+
+        <table class="table table-bordered border-primary">
+            <tbody>
+                <tr>
+                    <th colspan="2">Character</th>
+                    <th>Binary code point</th>
+                    <th>Binary UTF-8</th>
+                    <th>Hex UTF-8 </th>
+                </tr>
+                <tr>
+                    <td>
+                        $
+                    </td>
+                    <td align="right">
+                        U+0024
+                    </td>
+                    <td align="right">
+                        <span style="color:red;">010 0100</span>
+                    </td>
+                    <td align="left">
+                        0<span style="color:red;">0100100</span>
+                    </td>
+                    <td align="left">
+                        <span style="color:red;">24</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ü
+                    </td>
+                    <td align="right">
+                        U+00FC
+                    </td>
+                    <td align="right">
+                        <span style="color:green;">000 11</span>
+                        <span style="color:red;">11 1100</span>
+                    </td>
+                    <td align="left">
+                        110
+                        <span style="color:green;">00011</span> 
+                        10
+                        <span style="color:red;">111100</span>
+                    </td>
+                    <td align="left">
+                        <span style="color:green;">C3</span>
+                        <span style="color:red;">BC</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        €
+                    </td>
+                    <td align="right">
+                        U+20AC
+                    </td>
+                    <td align="right">
+                        <span style="color:blue;">0010</span>
+                        <span style="color:green;">0000 10</span>
+                        <span style="color:red;">10 1100</span>
+                    </td>
+                    <td align="left">
+                        1110
+                        <span style="color:blue;">0010</span>
+                        10
+                        <span style="color:green;">000010</span>
+                        10
+                        <span style="color:red;">101100</span>
+                    </td>
+                    <td align="left">
+                        <span style="color:blue;">E2</span>
+                        <span style="color:green;">82</span>
+                        <span style="color:red;">AC</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        😀
+                    </td>
+                    <td align="right">
+                        U+1F600
+                    </td>
+                    <td align="right">
+                        <span style="color: #C000C0;">0 01</span>
+                        <span style="color:blue;">11 1101</span>
+                        <span style="color:green;">1000 00</span>
+                        <span style="color:red;">00 0000</span>
+                    </td>
+                    <td align="left">
+                        11110
+                        <span style="color: #C000C0;">001</span>
+                         10
+                        <span style="color:blue;">111101</span> 
+                         10
+                        <span style="color:green;">100000</span> 
+                         10
+                        <span style="color:red;">000000</span>
+                    </td>
+                    <td align="left">
+                        <span style="color: #C000C0;">F0</span>
+                        <span style="color:blue;">9F</span>
+                        <span style="color:green;">98</span>
+                        <span style="color:red;">80</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>UTF-8 Decoding</h5>
+
+        <p>The algorithm to convert UTF-8 sequence to a unicode code point is as follows:</p>
+
+        <ul>
+            <li>If the first byte of UTF-8 sequence is between 0x0 and 0x7F, the length of the UTF-8 sequence is a single byte. The maximum number of bits in a byte is 8 bits and is represented as two hexadecimal digits.<br>
+                <ul>
+                    <li>Step 1: decode the first byte<br>
+                        <ul>
+                            <li>Substep 1: represent the first byte of the UTF-8 sequence as two hexadecimal digits</li>
+                            <li>Substep 2: perform the masking using AND operator between the first byte UTF-8 sequence with 0x7F (0b01111111) to extract the trailing 7 bits of the first byte UTF-8 sequence</li>
+                            <li>Substep 3: perform the lef shift on the result of substep 2 by 0 bit</li>
+                            <li>Substep 4: the decoded first byte is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Final step: the code point of the UTF-8 sequence is the result of step 1
+                    </li>
+                </ul>
+                
+                For example, decoding the UTF-8 sequence 0x24:<br>
+                <ul>
+                    <li>Step 1: decode the first byte<br>
+                        <ul>
+                            <li>Substep 1: the first byte of the UTF-8 sequence = 0x24</li>
+                            <li>Substep 2: 0x24 & 0x7f = 0x24</li>
+                            <li>Substep 3: 0x24 <<  0 = 0x24</li>
+                            <li>Substep 4: the decoded first byte = 0x24</li>
+                        </ul>
+                    </li>
+                    <li>Final step: the code point of the UTF-8 sequence 0x24 is U+0024</li>
+                </ul>
+
+                As you can see, for a single-byte UTF-8 sequence, the first byte is the code point itself.
+            </li>
+            <li>If the first byte of UTF-8 sequence is between 0xC0 and 0xDF, the length of the UTF-8 sequence is two bytes. The maximum number of bits in two bytes is 16 bits and is represented as four hexadecimal digits.<br>
+                <ul>
+                    <li>Step 1: decode the first byte<br>
+                        <ul>
+                            <li>Substep 1: represent the first byte of the UTF-8 sequence as four hexadecimal digits</li>
+                            <li>Substep 2: do the masking using AND operator between the first byte UTF-8 sequence with 0x1F (0b00011111) to extract the trailing 5 bits of the first byte UTF-8 sequence</li>
+                            <li>Substep 3: do the shift left the result of step 2 by 6 bits</li>
+                            <li>Substep 4: the decoded first byte is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: decode the second byte<br>
+                        <ul>
+                            <li>Substep 1: represent the first byte of the UTF-8 sequence as four hexadecimal digits</li>
+                            <li>Substep 2: do the masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
+                            <li>Substep 3: do the shift left the result of step 2 by 0 bit</li>
+                            <li>Substep 4: the decoded second byte is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Step 3: perform the OR operation among the result of step 1 and the result of step 2 to get the code point value.
+                    </li>
+                    <li>
+                        Final step: the code point of UTF-8 sequence is the result of step 3
+                    </li>
+                </ul>
+
+                For example, decoding the UTF-8 sequence 0xc3bc:<br>
+
+                <ul>
+                    <li>Step 1: decode the first byte<br>
+                        <ul>
+                            <li>Substep 1: the first byte of the UTF-8 sequence = 0x00c3</li>
+                            <li>Substep 2: 0x00c3 & 0x1f = 0x0003</li>
+                            <li>Substep 3: 0x0003 << 6 = 0x00c0</li>
+                            <li>Substep 4: the decoded first byte is 0x00c0</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: decode the second byte<br>
+                        <ul>
+                            <li>Substep 1: the second byte of the UTF-8 sequence = 0x00bc</li>
+                            <li>Substep 1: 0x00bc & 0x3f = 0x003c</li>
+                            <li>Substep 2: 0x003c << 0 = 0x003c</li>
+                            <li>Substep 3: the decoded second byte is 0x003c</li>
+                        </ul>
+                    </li>
+                    <li>Step 3: 0x00c0 | 0x003c = 0x00fc</li>
+                    <li>
+                        Final step: the code point of UTF-8 sequence 0xc3bc is U+00FC
+                    </li>
+                </ul>
+                
+            </li>
+            <li>If the first byte of UTF-8 sequence is between 0xE0 and 0xEF, the length of the UTF-8 sequence is three bytes. The maximum number of bits in three bytes is 24 bits and is represented as six hexadecimal digits.<br>
+                <ul>
+                    <li>Step 1: decode the first byte<br>
+                        <ul>
+                            <li>Substep 1: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
+                            <li>Substep 2: do the masking using AND operator between the first byte UTF-8 sequence with 0x0F (0b00001111) to extract the trailing 4 bits of the first byte UTF-8 sequence</li>
+                            <li>Substep 3: do the shift left the result of step 2 by 12 bits</li>
+                            <li>Substep 4: the decoded first byte is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: decode the second byte<br>
+                        <ul>
+                            <li>Substep 1: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
+                            <li>Substep 2: do the masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
+                            <li>Substep 3: do the shift left the result of step 2 by 6 bit</li>
+                            <li>Substep 4: the decoded second byte is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 3: decode the third byte<br>
+                        <ul>
+                            <li>Substep 1: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
+                            <li>Substep 2: do the masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
+                            <li>Substep 3: do the shift left the result of step 2 by 6 bit</li>
+                            <li>Substep 4: the decoded third byte is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Step 4: perform the OR operation among the result of step 1, the result of step 2 and the result of the step 3 to get the code point value.
+                    </li>
+                    <li>
+                        Final step: the code point of UTF-8 sequence is the result of step 4
+                    </li>
+                </ul>
+
+                For example, decoding the UTF-8 sequence 0xe282ac:<br>
+
+                <ul>
+                    <li>Step 1: decode the first byte<br>
+                        <ul>
+                            <li>Substep 1: the first byte of the UTF-8 sequence = 0x0000e2</li>
+                            <li>Substep 2: 0x0000e2 & 0x0f = 0x000002</li>
+                            <li>Substep 3: 0x000002 << 12 = 0x002000</li>
+                            <li>Substep 4: the decoded first byte is 0x002000</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: decode the second byte<br>
+                        <ul>
+                            <li>Substep 1: the second byte of the UTF-8 sequence = 0x000082</li>
+                            <li>Substep 2: 0x000082 & 0x3f = 0x000002</li>
+                            <li>Substep 3: 0x000002 << 6 = 0x000080</li>
+                            <li>Substep 4: the decoded second byte is 0x000080</li>
+                        </ul>
+                    </li>
+                    <li>Step 3: decode the third byte<br>
+                        <ul>
+                            <li>Substep 1: the third byte of the UTF-8 sequence = 0x0000ac</li>
+                            <li>Substep 2: 0x0000ac & 0x3f = 0x00002c</li>
+                            <li>Substep 3: 0x00002c << 0 = 0x00002c</li>
+                            <li>Substep 4: the decoded second byte is 0x00002c</li>
+                        </ul>
+                    </li>
+                    <li>Step 4: 0x002000 | 0x000080 | 0x00002c = 0x0020ac</li>
+                    <li>
+                        Final step: the code point of UTF-8 sequence 0xc3bc is U+20AC
+                    </li>
+                </ul>
+            </li>
+            <li>If the first byte of UTF-8 sequence is between 0xF0 and 0xF7, the length of the UTF-8 sequence is four bytes. The maximum number of bits in four bytes is 32 bits and is represented as eight hexadecimal digits.<br>
+                <ul>
+                    <li>Step 1: decode the first byte<br>
+                        <ul>
+                            <li>Substep 1: represent the first byte of the UTF-8 sequence as eight hexadecimal digits</li>
+                            <li>Substep 2: do the masking using AND operator between the first byte UTF-8 sequence with 0x07 (0b00000111) to extract the trailing 3 bits of the first byte UTF-8 sequence</li>
+                            <li>Substep 3: do the shift left the result of step 2 by 18 bits</li>
+                            <li>Substep 4: the decoded first byte is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: decode the second byte<br>
+                        <ul>
+                            <li>Substep 1: represent the second byte of the UTF-8 sequence as eight hexadecimal digits</li>
+                            <li>Substep 2: do the masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
+                            <li>Substep 3: do the shift left the result of step 2 by 12 bits</li>
+                            <li>Substep 4: the decoded second byte is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 3: decode the third byte<br>
+                        <ul>
+                            <li>Substep 1: represent the third byte of the UTF-8 sequence as eight hexadecimal digits</li>
+                            <li>Substep 2: do the masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
+                            <li>Substep 3: do the shift left the result of step 2 by 6 bits</li>
+                            <li>Substep 4: the decoded third byte is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>Step 4: decode the fourth byte<br>
+                        <ul>
+                            <li>Substep 1: represent the fourth byte of the UTF-8 sequence as eight hexadecimal digits</li>
+                            <li>Substep 2: do the masking using AND operator between the fourth byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the fourth byte UTF-8 sequence</li>
+                            <li>Substep 3: do the shift left the result of step 2 by 6 bits</li>
+                            <li>Substep 4: the decoded fourth byte is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Step 5: perform the OR operation among the result of step 1, the result of step 2, the result of the step 3 and the result of the step 4 to get the code point value.
+                    </li>
+                    <li>
+                        Final step: the code point of UTF-8 sequence is the result of step 4
+                    </li>
+                </ul>  
+                
+                For example, decoding the UTF-8 sequence 0xf09f9880:<br>
+
+                <ul>
+                    <li>Step 1: decode the first byte<br>
+                        <ul>
+                            <li>Substep 1: the first byte of the UTF-8 sequence = 0x000000f0</li>
+                            <li>Substep 2: 0x000000f0 & 0x07 = 0x00000000</li>
+                            <li>Substep 3: 0x00000000 << 18 = 0x00000000</li>
+                            <li>Substep 4: the decoded first byte is 0x00000000</li>
+                        </ul>
+                    </li>
+                    <li>Step 2: decode the second byte<br>
+                        <ul>
+                            <li>Substep 1: the second byte of the UTF-8 sequence = 0x0000009f</li>
+                            <li>Substep 2: 0x0000009f & 0x3f = 0x0000001f</li>
+                            <li>Substep 3: 0x0000001f << 12 = 0x0001f000</li>
+                            <li>Substep 4: the decoded second byte is 0x0001f000</li>
+                        </ul>
+                    </li>
+                    <li>Step 3: decode the third byte<br>
+                        <ul>
+                            <li>Substep 1: the third byte of the UTF-8 sequence = 0x00000098</li>
+                            <li>Substep 2: 0x00000098 & 0x3f = 0x00000018</li>
+                            <li>Substep 3: 0x00000018 << 6 = 0x00000600</li>
+                            <li>Substep 4: the decoded second byte is 0x00000600</li>
+                        </ul>
+                    </li>
+                    <li>Step 4: decode the fourth byte<br>
+                        <ul>
+                            <li>Substep 1: the third byte of the UTF-8 sequence = 0x00000080</li>
+                            <li>Substep 2: 0x00000080 & 0x3f = 0x00000000</li>
+                            <li>Substep 3: 0x00000000 << 0 = 0x00000000</li>
+                            <li>Substep 4: the decoded second byte is 0x00000000</li>
+                        </ul>
+                    </li>
+                    <li>Step 5: 0x00000000 | 0x0001f000 | 0x00000600 | 0x00000000 = 0x0001f600</li>
+                    <li>
+                        Final step: the code point of UTF-8 sequence 0xf09f9880 is U+1F600
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h5>Byte Order Mark (BOM)</h5>
+
+        <p>The Byte Order Mark (BOM) in UTF-8 is represented by the Unicode code point U+FEFF. In UTF-8, this code point is encoded as the following three-byte sequence: <b>EF BB BF</b>. This sequence is placed at the beginning of a file or stream to indicate that the contents are encoded in UTF-8.</p>
+
+        <p>For example, Suppose we have a text file containing the string "Hello, World!" encoded in UTF-8. The file would start with the BOM sequence EF BB BF, followed by the UTF-8 encoding of the string:</p>
+
+        <p><b>EF BB BF 48 65 6C 6C 6F 2C 20 57 6F 72 6C 64 21</b></p>
+
+        <p>The BOM sequence EF BB BF indicates that the file is encoded in UTF-8, and the remaining bytes represent the UTF-8 encoding of the string "Hello, World!".</p>
+        
+        <h5>UTF-8 Encoding and Decoding Algorithm in Programming Languages</h5>
+
+        <h6>C Programming Language</h6>
+
+        <p>In C programming language, the UTF-8 encoding and decoding algorithm look as follow:</p>
+
+        <pre><code class="language-bash hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;inttypes.h&gt;
+
+typedef struct {
+    char mask;    /* char data will be bitwise AND with this */
+    char lead;    /* start bytes of current char in utf-8 encoded character */
+    uint32_t beg; /* beginning of codepoint range */
+    uint32_t end; /* end of codepoint range */
+    int bits_stored; /* the number of bits from the codepoint that fits in char */
+}utf_t;
+
+utf_t * utf[] = {
+    /*             mask        lead        beg      end       bits */
+    [0] = &(utf_t){0b00111111, 0b10000000, 0,       0,        6    },
+    [1] = &(utf_t){0b01111111, 0b00000000, 0000,    0177,     7    },
+    [2] = &(utf_t){0b00011111, 0b11000000, 0200,    03777,    5    },
+    [3] = &(utf_t){0b00001111, 0b11100000, 04000,   0177777,  4    },
+    [4] = &(utf_t){0b00000111, 0b11110000, 0200000, 04177777, 3    },
+            &(utf_t){0},
+};
+
+/* All lengths are in bytes */
+int codepoint_len(const uint32_t cp); /* len of associated utf-8 char */
+int utf8_len(const char ch);          /* len of utf-8 encoded char */
+
+char *to_utf8(const uint32_t cp);
+uint32_t to_cp(const char chr[4]);
+
+int codepoint_len(const uint32_t cp)
+{
+    int len = 0;
+    for(utf_t **u = utf; *u; ++u) {
+        if((cp >= (*u)->beg) && (cp <= (*u)->end)) {
+            break;
+        }
+        ++len;
+    }
+    if(len > 4) /* Out of bounds */
+        exit(1);
+
+    return len;
+}
+
+int utf8_len(const char ch)
+{
+    int len = 0;
+    for(utf_t **u = utf; *u; ++u) {
+        if((ch & ~(*u)->mask) == (*u)->lead) {
+            break;
+        }
+        ++len;
+    }
+    if(len > 4) { /* Malformed leading byte */
+        exit(1);
+    }
+    return len;
+}
+
+char *to_utf8(const uint32_t cp)
+{
+    static char ret[5];
+    const int bytes = codepoint_len(cp);
+
+    int shift = utf[0]->bits_stored * (bytes - 1);
+    ret[0] = (cp >> shift & utf[bytes]->mask) | utf[bytes]->lead;
+    shift -= utf[0]->bits_stored;
+    for(int i = 1; i < bytes; ++i) {
+        ret[i] = (cp >> shift & utf[0]->mask) | utf[0]->lead;
+        shift -= utf[0]->bits_stored;
+    }
+    ret[bytes] = '\0';
+    return ret;
+}
+
+uint32_t to_cp(const char chr[4])
+{
+    int bytes = utf8_len(*chr);
+    int shift = utf[0]->bits_stored * (bytes - 1);
+    uint32_t codep = (*chr++ & utf[bytes]->mask) << shift;
+
+    for(int i = 1; i < bytes; ++i, ++chr) {
+        shift -= utf[0]->bits_stored;
+        codep |= ((char)*chr & utf[0]->mask) << shift;
+    }
+
+    return codep;
+}
+
+int main(void)
+{
+    const uint32_t *in, input[] = {0x0041, 0x00f6, 0x0416, 0x20ac, 0x1d11e, 0x0};
+
+    printf("Character  Unicode  UTF-8 encoding (hex)\n");
+    printf("----------------------------------------\n");
+
+    char *utf8;
+    uint32_t codepoint;
+    for(in = input; *in; ++in) {
+        utf8 = to_utf8(*in);
+        codepoint = to_cp(utf8);
+        printf("%s          U+%-7.4x", utf8, codepoint);
+
+        for(int i = 0; utf8[i] && i < 4; ++i) {
+            printf("%hhx ", utf8[i]);
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+
+        <p>Compile and run the program:</p>
+
+        <pre><code class="language-bash hljs">gcc utf8.c && ./a.out</code></pre>
+
+        <p>The output is as follows:</p>
+
+        <pre><code class="language-bash hljs">Character  Unicode  UTF-8 encoding (hex)
+----------------------------------------
+A          U+0041   41
+ö          U+00f6   c3 b6
+Ж          U+0416   d0 96
+€          U+20ac   e2 82 ac
+𝄞          U+1d11e  f0 9d 84 9e</code></pre>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/utf-8" class="tag">UTF-8</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/unicode" class="tag">unicode</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/algorithm" class="tag">algorithm</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/encoding" class="tag">encoding</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/decoding" class="tag">decoding</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-06" /><category term="day-22" /><category term="UTF-8" /><category term="unicode" /><category term="algorithm" /><category term="encoding" /><category term="decoding" /><summary type="html"><![CDATA[UTF-8 encoding and decoding algorithm is crucial for processing text in various programming languages. This page explains the implementation of UTF-8 encoding and decoding with examples for programmers to understand and utilize effectively.]]></summary></entry><entry xml:lang="en"><title type="html">Bourne Shell Builtin Commands</title><link href="https://hemimorphite.github.io/zh/2024/06/16/bourne-shell-builtin-commands/" rel="alternate" type="text/html" title="Bourne Shell Builtin Commands" /><published>2024-06-16T16:21:00+00:00</published><updated>2024-06-16T16:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Bourne Shell Builtin Commands</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -3735,65 +4619,4 @@ git merge feature</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-05" /><category term="day-04" /><category term="git" /><category term="git merge" /><category term="git rebase" /><category term="git init" /><category term="git add" /><category term="git commit" /><category term="git log" /><category term="git checkout" /><category term="git merge" /><category term="git switch" /><category term="git log" /><summary type="html"><![CDATA[Understanding the difference between Git merge and Git rebase is crucial for effective version control and collaboration. Learn the distinctions between these two essential Git commands.]]></summary></entry><entry xml:lang="en"><title type="html">List of Common WSL Commands</title><link href="https://hemimorphite.github.io/zh/2024/05/01/list-of-common-wsl-commands/" rel="alternate" type="text/html" title="List of Common WSL Commands" /><published>2024-05-01T07:28:00+00:00</published><updated>2024-05-01T07:28:00+00:00</updated><id>https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands</id><content type="html" xml:base="https://hemimorphite.github.io/2024/05/01/list-of-common-wsl-commands/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">List of Common WSL Commands</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published May 01, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/wsldistribution.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Here is a list of some of the most common WSL commands:</p>
-
-        <ul>
-            <li><code>wsl</code>: This command will start a new WSL session</li>
-            <li><code>wsl -l</code>: This command will list all of the installed WSL distributions</li>
-            <li><code>wsl --list --online</code>: This command will list all of the available WSL distributions</li>
-            <li><code>wsl --list --running</code>: This command will list all of the running WSL distributions</li>
-            <li><code>wsl -d &lt;distribution name&gt;</code>: This command will run the specified distribution</li>
-            <li><code>wsl --install &lt;distribution name&gt;</code>: This command will install the specified distribution</li>
-            <li><code>wsl --unregister &lt;distribution name&gt;</code>: This command will remove the specified distribution to free up the disk space</li>
-            <li><code>wsl --shutdown</code>: This command will shut down all running WSL sessions</li>
-            <li><code>wsl --terminate &lt;distribution name&gt;</code>: This command will terminate the WSL session for the specified distribution</li>
-            <li><code>wsl --set-version &lt;version number&gt;</code>: This command will set the default WSL version</li>
-            <li><code>wsl --status</code>:  This command will display the status of all running WSL sessions</li>
-            <li><code>wsl --import &lt;distribution name&gt; &lt;tarball path&gt;</tarball></code>: This command will import a new WSL distribution from a tarball file</li>
-            <li><code>wsl --mount &lt;source path&gt; &lt;source path&gt;</code>: This command will mount a Windows file system path to a WSL mount point</li>
-            <li><code>wsl --unmount &lt;mount point&gt;</code>: This command will unmount a WSL mount point</li>
-            <li><code>wsl --default &lt;distribution name&gt;</code>: This command will set the default WSL distribution</li>
-        </ul>
-
-        <p>In WSL, your Windows drives are mounted under the <code>/mnt</code> directory. So, for example, your C drive would be available at <code>/mnt/c/</code>. <code>cd /mnt/c/Users/&lt;YourWindowsUsername&gt;/</code></p>
-
-        <p>For WSL 2, you can access the Linux file system by navigating to <code>\\wsl$\&lt;DistributionName&gt;</code> in File Explorer.</p>
-
-        <p>WSL configurations can be modified by editing the file: <code>C:\Users\&lt;YourWindowsUsername&gt;\.wslconfig</code>.</p>
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/windows" class="tag">windows</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/wsl" class="tag">wsl</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-05" /><category term="day-01" /><category term="linux" /><category term="windows" /><category term="wsl" /><summary type="html"><![CDATA[Looking for a quick reference guide to WSL commands? Look no further! Our website provides a comprehensive list to help you navigate the Windows Subsystem for Linux effortlessly.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-05" /><category term="day-04" /><category term="git" /><category term="git merge" /><category term="git rebase" /><category term="git init" /><category term="git add" /><category term="git commit" /><category term="git log" /><category term="git checkout" /><category term="git merge" /><category term="git switch" /><category term="git log" /><summary type="html"><![CDATA[Understanding the difference between Git merge and Git rebase is crucial for effective version control and collaboration. Learn the distinctions between these two essential Git commands.]]></summary></entry></feed>
