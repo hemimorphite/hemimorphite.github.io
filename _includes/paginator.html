@@ -6,7 +6,7 @@
 		{% if paginator.previous_page %}
 		<li><a href="{{ site.url }}{{ lang }}{{ paginator.previous_page_path }}"><i class="fa fa-angle-double-left"></i></a></li>
 		{% else %}
-		<li class="disabled"><a><i class="fa fa-angle-double-left"></i></a></li>
+		<li><a class="disabled"><i class="fa fa-angle-double-left"></i></a></li>
 		{% endif %}
 
 		{% assign skip1 = 0 %}
@@ -33,7 +33,7 @@
 							{% if skip1 == 0 %}
 								{% assign skip1 = 1 %}
 								{% assign count = count | minus: 1 %}
-								<li class="disabled"><a>...</a></li>
+								<li><a class="disabled">...</a></li>
 							{% endif %}
 							
 							{% if count > 1 %}
@@ -56,7 +56,7 @@
 									{% if skip2 == 0 %}
 									{% assign skip2 = 1 %}
 									{% assign count = count | minus: 1 %}
-									<li class="disabled"><a>...</a></li>
+									<li><a class="disabled">...</a></li>
 									{% endif %}
 								{% endif %}
 							{% endif %}
@@ -64,7 +64,7 @@
 							{% if skip1 == 0 %}
 								{% assign skip1 = 1 %}
 								{% assign count = count | minus: 1 %}
-								<li class="disabled"><a>...</a></li>
+								<li><a class="disabled">...</a></li>
 							{% endif %}
 							{% assign pagestart = paginator.total_pages | minus: 5 %}
 							{% if i > pagestart %}
@@ -94,7 +94,7 @@
 								{% if skip2 == 0 %}
 								{% assign skip2 = 1 %}
 								{% assign count = count | minus: 1 %}
-								<li class="disabled"><a>...</a></li>
+								<li><a class="disabled">...</a></li>
 								{% endif %}
 							{% endif %}
 						{% endif %}
@@ -114,7 +114,7 @@
 		{% if paginator.next_page %}
 		<li><a href="{{ site.url }}{{ lang }}{{ paginator.next_page_path }}"><i class="fa fa-angle-double-right"></i></a></li>
 		{% else %}
-		<li class="disabled"><a><i class="fa fa-angle-double-right"></i></a></li>
+		<li><a class="disabled"><i class="fa fa-angle-double-right"></i></a></li>
 		{% endif %}
 	</ul>
 </div>
