@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="Learn how to properly use Bourne Shell predefined special variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/2024/06/13/bourne-shell-special-variables/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Bourne Shell Special Variables">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/2024/06/13/bourne-shell-special-variables/">
+		<meta property="og:description" content="Learn how to properly use Bourne Shell predefined special variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/bashscripting.jfif">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Bourne Shell Special Variables">
+		<meta name="twitter:description" content="Learn how to properly use Bourne Shell predefined special variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/bashscripting.jfif">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Bourne Shell Special Variables</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+
+	    <!-- Additional CSS Files -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">Bourne Shell Special Variables</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published June 13, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/bashscripting.jfif" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>The shell uses the following environment variables.</p>
+
+        <h5 class="post-subtitle">CDPATH</h5>
+
+        <p>A colon-separated list of directories used as a search path for the <code>cd</code> builtin command.</p>
+
+        <p>If the target directory of the <code>cd</code> command is specified as a relative path name, the <code>cd</code> command first looks for the target directory in the current directory (<code>.</code>). If the target is not found, the path names listed in the <code>CDPATH</code> variable are searched consecutively until the target directory is found and the directory change is completed. If the target directory is not found, the current working directory is left unmodified. For example, the <code>CDPATH</code> variable is set to <code>/home/hemimorphite</code>, and four directories exist under <code>/home/hemimorphite</code>, <code>layouts</code>, <code>posts</code>, <code>assets</code> and <code>vendors</code>. If you are in the <code>/home/hemimorphite/posts</code> directory and type <code>cd vendors</code>, you change directories to <code>/home/hemimorphite/vendors</code>, even though you do not specify a full path.</p>
+
+        <h5 class="post-subtitle">HOME</h5>
+
+        <p>The current user's home directory; the default for the <code>cd</code> builtin command. The value of this variable is also used by tilde expansion (<code>~</code>).</p>
+
+        <pre><code class="language-bash hljs">cd $HOME
+# OR
+cd ~</code></pre>
+
+        <h5 class="post-subtitle">IFS</h5>
+        
+        <p>A list of characters that separate fields; used when the shell splits words as part of expansion.</p>
+
+        <p>The default value is a space, a tab, and a newline (<code>IFS=$' \t\n'</code>).</p>
+
+        <p>You can print it with the following command:</p>
+
+        <pre><code class="language-bash hljs">cat -etv &lt;&lt;&lt;"$IFS"</code></pre>
+
+        <p>You should see something as follows on your Linux terminal:</p>
+
+        <pre><code class="language-bash hljs"> ^I$
+$</code></pre>
+
+        <p>The <code>IFS</code> variable is commonly used with <code>read</code> command, parameter expansions and command substitution.</p>
+        
+        <p>In the <code>read</code> command, if multiple variable-name arguments are specified, <code>IFS</code> is used to split the line of input so that each variable gets a single field of the input. (The last variable gets all the remaining fields, if there are more fields than variables.) Any whitespace characters in <code>IFS</code> will be trimmed from the beginning and end of the input line, even when only one variable is given.</p>
+
+        <pre><code class="language-bash hljs"># Using default IFS=$' \t\n'
+[hemimorphite@ubuntu ~]$ read -r a b c &lt;&lt;&lt; '   A      B  C'
+[hemimorphite@ubuntu ~]$ echo "$a $b $c"
+A B C</code></pre>
+
+        <pre><code class="language-bash hljs"># Using a custom IFS value
+[hemimorphite@ubuntu ~]$ IFS=: read -r user pwhash uid gid gecos home shell \
+    &lt;&lt;&lt; 'root:*:0:0:System Administrator:/var/root:/bin/sh'
+[hemimorphite@ubuntu ~]$ echo "$user $pwhash $uid $gid $gecos $home $shell"
+root * 0 0 System Administrator /var/root /bin/sh</code></pre>
+
+        <p>If <code>IFS</code> contains a mixture of whitespace and non-whitespace characters then any non-whitespace IFS character or IFS whitespace characters (any sequence of one or more whitespace IFS characters count as single whitespace) acts as a single field delimiter. For example:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=' ,'
+[hemimorphite@ubuntu ~]$ sentence="This is        a, simple,     example"
+[hemimorphite@ubuntu ~]$ printf 'word -> "%s" \n' $sentence
+word -> "This" 
+word -> "is" 
+word -> "a" 
+word -> "simple" 
+word -> "example"</code></pre>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=$' \t\n' read -r a b c \
+    &lt;&lt;&lt; 'the    plain gold      ring'
+[hemimorphite@ubuntu ~]$ echo "=$a= =$b= =$c="
+=the= =plain= =gold      ring=</code></pre>
+        
+        <p>The above example shows that splitting and delimiter-consolidation are not performed on the remaining part of a line when assigning excess fields to the last variable.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=: read -r a b c \
+    &lt;&lt;&lt; '1:2:::3::4'
+[hemimorphite@ubuntu ~]$ echo "=$a= =$b= =$c="
+=1= =2= =::3::4=</code></pre>
+        
+        <p>Note that out of the three consecutive colons which follow field 2, precisely one colon was removed in order to terminate field 2. The remaining two colons, as well as two more colons later on, were all left untouched, and assigned to variable <code>c</code> verbatim.</p>
+
+        <h5 class="post-subtitle">OPTARG</h5>
+
+        <p>The value of the option processed by the <code>getopts</code> builtin.</p>
+
+        <p>Let's create a bash script called <code>command.sh</code></p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat command.sh
+#!/bin/bash
+
+# Parse command-line options
+while getopts ":f:d:" flag; do
+    case $flag in
+    f) echo "The filename is: ${OPTARG}"
+      ;;
+    d) echo "The directory is: ${OPTARG}"
+    esac
+done</code></pre>
+
+        <p>The Bash script utilizes the <code>getopts</code> command to parse command-line options. It specifies two options, <code>-f</code>  and <code>-d</code> in the optstring. As there is a colon (:) after both options, if triggered each of them requires an argument.</p>
+
+        <p>Inside the loop, a <code>case</code> statement is used to check the currently processed option. If the option <code>-f</code> is encountered, the script prints out the filename specified with the option using the special variable <code>OPTARG</code>. Similarly, if the option <code>-d</code> is found, the script displays the directory provided with the option using <code>OPTARG</code>.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -f file1.txt -d /home hemimorphite
+The filename is: file1.txt
+The directory is: /home hemimorphite</code></pre>
+        
+        <h5 class="post-subtitle">OPTERR</h5>
+        
+        <p><code>OPTERR</code> controls if Bash displays errors generated by the <code>getopts</code> builtin command. <code>getopts</code> does not print errors if <code>OPTERR</code> has a value of <code>0</code>. Value <code>1</code> enables the errors.</p>
+
+        <p>The default value is <code>1</code>.</p>
+
+        <h5 class="post-subtitle">OPTIND</h5>
+
+        <p>The index of the next parameter/argument processed by the <code>getopts</code> builtin.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat command.sh
+#!/bin/bash
+
+while getopts "ab:c" flag; do
+    echo "$flag" "$OPTIND" "$OPTARG"
+done</code></pre>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -ac -b value1
+a 1
+c 2
+b 4 value1</code></pre>
+
+        <p>In <code>./command.sh -ac -b value1</code>, arg1 is <code>-ac</code>, arg2 is <code>-b</code>, arg3 is <code>value1</code>.</p>
+
+        <p>While processing option <code>-a</code>, the next unprocessed option is <code>-c</code> which is in arg1. So the index stored in <code>OPTIND</code> is <code>1</code>. For the following option <code>-c</code>, the next unprocessed option is <code>-b</code> which is arg2. So the index stored in <code>OPTIND</code> is <code>2</code>. Finally, for the option <code>-b</code>, while processing option <code>-b</code>, arg3 (<code>value1</code>) is processed as an argument of option <code>-b</code>. That's why <code>OPTIND</code> stores <code>4</code> or the index of arg4.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -a -c -b value1
+a 2
+c 3
+b 5 value1</code></pre>
+        
+        <p>In <code>./command.sh -a -c -b value1</code>, arg1 is <code>-a</code>, arg2 is <code>-c</code>, arg3 is <code>-b</code>, arg4 is <code>value1</code>.</p>
+
+        <p>While processing option <code>-a</code>, the next unprocessed option is <code>-c</code> which is in arg2. So the index stored in <code>OPTIND</code> is <code>2</code>. For the following option <code>-c</code>, the next unprocessed option is <code>-b</code> which is arg3. So the index stored in <code>OPTIND</code> is <code>3</code>. Finally, for the option <code>-b</code>, while processing option <code>-b</code>, arg4 (<code>value1</code>) is processed as an argument of option <code>-b</code>. That's why <code>OPTIND</code> stores <code>5</code> or the index of arg5.</p>
+
+        <h5 class="post-subtitle">PATH</h5>
+
+        <p>A colon-separated list of directories in which the shell looks for commands. This is the variable that tells the bash shell where to find different executable files and scripts. The shell will check the directories listed in the <code>PATH</code> variable for the script you are trying to find.</p>
+        
+        <p>Let's say you wrote a little shell script called <code>hello</code> and have it located in a directory called <code>/home/hemimorphite/bin</code>.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ cat hello
+#!/bin/bash
+
+echo Hello "$USER"
+[hemimorphite@ubuntu ~/bin]$ chmod +x hello</code></pre>
+        
+        <p>Add <code>/home/hemimorphite/bin</code> to the <code>$PATH</code> variable with the following command:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ export PATH=$PATH:/home/hemimorphite/bin</code></pre>
+
+        <p>You should now be able to execute the script anywhere on your system by just typing in its name, without having to include the full path as you type it.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ hello
+Hello hemimorphite</code></pre>
+
+        <h5 class="post-subtitle">MAIL</h5>
+
+        <p>Name of file to check for incoming mail.</p>
+
+        <h5 class="post-subtitle">MAILCHECK</h5>
+
+        <p>defines the interval in seconds when the shell should check for mail. (default 60 seconds).</p>
+
+        <h5 class="post-subtitle">MAILPATH</h5>
+
+        <p>List of filenames, separated by colons (:), to check for incoming mail.</p>
+
+        <p>Run the following command to install <code>mail</code></p>
+
+        <pre><code class="language-bash hljs">sudo apt install mailutils</code></pre>
+
+        <p>Let us create a new user named satella, echidna, and minerva using the <code>useradd</code> command on Ubuntu:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/satella/ -m -G sudo satella
+[hemimorphite@ubuntu ~/]$ sudo passwd satella
+[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/echidna/ -m -G sudo echidna
+[hemimorphite@ubuntu ~/]$ sudo passwd echidna
+[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/minerva/ -m -G sudo minerva
+[hemimorphite@ubuntu ~/]$ sudo passwd minerva</code></pre>
+
+        <p>Where,</p>
+
+        <ul>
+            <li><code>-s /bin/bash</code>, set <code>/bin/bash</code> as login shell of the new account</li>
+            <li><code>-d /home/satella/</code>, set <code>/home/satella/</code> as home directory of the new Ubuntu account</li>
+            <li><code>-m</code>, create the user's home directory</li>
+            <li><code>-G sudo</code>, make satella user can use <code>sudo</code> command</li>
+        </ul>
+
+        <p>Switch to user satella.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/]$ sudo su - satella
+[satella@ubuntu ~/]$ </code></pre>
+
+        <p>Use the <code>echo</code> command to send an email without entering the interactive mode of the <code>mail</code> command. Write the email body and pipe the <code>echo</code> command output to the <code>mail</code> command.</p>
+
+        <pre><code class="language-bash hljs">[satella@ubuntu ~/]$ echo "This is the email body" | mail -s "this is email subject" echidna, minerva</code></pre>
+        
+        <p>After 60 seconds (the value of <code>MAILCHECK</code>), on echidna's or minerva's prompt press <code>ENTER</code> and the prompt will print the message:</p>
+
+        <pre><code class="language-bash hljs">You have mail in /var/mail/echidna</code></pre>
+
+        <p>Shell will use the value of <code>MAIL</code> as the name of the file to check, unless <code>MAILPATH</code> is set; in which case, the shell will check each file in the <code>MAILPATH</code> list for new mail. You can use this mechanism to have the shell print a different message for each mail file: for each mail filename in <code>MAILPATH</code>, append a question mark followed by the message you want printed.</p>
+
+        <p>You could define <code>MAILPATH</code> to be:</p>
+
+        <pre><code class="language-bash hljs">MAILPATH="\
+/usr/mail/satella/echidna?Mail from Echidna has arrived.:\
+/usr/mail/satella/minerva?There is new mail from Paul."</code></pre>
+
+        <p>The backslashes at the end of each line allow you to continue your command on the next line. Now, if you get mail from echidna, the shell will print:</p>
+
+        <pre><code class="language-bash hljs">Mail from Echidna has arrived.</code></pre>
+
+        <p>You can also use the variable <code>$_</code> in the message to print the name of the current mail file or execute a command <code>$(date)</code> to displays the current date and time. For example:</p>
+
+        <pre><code class="language-bash hljs">MAILPATH="\
+/usr/mail/satella/echidna?Mail from Echidna has arrived in $_ at $(date).:\
+/usr/mail/satella/minerva?There is new mail from Paul in $_ at $(date)."</code></pre>
+</article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/linux" class="tag">linux</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/ubuntu" class="tag">ubuntu</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/bash-script" class="tag">bash script</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/special-variables" class="tag">special variables</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/cdpath" class="tag">CDPATH</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/home" class="tag">HOME</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/ifs" class="tag">IFS</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/optarg" class="tag">OPTARG</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/opterr" class="tag">OPTERR</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/optind" class="tag">OPTIND</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/path" class="tag">PATH</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/mail" class="tag">MAIL</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/mailcheck" class="tag">MAILCHECK</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/mailpath" class="tag">MAILPATH</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/"><img src="https://hemimorphite.github.io/assets/images/bashscripting.jfif" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Best Practice</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/">Bourne Shell Builtin Commands</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/06/14/difference-between-login-and-non-login-shell-in-linux/"><img src="https://hemimorphite.github.io/assets/images/linux.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/06/14/difference-between-login-and-non-login-shell-in-linux/">Difference Between Login and Non-Login Shell in Linux</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/06/13/bash-special-variables/"><img src="https://hemimorphite.github.io/assets/images/bashscripting.jfif" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Best Practice</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/06/13/bash-special-variables/">Bash Special Variables</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/06/13/bourne-shell-environment-variables/"><img src="https://hemimorphite.github.io/assets/images/bashscripting.jfif" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Best Practice</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/06/13/bourne-shell-environment-variables/">Bourne Shell Environment Variables</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/06/11/linux-signals/"><img src="https://hemimorphite.github.io/assets/images/linux.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/06/11/linux-signals/">Linux Signals</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/06/11/exit-codes-in-bash-scripting/"><img src="https://hemimorphite.github.io/assets/images/bashscripting.jfif" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/06/11/exit-codes-in-bash-scripting/">Exit Codes In Bash Scripting</a></h4>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/2024/06/13/bourne-shell-special-variables/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/2024/06/13/bourne-shell-special-variables/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+  	</body>
+</html>
