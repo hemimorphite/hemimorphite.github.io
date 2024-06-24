@@ -1,0 +1,86 @@
+---
+layout: post
+lang: en
+locale: en
+title: "The Difference Between Little Endian and Big Endian"
+thumb: "cpu.jpg"
+eyebrow: "Tutorial"
+description: "Learn about the key differences between little endian and big endian byte orderings, with clear explanations and illustrative examples to help you understand this fundamental concept in computer architecture."
+date: 2024-06-24 19:33:00 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2024", "month-06", "day-24"]
+tags: ["little endian", "big endian", "cpu architecture", "c"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Every byte of memory has its own address, no matter how big the CPU machine word is. Eg. Intel 8086 CPU was 16-bit and it was addressing memory by bytes, so do modern 32-bit and 64-bit CPUs. That's the cause of the first limit - you can't have more addresses than memory bytes.</p>
+
+        <p>The CPU machine word or word size of a CPU architecture refers to the number of bits that a computer's CPU can process at a time. It is typically measured in bits, with common word sizes being 16, 32, or 64 bits. In some architectures, such as Intel's PC processor architecture, a word is 16 bits or two contiguous 8-bit bytes. The word size determines the maximum amount of data that can be processed in a single operation and affects the performance and capabilities of the CPU.</p>
+
+        <p>A machine word or word size is the amount of memory CPU uses to hold numbers (in RAM, cache or internal registers). 32-bit CPU uses 32 bits (4 bytes) to hold numbers. Memory addresses are numbers too, so on a 32-bit CPU the memory address consists of 32 bits.</p>
+        
+        <p>In a 32-bit system, memory addresses are typically represented as 8 hexadecimal digits, while in a 64-bit system, addresses are represented using 16 hexadecimal digits.</p>
+
+        <p>In a 32-bit system, the memory addresses can range from 0 to 0x7FFFFFFF; that is, 2^31 (2147483648 or 0x80000000) possible numbers, while in a 64-bit system, the memory addresses can range from 0 to 0x7FFFFFFFFFFFFFFF; that is, 2^63 (9223372036854775808 or 0x8000000000000000) possible numbers.</p>
+
+        <p>The endianness refers to the byte order used by a computer or a microcontroller or a machine to read or write a single "hello world" in memory. In other words, the endian will decide how to store multiple bytes in computer memory. It doesn't mean, the order of bits inside a byte, nor the way the computer reads an array of bytes or a file. It's all about the order of the bytes of a word (multi-byte variable) in memory.</p>
+
+        <p>In big endian, the most significant byte of a multi-byte data type is stored at the lowest memory address, and the least significant byte is stored at the highest memory address. It is as if the data is read from left to right.</p>
+
+        <p>In little endian, the least significant byte is stored at the lowest memory address, and the most significant byte is stored at the highest memory address. It is as if the data is read from right to left.</p>
+
+        <p>Endian representation is crucial when data is transmitted or shared between systems with different endianness. If systems with different endianness attempt to interpret the data directly, the values may be misinterpreted, leading to errors in the program.</p>
+
+        <p>For example, let's consider a 32-bit integer value with the hexadecimal representation 0x12345678.</p>
+
+        <p>In big endian, it is stored in memory as:</p>
+
+        <pre><code class="language-bash hljs">Address:    0x1000    0x1001    0x1002    0x1003
+Value:      0x12      0x34      0x56      0x78</code></pre>
+        
+        <p>In little endian, it is stored in memory as:</p>
+
+        <pre><code class="language-bash hljs">Address:    0x1000    0x1001    0x1002    0x1003
+Value:      0x78      0x56      0x34      0x12</code></pre>
+        
+        <p>There are a lot of ways for determining endianness of your machine. Here is one way of determining endianness of your machine:</p>
+
+        <pre><code class="language-bash hljs">#include &lt;stdio.h&gt;
+int main(void)
+{
+    unsigned int value = 0x12345678;
+    char *r = (char *) &value;
+    int i;
+    
+    for(i=0; i<4; i++) {
+        printf("Address of 0x%x = %p \n", r[i], &r[i]);
+    }
+    return 0;
+}</code></pre>
+
+        <p>Compile and run the program</p>
+
+        <pre><code class="language-bash hljs">gcc -o endian endian.c && ./endian</code></pre>
+
+        <p>The output on little endian architecture would look like:</p>
+
+        <pre><code class="language-bash hljs">Address of 0x78 = 0x7fffe86cb728
+Address of 0x56 = 0x7fffe86cb729
+Address of 0x34 = 0x7fffe86cb72a
+Address of 0x12 = 0x7fffe86cb72b</code></pre>
+
+        <p>The output on little endian architecture would look like:</p>
+
+        <pre><code class="language-bash hljs">Address of 0x12 = 0x7fffe86cb728
+Address of 0x34 = 0x7fffe86cb729
+Address of 0x56 = 0x7fffe86cb72a
+Address of 0x78 = 0x7fffe86cb72b</code></pre>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
