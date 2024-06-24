@@ -1,0 +1,241 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Bash Special Variables"
+thumb: "bashscripting.jfif"
+eyebrow: "Best Practice"
+description: "Learn how to properly use Bash predefined special variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills."
+date: 2024-06-13 21:21:00 +0700
+author: Samuel Yang
+categories: ["Best Practices", "year-2024", "month-06", "day-13"]
+tags: ["linux", "ubuntu", "bash script", "special variables", "CDPATH", "HOME", "IFS", "OPTARG", "OPTERR", "OPTIND", "PATH", "MAIL", "MAILCHECK", "MAILPATH"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>The shell uses the following environment variables.</p>
+
+        <h5 class="post-subtitle">CDPATH</h5>
+
+        <p>A colon-separated list of directories used as a search path for the <code>cd</code> builtin command.</p>
+
+        <p>If the target directory of the <code>cd</code> command is specified as a relative path name, the <code>cd</code> command first looks for the target directory in the current directory (<code>.</code>). If the target is not found, the path names listed in the <code>CDPATH</code> variable are searched consecutively until the target directory is found and the directory change is completed. If the target directory is not found, the current working directory is left unmodified. For example, the <code>CDPATH</code> variable is set to <code>/home/hemimorphite</code>, and four directories exist under <code>/home/hemimorphite</code>, <code>layouts</code>, <code>posts</code>, <code>assets</code> and <code>vendors</code>. If you are in the <code>/home/hemimorphite/posts</code> directory and type <code>cd vendors</code>, you change directories to <code>/home/hemimorphite/vendors</code>, even though you do not specify a full path.</p>
+
+        <h5 class="post-subtitle">HOME</h5>
+
+        <p>The current user's home directory; the default for the <code>cd</code> builtin command. The value of this variable is also used by tilde expansion (<code>~</code>).</p>
+
+        <pre><code class="language-bash hljs">cd $HOME
+# OR
+cd ~</code></pre>
+
+        <h5 class="post-subtitle">IFS</h5>
+        
+        <p>A list of characters that separate fields; used when the shell splits words as part of expansion.</p>
+
+        <p>The default value is a space, a tab, and a newline (<code>IFS=$' \t\n'</code>).</p>
+
+        <p>You can print it with the following command:</p>
+
+        <pre><code class="language-bash hljs">cat -etv &lt;&lt;&lt;"$IFS"</code></pre>
+
+        <p>You should see something as follows on your Linux terminal:</p>
+
+        <pre><code class="language-bash hljs"> ^I$
+$</code></pre>
+
+        <p>The <code>IFS</code> variable is commonly used with <code>read</code> command, parameter expansions and command substitution.</p>
+        
+        <p>In the <code>read</code> command, if multiple variable-name arguments are specified, <code>IFS</code> is used to split the line of input so that each variable gets a single field of the input. (The last variable gets all the remaining fields, if there are more fields than variables.) Any whitespace characters in <code>IFS</code> will be trimmed from the beginning and end of the input line, even when only one variable is given.</p>
+
+        <pre><code class="language-bash hljs"># Using default IFS=$' \t\n'
+[hemimorphite@ubuntu ~]$ read -r a b c &lt;&lt;&lt; '   A      B  C'
+[hemimorphite@ubuntu ~]$ echo "$a $b $c"
+A B C</code></pre>
+
+        <pre><code class="language-bash hljs"># Using a custom IFS value
+[hemimorphite@ubuntu ~]$ IFS=: read -r user pwhash uid gid gecos home shell \
+    &lt;&lt;&lt; 'root:*:0:0:System Administrator:/var/root:/bin/sh'
+[hemimorphite@ubuntu ~]$ echo "$user $pwhash $uid $gid $gecos $home $shell"
+root * 0 0 System Administrator /var/root /bin/sh</code></pre>
+
+        <p>If <code>IFS</code> contains a mixture of whitespace and non-whitespace characters then any non-whitespace IFS character or IFS whitespace characters (any sequence of one or more whitespace IFS characters count as single whitespace) acts as a single field delimiter. For example:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=' ,'
+[hemimorphite@ubuntu ~]$ sentence="This is        a, simple,     example"
+[hemimorphite@ubuntu ~]$ printf 'word -> "%s" \n' $sentence
+word -> "This" 
+word -> "is" 
+word -> "a" 
+word -> "simple" 
+word -> "example"</code></pre>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=$' \t\n' read -r a b c \
+    &lt;&lt;&lt; 'the    plain gold      ring'
+[hemimorphite@ubuntu ~]$ echo "=$a= =$b= =$c="
+=the= =plain= =gold      ring=</code></pre>
+        
+        <p>The above example shows that splitting and delimiter-consolidation are not performed on the remaining part of a line when assigning excess fields to the last variable.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=: read -r a b c \
+    &lt;&lt;&lt; '1:2:::3::4'
+[hemimorphite@ubuntu ~]$ echo "=$a= =$b= =$c="
+=1= =2= =::3::4=</code></pre>
+        
+        <p>Note that out of the three consecutive colons which follow field 2, precisely one colon was removed in order to terminate field 2. The remaining two colons, as well as two more colons later on, were all left untouched, and assigned to variable <code>c</code> verbatim.</p>
+
+        <h5 class="post-subtitle">OPTARG</h5>
+
+        <p>The value of the option processed by the <code>getopts</code> builtin.</p>
+
+        <p>Let's create a bash script called <code>command.sh</code></p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat command.sh
+#!/bin/bash
+
+# Parse command-line options
+while getopts ":f:d:" flag; do
+    case $flag in
+    f) echo "The filename is: ${OPTARG}"
+      ;;
+    d) echo "The directory is: ${OPTARG}"
+    esac
+done</code></pre>
+
+        <p>The Bash script utilizes the <code>getopts</code> command to parse command-line options. It specifies two options, <code>-f</code>  and <code>-d</code> in the optstring. As there is a colon (:) after both options, if triggered each of them requires an argument.</p>
+
+        <p>Inside the loop, a <code>case</code> statement is used to check the currently processed option. If the option <code>-f</code> is encountered, the script prints out the filename specified with the option using the special variable <code>OPTARG</code>. Similarly, if the option <code>-d</code> is found, the script displays the directory provided with the option using <code>OPTARG</code>.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -f file1.txt -d /home hemimorphite
+The filename is: file1.txt
+The directory is: /home hemimorphite</code></pre>
+        
+        <h5 class="post-subtitle">OPTERR</h5>
+        
+        <p><code>OPTERR</code> controls if Bash displays errors generated by the <code>getopts</code> builtin command. <code>getopts</code> does not print errors if <code>OPTERR</code> has a value of <code>0</code>. Value <code>1</code> enables the errors.</p>
+
+        <p>The default value is <code>1</code>.</p>
+
+        <h5 class="post-subtitle">OPTIND</h5>
+
+        <p>The index of the next parameter/argument processed by the <code>getopts</code> builtin.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat command.sh
+#!/bin/bash
+
+while getopts "ab:c" flag; do
+    echo "$flag" "$OPTIND" "$OPTARG"
+done</code></pre>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -ac -b value1
+a 1
+c 2
+b 4 value1</code></pre>
+
+        <p>In <code>./command.sh -ac -b value1</code>, arg1 is <code>-ac</code>, arg2 is <code>-b</code>, arg3 is <code>value1</code>.</p>
+
+        <p>While processing option <code>-a</code>, the next unprocessed option is <code>-c</code> which is in arg1. So the index stored in <code>OPTIND</code> is <code>1</code>. For the following option <code>-c</code>, the next unprocessed option is <code>-b</code> which is arg2. So the index stored in <code>OPTIND</code> is <code>2</code>. Finally, for the option <code>-b</code>, while processing option <code>-b</code>, arg3 (<code>value1</code>) is processed as an argument of option <code>-b</code>. That's why <code>OPTIND</code> stores <code>4</code> or the index of arg4.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -a -c -b value1
+a 2
+c 3
+b 5 value1</code></pre>
+        
+        <p>In <code>./command.sh -a -c -b value1</code>, arg1 is <code>-a</code>, arg2 is <code>-c</code>, arg3 is <code>-b</code>, arg4 is <code>value1</code>.</p>
+
+        <p>While processing option <code>-a</code>, the next unprocessed option is <code>-c</code> which is in arg2. So the index stored in <code>OPTIND</code> is <code>2</code>. For the following option <code>-c</code>, the next unprocessed option is <code>-b</code> which is arg3. So the index stored in <code>OPTIND</code> is <code>3</code>. Finally, for the option <code>-b</code>, while processing option <code>-b</code>, arg4 (<code>value1</code>) is processed as an argument of option <code>-b</code>. That's why <code>OPTIND</code> stores <code>5</code> or the index of arg5.</p>
+
+        <h5 class="post-subtitle">PATH</h5>
+
+        <p>A colon-separated list of directories in which the shell looks for commands. This is the variable that tells the bash shell where to find different executable files and scripts. The shell will check the directories listed in the <code>PATH</code> variable for the script you are trying to find.</p>
+        
+        <p>Let's say you wrote a little shell script called <code>hello</code> and have it located in a directory called <code>/home/hemimorphite/bin</code>.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ cat hello
+#!/bin/bash
+
+echo Hello "$USER"
+[hemimorphite@ubuntu ~/bin]$ chmod +x hello</code></pre>
+        
+        <p>Add <code>/home/hemimorphite/bin</code> to the <code>$PATH</code> variable with the following command:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ export PATH=$PATH:/home/hemimorphite/bin</code></pre>
+
+        <p>You should now be able to execute the script anywhere on your system by just typing in its name, without having to include the full path as you type it.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ hello
+Hello hemimorphite</code></pre>
+
+        <h5 class="post-subtitle">MAIL</h5>
+
+        <p>Name of file to check for incoming mail.</p>
+
+        <h5 class="post-subtitle">MAILCHECK</h5>
+
+        <p>defines the interval in seconds when the shell should check for mail. (default 60 seconds).</p>
+
+        <h5 class="post-subtitle">MAILPATH</h5>
+
+        <p>List of filenames, separated by colons (:), to check for incoming mail.</p>
+
+        <p>Run the following command to install <code>mail</code></p>
+
+        <pre><code class="language-bash hljs">sudo apt install mailutils</code></pre>
+
+        <p>Let us create a new user named satella, echidna, and minerva using the <code>useradd</code> command on Ubuntu:</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/satella/ -m -G sudo satella
+[hemimorphite@ubuntu ~/]$ sudo passwd satella
+[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/echidna/ -m -G sudo echidna
+[hemimorphite@ubuntu ~/]$ sudo passwd echidna
+[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/minerva/ -m -G sudo minerva
+[hemimorphite@ubuntu ~/]$ sudo passwd minerva</code></pre>
+
+        <p>Where,</p>
+
+        <ul>
+            <li><code>-s /bin/bash</code>, set <code>/bin/bash</code> as login shell of the new account</li>
+            <li><code>-d /home/satella/</code>, set <code>/home/satella/</code> as home directory of the new Ubuntu account</li>
+            <li><code>-m</code>, create the user's home directory</li>
+            <li><code>-G sudo</code>, make satella user can use <code>sudo</code> command</li>
+        </ul>
+
+        <p>Switch to user satella.</p>
+
+        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/]$ sudo su - satella
+[satella@ubuntu ~/]$ </code></pre>
+
+        <p>Use the <code>echo</code> command to send an email without entering the interactive mode of the <code>mail</code> command. Write the email body and pipe the <code>echo</code> command output to the <code>mail</code> command.</p>
+
+        <pre><code class="language-bash hljs">[satella@ubuntu ~/]$ echo "This is the email body" | mail -s "this is email subject" echidna, minerva</code></pre>
+        
+        <p>After 60 seconds (the value of <code>MAILCHECK</code>), on echidna's or minerva's prompt press <code>ENTER</code> and the prompt will print the message:</p>
+
+        <pre><code class="language-bash hljs">You have mail in /var/mail/echidna</code></pre>
+
+        <p>Shell will use the value of <code>MAIL</code> as the name of the file to check, unless <code>MAILPATH</code> is set; in which case, the shell will check each file in the <code>MAILPATH</code> list for new mail. You can use this mechanism to have the shell print a different message for each mail file: for each mail filename in <code>MAILPATH</code>, append a question mark followed by the message you want printed.</p>
+
+        <p>You could define <code>MAILPATH</code> to be:</p>
+
+        <pre><code class="language-bash hljs">MAILPATH="\
+/usr/mail/satella/echidna?Mail from Echidna has arrived.:\
+/usr/mail/satella/minerva?There is new mail from Paul."</code></pre>
+
+        <p>The backslashes at the end of each line allow you to continue your command on the next line. Now, if you get mail from echidna, the shell will print:</p>
+
+        <pre><code class="language-bash hljs">Mail from Echidna has arrived.</code></pre>
+
+        <p>You can also use the variable <code>$_</code> in the message to print the name of the current mail file or execute a command <code>$(date)</code> to displays the current date and time. For example:</p>
+
+        <pre><code class="language-bash hljs">MAILPATH="\
+/usr/mail/satella/echidna?Mail from Echidna has arrived in $_ at $(date).:\
+/usr/mail/satella/minerva?There is new mail from Paul in $_ at $(date)."</code></pre>
+</article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>

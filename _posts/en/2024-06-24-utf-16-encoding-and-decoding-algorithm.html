@@ -1,0 +1,288 @@
+---
+layout: post
+lang: en
+locale: en
+title: "UTF-16 Encoding and Decoding Algorithm"
+thumb: "unicode.jpg"
+eyebrow: "Tutorial"
+description: "UTF-16, UTF-16LE, UTF-16BE encoding and decoding algorithm is crucial for processing text in various programming languages. This page explains the implementation of UTF-16, UTF-16LE, UTF-16BE encoding and decoding with examples for programmers to understand and utilize effectively."
+date: 2024-06-24 20:51:00 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2024", "month-06", "day-24"]
+tags: ["UTF-16", "UTF-16LE", "UTF-16BE", "unicode", "algorithm", "encoding", "decoding", "byte order mark"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>In computer systems, characters are transformed and stored as numbers (sequences of bits) that can be handled by the processor. A code page is an encoding scheme that maps a specific sequence of bits to its character representation. Before Unicode, there were hundreds of different encoding schemes that assigned a number to each letter or character. Many such schemes included code pages that contained only 256 characters – each character requiring 8 bits of storage. While this was relatively compact, it was insufficient to hold ideographic character sets containing thousands of characters such as Chinese and Japanese, and also did not allow the character sets of many languages to co-exist with each other.</p>
+
+        <p>Unicode is an attempt to include all the different schemes into one universal text-encoding standard.</p>
+
+        <p>Unicode represents each individual character as a unique code point with a unique number. For example, the character <b>A</b> – <b>Latin Capital Letter A</b> – is represented as <b>U+0041</b> and the Hiragana <b>ふ</b> is <b>U+3075</b>.</p>
+
+        <p>An individual Unicode code point is expressed as <b>U+n</b>, where <b>n</b> is four to six hexadecimal digits, using the digits <b>0–9</b> and uppercase letters <b>A–F</b> (for 10 through 15, respectively). Leading zeros are omitted, unless the code point would have fewer than four hexadecimal digits. For example, <b>U+0001</b>, <b>U+0012</b>, <b>U+0123</b>, <b>U+1234</b>, <b>U+12345</b>, <b>U+102345</b>.</p>
+
+        <p>The Unicode code space is divided into seventeen planes (the basic multilingual plane, and 16 supplementary planes), each with 65,536 code points. Thus the total size of the Unicode code space is 17 × 65,536 = 1,114,112.</p>
+
+        <p>The first plane is called the Basic Multilingual Plane or BMP. It contains the code points from <b>U+0000</b> to <b>U+FFFF</b>, which are the most frequently used characters.</p>
+
+        <p>Unicode also defines multiple encodings of its single character set: <b>UTF-8</b>, <b>UTF-16</b>, and <b>UTF-32</b>.</p>
+
+        <h5 class="post-subtitle">UTF-16 Encoding</h5>
+
+        <p>UTF-16 is a character encoding that maps code points of Unicode character to a sequence of one 16-bit code unit or two 16-bit code units. UTF-16 uses a 16-bit code unit, or two 16-bit code units to represent a unicode character.</p>
+
+        <p>Code unit is a value that encoded code point to 8/16/32 bits to store/transmit Unicode text efficiently on a computer.</p>
+
+        <p>When representing characters in UTF-16, each code point is represented by a sequence of one or two 16-bit code units. The number of bytes used depends on the code point being represented by the character. Here's a breakdown of the usage range:</p>
+
+        <ul>
+            <li>code points in Basic Multilingual Plane (BMP) from the range <b>U+0000 - U+D7FF (0-55295)</b> and <b>U+E000 - U+FFFF (57344-65535)</b> are represented by two bytes</li>
+            <li>code points in other 16 supplementary planes from the range <b>U+010000 - U+10FFFF (65536-1114111)</b> are represented by four bytes</li>
+        </ul>
+
+        <p>To encode characters outside the BMP, (e.g. U+29E3D, Japanese Kanji of Okhotsk Atka mackerel, 𩸽) UTF-16 encodes it using two 16-bit code units. This is called a surrogate pair.</p>
+
+        <p>The Unicode standard reserves BMP in the range from <b>U+D800</b> to <b>U+DFFF</b> for surrogate pairs (this means that those code points are not assigned to any characters).</p>
+
+        <p><b>U+D800</b> - <b>U+DBFF</b> is known as high-surrogates, and <b>U+DC00</b> - <b>U+DFFF</b> is known as low-surrogates. The first code unit of a surrogate pair is always in high-surrogates, and the second is always in low-surrogates.</p>
+
+        <p>The algorithm to convert a unicode code point to UTF-16 sequence is as follows:</p>
+
+        <ol>
+            <li>
+                If the code point is between <b>U+0000</b> and <b>U+D7FF</b> or between <b>U+E000</b> and <b>U+FFFF</b>, it is encoded in a single 16-bit code unit.<br>
+                To encode a code point from <b>U+0000</b> to <b>U+D7FF</b> and <b>U+E000</b> to <b>U+FFFF</b> into UTF-16, you can simply represent the code point as UTF-16 sequence.<br>
+
+                For example, to encode the code point <b>U+4E80</b>, just simply represent the code point as UTF-16 sequence that is <b>0x4E80</b>.
+            </li>
+            <li>If the code point is between U+010000 and U+10FFFF, it is encoded in two 16-bit code units.<br>
+                <ul>
+                    <li><b>Step 1</b>: perform subtraction operation on the code point by 0x10000</li>
+                    <li><b>Step 2</b>: get the high-surrogate code unit of UTF-16 sequence<br>
+                        <ul>
+                            <li><b>Substep 1</b>: perform right shift operation on the result of step 1 by 10 bits</li>
+                            <li><b>Substep 2</b>: perform addition operation between the result of substep 1 with 0xD800 (0b11011000 00000000)</li>
+                            <li><b>Substep 3</b>: the high-surrogate code unit of UTF-16 sequence is the result of substep 2</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 3</b>: get the second low-surrogate code unit of UTF-16 sequence<br>
+                        <ul>
+                            <li><b>Substep 1</b>: perform masking using AND operator between the result of step 1 with 0x3FF (0b0011 11111111) to extract the trailing 10 bits of the code point</li>
+                            <li><b>Substep 2</b>: perform adding operation between the result of substep 1 with 0xDC00 (0b11011100 00000000)</li>
+                            <li><b>Substep 3</b>: the low-surrogate code unit of UTF-16 sequence is the result of substep 2</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Final step</b>: combine the result of step 1 and the result of step 2 to form a UTF-16 sequence.
+                    </li>
+                </ul>
+                
+                <br>
+                For example, encode the code point <b>U+1F6A9</b> to the UTF-16 sequence:<br>
+
+                <ul>
+                    <li><b>Step 1</b>: 0x1F6A9 - 0x10000 = 0xF6A9</li>
+                    <li><b>Step 2</b>: get the high-surrogate code unit of UTF-16 sequence<br>
+                        <ul>
+                            <li><b>Substep 1</b>: 0xF6A9 >> 10 = 0x3D</li>
+                            <li><b>Substep 2</b>: 0x3D + 0xD800 = 0xD83D</li>
+                            <li><b>Substep 3</b>: the high-surrogate code unit = 0xD83D</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 3</b>: get the second low-surrogate code unit of UTF-16 sequence<br>
+                        <ul>
+                            <li><b>Substep 1</b>: 0xF6A9 & 0x3FF = 0x02A9</li>
+                            <li><b>Substep 2</b>: 0x02A9 + 0xDC00 = 0xDEA9</li>
+                            <li><b>Substep 3</b>: the low-surrogate code unit = 0xDEA9</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Final step</b>: combine the UTF-16 sequence of the code point <b>U+1F6A9</b> is 0xD83DDEA9.
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <p>The following table summarizes the conversion code points to UTF-16 sequence:</p>
+
+        <table class="table table-bordered border-primary">
+            <tbody>
+                <tr>
+                    <th colspan="2">Character </th>
+                    <th>Binary code point </th>
+                    <th>Binary UTF-16 </th>
+                    <th>UTF-16 hex <br>code units </th>
+                    <th>UTF-16BE <br>hex bytes </th>
+                    <th>UTF-16LE <br>hex bytes </th>
+                </tr>
+                <tr>
+                    <td>
+                        $
+                    </td>
+                    <td>
+                        U+0024
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">0000 0000 0010 0100</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">0000 0000 0010 0100</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">0024</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">00 24</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">24 00</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        €
+                    </td>
+                    <td>
+                        U+20AC
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">0010 0000 1010 1100</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">0010 0000 1010 1100</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">20AC</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">20 AC</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">AC 20</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        𐐷
+                    </td>
+                    <td>
+                        U+10437
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">0001 0000 01</span><span style="color: #000092;">00 0011 0111</span>
+                    </td>
+                    <td align="right">
+                        1101 10<span style="color: #920000;">00 0000 0001</span> 1101 11 <span style="color: #000092;">00 0011 0111</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">D801</span>
+                        <span style="color: #000092;">DC37</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">D8 01</span>
+                        <span style="color: #000092;">DC 37</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">01 D8</span>
+                        <span style="color: #000092;">37 DC</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        𤭢
+                    </td>
+                    <td>
+                        U+24B62
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">0010 0100 10</span><span style="color: #000092;">11 0110 0010</span>
+                    </td>
+                    <td align="right">
+                        1101 10 <span style="color: #920000;">00 0101 0010</span> 1101 11 <span style="color: #000092;">11 0110 0010</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">D852</span>
+                        <span style="color: #000092;">DF62</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">D8 52</span>
+                        <span style="color: #000092;">DF 62</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">52 D8</span>
+                        <span style="color: #000092;">62 DF</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5 class="post-subtitle">UTF-16 Decoding</h5>
+
+        <p>The algorithm to convert UTF-16 sequence to a unicode code point is as follows:</p>
+
+        <ol>
+            <li>
+                If the UTF-16 sequence is between <b>0x0000</b> and <b>0xD7FF</b> or between <b>0xE000</b> and <b>0xFFFF</b>:<br>
+
+                To decode a UTF-16 sequence from <b>0x0000</b> to <b>0xD7FF</b> and <b>0xE000</b> to <b>0xFFFF</b> into a code point, you can simply represent the UTF-16 sequence as the code point.<br>
+
+                For example, to decode the code point <b>0x4E80</b>, just simply represent the UTF-16 sequence as the code point that is <b>U+4E80</b>.
+            </li>
+            <li>
+                If the UTF-16 sequence is between <b>U+D800</b> and <b>U+DFFF</b>, it is a surrogate pair that consists of a high surrogate and a low surrogate.<br>
+                <ul>
+                    <li><b>Step 1</b>: decode the high-surrogate code unit of UTF-16 sequence where the high-surrogate code unit must be between <b>U+D800</b> and <b>U+DBFF</b><br>
+                        <ul>
+                            <li><b>Substep 1</b>: perform subtraction operation on the high-surrogate code unit by 0xD800</li>
+                            <li><b>Substep 3</b>: perform the left shift operation on the reesult of substep 1 by 10 bits</li>
+                            <li><b>Substep 4</b>: the decoded high-surrogate code unit is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 2</b>: decode the second 16-bit code unit (low-surrogate code unit) of UTF-16 sequence which is between <b>U+DC00</b> and <b>U+DFFF</b><br>
+                        <ul>
+                            <li><b>Substep 1</b>: perform subtraction operation on the low-surrogate code unit by 0xDC00</li>
+                            <li><b>Substep 2</b>: the decoded low-surrogate code unit is the result of substep 1</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 3</b>: perform addition operation among the result of step 1, the result of step 2 and 0x10000 to get the code point</li>
+                    <li><b>Final step</b>: the code point is the result of step 3</li>
+                </ul>
+                
+                <br>
+                For example, decode the the UTF-16 sequence <b>0xD87DDEA9</b>:<br>
+
+                <ul>
+                    <li><b>Step 1</b>: decode the high-surrogate code unit of UTF-16 sequence where the high-surrogate code unit must be between <b>U+D800</b> and <b>U+DBFF</b><br>
+                        <ul>
+                            <li><b>Substep 1</b>: 0xD87D - 0xD800 = 0x007D</li>
+                            <li><b>Substep 3</b>: 0x007D << 10 = 0xF400</li>
+                            <li><b>Substep 4</b>: the decoded high-surrogate code unit = 0xF400</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 2</b>: decode the second 16-bit code unit (low-surrogate code unit) of UTF-16 sequence which is between <b>U+DC00</b> and <b>U+DFFF</b><br>
+                        <ul>
+                            <li><b>Substep 1</b>: 0xDEA9 - 0xDC00 = 0x02A9</li>
+                            <li><b>Substep 2</b>: the decoded low-surrogate code unit = 0x02A9</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 3</b>: 0xF400 + 0x02A9 + 0x10000 = 0x1F6A9</li>
+                    <li><b>Final step</b>: the code point = U+1F6A9</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h5 class="post-subtitle">Byte Order Mark (BOM)</h5>
+
+        <p>UTF-16 comes in two variations, big endian and little endian. In big-endian UTF-16 or UTF-16BE, the most significant byte of the character comes first. In little-endian UTF-16 or UTF-16LE, the order is reversed. Thus, in big-endian UTF-16, the code point of letter A is <b>U+0041</b> and the encoded bytes are <b>0x0041</b>. In little-endian UTF-16, the encoded bytes are swapped, and A is <b>0x4100</b>. In big-endian UTF-16, the code point of letter B is <b>U+0042</b> and the encoded bytes are <b>0x0042</b>; in little-endian UTF-16, it's <b>0x4200</b>. In big-endian UTF-16, the code point of letter Σ is <b>U+03A3</b> and the encoded bytes are <b>0x03A3</b>; in little-endian UTF-16, it's <b>0xA303</b>. In big-endian UTF-16, the code point of emoticon 😀 is <b>U+1F600</b> and the encoded bytes are <b>0xD83D</b> and <b>0xDE00</b>; in little-endian UTF-16, it's <b>0x3DD8</b> and <b>0x00DE</b>. In big-endian UTF-16, the code point of character 𠂤 is <b>U+200A4</b> and the encoded bytes are <b>0xD840</b> and <b>0xDCA4</b>; in little-endian UTF-16, it's <b>0xA4DC</b> and <b>0xA4DC</b>.</p>
+
+        <p>To distinguish between big-endian and little-endian UTF-16, a program can look at the first two bytes of a UTF-16 encoded document, a document encoded in big-endian UTF-16 begins with Unicode character <b>U+FEFF</b>, the zero-width nonbreaking space, more commonly called the byte-order mark. A document encoded in big-endian UTF-16 begins with the same Unicode character (<b>U+FEFF</b>) but the bytes is swapped (i.e. <b>U+FFFE</b>), the resulting <b>U+FFFE</b> character doesn't actually exist.</p>
+        
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
