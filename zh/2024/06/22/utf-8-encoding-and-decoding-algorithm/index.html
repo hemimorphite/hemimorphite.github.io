@@ -1363,6 +1363,20 @@
 						  	
 						
 						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
 						</ul>
 					</div>
 				</div>
@@ -1401,8 +1415,10 @@
 
         <h5 class="post-subtitle">UTF-8 Encoding</h5>
 
-        <p>UTF-8 is a byte encoding used to encode unicode characters. UTF-8 uses 1, 2, 3 or 4 bytes to represent a unicode character.</p>
+        <p>UTF-8 is a character encoding that maps code points of Unicode character to a sequence of one, two, three or four 8-bit code units. UTF-8 uses 1, 2, 3 or 4 8-bit code units to represent a unicode character.</p>
 
+        <p>Code unit is a value that encoded code point to 8/16/32 bits to store/transmit Unicode text efficiently on a computer.</p>
+        
         <p>When representing characters in UTF-8, each code point is represented by a sequence of one or more bytes. The number of bytes used depends on the code point being represented by the character. Here's a breakdown of the usage range:</p>
 
         <ul>
@@ -1492,14 +1508,16 @@
             </tbody>
         </table>
 
+        <p>The algorithm to convert a unicode code point to UTF-8 sequence is as follows:</p>
+
         <ol>
             <li>If the code point is less than <b>U+0080</b> or between <b>U+0000</b> and <b>U+007F</b>, it is encoded in a single byte.<br>
                 <ul>
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b><b>Substep 1</b></b>: perform the <b>right shift</b> operation on the code point by <b>0</b> bit</li>
-                            <li><b>Substep 2</b>: perform the masking using <b>AND</b> operator between the result of substep 1 with <b>0x7F (0b01111111)</b> to extract the 7 bits in the result of step 1</li>
-                            <li><b>Substep 3</b>: perform the masking using <b>OR</b> operator between the result of substep 2 with 0</li>
+                            <li><b><b>Substep 1</b></b>: perform <b>right shift</b> operation on the code point by <b>0</b> bit</li>
+                            <li><b>Substep 2</b>: perform masking using <b>AND</b> operator between the result of substep 1 with <b>0x7F (0b01111111)</b> to extract the 7 bits in the result of step 1</li>
+                            <li><b>Substep 3</b>: perform masking using <b>OR</b> operator between the result of substep 2 with 0</li>
                             <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
@@ -1525,17 +1543,17 @@
                 <ul>
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 6 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of substep 1 with 0x1F (0b00011111) to extract the trailing 5 bits of the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of substep 2 with 0xC0 (0b11000000) to add the leading 3 bits (i.e. 110) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 6 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of substep 1 with 0x1F (0b00011111) to extract the trailing 5 bits of the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of substep 2 with 0xC0 (0b11000000) to add the leading 3 bits (i.e. 110) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 0 bit</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 0 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the second byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
@@ -1572,24 +1590,24 @@
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
                         <ul>
                             <li><b>Substep 1</b>: perform the right shift operation on the code point by 12 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x0F  (0b00001111) to extract the trailing 4 bits of the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0xE0 (0b11100000) to add the leading 4 bits (i.e. 1110) to the result of substep 2</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x0F  (0b00001111) to extract the trailing 4 bits of the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0xE0 (0b11100000) to add the leading 4 bits (i.e. 1110) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 6 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 6 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the second byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 3</b>: get the third byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 0 bit</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 0 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the third byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
@@ -1631,33 +1649,33 @@
                 <ul>
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 18 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x07  (0b00000111) to extract the trailing 3 bits of the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0xF0 (0b11110000) to add the leading 5 bits (i.e. 11110) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 18 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x07  (0b00000111) to extract the trailing 3 bits of the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0xF0 (0b11110000) to add the leading 5 bits (i.e. 11110) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 12 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 12 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the second byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 3</b>: get the third byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 6 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 6 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the third byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 4</b>: get the fourth byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 0 bit</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 0 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the fourth byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
@@ -1807,8 +1825,8 @@
                     <li><b>Step 1</b>: decode the first byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as two hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the first byte UTF-8 sequence with 0x7F (0b01111111) to extract the trailing 7 bits of the first byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: perform the lef shift on the result of <b>Substep 2</b> by 0 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x7F (0b01111111) to extract the trailing 7 bits of the first byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform lef shift on the result of <b>Substep 2</b> by 0 bit</li>
                             <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
                         </ul>
                     </li>
@@ -1838,7 +1856,7 @@
                     <li><b>Step 1</b>: decode the first byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as four hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the first byte UTF-8 sequence with 0x1F (0b00011111) to extract the trailing 5 bits of the first byte UTF-8 sequence</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x1F (0b00011111) to extract the trailing 5 bits of the first byte UTF-8 sequence</li>
                             <li><b>Substep 3</b>: do the shift left the result of step 2 by 6 bits</li>
                             <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
                         </ul>
@@ -1846,8 +1864,8 @@
                     <li><b>Step 2</b>: decode the second byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as four hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 0 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 0 bit</li>
                             <li><b>Substep 4</b>: the decoded second byte is the result of substep 3</li>
                         </ul>
                     </li>
@@ -1891,24 +1909,24 @@
                     <li><b>Step 1</b>: decode the first byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the first byte UTF-8 sequence with 0x0F (0b00001111) to extract the trailing 4 bits of the first byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 12 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x0F (0b00001111) to extract the trailing 4 bits of the first byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 12 bits</li>
                             <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 2</b>: decode the second byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 6 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bit</li>
                             <li><b>Substep 4</b>: the decoded second byte is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 3</b>: decode the third byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 6 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bit</li>
                             <li><b>Substep 4</b>: the decoded third byte is the result of substep 3</li>
                         </ul>
                     </li>
@@ -1959,32 +1977,32 @@
                     <li><b>Step 1</b>: decode the first byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the first byte UTF-8 sequence with 0x07 (0b00000111) to extract the trailing 3 bits of the first byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 18 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x07 (0b00000111) to extract the trailing 3 bits of the first byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 18 bits</li>
                             <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 2</b>: decode the second byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the second byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 12 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 12 bits</li>
                             <li><b>Substep 4</b>: the decoded second byte is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 3</b>: decode the third byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the third byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 6 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bits</li>
                             <li><b>Substep 4</b>: the decoded third byte is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 4</b>: decode the fourth byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the fourth byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the fourth byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the fourth byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 6 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the fourth byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the fourth byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bits</li>
                             <li><b>Substep 4</b>: the decoded fourth byte is the result of substep 3</li>
                         </ul>
                     </li>
@@ -2196,7 +2214,7 @@ A          U+0041   41
 		
 		<li><a href="https://hemimorphite.github.io/zh/tag/c" class="tag">c</a></li>
 		
-		<li><a href="https://hemimorphite.github.io/zh/tag/byte-mark-order" class="tag">byte mark order</a></li>
+		<li><a href="https://hemimorphite.github.io/zh/tag/byte-order-mark" class="tag">byte order mark</a></li>
 		
 	</ul>
 </div>

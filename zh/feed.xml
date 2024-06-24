@@ -1,4 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-06-24T13:34:56+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">UCS-2 Encoding and Decoding Algorithm</title><link href="https://hemimorphite.github.io/zh/2024/06/22/ucs-2-encoding-and-decoding-algorithm/" rel="alternate" type="text/html" title="UCS-2 Encoding and Decoding Algorithm" /><published>2024-06-22T16:51:00+00:00</published><updated>2024-06-22T16:51:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/22/ucs-2-encoding-and-decoding-algorithm</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/22/ucs-2-encoding-and-decoding-algorithm/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-06-24T13:41:50+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">The Difference Between Little Endian and Big Endian</title><link href="https://hemimorphite.github.io/zh/2024/06/24/the-difference-between-little-endian-and-big-endian/" rel="alternate" type="text/html" title="The Difference Between Little Endian and Big Endian" /><published>2024-06-24T12:33:00+00:00</published><updated>2024-06-24T12:33:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/24/the-difference-between-little-endian-and-big-endian</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/24/the-difference-between-little-endian-and-big-endian/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">The Difference Between Little Endian and Big Endian</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published June 24, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/cpu.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Every byte of memory has its own address, no matter how big the CPU machine word is. Eg. Intel 8086 CPU was 16-bit and it was addressing memory by bytes, so do modern 32-bit and 64-bit CPUs. That's the cause of the first limit - you can't have more addresses than memory bytes.</p>
+
+        <p>The CPU machine word or word size of a CPU architecture refers to the number of bits that a computer's CPU can process at a time. It is typically measured in bits, with common word sizes being 16, 32, or 64 bits. In some architectures, such as Intel's PC processor architecture, a word is 16 bits or two contiguous 8-bit bytes. The word size determines the maximum amount of data that can be processed in a single operation and affects the performance and capabilities of the CPU.</p>
+
+        <p>A machine word or word size is the amount of memory CPU uses to hold numbers (in RAM, cache or internal registers). 32-bit CPU uses 32 bits (4 bytes) to hold numbers. Memory addresses are numbers too, so on a 32-bit CPU the memory address consists of 32 bits.</p>
+        
+        <p>In a 32-bit system, memory addresses are typically represented as 8 hexadecimal digits, while in a 64-bit system, addresses are represented using 16 hexadecimal digits.</p>
+
+        <p>In a 32-bit system, the memory addresses can range from 0 to 0x7FFFFFFF; that is, 2^31 (2147483648 or 0x80000000) possible numbers, while in a 64-bit system, the memory addresses can range from 0 to 0x7FFFFFFFFFFFFFFF; that is, 2^63 (9223372036854775808 or 0x8000000000000000) possible numbers.</p>
+
+        <p>The endianness refers to the byte order used by a computer or a microcontroller or a machine to read or write a single "hello world" in memory. In other words, the endian will decide how to store multiple bytes in computer memory. It doesn't mean, the order of bits inside a byte, nor the way the computer reads an array of bytes or a file. It's all about the order of the bytes of a word (multi-byte variable) in memory.</p>
+
+        <p>In big endian, the most significant byte of a multi-byte data type is stored at the lowest memory address, and the least significant byte is stored at the highest memory address. It is as if the data is read from left to right.</p>
+
+        <p>In little endian, the least significant byte is stored at the lowest memory address, and the most significant byte is stored at the highest memory address. It is as if the data is read from right to left.</p>
+
+        <p>Endian representation is crucial when data is transmitted or shared between systems with different endianness. If systems with different endianness attempt to interpret the data directly, the values may be misinterpreted, leading to errors in the program.</p>
+
+        <p>For example, let's consider a 32-bit integer value with the hexadecimal representation 0x12345678.</p>
+
+        <p>In big endian, it is stored in memory as:</p>
+
+        <pre><code class="language-bash hljs">Address:    0x1000    0x1001    0x1002    0x1003
+Value:      0x12      0x34      0x56      0x78</code></pre>
+        
+        <p>In little endian, it is stored in memory as:</p>
+
+        <pre><code class="language-bash hljs">Address:    0x1000    0x1001    0x1002    0x1003
+Value:      0x78      0x56      0x34      0x12</code></pre>
+        
+        <p>There are a lot of ways for determining endianness of your machine. Here is one way of determining endianness of your machine:</p>
+
+        <pre><code class="language-bash hljs">#include &lt;stdio.h&gt;
+int main(void)
+{
+    unsigned int value = 0x12345678;
+    char *r = (char *) &value;
+    int i;
+    
+    for(i=0; i<4; i++) {
+        printf("Address of 0x%x = %p \n", r[i], &r[i]);
+    }
+    return 0;
+}</code></pre>
+
+        <p>Compile and run the program</p>
+
+        <pre><code class="language-bash hljs">gcc -o endian endian.c && ./endian</code></pre>
+
+        <p>The output on little endian architecture would look like:</p>
+
+        <pre><code class="language-bash hljs">Address of 0x78 = 0x7fffe86cb728
+Address of 0x56 = 0x7fffe86cb729
+Address of 0x34 = 0x7fffe86cb72a
+Address of 0x12 = 0x7fffe86cb72b</code></pre>
+
+        <p>The output on little endian architecture would look like:</p>
+
+        <pre><code class="language-bash hljs">Address of 0x12 = 0x7fffe86cb728
+Address of 0x34 = 0x7fffe86cb729
+Address of 0x56 = 0x7fffe86cb72a
+Address of 0x78 = 0x7fffe86cb72b</code></pre>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/little-endian" class="tag">little endian</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/big-endian" class="tag">big endian</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/cpu-architecture" class="tag">cpu architecture</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/c" class="tag">c</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-06" /><category term="day-24" /><category term="little endian" /><category term="big endian" /><category term="cpu architecture" /><category term="c" /><summary type="html"><![CDATA[Learn about the key differences between little endian and big endian byte orderings, with clear explanations and illustrative examples to help you understand this fundamental concept in computer architecture.]]></summary></entry><entry xml:lang="en"><title type="html">UCS-2 Encoding and Decoding Algorithm</title><link href="https://hemimorphite.github.io/zh/2024/06/22/ucs-2-encoding-and-decoding-algorithm/" rel="alternate" type="text/html" title="UCS-2 Encoding and Decoding Algorithm" /><published>2024-06-22T16:51:00+00:00</published><updated>2024-06-22T16:51:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/22/ucs-2-encoding-and-decoding-algorithm</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/22/ucs-2-encoding-and-decoding-algorithm/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">UCS-2 Encoding and Decoding Algorithm</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -89,8 +189,10 @@
 
         <h5 class="post-subtitle">UTF-8 Encoding</h5>
 
-        <p>UTF-8 is a byte encoding used to encode unicode characters. UTF-8 uses 1, 2, 3 or 4 bytes to represent a unicode character.</p>
+        <p>UTF-8 is a character encoding that maps code points of Unicode character to a sequence of one, two, three or four 8-bit code units. UTF-8 uses 1, 2, 3 or 4 8-bit code units to represent a unicode character.</p>
 
+        <p>Code unit is a value that encoded code point to 8/16/32 bits to store/transmit Unicode text efficiently on a computer.</p>
+        
         <p>When representing characters in UTF-8, each code point is represented by a sequence of one or more bytes. The number of bytes used depends on the code point being represented by the character. Here's a breakdown of the usage range:</p>
 
         <ul>
@@ -180,14 +282,16 @@
             </tbody>
         </table>
 
+        <p>The algorithm to convert a unicode code point to UTF-8 sequence is as follows:</p>
+
         <ol>
             <li>If the code point is less than <b>U+0080</b> or between <b>U+0000</b> and <b>U+007F</b>, it is encoded in a single byte.<br>
                 <ul>
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b><b>Substep 1</b></b>: perform the <b>right shift</b> operation on the code point by <b>0</b> bit</li>
-                            <li><b>Substep 2</b>: perform the masking using <b>AND</b> operator between the result of substep 1 with <b>0x7F (0b01111111)</b> to extract the 7 bits in the result of step 1</li>
-                            <li><b>Substep 3</b>: perform the masking using <b>OR</b> operator between the result of substep 2 with 0</li>
+                            <li><b><b>Substep 1</b></b>: perform <b>right shift</b> operation on the code point by <b>0</b> bit</li>
+                            <li><b>Substep 2</b>: perform masking using <b>AND</b> operator between the result of substep 1 with <b>0x7F (0b01111111)</b> to extract the 7 bits in the result of step 1</li>
+                            <li><b>Substep 3</b>: perform masking using <b>OR</b> operator between the result of substep 2 with 0</li>
                             <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
@@ -213,17 +317,17 @@
                 <ul>
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 6 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of substep 1 with 0x1F (0b00011111) to extract the trailing 5 bits of the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of substep 2 with 0xC0 (0b11000000) to add the leading 3 bits (i.e. 110) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 6 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of substep 1 with 0x1F (0b00011111) to extract the trailing 5 bits of the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of substep 2 with 0xC0 (0b11000000) to add the leading 3 bits (i.e. 110) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 0 bit</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 0 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the second byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
@@ -260,24 +364,24 @@
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
                         <ul>
                             <li><b>Substep 1</b>: perform the right shift operation on the code point by 12 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x0F  (0b00001111) to extract the trailing 4 bits of the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0xE0 (0b11100000) to add the leading 4 bits (i.e. 1110) to the result of substep 2</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x0F  (0b00001111) to extract the trailing 4 bits of the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0xE0 (0b11100000) to add the leading 4 bits (i.e. 1110) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 6 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 6 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the second byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 3</b>: get the third byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 0 bit</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 0 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the third byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
@@ -319,33 +423,33 @@
                 <ul>
                     <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 18 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x07  (0b00000111) to extract the trailing 3 bits of the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0xF0 (0b11110000) to add the leading 5 bits (i.e. 11110) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 18 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x07  (0b00000111) to extract the trailing 3 bits of the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0xF0 (0b11110000) to add the leading 5 bits (i.e. 11110) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 12 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 12 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the second byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 3</b>: get the third byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 6 bits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 6 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the third byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 4</b>: get the fourth byte of UTF-8 sequence<br>
                         <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 0 bit</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform the masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
+                            <li><b>Substep 1</b>: perform right shift operation on the code point by 0 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
+                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
                             <li><b>Substep 4</b>: the fourth byte of UTF-8 sequence is the result of substep 3</li>
                         </ul>
                     </li>
@@ -495,8 +599,8 @@
                     <li><b>Step 1</b>: decode the first byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as two hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform the masking using AND operator between the first byte UTF-8 sequence with 0x7F (0b01111111) to extract the trailing 7 bits of the first byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: perform the lef shift on the result of <b>Substep 2</b> by 0 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x7F (0b01111111) to extract the trailing 7 bits of the first byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform lef shift on the result of <b>Substep 2</b> by 0 bit</li>
                             <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
                         </ul>
                     </li>
@@ -526,7 +630,7 @@
                     <li><b>Step 1</b>: decode the first byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as four hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the first byte UTF-8 sequence with 0x1F (0b00011111) to extract the trailing 5 bits of the first byte UTF-8 sequence</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x1F (0b00011111) to extract the trailing 5 bits of the first byte UTF-8 sequence</li>
                             <li><b>Substep 3</b>: do the shift left the result of step 2 by 6 bits</li>
                             <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
                         </ul>
@@ -534,8 +638,8 @@
                     <li><b>Step 2</b>: decode the second byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as four hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 0 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 0 bit</li>
                             <li><b>Substep 4</b>: the decoded second byte is the result of substep 3</li>
                         </ul>
                     </li>
@@ -579,24 +683,24 @@
                     <li><b>Step 1</b>: decode the first byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the first byte UTF-8 sequence with 0x0F (0b00001111) to extract the trailing 4 bits of the first byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 12 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x0F (0b00001111) to extract the trailing 4 bits of the first byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 12 bits</li>
                             <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 2</b>: decode the second byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 6 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bit</li>
                             <li><b>Substep 4</b>: the decoded second byte is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 3</b>: decode the third byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 6 bit</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bit</li>
                             <li><b>Substep 4</b>: the decoded third byte is the result of substep 3</li>
                         </ul>
                     </li>
@@ -647,32 +751,32 @@
                     <li><b>Step 1</b>: decode the first byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the first byte UTF-8 sequence with 0x07 (0b00000111) to extract the trailing 3 bits of the first byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 18 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x07 (0b00000111) to extract the trailing 3 bits of the first byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 18 bits</li>
                             <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 2</b>: decode the second byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the second byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 12 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 12 bits</li>
                             <li><b>Substep 4</b>: the decoded second byte is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 3</b>: decode the third byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the third byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 6 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bits</li>
                             <li><b>Substep 4</b>: the decoded third byte is the result of substep 3</li>
                         </ul>
                     </li>
                     <li><b>Step 4</b>: decode the fourth byte<br>
                         <ul>
                             <li><b>Substep 1</b>: represent the fourth byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: do the masking using AND operator between the fourth byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the fourth byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 6 bits</li>
+                            <li><b>Substep 2</b>: perform masking using AND operator between the fourth byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the fourth byte UTF-8 sequence</li>
+                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bits</li>
                             <li><b>Substep 4</b>: the decoded fourth byte is the result of substep 3</li>
                         </ul>
                     </li>
@@ -884,7 +988,7 @@ A          U+0041   41
 		
 		<li><a href="https://hemimorphite.github.io/zh/tag/c" class="tag">c</a></li>
 		
-		<li><a href="https://hemimorphite.github.io/zh/tag/byte-mark-order" class="tag">byte mark order</a></li>
+		<li><a href="https://hemimorphite.github.io/zh/tag/byte-order-mark" class="tag">byte order mark</a></li>
 		
 	</ul>
 </div>
@@ -898,7 +1002,7 @@ A          U+0041   41
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-06" /><category term="day-22" /><category term="UTF-8" /><category term="unicode" /><category term="algorithm" /><category term="encoding" /><category term="decoding" /><category term="c" /><category term="byte mark order" /><summary type="html"><![CDATA[UTF-8 encoding and decoding algorithm is crucial for processing text in various programming languages. This page explains the implementation of UTF-8 encoding and decoding with examples for programmers to understand and utilize effectively.]]></summary></entry><entry xml:lang="en"><title type="html">Bourne Shell Builtin Commands</title><link href="https://hemimorphite.github.io/zh/2024/06/16/bourne-shell-builtin-commands/" rel="alternate" type="text/html" title="Bourne Shell Builtin Commands" /><published>2024-06-16T16:21:00+00:00</published><updated>2024-06-16T16:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-06" /><category term="day-22" /><category term="UTF-8" /><category term="unicode" /><category term="algorithm" /><category term="encoding" /><category term="decoding" /><category term="c" /><category term="byte order mark" /><summary type="html"><![CDATA[UTF-8 encoding and decoding algorithm is crucial for processing text in various programming languages. This page explains the implementation of UTF-8 encoding and decoding with examples for programmers to understand and utilize effectively.]]></summary></entry><entry xml:lang="en"><title type="html">Bourne Shell Builtin Commands</title><link href="https://hemimorphite.github.io/zh/2024/06/16/bourne-shell-builtin-commands/" rel="alternate" type="text/html" title="Bourne Shell Builtin Commands" /><published>2024-06-16T16:21:00+00:00</published><updated>2024-06-16T16:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/16/bourne-shell-builtin-commands/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Bourne Shell Builtin Commands</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -4516,132 +4620,4 @@ int main()
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-11" /><category term="linux" /><category term="signal" /><category term="c" /><summary type="html"><![CDATA[Linux signals are a fundamental feature of the Linux operating system that allow processes to communicate with each other. This article explains how signals work in Linux and how they can be utilized.]]></summary></entry><entry xml:lang="en"><title type="html">Exit Codes In Bash Scripting</title><link href="https://hemimorphite.github.io/zh/2024/06/11/exit-codes-in-bash-scripting/" rel="alternate" type="text/html" title="Exit Codes In Bash Scripting" /><published>2024-06-11T12:10:00+00:00</published><updated>2024-06-11T12:10:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/11/exit-codes-in-bash-scripting</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/11/exit-codes-in-bash-scripting/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Exit Codes In Bash Scripting</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published June 11, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/bashscripting.jfif" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Every Linux or Unix command executed by the shell script or user, has an exit status. The exit status is an integer number. For the bash shell's purposes, a command which exits with a zero (0) exit status has succeeded. A non-zero (1-255) exit status indicates failure. All of the Bash builtins return exit status of zero if they succeed and a non-zero status on failure.</p>
-
-        <p>You can use special shell variable called <code>$?</code> to get the exit status of the previously executed command.</p>
-
-        <p>List of reserved exit codes for bash scripting.</p>
-
-        <table class="table table-bordered border-primary">
-            <thead>
-                <th>Exit Code Number</th>
-                <th>Meaning</th>
-                <th>Description</th>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>Catchall for general errors</td>
-                <td>Miscellaneous errors, such as divide by zero and other impermissible operations</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Misuse of shell builtins</td>
-                <td>Invalid option of bash builtin, trying to access a file or directory that doesn't exist or requires permissions</td>
-            </tr>
-            <tr>
-                <td>126</td>
-                <td>Command invoked can't be executed</td>
-                <td>Permission problem or command is not an executable</td>
-            </tr>
-            <tr>
-                <td>127</td>
-                <td>Command not found</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>128</td>
-                <td>Invalid argument to <code>exit</code></td>
-                <td><code>exit</code> takes only integer args in the range 0 - 255 </td>
-            </tr>
-            <tr>
-                <td>128+n</td>
-                <td>Fatal error signal "n"</td>
-                <td>In Linux, programs might send one of 31 different standard signals. When a program terminates after receiving one of these signals, it returns an error code equal to 128 + signal-number.</td>
-            </tr>
-            </tbody>
-        </table>
-
-        <p>According to the above table, exit codes 1 - 2, and 126 - 165 have special meanings, and should therefore be avoided for user-specified exit parameters.</p>
-
-        <p>Let's simulate the exit codes</p>
-
-        <h6 class="post-subtitle">General Error: 1</h6>
-
-        <pre><code class="language-bash hljs">$ echo $((10 / 0))
-bash: 10 / 0: division by 0 (error token is "0")
-$ echo $?
-1</code></pre>
-
-        <h6 class="post-subtitle">Misuse of Shell Built-in: 2</h6>
-
-        <pre><code class="language-bash hljs">$ ls nonexistdirectory/
-ls: cannot access 'nonexistdirectory/': No such file or directory
-$ echo $?
-2</code></pre>
-        
-        <h6 class="post-subtitle">Cannot Execute: 126</h6>
-
-        <pre><code class="language-bash hljs">$ cat nonexecutablescript.sh
-#!/bin/bash
-
-echo hello
-$ chmod -x nonexecutablescript.sh
-$ ./nonexecutablescript.sh
-bash: ./nonexecutablescript.sh: Permission denied
-$ echo $?
-126</code></pre>
-        
-        <h6 class="post-subtitle">Command Not Found: 127</h6>
-
-        <pre><code class="language-bash hljs">$ execute
-bash: execute: command not found
-$ echo $?
-127</code></pre>
-
-        <h6 class="post-subtitle">Fatal Error Signal n: 128+n</h6>
-        
-        <p>When we terminate a program by using Ctrl+C, we effectively send it a <code>SIGINT</code> signal. This signal has a value of 2. Therefore, the program will stop executing and return an exit code with a value 128 + 2 = 130.</p>
-
-        <pre><code class="language-bash hljs">$ ^C
-$ echo $?
-130</code></pre>
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu" class="tag">ubuntu</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/bash-script" class="tag">bash script</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/exit-code" class="tag">exit code</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-11" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="exit code" /><summary type="html"><![CDATA[Learn about exit codes in Bash scripts, including a comprehensive list of common exit codes and their meanings to help you troubleshoot and debug your bash scripts effectively.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-11" /><category term="linux" /><category term="signal" /><category term="c" /><summary type="html"><![CDATA[Linux signals are a fundamental feature of the Linux operating system that allow processes to communicate with each other. This article explains how signals work in Linux and how they can be utilized.]]></summary></entry></feed>
