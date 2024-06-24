@@ -1,4 +1,314 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-06-24T13:41:50+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">The Difference Between Little Endian and Big Endian</title><link href="https://hemimorphite.github.io/2024/06/24/the-difference-between-little-endian-and-big-endian/" rel="alternate" type="text/html" title="The Difference Between Little Endian and Big Endian" /><published>2024-06-24T12:33:00+00:00</published><updated>2024-06-24T12:33:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/24/the-difference-between-little-endian-and-big-endian</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/24/the-difference-between-little-endian-and-big-endian/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-06-24T13:44:02+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">UTF-16 Encoding and Decoding Algorithm</title><link href="https://hemimorphite.github.io/2024/06/24/utf-16-encoding-and-decoding-algorithm/" rel="alternate" type="text/html" title="UTF-16 Encoding and Decoding Algorithm" /><published>2024-06-24T12:51:00+00:00</published><updated>2024-06-24T12:51:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/24/utf-16-encoding-and-decoding-algorithm</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/24/utf-16-encoding-and-decoding-algorithm/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">UTF-16 Encoding and Decoding Algorithm</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published June 24, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/unicode.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>In computer systems, characters are transformed and stored as numbers (sequences of bits) that can be handled by the processor. A code page is an encoding scheme that maps a specific sequence of bits to its character representation. Before Unicode, there were hundreds of different encoding schemes that assigned a number to each letter or character. Many such schemes included code pages that contained only 256 characters – each character requiring 8 bits of storage. While this was relatively compact, it was insufficient to hold ideographic character sets containing thousands of characters such as Chinese and Japanese, and also did not allow the character sets of many languages to co-exist with each other.</p>
+
+        <p>Unicode is an attempt to include all the different schemes into one universal text-encoding standard.</p>
+
+        <p>Unicode represents each individual character as a unique code point with a unique number. For example, the character <b>A</b> – <b>Latin Capital Letter A</b> – is represented as <b>U+0041</b> and the Hiragana <b>ふ</b> is <b>U+3075</b>.</p>
+
+        <p>An individual Unicode code point is expressed as <b>U+n</b>, where <b>n</b> is four to six hexadecimal digits, using the digits <b>0–9</b> and uppercase letters <b>A–F</b> (for 10 through 15, respectively). Leading zeros are omitted, unless the code point would have fewer than four hexadecimal digits. For example, <b>U+0001</b>, <b>U+0012</b>, <b>U+0123</b>, <b>U+1234</b>, <b>U+12345</b>, <b>U+102345</b>.</p>
+
+        <p>The Unicode code space is divided into seventeen planes (the basic multilingual plane, and 16 supplementary planes), each with 65,536 code points. Thus the total size of the Unicode code space is 17 × 65,536 = 1,114,112.</p>
+
+        <p>The first plane is called the Basic Multilingual Plane or BMP. It contains the code points from <b>U+0000</b> to <b>U+FFFF</b>, which are the most frequently used characters.</p>
+
+        <p>Unicode also defines multiple encodings of its single character set: <b>UTF-8</b>, <b>UTF-16</b>, and <b>UTF-32</b>.</p>
+
+        <h5 class="post-subtitle">UTF-16 Encoding</h5>
+
+        <p>UTF-16 is a character encoding that maps code points of Unicode character to a sequence of one 16-bit code unit or two 16-bit code units. UTF-16 uses a 16-bit code unit, or two 16-bit code units to represent a unicode character.</p>
+
+        <p>Code unit is a value that encoded code point to 8/16/32 bits to store/transmit Unicode text efficiently on a computer.</p>
+
+        <p>When representing characters in UTF-16, each code point is represented by a sequence of one or two 16-bit code units. The number of bytes used depends on the code point being represented by the character. Here's a breakdown of the usage range:</p>
+
+        <ul>
+            <li>code points in Basic Multilingual Plane (BMP) from the range <b>U+0000 - U+D7FF (0-55295)</b> and <b>U+E000 - U+FFFF (57344-65535)</b> are represented by two bytes</li>
+            <li>code points in other 16 supplementary planes from the range <b>U+010000 - U+10FFFF (65536-1114111)</b> are represented by four bytes</li>
+        </ul>
+
+        <p>To encode characters outside the BMP, (e.g. U+29E3D, Japanese Kanji of Okhotsk Atka mackerel, 𩸽) UTF-16 encodes it using two 16-bit code units. This is called a surrogate pair.</p>
+
+        <p>The Unicode standard reserves BMP in the range from <b>U+D800</b> to <b>U+DFFF</b> for surrogate pairs (this means that those code points are not assigned to any characters).</p>
+
+        <p><b>U+D800</b> - <b>U+DBFF</b> is known as high-surrogates, and <b>U+DC00</b> - <b>U+DFFF</b> is known as low-surrogates. The first code unit of a surrogate pair is always in high-surrogates, and the second is always in low-surrogates.</p>
+
+        <p>The algorithm to convert a unicode code point to UTF-16 sequence is as follows:</p>
+
+        <ol>
+            <li>
+                If the code point is between <b>U+0000</b> and <b>U+D7FF</b> or between <b>U+E000</b> and <b>U+FFFF</b>, it is encoded in a single 16-bit code unit.<br>
+                To encode a code point from <b>U+0000</b> to <b>U+D7FF</b> and <b>U+E000</b> to <b>U+FFFF</b> into UTF-16, you can simply represent the code point as UTF-16 sequence.<br>
+
+                For example, to encode the code point <b>U+4E80</b>, just simply represent the code point as UTF-16 sequence that is <b>0x4E80</b>.
+            </li>
+            <li>If the code point is between U+010000 and U+10FFFF, it is encoded in two 16-bit code units.<br>
+                <ul>
+                    <li><b>Step 1</b>: perform subtraction operation on the code point by 0x10000</li>
+                    <li><b>Step 2</b>: get the high-surrogate code unit of UTF-16 sequence<br>
+                        <ul>
+                            <li><b>Substep 1</b>: perform right shift operation on the result of step 1 by 10 bits</li>
+                            <li><b>Substep 2</b>: perform addition operation between the result of substep 1 with 0xD800 (0b11011000 00000000)</li>
+                            <li><b>Substep 3</b>: the high-surrogate code unit of UTF-16 sequence is the result of substep 2</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 3</b>: get the second low-surrogate code unit of UTF-16 sequence<br>
+                        <ul>
+                            <li><b>Substep 1</b>: perform masking using AND operator between the result of step 1 with 0x3FF (0b0011 11111111) to extract the trailing 10 bits of the code point</li>
+                            <li><b>Substep 2</b>: perform adding operation between the result of substep 1 with 0xDC00 (0b11011100 00000000)</li>
+                            <li><b>Substep 3</b>: the low-surrogate code unit of UTF-16 sequence is the result of substep 2</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Final step</b>: combine the result of step 1 and the result of step 2 to form a UTF-16 sequence.
+                    </li>
+                </ul>
+                
+                <br>
+                For example, encode the code point <b>U+1F6A9</b> to the UTF-16 sequence:<br>
+
+                <ul>
+                    <li><b>Step 1</b>: 0x1F6A9 - 0x10000 = 0xF6A9</li>
+                    <li><b>Step 2</b>: get the high-surrogate code unit of UTF-16 sequence<br>
+                        <ul>
+                            <li><b>Substep 1</b>: 0xF6A9 >> 10 = 0x3D</li>
+                            <li><b>Substep 2</b>: 0x3D + 0xD800 = 0xD83D</li>
+                            <li><b>Substep 3</b>: the high-surrogate code unit = 0xD83D</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 3</b>: get the second low-surrogate code unit of UTF-16 sequence<br>
+                        <ul>
+                            <li><b>Substep 1</b>: 0xF6A9 & 0x3FF = 0x02A9</li>
+                            <li><b>Substep 2</b>: 0x02A9 + 0xDC00 = 0xDEA9</li>
+                            <li><b>Substep 3</b>: the low-surrogate code unit = 0xDEA9</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Final step</b>: combine the UTF-16 sequence of the code point <b>U+1F6A9</b> is 0xD83DDEA9.
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <p>The following table summarizes the conversion code points to UTF-16 sequence:</p>
+
+        <table class="table table-bordered border-primary">
+            <tbody>
+                <tr>
+                    <th colspan="2">Character </th>
+                    <th>Binary code point </th>
+                    <th>Binary UTF-16 </th>
+                    <th>UTF-16 hex <br>code units </th>
+                    <th>UTF-16BE <br>hex bytes </th>
+                    <th>UTF-16LE <br>hex bytes </th>
+                </tr>
+                <tr>
+                    <td>
+                        $
+                    </td>
+                    <td>
+                        U+0024
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">0000 0000 0010 0100</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">0000 0000 0010 0100</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">0024</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">00 24</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">24 00</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        €
+                    </td>
+                    <td>
+                        U+20AC
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">0010 0000 1010 1100</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">0010 0000 1010 1100</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">20AC</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">20 AC</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #000092;">AC 20</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        𐐷
+                    </td>
+                    <td>
+                        U+10437
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">0001 0000 01</span><span style="color: #000092;">00 0011 0111</span>
+                    </td>
+                    <td align="right">
+                        1101 10<span style="color: #920000;">00 0000 0001</span> 1101 11 <span style="color: #000092;">00 0011 0111</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">D801</span>
+                        <span style="color: #000092;">DC37</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">D8 01</span>
+                        <span style="color: #000092;">DC 37</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">01 D8</span>
+                        <span style="color: #000092;">37 DC</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        𤭢
+                    </td>
+                    <td>
+                        U+24B62
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">0010 0100 10</span><span style="color: #000092;">11 0110 0010</span>
+                    </td>
+                    <td align="right">
+                        1101 10 <span style="color: #920000;">00 0101 0010</span> 1101 11 <span style="color: #000092;">11 0110 0010</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">D852</span>
+                        <span style="color: #000092;">DF62</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">D8 52</span>
+                        <span style="color: #000092;">DF 62</span>
+                    </td>
+                    <td align="right">
+                        <span style="color: #920000;">52 D8</span>
+                        <span style="color: #000092;">62 DF</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5 class="post-subtitle">UTF-16 Decoding</h5>
+
+        <p>The algorithm to convert UTF-16 sequence to a unicode code point is as follows:</p>
+
+        <ol>
+            <li>
+                If the UTF-16 sequence is between <b>0x0000</b> and <b>0xD7FF</b> or between <b>0xE000</b> and <b>0xFFFF</b>:<br>
+
+                To decode a UTF-16 sequence from <b>0x0000</b> to <b>0xD7FF</b> and <b>0xE000</b> to <b>0xFFFF</b> into a code point, you can simply represent the UTF-16 sequence as the code point.<br>
+
+                For example, to decode the code point <b>0x4E80</b>, just simply represent the UTF-16 sequence as the code point that is <b>U+4E80</b>.
+            </li>
+            <li>
+                If the UTF-16 sequence is between <b>U+D800</b> and <b>U+DFFF</b>, it is a surrogate pair that consists of a high surrogate and a low surrogate.<br>
+                <ul>
+                    <li><b>Step 1</b>: decode the high-surrogate code unit of UTF-16 sequence where the high-surrogate code unit must be between <b>U+D800</b> and <b>U+DBFF</b><br>
+                        <ul>
+                            <li><b>Substep 1</b>: perform subtraction operation on the high-surrogate code unit by 0xD800</li>
+                            <li><b>Substep 3</b>: perform the left shift operation on the reesult of substep 1 by 10 bits</li>
+                            <li><b>Substep 4</b>: the decoded high-surrogate code unit is the result of substep 3</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 2</b>: decode the second 16-bit code unit (low-surrogate code unit) of UTF-16 sequence which is between <b>U+DC00</b> and <b>U+DFFF</b><br>
+                        <ul>
+                            <li><b>Substep 1</b>: perform subtraction operation on the low-surrogate code unit by 0xDC00</li>
+                            <li><b>Substep 2</b>: the decoded low-surrogate code unit is the result of substep 1</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 3</b>: perform addition operation among the result of step 1, the result of step 2 and 0x10000 to get the code point</li>
+                    <li><b>Final step</b>: the code point is the result of step 3</li>
+                </ul>
+                
+                <br>
+                For example, decode the the UTF-16 sequence <b>0xD87DDEA9</b>:<br>
+
+                <ul>
+                    <li><b>Step 1</b>: decode the high-surrogate code unit of UTF-16 sequence where the high-surrogate code unit must be between <b>U+D800</b> and <b>U+DBFF</b><br>
+                        <ul>
+                            <li><b>Substep 1</b>: 0xD87D - 0xD800 = 0x007D</li>
+                            <li><b>Substep 3</b>: 0x007D << 10 = 0xF400</li>
+                            <li><b>Substep 4</b>: the decoded high-surrogate code unit = 0xF400</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 2</b>: decode the second 16-bit code unit (low-surrogate code unit) of UTF-16 sequence which is between <b>U+DC00</b> and <b>U+DFFF</b><br>
+                        <ul>
+                            <li><b>Substep 1</b>: 0xDEA9 - 0xDC00 = 0x02A9</li>
+                            <li><b>Substep 2</b>: the decoded low-surrogate code unit = 0x02A9</li>
+                        </ul>
+                    </li>
+                    <li><b>Step 3</b>: 0xF400 + 0x02A9 + 0x10000 = 0x1F6A9</li>
+                    <li><b>Final step</b>: the code point = U+1F6A9</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h5 class="post-subtitle">Byte Order Mark (BOM)</h5>
+
+        <p>UTF-16 comes in two variations, big endian and little endian. In big-endian UTF-16 or UTF-16BE, the most significant byte of the character comes first. In little-endian UTF-16 or UTF-16LE, the order is reversed. Thus, in big-endian UTF-16, the code point of letter A is <b>U+0041</b> and the encoded bytes are <b>0x0041</b>. In little-endian UTF-16, the encoded bytes are swapped, and A is <b>0x4100</b>. In big-endian UTF-16, the code point of letter B is <b>U+0042</b> and the encoded bytes are <b>0x0042</b>; in little-endian UTF-16, it's <b>0x4200</b>. In big-endian UTF-16, the code point of letter Σ is <b>U+03A3</b> and the encoded bytes are <b>0x03A3</b>; in little-endian UTF-16, it's <b>0xA303</b>. In big-endian UTF-16, the code point of emoticon 😀 is <b>U+1F600</b> and the encoded bytes are <b>0xD83D</b> and <b>0xDE00</b>; in little-endian UTF-16, it's <b>0x3DD8</b> and <b>0x00DE</b>. In big-endian UTF-16, the code point of character 𠂤 is <b>U+200A4</b> and the encoded bytes are <b>0xD840</b> and <b>0xDCA4</b>; in little-endian UTF-16, it's <b>0xA4DC</b> and <b>0xA4DC</b>.</p>
+
+        <p>To distinguish between big-endian and little-endian UTF-16, a program can look at the first two bytes of a UTF-16 encoded document, a document encoded in big-endian UTF-16 begins with Unicode character <b>U+FEFF</b>, the zero-width nonbreaking space, more commonly called the byte-order mark. A document encoded in big-endian UTF-16 begins with the same Unicode character (<b>U+FEFF</b>) but the bytes is swapped (i.e. <b>U+FFFE</b>), the resulting <b>U+FFFE</b> character doesn't actually exist.</p>
+        
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/utf-16" class="tag">UTF-16</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/utf-16le" class="tag">UTF-16LE</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/utf-16be" class="tag">UTF-16BE</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/unicode" class="tag">unicode</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/algorithm" class="tag">algorithm</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/encoding" class="tag">encoding</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/decoding" class="tag">decoding</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/byte-order-mark" class="tag">byte order mark</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-06" /><category term="day-24" /><category term="UTF-16" /><category term="UTF-16LE" /><category term="UTF-16BE" /><category term="unicode" /><category term="algorithm" /><category term="encoding" /><category term="decoding" /><category term="byte order mark" /><summary type="html"><![CDATA[UTF-16, UTF-16LE, UTF-16BE encoding and decoding algorithm is crucial for processing text in various programming languages. This page explains the implementation of UTF-16, UTF-16LE, UTF-16BE encoding and decoding with examples for programmers to understand and utilize effectively.]]></summary></entry><entry xml:lang="en"><title type="html">The Difference Between Little Endian and Big Endian</title><link href="https://hemimorphite.github.io/2024/06/24/the-difference-between-little-endian-and-big-endian/" rel="alternate" type="text/html" title="The Difference Between Little Endian and Big Endian" /><published>2024-06-24T12:33:00+00:00</published><updated>2024-06-24T12:33:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/24/the-difference-between-little-endian-and-big-endian</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/24/the-difference-between-little-endian-and-big-endian/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">The Difference Between Little Endian and Big Endian</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -4254,370 +4564,4 @@ Hello hemimorphite</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Best Practices" /><category term="year-2024" /><category term="month-06" /><category term="day-13" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="special variables" /><category term="CDPATH" /><category term="HOME" /><category term="IFS" /><category term="OPTARG" /><category term="OPTERR" /><category term="OPTIND" /><category term="PATH" /><category term="MAIL" /><category term="MAILCHECK" /><category term="MAILPATH" /><summary type="html"><![CDATA[Learn how to properly use Bash predefined special variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills.]]></summary></entry><entry xml:lang="en"><title type="html">Linux Signals</title><link href="https://hemimorphite.github.io/2024/06/11/linux-signals/" rel="alternate" type="text/html" title="Linux Signals" /><published>2024-06-11T15:20:00+00:00</published><updated>2024-06-11T15:20:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/11/linux-signals</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/11/linux-signals/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Linux Signals</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published June 11, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/linux.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Signals are interruptions that are generated by the software and give us a way of handling asynchronous events. Those interruptions can be generated by things outside the process (like Ctrl+C from the user in the terminal) or from errors inside the process (like a math error for dividing with 0).</p>
-
-        <p>There are 31 standard signals, numbered 1-31. Each signal is named as "SIG" followed by a suffix. Starting from version 2.2, the Linux kernel supports 33 different real-time signals. These have numbers 32-64 but programmers should instead use SIGRTMIN+n notation. Standard signals have specific purposes but the use of SIGUSR1 and SIGUSR2 can be defined by applications. Real-time signals are also defined by applications.</p>
-
-        <table class="table table-bordered border-primary">
-            <thead>
-                <tr>
-                    <td><strong>Number</strong></td>
-                    <td><strong>Name</strong></td>
-                    <td><strong>Default Action</strong></td>
-                    <td><strong>Description</strong></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><code>SIGHUP</code></td>
-                    <td>Terminate</td>
-                    <td>Terminal line hangup or parent process terminated</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><code>SIGINT</code></td>
-                    <td>Terminate</td>
-                    <td>Interrupt from keyboard (<code>ctrl-c</code>)</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td><code>SIGQUIT</code></td>
-                    <td>Terminate</td>
-                    <td>Quit from keyboard (<code>ctrl-\</code>)</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td><code>SIGILL</code></td>
-                    <td>Terminate</td>
-                    <td>Illegal instruction</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td><code>SIGTRAP</code></td>
-                    <td>Core</td>
-                    <td>Trace trap</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td><code>SIGABRT</code></td>
-                    <td>Core</td>
-                    <td>Signal from <code>abort</code> function</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td><code>SIGBUS</code></td>
-                    <td>Terminate</td>
-                    <td>Bus error</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td><code>SIGFPE</code></td>
-                    <td>Core</td>
-                    <td>Floating-point exception</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td><code>SIGKILL</code></td>
-                    <td>Terminate</td>
-                    <td>Kill program</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td><code>SIGUSR1</code></td>
-                    <td>Terminate</td>
-                    <td>User-defined signal 1</td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td><code>SIGSEGV</code></td>
-                    <td>Core</td>
-                    <td>Invalid memory reference (segfault)</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td><code>SIGUSR2</code></td>
-                    <td>Terminate</td>
-                    <td>User-defined signal 2</td>
-                </tr>
-                <tr>
-                    <td>13</td>
-                    <td><code>SIGPIPE</code></td>
-                    <td>Terminate</td>
-                    <td>Write in pipe with no reader</td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td><code>SIGALRM</code></td>
-                    <td>Terminate</td>
-                    <td>Timer signal from <code>alarm</code> function</td>
-                </tr>
-                <tr>
-                    <td>15</td>
-                    <td><code>SIGTERM</code></td>
-                    <td>Terminate</td>
-                    <td>Software termination signal</td>
-                </tr>
-                <tr>
-                    <td>16</td>
-                    <td><code>SIGSTKFLT</code></td>
-                    <td>Terminate</td>
-                    <td>Stack fault on coprocessor</td>
-                </tr>
-                <tr>
-                    <td>17</td>
-                    <td><code>SIGCHLD</code></td>
-                    <td>Ignore</td>
-                    <td>Child process has stopped or terminated</td>
-                </tr>
-                <tr>
-                    <td>18</td>
-                    <td><code>SIGCONT</code></td>
-                    <td>Ignore</td>
-                    <td>Continue process if stopped</td>
-                </tr>
-                <tr>
-                    <td>19</td>
-                    <td><code>SIGSTOP</code></td>
-                    <td>Stop</td>
-                    <td>Stop signal not from terminal</td>
-                </tr>
-                <tr>
-                    <td>20</td>
-                    <td><code>SIGTSTP</code></td>
-                    <td>Stop</td>
-                    <td>Stop signal from terminal (<code>ctrl-z</code>)</td>
-                </tr>
-                <tr>
-                    <td>21</td>
-                    <td><code>SIGTTIN</code></td>
-                    <td>Stop</td>
-                    <td>Background process read from terminal</td>
-                </tr>
-                <tr>
-                    <td>22</td>
-                    <td><code>SIGTTOU</code></td>
-                    <td>Stop</td>
-                    <td>Background process wrote to terminal</td>
-                </tr>
-                <tr>
-                    <td>23</td>
-                    <td><code>SIGURG</code></td>
-                    <td>Ignore</td>
-                    <td>Urgent condition on socket</td>
-                </tr>
-                <tr>
-                    <td>24</td>
-                    <td><code>SIGXCPU</code></td>
-                    <td>Terminate</td>
-                    <td>CPU time limit exceeded</td>
-                </tr>
-                <tr>
-                    <td>25</td>
-                    <td><code>SIGXFSZ</code></td>
-                    <td>Terminate</td>
-                    <td>File size limit exceeded</td>
-                </tr>
-                <tr>
-                    <td>26</td>
-                    <td><code>SIGVTALRM</code></td>
-                    <td>Terminate</td>
-                    <td>Virtual timer expired</td>
-                </tr>
-                <tr>
-                    <td>27</td>
-                    <td><code>SIGPROF</code></td>
-                    <td>Terminate</td>
-                    <td>Profiling timer expired</td>
-                </tr>
-                <tr>
-                    <td>28</td>
-                    <td><code>SIGWINCH</code></td>
-                    <td>Ignore</td>
-                    <td>Window size changed</td>
-                </tr>
-                <tr>
-                    <td>29</td>
-                    <td><code>SIGIO</code></td>
-                    <td>Terminate</td>
-                    <td>I/O now possible on a descriptor</td>
-                </tr>
-                <tr>
-                    <td>30</td>
-                    <td><code>SIGPWR</code></td>
-                    <td>Terminate</td>
-                    <td>Power failure</td>
-                </tr>
-                <tr>
-                    <td>31</td>
-                    <td><code>SIGSYS</code></td>
-                    <td>Terminate</td>
-                    <td>Bad system call</td>
-                </tr>
-            </tbody>
-        </table>
-
-
-        <p>Signals can be delivered to a process at any time during its execution, launched by events like user actions, hardware exceptions, or even more inter-process communication.</p>
-
-        <p>Signals can interrupt the normal flow of a process and require the process to handle or respond to the signal appropriately.</p>
-
-        <p>Signals are delivered by the operating system to the target process.</p>
-
-        <p>When a signal is generated, the operating system identifies the target process based on its process ID (PID).</p>
-        
-        <p>The operating system then interrupts the execution of the target process and delivers the signal by invoking the corresponding signal handler or performing the default action associated with the signal.</p>
-
-        <p>Signals can be delivered by various sources, including the user, hardware exceptions, or other processes involved in inter-process communication.</p>
-
-        <p>The delivery of signals involves coordination between the operating system and the target process.</p>
-        
-        <p>The operating system is responsible for identifying the target process, interrupting its execution, and delivering the signal, while the process handles the signal by executing the corresponding signal handler or default action.</p>
-
-        <p>Here are some common default actions:</p>
-
-        <ul>
-            <li>Termination Signals
-                <ul>
-                    <li><code>SIGINT</code> (Interrupt): The process is terminated. This signal is generated by pressing Ctrl+C.</li>
-                </ul>
-            </li>
-            <li>Termination with Core Dump Signals<br>
-                A core dump is a file that contains a snapshot of a program's memory at the time of a crash or termination due to a critical error. It includes information about memory, registers, and program state.
-                <ul>
-                    <li><code>SIGQUIT</code> (Quit): The process is terminated. This signal is triggered by pressing Ctrl+\ on the keyboard. A core dump is generated.</li>
-                    <li><code>SIGILL</code> (Illegal Instruction): The process is terminated with a core dump, indicating an illegal instruction.</li>
-                    <li><code>SIGABRT</code> (Abort): The process is terminated with a core dump, usually when an internal error or inconsistency is detected.</li>
-                    <li><code>SIGFPE</code> (Floating-Point Exception): The process is terminated with a core dump when a floating-point arithmetic exception occurs, such as division by zero.</li>
-                    <li><code>SIGSEGV</code> (Segmentation Fault): The default action for this signal is to terminate the process and generate a core dump. It occurs when the program attempts to access a memory location that it is not allowed to access, such as accessing an invalid pointer or accessing memory that has not been allocated.</li>
-                </ul>
-            </li>
-            <li>Ignored Signals
-                <ul>
-                    <li><code>SIGCHLD</code> (Child Status Changed): The signal is ignored, indicating that the process does not want to be notified when child processes terminate.</li>
-                    <li><code>SIGURG</code> (Urgent Condition on Socket): The signal is ignored, typically used for out-of-band data in socket communication.</li>
-                </ul>
-            </li>
-            <li>Stop Signals
-                <ul>
-                    <li><code>SIGSTOP</code> (Stop): The process is stopped (paused) and can be resumed later using SIGCONT.</li>
-                    <li><code>SIGTSTP</code> (Terminal Stop): The process is stopped (paused) by the user, typically through the Ctrl+Z combination.</li>
-                </ul>
-            </li>
-            <li>Continue Signal
-                <ul>
-                    <li><code>SIGCONT</code> (Continue): The process is resumed after being stopped or paused.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <p>The purpose of signals is multifaceted and serves several important functions:</p>
-
-        <ul>
-            <li>Notify processes about events or conditions
-                <ul>
-                    <li>Example 1: for a user action, sending a <code>SIGINT</code> signal (Ctrl+C) to notify a process to terminate gracefully in response to a user interrupt.</li>
-                    <li>Example 2: for a hardware exception, sending a <code>SIGFPE</code> signal, which indicates a floating-point arithmetic exception ( → division by zero).</li>
-                </ul>
-            </li>
-            <li>Handle asynchronous events efficiently
-                <ul>
-                    <li>Example: receiving a <code>SIGALRM</code> signal to handle a timer or alarm event, allowing the process to perform a specific action after a specified time interval.</li>
-                </ul>
-            </li>
-            <li>Handle exceptional situations or errors
-                <ul>
-                    <li>Example: catching a <code>SIGSEGV</code> signal (segmentation fault) to handle a memory access violation, enabling the process to log the error and gracefully recover or terminate.</li>
-                </ul>
-            </li>
-            <li>Facilitate inter-process communication
-                <ul>
-                    <li>Example: sending a <code>SIGUSR1</code> signal from one process to another as a custom communication mechanism, indicating a request for specific actions or data exchange between the processes.</li>
-                </ul>
-            </li>
-            <li>Enable graceful termination of processes
-                <ul>
-                    <li>Example: receiving a <code>SIGTERM</code> signal to initiate a graceful termination process, allowing the process to perform cleanup tasks, release resources, and exit gracefully.</li>
-                </ul>
-            </li>
-            <li>Allow for custom behavior in response to signals
-                <ul>
-                    <li>Example: registering a signal handler for a custom signal, such as <code>SIGUSR2</code>, to define a specific action that the process should take when receiving that signal, tailored to the specific needs of the application.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <p>To create a signal in C, you can use the <code>kill()</code> or <code>raise()</code> functions. To send a signal from one process to another process, you can use the <code>kill()</code> function. To send a signal to itself, a process can use the <code>raise()</code> function.</p>
-
-        <p>Here's an example of using <code>kill()</code> to send a <code>SIGTERM</code> signal to a process with a specific PID:</p>
-
-        <pre><code class="language-bash hljs">#include &lt;sys/types.h&gt;
-#include &lt;signal.h&gt;
-
-int main() 
-{
-    pid_t pid = 1234; /* Replace it with the target process ID */
-
-    /* Send SIGTERM signal to the process */
-    int result = kill(pid, SIGTERM);
-    
-    if (result == 0) 
-    {
-        printf("Signal successfully sent.\n");
-    }
-    else 
-    {
-        printf("Failed to send signal.\n");
-    }
-    
-    return 0;
-}</code></pre>
-
-        <p>Here's an example of using raise() to send a SIGINT signal to the current process:</p>
-
-        <pre><code class="language-bash hljs">#include &lt;signal.h&gt;
-
-int main() 
-{
-    /* Send SIGINT signal to the current process */
-    raise(SIGINT);
-    
-    return 0;
-}</code></pre>  
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/tag/linux" class="tag">linux</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/signal" class="tag">signal</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/tag/c" class="tag">c</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-11" /><category term="linux" /><category term="signal" /><category term="c" /><summary type="html"><![CDATA[Linux signals are a fundamental feature of the Linux operating system that allow processes to communicate with each other. This article explains how signals work in Linux and how they can be utilized.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Best Practices" /><category term="year-2024" /><category term="month-06" /><category term="day-13" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="special variables" /><category term="CDPATH" /><category term="HOME" /><category term="IFS" /><category term="OPTARG" /><category term="OPTERR" /><category term="OPTIND" /><category term="PATH" /><category term="MAIL" /><category term="MAILCHECK" /><category term="MAILPATH" /><summary type="html"><![CDATA[Learn how to properly use Bash predefined special variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills.]]></summary></entry></feed>
