@@ -1594,19 +1594,23 @@
             <li>If the code point is between U+0080 and U+07FF, to find the UTF-8 encoded value:<br>
                 <ul>
                     <li><b>Step 1</b>: find the first byte value, where the leading 3 bits of the first byte must be 110 and the trailing 5 bits of the first byte fill with the bits of the code point value<br>
-                        <li><b>Substep 1</b>: remove the trailing 6 bits of the code point value by dividing the code point value by 0x40</li>
-                        <li><b>Substep 2</b>: ensure the leading 3 bits of the first byte is 110 by adding 0xC0 to the result of substep 1</li>
-                        <li><b>Substep 3</b>: since the first byte is one byte away from the last byte so we multiply the result of substep 2 with 0x100</li>    
+                        <ul>
+                            <li><b>Substep 1</b>: remove the trailing 6 bits of the code point value by dividing the code point value by 0x40</li>
+                            <li><b>Substep 2</b>: ensure the leading 3 bits of the first byte is 110 by adding 0xC0 to the result of substep 1</li>
+                            <li><b>Substep 3</b>: since the first byte is one byte away from the last byte so we multiply the result of substep 2 with 0x100</li>
+                        </ul>  
                     </li>
                     <li><b>Step 2</b>: find the second byte value, where the leading 2 bits of the second byte must be 10 and the trailing 6 bits of the second byte fill with the bits of the code point value<br>
-                        <li><b>Substep 1</b>: extract the trailing 6 bits of the code point value by finding the remainder of the code point value divided by 0x40</li>
-                        <li><b>Substep 2</b>: ensure the leading 2 bits of the second byte is 10 by adding 0x80 to the result of substep 1</li>    
+                        <ul>
+                            <li><b>Substep 1</b>: extract the trailing 6 bits of the code point value by finding the remainder of the code point value divided by 0x40</li>
+                            <li><b>Substep 2</b>: ensure the leading 2 bits of the second byte is 10 by adding 0x80 to the result of substep 1</li>
+                        </ul>
                     </li>
                     <li><b>Substep 3</b>: add the result of step 2 to the result of step 1 to get the UTF-8 encoded value</li>
                 </ul>
                 <br>
                 By combining the steps above, we can formulate a equation:<br>
-                <b>the UTF-8 encoded value = ((code point value / 0x40) + 0xC0) * 0x100 + (code point value mod 0x40) + 0x80</b><br>
+                <b>the UTF-8 encoded value = ((code point value / 0x40) + 0xC0) * 0x100 + (code point value mod 0x40) + 0x80</b><br><br>
 
                 For example, find UTF-8 encoded value of the character <b>ü</b> where its code point value is U+00FC.<br>
                 the UTF-8 encoded value of the character <b>ü</b> = ((code point value / 0x40) + 0xC0) * 0x100 + (code point value mod 0x40) + 0x80<br>
@@ -1619,25 +1623,34 @@
             <li>If the code point is between U+0800 and U+FFFF, to find the UTF-8 encoded value<br>
                 <ul>
                     <li><b>Step 1</b>: find the first byte value, where the leading 4 bits of the first byte must be 1110 and the trailing 4 bits of the first byte fill with the bits of the code point value<br>
-                        <li><b>Substep 1</b>: remove the trailing 12 bits of the code point value by dividing the code point value by 0x1000</li>
-                        <li><b>Substep 2</b>: ensure the leading 4 bits of the first byte is 1110 by adding 0xE0 to the result of substep 1</li>
-                        <li><b>Substep 3</b>: since the first byte is two byte away from the last byte so we multiply the result of substep 2 with 0x10000</li>
+                        <ul>
+                            <li><b>Substep 1</b>: remove the trailing 12 bits of the code point value by dividing the code point value by 0x1000</li>
+                            <li><b>Substep 2</b>: ensure the leading 4 bits of the first byte is 1110 by adding 0xE0 to the result of substep 1</li>
+                            <li><b>Substep 3</b>: since the first byte is two byte away from the last byte so we multiply the result of substep 2 with 0x10000</li>
+                        </ul>
+                        
                     </li>
                     <li><b>Step 2</b>: find the second byte value, where the leading 2 bits of the second byte must be 10 and the trailing 6 bits of the second byte fill with the bits of the code point value<br>
-                        <li><b>Substep 1</b>: remove the trailing 6 bits of the code point value by dividing the code point value by 0x40</li>
-                        <li><b>Substep 2</b>: extract the trailing 6 bits of the result of substep 1 by finding the remainder of the result of substep 1 divided by 0x40</li>
-                        <li><b>Substep 3</b>: ensure the leading 2 bits of the second byte is 10 by adding 0x80 to the result of substep 2</li>
-                        <li><b>Substep 4</b>: since the second byte is one byte away from the last byte so we multiply the result of substep 3 with 0x100</li>
+                        <ul>
+                            <li><b>Substep 1</b>: remove the trailing 6 bits of the code point value by dividing the code point value by 0x40</li>
+                            <li><b>Substep 2</b>: extract the trailing 6 bits of the result of substep 1 by finding the remainder of the result of substep 1 divided by 0x40</li>
+                            <li><b>Substep 3</b>: ensure the leading 2 bits of the second byte is 10 by adding 0x80 to the result of substep 2</li>
+                            <li><b>Substep 4</b>: since the second byte is one byte away from the last byte so we multiply the result of substep 3 with 0x100</li>
+                        </ul>
+                        
                     </li>
                     <li><b>Step 3</b>: find the third byte value, where the leading 2 bits of the third byte must be 10 and the trailing 6 bits of the third byte fill with the bits of the code point value<br>
-                        <li><b>Substep 1</b>: extract the trailing 6 bits of the code point value by finding the remainder of the code point value divided by 0x40</li>
-                        <li><b>Substep 2</b>: ensure the leading 2 bits of the third byte is 10 by adding 0x80 to the result of substep 1</li>
+                        <ul>
+                            <li><b>Substep 1</b>: extract the trailing 6 bits of the code point value by finding the remainder of the code point value divided by 0x40</li>
+                            <li><b>Substep 2</b>: ensure the leading 2 bits of the third byte is 10 by adding 0x80 to the result of substep 1</li>
+                        </ul>
+                        
                     </li>
                     <li><b>Step 4</b>: find the sum of the result step 1, the result of step 2 and the result of step 3 to the UTF-8 sequence</li>
                 </ul>
                 <br>
                 By combining the steps above, we can formulate a equation:<br>
-                <b>the UTF-8 encoded value = ((code point value / 0x1000) + 0xE0) * 0x10000 + (((code point value / 0x40) mod 0x40) + 0x80) * 0x100 + (code point value mod 0x40) + 0x80</b><br>
+                <b>the UTF-8 encoded value = ((code point value / 0x1000) + 0xE0) * 0x10000 + (((code point value / 0x40) mod 0x40) + 0x80) * 0x100 + (code point value mod 0x40) + 0x80</b><br><br>
                 
                 For example, encoding the Character <b>€</b> (U+20AC):<br>
 
@@ -1651,32 +1664,44 @@
             <li>If the code point is less than U+110000 or between U+010000 and U+10FFFF, to find the UTF-8 encoded value:<br>
                 <ul>
                     <li><b>Step 1</b>: find the first byte value, where the leading 5 bits of the first byte must be 11110 and the trailing 3 bits of the first byte fill with the bits of the code point value<br>
-                        <li><b>Substep 1</b>: remove the trailing 18 bits of the code point value by dividing the code point value by 0x40000</li>
-                        <li><b>Substep 2</b>: ensure the leading 5 bits of the first byte is 11110 by adding 0xF0 to the result of substep 1</li>
-                        <li><b>Substep 3</b>: since the first byte is three bytes away from the last byte so we multiply the result of substep 2 with 0x1000000</li>
+                        <ul>
+                            <li><b>Substep 1</b>: remove the trailing 18 bits of the code point value by dividing the code point value by 0x40000</li>
+                            <li><b>Substep 2</b>: ensure the leading 5 bits of the first byte is 11110 by adding 0xF0 to the result of substep 1</li>
+                            <li><b>Substep 3</b>: since the first byte is three bytes away from the last byte so we multiply the result of substep 2 with 0x1000000</li>
+                        </ul>
+                        
                     </li>
                     <li><b>Step 2</b>: find the second byte value, where the leading 2 bits of the second byte must be 10 and the trailing 6 bits of the second byte fill with the bits of the code point value<br>
-                        <li><b>Substep 1</b>: remove the trailing 12 bits of the code point value by dividing the code point value by 0x1000</li>
-                        <li><b>Substep 2</b>: extract the trailing 6 bits of the result of substep 1 by finding the remainder of the result of substep 1 divided by 0x40</li>
-                        <li><b>Substep 3</b>: ensure the leading 2 bits of the second byte is 10 by adding 0x80 to the result of substep 2</li>
-                        <li><b>Substep 4</b>: since the second byte is two bytes away from the last byte so we multiply the result of substep 3 with 0x10000</li>
+                        <ul>
+                            <li><b>Substep 1</b>: remove the trailing 12 bits of the code point value by dividing the code point value by 0x1000</li>
+                            <li><b>Substep 2</b>: extract the trailing 6 bits of the result of substep 1 by finding the remainder of the result of substep 1 divided by 0x40</li>
+                            <li><b>Substep 3</b>: ensure the leading 2 bits of the second byte is 10 by adding 0x80 to the result of substep 2</li>
+                            <li><b>Substep 4</b>: since the second byte is two bytes away from the last byte so we multiply the result of substep 3 with 0x10000</li>
+                        </ul>
+                        
                     </li>
                     <li><b>Step 3</b>: find the third byte value, where the leading 2 bits of the third byte must be 10 and the trailing 6 bits of the second byte fill with the bits of the code point value<br>
-                        <li><b>Substep 1</b>: remove the trailing 6 bits of the code point value by dividing the code point value by 0x40</li>
-                        <li><b>Substep 2</b>: extract the trailing 6 bits of the result of substep 1 by finding the remainder of the result of substep 1 divided by 0x40</li>
-                        <li><b>Substep 3</b>: ensure the leading 2 bits of the third byte is 10 by adding 0x80 to the result of substep 2</li>
-                        <li><b>Substep 4</b>: since the third byte is a byte away from the last byte so we multiply the result of substep 3 with 0x100</li>
+                        <ul>
+                            <li><b>Substep 1</b>: remove the trailing 6 bits of the code point value by dividing the code point value by 0x40</li>
+                            <li><b>Substep 2</b>: extract the trailing 6 bits of the result of substep 1 by finding the remainder of the result of substep 1 divided by 0x40</li>
+                            <li><b>Substep 3</b>: ensure the leading 2 bits of the third byte is 10 by adding 0x80 to the result of substep 2</li>
+                            <li><b>Substep 4</b>: since the third byte is a byte away from the last byte so we multiply the result of substep 3 with 0x100</li>
+                        </ul>
+                        
                     </li>
                     <li><b>Step 4</b>: find the third byte value, where the leading 2 bits of the third byte must be 10 and the trailing 6 bits of the second byte fill with the bits of the code point value<br>
-                        <li><b>Substep 1</b>: extract the trailing 6 bits of the code point value by finding the remainder of the code point value divided by 0x40</li>
-                        <li><b>Substep 2</b>: ensure the leading 2 bits of the third byte is 10 by adding 0x80 to the result of substep 1</li>
+                        <ul>
+                            <li><b>Substep 1</b>: extract the trailing 6 bits of the code point value by finding the remainder of the code point value divided by 0x40</li>
+                            <li><b>Substep 2</b>: ensure the leading 2 bits of the third byte is 10 by adding 0x80 to the result of substep 1</li>
+                        </ul>
+                        
                     </li>
                     <li><b>Step 5</b>: find the sum of the result step 1, the result of step 2, the result of step 3 and the result of step 4 to the UTF-8 sequence</li>
                 </ul>
                 
                 <br>
                 By combining the steps above, we can formulate a equation:<br>
-                <b>the UTF-8 encoded value = ((code point value / 0x40000) + 0xF0) * 0x1000000 + (((code point value / 0x1000) mod 0x40) + 0x80) * 0x10000 + (((code point value / 0x40) mod 0x40) + 0x80) * 0x100 + (code point value mod 0x40) + 0x80</b><br>
+                <b>the UTF-8 encoded value = ((code point value / 0x40000) + 0xF0) * 0x1000000 + (((code point value / 0x1000) mod 0x40) + 0x80) * 0x10000 + (((code point value / 0x40) mod 0x40) + 0x80) * 0x100 + (code point value mod 0x40) + 0x80</b><br><br>
 
                 For example, find UTF-8 encoded value of the character <b>😀</b> where its code point value is U+1F600.<br>
                 the UTF-8 encoded value of the character <b>😀</b> = ((code point value / 0x40000) + 0xF0) * 0x1000000 + (((code point value / 0x1000) mod 0x40) + 0x80) * 0x10000 + (((code point value / 0x40) mod 0x40) + 0x80) * 0x100 + (code point value mod 0x40) + 0x80<br>
@@ -1712,7 +1737,7 @@
                 <br>
 
                 By combining the steps above, we can formulate a equation:<br>
-                <b>the code point value = ((UTF-8 encoded value / 0x100) mod 0x20) * 0x40 + (UTF-8 encoded value mod 0x40)</b><br>
+                <b>the code point value = ((UTF-8 encoded value / 0x100) mod 0x20) * 0x40 + (UTF-8 encoded value mod 0x40)</b><br><br>
 
                 For example, find the code point value of the UTF-8 encoded value 0xC3BC:<br>
                 the code point value = ((UTF-8 encoded value / 0x100) mod 0x20) * 0x40 + (UTF-8 encoded value mod 0x40)<br>
@@ -1744,7 +1769,7 @@
                 <br>
 
                 By combining the steps above, we can formulate a equation:<br>
-                <b>the code point value = ((UTF-8 encoded value / 0x10000) mod 0xE0) * 0x1000 + ((UTF-8 encoded value / 0x100) mod 0x40) * 0x40 + (UTF-8 encoded value mod 0x40)</b><br>
+                <b>the code point value = ((UTF-8 encoded value / 0x10000) mod 0xE0) * 0x1000 + ((UTF-8 encoded value / 0x100) mod 0x40) * 0x40 + (UTF-8 encoded value mod 0x40)</b><br><br>
 
                 For example, find the code point value of the UTF-8 sequence 0xE282AC:<br>
 
@@ -1785,7 +1810,7 @@
                 <br>
 
                 By combining the steps above, we can formulate a equation:<br>
-                <b>the code point value = ((UTF-8 encoded value / 0x1000000) mod 0x8) * 0x40000 + ((UTF-8 encoded value / 0x10000) mod 0x40) * 0x1000 + ((UTF-8 encoded value / 0x100) mod 0x40) * 0x40 + (UTF-8 encoded value mod 0x40)</b><br>
+                <b>the code point value = ((UTF-8 encoded value / 0x1000000) mod 0x8) * 0x40000 + ((UTF-8 encoded value / 0x10000) mod 0x40) * 0x1000 + ((UTF-8 encoded value / 0x100) mod 0x40) * 0x40 + (UTF-8 encoded value mod 0x40)</b><br><br>
 
                 For example, find the code point of the UTF-8 sequence 0xF09F9880:<br>
 
