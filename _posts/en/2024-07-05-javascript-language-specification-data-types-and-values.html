@@ -9,7 +9,7 @@ description: "The JavaScript language specification covering data types and valu
 date: 2024-07-05 17:21:00 +0700
 author: Samuel Yang
 categories: ["Complete Reference", "year-2024", "month-07", "day-05"]
-tags: ["javascript", "data types"]
+tags: ["javascript", "null type", "undefined type", "number type", "bigint type", "string type", "object type", "symbol type"]
 ---
 
 <div class="blog-post">
@@ -153,7 +153,7 @@ const string3 = `Yet another string primitive`;</code></pre>
 
         <p>Each possible Symbol value is unique and immutable.</p>
 
-        <p>Each Symbol value immutably holds an associated value called <code>[[Description]]</code> that is either undefined or a String value.</p>
+        <p>Each Symbol value immutably holds an associated value called <code>description</code> that is either undefined or a String value.</p>
 
         <p>To create a new primitive symbol, you write <code>Symbol()</code> with an optional <code>string</code> as its description:</p>
 
@@ -178,24 +178,119 @@ const sym3 = Symbol("foo");</code></pre>
 
         <p>Property keys are used to access properties and their values. There are two kinds of access for properties: get and set, corresponding to value retrieval and assignment, respectively. The properties accessible via get and set access includes both own properties that are a direct part of an object and inherited properties which are provided by another associated object via a property inheritance relationship. Inherited properties may be either own or inherited properties of the associated object. Each own property of an object must each have a key value that is distinct from the key values of the other own properties of that object.</p>
 
-        <p>The object data type can contain both built-in objects, and user defined objects.</p>
+        <p>Every object property has a set of invisible attributes containing metadata associated with that property, called property descriptors.</p>
 
-        <p>JavaScript objects are written with curly braces <code>{}</code>.</p>
+        <p>There are two types of descriptors associated with any property: data descriptors and accessor descriptors. A data descriptor includes key and value pairs that contain a property's value, regardless of whether that value is writable, configurable, or enumerable. Accessor descriptors contain functions that execute when a property is set, changed, or accessed.</p>
 
-        <p>Object properties are written as key:value pairs, separated by commas.</p>
+        <p>The following table lists all object property attributes.</p>
 
-        <pre><code class="language-bash hljs">const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
-// access properties
-console.log(person.firstName);
-// "John"
-console.log(person.lastName);
-// "Doe"
-console.log(person.age);
-// 50
-console.log(person.eyeColor);
-// "blue"</code></pre>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Attribute Name</th>
+                    <th>Types of property</th>
+                    <th>Data Type</th>
+                    <th>Default Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td> <code>value</code> </td>
+                    <td>
+                        data property
+                    </td>
+                    <td> 
+                        any data type
+                    </td>
+                    <td>
+                        <code>undefined</code>
+                    </td>
+                    <td> The value retrieved by a get access of the property. </td>
+                </tr>
+                <tr>
+                    <td> <code>writable</code> </td>
+                    <td>
+                        data property
+                    </td>
+                    <td> boolean </td>
+                    <td>
+                        <code>false</code>
+                    </td>
+                    <td> determines if the value of a data property can be changed. If <code>false</code>, attempts to change the property's <code>value</code> attribute using <code>set</code> will not succeed. </td>
+                </tr>
+                <tr>
+                    <td> <code>get</code> </td>
+                    <td>
+                        accessor property
+                    </td>
+                    <td> object or <code>undefined</code>
+                    </td>
+                    <td>
+                        <code>undefined</code>
+                    </td>
+                    <td> If the value is an object, it must be a function object. The function's <code>call</code> internal method is called with an empty arguments list to retrieve the property value each time a get access of the property is performed. </td>
+                </tr>
+                <tr>
+                    <td> <code>set</code> </td>
+                    <td>
+                        accessor property
+                    </td>
+                    <td> object or <code>undefined</code>
+                    </td>
+                    <td>
+                        <code>undefined</code>
+                    </td>
+                    <td> If the value is an object, it must be a function object. The function's <code>call</code> internal method is called with an arguments list containing the assigned value as its sole argument each time a set access of the property is performed. The effect of a property's <code>set</code> internal method may, but is not required to, have an effect on the value returned by subsequent calls to the property's <code>get</code> internal method. </td>
+                </tr>
+                <tr>
+                    <td> <code>enumerable</code> </td>
+                    <td>
+                        data property or accessor property
+                    </td>
+                    <td> boolean </td>
+                    <td>
+                        <code>false</code>
+                    </td>
+                    <td> If <code>true</code>, the property will be enumerated by a for-in enumeration. Otherwise, the property is said to be non-enumerable. </td>
+                </tr>
+                <tr>
+                    <td> <code>configurable</code> </td>
+                    <td>
+                        data property or accessor property
+                    </td>
+                    <td> boolean </td>
+                    <td>
+                        <code>false</code>
+                    </td>
+                    <td> If <code>false</code>, attempts to delete the property, change it from a data property to an accessor property or from an accessor property to a data property, or make any changes to its attributes (other than replacing an existing <code>value</code> or setting <code>writable</code> to <code>false</code>) will fail. </td>
+                </tr>
+            </tbody>
+        </table>
 
-        <p>The object person in the example above has 4 properties: <code>firstName</code>, <code>lastName</code>, <code>age</code>, and <code>eyeColor</code>.</p>
+        <p>The following code retrieves the object descriptor for the data property <code>firstName</code>:</p>
+
+        <pre><code class="language-bash hljs">const person = {
+    firstName:"John", 
+    lastName:"Doe", 
+    age:50
+};
+console.log(Object.getOwnPropertyDescriptor(person, "firstName"));
+// Object { value: "John", writable: true, enumerable: true, configurable: true }
+</code></pre>
+
+        <p>In the next example, we retrieve the property descriptor for the getter <code>fullName</code>:</p>
+
+        <pre><code class="language-bash hljs">const person = {
+    firstName:"John", 
+    lastName:"Doe", 
+    age:50,
+    get fullName() {
+        return this.firstName + " " + this.lastName;
+    }
+};
+console.log(Object.getOwnPropertyDescriptor(person, "fullName"));
+// Object { get: get fullName() {
+//    return this.firstName + " " + this.lastName;
+// }, set: undefined, enumerable: true, configurable: true }</code></pre>
 
     </article>
 
