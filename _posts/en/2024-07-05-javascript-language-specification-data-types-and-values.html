@@ -1,0 +1,205 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Javascript Language Specification: Data Types and Values"
+thumb: "javascript.jpg"
+eyebrow: "Complete Reference"
+description: "The JavaScript language specification covering data types and values provides detailed explanations, examples, and references for developers looking to understand the intricacies of JavaScript programming."
+date: 2024-07-05 17:21:00 +0700
+author: Samuel Yang
+categories: ["Complete Reference", "year-2024", "month-07", "day-05"]
+tags: ["javascript", "data types"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>JavaScript is a dynamic language with dynamic types. Variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned (and re-assigned) values of all types:</p>
+
+        <pre><code class="language-bash hljs">let foo = 42; // foo is now a number
+foo = "bar"; // foo is now a string
+foo = true; // foo is now a boolean</code></pre>
+        
+        <p>JavaScript is also a weakly typed language, which means it allows implicit type conversion when an operation involves mismatched types, instead of throwing type errors.</p>
+        
+        <p>The Javascript data types are <b>Undefined</b>, <b>Null</b>, <b>Boolean</b>, <b>String</b>, <b>Symbol</b>, <b>Number</b>, <b>BigInt</b>, and <b>Object</b>.</p>
+
+        <p>All types except <b>Object</b> define immutable values. We refer to values of these types as primitive values.</p>
+        
+        <p>In JavaScript, primitive values are immutable — once a primitive value is created, it cannot be changed, although the variable that holds it may be reassigned another value. By contrast, objects and arrays are mutable by default — their properties and elements can be changed without reassigning a new value.</p>
+
+        <pre><code class="language-bash hljs">const foo = 42; // foo is a number
+const result = foo + "1"; // JavaScript coerces foo to a string, so it can be concatenated with the other operand
+console.log(result); // 421</code></pre>
+        
+        <p>Implicit coercions are very convenient, but can create subtle bugs when conversions happen where they are not expected, or where they are expected to happen in the other direction (for example, <b>string</b> to <b>number</b> instead of <b>number</b> to <b>string</b>). For <b>symbols</b> and <b>BigInts</b>, JavaScript has intentionally disallowed certain implicit type conversions.</p>
+        
+        <p>All primitive types, except <code>null</code>, can be tested by the <code>typeof</code> operator. <code>typeof null</code> returns <code>object</code>, so one has to use <code>=== null</code> to test for <code>null</code>.</p>
+
+        <h5 class="post-subtitle">Null Type</h5>
+
+        <p>The Null type has exactly one value, called <code>null</code>. The <code>null</code> value represents the intentional absence of any object value.</p>
+
+        <pre><code class="language-bash hljs">function getVowels(str) {
+    const m = str.match(/[aeiou]/gi);
+    if (m === null) {
+        return 0;
+    }
+    return m.length;
+}
+console.log(getVowels('sky'));
+// 0</code></pre>
+
+        <h5 class="post-subtitle">Undefined Type</h5>
+
+        <p>The Undefined type has exactly one value, called <code>undefined</code>.</p>
+        
+        <p><code>undefined</code> indicates the absence of a value, while <code>null</code> indicates the absence of an object (which could also make up an excuse for <code>typeof null === "object"</code>).</p>
+        
+        <p>There are several situations where the value <code>undefined</code> is assigned:</p>
+
+        <ul>
+            <li>A <code>return</code> statement with no value (e.g. <code>return;</code>) implicitly returns <code>undefined</code>.</li>
+            <li>Accessing a nonexistent object property (e.g. <code>obj.iDontExist</code>) returns <code>undefined</code>.</li>
+            <li>A variable declaration without initialization (e.g. <code>let x;</code>) implicitly initializes the variable to <code>undefined</code>.</li>
+            <li>Many methods, such as <code>Array.prototype.find()</code> and <code>Map.prototype.get()</code>, return <code>undefined</code> when no element is found.</li>
+        </ul>
+
+        <pre><code class="language-bash hljs">function getNothing() {
+    return;
+}
+console.log(getNothing());
+// undefined
+
+let x;
+console.log(x);
+// undefined
+
+let person = {};
+console.log(person.name);
+// undefined</code></pre>
+
+        <p><code>null</code> is a keyword, but <code>undefined</code> is a normal <b>identifier</b> that happens to be a global property. <code>undefined</code> should not be redefined or shadowed.</p>
+
+        <h5 class="post-subtitle">Boolean type</h5>
+
+        <p>The Boolean type represents a logical entity and is inhabited by two values: <code>true</code> and <code>false</code>.</p>
+
+        <pre><code class="language-bash hljs">let x = true;
+let y = false;
+console.log(x);
+// true
+console.log(y);
+// false</code></pre>
+
+        <h5 class="post-subtitle">Number type</h5>
+
+        <p>The Number type is a double-precision 64-bit binary format IEEE 754 value. It is capable of storing positive floating-point numbers between $$2^-1074$$ (<code>Number.MIN_VALUE</code>) and $$2^1024$$ (<code>Number.MAX_VALUE</code>) as well as negative floating-point numbers between $$-2^-1074$$ and $$-2^1024$$, but it can only safely store integers in the range $$-(2^53 − 1)$$ (<code>Number.MIN_SAFE_INTEGER</code>) to $$2^53 − 1$$ (<code>Number.MAX_SAFE_INTEGER</code>). Outside this range, JavaScript can no longer safely represent integers; they will instead be represented by a double-precision floating point approximation. You can check if a number is within the range of safe integers using <code>Number.isSafeInteger()</code>.</p>
+
+        <p>Values outside the range ±($$2^-1074$$ to $$2^1024$$) are automatically converted:</p>
+
+        <ul>
+            <li>Positive values greater than <code>Number.MAX_VALUE</code> are converted to <code>+Infinity</code>.</li>
+            <li>Positive values smaller than <code>Number.MIN_VALUE</code> are converted to <code>+0</code>.</li>
+            <li>Negative values smaller than <code>-Number.MAX_VALUE</code> are converted to <code>-Infinity</code>.</li>
+            <li>Negative values greater than <code>-Number.MIN_VALUE</code> are converted to <code>-0</code>.</li>
+        </ul>
+
+        <pre><code class="language-bash hljs">// With decimals:
+let x1 = 34.00;
+
+// Without decimals:
+let x2 = 34; </code></pre>
+
+        <p><code>NaN</code> (<b>Not a Number</b>) is a special kind of number value that's typically encountered when the result of an arithmetic operation cannot be expressed as a number.</p>
+
+        <h5 class="post-subtitle">BigInt Type</h5>
+
+        <p>The BigInt type represents an integer value. The value may be any size and is not limited to a particular bit-width. Generally, where not otherwise noted, operations are designed to return exact mathematically-based answers. For binary operations, BigInts act as two's complement binary strings, with negative numbers treated as having bits set infinitely to the left.</p>
+
+        <p>The BigInt type in JavaScript only supports integers, not floating-point numbers. It is designed to represent integer values with arbitrary magnitude, allowing for safe storage of large integers that exceed the range supported by the Number data type.</p>
+        
+        <p>The BigInt type is created by appending n to the end of an integer or by calling the <code>BigInt()</code> function.</p>
+
+        <pre><code class="language-bash hljs">let x = 123456789012345678901234567890n;
+let y = BigInt("123456789012345678901234567890");</code></pre>
+        
+        <p>BigInt values are neither always more precise nor always less precise than numbers, since BigInts cannot represent fractional numbers, but can represent big integers more accurately. Neither type entails the other, and they are not mutually substitutable. A <code>TypeError</code> is thrown if BigInt values are mixed with regular numbers in arithmetic expressions, or if they are implicitly converted to each other.</p>
+
+        <h5 class="post-subtitle">String Type</h5>
+
+        <p>The String type represents textual data and is encoded as a sequence of 16-bit unsigned integer values representing UTF-16 code units. Each element in the string occupies a position in the string. The first element is at index <code>0</code>, the next at index <code>1</code>, and so on. The length of a string is the number of UTF-16 code units in it, which may not correspond to the actual number of Unicode characters</p>
+
+        <p>JavaScript strings are immutable. This means that once a string is created, it is not possible to modify it. String methods create new strings based on the content of the current string — for example:</p>
+
+        <ul>
+            <li>A substring of the original using <code>substring()</code>.</li>
+            <li>A concatenation of two strings using the concatenation operator (+) or <code>concat()</code>.</li>
+        </ul>
+
+        <pre><code class="language-bash hljs">const string1 = "A string primitive";
+const string2 = 'Also a string primitive';
+const string3 = `Yet another string primitive`;</code></pre>
+        
+        <p>An empty string has both a legal value and a type.</p>
+
+        <pre><code class="language-bash hljs">let str = "";    // The value is "", the typeof is "string"</code></pre>
+
+        <h5 class="post-subtitle">Symbol type</h5>
+
+        <p>The Symbol type is the set of all non-String values that may be used as the key of an Object property.</p>
+
+        <p>Each possible Symbol value is unique and immutable.</p>
+
+        <p>Each Symbol value immutably holds an associated value called <code>[[Description]]</code> that is either undefined or a String value.</p>
+
+        <p>To create a new primitive symbol, you write <code>Symbol()</code> with an optional <code>string</code> as its description:</p>
+
+        <pre><code class="language-bash hljs">const sym1 = Symbol();
+const sym2 = Symbol("foo");
+const sym3 = Symbol("foo");</code></pre>
+
+        <p>The above code creates three new symbols. Note that <code>Symbol("foo")</code> does not coerce the string <code>"foo"</code> into a symbol. It creates a new symbol each time:</p>
+
+        <pre><code class="language-bash hljs">Symbol("foo") === Symbol("foo"); // false</code></pre>
+
+        <h5 class="post-subtitle">Object Type</h5>
+
+        <p>An Object is logically a collection of properties. Each property has corresponding attributes. Each attribute is accessed internally by the JavaScript engine, but you can set them through <code>Object.defineProperty()</code>, or read them through <code>Object.getOwnPropertyDescriptor()</code>. Each property is either a data property, or an accessor property:</p>
+
+        <ul>
+            <li>A data property associates a key with a value.</li>
+            <li>An accessor property associates a key value with one or two accessor functions (get and set) to retrieve or store a value.</li>
+        </ul>
+
+        <p>Properties are identified using key values. A property key value is either a String value or a Symbol value. All String and Symbol values, including the empty String, are valid as property keys. A property name is a property key that is a String value.</p>
+
+        <p>Property keys are used to access properties and their values. There are two kinds of access for properties: get and set, corresponding to value retrieval and assignment, respectively. The properties accessible via get and set access includes both own properties that are a direct part of an object and inherited properties which are provided by another associated object via a property inheritance relationship. Inherited properties may be either own or inherited properties of the associated object. Each own property of an object must each have a key value that is distinct from the key values of the other own properties of that object.</p>
+
+        <p>The object data type can contain both built-in objects, and user defined objects.</p>
+
+        <p>JavaScript objects are written with curly braces <code>{}</code>.</p>
+
+        <p>Object properties are written as key:value pairs, separated by commas.</p>
+
+        <pre><code class="language-bash hljs">const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+// access properties
+console.log(person.firstName);
+// "John"
+console.log(person.lastName);
+// "Doe"
+console.log(person.age);
+// 50
+console.log(person.eyeColor);
+// "blue"</code></pre>
+
+        <p>The object person in the example above has 4 properties: <code>firstName</code>, <code>lastName</code>, <code>age</code>, and <code>eyeColor</code>.</p>
+
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
