@@ -1,4 +1,219 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-06-25T20:29:45+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">The Math of UTF-8 Encoding and Decoding</title><link href="https://hemimorphite.github.io/zh/2024/06/25/the-math-of-utf-8-encoding-and-decoding/" rel="alternate" type="text/html" title="The Math of UTF-8 Encoding and Decoding" /><published>2024-06-25T16:58:00+00:00</published><updated>2024-06-25T16:58:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/25/the-math-of-utf-8-encoding-and-decoding</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/25/the-math-of-utf-8-encoding-and-decoding/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-07-05T11:39:37+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Javascript Language Specification: Data Types and Values</title><link href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-data-types-and-values/" rel="alternate" type="text/html" title="Javascript Language Specification: Data Types and Values" /><published>2024-07-05T10:21:00+00:00</published><updated>2024-07-05T10:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/05/javascript-language-specification-data-types-and-values</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/05/javascript-language-specification-data-types-and-values/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Javascript Language Specification: Data Types and Values</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 05, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/javascript.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>JavaScript is a dynamic language with dynamic types. Variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned (and re-assigned) values of all types:</p>
+
+        <pre><code class="language-bash hljs">let foo = 42; // foo is now a number
+foo = "bar"; // foo is now a string
+foo = true; // foo is now a boolean</code></pre>
+        
+        <p>JavaScript is also a weakly typed language, which means it allows implicit type conversion when an operation involves mismatched types, instead of throwing type errors.</p>
+        
+        <p>The Javascript data types are <b>Undefined</b>, <b>Null</b>, <b>Boolean</b>, <b>String</b>, <b>Symbol</b>, <b>Number</b>, <b>BigInt</b>, and <b>Object</b>.</p>
+
+        <p>All types except <b>Object</b> define immutable values. We refer to values of these types as primitive values.</p>
+        
+        <p>In JavaScript, primitive values are immutable — once a primitive value is created, it cannot be changed, although the variable that holds it may be reassigned another value. By contrast, objects and arrays are mutable by default — their properties and elements can be changed without reassigning a new value.</p>
+
+        <pre><code class="language-bash hljs">const foo = 42; // foo is a number
+const result = foo + "1"; // JavaScript coerces foo to a string, so it can be concatenated with the other operand
+console.log(result); // 421</code></pre>
+        
+        <p>Implicit coercions are very convenient, but can create subtle bugs when conversions happen where they are not expected, or where they are expected to happen in the other direction (for example, <b>string</b> to <b>number</b> instead of <b>number</b> to <b>string</b>). For <b>symbols</b> and <b>BigInts</b>, JavaScript has intentionally disallowed certain implicit type conversions.</p>
+        
+        <p>All primitive types, except <code>null</code>, can be tested by the <code>typeof</code> operator. <code>typeof null</code> returns <code>object</code>, so one has to use <code>=== null</code> to test for <code>null</code>.</p>
+
+        <h5 class="post-subtitle">Null Type</h5>
+
+        <p>The Null type has exactly one value, called <code>null</code>. The <code>null</code> value represents the intentional absence of any object value.</p>
+
+        <pre><code class="language-bash hljs">function getVowels(str) {
+    const m = str.match(/[aeiou]/gi);
+    if (m === null) {
+        return 0;
+    }
+    return m.length;
+}
+console.log(getVowels('sky'));
+// 0</code></pre>
+
+        <h5 class="post-subtitle">Undefined Type</h5>
+
+        <p>The Undefined type has exactly one value, called <code>undefined</code>.</p>
+        
+        <p><code>undefined</code> indicates the absence of a value, while <code>null</code> indicates the absence of an object (which could also make up an excuse for <code>typeof null === "object"</code>).</p>
+        
+        <p>There are several situations where the value <code>undefined</code> is assigned:</p>
+
+        <ul>
+            <li>A <code>return</code> statement with no value (e.g. <code>return;</code>) implicitly returns <code>undefined</code>.</li>
+            <li>Accessing a nonexistent object property (e.g. <code>obj.iDontExist</code>) returns <code>undefined</code>.</li>
+            <li>A variable declaration without initialization (e.g. <code>let x;</code>) implicitly initializes the variable to <code>undefined</code>.</li>
+            <li>Many methods, such as <code>Array.prototype.find()</code> and <code>Map.prototype.get()</code>, return <code>undefined</code> when no element is found.</li>
+        </ul>
+
+        <pre><code class="language-bash hljs">function getNothing() {
+    return;
+}
+console.log(getNothing());
+// undefined
+
+let x;
+console.log(x);
+// undefined
+
+let person = {};
+console.log(person.name);
+// undefined</code></pre>
+
+        <p><code>null</code> is a keyword, but <code>undefined</code> is a normal <b>identifier</b> that happens to be a global property. <code>undefined</code> should not be redefined or shadowed.</p>
+
+        <h5 class="post-subtitle">Boolean type</h5>
+
+        <p>The Boolean type represents a logical entity and is inhabited by two values: <code>true</code> and <code>false</code>.</p>
+
+        <pre><code class="language-bash hljs">let x = true;
+let y = false;
+console.log(x);
+// true
+console.log(y);
+// false</code></pre>
+
+        <h5 class="post-subtitle">Number type</h5>
+
+        <p>The Number type is a double-precision 64-bit binary format IEEE 754 value. It is capable of storing positive floating-point numbers between $$2^-1074$$ (<code>Number.MIN_VALUE</code>) and $$2^1024$$ (<code>Number.MAX_VALUE</code>) as well as negative floating-point numbers between $$-2^-1074$$ and $$-2^1024$$, but it can only safely store integers in the range $$-(2^53 − 1)$$ (<code>Number.MIN_SAFE_INTEGER</code>) to $$2^53 − 1$$ (<code>Number.MAX_SAFE_INTEGER</code>). Outside this range, JavaScript can no longer safely represent integers; they will instead be represented by a double-precision floating point approximation. You can check if a number is within the range of safe integers using <code>Number.isSafeInteger()</code>.</p>
+
+        <p>Values outside the range ±($$2^-1074$$ to $$2^1024$$) are automatically converted:</p>
+
+        <ul>
+            <li>Positive values greater than <code>Number.MAX_VALUE</code> are converted to <code>+Infinity</code>.</li>
+            <li>Positive values smaller than <code>Number.MIN_VALUE</code> are converted to <code>+0</code>.</li>
+            <li>Negative values smaller than <code>-Number.MAX_VALUE</code> are converted to <code>-Infinity</code>.</li>
+            <li>Negative values greater than <code>-Number.MIN_VALUE</code> are converted to <code>-0</code>.</li>
+        </ul>
+
+        <pre><code class="language-bash hljs">// With decimals:
+let x1 = 34.00;
+
+// Without decimals:
+let x2 = 34; </code></pre>
+
+        <p><code>NaN</code> (<b>Not a Number</b>) is a special kind of number value that's typically encountered when the result of an arithmetic operation cannot be expressed as a number.</p>
+
+        <h5 class="post-subtitle">BigInt Type</h5>
+
+        <p>The BigInt type represents an integer value. The value may be any size and is not limited to a particular bit-width. Generally, where not otherwise noted, operations are designed to return exact mathematically-based answers. For binary operations, BigInts act as two's complement binary strings, with negative numbers treated as having bits set infinitely to the left.</p>
+
+        <p>The BigInt type in JavaScript only supports integers, not floating-point numbers. It is designed to represent integer values with arbitrary magnitude, allowing for safe storage of large integers that exceed the range supported by the Number data type.</p>
+        
+        <p>The BigInt type is created by appending n to the end of an integer or by calling the <code>BigInt()</code> function.</p>
+
+        <pre><code class="language-bash hljs">let x = 123456789012345678901234567890n;
+let y = BigInt("123456789012345678901234567890");</code></pre>
+        
+        <p>BigInt values are neither always more precise nor always less precise than numbers, since BigInts cannot represent fractional numbers, but can represent big integers more accurately. Neither type entails the other, and they are not mutually substitutable. A <code>TypeError</code> is thrown if BigInt values are mixed with regular numbers in arithmetic expressions, or if they are implicitly converted to each other.</p>
+
+        <h5 class="post-subtitle">String Type</h5>
+
+        <p>The String type represents textual data and is encoded as a sequence of 16-bit unsigned integer values representing UTF-16 code units. Each element in the string occupies a position in the string. The first element is at index <code>0</code>, the next at index <code>1</code>, and so on. The length of a string is the number of UTF-16 code units in it, which may not correspond to the actual number of Unicode characters</p>
+
+        <p>JavaScript strings are immutable. This means that once a string is created, it is not possible to modify it. String methods create new strings based on the content of the current string — for example:</p>
+
+        <ul>
+            <li>A substring of the original using <code>substring()</code>.</li>
+            <li>A concatenation of two strings using the concatenation operator (+) or <code>concat()</code>.</li>
+        </ul>
+
+        <pre><code class="language-bash hljs">const string1 = "A string primitive";
+const string2 = 'Also a string primitive';
+const string3 = `Yet another string primitive`;</code></pre>
+        
+        <p>An empty string has both a legal value and a type.</p>
+
+        <pre><code class="language-bash hljs">let str = "";    // The value is "", the typeof is "string"</code></pre>
+
+        <h5 class="post-subtitle">Symbol type</h5>
+
+        <p>The Symbol type is the set of all non-String values that may be used as the key of an Object property.</p>
+
+        <p>Each possible Symbol value is unique and immutable.</p>
+
+        <p>Each Symbol value immutably holds an associated value called <code>[[Description]]</code> that is either undefined or a String value.</p>
+
+        <p>To create a new primitive symbol, you write <code>Symbol()</code> with an optional <code>string</code> as its description:</p>
+
+        <pre><code class="language-bash hljs">const sym1 = Symbol();
+const sym2 = Symbol("foo");
+const sym3 = Symbol("foo");</code></pre>
+
+        <p>The above code creates three new symbols. Note that <code>Symbol("foo")</code> does not coerce the string <code>"foo"</code> into a symbol. It creates a new symbol each time:</p>
+
+        <pre><code class="language-bash hljs">Symbol("foo") === Symbol("foo"); // false</code></pre>
+
+        <h5 class="post-subtitle">Object Type</h5>
+
+        <p>An Object is logically a collection of properties. Each property has corresponding attributes. Each attribute is accessed internally by the JavaScript engine, but you can set them through <code>Object.defineProperty()</code>, or read them through <code>Object.getOwnPropertyDescriptor()</code>. Each property is either a data property, or an accessor property:</p>
+
+        <ul>
+            <li>A data property associates a key with a value.</li>
+            <li>An accessor property associates a key value with one or two accessor functions (get and set) to retrieve or store a value.</li>
+        </ul>
+
+        <p>Properties are identified using key values. A property key value is either a String value or a Symbol value. All String and Symbol values, including the empty String, are valid as property keys. A property name is a property key that is a String value.</p>
+
+        <p>Property keys are used to access properties and their values. There are two kinds of access for properties: get and set, corresponding to value retrieval and assignment, respectively. The properties accessible via get and set access includes both own properties that are a direct part of an object and inherited properties which are provided by another associated object via a property inheritance relationship. Inherited properties may be either own or inherited properties of the associated object. Each own property of an object must each have a key value that is distinct from the key values of the other own properties of that object.</p>
+
+        <p>The object data type can contain both built-in objects, and user defined objects.</p>
+
+        <p>JavaScript objects are written with curly braces <code>{}</code>.</p>
+
+        <p>Object properties are written as key:value pairs, separated by commas.</p>
+
+        <pre><code class="language-bash hljs">const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+// access properties
+console.log(person.firstName);
+// "John"
+console.log(person.lastName);
+// "Doe"
+console.log(person.age);
+// 50
+console.log(person.eyeColor);
+// "blue"</code></pre>
+
+        <p>The object person in the example above has 4 properties: <code>firstName</code>, <code>lastName</code>, <code>age</code>, and <code>eyeColor</code>.</p>
+
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/javascript" class="tag">javascript</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/data-types" class="tag">data types</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Complete Reference" /><category term="year-2024" /><category term="month-07" /><category term="day-05" /><category term="javascript" /><category term="data types" /><summary type="html"><![CDATA[The JavaScript language specification covering data types and values provides detailed explanations, examples, and references for developers looking to understand the intricacies of JavaScript programming.]]></summary></entry><entry xml:lang="en"><title type="html">The Math of UTF-8 Encoding and Decoding</title><link href="https://hemimorphite.github.io/zh/2024/06/25/the-math-of-utf-8-encoding-and-decoding/" rel="alternate" type="text/html" title="The Math of UTF-8 Encoding and Decoding" /><published>2024-06-25T16:58:00+00:00</published><updated>2024-06-25T16:58:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/25/the-math-of-utf-8-encoding-and-decoding</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/25/the-math-of-utf-8-encoding-and-decoding/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">The Math of UTF-8 Encoding and Decoding</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -4395,279 +4610,4 @@ Hello hemimorphite</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Best Practices" /><category term="year-2024" /><category term="month-06" /><category term="day-13" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="special variables" /><category term="CDPATH" /><category term="HOME" /><category term="IFS" /><category term="OPTARG" /><category term="OPTERR" /><category term="OPTIND" /><category term="PATH" /><category term="MAIL" /><category term="MAILCHECK" /><category term="MAILPATH" /><summary type="html"><![CDATA[Learn how to properly use Bourne Shell environment variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills.]]></summary></entry><entry xml:lang="en"><title type="html">Bourne Shell Special Variables</title><link href="https://hemimorphite.github.io/zh/2024/06/13/bourne-shell-special-variables/" rel="alternate" type="text/html" title="Bourne Shell Special Variables" /><published>2024-06-13T14:21:00+00:00</published><updated>2024-06-13T14:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/13/bourne-shell-special-variables</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/13/bourne-shell-special-variables/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Bourne Shell Special Variables</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published June 13, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/bashscripting.jfif" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>The shell uses the following environment variables.</p>
-
-        <h5 class="post-subtitle">CDPATH</h5>
-
-        <p>A colon-separated list of directories used as a search path for the <code>cd</code> builtin command.</p>
-
-        <p>If the target directory of the <code>cd</code> command is specified as a relative path name, the <code>cd</code> command first looks for the target directory in the current directory (<code>.</code>). If the target is not found, the path names listed in the <code>CDPATH</code> variable are searched consecutively until the target directory is found and the directory change is completed. If the target directory is not found, the current working directory is left unmodified. For example, the <code>CDPATH</code> variable is set to <code>/home/hemimorphite</code>, and four directories exist under <code>/home/hemimorphite</code>, <code>layouts</code>, <code>posts</code>, <code>assets</code> and <code>vendors</code>. If you are in the <code>/home/hemimorphite/posts</code> directory and type <code>cd vendors</code>, you change directories to <code>/home/hemimorphite/vendors</code>, even though you do not specify a full path.</p>
-
-        <h5 class="post-subtitle">HOME</h5>
-
-        <p>The current user's home directory; the default for the <code>cd</code> builtin command. The value of this variable is also used by tilde expansion (<code>~</code>).</p>
-
-        <pre><code class="language-bash hljs">cd $HOME
-# OR
-cd ~</code></pre>
-
-        <h5 class="post-subtitle">IFS</h5>
-        
-        <p>A list of characters that separate fields; used when the shell splits words as part of expansion.</p>
-
-        <p>The default value is a space, a tab, and a newline (<code>IFS=$' \t\n'</code>).</p>
-
-        <p>You can print it with the following command:</p>
-
-        <pre><code class="language-bash hljs">cat -etv &lt;&lt;&lt;"$IFS"</code></pre>
-
-        <p>You should see something as follows on your Linux terminal:</p>
-
-        <pre><code class="language-bash hljs"> ^I$
-$</code></pre>
-
-        <p>The <code>IFS</code> variable is commonly used with <code>read</code> command, parameter expansions and command substitution.</p>
-        
-        <p>In the <code>read</code> command, if multiple variable-name arguments are specified, <code>IFS</code> is used to split the line of input so that each variable gets a single field of the input. (The last variable gets all the remaining fields, if there are more fields than variables.) Any whitespace characters in <code>IFS</code> will be trimmed from the beginning and end of the input line, even when only one variable is given.</p>
-
-        <pre><code class="language-bash hljs"># Using default IFS=$' \t\n'
-[hemimorphite@ubuntu ~]$ read -r a b c &lt;&lt;&lt; '   A      B  C'
-[hemimorphite@ubuntu ~]$ echo "$a $b $c"
-A B C</code></pre>
-
-        <pre><code class="language-bash hljs"># Using a custom IFS value
-[hemimorphite@ubuntu ~]$ IFS=: read -r user pwhash uid gid gecos home shell \
-    &lt;&lt;&lt; 'root:*:0:0:System Administrator:/var/root:/bin/sh'
-[hemimorphite@ubuntu ~]$ echo "$user $pwhash $uid $gid $gecos $home $shell"
-root * 0 0 System Administrator /var/root /bin/sh</code></pre>
-
-        <p>If <code>IFS</code> contains a mixture of whitespace and non-whitespace characters then any non-whitespace IFS character or IFS whitespace characters (any sequence of one or more whitespace IFS characters count as single whitespace) acts as a single field delimiter. For example:</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=' ,'
-[hemimorphite@ubuntu ~]$ sentence="This is        a, simple,     example"
-[hemimorphite@ubuntu ~]$ printf 'word -> "%s" \n' $sentence
-word -> "This" 
-word -> "is" 
-word -> "a" 
-word -> "simple" 
-word -> "example"</code></pre>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=$' \t\n' read -r a b c \
-    &lt;&lt;&lt; 'the    plain gold      ring'
-[hemimorphite@ubuntu ~]$ echo "=$a= =$b= =$c="
-=the= =plain= =gold      ring=</code></pre>
-        
-        <p>The above example shows that splitting and delimiter-consolidation are not performed on the remaining part of a line when assigning excess fields to the last variable.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=: read -r a b c \
-    &lt;&lt;&lt; '1:2:::3::4'
-[hemimorphite@ubuntu ~]$ echo "=$a= =$b= =$c="
-=1= =2= =::3::4=</code></pre>
-        
-        <p>Note that out of the three consecutive colons which follow field 2, precisely one colon was removed in order to terminate field 2. The remaining two colons, as well as two more colons later on, were all left untouched, and assigned to variable <code>c</code> verbatim.</p>
-
-        <h5 class="post-subtitle">OPTARG</h5>
-
-        <p>The value of the option processed by the <code>getopts</code> builtin.</p>
-
-        <p>Let's create a bash script called <code>command.sh</code></p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat command.sh
-#!/bin/bash
-
-# Parse command-line options
-while getopts ":f:d:" flag; do
-    case $flag in
-    f) echo "The filename is: ${OPTARG}"
-      ;;
-    d) echo "The directory is: ${OPTARG}"
-    esac
-done</code></pre>
-
-        <p>The Bash script utilizes the <code>getopts</code> command to parse command-line options. It specifies two options, <code>-f</code>  and <code>-d</code> in the optstring. As there is a colon (:) after both options, if triggered each of them requires an argument.</p>
-
-        <p>Inside the loop, a <code>case</code> statement is used to check the currently processed option. If the option <code>-f</code> is encountered, the script prints out the filename specified with the option using the special variable <code>OPTARG</code>. Similarly, if the option <code>-d</code> is found, the script displays the directory provided with the option using <code>OPTARG</code>.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -f file1.txt -d /home hemimorphite
-The filename is: file1.txt
-The directory is: /home hemimorphite</code></pre>
-        
-        <h5 class="post-subtitle">OPTERR</h5>
-        
-        <p><code>OPTERR</code> controls if Bash displays errors generated by the <code>getopts</code> builtin command. <code>getopts</code> does not print errors if <code>OPTERR</code> has a value of <code>0</code>. Value <code>1</code> enables the errors.</p>
-
-        <p>The default value is <code>1</code>.</p>
-
-        <h5 class="post-subtitle">OPTIND</h5>
-
-        <p>The index of the next parameter/argument processed by the <code>getopts</code> builtin.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat command.sh
-#!/bin/bash
-
-while getopts "ab:c" flag; do
-    echo "$flag" "$OPTIND" "$OPTARG"
-done</code></pre>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -ac -b value1
-a 1
-c 2
-b 4 value1</code></pre>
-
-        <p>In <code>./command.sh -ac -b value1</code>, arg1 is <code>-ac</code>, arg2 is <code>-b</code>, arg3 is <code>value1</code>.</p>
-
-        <p>While processing option <code>-a</code>, the next unprocessed option is <code>-c</code> which is in arg1. So the index stored in <code>OPTIND</code> is <code>1</code>. For the following option <code>-c</code>, the next unprocessed option is <code>-b</code> which is arg2. So the index stored in <code>OPTIND</code> is <code>2</code>. Finally, for the option <code>-b</code>, while processing option <code>-b</code>, arg3 (<code>value1</code>) is processed as an argument of option <code>-b</code>. That's why <code>OPTIND</code> stores <code>4</code> or the index of arg4.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -a -c -b value1
-a 2
-c 3
-b 5 value1</code></pre>
-        
-        <p>In <code>./command.sh -a -c -b value1</code>, arg1 is <code>-a</code>, arg2 is <code>-c</code>, arg3 is <code>-b</code>, arg4 is <code>value1</code>.</p>
-
-        <p>While processing option <code>-a</code>, the next unprocessed option is <code>-c</code> which is in arg2. So the index stored in <code>OPTIND</code> is <code>2</code>. For the following option <code>-c</code>, the next unprocessed option is <code>-b</code> which is arg3. So the index stored in <code>OPTIND</code> is <code>3</code>. Finally, for the option <code>-b</code>, while processing option <code>-b</code>, arg4 (<code>value1</code>) is processed as an argument of option <code>-b</code>. That's why <code>OPTIND</code> stores <code>5</code> or the index of arg5.</p>
-
-        <h5 class="post-subtitle">PATH</h5>
-
-        <p>A colon-separated list of directories in which the shell looks for commands. This is the variable that tells the bash shell where to find different executable files and scripts. The shell will check the directories listed in the <code>PATH</code> variable for the script you are trying to find.</p>
-        
-        <p>Let's say you wrote a little shell script called <code>hello</code> and have it located in a directory called <code>/home/hemimorphite/bin</code>.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ cat hello
-#!/bin/bash
-
-echo Hello "$USER"
-[hemimorphite@ubuntu ~/bin]$ chmod +x hello</code></pre>
-        
-        <p>Add <code>/home/hemimorphite/bin</code> to the <code>$PATH</code> variable with the following command:</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ export PATH=$PATH:/home/hemimorphite/bin</code></pre>
-
-        <p>You should now be able to execute the script anywhere on your system by just typing in its name, without having to include the full path as you type it.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ hello
-Hello hemimorphite</code></pre>
-
-        <h5 class="post-subtitle">MAIL</h5>
-
-        <p>Name of file to check for incoming mail.</p>
-
-        <h5 class="post-subtitle">MAILCHECK</h5>
-
-        <p>defines the interval in seconds when the shell should check for mail. (default 60 seconds).</p>
-
-        <h5 class="post-subtitle">MAILPATH</h5>
-
-        <p>List of filenames, separated by colons (:), to check for incoming mail.</p>
-
-        <p>Run the following command to install <code>mail</code></p>
-
-        <pre><code class="language-bash hljs">sudo apt install mailutils</code></pre>
-
-        <p>Let us create a new user named satella, echidna, and minerva using the <code>useradd</code> command on Ubuntu:</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/satella/ -m -G sudo satella
-[hemimorphite@ubuntu ~/]$ sudo passwd satella
-[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/echidna/ -m -G sudo echidna
-[hemimorphite@ubuntu ~/]$ sudo passwd echidna
-[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/minerva/ -m -G sudo minerva
-[hemimorphite@ubuntu ~/]$ sudo passwd minerva</code></pre>
-
-        <p>Where,</p>
-
-        <ul>
-            <li><code>-s /bin/bash</code>, set <code>/bin/bash</code> as login shell of the new account</li>
-            <li><code>-d /home/satella/</code>, set <code>/home/satella/</code> as home directory of the new Ubuntu account</li>
-            <li><code>-m</code>, create the user's home directory</li>
-            <li><code>-G sudo</code>, make satella user can use <code>sudo</code> command</li>
-        </ul>
-
-        <p>Switch to user satella.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/]$ sudo su - satella
-[satella@ubuntu ~/]$ </code></pre>
-
-        <p>Use the <code>echo</code> command to send an email without entering the interactive mode of the <code>mail</code> command. Write the email body and pipe the <code>echo</code> command output to the <code>mail</code> command.</p>
-
-        <pre><code class="language-bash hljs">[satella@ubuntu ~/]$ echo "This is the email body" | mail -s "this is email subject" echidna, minerva</code></pre>
-        
-        <p>After 60 seconds (the value of <code>MAILCHECK</code>), on echidna's or minerva's prompt press <code>ENTER</code> and the prompt will print the message:</p>
-
-        <pre><code class="language-bash hljs">You have mail in /var/mail/echidna</code></pre>
-
-        <p>Shell will use the value of <code>MAIL</code> as the name of the file to check, unless <code>MAILPATH</code> is set; in which case, the shell will check each file in the <code>MAILPATH</code> list for new mail. You can use this mechanism to have the shell print a different message for each mail file: for each mail filename in <code>MAILPATH</code>, append a question mark followed by the message you want printed.</p>
-
-        <p>You could define <code>MAILPATH</code> to be:</p>
-
-        <pre><code class="language-bash hljs">MAILPATH="\
-/usr/mail/satella/echidna?Mail from Echidna has arrived.:\
-/usr/mail/satella/minerva?There is new mail from Paul."</code></pre>
-
-        <p>The backslashes at the end of each line allow you to continue your command on the next line. Now, if you get mail from echidna, the shell will print:</p>
-
-        <pre><code class="language-bash hljs">Mail from Echidna has arrived.</code></pre>
-
-        <p>You can also use the variable <code>$_</code> in the message to print the name of the current mail file or execute a command <code>$(date)</code> to displays the current date and time. For example:</p>
-
-        <pre><code class="language-bash hljs">MAILPATH="\
-/usr/mail/satella/echidna?Mail from Echidna has arrived in $_ at $(date).:\
-/usr/mail/satella/minerva?There is new mail from Paul in $_ at $(date)."</code></pre>
-</article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu" class="tag">ubuntu</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/bash-script" class="tag">bash script</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/special-variables" class="tag">special variables</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/cdpath" class="tag">CDPATH</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/home" class="tag">HOME</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/ifs" class="tag">IFS</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/optarg" class="tag">OPTARG</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/opterr" class="tag">OPTERR</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/optind" class="tag">OPTIND</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/path" class="tag">PATH</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/mail" class="tag">MAIL</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/mailcheck" class="tag">MAILCHECK</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/mailpath" class="tag">MAILPATH</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Best Practices" /><category term="year-2024" /><category term="month-06" /><category term="day-13" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="special variables" /><category term="CDPATH" /><category term="HOME" /><category term="IFS" /><category term="OPTARG" /><category term="OPTERR" /><category term="OPTIND" /><category term="PATH" /><category term="MAIL" /><category term="MAILCHECK" /><category term="MAILPATH" /><summary type="html"><![CDATA[Learn how to properly use Bourne Shell predefined special variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Best Practices" /><category term="year-2024" /><category term="month-06" /><category term="day-13" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="special variables" /><category term="CDPATH" /><category term="HOME" /><category term="IFS" /><category term="OPTARG" /><category term="OPTERR" /><category term="OPTIND" /><category term="PATH" /><category term="MAIL" /><category term="MAILCHECK" /><category term="MAILPATH" /><summary type="html"><![CDATA[Learn how to properly use Bourne Shell environment variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills.]]></summary></entry></feed>
