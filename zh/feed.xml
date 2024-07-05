@@ -1,4 +1,2898 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-07-05T11:48:01+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Javascript Language Specification: Data Types and Values</title><link href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-data-types-and-values/" rel="alternate" type="text/html" title="Javascript Language Specification: Data Types and Values" /><published>2024-07-05T10:21:00+00:00</published><updated>2024-07-05T10:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/05/javascript-language-specification-data-types-and-values</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/05/javascript-language-specification-data-types-and-values/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-07-05T19:35:29+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Javascript Language Specification: BigInt Type Operation Abstract Operations</title><link href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations/" rel="alternate" type="text/html" title="Javascript Language Specification: BigInt Type Operation Abstract Operations" /><published>2024-07-05T11:21:00+00:00</published><updated>2024-07-05T11:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Javascript Language Specification: BigInt Type Operation Abstract Operations</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 05, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/javascript.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>An abstract operation is a conceptual operation that is not an actual operation in the language but is used to aid in the specification and understanding of a programming concept or system.</p>
+
+        <p>The following abstract operations are defined over the BigInt type:</p>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>Operation</th>
+                    <th>Example</th>
+                    <th>Invoked by</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::unaryMinus</code>
+                    </td>
+                    <td>
+                        <code>-x</code>
+                    </td>
+                    <td>
+                        Unary <code>-</code> Operator
+                    </td>
+                    <td> BigInt </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::bitwiseNOT</code>
+                    </td>
+                    <td>
+                        <code>~x</code>
+                    </td>
+                    <td>
+                        Bitwise NOT Operator (<code>~</code>)
+                    </td>
+                    <td> BigInt </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::exponentiate</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;**&nbsp;y</code>
+                    </td>
+                    <td>
+                        Exponentiation Operator (<code>**</code>)
+                        and <code>Math.pow(base, exponent)</code>
+                    </td>
+                    <td> either a normal completion containing a BigInt or a throw completion </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::multiply</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;*&nbsp;y</code>
+                    </td>
+                    <td>
+                        Multiplicative Operators
+                    </td>
+                    <td> BigInt </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::divide</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;/&nbsp;y</code>
+                    </td>
+                    <td>
+                        Multiplicative Operators
+                    </td>
+                    <td> either a normal completion containing a BigInt or a throw completion </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <code>BigInt::remainder</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;%&nbsp;y</code>
+                    </td>
+                    <td>
+                        Multiplicative Operators
+                    </td>
+                    <td> either a normal completion containing a BigInt or a throw completion </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::add</code>
+                    </td>
+                    <td>
+                        <code>x ++</code>
+                        <br>
+                        <code>++ x</code>
+                        <br>
+                        <code>x&nbsp;+&nbsp;y</code>
+                    </td>
+                    <td>
+                        Postfix Increment Operator, Prefix Increment Operator, and The Addition Operator (<code>+</code>)
+                    </td>
+                    <td> BigInt </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <code>BigInt::subtract</code>
+                    </td>
+                    <td>
+                        <code>x --</code>
+                        <br>
+                        <code>-- x</code>
+                        <br>
+                        <code>x&nbsp;-&nbsp;y</code>
+                    </td>
+                    <td>
+                        Postfix Decrement Operator, Prefix Decrement Operator, and The Subtraction Operator (<code>-</code>)
+                    </td>
+                    <td> BigInt </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::leftShift</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;&lt;&lt;&nbsp;y</code>
+                    </td>
+                    <td>
+                        The Left Shift Operator(<code>&lt;&lt;</code>)
+                    </td>
+                    <td> BigInt </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::signedRightShift</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;&gt;&gt;&nbsp;y</code>
+                    </td>
+                    <td>
+                        The Signed Right Shift Operator(<code>&gt;&gt;</code>)
+                    </td>
+                    <td> BigInt </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::unsignedRightShift</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;&gt;&gt;&gt;&nbsp;y</code>
+                    </td>
+                    <td>
+                        The Unsigned Right Shift Operator (<code>&gt;&gt;&gt;</code>)
+                    </td>
+                    <td>  a throw completion  </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::lessThan</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;&lt;&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;&gt;&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;&lt;=&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;&gt;=&nbsp;y</code>
+                    </td>
+                    <td>
+                        Relational Operators, via <code>IsLessThan (x, y, LeftFirst)</code>
+                    </td>
+                    <td> Boolean </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::equal</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;==&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;!=&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;===&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;!==&nbsp;y</code>
+                    </td>
+                    <td>
+                        Equality Operators, via <code>IsStrictlyEqual (x, y)</code>
+                    </td>
+                    <td> Boolean </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::sameValue</code>
+                    </td>
+                    <td>
+                        <code>Object.is(x, y)</code>
+                    </td>
+                    <td> 
+                        Object internal methods, via <code>SameValue (x, y)</code>, to test exact value equality 
+                    </td>
+                    <td> Boolean </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::sameValueZero</code>
+                    </td>
+                    <td>
+                        <code>[x].includes(y)</code>
+                    </td>
+                    <td> 
+                        Array, Map, and Set methods, via <code>SameValueZero (x, y)</code>, to test value equality, ignoring the difference between +0 and -0
+                    </td>
+                    <td> Boolean </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::bitwiseAND</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;&amp;&nbsp;y</code>
+                    </td>
+                    <td rowspan="3">
+                        Binary Bitwise Operators
+                    </td>
+                    <td> BigInt </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::bitwiseXOR</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;^&nbsp;y</code>
+                    </td>
+                    <td> BigInt </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::bitwiseOR</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;|&nbsp;y</code>
+                    </td>
+                    <td> BigInt </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>BigInt::toString</code>
+                    </td>
+                    <td>
+                        <code>String(x)</code>
+                    </td>
+                    <td> Many expressions and built-in functions, via <code>ToString (argument)</code> 
+                    </td>
+                    <td> String </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h6>BigInt::unaryMinus (x)</h6>
+
+        <p>The abstract operation <code>BigInt::unaryMinus</code> takes argument <code>x</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> is 0, return 0.</li>
+            <li>Return the BigInt value that represents the negation of <code>x</code>.</li>
+        </ol>
+
+        <pre><code class="language-bash hljs">BigInt.unaryMinus = function (x) {
+    if(x === 0n) {
+        return BigInt(x);
+    }
+    return -BigInt(x);
+}
+BigInt.unaryMinus(100n);</code></pre>
+        
+        <h6>BigInt::bitwiseNOT (x)</h6>
+
+        <p>The abstract operation <code>BigInt::bitwiseNOT</code> takes argument <code>x</code> (a BigInt) and returns a BigInt. It returns the one's complement of x. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return -x - 1.</li>
+            <li>Return the BigInt value that represents the negation of <code>x</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.bitwiseNOT = function (x) {
+    return -BigInt(x) - 1;
+}
+BigInt.bitwiseNOT(100n);</code></pre>
+
+        <h6>BigInt::exponentiate (base, exponent)</h6>
+
+        <p>The abstract operation <code>BigInt::exponentiate</code> takes arguments <code>base</code> (a BigInt) and <code>exponent</code> (a BigInt) and returns either a normal completion containing a BigInt or a throw completion. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>exponent</code> < 0, throw a <code>RangeError</code> exception.</li>
+            <li>If <code>base</code> is 0 and <code>exponent</code> is 0, return 1.</li>
+            <li>Return the BigInt value that represents <code>base</code> raised to the power <code>exponent</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.exponentiate = function (base, exponent) {
+    if(BigInt(exponent) < 0n) {
+        // If exponent < 0, throw a RangeError exception
+        throw new RangeError("The exponent must be greater than 0.");
+    }
+    if(BigInt(base) === 0n && BigInt(exponent) === 0n) {
+        // If base is 0 and exponent is 0, return 1
+        return BigInt(1);
+    }
+
+    // Return the BigInt value that represents base raised to the power exponent
+    return BigInt(base) ** BigInt(exponent);
+}
+BigInt.exponentiate(100n, 100n);</code></pre>
+
+        <h6>BigInt::multiply  (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::multiply</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return the BigInt value that represents the product of <code>x</code> and <code>y</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.multiply = function (x, y) {
+    // Return the BigInt value that represents the product of x and y
+    return BigInt(x) * BigInt(y);
+}
+BigInt.multiply(100n, 100n);</code></pre>
+
+        <h6>BigInt::divide (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::divide</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns either a normal completion containing a BigInt or a throw completion. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>y</code> is 0, throw a <code>RangeError</code> exception.</li>
+            <li>Let <code>quotient</code> be <code>x</code> / <code>y</code>.</li>
+            <li>Return <code>truncate(quotient)</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.divide = function (x, y) {
+    // If y is 0, throw a RangeError exception.
+    if(BigInt(y) === 0n) {
+        throw new RangeError("The divisor must be greater than 0.");
+    }
+
+    // Let quotient be x / y
+    let quotient = BigInt(x) / BigInt(y);
+
+    // Return truncate(quotient)
+    return BigInt(quotient);
+}
+BigInt.divide(100n, 2n);</code></pre>
+
+        <h6>BigInt::remainder (n, d)</h6>
+
+        <p>The abstract operation <code>BigInt::remainder</code> takes arguments <code>n</code> (a BigInt) and <code>d</code> (a BigInt) and returns either a normal completion containing a BigInt or a throw completion. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>d</code> is 0, throw a <code>RangeError</code> exception.</li>
+            <li>If <code>n</code> is 0, return 0.</li>
+            <li>Let <code>quotient</code> be <code>n</code> / <code>d</code>.</li>
+            <li>Let <code>q</code> be <code>truncate(quotient)</code>.</li>
+            <li>Return <code>n</code> - (<code>d</code> × <code>q</code>).</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.remainder = function (n, d) {
+    // If d is 0, throw a RangeError exception
+    if(BigInt(d) === 0n) {
+        throw new RangeError("The divisor must be greater than 0.");
+    }
+
+    // If n is 0, return 0
+    if(BigInt(n) === 0n) {
+        return BigInt(0);
+    }
+
+    // Let quotient be n / d
+    let quotient = BigInt(n) / BigInt(d);
+
+    // Let q be truncate(quotient)
+    let q = quotient;
+
+    // Return n - (d × q)
+    return BigInt(n) - (BigInt(d) * BigInt(q));
+}
+BigInt.remainder(13n, 3n);</code></pre>
+
+        <h6>BigInt::add (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::add</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return the BigInt value that represents the sum of <code>x</code> and <code>y</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.add = function (x, y) {
+    // Return the BigInt value that represents the sum of x and y
+    return BigInt(x) + BigInt(y);
+}
+BigInt.add(13n, 3n);</code></pre>
+
+        <h6>BigInt::subtract (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::subtract</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return the BigInt value that represents the difference <code>x</code> minus <code>y</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.subtract = function (x, y) {
+    // Return the BigInt value that represents the difference x minus y
+    return BigInt(x) - BigInt(y);
+}
+BigInt.add(13n, 3n);</code></pre>
+
+        <h6>BigInt::leftShift (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::leftShift</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>y</code> < 0, then<br>
+                <ol>
+                    <li>Return the BigInt value that represents $$x / 2^-y$$, rounding down to the nearest integer, including for negative numbers.</li>
+                </ol>
+            </li>
+            <li>Return the BigInt value that represents $$x × 2^y$$.</li>
+        </ol>
+        
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.leftShift = function (x, y) {
+    if(y < 0) {
+        // If y < 0, then return the BigInt value that represents x / 2^-y, rounding down to the nearest integer, including for negative numbers.
+        return BigInt(x) / BigInt(2) ** BigInt(-y);
+    }
+
+    // Return the BigInt value that represents x × 2^y.
+    return BigInt(x) * BigInt(2) ** BigInt(y);
+}
+BigInt.leftShift(13n, -3n);</code></pre>
+
+        <h6>BigInt::signedRightShift (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::signedRightShift</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return <code>BigInt::leftShift(x, -y)</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.leftShift = function (x, y) {
+    if(y < 0) {
+        // If y < 0, then return the BigInt value that represents x / 2^-y, rounding down to the nearest integer, including for negative numbers.
+        return BigInt(x) / BigInt(2) ** BigInt(-y);
+    }
+
+    // Return the BigInt value that represents x × 2^y.
+    return BigInt(x) * BigInt(2) ** BigInt(y);
+};
+BigInt.signedRightShift = function (x, y) {
+    // Return BigInt::leftShift(x, -y).
+    return BigInt.leftShift(x, -y);
+};
+BigInt.signedRightShift(13n, -3n);</code></pre>
+
+
+        <h6>BigInt::unsignedRightShift (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::unsignedRightShift</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a throw completion. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Throw a <code>TypeError</code> exception.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.unsignedRightShift = function (x, y) {
+    throw new TypeError("Invalid operator") 
+};
+BigInt.unsignedRightShift(13n, -3n);</code></pre>
+
+        <h6>BigInt::lessThan (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::lessThan</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a Boolean. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> < <code>y</code>, return <code>true</code>; otherwise return <code>false</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.lessThan = function (x, y) {
+    if(BigInt(x) < BigInt(y)) {
+        // If x < y, return true; 
+        return true;
+    }else {
+        // otherwise return false
+        return false;
+    }
+};
+BigInt.lessThan(13n, -13n);</code></pre>
+
+        <h6>BigInt::equal (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::equal</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a Boolean. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> = <code>y</code>, return <code>true</code>; otherwise return <code>false</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.lessThan = function (x, y) {
+    if(BigInt(x) === BigInt(y)) {
+        // If x = y, return true; 
+        return true;
+    }else {
+        // otherwise return false
+        return false;
+    }
+};
+BigInt.lessThan(13n, -13n);</code></pre>
+
+        <h6>BinaryAnd (x, y)</h6>
+
+        <p>The abstract operation <code>BinaryAnd</code> takes arguments <code>x</code> (0 or 1) and <code>y</code> (0 or 1) and returns 0 or 1. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If x = 1 and y = 1, return 1.</li>
+            <li>Else, return 0.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">function BinaryAnd(x, y) {
+    if(x === BigInt(1) && y === BigInt(1)) {
+        // If x = 1 and y = 1, return 1;
+        return BigInt(1);
+    }else {
+        // otherwise return false
+        return BigInt(0);
+    }
+};
+BinaryAnd(1n, 0n);</code></pre>
+
+        <h6>BinaryOr (x, y)</h6>
+
+        <p>The abstract operation <code>BinaryOr</code> takes arguments <code>x</code> (0 or 1) and <code>y</code> (0 or 1) and returns 0 or 1. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If x = 1 or y = 1, return 1.</li>
+            <li>Else, return 0.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">function BinaryOr(x, y) {
+    if(x === BigInt(1) || y === BigInt(1)) {
+        // If x = 1 or y = 1, return true; 
+        return BigInt(1);
+    }else {
+        // otherwise return false
+        return BigInt(0);
+    }
+};
+BinaryOr(1n, 0n);</code></pre>
+
+        <h6>BinaryXor (x, y)</h6>
+
+        <p>The abstract operation <code>BinaryXor</code> takes arguments <code>x</code> (0 or 1) and <code>y</code> (0 or 1) and returns 0 or 1. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If x = 1 and y = 0, return 1.</li>
+            <li>Else if x = 0 and y = 1, return 1.</li>
+            <li>Else, return 0.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">function BinaryXor(x, y) {
+    if(x === BigInt(1) && y === BigInt(0)) {
+        // If x = 1 and y = 0, return 1 
+        return BigInt(1);
+    } else if(x === BigInt(0) && y === BigInt(1)) {
+        // Else if x = 0 and y = 1, return 1
+        return BigInt(1);
+    } else {
+        // Else, return 0
+        return BigInt(0);
+    }
+};
+BinaryXor(1n, 0n);</code></pre>
+
+
+        <h6>BigIntBitwiseOp (op, x, y)</h6>
+
+        <p>The abstract operation <code>BigIntBitwiseOp</code> takes arguments <code>op</code> (<code>&</code>, <code>^</code>, or <code>|</code>), <code>x</code> (a BigInt), and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Set <code>x</code> to <code>x</code>.</li>
+            <li>Set <code>y</code> to <code>y</code>.</li>
+            <li>Let <code>result</code> be 0.</li>
+            <li>Let <code>shift</code> be 0.</li>
+            <li>Repeat, until (x = 0 or x = -1) and (y = 0 or y = -1),<br>
+                <ol>
+                    <li>Let <code>xDigit</code> be <code>x</code> modulo 2.</li>
+                    <li>Let <code>yDigit</code> be <code>y</code> modulo 2.</li>
+                    <li>If <code>op</code> is <code>&</code>, set <code>result</code> to $$result + 2^shift × BinaryAnd(xDigit, yDigit)$$.</li>
+                    <li>Else if <code>op</code> is <code>|</code>, set <code>result</code> to $$result + 2^shift × BinaryOr(xDigit, yDigit)$$.</li>
+                    <li>Else<br>
+                        <ol>
+                            <li>Assert: <code>op</code> is <code>^</code>.</li>
+                            <li>Set <code>result</code> to $$result + 2^shift × BinaryXor(xDigit, yDigit)$$.</li>
+                        </ol>
+                    </li>
+                    <li>Set <code>shift</code> to <code>shift</code> + 1.</li>
+                    <li>Set <code>x</code> to $$(x - xDigit) / 2$$.</li>
+                    <li>Set <code>y</code> to $$(y - yDigit) / 2$$.</li>
+                </ol>
+            </li>
+            <li>If <code>op</code> is <code>&</code>, let <code>tmp</code> be <code>BinaryAnd(x modulo 2, y modulo 2)</code>.</li>
+            <li>Else if <code>op</code> is <code>|</code>, let <code>tmp</code> be <code>BinaryOr(x modulo 2, y modulo 2)</code>.</li>
+            <li>Else,<br>
+                <ol>
+                    <li>Assert: <code>op</code> is <code>^</code>.</li>
+                    <li>Let <code>tmp</code> be <code>BinaryXor(x modulo 2, y modulo 2)</code>.</li>
+                </ol>
+            </li>
+            <li>If <code>tmp</code> ≠ 0, then<br>
+                <ol>
+                    <li>Set <code>result</code> to $$result - 2^shift$$.</li>
+                    <li>NOTE: This extends the sign.</li>
+                </ol>
+            </li>
+            <li>Return the BigInt value for <code>result</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">function BigIntBitwiseOp(op, x, y) {
+    // Set x to x
+    x = BigInt(x);
+    // Set y to y
+    y = BigInt(y);
+    // Let result be 0
+    let result = BigInt(0);
+    // Let shift be 0
+    let shift = BigInt(0);
+    // Repeat, until (x = 0 or x = -1) and (y = 0 or y = -1)
+    do {
+        // Let xDigit be x modulo 2
+        let xDigit = x % BigInt(2);
+        // Let yDigit be y modulo 2
+        let yDigit = y % BigInt(2);
+        
+        if(op === '&') {
+            // If op is &, set result to result + 2^shift × BinaryAnd(xDigit, yDigit).
+            result = result + (BigInt(2) ** shift) * BinaryAnd(xDigit, yDigit);
+            
+        } else if(op === '|') {
+            // Else if op is |, set result to result + 2^shift × BinaryOr(xDigit, yDigit)
+            result = result + BigInt(2) ** shift * BinaryOr(xDigit, yDigit);
+        } else {
+            // Else op is ^.
+            // Set result to result + 2^shift × BinaryXor(xDigit, yDigit)
+            result = result + BigInt(2) ** shift * BinaryXor(xDigit, yDigit);
+        }
+        // Set shift to shift + 1
+        shift = shift + BigInt(1);
+        // Set x to (x - xDigit) / 2
+        x = (x - xDigit) / BigInt(2);
+        // Set y to (y - yDigit) / 2
+        y = (y - yDigit) / BigInt(2);
+        
+        if((x === BigInt(0) || x === BigInt(-1)) && (y === BigInt(0) || y === BigInt(-1))) {
+            break;
+        }
+    }
+    while (true);
+
+    if(op === '&') {
+        // If op is &, let tmp be BinaryAnd(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryAnd(x % BigInt(2), y % BigInt(2)));
+        
+    } else if(op === '|') {
+        // Else if op is |, let tmp be BinaryOr(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryOr(x % BigInt(2), y % BigInt(2)));
+    } else {
+        // Else
+        // Assert: op is ^
+        // Let tmp be BinaryXor(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryXor(x % BigInt(2), y % BigInt(2)));
+    }
+
+    if(tmp !== BigInt(0)) {
+        result = result - BigInt(2) ** shift;
+    }
+    
+    return BigInt(result);
+};</code></pre>
+
+        <h6>BigInt::bitwiseAND (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::bitwiseAND</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return BigIntBitwiseOp(&, x, y).</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">function BinaryAnd(x, y) {
+    if(x === BigInt(1) && y === BigInt(1)) {
+        // If x = y, return true; 
+        return BigInt(1);
+    }else {
+        // otherwise return false
+        return BigInt(0);
+    }
+};
+function BigIntBitwiseOp(op, x, y) {
+    // Set x to x
+    x = BigInt(x);
+    // Set y to y
+    y = BigInt(y);
+    // Let result be 0
+    let result = BigInt(0);
+    // Let shift be 0
+    let shift = BigInt(0);
+    // Repeat, until (x = 0 or x = -1) and (y = 0 or y = -1)
+    do {
+        // Let xDigit be x modulo 2
+        let xDigit = x % BigInt(2);
+        // Let yDigit be y modulo 2
+        let yDigit = y % BigInt(2);
+        
+        if(op === '&') {
+            // If op is &, set result to result + 2^shift × BinaryAnd(xDigit, yDigit).
+            result = result + (BigInt(2) ** shift) * BinaryAnd(xDigit, yDigit);
+            
+        } else if(op === '|') {
+            // Else if op is |, set result to result + 2^shift × BinaryOr(xDigit, yDigit)
+            result = result + BigInt(2) ** shift * BinaryOr(xDigit, yDigit);
+        } else {
+            // Else op is ^.
+            // Set result to result + 2^shift × BinaryXor(xDigit, yDigit)
+            result = result + BigInt(2) ** shift * BinaryXor(xDigit, yDigit);
+        }
+        // Set shift to shift + 1
+        shift = shift + BigInt(1);
+        // Set x to (x - xDigit) / 2
+        x = (x - xDigit) / BigInt(2);
+        // Set y to (y - yDigit) / 2
+        y = (y - yDigit) / BigInt(2);
+        
+        if((x === BigInt(0) || x === BigInt(-1)) && (y === BigInt(0) || y === BigInt(-1))) {
+            break;
+        }
+    }
+    while (true);
+
+    if(op === '&') {
+        // If op is &, let tmp be BinaryAnd(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryAnd(x % BigInt(2), y % BigInt(2)));
+        
+    } else if(op === '|') {
+        // Else if op is |, let tmp be BinaryOr(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryOr(x % BigInt(2), y % BigInt(2)));
+    } else {
+        // Else
+        // Assert: op is ^
+        // Let tmp be BinaryXor(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryXor(x % BigInt(2), y % BigInt(2)));
+    }
+
+    if(tmp !== BigInt(0)) {
+        result = result - BigInt(2) ** shift;
+    }
+    
+    return BigInt(result);
+};
+BigInt.bitwiseAND = function (x, y) {
+    return BigIntBitwiseOp('&', x, y);
+}
+BigInt.bitwiseAND(102n, 875n);</code></pre>
+
+        <h6>BigInt::bitwiseXOR (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::bitwiseXOR</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return BigIntBitwiseOp(^, x, y).</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">function BinaryXor(x, y) {
+    if(x === BigInt(1) && y === BigInt(0)) {
+        // If x = 1 and y = 0, return 1 
+        return BigInt(1);
+    } else if(x === BigInt(0) && y === BigInt(1)) {
+        // Else if x = 0 and y = 1, return 1
+        return BigInt(1);
+    } else {
+        // Else, return 0
+        return BigInt(0);
+    }
+};
+function BigIntBitwiseOp(op, x, y) {
+    // Set x to x
+    x = BigInt(x);
+    // Set y to y
+    y = BigInt(y);
+    // Let result be 0
+    let result = BigInt(0);
+    // Let shift be 0
+    let shift = BigInt(0);
+    // Repeat, until (x = 0 or x = -1) and (y = 0 or y = -1)
+    do {
+        // Let xDigit be x modulo 2
+        let xDigit = x % BigInt(2);
+        // Let yDigit be y modulo 2
+        let yDigit = y % BigInt(2);
+        
+        if(op === '&') {
+            // If op is &, set result to result + 2^shift × BinaryAnd(xDigit, yDigit).
+            result = result + (BigInt(2) ** shift) * BinaryAnd(xDigit, yDigit);
+            
+        } else if(op === '|') {
+            // Else if op is |, set result to result + 2^shift × BinaryOr(xDigit, yDigit)
+            result = result + BigInt(2) ** shift * BinaryOr(xDigit, yDigit);
+        } else {
+            // Else op is ^.
+            // Set result to result + 2^shift × BinaryXor(xDigit, yDigit)
+            result = result + BigInt(2) ** shift * BinaryXor(xDigit, yDigit);
+        }
+        // Set shift to shift + 1
+        shift = shift + BigInt(1);
+        // Set x to (x - xDigit) / 2
+        x = (x - xDigit) / BigInt(2);
+        // Set y to (y - yDigit) / 2
+        y = (y - yDigit) / BigInt(2);
+        
+        if((x === BigInt(0) || x === BigInt(-1)) && (y === BigInt(0) || y === BigInt(-1))) {
+            break;
+        }
+    }
+    while (true);
+
+    if(op === '&') {
+        // If op is &, let tmp be BinaryAnd(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryAnd(x % BigInt(2), y % BigInt(2)));
+        
+    } else if(op === '|') {
+        // Else if op is |, let tmp be BinaryOr(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryOr(x % BigInt(2), y % BigInt(2)));
+    } else {
+        // Else
+        // Assert: op is ^
+        // Let tmp be BinaryXor(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryXor(x % BigInt(2), y % BigInt(2)));
+    }
+
+    if(tmp !== BigInt(0)) {
+        result = result - BigInt(2) ** shift;
+    }
+    
+    return BigInt(result);
+};
+BigInt.bitwiseXOR = function (x, y) {
+    return BigIntBitwiseOp('^', x, y);
+}
+BigInt.bitwiseXOR(102n, 875n);</code></pre>
+
+        <h6>BigInt::bitwiseOR (x, y)</h6>
+
+        <p>The abstract operation <code>BigInt::bitwiseOR</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return BigIntBitwiseOp(|, x, y).</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">function BinaryOr(x, y) {
+    if(x === BigInt(1) || y === BigInt(1)) {
+        // If x = 1 or y = 1, return true; 
+        return BigInt(1);
+    }else {
+        // otherwise return false
+        return BigInt(0);
+    }
+};
+function BigIntBitwiseOp(op, x, y) {
+    // Set x to x
+    x = BigInt(x);
+    // Set y to y
+    y = BigInt(y);
+    // Let result be 0
+    let result = BigInt(0);
+    // Let shift be 0
+    let shift = BigInt(0);
+    // Repeat, until (x = 0 or x = -1) and (y = 0 or y = -1)
+    do {
+        // Let xDigit be x modulo 2
+        let xDigit = x % BigInt(2);
+        // Let yDigit be y modulo 2
+        let yDigit = y % BigInt(2);
+        
+        if(op === '&') {
+            // If op is &, set result to result + 2^shift × BinaryAnd(xDigit, yDigit).
+            result = result + (BigInt(2) ** shift) * BinaryAnd(xDigit, yDigit);
+            
+        } else if(op === '|') {
+            // Else if op is |, set result to result + 2^shift × BinaryOr(xDigit, yDigit)
+            result = result + BigInt(2) ** shift * BinaryOr(xDigit, yDigit);
+        } else {
+            // Else op is ^.
+            // Set result to result + 2^shift × BinaryXor(xDigit, yDigit)
+            result = result + BigInt(2) ** shift * BinaryXor(xDigit, yDigit);
+        }
+        // Set shift to shift + 1
+        shift = shift + BigInt(1);
+        // Set x to (x - xDigit) / 2
+        x = (x - xDigit) / BigInt(2);
+        // Set y to (y - yDigit) / 2
+        y = (y - yDigit) / BigInt(2);
+        
+        if((x === BigInt(0) || x === BigInt(-1)) && (y === BigInt(0) || y === BigInt(-1))) {
+            break;
+        }
+    }
+    while (true);
+
+    if(op === '&') {
+        // If op is &, let tmp be BinaryAnd(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryAnd(x % BigInt(2), y % BigInt(2)));
+        
+    } else if(op === '|') {
+        // Else if op is |, let tmp be BinaryOr(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryOr(x % BigInt(2), y % BigInt(2)));
+    } else {
+        // Else
+        // Assert: op is ^
+        // Let tmp be BinaryXor(x modulo 2, y modulo 2)
+        tmp = BigInt(BinaryXor(x % BigInt(2), y % BigInt(2)));
+    }
+
+    if(tmp !== BigInt(0)) {
+        result = result - BigInt(2) ** shift;
+    }
+    
+    return BigInt(result);
+};
+BigInt.bitwiseOR = function (x, y) {
+    return BigIntBitwiseOp('|', x, y);
+}
+BigInt.bitwiseOR(102n, 875n);</code></pre>
+
+        <h6>BigInt::toString (x, radix)</h6>
+
+        <p>The abstract operation <code>BigInt::toString</code> takes arguments <code>x</code> (a BigInt) and <code>radix</code> (an integer in the inclusive interval from 2 to 36) and returns a String. It represents <code>x</code> as a String using a positional numeral system with radix <code>radix</code>. The digits used in the representation of a BigInt using radix <code>r</code> are taken from the first <code>r</code> code units of <b>"0123456789abcdefghijklmnopqrstuvwxyz"</b> in order. The representation of BigInts other than 0 never includes leading zeroes. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> < 0, return the string-concatenation of <code>"-"</code> and <code>BigInt::toString(-x, radix)</code>.</li>
+            <li>Return the String value consisting of the representation of <code>x</code> using radix <code>radix</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">BigInt.toString = function (x, radix) {
+    if(x < BigInt(0)) {
+        return "-" + BigInt.toString(-x, radix);
+    }
+
+    let result = "";
+    let number = BigInt(x);
+
+    while(number > BigInt(0n)) {    
+        let remainder = number % BigInt(radix);
+            
+        if (remainder === BigInt(10n)) {
+            result = "A" + result;
+        } else if (remainder === BigInt(11n)) {
+            result = "B" + result;
+        } else if (remainder === BigInt(12n)) {
+            result = "C" + result;
+        } else if (remainder === BigInt(13n)) {
+            result = "D" + result;
+        } else if (remainder === BigInt(14n)) {
+            result = "E" + result;
+        } else if (remainder === BigInt(15n)) {
+            result = "F" + result;
+        } else if (remainder === BigInt(16n)) {
+            result = "G" + result;
+        } else if (remainder === BigInt(17n)) {
+            result = "H" + result;
+        } else if (remainder === BigInt(18n)) {
+            result = "I" + result;
+        } else if (remainder === BigInt(19n)) {
+            result = "J" + result;
+        } else if (remainder === BigInt(20n)) {
+            result = "K" + result;
+        } else if (remainder === BigInt(21n)) {
+            result = "L" + result;
+        } else if (remainder === BigInt(22n)) {
+            result = "M" + result;
+        } else if (remainder === BigInt(23n)) {
+            result = "N" + result;
+        } else if (remainder === BigInt(24n)) {
+            result = "O" + result;
+        } else if (remainder === BigInt(25n)) {
+            result = "P" + result;
+        } else if (remainder === BigInt(26n)) {
+            result = "Q" + result;
+        } else if (remainder === BigInt(27n)) {
+            result = "R" + result;
+        } else if (remainder === BigInt(28n)) {
+            result = "S" + result;
+        } else if (remainder === BigInt(29n)) {
+            result = "T" + result;
+        } else if (remainder === BigInt(30n)) {
+            result = "U" + result;
+        } else if (remainder === BigInt(31n)) {
+            result = "V" + result;
+        } else if (remainder === BigInt(32n)) {
+            result = "W" + result;
+        } else if (remainder === BigInt(33n)) {
+            result = "X" + result;
+        } else if (remainder === BigInt(34n)) {
+            result = "Y" + result;
+        } else if (remainder === BigInt(35n)) {
+            result = "Z" + result;
+        } else {
+            result = remainder + result;
+        }    
+        
+        number = number / radix;
+    }
+    return result;
+}
+BigInt.toString(123456789012345678901234567890n, 16n);</code></pre>
+        
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/javascript" class="tag">javascript</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/abstract-operation" class="tag">abstract operation</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Complete Reference" /><category term="year-2024" /><category term="month-07" /><category term="day-05" /><category term="javascript" /><category term="abstract operation" /><summary type="html"><![CDATA[Learn about the abstract operations of the BigInt type in JavaScript, focusing on binary and arithmetic operations. This article provides examples, algorithms, and explanations to help you understand these concepts better.]]></summary></entry><entry xml:lang="en"><title type="html">Javascript Language Specification: Abstract Operations of Number Type Binary and Arithmetic Operations</title><link href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-abstract-operations-of-number-type-binary-and-arithmetic-operations/" rel="alternate" type="text/html" title="Javascript Language Specification: Abstract Operations of Number Type Binary and Arithmetic Operations" /><published>2024-07-05T11:00:00+00:00</published><updated>2024-07-05T11:00:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/05/javascript-language-specification-abstract-operations-of-number-type-binary-and-arithmetic-operations</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/05/javascript-language-specification-abstract-operations-of-number-type-binary-and-arithmetic-operations/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Javascript Language Specification: Abstract Operations of Number Type Binary and Arithmetic Operations</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 05, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/javascript.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>An abstract operation is a conceptual operation that is not an actual operation in the language but is used to aid in the specification and understanding of a programming concept or system.</p>
+
+        <p>The following abstract operations are defined over the Number object:</p>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>Operation</th>
+                    <th>Example</th>
+                    <th>Invoked by</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::unaryMinus</code>
+                    </td>
+                    <td>
+                        <code>-x</code>
+                    </td>
+                    <td>
+                        Unary <code>-</code> Operator
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::bitwiseNOT</code>
+                    </td>
+                    <td>
+                        <code>~x</code>
+                    </td>
+                    <td>
+                        Bitwise NOT Operator (<code>~</code>)
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::exponentiate</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;**&nbsp;y</code>
+                    </td>
+                    <td>
+                        Exponentiation Operator (<code>**</code>)
+                        and <code>Math.pow(base, exponent)</code>
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::multiply</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;*&nbsp;y</code>
+                    </td>
+                    <td>
+                        Multiplicative Operators
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::divide</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;/&nbsp;y</code>
+                    </td>
+                    <td>
+                        Multiplicative Operators
+                    </td>
+                    <td> Number </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <code>Number::remainder</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;%&nbsp;y</code>
+                    </td>
+                    <td>
+                        Multiplicative Operators
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::add</code>
+                    </td>
+                    <td>
+                        <code>x ++</code>
+                        <br>
+                        <code>++ x</code>
+                        <br>
+                        <code>x&nbsp;+&nbsp;y</code>
+                    </td>
+                    <td>
+                        Postfix Increment Operator, Prefix Increment Operator, and The Addition Operator (<code>+</code>)
+                    </td>
+                    <td> Number </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <code>Number::subtract</code>
+                    </td>
+                    <td>
+                        <code>x --</code>
+                        <br>
+                        <code>-- x</code>
+                        <br>
+                        <code>x&nbsp;-&nbsp;y</code>
+                    </td>
+                    <td>
+                        Postfix Decrement Operator, Prefix Decrement Operator, and The Subtraction Operator (<code>-</code>)
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::leftShift</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;&lt;&lt;&nbsp;y</code>
+                    </td>
+                    <td>
+                        The Left Shift Operator(<code>&lt;&lt;</code>)
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::signedRightShift</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;&gt;&gt;&nbsp;y</code>
+                    </td>
+                    <td>
+                        The Signed Right Shift Operator(<code>&gt;&gt;</code>)
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::unsignedRightShift</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;&gt;&gt;&gt;&nbsp;y</code>
+                    </td>
+                    <td>
+                        The Unsigned Right Shift Operator (<code>&gt;&gt;&gt;</code>)
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::unsignedRightShift</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;&gt;&gt;&gt;&nbsp;y</code>
+                    </td>
+                    <td>
+                        The Unsigned Right Shift Operator (<code>&gt;&gt;&gt;</code>)
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::lessThan</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;&lt;&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;&gt;&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;&lt;=&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;&gt;=&nbsp;y</code>
+                    </td>
+                    <td>
+                        Relational Operators, via <code>IsLessThan (x, y, LeftFirst)</code>
+                    </td>
+                    <td> Boolean or <code>undefined</code> (for unordered inputs) </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::equal</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;==&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;!=&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;===&nbsp;y</code>
+                        <br>
+                        <code>x&nbsp;!==&nbsp;y</code>
+                    </td>
+                    <td>
+                        Equality Operators, via <code>IsStrictlyEqual (x, y)</code>
+                    </td>
+                    <td> Boolean </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::sameValue</code>
+                    </td>
+                    <td>
+                        <code>Object.is(x, y)</code>
+                    </td>
+                    <td> 
+                        Object internal methods, via <code>SameValue (x, y)</code>, to test exact value equality 
+                    </td>
+                    <td> Boolean </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::sameValueZero</code>
+                    </td>
+                    <td>
+                        <code>[x].includes(y)</code>
+                    </td>
+                    <td> 
+                        Array, Map, and Set methods, via <code>SameValueZero (x, y)</code>, to test value equality, ignoring the difference between +0 and -0
+                    </td>
+                    <td> Boolean </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::bitwiseAND</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;&amp;&nbsp;y</code>
+                    </td>
+                    <td>
+                        Binary Bitwise Operators
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::bitwiseXOR</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;^&nbsp;y</code>
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::bitwiseOR</code>
+                    </td>
+                    <td>
+                        <code>x&nbsp;|&nbsp;y</code>
+                    </td>
+                    <td> Number </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>Number::toString</code>
+                    </td>
+                    <td>
+                        <code>String(x)</code>
+                    </td>
+                    <td> Many expressions and built-in functions, via <code>ToString (argument)</code> 
+                    </td>
+                    <td> String </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5 class="post-subtitle">Number::unaryMinus(x)</h5>
+
+        <p>The abstract operation <code>Number::unaryMinus</code> takes argument <code>x</code> (a Number) and returns a <code>Number</code>. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> is <code>NaN</code>, return <code>NaN</code>.</li>
+            <li>Return the result of negating <code>x</code>; that is, compute a <code>Number</code> with the same magnitude but opposite sign.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.unaryMinus = function(x) {
+            if (Number.isNaN(x)) {
+                // if x is NaN, return NaN
+                return Number.NaN;
+            } else {
+                // return the result of negating
+                return Number(-x);
+            }
+        };
+        Number.unaryMinus(Number(100));</code></pre>
+
+        <h5 class="post-subtitle">Number::bitwiseNOT(x)</h5>
+
+        <p>The abstract operation <code>Number::bitwiseNOT</code> takes argument <code>x</code> (a Number) and returns a Number. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Let <code>oldValue</code> be <code>!ToInt32(x)</code></li>
+            <li>Return the result of applying bitwise complement to <code>oldValue</code>. The mathematical value of the result is exactly representable as a 32-bit two's complement bit string.</li>
+        </ol>
+
+        <p>The <code>!ToInt32(x)</code> just means that we are certain that this call to <code>ToInt32</code> will never return an exception</p>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.bitwiseNOT = function(x) {
+    // return the result of applying bitwise complement to x
+    return Number(~x);
+};
+Number.bitwiseNOT(Number(100));</code></pre>
+
+        <h5 class="post-subtitle">Number::exponentiate (base, exponent)</h5>
+
+        <p>The abstract operation <code>Number::exponentiate</code> takes arguments <code>base</code> (a Number) and <code>exponent</code> (a Number) and returns a Number. It returns an implementation-approximated value representing the result of raising base to the exponent power. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>exponent</code> is <code>NaN</code>, return <code>NaN</code>.</li>
+            <li>If <code>exponent</code> is either +0 or -0, return <code>1</code>.</li>
+            <li>If <code>base</code> is <code>NaN</code>, return <code>NaN</code>.</li>
+            <li>If <code>base</code> is +∞, then<br>
+                <ol>
+                    <li>If <code>exponent</code> > +0, return +∞. Otherwise, return +0</li>
+                </ol>
+            </li>
+            <li>If <code>base</code> is -∞, then<br>
+                <ol>
+                    <li>If <code>exponent</code> > +0, then<br>
+                        <ol>
+                            <li>If <code>exponent</code> is an odd integral Number, return -∞. Otherwise, return +∞.</li>
+                        </ol>
+                    </li>
+                    <li>Else<br>
+                        <ol>
+                            <li>If <code>exponent</code> is an odd integral Number, return -0. Otherwise, return +0.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>If <code>base</code> is +0, then<br>
+                <ol>
+                    <li>If <code>exponent</code> > +0, return +0. Otherwise, return +∞.</li>
+                </ol>
+            </li>
+            <li>If <code>base</code> is -0, then<br>
+                <ol>
+                    <li>If <code>exponent</code> > +0, return +0. Otherwise, return +∞.<br>
+                        <ol>
+                            <li>If <code>exponent</code> is an odd integral Number, return -0. Otherwise, return +0.</li>
+                        </ol>
+                    </li>
+                    <li>Else,<br>
+                        <ol>
+                            <li>If <code>exponent</code> is an odd integral Number, return -∞. Otherwise, return +∞.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Assert: <code>base</code> is finite and is neither +0 nor -0.
+            </li>
+            <li>If <code>exponent</code> is +∞, then<br>
+                <ol>
+                    <li>If <code>abs(base)</code> > 1, return +∞.</li>
+                    <li>If <code>abs(base)</code> = 1, return <code>NaN</code>.</li>
+                    <li>If <code>abs(base)</code> < 1, return +0.</li>
+                </ol>
+            </li>
+            <li>If <code>exponent</code> is -∞, then<br>
+                <ol>
+                    <li>If <code>abs(base)</code> > 1, return +0.</li>
+                    <li>If <code>abs(base)</code> = 1, return <code>NaN</code>.</li>
+                    <li>If <code>abs(base)</code> < 1, return +∞.</li>
+                </ol>
+            </li>
+            <li>Assert: <code>exponent</code> is finite and is neither +0 nor -0.</li>
+            <li>If <code>base</code> < -0 and <code>exponent</code> is not an integral Number, return <code>NaN</code>.</li>
+            <li>Return an implementation-approximated Number value representing the result of raising <code>base</code> to the <code>exponent</code> power.</li>
+        </ol>
+
+        <pre><code class="language-bash hljs">Number.exponentiate = function(base, exponent) {
+    if(Number.isNaN(exponent)) {
+        // if exponent is NaN, return NaN
+        return Number.NaN;
+    }
+    if(Number(exponent) === 0) {
+        // if exponent is either +0 or -0, return 1
+        return 1;
+    }
+    if(Number.isNaN(base)) {
+        // if base is NaN, return NaN
+        return Number.NaN;
+    }
+    if(Number(base) === +Infinity) {
+        // if base is +∞
+        if(Number(exponent) > 0) {
+            // if exponent > +0, return +∞
+            return +Infinity;
+        } else {
+            // otherwise, return +0
+            return Number(0);
+        }
+    }
+    if(Number(base) === -Infinity) {
+        // if base is -∞, then
+        if(Number(exponent) > 0) {
+            // if exponent > +0, then
+            if(Number(exponent) % 2 === 1) {
+                // if exponent is an odd integral Number, return -∞
+                return -Infinity;
+            }
+            else {
+                // otherwise, return +∞
+                return +Infinity;
+            }
+        } else {
+            // else
+            if(Number(exponent) % 2 === 1) {
+                // if exponent is an odd integral Number, return -0
+                return Number(-0);
+            }
+            else {
+                // otherwise, return +0.
+                return Number(0);
+            }
+        }
+    }
+    if(Number(base) === Infinity) {
+        // f base is +∞, then
+        if(Number(exponent) > 0) {
+            // If exponent > +0, return +∞
+            return Infinity;
+        }
+        else {
+            // Otherwise, return +0
+            return Number(0);
+        }
+    }
+    if(Number(base) === -Infinity) {
+        // if base is -∞, then
+        if(exponent > 0) {
+            // if exponent > +0 then
+            if(exponent % 2 === 1) {
+                // if exponent is an odd integral Number, return -∞
+                return -Infinity;
+            }
+            else {
+                // otherwise, return +∞
+                return Infinity;
+            }
+        }
+        else {
+            // else
+            if(exponent % 2 === 1) {
+                // if exponent is an odd integral Number, return -0
+                return Number(-0);
+            }
+            else {
+                // otherwise, return +0
+                return Number(0);
+            }
+        }
+    }
+    if(1/Number(base) === Infinity) {
+        // if base is +0, then
+        if(Number(exponent) > 0) {
+            // if exponent > +0, return +0
+            return Number(0);
+        }
+        else {
+            // otherwise, return +∞
+            return Infinity;
+        }
+    }
+    if(1/Number(base) === -Infinity) {
+        // if base is -0, then
+        if(Number(exponent) > 0) {
+            // if exponent > +0 then
+            if(Number(exponent) % 2 === 1) {
+                // if exponent is an odd integral Number, return -0
+                return Number(-0);
+            }
+            else {
+                // Otherwise, return +0
+                return Number(0);
+            }
+        }
+        else {
+            // else
+            if(Number(exponent) % 2 === 1) {
+                // if exponent is an odd integral Number, return -∞
+                return -Infinity;
+            }
+            else {
+                // otherwise, return +∞
+                return Infinity;
+            }
+        }
+    }
+    // base is finite and is neither +0 nor -0
+    if(exponent === Infinity) {
+        // if exponent is +∞, then
+        if(Math.abs(base) > 1) {
+            // if abs(base) > 1, return +∞
+            return Infinity;
+        }
+        if(Math.abs(base) === 1) {
+            // if abs(base) = 1, return NaN
+            return Number.NaN;
+        }
+        if(Math.abs(base) <  1) {
+            // If abs(base) < 1, return +0
+            return Number(0);
+        }
+    }
+
+    if(exponent === -Infinity) {
+        // if exponent is -∞, then
+        if(Math.abs(base) > 1) {
+            // if abs(base) > 1, return +0
+            return Number(0);
+        }
+        if(Math.abs(base) === 1) {
+            // if abs(base) = 1, return NaN.
+            return Number.NaN;
+        }
+        if(Math.abs(base) <  1) {
+            // if abs(base) < 1, return +∞
+            return Infinity;
+        }
+    }
+
+    // exponent is finite and is neither +0 nor -0
+    if(base < 0 && Math.isNaN(exponent)) {
+        // if base < -0 and exponent is not an integral Number, return NaN.
+        return Number.NaN;
+    }
+    // return an implementation-approximated Number value representing the result of raising base to the exponent power.
+    return Number(base) ** Number(exponent);
+};
+Number.exponentiate(Number(2), Number(1.2));</code></pre>
+
+        <h5 class="post-subtitle">Number::multiply (x, y)</h5>
+
+        <p>The abstract operation <code>Number::multiply</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns a Number. It performs multiplication according to the rules of IEEE 754-2019 binary double-precision arithmetic, producing the product of <code>x</code> and <code>y</code>. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> is <code>NaN</code> or <code>y</code> is <code>NaN</code>, return <code>NaN</code>.</li>
+            <li>If <code>x</code> is either +∞ or -∞, then<br>
+                <ol>
+                    <li>If <code>y</code> is either +0 or -0, return <code>NaN</code>.</li>
+                    <li>If <code>y</code> > +0, return <code>x</code>.</li>
+                    <li>Return <code>-x</code>.</li>
+                </ol>
+            </li>
+            <li>If <code>y</code> is either +∞ or -∞, then<br>
+                <ol>
+                    <li>If <code>x</code> is either +0 or -0, return <code>NaN</code>.</li>
+                    <li>If <code>x</code> > +0, return <code>y</code>.</li>
+                    <li>Return <code>-y</code>.</li>
+                </ol>
+            </li>
+            <li>If x is -0, then<br>
+                <ol>
+                    <li>If <code>y</code> is -0 or <code>y</code> < -0, return +0.</li>
+                    <li>Else, return -0.</li>
+                </ol>
+            </li>
+            <li>If y is -0, then<br>
+                <ol>
+                    <li>If <code>x</code> < -0, return +0.</li>
+                    <li>Else, return -0.</li>
+                </ol>
+            </li>
+            <li>Return <code>x</code> × <code>y</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.multiply = function(x, y) {
+    if(Number.isNaN(x) || Number.isNaN(y)) {
+        // if x is NaN or y is NaN, return NaN
+        return Number.NaN;
+    }
+    if(Number(x) === +Infinity || Number(x) === -Infinity) {
+        // if x is either +∞ or -∞, then
+        if(1/Number(y) === +Infinity || 1/Number(y) === -Infinity) {
+            // If y is either +0 or -0, return NaN
+            return Number.NaN;
+        }
+
+        if(Number(y) > 0) {
+            // If y > +0, return x
+            return Number(x);
+        }
+        // Return -x
+        return Number(-x);
+    }
+    if(Number(y) === +Infinity || Number(y) === -Infinity) {
+        // if y is either +∞ or -∞, then
+        if(Number(x) === 0) {
+            // if x is either +0 or -0, return NaN.
+            return Number.NaN;
+        }
+        if(Number(x) > 0) {
+            // if x > +0, return y.
+            return Number(y);
+        }
+        // Return -y
+        return Number(-y);
+    }
+    if(1/Number(x) === -Infinity) {
+        // If x is -0, then
+        if(1/Number(y) === -Infinity || y < 0) {
+            // If y is -0 or y < -0, return +0
+            return Number(0);
+        } else {
+            // Else, return -0
+            return Number(-0);
+        }
+    }
+    if(1/Number(-y) === -Infinity) {
+        // If y is -0, then
+        if(x < 0) {
+            // If x < -0, return +0
+            return Number(0);
+        }
+        else {
+            // Else, return -0
+            return Number(-0);
+        }
+    }
+    // Return x × y
+    return Number(x) * Number(y);
+};
+Number.multiply(Number(1.5), Number(23.76));</code></pre>
+
+        <h5 class="post-subtitle">Number::divide (x, y)</h5>
+
+        <p>The abstract operation <code>Number::divide</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns a Number. It performs division according to the rules of IEEE 754-2019 binary double-precision arithmetic, producing the quotient of <code>x</code> and <code>y</code> where <code>x</code> is the dividend and <code>y</code> is the divisor. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> is <code>NaN</code> or <code>y</code> is <code>NaN</code>, return <code>NaN</code>.</li>
+            <li>If <code>x</code> is either +∞ or -∞, then<br>
+                <ol>
+                    <li>If <code>y</code> is either +∞ or -∞, return <code>NaN</code>.</li>
+                    <li>If <code>y</code> is +0 or <code>y</code> > +0, return <code>x</code>.</li>
+                    <li>Return <code>-x</code>.</li>
+                </ol>
+            </li>
+            <li>If <code>y</code> is +∞, then<br>
+                <ol>
+                    <li>If <code>x</code> is +0 or <code>x</code> > +0, return +0. Otherwise, return -0.</li>
+                </ol>
+            </li>
+            <li>If <code>y</code> is -∞, then<br>
+                <ol>
+                    <i>If <code>x</code> is +0 or <code>x</code> > +0, return -0. Otherwise, return +0.</i>
+                </ol>
+            </li>
+            <li>If <code>x</code> is either +0 or -0, then<br>
+                <ol>
+                    <li>If <code>y</code> is either +0 or -0, return <code>NaN</code>.</li>
+                    <li>If <code>y</code> > +0, return <code>x</code>.</li>
+                    <li>Return <code>-x</code>.</li>
+                </ol>
+            </li>
+            <li>If <code>y</code> is +0, then<br>
+                <ol>
+                    <li>If <code>x</code> > +0, return +∞. Otherwise, return -∞.</li>
+                </ol>
+            </li>
+            <li>If <code>y</code> is -0, then<br>
+                <li>If <code>x</code> > +0, return -∞. Otherwise, return +∞.</li>
+            </li>
+            <li>
+                Return x / y.
+            </li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.divide = function(x, y) {
+    if(Number.isNaN(x) || Number.isNaN(y)) {
+        // if x is NaN or y is NaN, return NaN
+        return Number.NaN;
+    }
+    if(Number(x) === +Infinity || Number(x) === -Infinity) {
+        // if x is either +∞ or -∞, then
+        if(Number(y) === +Infinity || Number(y) === -Infinity) {
+            // If y is either +∞ or -∞, return NaN
+            return Number.NaN;
+        }
+        if(1/Number(y) === Infinity ||  Number(y) > 0) {
+            // If y is +0 or y > +0, return x
+            return Number(x);
+        }
+        // Return -x
+        return Number(-x);
+    }
+    if(Number(y) === +Infinity) {
+        // If y is +∞, then
+        if(1/Number(x) === Infinity || Number(x) > 0) {
+            // If x is +0 or x > +0, return +0
+            return Number(0);
+        }
+        else {
+            // Otherwise, return -0
+            return Number(-0);
+        }
+    }
+    if(Number(y) === -Infinity) {
+        // If y is -∞, then
+        if(1/Number(x) === Infinity || x > 0) {
+            // If x is +0 or x > +0, return -0
+            return Number(-0);
+        } else {
+            // Otherwise, return +0
+            return Number(+0);
+        }
+    }
+    if(Number(x) === 0) {
+        // If x is either +0 or -0, then
+        if(Number(y) === 0) {
+            // If y is either +0 or -0, return NaN.
+            return Number.NaN;
+        }
+        if(Number(y) > 0) {
+            // If y > +0, return x
+            return Number(x);
+        }
+        // Return -x
+        return Number(-x);
+    }
+    if(1/Number(y) === Infinity) {
+        // If y is +0, then
+        if(Number(x) > 0) {
+            // If x > +0, return +∞
+            return Infinity;
+        }
+        else {
+            // Otherwise, return -∞
+            return -Infinity;
+        }
+    }
+    if(1/Number(y) === -Infinity) {
+        // If y is -0, then
+        if(x > 0) {
+            // If x > +0, return -∞
+            return -Infinity;
+        }
+        else {
+            // Otherwise, return +∞
+            return Infinity;
+        }
+    }
+
+    // Return x / y
+    return Number(x) / Number(y);
+};
+Number.divide(Number(1.5), Number(23.76));</code></pre>
+
+        <h5 class="post-subtitle">Number::remainder (n, d)</h5>
+
+        <p>The abstract operation <code>Number::remainder</code> takes arguments <code>n</code> (a Number) and <code>d</code> (a Number) and returns a Number. It yields the remainder from an implied division of its operands where <code>n</code> is the dividend and <code>d</code> is the divisor. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>n</code> is <code>NaN</code> or <code>d</code> is <code>NaN</code>, return <code>NaN</code>.</li>
+            <li>If <code>n</code> is either +∞ or -∞, return <code>NaN</code>.</li>
+            <li>If <code>d</code> is either +∞ or -∞, return <code>n</code>.</li>
+            <li>If <code>d</code> is either +0 or -0, return <code>NaN</code>.</li>
+            <li>If <code>n</code> is either +0 or -0, return <code>n</code>.</li>
+            <li>Assert: <code>n</code> and <code>d</code> are finite and non-zero.</li>
+            <li>Let <code>quotient</code> be <code>n / d</code>.</li>
+            <li>Let <code>q</code> be <code>truncate(quotient)</code>.</li>
+            <li>Let <code>r</code> be <code>n - (d × q)</code>.</li>
+            <li>If <code>r</code> = 0 and <code>n</code> < -0, return -0.</li>
+            <li>Return <code>r</code>.</li>
+        </ol>
+
+        <p>The mathematical function truncate(x) removes the fractional part of x by rounding towards zero, producing -floor(-x) if x < 0 and otherwise producing floor(x).</p>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.remainder = function(n, d) {
+    if(Number.isNaN(n) || Number.isNaN(d)) {
+        // If n is NaN or d is NaN, return NaN
+        return Number.NaN;
+    }
+    if(Number(n) === +Infinity || Number(n) === -Infinity) {
+        // If n is either +∞𝔽 or -∞𝔽, return NaN
+        return Number.NaN;
+    }
+    if(Number(d) === +Infinity || Number(d) === -Infinity) {
+        // If d is either +∞ or -∞, return n
+        return Number(d);
+    }
+    if(Number(d) === 0) {
+        // If d is either +0 or -0, return NaN
+        return Number.NaN;
+    }
+    if(Number(n) === 0) {
+        // If n is either +0 or -0, return n
+        return Number(n);
+    }
+
+    // let quotient be n / d
+    let quotient = n / d;
+    
+    // let q be truncate(quotient)
+    let q = Math.floor(quotient);
+
+    // let r be n - (d × q)
+    let r = n - (d * q);
+
+    if(r === 0 && n < 0) {
+        // if r = 0 and n < -0, return -0
+        return Number(-0);
+    }
+    
+    // Return r
+    return Number(r);
+};
+Number.remainder(Number(1.5), Number(23.76));</code></pre>
+
+        <h5 class="post-subtitle">Number::add (x, y)</h5>
+
+        <p>The abstract operation <code>Number::add</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns a Number. It performs addition according to the rules of IEEE 754-2019 binary double-precision arithmetic, producing the sum of its arguments. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> is <code>NaN</code> or <code>y</code> is <code>NaN</code>, return <code>NaN</code>.</li>
+            <li>If <code>x</code> is +∞ and <code>y</code> is -∞, return <code>NaN</code>.</li>
+            <li>If <code>x</code> is -∞ and <code>y</code> is +∞, return <code>NaN</code>.</li>
+            <li>If <code>x</code> is either +∞ or -∞, return <code>x</code>.</li>
+            <li>If <code>y</code> is either +∞ or -∞, return <code>y</code>.</li>
+            <li>Assert: <code>x</code> and <code>y</code> are both finite.</li>
+            <li>If <code>x</code> is -0 and <code>y</code> is -0, return -0.</li>
+            <li>Return <code>x</code> + <code>y</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.add = function(x, y) {
+    if(Number.isNaN(x) || Number.isNaN(y)) {
+        // If x is NaN or y is NaN, return NaN
+        return Number.NaN;
+    }
+    if(Number(x) === +Infinity && Number(y) === -Infinity) {
+        // If x is +∞ and y is -∞, return NaN
+        return Number.NaN;
+    }
+    if(Number(x) === -Infinity && Number(y) === Infinity) {
+        // If x is -∞ and y is +∞, return NaN.
+        return Number.NaN;
+    }
+    if(Number(x) === Infinity || Number(x) === -Infinity) {
+        // If x is either +∞ or -∞, return x
+        return Number(x);
+    }
+    if(Number(y) === Infinity || Number(y) === -Infinity) {
+        // If y is either +∞ or -∞, return y
+        return Number(y);
+    }
+    // x and y are both finite
+    if(1/Number(x) === -Infinity && 1/Number(y) === -Infinity) {
+        // If x is -0 and y is -0, return -0
+        return Number(-0);
+    }
+    
+    // Return x + y
+    return Number(x) + Number(y);
+};
+Number.add(Number(73.5), Number(23.76));</code></pre>
+
+        <h5 class="post-subtitle">Number::subtract (x, y)</h5>
+
+        <p>The abstract operation Number::subtract takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns a Number. It performs subtraction, producing the difference of its operands; <code>x</code> is the minuend and <code>y</code> is the subtrahend. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return <code>Number::add(x, Number::unaryMinus(y))</code></li>
+        </ol>
+
+        <h5 class="post-subtitle">Number::leftShift (x, y)</h5>
+
+        <p>The abstract operation <code>Number::leftShift</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns an integral Number. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Let <code>lnum</code> be <code>!ToInt32(x)</code>.</li>
+            <li>Let <code>rnum</code> be <code>!ToUint32(y)</code>.</li>
+            <li>Let <code>shiftCount</code> be <code>rnum modulo 32</code>.</li>
+            <li>Return the result of left shifting <code>lnum</code> by <code>shiftCount</code> bits. The mathematical value of the result is exactly representable as a 32-bit two's complement bit string.</li>
+        </ol>
+
+        <p>The <code>!ToInt32(x)</code> just means that we are certain that this call to <code>ToInt32</code> will never return an exception.</p>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.leftShift = function (x, y) {
+    // lnum is the value of x converted to 32 bit integer
+    // rnum is the value of y converted to 32 bit unsigned integer
+    let lnum = x;
+    let rnum = y;
+
+    // Let shiftCount be rnum modulo 32
+    let shiftCount = rnum % 32;
+
+    // Return the result of left shifting lnum by shiftCount bits
+    return lnum << shiftCount;
+};
+Number.leftShift(20, 5);</code></pre>
+
+        <h5 class="post-subtitle">Number::signedRightShift (x, y)</h5>
+
+        <p>The abstract operation <code>Number::signedRightShift</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns an integral Number. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Let <code>lnum</code> be <code>!ToInt32(x)</code>.</li>
+            <li>Let <code>rnum</code> be <code>!ToUint32(y)</code>.</li>
+            <li>Let <code>shiftCount</code> be <code>rnum modulo 32</code>.</li>
+            <li>Return the result of performing a sign-extending right shift of <code>lnum</code> by <code>shiftCount</code> bits. The most significant bit is propagated. The mathematical value of the result is exactly representable as a 32-bit two's complement bit string.</li>
+        </ol>
+
+        <p>When the most significant bit (MSB) is propagated, it means that the value of the MSB is copied and shifted into the vacant positions during a right shift operation. As a result, the sign of the original number is preserved, and the MSB, which indicates the sign of the number, is replicated and moved to the right. This process is also referred to as an arithmetic shift.</p>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.signedRightShift = function (x, y) {
+    // lnum is the value of x converted to 32 bit integer
+    // rnum is the value of y converted to 32 bit unsigned integer
+    let lnum = x;
+    let rnum = y;
+
+    // Let shiftCount be rnum modulo 32
+    let shiftCount = rnum % 32;
+
+    // Return the result of performing a sign-extending right shift of lnum by shiftCount bits
+    return lnum >> shiftCount;
+};
+Number.signedRightShift(320, 5);</code></pre>
+
+        <h5 class="post-subtitle">Number::unsignedRightShift (x, y)</h5>
+
+        <p>The abstract operation <code>Number::unsignedRightShift</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns an integral Number. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Let <code>lnum</code> be <code>!ToUint32(x)</code>.</li>
+            <li>Let <code>rnum</code> be <code>!ToUint32(y)</code>.</li>
+            <li>Let <code>shiftCount</code> be <code>rnum modulo 32</code>.</li>
+            <li>Return the result of performing a zero-filling right shift of <code>lnum</code> by <code>shiftCount</code> bits. Vacated bits are filled with zero. The mathematical value of the result is exactly representable as a 32-bit unsigned bit string.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.unsignedRightShift = function (x, y) {
+    // lnum is the value of x converted to 32 bit unsigned integer
+    // rnum is the value of y converted to 32 bit unsigned integer
+    let lnum = x;
+    let rnum = y;
+
+    // Let shiftCount be rnum modulo 32
+    let shiftCount = rnum % 32;
+
+    // Return the result of performing a sign-extending right shift of lnum by shiftCount bits
+    return lnum >>> shiftCount;
+};
+Number.unsignedRightShift(320, 5);</code></pre>
+
+        <h5 class="post-subtitle">Number::lessThan (x, y)</h5>
+
+        <p>The abstract operation <code>Number::lessThan</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns a Boolean or undefined. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> is <code>NaN</code>, return <code>undefined</code>.</li>
+            <li>If <code>y</code> is <code>NaN</code>, return <code>undefined</code>.</li>
+            <li>If <code>x</code> is <code>y</code>, return <code>false</code>.</li>
+            <li>If <code>x</code> is +0 and <code>y</code> is -0, return <code>false</code>.</li>
+            <li>If <code>x</code> is -0 and <code>y</code> is +0, return <code>false</code>.</li>
+            <li>If <code>x</code> is +∞, return <code>false</code>.</li>
+            <li>If <code>y</code> is +∞, return <code>true</code>.</li>
+            <li>If <code>y</code> is -∞, return <code>false</code>.</li>
+            <li>If <code>x</code> is -∞, return <code>true</code>.</li>
+            <li>Assert: <code>x</code> and <code>y</code> are finite and non-zero.</li>
+            <li>If <code>x</code> < <code>y</code>, return <code>true</code>. Otherwise, return <code>false</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.lessThan = function (x, y) {
+    if(Number.isNaN(x)) {
+        // If x is NaN, return undefined
+        return undefined;
+    }
+    if(Number.isNaN(y)) {
+        // If y is NaN, return undefined
+        return undefined;
+    }
+    if(x === y) {
+        // If x is y, return false
+        return false;
+    }
+    if(1/Number(x) === Infinity && 1/Number(y) === -Infinity) {
+        // If x is +0 and y is -0, return false
+        return false;
+    }
+    if(1/Number(x) === -Infinity && 1/Number(y) === Infinity) {
+        // If x is -0 and y is +0, return false
+        return false;
+    }
+    if(x === Infinity) {
+        // If x is +∞, return false
+        return false;
+    }
+    if(y === Infinity) {
+        // If y is +∞, return true
+        return true;
+    }
+    if(y === -Infinity) {
+        // If y is -∞, return false
+        return false;
+    }
+    if(x === -Infinity) {
+        // If x is -∞, return true.
+        return true;
+    }
+    // x and y are finite and non-zero
+    
+    // If x < y, return true
+    if(Number(x) < Number(y)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+Number.lessThan(30, 50);</code></pre>
+
+        <h5 class="post-subtitle">Number::equal(x, y)</h5>
+
+        <p>The abstract operation <code>Number::equal</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns a Boolean. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> is <code>NaN</code>, return <code>false</code>.</li>
+            <li>If <code>y</code> is <code>NaN</code>, return <code>false</code>.</li>
+            <li>If <code>x</code> is <code>y</code>, return <code>true</code>.</li>
+            <li>If <code>x</code> is +0 and <code>y</code> is -0, return <code>true</code>.</li>
+            <li>If <code>x</code> is -0 and <code>y</code> is +0, return <code>true</code>.</li>
+            <li>Return <code>false</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.equal = function (x, y) {
+    if(Number.isNaN(x)) {
+        // If x is NaN, return false
+        return false;
+    }
+    if(Number.isNaN(y)) {
+        // If y is NaN, return false.
+        return false;
+    }
+    if(x === y) {
+        // If x is y, return true
+        return true;
+    }
+    if(1/Number(x) === Infinity && 1/Number(y) === -Infinity) {
+        // If x is +0 and y is -0, return true.
+        return true;
+    }
+    if(1/Number(x) === -Infinity && 1/Number(y) === Infinity) {
+        // If x is -0 and y is +0, return true
+        return true;
+    }
+    
+    // Return false
+    return false;
+};
+Number.equal(30, 30);</code></pre>
+
+        <h5 class="post-subtitle">Number::sameValue(x, y)</h5>
+
+        <p>The abstract operation <code>Number::sameValue</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns a Boolean. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> is <code>NaN</code> and <code>y</code> is <code>NaN</code>, return <code>true</code>.</li>
+            <li>If <code>x</code> is +0 and <code>y</code> is -0, return <code>false</code>.</li>
+            <li>If <code>x</code> is -0 and <code>y</code> is +0, return <code>false</code>.</li>
+            <li>If <code>x</code> is <code>y</code>, return <code>true</code>.</li>
+            <li>Return <code>false</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.sameValue = function (x, y) {
+    if(Number.isNaN(x) && Number.isNaN(y)) {
+        // If x is NaN and y is NaN, return true
+        return true;
+    }
+    if(1/Number(x) === Infinity && 1/Number(y) ==== -Infinity) {
+        // If x is +0 and y is -0, return false
+        return false;
+    }
+    if(1/Number(x) === -Infinity && 1/Number(y) ==== Infinity) {
+        // If x is -0 and y is +0, return false
+        return false;
+    }
+    if(Number(x) === Number(y)) {
+        // If x is y, return true
+        return true;
+    }
+    
+    // Return false
+    return false;
+};
+Number.sameValue(0, -0);</code></pre>
+
+        <h5 class="post-subtitle">Number::sameValueZero(x, y)</h5>
+
+        <p>The abstract operation <code>Number::sameValueZero</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns a Boolean. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> is <code>NaN</code> and <code>y</code> is <code>NaN</code>, return <code>true</code>.</li>
+            <li>If <code>x</code> is +0 and <code>y</code> is -0, return <code>true</code>.</li>
+            <li>If <code>x</code> is -0 and <code>y</code> is +0, return <code>true</code>.</li>
+            <li>If <code>x</code> is <code>y</code>, return <code>true</code>.</li>
+            <li>Return <code>false</code>.</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.sameValueZero = function (x, y) {
+    if(Number.isNaN(x) && Number.isNaN(y)) {
+        // If x is NaN and y is NaN, return true.
+        return true;
+    }
+    if(1/Number(x) === Infinity && 1/Number(y) ==== -Infinity) {
+        // If x is +0 and y is -0, return true.
+        return true;
+    }
+    if(1/Number(x) === -Infinity && 1/Number(y) ==== Infinity) {
+        // If x is -0 and y is +0, return true.
+        return true;
+    }
+    if(Number(x) === Number(y)) {
+        // If x is y, return true
+        return true;
+    }
+    
+    // Return false
+    return false;
+};
+Number.sameValueZero(0, -0);</code></pre>
+
+        <h5 class="post-subtitle">NumberBitwiseOp (op, x, y)</h5>
+
+        <p>The abstract operation <code>NumberBitwiseOp</code> takes arguments <code>op</code> (<code>&</code>, <code>^</code>, or <code>|</code>), <code>x</code> (a Number), and <code>y</code> (a Number) and returns an integral Number. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Let <code>lnum</code> be <code>!ToInt32(x)</code>.</li>
+            <li>Let <code>rnum</code> be <code>!ToInt32(y)</code>.</li>
+            <li>Let <code>lbits</code> be the 32-bit two's complement bit string representing <code>lnum</code>.</li>
+            <li>Let <code>rbits</code> be the 32-bit two's complement bit string representing <code>rnum</code>.</li>
+            <li>If <code>op</code> is <code>&</code>, let <code>result</code> be the result of applying the bitwise AND operation to <code>lbits</code> and <code>rbits</code>.</li>
+            <li>Else if <code>op</code> is <code>^</code>, let <code>result</code> be the result of applying the bitwise exclusive OR (XOR) operation to <code>lbits</code> and <code>rbits</code>.</li>
+            <li>Else, <code>op</code> is <code>|</code>. Let <code>result</code> be the result of applying the bitwise inclusive OR operation to <code>lbits</code> and <code>rbits</code>.</li>
+            <li>Return the Number value for the integer represented by the 32-bit two's complement bit string <code>result</code>.</li>
+        </ol>
+
+        <p>The <code>!ToInt32(x)</code> just means that we are certain that this call to <code>ToInt32</code> will never return an exception</p>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">function NumberBitwiseOp(op, x, y) {
+    // Let lnum be ! ToInt32(x)
+    let lnum = Number(x);
+
+    // Let rnum be ! ToInt32(y)
+    let rnum = Number(y);
+
+    // Let lbits be the 32-bit two's complement bit string representing lnum
+    let lbits = lnum;
+
+    // Let rbits be the 32-bit two's complement bit string representing rnum
+    let rbits = rnum;
+    
+    let result;
+
+    if(op == '&') {
+        // If op is &, let result be the result of applying the bitwise AND operation to lbits and rbits
+        result = lbits & rbits;
+    }
+    else if(op == '&') {
+        // Else if op is ^, let result be the result of applying the bitwise exclusive OR (XOR) operation to lbits
+        result = lbits ^ rbits;
+    }
+    else {
+        // Else, op is |. Let result be the result of applying the bitwise inclusive OR operation to lbits and rbits
+        result = lbits | rbits;
+    }
+
+    // Return the Number value for the integer represented by the 32-bit two's complement bit string result
+    return result;
+};</code></pre>
+
+        <h5 class="post-subtitle">Number::bitwiseAND (x, y)</h5>
+
+        <p>The abstract operation <code>Number::bitwiseAND</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns an integral Number. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return NumberBitwiseOp(&, x, y)</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">function NumberBitwiseOp(op, x, y) {
+    // Let lnum be ! ToInt32(x)
+    let lnum = Number(x);
+
+    // Let rnum be ! ToInt32(y)
+    let rnum = Number(y);
+
+    // Let lbits be the 32-bit two's complement bit string representing lnum
+    let lbits = lnum;
+
+    // Let rbits be the 32-bit two's complement bit string representing rnum
+    let rbits = rnum;
+    
+    let result;
+
+    if(op == '&') {
+        // If op is &, let result be the result of applying the bitwise AND operation to lbits and rbits
+        result = lbits & rbits;
+    }
+    else if(op == '&') {
+        // Else if op is ^, let result be the result of applying the bitwise exclusive OR (XOR) operation to lbits
+        result = lbits ^ rbits;
+    }
+    else {
+        // Else, op is |. Let result be the result of applying the bitwise inclusive OR operation to lbits and rbits
+        result = lbits | rbits;
+    }
+
+    // Return the Number value for the integer represented by the 32-bit two's complement bit string result
+    return result;
+};
+Number.bitwiseAND = function(x, y) {
+    return NumberBitwiseOp('&', x, y);
+}
+Number.bitwiseAND(20, 30);</code></pre>
+
+        <h5 class="post-subtitle">Number::bitwiseXOR (x, y)</h5>
+
+        <p>The abstract operation <code>Number::bitwiseXOR</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns an integral Number. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return NumberBitwiseOp(^, x, y)</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">function NumberBitwiseOp(op, x, y) {
+// Let lnum be ! ToInt32(x)
+let lnum = Number(x);
+
+// Let rnum be ! ToInt32(y)
+let rnum = Number(y);
+
+// Let lbits be the 32-bit two's complement bit string representing lnum
+let lbits = lnum;
+
+// Let rbits be the 32-bit two's complement bit string representing rnum
+let rbits = rnum;
+
+let result;
+
+if(op == '&') {
+// If op is &, let result be the result of applying the bitwise AND operation to lbits and rbits
+result = lbits & rbits;
+}
+else if(op == '&') {
+// Else if op is ^, let result be the result of applying the bitwise exclusive OR (XOR) operation to lbits
+result = lbits ^ rbits;
+}
+else {
+// Else, op is |. Let result be the result of applying the bitwise inclusive OR operation to lbits and rbits
+result = lbits | rbits;
+}
+
+// Return the Number value for the integer represented by the 32-bit two's complement bit string result
+return result;
+};
+Number.bitwiseXOR = function(x, y) {
+    return NumberBitwiseOp('^', x, y);
+}
+Number.bitwiseXOR (20, 30);</code></pre>
+
+        <h5 class="post-subtitle">Number::bitwiseOR (x, y)</h5>
+
+        <p>The abstract operation <code>Number::bitwiseOR</code> takes arguments <code>x</code> (a Number) and <code>y</code> (a Number) and returns an integral Number. It performs the following steps when called:</p>
+
+        <ol>
+            <li>Return NumberBitwiseOp(|, x, y)</li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">function NumberBitwiseOp(op, x, y) {
+    // Let lnum be ! ToInt32(x)
+    let lnum = Number(x);
+
+    // Let rnum be ! ToInt32(y)
+    let rnum = Number(y);
+
+    // Let lbits be the 32-bit two's complement bit string representing lnum
+    let lbits = lnum;
+
+    // Let rbits be the 32-bit two's complement bit string representing rnum
+    let rbits = rnum;
+
+    let result;
+
+    if(op == '&') {
+    // If op is &, let result be the result of applying the bitwise AND operation to lbits and rbits
+    result = lbits & rbits;
+    }
+    else if(op == '&') {
+    // Else if op is ^, let result be the result of applying the bitwise exclusive OR (XOR) operation to lbits
+    result = lbits ^ rbits;
+    }
+    else {
+    // Else, op is |. Let result be the result of applying the bitwise inclusive OR operation to lbits and rbits
+    result = lbits | rbits;
+    }
+
+    // Return the Number value for the integer represented by the 32-bit two's complement bit string result
+    return result;
+};
+Number.bitwiseOR = function(x, y) {
+    return NumberBitwiseOp('|', x, y);
+}
+Number.bitwiseOR (20, 30);</code></pre>
+
+        <h5 class="post-subtitle">Number::toString (x, radix)</h5>
+
+        <p>The abstract operation <code>Number::toString</code> takes arguments <code>x</code> (a Number) and <code>radix</code> (an integer in the inclusive interval from 2 to 36) and returns a String. It represents <code>x</code> as a String using a positional numeral system with radix <code>radix</code>. The digits used in the representation of a number using radix <code>r</code> are taken from the first <code>r</code> code units of <b>0123456789abcdefghijklmnopqrstuvwxyz</b> in order. The representation of numbers with magnitude greater than or equal to 1 never includes leading zeroes. It performs the following steps when called:</p>
+
+        <ol>
+            <li>If <code>x</code> is <code>NaN</code>, return <code>"NaN"</code>.</li>
+            <li>If <code>x</code> is either +0 or -0, return <code>"0"</code>.</li>
+            <li>If <code>x</code> < -0, return the string-concatenation of <code>"-"</code> and <code>Number::toString(-x, radix)</code>.</li>
+            <li>If <code>x</code> is +∞, return <code>"Infinity"</code>.</li>
+            <li>Let <code>n</code>, <code>k</code>, and <code>s</code> be integers such that $$k ≥ 1$$, $$radix^{k - 1} ≤ s < radix^k$$, $$s × radix^{n - k}$$ is $$x$$, and $$k$$ is as small as possible. Note that <code>k</code> is the number of digits in the representation of <code>s</code> using radix <code>radix</code>, that <code>s</code> is not divisible by <code>radix</code>, and that the least significant digit of <code>s</code> is not necessarily uniquely determined by these criteria.<br><br>
+            In simple words, <code>x</code> is an integer, <code>n</code> is the position of the leading digit of <code>x</code>, with n=0 being the first fraction (0.X), n=1 being the least significant integer position (X.0), n=2 being the "tens" position (X0.0) etc. <code>s</code> is the integer representation that results from stripping all trailing zeroes of <code>x</code>, and <code>k</code> is the number of digits in <code>s</code>.<br><br>
+
+            Example 1:<br>
+            <code>x</code> = 100000000000000000000, would yield <code>s</code> = 1, <code>k</code> = 1, <code>n</code> = 21. Therefore the <code>x</code> passes point 6a and will return "100000000000000000000"<br><br>
+            Example 2:<br>
+            <code>x</code> = 10000000000000000000000, would yield <code>s</code> = 1, <code>k</code> = 1, <code>n</code> = 23. Therefore the <code>x</code> passes point 11a and will return "1e+22"<br><br>
+            Example 3:<br>
+            <code>x</code> = 0.000003001, would yield <code>s</code> = 3001, <code>k</code> = 4, <code>n</code> = -5. Therefore the <code>x</code> passes point 6c and will return "0.000003001"<br><br>
+            Example 4:<br>
+            <code>x</code> = 0.0000003001, would yield <code>s</code> = 3001, <code>k</code> = 4, <code>n</code> = -6. Therefore the <code>x</code> passes point 12 and will return "3.001e-7"<br><br>
+            Example 5:<br>
+            <code>x</code> = 100000000.00000003001, would yield <code>s</code> = 10000000000000003001, <code>k</code> = 20, <code>n</code> = 9. Therefore the <code>x</code> passes point 6b and will return "100000000.00000003" since the floating-point numbers in JavaScript can only keep 16 decimal places of precision; beyond that, the value will be changed.<br><br>
+            Example 6:<br>
+            <code>x</code> = 1000000000.00000003001, would yield <code>s</code> = 100000000000000003001, <code>k</code> = 21, <code>n</code> = 10. Therefore the <code>x</code> passes point 6b and will return "100000000". It actually returned "100000000.0000000" since the floating-point numbers in JavaScript can only keep 16 decimal places of precision and since Javascript automatically removes the trailing zeros of a floating point number, it returned "100000000".<br><br>
+            </li>
+            <li>If radix ≠ 10 or n is in the inclusive interval from -5 to 21, then<br>
+                <ol>
+                    <li>If n ≥ k, then<br>
+                        <ol>
+                            <li>Return the string-concatenation of:<br>
+                                <ol>
+                                    <li>the code units of the k digits of the representation of s using radix radix</li>
+                                    <li>n - k occurrences of the code unit 0x0030 (DIGIT ZERO)</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Else if n > 0, then<br>
+                        <ol>
+                            <li>Return the string-concatenation of:<br>
+                                <ol>
+                                    <li>
+                                        the code units of the most significant n digits of the representation of s using radix radix
+                                    </li>
+                                    <li>the code unit 0x002E (FULL STOP)</li>
+                                    <li>the code units of the remaining k - n digits of the representation of s using radix radix</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Else,<br>
+                        <ol>
+                            <li>Assert: n ≤ 0.</li>
+                            <li>Return the string-concatenation of:<br>
+                                <ol>
+                                    <li>the code unit 0x0030 (DIGIT ZERO)</li>
+                                    <li>the code unit 0x002E (FULL STOP)</li>
+                                    <li>-n occurrences of the code unit 0x0030 (DIGIT ZERO)</li>
+                                    <li>the code units of the k digits of the representation of s using radix radix</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>NOTE: In this case, the input will be represented using scientific E notation, such as 1.2e+3.</li>
+            <li>Assert: radix is 10.</li>
+            <li>If n < 0, then<br>
+                <ol>
+                    <li>Let exponentSign be the code unit 0x002D (HYPHEN-MINUS).</li>
+                </ol>
+            </li>
+            <li>Else,<br>
+                <ol>
+                    <li>Let exponentSign be the code unit 0x002B (PLUS SIGN).</li>
+                </ol>
+            </li>
+            <li>If k = 1, then<br>
+                <ol>
+                    <li>Return the string-concatenation of:<br>
+                        <ol>
+                            <li>the code unit of the single digit of s</li>
+                            <li>the code unit 0x0065 (LATIN SMALL LETTER E)</li>
+                            <li>exponentSign</li>
+                            <li>the code units of the decimal representation of abs(n - 1)</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>Return the string-concatenation of:<br>
+                <ol>
+                    <li>the code unit of the most significant digit of the decimal representation of s</li>
+                    <li>the code unit 0x002E (FULL STOP)</li>
+                    <li>the code units of the remaining k - 1 digits of the decimal representation of s</li>
+                    <li>the code unit 0x0065 (LATIN SMALL LETTER E)</li>
+                    <li>exponentSign</li>
+                    <li>the code units of the decimal representation of abs(n - 1)</li>
+                </ol>
+            </li>
+        </ol>
+
+        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
+
+        <pre><code class="language-bash hljs">Number.toString = function (x, radix) {
+    if(Number.isNaN(x)) {
+        // If x is NaN, return "NaN"
+        return "NaN";
+    }
+
+    if(x === 0) {
+        // If x is either +0 or -0, return "0"
+        return "0";
+    }
+    
+    if(x < 0) {
+        // If x < -0, return the string-concatenation of "-" and Number::toString(-x, radix)
+        return "-" + Number.toString(-x, radix);
+    }
+
+    if(x === Infinity) {
+        // If x is +∞, return "Infinity".
+        return "Infinity";
+    }
+
+    let n = 0;
+    let k = 0;
+    let narray = [];
+    let karray = [];
+    let whole;
+    let fraction;
+    
+    if(Math.floor(x) === Math.ceil(x)) {
+        whole = x + "";
+    } else {
+        let str = x.toString().split(".");
+        whole = str[0];
+        fraction = str[1];
+    }
+    
+    let temp = x;
+    let numofzero = 0;
+    let iszero = true;
+    
+    while(Math.floor(temp) > 0) {
+        n = n + 1;
+        narray.push(whole[whole.length - n]);
+        
+        k = k + 1;
+        karray.push(whole[whole.length - n]);
+        
+        //console.log(whole[whole.length-n])
+        if(Math.floor(x) === Math.ceil(x) && whole[whole.length - n] === "0" && iszero) {
+            k = k - 1;
+            
+            karray.pop();
+            
+            numofzero = numofzero + 1;
+        } else {
+            iszero = false;
+        }
+        
+        temp = temp / 10;
+    }
+    
+    temp = x;
+    iszero = true;
+    let i = 0;
+    while(Math.ceil(temp) !== Math.floor(temp)) {
+        temp = temp * 10;
+        
+        if(n <= 0 && Math.floor(temp) === 0 && iszero) {
+            n = n - 1;
+            narray.push(fraction[i]);
+        } else {
+            k = k + 1;
+            iszero = false;
+            karray.unshift(fraction[i]);
+        }
+        i = i + 1;
+    }
+    
+    function numbertobase(number, rad) {
+        let wnum;
+        let fnum;
+        if(Math.floor(number) === Math.ceil(number)) {
+            wnum = number;
+        } else {
+            let str = number.split(".");
+            wnum = str[0];
+            fnum = str[1];
+        }
+    
+        let numberofdigits = Math.round(Math.log10(Math.pow(2,53)) / Math.log10(rad)) + 1;
+        let result = "";
+        let zeropads = "";
+
+        while(wnum > 0) {
+            let remainder = wnum - Math.floor(wnum / rad) * rad + "";
+            
+            if (remainder === "10") {
+                result = "A" + result;
+            } else if (remainder === "11") {
+                result = "B" + result;
+            } else if (remainder === "12") {
+                result = "C" + result;
+            } else if (remainder === "13") {
+                result = "D" + result;
+            } else if (remainder === "14") {
+                result = "E" + result;
+            } else if (remainder === "15") {
+                result = "F" + result;
+            } else if (remainder === "16") {
+                result = "G" + result;
+            } else if (remainder === "17") {
+                result = "H" + result;
+            } else if (remainder === "18") {
+                result = "I" + result;
+            } else if (remainder === "19") {
+                result = "J" + result;
+            } else if (remainder === "20") {
+                result = "K" + result;
+            } else if (remainder === "21") {
+                result = "L" + result;
+            } else if (remainder === "22") {
+                result = "M" + result;
+            } else if (remainder === "23") {
+                result = "N" + result;
+            } else if (remainder === "24") {
+                result = "O" + result;
+            } else if (remainder === "25") {
+                result = "P" + result;
+            } else if (remainder === "26") {
+                result = "Q" + result;
+            } else if (remainder === "27") {
+                result = "R" + result;
+            } else if (remainder === "28") {
+                result = "S" + result;
+            } else if (remainder === "29") {
+                result = "T" + result;
+            } else if (remainder === "30") {
+                result = "U" + result;
+            } else if (remainder === "31") {
+                result = "V" + result;
+            } else if (remainder === "32") {
+                result = "W" + result;
+            } else if (remainder === "33") {
+                result = "X" + result;
+            } else if (remainder === "34") {
+                result = "Y" + result;
+            } else if (remainder === "35") {
+                result = "Z" + result;
+            } else {
+                result = remainder + result;
+            }
+            numberofdigits = numberofdigits - 1;
+            
+            wnum = Math.floor(wnum / rad);
+        }
+        
+        if(Math.ceil(number) !== Math.floor(number)) {
+            const factor = Math.pow(10, fnum.length)
+            fnum = "1." + fnum;
+            
+            if(fnum > 0) {
+                if(result === "") {
+                    result = "0.";
+                } else {
+                    result = result + ".";
+                }
+            }
+            
+            while(fnum > 0) {
+                fnum = (Math.round(fnum * rad * factor) / factor) + "";
+                str = fnum.split(".");
+                let num = str[0] - rad + "";
+                fnum = "1." + str[1];
+                
+                if (num > 0) {
+                    result = result + zeropads;
+                    zeropads = "";
+                }
+                
+                if (num === "10") {
+                    result = result + "A";
+                } else if (num === "11") {
+                    result = result + "B";
+                } else if (num === "12") {
+                    result = result + "C";
+                } else if (num === "13") {
+                    result = result + "D";
+                } else if (num === "14") {
+                    result = result + "E";
+                } else if (num === "15") {
+                    result = result + "F";
+                } else if (num === "16") {
+                    result = result + "G";
+                } else if (num === "17") {
+                    result = result + "H";
+                } else if (num === "18") {
+                    result = result + "I";
+                } else if (num === "19") {
+                    result = result + "J";
+                } else if (num === "20") {
+                    result = result + "K";
+                } else if (num === "21") {
+                    result = result + "L";
+                } else if (num === "22") {
+                    result = result + "M";
+                } else if (num === "23") {
+                    result = result + "N";
+                } else if (num === "24") {
+                    result = result + "O";
+                } else if (num === "25") {
+                    result = result + "P";
+                } else if (num === "26") {
+                    result = result + "Q";
+                } else if (num === "27") {
+                    result = result + "R";
+                } else if (num === "28") {
+                    result = result + "S";
+                } else if (num === "29") {
+                    result = result + "T";
+                } else if (num === "30") {
+                    result = result + "U";
+                } else if (num === "31") {
+                    result = result + "V";
+                } else if (num === "32") {
+                    result = result + "W";
+                } else if (num === "33") {
+                    result = result + "X";
+                } else if (num === "34") {
+                    result = result + "Y";
+                } else if (num === "35") {
+                    result = result + "Z";
+                } else if (num === "0") {
+                    zeropads = zeropads + "0";
+                } else {
+                    result = result + num;
+                }
+                
+                numberofdigits = numberofdigits - 1;
+                
+                if(numberofdigits === 0) {
+                    break;
+                }
+                
+            }
+        } 
+        
+        return result;
+    }
+    //let s = x / 10 ** (n-k);
+
+    if(radix !== 10 || (n >= -5 && n <= 21)) {
+        // If radix ≠ 10 or n is in the inclusive interval from -5 to 21, then
+
+        if(n >= k) {
+            // If n ≥ k, then
+            // Return the string-concatenation of: 
+            // the code units of the k digits of the representation of s using radix radix
+            // n - k occurrences of the code unit 0x0030 (DIGIT ZERO)
+            
+            return numbertobase(karray.reverse().join("") + narray.slice(0, n - k).reverse().join(""), radix);
+        } else if(n > 0) {
+            // Else if n > 0, then
+            // Return the string-concatenation of:
+            // the code units of the most significant n digits of the representation of s using radix radix
+            // the code unit 0x002E (FULL STOP)
+            // the code units of the remaining k - n digits of the representation of s using radix radix
+            
+            return numbertobase(narray.reverse().join("") + "." +  karray.slice(0, k - n).reverse().join(""), radix);
+        } else {
+            // Else n ≤ 0
+            // Return the string-concatenation of:
+            // the code unit 0x0030 (DIGIT ZERO)
+            // the code unit 0x002E (FULL STOP)
+            // -n occurrences of the code unit 0x0030 (DIGIT ZERO)
+            // the code units of the k digits of the representation of s using radix radix
+            
+            return numbertobase("0" + "." + narray.reverse().join("") + karray.reverse().join(""), radix);
+        }
+    }
+
+    let exponentSign;
+    // radix is 10
+    if(n < 0) {
+        // If n < 0, then
+        // Let exponentSign be the code unit 0x002D (HYPHEN-MINUS)
+        exponentSign = "-";
+    } else {
+        // Else
+        // Let exponentSign be the code unit 0x002B (PLUS SIGN)
+        exponentSign = "+";
+    }
+
+    if(k === 1) {
+        // If k = 1, then
+        // the code unit of the single digit of s
+        // the code unit 0x0065 (LATIN SMALL LETTER E)
+        // exponentSign
+        // the code units of the decimal representation of abs(n - 1)
+        return karray.reverse().join("") + "e" + exponentSign + Math.abs(n - 1);
+    }
+    
+    // Return the string-concatenation of:
+    // the code unit of the most significant digit of the decimal representation of s
+    // the code unit 0x002E (FULL STOP)
+    // the code units of the remaining k - 1 digits of the decimal representation of s
+    // the code unit 0x0065 (LATIN SMALL LETTER E)
+    // exponentSign
+    // the code units of the decimal representation of abs(n - 1)
+
+    return karray[karray.length - 1] + "." + karray.slice(0, karray.length - 1).reverse().join("") + "e" + exponentSign + Math.abs(n - 1);
+};
+Number.toString(100000000000000000000, 10);
+// "100000000000000000000"
+Number.toString(100000000000000000000, 16);
+// "56BC75E2D63100000"
+Number.toString(0.000003001, 10);
+// "0.000003001"
+Number.toString(0.000003001, 16);
+// "0.0000325932651B"
+Number.toString(100000000.00000003001, 10);
+// "100000000.00000003"
+Number.toString(100000000.00000003001, 16);
+// "5f5e100.0000008"</code></pre>
+        
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/javascript" class="tag">javascript</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/abstract-operation" class="tag">abstract operation</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Complete Reference" /><category term="year-2024" /><category term="month-07" /><category term="day-05" /><category term="javascript" /><category term="abstract operation" /><summary type="html"><![CDATA[Learn about the abstract operations of the Number type in JavaScript, focusing on binary and arithmetic operations. This article provides examples, algorithms, and explanations to help you understand these concepts better.]]></summary></entry><entry xml:lang="en"><title type="html">Javascript Language Specification: Data Types and Values</title><link href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-data-types-and-values/" rel="alternate" type="text/html" title="Javascript Language Specification: Data Types and Values" /><published>2024-07-05T10:21:00+00:00</published><updated>2024-07-05T10:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/05/javascript-language-specification-data-types-and-values</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/05/javascript-language-specification-data-types-and-values/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Javascript Language Specification: Data Types and Values</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -147,7 +3041,7 @@ const string3 = `Yet another string primitive`;</code></pre>
 
         <p>Each possible Symbol value is unique and immutable.</p>
 
-        <p>Each Symbol value immutably holds an associated value called <code>[[Description]]</code> that is either undefined or a String value.</p>
+        <p>Each Symbol value immutably holds an associated value called <code>description</code> that is either undefined or a String value.</p>
 
         <p>To create a new primitive symbol, you write <code>Symbol()</code> with an optional <code>string</code> as its description:</p>
 
@@ -172,24 +3066,119 @@ const sym3 = Symbol("foo");</code></pre>
 
         <p>Property keys are used to access properties and their values. There are two kinds of access for properties: get and set, corresponding to value retrieval and assignment, respectively. The properties accessible via get and set access includes both own properties that are a direct part of an object and inherited properties which are provided by another associated object via a property inheritance relationship. Inherited properties may be either own or inherited properties of the associated object. Each own property of an object must each have a key value that is distinct from the key values of the other own properties of that object.</p>
 
-        <p>The object data type can contain both built-in objects, and user defined objects.</p>
+        <p>Every object property has a set of invisible attributes containing metadata associated with that property, called property descriptors.</p>
 
-        <p>JavaScript objects are written with curly braces <code>{}</code>.</p>
+        <p>There are two types of descriptors associated with any property: data descriptors and accessor descriptors. A data descriptor includes key and value pairs that contain a property's value, regardless of whether that value is writable, configurable, or enumerable. Accessor descriptors contain functions that execute when a property is set, changed, or accessed.</p>
 
-        <p>Object properties are written as key:value pairs, separated by commas.</p>
+        <p>The following table lists all object property attributes.</p>
 
-        <pre><code class="language-bash hljs">const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
-// access properties
-console.log(person.firstName);
-// "John"
-console.log(person.lastName);
-// "Doe"
-console.log(person.age);
-// 50
-console.log(person.eyeColor);
-// "blue"</code></pre>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Attribute Name</th>
+                    <th>Types of property</th>
+                    <th>Data Type</th>
+                    <th>Default Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td> <code>value</code> </td>
+                    <td>
+                        data property
+                    </td>
+                    <td> 
+                        any data type
+                    </td>
+                    <td>
+                        <code>undefined</code>
+                    </td>
+                    <td> The value retrieved by a get access of the property. </td>
+                </tr>
+                <tr>
+                    <td> <code>writable</code> </td>
+                    <td>
+                        data property
+                    </td>
+                    <td> boolean </td>
+                    <td>
+                        <code>false</code>
+                    </td>
+                    <td> determines if the value of a data property can be changed. If <code>false</code>, attempts to change the property's <code>value</code> attribute using <code>set</code> will not succeed. </td>
+                </tr>
+                <tr>
+                    <td> <code>get</code> </td>
+                    <td>
+                        accessor property
+                    </td>
+                    <td> object or <code>undefined</code>
+                    </td>
+                    <td>
+                        <code>undefined</code>
+                    </td>
+                    <td> If the value is an object, it must be a function object. The function's <code>call</code> internal method is called with an empty arguments list to retrieve the property value each time a get access of the property is performed. </td>
+                </tr>
+                <tr>
+                    <td> <code>set</code> </td>
+                    <td>
+                        accessor property
+                    </td>
+                    <td> object or <code>undefined</code>
+                    </td>
+                    <td>
+                        <code>undefined</code>
+                    </td>
+                    <td> If the value is an object, it must be a function object. The function's <code>call</code> internal method is called with an arguments list containing the assigned value as its sole argument each time a set access of the property is performed. The effect of a property's <code>set</code> internal method may, but is not required to, have an effect on the value returned by subsequent calls to the property's <code>get</code> internal method. </td>
+                </tr>
+                <tr>
+                    <td> <code>enumerable</code> </td>
+                    <td>
+                        data property or accessor property
+                    </td>
+                    <td> boolean </td>
+                    <td>
+                        <code>false</code>
+                    </td>
+                    <td> If <code>true</code>, the property will be enumerated by a for-in enumeration. Otherwise, the property is said to be non-enumerable. </td>
+                </tr>
+                <tr>
+                    <td> <code>configurable</code> </td>
+                    <td>
+                        data property or accessor property
+                    </td>
+                    <td> boolean </td>
+                    <td>
+                        <code>false</code>
+                    </td>
+                    <td> If <code>false</code>, attempts to delete the property, change it from a data property to an accessor property or from an accessor property to a data property, or make any changes to its attributes (other than replacing an existing <code>value</code> or setting <code>writable</code> to <code>false</code>) will fail. </td>
+                </tr>
+            </tbody>
+        </table>
 
-        <p>The object person in the example above has 4 properties: <code>firstName</code>, <code>lastName</code>, <code>age</code>, and <code>eyeColor</code>.</p>
+        <p>The following code retrieves the object descriptor for the data property <code>firstName</code>:</p>
+
+        <pre><code class="language-bash hljs">const person = {
+    firstName:"John", 
+    lastName:"Doe", 
+    age:50
+};
+console.log(Object.getOwnPropertyDescriptor(person, "firstName"));
+// Object { value: "John", writable: true, enumerable: true, configurable: true }
+</code></pre>
+
+        <p>In the next example, we retrieve the property descriptor for the getter <code>fullName</code>:</p>
+
+        <pre><code class="language-bash hljs">const person = {
+    firstName:"John", 
+    lastName:"Doe", 
+    age:50,
+    get fullName() {
+        return this.firstName + " " + this.lastName;
+    }
+};
+console.log(Object.getOwnPropertyDescriptor(person, "fullName"));
+// Object { get: get fullName() {
+//    return this.firstName + " " + this.lastName;
+// }, set: undefined, enumerable: true, configurable: true }</code></pre>
 
     </article>
 
@@ -199,7 +3188,19 @@ console.log(person.eyeColor);
 		
 		<li><a href="https://hemimorphite.github.io/zh/tag/javascript" class="tag">javascript</a></li>
 		
-		<li><a href="https://hemimorphite.github.io/zh/tag/data-types" class="tag">data types</a></li>
+		<li><a href="https://hemimorphite.github.io/zh/tag/null-type" class="tag">null type</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/undefined-type" class="tag">undefined type</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/number-type" class="tag">number type</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/bigint-type" class="tag">bigint type</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/string-type" class="tag">string type</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/object-type" class="tag">object type</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/symbol-type" class="tag">symbol type</a></li>
 		
 	</ul>
 </div>
@@ -213,7 +3214,7 @@ console.log(person.eyeColor);
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Complete Reference" /><category term="year-2024" /><category term="month-07" /><category term="day-05" /><category term="javascript" /><category term="data types" /><summary type="html"><![CDATA[The JavaScript language specification covering data types and values provides detailed explanations, examples, and references for developers looking to understand the intricacies of JavaScript programming.]]></summary></entry><entry xml:lang="en"><title type="html">The Math of UTF-8 Encoding and Decoding</title><link href="https://hemimorphite.github.io/zh/2024/06/25/the-math-of-utf-8-encoding-and-decoding/" rel="alternate" type="text/html" title="The Math of UTF-8 Encoding and Decoding" /><published>2024-06-25T16:58:00+00:00</published><updated>2024-06-25T16:58:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/25/the-math-of-utf-8-encoding-and-decoding</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/25/the-math-of-utf-8-encoding-and-decoding/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Complete Reference" /><category term="year-2024" /><category term="month-07" /><category term="day-05" /><category term="javascript" /><category term="null type" /><category term="undefined type" /><category term="number type" /><category term="bigint type" /><category term="string type" /><category term="object type" /><category term="symbol type" /><summary type="html"><![CDATA[The JavaScript language specification covering data types and values provides detailed explanations, examples, and references for developers looking to understand the intricacies of JavaScript programming.]]></summary></entry><entry xml:lang="en"><title type="html">The Math of UTF-8 Encoding and Decoding</title><link href="https://hemimorphite.github.io/zh/2024/06/25/the-math-of-utf-8-encoding-and-decoding/" rel="alternate" type="text/html" title="The Math of UTF-8 Encoding and Decoding" /><published>2024-06-25T16:58:00+00:00</published><updated>2024-06-25T16:58:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/25/the-math-of-utf-8-encoding-and-decoding</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/25/the-math-of-utf-8-encoding-and-decoding/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">The Math of UTF-8 Encoding and Decoding</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -4129,485 +7130,4 @@ hemimorphite blog
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-14" /><category term="linux" /><category term="login shell" /><category term="non-login shell" /><summary type="html"><![CDATA[Learn about the key differences between login and non-login shells in Linux, how they are initiated, and what impact they have on the environment settings for users.]]></summary></entry><entry xml:lang="en"><title type="html">mail Command on Ubuntu 22.04</title><link href="https://hemimorphite.github.io/zh/2024/06/13/mail-command-on-ubuntu-22.04/" rel="alternate" type="text/html" title="mail Command on Ubuntu 22.04" /><published>2024-06-13T16:55:00+00:00</published><updated>2024-06-13T16:55:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/13/mail-command-on-ubuntu-22.04</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/13/mail-command-on-ubuntu-22.04/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">mail Command on Ubuntu 22.04</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published June 13, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/bashscripting.jfif" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <h5 class="post-subtitle">Install mail Command</h5>
-
-        <p>Run the following command to install <code>mail</code></p>
-
-        <pre><code class="language-bash hljs">sudo apt install mailutils</code></pre>
-
-        <p>When prompted to configure the postfix package, press <b>TAB</b> to select <b>Ok</b> and confirm with <b>Enter</b>.</p>
-
-        <figure class="post-figure">
-        	<img src="/assets/images/postfix-01.png" alt="Postfix Configuration">
-        </figure>
-
-        <p>Select <b>Internet Site</b> in the package configuration window. Press <b>TAB</b> to select <b>Ok</b> and press <b>Enter</b> to confirm.</p>
-
-		<figure class="post-figure">
-        	<img src="/assets/images/postfix-02.png" alt="Postfix Configuration">
-        </figure>
-
-		<p>Complete the basic configuration by entering the system mail name (the machine's fully qualified domain name).</p>
-
-		<figure class="post-figure">
-        	<img src="/assets/images/postfix-03.png" alt="Postfix Configuration">
-        </figure>
-
-        <h5 class="post-subtitle">mail Command Options</h5>
-		
-		<table class="table table-bordered border-primary">
-			<thead>
-				<tr>
-					<th>Argument</th>
-					<th>Description</th>
-					<th>Example</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><code>-s</code></td>
-					<td>Specifies the subject of the email.</td>
-					<td><code>mail -s 'Subject' user@example.com</code></td>
-				</tr>
-				<tr>
-					<td><code>-c</code></td>
-					<td>Sends a carbon copy of the email to the specified address.</td>
-					<td><code>echo 'Hello' | mail -s 'Subject' -c cc@example.com user@example.com</code></td>
-				</tr>
-				<tr>
-					<td><code>-b</code></td>
-					<td>Sends a blind carbon copy of the email to the specified address.</td>
-					<td><code>echo 'Hello' | mail -s 'Subject' -b bcc@example.com user@example.com</code></td>
-				</tr>
-				<tr>
-					<td><code>-a</code></td>
-					<td>Adds an attachment to the email.</td>
-					<td><code>echo 'Hello' | mail -s 'Subject' -a file.txt user@example.com</code></td>
-				</tr>
-				<tr>
-					<td><code>-q</code></td>
-					<td>Reads a message from the specified file.</td>
-					<td><code>mail -s 'Subject' -q file.txt user@example.com</code></td>
-				</tr>
-				<tr>
-					<td><code>-r</code></td>
-					<td>Specifies the return address for the email.</td>
-					<td><code>echo 'Hello' | mail -s 'Subject' -r from@example.com user@example.com</code></td>
-				</tr>
-				<tr>
-					<td><code>-v</code></td>
-					<td>Verbose mode. Displays the details of the email sending process.</td>
-					<td><code>echo 'Hello' | mail -s 'Subject' -v user@example.com</code></td>
-				</tr>
-				<tr>
-					<td><code>-f</code></td>
-					<td>Reads messages from the specified mailbox file.</td>
-					<td><code>mail -f /var/mail/user</code></td>
-				</tr>
-				<tr>
-					<td><code>-i</code></td>
-					<td>Ignores lines with only a dot.</td>
-					<td><code>mail -i -s 'Subject' user@example.com</code></td>
-				</tr>
-				<tr>
-					<td><code>-E</code></td>
-					<td>Does not send messages with an empty body.</td>
-					<td><code>echo '' | mail -E -s 'Subject' user@example.com</code></td>
-				</tr>
-			</tbody>
-		</table>
-
-		<h5 class="post-subtitle">mail Command Examples</h5>
-
-		<h6 class="post-subtitle">Example 1: Send Mail with Subject and Body</h6>
-
-        <p>The basic way of using <code>mail</code> to send emails is to specify the email subject using the <code>-s</code> flag and add the recipient. The command then enters the interactive mode, asking if you want to send Ccs and asking for the email body.</p>
-
-		<p>After entering all the information, press <b>Ctrl+D</b> to send the email.</p>
-
-		<pre><code class="language-bash hljs">[satella@ubuntu ~]$ mail -s "Email Subject" echidna
-Cc:
-This is the email body</code></pre>
-		
-		<h6 class="post-subtitle">Example 2: Send Mail Using echo</h6>
-
-		<p>Use the <code>echo</code> command to send an email without entering the interactive mode of the <code>mail</code> command. Write the email body and pipe the echo command output to the <code>mail</code> command.</p>
-
-		<pre><code class="language-bash hljs">[satella@ubuntu ~]$ echo "This is the email body" | mail -s "Email Subject" echidna</code></pre>
-		
-		<h6 class="post-subtitle">Example 3: Send Email Using Redirection</h6>
-		
-		<p>Another way to provide the email body is to use redirection (&lt;&lt;&lt;). Using redirection also avoids the <code>mail</code> command interactive mode and sends the email without any prompts.</p>
-		
-		<pre><code class="language-bash hljs">[satella@ubuntu ~]$ mail -s "Email Subject" echidna &lt;&lt;&lt; "this is the email body"</code></pre>
-
-		<h6 class="post-subtitle">Example 4: Send Email from File</h6>
-
-        <p>The <code>mail</code> command allows users to provide the email body from an existing file. This option saves time and facilitates sending large messages without writing them in the command line.</p>
-
-        <pre><code class="language-bash hljs">[satella@ubuntu ~]$ echo "This is the email body" > file.txt
-[satella@ubuntu ~]$ mail -s "Email Subject" echidna < file.txt</code></pre>
-		
-		<h6 class="post-subtitle">Example 4: Read Mail</h6>
-
-        <p>Check the mailbox for the current user by running the <code>mail</code> command without any options or flags.</p>
-        
-		<pre><code class="language-bash hljs">[minerva@ubuntu ~]$ mail
-"/var/mail/minerva": 8 messages 8 new
-U   1 satella@ubuntu Thu Jun 13 20:52  17/532   this is email subject
-U   2 satella@ubuntu Thu Jun 13 20:54  16/488   this is email subject
-U   3 satella@ubuntu Thu Jun 13 20:58  16/488   this is email subject
-U   4 satella@ubuntu Thu Jun 13 20:59  16/488   this is email subject
-U   5 satella@ubuntu Thu Jun 13 21:02  16/488   this is email subject
-U   6 satella@ubuntu Thu Jun 13 21:05  16/492   this is email subject 1
-U   7 satella@ubuntu Thu Jun 13 21:06  16/492   this is email subject 1
-U   8 satella@ubuntu Thu Jun 13 22:07  16/416   Subject
-?</code></pre>
-		
-		<p>To open an email, enter the email number and press Enter. For example, we will open email number 8:</p>
-
-		<pre><code class="language-bash hljs">? 8
-Return-Path: &lt;satella@ubuntu&gt;
-X-Original-To: minerva
-Delivered-To: minerva@ubuntu
-Received: by ubuntu (Postfix, from userid 1001)
-	id 453F4A257B; Thu, 13 Jun 2024 22:07:00 +0700 (WIB)
-Subject: Subject
-To: minerva@ubuntu
-User-Agent: mail (GNU Mailutils 3.14)
-Date: Thu, 13 Jun 2024 22:07:00 +0700
-Message-Id: &lt;20240613150700.453F4A257B@ubuntu&gt;
-From: satella@ubuntu
-X-UID: 8
-Status: O
-
-?</code></pre>
-
-        <p>After opening the email, the command waits for further input from the user. Open the next email by entering (+) in the prompt, or access the previous email by entering (-). Return to the mailbox by pressing Ctrl+D.</p>
-
-		<h6 class="post-subtitle">Example 5: Delete Mail</h6>
-		
-		<p>To delete an email, open the email you want to delete, press <code>d</code>, and confirm with Enter. To delete multiple emails at once, open the mailbox and enter <code>d</code> followed by the email numbers you want to delete.</p>
-		
-		<p>For example, the following command deletes emails numbered 1 and 2:</p>
-
-        <pre><code class="language-bash hljs">d 1 2</code></pre>
-		
-		<p>To delete a range of emails, specify the first and last email in the range separated by a dash. For example, to delete emails 1-10, open the mailbox and run:</p>
-
-        <pre><code class="language-bash hljs">d 1-10</code></pre>
-
-        <p>To delete all received mail, open the mailbox and run:</p>
-
-        <pre><code class="language-bash hljs">d*</code></pre>
-
-	</article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu-22-04" class="tag">ubuntu 22.04</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/mail" class="tag">mail</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-13" /><category term="ubuntu 22.04" /><category term="mail" /><summary type="html"><![CDATA[Learn how to use the mail command on Ubuntu 22.04 with this detailed guide. Includes examples and usage tips to help you master email management from the command line.]]></summary></entry><entry xml:lang="en"><title type="html">Bourne Shell Environment Variables</title><link href="https://hemimorphite.github.io/zh/2024/06/13/bourne-shell-environment-variables/" rel="alternate" type="text/html" title="Bourne Shell Environment Variables" /><published>2024-06-13T14:21:00+00:00</published><updated>2024-06-13T14:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/13/bourne-shell-environment-variables</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/13/bourne-shell-environment-variables/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Bourne Shell Environment Variables</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published June 13, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/bashscripting.jfif" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>The shell uses the following environment variables.</p>
-
-        <h5 class="post-subtitle">CDPATH</h5>
-
-        <p>A colon-separated list of directories used as a search path for the <code>cd</code> builtin command.</p>
-
-        <p>If the target directory of the <code>cd</code> command is specified as a relative path name, the <code>cd</code> command first looks for the target directory in the current directory (<code>.</code>). If the target is not found, the path names listed in the <code>CDPATH</code> variable are searched consecutively until the target directory is found and the directory change is completed. If the target directory is not found, the current working directory is left unmodified. For example, the <code>CDPATH</code> variable is set to <code>/home/hemimorphite</code>, and four directories exist under <code>/home/hemimorphite</code>, <code>layouts</code>, <code>posts</code>, <code>assets</code> and <code>vendors</code>. If you are in the <code>/home/hemimorphite/posts</code> directory and type <code>cd vendors</code>, you change directories to <code>/home/hemimorphite/vendors</code>, even though you do not specify a full path.</p>
-
-        <h5 class="post-subtitle">HOME</h5>
-
-        <p>The current user's home directory; the default for the <code>cd</code> builtin command. The value of this variable is also used by tilde expansion (<code>~</code>).</p>
-
-        <pre><code class="language-bash hljs">cd $HOME
-# OR
-cd ~</code></pre>
-
-        <h5 class="post-subtitle">IFS</h5>
-        
-        <p>A list of characters that separate fields; used when the shell splits words as part of expansion.</p>
-
-        <p>The default value is a space, a tab, and a newline (<code>IFS=$' \t\n'</code>).</p>
-
-        <p>You can print it with the following command:</p>
-
-        <pre><code class="language-bash hljs">cat -etv &lt;&lt;&lt;"$IFS"</code></pre>
-
-        <p>You should see something as follows on your Linux terminal:</p>
-
-        <pre><code class="language-bash hljs"> ^I$
-$</code></pre>
-
-        <p>The <code>IFS</code> variable is commonly used with <code>read</code> command, parameter expansions and command substitution.</p>
-        
-        <p>In the <code>read</code> command, if multiple variable-name arguments are specified, <code>IFS</code> is used to split the line of input so that each variable gets a single field of the input. (The last variable gets all the remaining fields, if there are more fields than variables.) Any whitespace characters in <code>IFS</code> will be trimmed from the beginning and end of the input line, even when only one variable is given.</p>
-
-        <pre><code class="language-bash hljs"># Using default IFS=$' \t\n'
-[hemimorphite@ubuntu ~]$ read -r a b c &lt;&lt;&lt; '   A      B  C'
-[hemimorphite@ubuntu ~]$ echo "$a $b $c"
-A B C</code></pre>
-
-        <pre><code class="language-bash hljs"># Using a custom IFS value
-[hemimorphite@ubuntu ~]$ IFS=: read -r user pwhash uid gid gecos home shell \
-    &lt;&lt;&lt; 'root:*:0:0:System Administrator:/var/root:/bin/sh'
-[hemimorphite@ubuntu ~]$ echo "$user $pwhash $uid $gid $gecos $home $shell"
-root * 0 0 System Administrator /var/root /bin/sh</code></pre>
-
-        <p>If <code>IFS</code> contains a mixture of whitespace and non-whitespace characters then any non-whitespace IFS character or IFS whitespace characters (any sequence of one or more whitespace IFS characters count as single whitespace) acts as a single field delimiter. For example:</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=' ,'
-[hemimorphite@ubuntu ~]$ sentence="This is        a, simple,     example"
-[hemimorphite@ubuntu ~]$ printf 'word -> "%s" \n' $sentence
-word -> "This" 
-word -> "is" 
-word -> "a" 
-word -> "simple" 
-word -> "example"</code></pre>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=$' \t\n' read -r a b c \
-    &lt;&lt;&lt; 'the    plain gold      ring'
-[hemimorphite@ubuntu ~]$ echo "=$a= =$b= =$c="
-=the= =plain= =gold      ring=</code></pre>
-        
-        <p>The above example shows that splitting and delimiter-consolidation are not performed on the remaining part of a line when assigning excess fields to the last variable.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ IFS=: read -r a b c \
-    &lt;&lt;&lt; '1:2:::3::4'
-[hemimorphite@ubuntu ~]$ echo "=$a= =$b= =$c="
-=1= =2= =::3::4=</code></pre>
-        
-        <p>Note that out of the three consecutive colons which follow field 2, precisely one colon was removed in order to terminate field 2. The remaining two colons, as well as two more colons later on, were all left untouched, and assigned to variable <code>c</code> verbatim.</p>
-
-        <h5 class="post-subtitle">OPTARG</h5>
-
-        <p>The value of the option processed by the <code>getopts</code> builtin.</p>
-
-        <p>Let's create a bash script called <code>command.sh</code></p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat command.sh
-#!/bin/bash
-
-# Parse command-line options
-while getopts ":f:d:" flag; do
-    case $flag in
-    f) echo "The filename is: ${OPTARG}"
-      ;;
-    d) echo "The directory is: ${OPTARG}"
-    esac
-done</code></pre>
-
-        <p>The Bash script utilizes the <code>getopts</code> command to parse command-line options. It specifies two options, <code>-f</code>  and <code>-d</code> in the optstring. As there is a colon (:) after both options, if triggered each of them requires an argument.</p>
-
-        <p>Inside the loop, a <code>case</code> statement is used to check the currently processed option. If the option <code>-f</code> is encountered, the script prints out the filename specified with the option using the special variable <code>OPTARG</code>. Similarly, if the option <code>-d</code> is found, the script displays the directory provided with the option using <code>OPTARG</code>.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -f file1.txt -d /home hemimorphite
-The filename is: file1.txt
-The directory is: /home hemimorphite</code></pre>
-        
-        <h5 class="post-subtitle">OPTERR</h5>
-        
-        <p><code>OPTERR</code> controls if Bash displays errors generated by the <code>getopts</code> builtin command. <code>getopts</code> does not print errors if <code>OPTERR</code> has a value of <code>0</code>. Value <code>1</code> enables the errors.</p>
-
-        <p>The default value is <code>1</code>.</p>
-
-        <h5 class="post-subtitle">OPTIND</h5>
-
-        <p>The index of the next parameter/argument processed by the <code>getopts</code> builtin.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ cat command.sh
-#!/bin/bash
-
-while getopts "ab:c" flag; do
-    echo "$flag" "$OPTIND" "$OPTARG"
-done</code></pre>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -ac -b value1
-a 1
-c 2
-b 4 value1</code></pre>
-
-        <p>In <code>./command.sh -ac -b value1</code>, arg1 is <code>-ac</code>, arg2 is <code>-b</code>, arg3 is <code>value1</code>.</p>
-
-        <p>While processing option <code>-a</code>, the next unprocessed option is <code>-c</code> which is in arg1. So the index stored in <code>OPTIND</code> is <code>1</code>. For the following option <code>-c</code>, the next unprocessed option is <code>-b</code> which is arg2. So the index stored in <code>OPTIND</code> is <code>2</code>. Finally, for the option <code>-b</code>, while processing option <code>-b</code>, arg3 (<code>value1</code>) is processed as an argument of option <code>-b</code>. That's why <code>OPTIND</code> stores <code>4</code> or the index of arg4.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~]$ ./command.sh -a -c -b value1
-a 2
-c 3
-b 5 value1</code></pre>
-        
-        <p>In <code>./command.sh -a -c -b value1</code>, arg1 is <code>-a</code>, arg2 is <code>-c</code>, arg3 is <code>-b</code>, arg4 is <code>value1</code>.</p>
-
-        <p>While processing option <code>-a</code>, the next unprocessed option is <code>-c</code> which is in arg2. So the index stored in <code>OPTIND</code> is <code>2</code>. For the following option <code>-c</code>, the next unprocessed option is <code>-b</code> which is arg3. So the index stored in <code>OPTIND</code> is <code>3</code>. Finally, for the option <code>-b</code>, while processing option <code>-b</code>, arg4 (<code>value1</code>) is processed as an argument of option <code>-b</code>. That's why <code>OPTIND</code> stores <code>5</code> or the index of arg5.</p>
-
-        <h5 class="post-subtitle">PATH</h5>
-
-        <p>A colon-separated list of directories in which the shell looks for commands. This is the variable that tells the bash shell where to find different executable files and scripts. The shell will check the directories listed in the <code>PATH</code> variable for the script you are trying to find.</p>
-        
-        <p>Let's say you wrote a little shell script called <code>hello</code> and have it located in a directory called <code>/home/hemimorphite/bin</code>.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ cat hello
-#!/bin/bash
-
-echo Hello "$USER"
-[hemimorphite@ubuntu ~/bin]$ chmod +x hello</code></pre>
-        
-        <p>Add <code>/home/hemimorphite/bin</code> to the <code>$PATH</code> variable with the following command:</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ export PATH=$PATH:/home/hemimorphite/bin</code></pre>
-
-        <p>You should now be able to execute the script anywhere on your system by just typing in its name, without having to include the full path as you type it.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/bin]$ hello
-Hello hemimorphite</code></pre>
-
-        <h5 class="post-subtitle">MAIL</h5>
-
-        <p>Name of file to check for incoming mail.</p>
-
-        <h5 class="post-subtitle">MAILCHECK</h5>
-
-        <p>defines the interval in seconds when the shell should check for mail. (default 60 seconds).</p>
-
-        <h5 class="post-subtitle">MAILPATH</h5>
-
-        <p>List of filenames, separated by colons (:), to check for incoming mail.</p>
-
-        <p>Run the following command to install <code>mail</code></p>
-
-        <pre><code class="language-bash hljs">sudo apt install mailutils</code></pre>
-
-        <p>Let us create a new user named satella, echidna, and minerva using the <code>useradd</code> command on Ubuntu:</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/satella/ -m -G sudo satella
-[hemimorphite@ubuntu ~/]$ sudo passwd satella
-[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/echidna/ -m -G sudo echidna
-[hemimorphite@ubuntu ~/]$ sudo passwd echidna
-[hemimorphite@ubuntu ~/]$ sudo useradd -s /bin/bash -d /home/minerva/ -m -G sudo minerva
-[hemimorphite@ubuntu ~/]$ sudo passwd minerva</code></pre>
-
-        <p>Where,</p>
-
-        <ul>
-            <li><code>-s /bin/bash</code>, set <code>/bin/bash</code> as login shell of the new account</li>
-            <li><code>-d /home/satella/</code>, set <code>/home/satella/</code> as home directory of the new Ubuntu account</li>
-            <li><code>-m</code>, create the user's home directory</li>
-            <li><code>-G sudo</code>, make satella user can use <code>sudo</code> command</li>
-        </ul>
-
-        <p>Switch to user satella.</p>
-
-        <pre><code class="language-bash hljs">[hemimorphite@ubuntu ~/]$ sudo su - satella
-[satella@ubuntu ~/]$ </code></pre>
-
-        <p>Use the <code>echo</code> command to send an email without entering the interactive mode of the <code>mail</code> command. Write the email body and pipe the <code>echo</code> command output to the <code>mail</code> command.</p>
-
-        <pre><code class="language-bash hljs">[satella@ubuntu ~/]$ echo "This is the email body" | mail -s "this is email subject" echidna, minerva</code></pre>
-        
-        <p>After 60 seconds (the value of <code>MAILCHECK</code>), on echidna's or minerva's prompt press <code>ENTER</code> and the prompt will print the message:</p>
-
-        <pre><code class="language-bash hljs">You have mail in /var/mail/echidna</code></pre>
-
-        <p>Shell will use the value of <code>MAIL</code> as the name of the file to check, unless <code>MAILPATH</code> is set; in which case, the shell will check each file in the <code>MAILPATH</code> list for new mail. You can use this mechanism to have the shell print a different message for each mail file: for each mail filename in <code>MAILPATH</code>, append a question mark followed by the message you want printed.</p>
-
-        <p>You could define <code>MAILPATH</code> to be:</p>
-
-        <pre><code class="language-bash hljs">MAILPATH="\
-/usr/mail/satella/echidna?Mail from Echidna has arrived.:\
-/usr/mail/satella/minerva?There is new mail from Paul."</code></pre>
-
-        <p>The backslashes at the end of each line allow you to continue your command on the next line. Now, if you get mail from echidna, the shell will print:</p>
-
-        <pre><code class="language-bash hljs">Mail from Echidna has arrived.</code></pre>
-
-        <p>You can also use the variable <code>$_</code> in the message to print the name of the current mail file or execute a command <code>$(date)</code> to displays the current date and time. For example:</p>
-
-        <pre><code class="language-bash hljs">MAILPATH="\
-/usr/mail/satella/echidna?Mail from Echidna has arrived in $_ at $(date).:\
-/usr/mail/satella/minerva?There is new mail from Paul in $_ at $(date)."</code></pre>
-</article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/ubuntu" class="tag">ubuntu</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/bash-script" class="tag">bash script</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/special-variables" class="tag">special variables</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/cdpath" class="tag">CDPATH</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/home" class="tag">HOME</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/ifs" class="tag">IFS</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/optarg" class="tag">OPTARG</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/opterr" class="tag">OPTERR</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/optind" class="tag">OPTIND</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/path" class="tag">PATH</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/mail" class="tag">MAIL</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/mailcheck" class="tag">MAILCHECK</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/mailpath" class="tag">MAILPATH</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Best Practices" /><category term="year-2024" /><category term="month-06" /><category term="day-13" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="special variables" /><category term="CDPATH" /><category term="HOME" /><category term="IFS" /><category term="OPTARG" /><category term="OPTERR" /><category term="OPTIND" /><category term="PATH" /><category term="MAIL" /><category term="MAILCHECK" /><category term="MAILPATH" /><summary type="html"><![CDATA[Learn how to properly use Bourne Shell environment variables such as CDPATH, HOME, IFS, OPTARG, OPTERR, OPTIND, PATH, MAIL, MAILCHECK, and MAILPATH with practical examples to enhance your shell scripting skills.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-14" /><category term="linux" /><category term="login shell" /><category term="non-login shell" /><summary type="html"><![CDATA[Learn about the key differences between login and non-login shells in Linux, how they are initiated, and what impact they have on the environment settings for users.]]></summary></entry></feed>
