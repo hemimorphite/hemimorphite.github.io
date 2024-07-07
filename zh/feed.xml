@@ -1,4 +1,185 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-07-07T12:49:14+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Javascript Language Specification: Abstract Operations of BigIInt Type Binary and Arithmetic Operations</title><link href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations/" rel="alternate" type="text/html" title="Javascript Language Specification: Abstract Operations of BigIInt Type Binary and Arithmetic Operations" /><published>2024-07-05T11:21:00+00:00</published><updated>2024-07-05T11:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-07-07T12:52:54+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">__proto__ VS Prototype in Javascript</title><link href="https://hemimorphite.github.io/zh/2024/07/07/proto-vs-prototype-in-javascript/" rel="alternate" type="text/html" title="__proto__ VS Prototype in Javascript" /><published>2024-07-07T11:21:00+00:00</published><updated>2024-07-07T11:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/07/proto-vs-prototype-in-javascript</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/07/proto-vs-prototype-in-javascript/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">__proto__ VS Prototype in Javascript</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 07, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/javascript.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>In programming, inheritance refers to passing down characteristics from a parent to a child so that a new piece of code can reuse and build upon the features of an existing one. JavaScript implements inheritance by using objects. Each object has an internal link to another object called its prototype. That prototype object has a prototype of its own, and so on until an object is reached with null as its prototype. By definition, <code>null</code> has no prototype and acts as the final link in this prototype chain.</p>
+
+        <p>Every object in JavaScript has a built-in property, which is called its prototype. The prototype is itself an object, so the prototype will have its own prototype, making what's called a prototype chain. The chain ends when we reach a prototype that has <code>null</code> for its own prototype.</p>
+
+        <p>When you try to access a property of an object: if the property can't be found in the object itself, the prototype is searched for the property. If the property still can't be found, then the prototype's prototype is searched, and so on until either the property is found, or the end of the chain is reached, in which case <code>undefined</code> is returned.</p>
+
+        <p>So when we call <code>myObject.toString()</code>, the Javascript engine follows the prototype chain to resolve the method:</p>
+
+        <ul>
+            <li>looks for <code>toString()</code> method in <code>myObject</code></li>
+            <li>if the Javascript engine can't find it there, the Javascript engine looks into the prototype object of <code>myObject</code> for <code>toString()</code> method</li>
+            <li>if the Javascript engine finds it there, the Javascript engine calls the <code>toString()</code> method.</li>
+        </ul>
+
+        <p>In JavaScript, <code>__proto__</code> and <code>prototype</code> are two related but distinct concepts that are often confused with each other.</p>
+
+        <p><code>__proto__</code> (also called the Dunder Proto or Double Underscore Prototype) is a property of an object that points to its prototype. This property is used internally by the JavaScript engine to search for properties and methods on an object's prototype chain.</p>
+
+        <p>The <code>__proto__</code> is not part of the ECMAScript standard, but is supported by browsers.</p>
+
+        <p><code>Object.getPrototypeOf()</code> and <code>Object.setPrototypeOf()</code> are the modern ways of getting access to and setting an object's prototype.</p>
+
+        <p>Let's create an object literal:</p>
+
+        <pre><code class="language-bash hljs">const myObject = {
+    name: "John Doe",
+    greet() {
+        console.log(`Hello ${this.name}`);
+    },
+};
+myObject.greet(); // Hello John Doe
+myObject.__proto__ // Object { }
+Object.getPrototypeOf(myObject); // Object { }</code></pre>
+
+        <p><code>Object.prototype</code> is the most basic prototype, that all objects have by default. The prototype of <code>Object.prototype</code> is <code>null</code>, so it's at the end of the prototype chain.</p>
+
+        <p>The prototype of an object is not always <code>Object.prototype</code>. For example:</p>
+
+        <pre><code class="language-bash hljs">const myDate = new Date();
+let object = myDate;
+
+do {
+    object = Object.getPrototypeOf(object);
+    console.log(object);
+} while (object);
+
+// Date.prototype
+// Object { }
+// null</code></pre>
+
+        <p><code>prototype</code> is a built-in property when you create an object from a constructor function. This is like a blueprint for all the objects created from that constructor function. It defines the shared properties and methods that all instances of that object will have.</p>
+
+        <p>Let's create a constructor function:</p>
+
+        <pre><code class="language-bash hljs">function Circle(radius) {
+    this.radius = radius;
+}
+
+Circle.prototype.getArea = function() {
+    return Math.PI * Math.pow(this.radius, 2);
+};
+
+const circle1 = new Circle(5);
+circle1.getArea();   // 78.53981633974483
+const circle2 = new Circle(6);
+circle2.getArea();   // 113.09733552923255
+console.log(circle1.__proto__ === Circle.prototype); // true
+console.log(circle2.__proto__ === Circle.prototype); // true</code></pre>
+
+        <p>In the code above, the <code>getArea</code> method is contained in an object called <code>Circle.prototype</code>. When a new <code>Circle</code> instance is created, its <code>__proto__</code> property is set to <code>Circle.prototype</code>.</p>
+
+        <pre><code class="language-bash hljs">circle1.getCircumference = function () {
+    return Math.PI * 2 * this.radius;
+}
+circle1.getCircumference(); // 31.41592653589793
+circle2.getCircumference(); // Uncaught TypeError: circle2.getCircumference is not a function</code></pre>
+
+        <p>In the code above, the <code>getCircumference()</code> method is added to only <code>circle1</code> object and not on <code>Circle.prototype</code> or <code>circle2</code>.</p>
+
+        <p>Here we are comparing the <code>__proto__</code> (which is the prototype from which the object was created), with the <code>prototype</code> (a property that only exists in constructor functions).</p>
+
+        <pre><code class="language-bash hljs">const fn = () => {};
+fn.__proto__ === Function.prototype;   // Output: true</code></pre>
+
+        <p>Every function has a prototype property that points to the <code>Function.prototype</code> object. <code>fn</code> is an anonymous function created using the arrow function syntax. This means that <code>fn</code> inherits properties and methods from <code>Function.prototype</code>. For example, <code>fn</code> can use methods like <code>call()</code>, <code>apply()</code>, and <code>bind()</code> because they are defined on <code>Function.prototype</code>.</p>
+
+        <pre><code class="language-bash hljs">const fn = () => {};
+fn.__proto__ === new Function().__proto__ // Output: true</code></pre>
+        
+        <p><code>fn</code> is an anonymous function created using the arrow function syntax. <code>new Function()</code> creates a new function object using the Function constructor. The <code>__proto__</code> property of <code>fn</code> points to the same object as the <code>__proto__</code> property of the newly created function object using <code>new Function()</code>.</p>
+
+        <pre><code class="language-bash hljs">const arr = [];
+arr.__proto__ === Array.prototype;     // Output: true</code></pre>
+
+        <p>Every array in JavaScript has a prototype property that points to the <code>Array.prototype</code> object. <code>arr</code> is an array created using the array literal syntax <code>[]</code>. This means that <code>arr</code> inherits properties and methods from <code>Array.prototype</code>, such as <code>push()</code>, <code>pop()</code>, and <code>forEach()</code>.</p>
+        
+        <pre><code class="language-bash hljs">const arr = [];
+arr.__proto__ === new Array().__proto__;     // Output: true</code></pre>
+
+        <p><code>arr</code> is an array created using the array literal syntax <code>[]</code>. <code>new Array()</code> creates a new array object using the Array constructor. The <code>__proto__</code> property of <code>arr</code> points to the same object as the <code>__proto__</code> property of the newly created array object using <code>new Array()</code>.</p>
+
+        <pre><code class="language-bash hljs">const obj = {};
+obj.__proto__ === Object.prototype;     // Output: true</code></pre>
+
+        <p>Every object in JavaScript has a prototype property that points to the <code>Object.prototype</code> object. <code>obj</code> is an object created using the object literal syntax <code>{}</code>. This means that <code>obj</code> inherits properties and methods from <code>Object.prototype</code>, such as <code>toString()</code> and <code>hasOwnProperty()</code>.</p>
+        
+        <pre><code class="language-bash hljs">const obj = {};
+obj.__proto__ === new Object().__proto__;     // Output: true</code></pre>
+        
+        <p><code>obj</code> is an object created using the object literal syntax <code>{}</code>. <code>new Object()</code> creates a new object using the Object constructor. The <code>__proto__</code> property of <code>obj</code> points to the same object as the <code>__proto__</code> property of the newly created object using <code>new Object()</code>.</p>
+
+        <pre><code class="language-bash hljs">const str = 'Hello';
+str.__proto__ === String.prototype;     // Output: true</code></pre>
+
+        <p>Strings in Javascript have a prototype property that points to the <code>String.prototype</code> object. <code>str</code> is a string created using the string literal syntax <code>'Hello'</code>. This means that <code>str</code> inherits properties and methods from <code>String.prototype</code>, such as <code>toUpperCase()</code> and <code>substr()</code>.</p>
+        
+        <pre><code class="language-bash hljs">const str = 'Hello';
+str.__proto__ === String.prototype;     // Output: true</code></pre>
+        
+        <p><code>str</code> is a string created using the string literal syntax <code>'Hello'</code>. <code>new String()</code> creates a new string object using the String constructor. The <code>__proto__</code> property of <code>str</code> points to the same object as the <code>__proto__</code> property of the newly created string object using <code>new String()</code>.</p>
+
+        <pre><code class="language-bash hljs">const num = 123;
+num.__proto__ === Number.prototype;     // Output: true</code></pre>
+        
+        <p>Numbers in JavaScript have a prototype property that points to the <code>Number.prototype</code> object. <code>num</code> is a number created using the number literal syntax 123. This means that <code>num</code> inherits properties and methods from <code>Number.prototype</code>, such as <code>toFixed()</code> and <code>toExponential()</code>.</p>
+        
+        <pre><code class="language-bash hljs">const num = 123;
+num.__proto__ === new Number().__proto__;     // Output: true</code></pre>
+
+        <p><code>num</code> is a number created using the number literal syntax 123. <code>new Number()</code> creates a new number object using the Number constructor. The <code>__proto__</code> property of <code>num</code> points to the same object as the <code>__proto__</code> property of the newly created number object using <code>new Number()</code>.</p>
+
+        <pre><code class="language-bash hljs">const bool = true;
+bool.__proto__ === Boolean.prototype;     // Output: true</code></pre>
+        
+        <p>Booleans in JavaScript have a prototype property that points to the <code>Boolean.prototype</code> object. <code>bool</code> is a boolean created using the boolean literal syntax <code>true</code>. This means that <code>bool</code> inherits properties and methods from <code>Boolean.prototype</code>, such as <code>toString()</code> and <code>valueOf()</code>.</p>
+        
+        <pre><code class="language-bash hljs">const bool = true;
+bool.__proto__ === new Boolean().__proto__;     // Output: true</code></pre>
+
+        <p><code>bool</code> is a boolean created using the boolean literal syntax <code>true</code>. <code>new Boolean()</code> creates a new boolean object using the Boolean constructor. The <code>__proto__</code> property of <code>bool</code> points to the same object as the <code>__proto__</code> property of the newly created boolean object using <code>new Boolean()</code>.</p>
+
+</article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/javascript" class="tag">javascript</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/prototype" class="tag">prototype</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/proto" class="tag">__proto__</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/inheritance" class="tag">inheritance</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/prototype-chain" class="tag">prototype chain</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-07" /><category term="day-07" /><category term="javascript" /><category term="prototype" /><category term="__proto__" /><category term="inheritance" /><category term="prototype chain" /><summary type="html"><![CDATA[Understanding the difference between __proto__ and prototype in JavaScript is crucial for grasping prototype-based inheritance. Learn the distinction, see examples, and gain clarity on these concepts.]]></summary></entry><entry xml:lang="en"><title type="html">Javascript Language Specification: Abstract Operations of BigIInt Type Binary and Arithmetic Operations</title><link href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations/" rel="alternate" type="text/html" title="Javascript Language Specification: Abstract Operations of BigIInt Type Binary and Arithmetic Operations" /><published>2024-07-05T11:21:00+00:00</published><updated>2024-07-05T11:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Javascript Language Specification: Abstract Operations of BigIInt Type Binary and Arithmetic Operations</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -7054,80 +7235,4 @@ hemimorphite blog
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Best Practices" /><category term="year-2024" /><category term="month-06" /><category term="day-16" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="linux command" /><category term="break" /><category term=":" /><category term="." /><category term="cd" /><category term="continue" /><category term="eval" /><category term="exec" /><category term="exit" /><category term="export" /><category term="getopts" /><category term="hash" /><category term="pwd" /><category term="readonly" /><category term="return" /><category term="shift" /><category term="times" /><category term="trap" /><category term="umask" /><category term="unset" /><category term="test" /><summary type="html"><![CDATA[Learn how to properly use Bourne Shell builtin commands such as . (dot), : (colon), break, cd, continue, eval, exec, exit, export, getopts, hash, pwd, readonly, return, shift, times, trap, umask, unset and test with practical examples to enhance your shell scripting skills.]]></summary></entry><entry xml:lang="en"><title type="html">Difference Between Login and Non-Login Shell in Linux</title><link href="https://hemimorphite.github.io/zh/2024/06/14/difference-between-login-and-non-login-shell-in-linux/" rel="alternate" type="text/html" title="Difference Between Login and Non-Login Shell in Linux" /><published>2024-06-14T14:20:00+00:00</published><updated>2024-06-14T14:20:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/14/difference-between-login-and-non-login-shell-in-linux</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/14/difference-between-login-and-non-login-shell-in-linux/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Difference Between Login and Non-Login Shell in Linux</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published June 14, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/linux.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>Shell is a command interpreter or a program that reads and interprets commands issued to it by the user. The shell performs basic commands such as running programs, inputting text, and printing output. It is also responsible for handling errors and other situations that require user intervention. A shell can be used to automate existing tasks or to create new ones entirely.</p>
-
-        <h5 class="post-subtitle">Login Shell</h5>
-
-        <p>When a user successfully logs in to a Linux system via terminal, SSH, or switches to a user with the <code>su -</code> command, a Login shell is created.</p>
-
-        <p>When a login shell starts, it executes a set of pre-configured scripts to set up the environment. You may run this command on the terminal to discover which shell you are using.</p>
-
-        <pre><code class="language-bash hljs">echo $0</code></pre>
-
-        <p>If the result is <code>-bash</code> or <code>-su</code>, you are on the login shell. Be certain that it has a hyphen (-) as a prefix.</p>
-
-        <p>The following scripts are executed by the Login Shell:</p>
-
-        <ol>
-            <li>Login shell invokes <code>/etc/profile</code></li>
-            <li><code>/etc/profile</code> invokes scripts in <code>/etc/profile.d/*.sh</code></li>
-            <li>Then executes users <code>~/.bash_profile</code></li>
-            <li><code>~/.bash_profile</code> invokes users <code>~/.bashrc</code></li>
-        </ol>
-
-        <h5 class="post-subtitle">Non-Login Shell</h5>
-        
-        <p>A non-login shell is started by a login shell. For example, a shell that you start from another shell or from a program is a non-login shell.</p>
-
-        <p>A shell that is not used to log in to the system executes the following script to set the shell environment.</p>
-
-        <ol>
-            <li>Non login shell first executes <code>~/.bashrc</code></li>
-            <li>Then <code>~/.bashrc</code> executes <code>/etc/bashrc</code></li>
-            <li><code>/etc/bashrc</code> calls the scripts in <code>/etc/profile.d</code></li>
-        </ol>
-
-        <p>To find whether the current shell is a login shell or a non-login shell simply run the below command.</p>
-
-        <pre><code class="language-bash hljs">echo $0</code></pre>
-
-        <p>Login shell output will be <code>-bash</code> or <code>-su</code>.</p>
-
-        <p>Non-login shell output will be <code>bash</code> or <code>su</code></p>  
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/linux" class="tag">linux</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/login-shell" class="tag">login shell</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/non-login-shell" class="tag">non-login shell</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2024" /><category term="month-06" /><category term="day-14" /><category term="linux" /><category term="login shell" /><category term="non-login shell" /><summary type="html"><![CDATA[Learn about the key differences between login and non-login shells in Linux, how they are initiated, and what impact they have on the environment settings for users.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Best Practices" /><category term="year-2024" /><category term="month-06" /><category term="day-16" /><category term="linux" /><category term="ubuntu" /><category term="bash script" /><category term="linux command" /><category term="break" /><category term=":" /><category term="." /><category term="cd" /><category term="continue" /><category term="eval" /><category term="exec" /><category term="exit" /><category term="export" /><category term="getopts" /><category term="hash" /><category term="pwd" /><category term="readonly" /><category term="return" /><category term="shift" /><category term="times" /><category term="trap" /><category term="umask" /><category term="unset" /><category term="test" /><summary type="html"><![CDATA[Learn how to properly use Bourne Shell builtin commands such as . (dot), : (colon), break, cd, continue, eval, exec, exit, export, getopts, hash, pwd, readonly, return, shift, times, trap, umask, unset and test with practical examples to enhance your shell scripting skills.]]></summary></entry></feed>
