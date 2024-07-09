@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="Learn how to handle asynchronous operations in Node.js using callback functions, async/await, and promises. Get detailed explanations and examples to enhance your understanding.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/zh/2024/07/09/handling-asynchronous-operations-in-nodejs/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/zh/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Handling Asynchronous Operations in Node.js">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/zh/2024/07/09/handling-asynchronous-operations-in-nodejs/">
+		<meta property="og:description" content="Learn how to handle asynchronous operations in Node.js using callback functions, async/await, and promises. Get detailed explanations and examples to enhance your understanding.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/nodejs.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Handling Asynchronous Operations in Node.js">
+		<meta name="twitter:description" content="Learn how to handle asynchronous operations in Node.js using callback functions, async/await, and promises. Get detailed explanations and examples to enhance your understanding.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/nodejs.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Handling Asynchronous Operations in Node.js</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <!-- Additional CSS Files -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/zh/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '9cf40e8a46ab80f525196d3376630858',
+								'format' : 'iframe',
+								'height' : 90,
+								'width' : 728,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<script type="text/javascript">
+					atOptions = {
+						'key' : '9cf40e8a46ab80f525196d3376630858',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+			</div>
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">Handling Asynchronous Operations in Node.js</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 09, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/nodejs.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>In Node JS, asynchronous operations allow us to perform tasks without blocking the main thread, enabling the application to handle multiple requests concurrently. These operations include reading/writing files, making HTTP requests, querying databases, and more.</p>
+
+        <h5>Callbacks</h5>
+
+        <p>A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.</p>
+
+        <p>Synchronous callback functions execute instantly, but asynchronous callback functions execute at a later time.</p>
+
+        <p>In this example, we have two functions: <code>greet</code> and <code>sayGoodbye</code>. The greet function takes two arguments: <code>name</code> (a string) and <code>callback</code> (a function).</p>
+
+        <pre><code class="language-bash hljs">function greet(name, callback) {
+    console.log(`Hello, ${name}!`);
+    callback();
+}
+
+function sayGoodbye() {
+    console.log("Goodbye!");
+}; 
+
+greet("Alice", sayGoodbye);</code></pre>
+
+        <p>It will output:</p>
+
+        <pre><code class="language-bash hljs">Hello, Alice!
+Goodbye!</code></pre>
+
+        <p>The <code>sayGoodbye</code> function is called immediately following the <code>greet</code> function's completion, making it an example of a synchronous callback function.</p>
+
+        <p>In the next example, the <code>asyncOperation</code> function uses <code>setTimeout</code> to simulate an asynchronous task. The callback is executed after a delay of 1 second.</p>
+        
+        <p><code>setTimeout()</code> takes a callback function as an argument and executes the callback function after a specified amount of time.</p>
+
+        <pre><code class="language-bash hljs">function asyncOperation(callback) {
+    console.log("Start operation");
+    setTimeout(function() {
+        callback();
+    }, 1000);
+    console.log("End operation");
+};
+
+function callback() {
+    console.log("Callback executed");
+}
+
+asyncOperation(callback);</code></pre>
+
+        <p>It will output:</p>
+
+        <pre><code class="language-bash hljs">Start operation
+End operation
+Callback executed</code></pre>
+
+        <p>Callbacks can lead to callback hell or pyramid of doom, where multiple nested callbacks can make code hard to read and maintain.</p>
+        
+        <p>Here is a example of nested callbacks:</p>
+
+        <pre><code class="language-bash hljs">function pyramidOfDoom() {
+    setTimeout(() => {
+        console.log(1);
+        setTimeout(() => {
+            console.log(2);
+            setTimeout(() => {
+                console.log(3);
+                setTimeout(() => {
+                    console.log(4);
+                    setTimeout(() => {
+                        console.log(5);
+                    }, 3500);
+                }, 1500);
+            }, 500);
+        }, 2000);
+    }, 1000);
+}</code></pre>
+
+        <p>In the above code, each new <code>setTimeout</code> is nested inside a higher order function, creating a pyramid shape of deeper and deeper callbacks.</p>
+
+        <p>Let's look at another example, say we have a list of users, their posts and their respective comments, like this:</p>
+
+        <pre><code class="language-bash hljs">const users = [
+    { id: 1, name: 'Luther Hargreeves' },
+    { id: 2, name: 'Diego Hargreeves' },
+    { id: 3, name: 'Allison Hargreeves' },
+];
+const posts = [
+    { id: 1, title: 'First Post', user_id: 2 },
+    { id: 2, title: 'Second Post', user_id: 1 },
+    { id: 3, title: 'Third Post', user_id: 2 },
+    { id: 4, title: 'Fourth Post', user_id: 2 },
+    { id: 5, title: 'Fifth Post', user_id: 3 },
+];
+
+const comments = [
+    { user_id: 2, post_id: 2, text: 'Great!'},
+    { user_id: 3, post_id: 2, text: 'Nice Post!'},
+    { user_id: 1, post_id: 3, text: 'Awesome Post!'},
+];</code></pre>
+        
+        <p>Now, we will write a function to get a post by passing the post id. If the post is found, we will retrieve the comments related to that post.</p>
+
+        <pre><code class="language-bash hljs">const getPost = (post_id, callback) => {
+    const post = posts.find( post => post.id === post_id);
+    setTimeout(() => {
+        if(post) {
+            callback(null, post);
+        } else {
+            callback("No such post found", undefined);
+        }
+    }, 1000);
+};
+
+const getUser = (user_id, callback) => {
+    const user = users.find( user => user.id === user_id);
+    setTimeout(() => {
+        if(user) {
+            callback(null, user);
+        } else {
+            callback("No such user found", undefined);
+        }
+    }, 500);
+};
+
+const getComments = (post_id, callback) => {
+    const result = comments.filter( comment => comment.post_id === post_id);
+    setTimeout(() => {
+        if(result) {
+            callback(null, result);
+        } else {
+            callback("No comments found", undefined);
+        }
+    }, 100);
+}
+
+getPost(2, (err, post) => {
+    if (err) {
+        console.error('Error getting post:', err);
+    } else {
+        getUser(post.user_id, (err, user) => {
+            if (err) {
+                console.error('Error getting user:', err);
+            } else {
+                console.log(`${user.name} created a post with title ${post.title}`);
+                getComments(post.id, (err, comments) => {
+                    if (err) {
+                        console.error('Error getting comment:', err);
+                    } else {
+                        comments.forEach((comment) => {
+                            getUser(comment.user_id, (err, user) => {
+                                if(err) {
+                                    console.error('Error getting user:', err);
+                                }
+                                else {
+                                    console.log(`${user.name} comments: ${comment.text}`);
+                                }
+                            });
+                        });
+                    }
+                });
+            }
+        });
+    }
+});</code></pre>
+
+        <p>After executing the above code, you will see the following output:</p>
+
+        <pre><code class="language-bash hljs">Luther Hargreeves created a post with title Second Post
+Luther Hargreeves comment: Great! 
+Allison Hargreeves comment: Nice Post!</code></pre>
+
+        <h5>Promises</h5>
+
+        <p>Promises help in solving the callback hell problem. A promise represents a value that may not be available yet but will be resolved in the future, either successfully with a value or unsuccessfully with an error.</p>
+
+        <p>You can initialize a promise with the <code>new Promise</code> syntax, and you must initialize it with a function. The function that gets passed to a promise has <code>resolve</code> and <code>reject</code> parameters. The <code>resolve</code> and <code>reject</code> functions handle the success and failure of an operation, respectively.</p>
+        
+        <p>When we initialize a promise, it has a <code>pending</code> state and <code>undefined</code> value:</p>
+
+        <pre><code class="language-bash hljs">// Initialize a promise
+const promise = new Promise((resolve, reject) => {})
+console.log(promise);
+// Promise { &lt;state&gt;: "pending" }</code></pre>
+        
+        <p>When we call the <code>resolve</code> function and pass a value, it has a <code>fulfilled</code> state and a value.</p>
+        
+        <pre><code class="language-bash hljs">const promise = new Promise((resolve, reject) => {
+    resolve('result value');
+});
+console.log(promise);
+// Promise { &lt;state&gt;: "fulfilled", &lt;value&gt;: "result value" }</code></pre>
+        
+        <p>If we call <code>reject</code> function and pass a value, it will has a <code>rejected</code> state and a value.</p>
+
+        <pre><code class="language-bash hljs">const promise = new Promise((resolve, reject) => {
+    reject('error value');
+});
+console.log(promise);
+// Promise { &lt;state&gt;: "rejected", &lt;value&gt;: "error value" }</code></pre>
+
+        <p>A promise can have three possible states: pending, fulfilled, and rejected.</p>
+
+        <ul>
+            <li>Pending - Initial state before being resolved or rejected</li>
+            <li>Fulfilled - Successful operation, promise has resolved</li>
+            <li>Rejected - Failed operation, promise has rejected</li>
+        </ul>
+
+        <p>To get the result of the successful promise execution, we need to register a callback handler using <code>.then</code> like this:</p>
+
+        <pre><code class="language-bash hljs">promise.then(function(result) {
+    console.log(result); // result value
+});</code></pre>
+
+        <p>To catch the error, we need to register another callback using <code>.catch</code> like this:</p>
+
+        <pre><code class="language-bash hljs">promise.then(function(result) {
+    console.log(result); // result value
+}).catch(function(error) {
+    console.log(error);  // error value
+});</code></pre>
+
+        <p>For reference, here is a table with the handler methods on <code>Promise</code> objects:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <code>then()</code>
+                    </td>
+                    <td>Handles a <code>resolve</code>. Returns a promise, and calls <code>onFulfilled</code> function asynchronously </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>catch()</code>
+                    </td>
+                    <td>Handles a <code>reject</code>. Returns a promise, and calls <code>onRejected</code> function asynchronously </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>finally()</code>
+                    </td>
+                    <td>Called when a promise is settled. Returns a promise, and calls <code>onFinally</code> function asynchronously </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <p>One of the most useful and frequently used Web APIs that returns a promise is the Fetch API, which allows you to make an asynchronous resource request over a network. fetch is a two-part process, and therefore requires chaining then. This example demonstrates hitting the GitHub API to fetch a user's data, while also handling any potential error:</p>
+
+        <pre><code class="language-bash hljs">// Fetch a user from the GitHub API
+fetch('https://api.github.com/users/octocat')
+    .then((response) => {
+    return response.json()
+    })
+    .then((data) => {
+    console.log(data)
+    })
+    .catch((error) => {
+    console.error(error)
+    });</code></pre>
+
+        <p>The fetch request is sent to the <code>https://api.github.com/users/octocat</code> URL, which asynchronously waits for a response. The first then passes the response to an anonymous function that formats the response as JSON data, then passes the JSON to a second then that logs the data to the console. The catch statement logs any error to the console.</p>
+
+        <p>Sometimes, you want to execute two or more related asynchronous operations, where the next operation starts with the result from the previous one. For example:</p>
+
+        <pre><code class="language-bash hljs">let p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(10);
+    }, 1000);
+});
+
+p.then((result) => {
+    console.log(result); // 10
+    return result * 2;
+}).then((result) => {
+    console.log(result); // 20
+    return result * 3;
+}).then((result) => {
+    console.log(result); // 60
+    return result * 4;
+});</code></pre>
+
+        <p>In the above example, the return value in the first <code>then()</code> method is passed to the second <code>then()</code> method and the return value in the second <code>then()</code> method is passed the third <code>then()</code>. Because the <code>then()</code> method returns a new <code>Promise</code> with a value resolved to a value, you can call the <code>then()</code> method on the return <code>Promise</code>.</p>
+
+        <p>The way we call the <code>then()</code> method like this is often referred to as a promise chain.</p>
+
+        <p>When you call the <code>then()</code> method multiple times on a promise, it is not the promise chaining. For example:</p>
+
+        <pre><code class="language-bash hljs">let p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(10);
+    }, 1000);
+});
+        
+p.then((result) => {
+    console.log(result); // 10
+    return result * 2;
+})
+
+p.then((result) => {
+    console.log(result); // 10
+    return result * 3;
+})
+
+p.then((result) => {
+    console.log(result); // 10
+    return result * 4;
+});</code></pre>
+
+        <p>Here is the modified code of callback function example that uses Promises instead of callbacks:</p>
+
+        <pre><code class="language-bash hljs">const users = [  
+    { id: 1, name: 'Luther Hargreeves' },  
+    { id: 2, name: 'Diego Hargreeves' },  
+    { id: 3, name: 'Allison Hargreeves' },  
+];  
+
+const posts = [  
+    { id: 1, title: 'First Post', user_id: 2 },  
+    { id: 2, title: 'Second Post', user_id: 1 },  
+    { id: 3, title: 'Third Post', user_id: 2 },  
+    { id: 4, title: 'Fourth Post', user_id: 2 },  
+    { id: 5, title: 'Fifth Post', user_id: 3 },  
+];  
+
+const comments = [  
+    { user_id: 2, post_id: 2, text: 'Great!'},  
+    { user_id: 3, post_id: 2, text: 'Nice Post!'},  
+    { user_id: 1, post_id: 3, text: 'Awesome Post!'},  
+];  
+
+const getPost = (post_id) => {  
+    return new Promise((resolve, reject) => {  
+        const post = posts.find(post => post.id === post_id);  
+        setTimeout(() => {  
+            if (post) {  
+                resolve(post);  
+            } else {  
+                reject("No such post found");  
+            }  
+        }, 1000);  
+    });  
+};  
+
+const getUser = (user_id) => {  
+    return new Promise((resolve, reject) => {  
+        const user = users.find(user => user.id === user_id);  
+        setTimeout(() => {  
+            if (user) {  
+                resolve(user);  
+            } else {  
+                reject("No such user found");  
+            }  
+        }, 500);  
+    });  
+};  
+
+const getComments = (post_id) => {  
+    return new Promise((resolve, reject) => {  
+        const result = comments.filter(comment => comment.post_id === post_id);  
+        setTimeout(() => {  
+            if (result) {  
+                resolve(result);  
+            } else {  
+                reject("No comments found");  
+            }  
+        }, 100);  
+    });  
+};  
+
+getPost(2)  
+    .then(post => {  
+        return getUser(post.user_id)  
+            .then(user => {  
+                console.log(`${user.name} created a post with title ${post.title}`);  
+                return getComments(post.id);  
+            });  
+    })  
+    .then(comments => {  
+        comments.forEach(comment => {  
+            getUser(comment.user_id)  
+                .then(user => {  
+                    console.log(`${user.name} comments: ${comment.text}`);  
+                })  
+                .catch(err => {  
+                    console.error('Error getting user:', err);  
+                });  
+        });  
+    })  
+    .catch(err => {  
+        console.error('Error:', err);  
+    }); </code></pre>
+
+        <h5>Async/Await</h5>
+
+        <p>An <code>async</code> function allows you to handle asynchronous code in a manner that appears synchronous. <code>async</code> functions still use promises under the hood, but have a more traditional JavaScript syntax.</p>
+
+        <p>The <code>async</code> keyword allows you to define a function that handles asynchronous operations.</p>
+
+        <p>To define an <code>async</code> function, you place the <code>async</code> keyword in front of the function as follows:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return `Hello, ${name}`;
+}</code></pre>
+
+        <p>Since <code>async</code> functions always returns a <code>Promise</code>, you can use <code>then()</code> method to consume it, like this:</p>
+
+        <pre><code class="language-bash hljs">greet('Alison').then(console.log);</code></pre>
+
+        <p>You can also explicitly return a <code>Promise</code> from the <code>greet()</code> function as shown in the following code:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return Promise.resolve(`Hello, ${name}`);
+}</code></pre>
+
+        <p>Besides the regular functions, you can use the <code>async</code> keyword in the function expressions:</p>
+
+        <pre><code class="language-bash hljs">let greet = async function (name) {
+    return `Hello, ${name}`;
+}</code></pre>
+
+        <p>Or in arrow functions:</p>
+
+        <pre><code class="language-bash hljs">let greet = async (name) => `Hello, ${name}`;</code></pre>
+
+        <p>Or in methods of classes:</p>
+
+        <pre><code class="language-bash hljs">class person {
+    async greet(name) {
+        return `Hello, ${name}`;
+    }
+}</code></pre>
+
+        <p>You use the <code>await</code> keyword to wait for a <code>Promise</code> to settle either in a resolved or rejected state.</p>
+        
+        <p>You cannot use the <code>await</code> keyword inside a sync function:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return Promise.resolve(`Hello, ${name}`);
+}
+function print() {
+    let result = await greet('Alison');
+    console.log(result);
+}
+print();
+// SyntaxError: await is only valid in async functions, async generators and modules</code></pre>
+
+        <p>You use the <code>await</code> keyword only inside an <code>async</code> function:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return Promise.resolve(`Hello, ${name}`);
+}
+async function print() {
+    let result = await greet('Alison');
+    console.log(result);
+}
+
+print(); // Hello, Alison</code></pre>
+
+        <p>You cannot use the <code>await</code> keyword at the top level of a script:</p>
+
+        <pre><code class="language-bash hljs">&lt;script&gt;
+    async function greet(name) {
+        return Promise.resolve(`Hello, ${name}`);
+    }
+    
+    let result = await greet('Alison');
+    // SyntaxError: await is only valid in async functions, async generators and modules
+&lt;/script&gt;</code></pre>
+        
+        <p>Instead, make the script a module:</p>
+
+        <pre><code class="language-bash hljs">&lt;script type="module"&gt;
+    async function greet(name) {
+        return Promise.resolve(`Hello, ${name}`);
+    }
+    
+    let result = await greet('Alison');
+    // SyntaxError: await is only valid in async functions, async generators and modules
+&lt;/script&gt;</code></pre>
+
+        <p>If a promise resolves normally, then <code>await promise</code> returns the result. But in case of a promise is rejected, it throws the error, just as if there were a <code>throw</code> statement at that line.</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return Promise.reject(new Error('Invalid name'));
+}
+async function print() {
+    let result = await greet('Alison');
+    console.log(result);
+}
+
+print(); // Uncaught (in promise) Error: Invalid name</code></pre>
+
+        <p>The above code is the same as this:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    throw new Error('Invalid name');
+}
+async function print() {
+    let result = await greet('Alison');
+    console.log(result);
+}
+
+print(); // Uncaught (in promise) Error: Invalid name</code></pre>
+
+        <p>You can catch the error by using the <code>try...catch</code> statement, the same way as a regular <code>throw</code> statement:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return Promise.reject(new Error('Invalid name'));
+}
+async function print() {
+    try {
+        let result = await greet('Alison');
+        console.log(result);
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+print(); // Uncaught (in promise) Error: Invalid name</code></pre>
+
+        <p>Here is the modified code of callback function example that uses async/await instead of callbacks:</p>
+
+        <pre><code class="language-bash hljs">const users = [  
+    { id: 1, name: 'Luther Hargreeves' },  
+    { id: 2, name: 'Diego Hargreeves' },  
+    { id: 3, name: 'Allison Hargreeves' },  
+];  
+
+const posts = [  
+    { id: 1, title: 'First Post', user_id: 2 },  
+    { id: 2, title: 'Second Post', user_id: 1 },  
+    { id: 3, title: 'Third Post', user_id: 2 },  
+    { id: 4, title: 'Fourth Post', user_id: 2 },  
+    { id: 5, title: 'Fifth Post', user_id: 3 },  
+];  
+
+const comments = [  
+    { user_id: 2, post_id: 2, text: 'Great!'},  
+    { user_id: 3, post_id: 2, text: 'Nice Post!'},  
+    { user_id: 1, post_id: 3, text: 'Awesome Post!'},  
+];  
+  
+const getPost = async (post_id) => {  
+    return new Promise((resolve, reject) => {  
+        const post = posts.find(post => post.id === post_id);  
+        setTimeout(() => {  
+            if (post) {  
+            resolve(post);  
+            } else {  
+            reject("No such post found");  
+            }  
+        }, 1000);  
+    });  
+};  
+  
+const getUser = async (user_id) => {  
+    return new Promise((resolve, reject) => {  
+        const user = users.find(user => user.id === user_id);  
+        setTimeout(() => {  
+            if (user) {  
+            resolve(user);  
+            } else {  
+            reject("No such user found");  
+            }  
+        }, 500);  
+    });  
+};  
+  
+const getComments = async (post_id) => {  
+    return new Promise((resolve, reject) => {  
+        const result = comments.filter(comment => comment.post_id === post_id);  
+        setTimeout(() => {  
+            if (result) {  
+                resolve(result);  
+            } else {  
+                reject("No comments found");  
+            }  
+        }, 100);  
+    });  
+};  
+  
+async function main() {  
+    try {  
+        const post = await getPost(2);  
+        const user = await getUser(post.user_id);  
+        console.log(`${user.name} created a post with title ${post.title}`);  
+        const comments = await getComments(post.id);  
+        comments.forEach(async (comment) => {  
+            const user = await getUser(comment.user_id);  
+            console.log(`${user.name} comments: ${comment.text}`);  
+        });  
+    } catch (err) {  
+        console.error('Error:', err);  
+    }  
+}  
+  
+main();</code></pre>
+        </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/javascript" class="tag">javascript</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/nodejs" class="tag">nodejs</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/async" class="tag">async</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/await" class="tag">await</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/promise" class="tag">promise</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/callback" class="tag">callback</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+					</div>
+				</div>
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/07/07/proto-vs-prototype-in-javascript/"><img src="https://hemimorphite.github.io/assets/images/javascript.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/07/07/proto-vs-prototype-in-javascript/">__proto__ VS Prototype in Javascript</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations/"><img src="https://hemimorphite.github.io/assets/images/javascript.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Complete Reference</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations/">Javascript Language Specification: Abstract Operations of BigIInt Type Binary and Arithmetic Operations</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-abstract-operations-of-number-type-binary-and-arithmetic-operations/"><img src="https://hemimorphite.github.io/assets/images/javascript.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Complete Reference</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-abstract-operations-of-number-type-binary-and-arithmetic-operations/">Javascript Language Specification: Abstract Operations of Number Type Binary and Arithmetic Operations</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-data-types-and-values/"><img src="https://hemimorphite.github.io/assets/images/javascript.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Complete Reference</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-data-types-and-values/">Javascript Language Specification: Data Types and Values</a></h4>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<script async="async" data-cfasync="false" src="//pl23622823.highrevenuenetwork.com/82849ac901fcdf553b99a113d233ce38/invoke.js"></script>
+						<div id="container-82849ac901fcdf553b99a113d233ce38"></div>
+					</div>
+					<div class="col-md-6">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '08760f2487e830ed5039902de4007bec',
+								'format' : 'iframe',
+								'height' : 250,
+								'width' : 300,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/zh/2024/07/09/handling-asynchronous-operations-in-nodejs/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/zh/2024/07/09/handling-asynchronous-operations-in-nodejs/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+		
+  	</body>
+</html>
