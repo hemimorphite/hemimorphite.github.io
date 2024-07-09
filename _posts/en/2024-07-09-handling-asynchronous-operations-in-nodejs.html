@@ -1,0 +1,626 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Handling Asynchronous Operations in Node.js"
+thumb: "nodejs.jpg"
+eyebrow: "Tutorial"
+description: "Learn how to handle asynchronous operations in Node.js using callback functions, async/await, and promises. Get detailed explanations and examples to enhance your understanding."
+date: 2024-07-09 12:21:00 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2024", "month-07", "day-09"]
+tags: ["javascript", "nodejs", "async", "await", "promise", "callback"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>In Node JS, asynchronous operations allow us to perform tasks without blocking the main thread, enabling the application to handle multiple requests concurrently. These operations include reading/writing files, making HTTP requests, querying databases, and more.</p>
+
+        <h5>Callbacks</h5>
+
+        <p>A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.</p>
+
+        <p>Synchronous callback functions execute instantly, but asynchronous callback functions execute at a later time.</p>
+
+        <p>In this example, we have two functions: <code>greet</code> and <code>sayGoodbye</code>. The greet function takes two arguments: <code>name</code> (a string) and <code>callback</code> (a function).</p>
+
+        <pre><code class="language-bash hljs">function greet(name, callback) {
+    console.log(`Hello, ${name}!`);
+    callback();
+}
+
+function sayGoodbye() {
+    console.log("Goodbye!");
+}; 
+
+greet("Alice", sayGoodbye);</code></pre>
+
+        <p>It will output:</p>
+
+        <pre><code class="language-bash hljs">Hello, Alice!
+Goodbye!</code></pre>
+
+        <p>The <code>sayGoodbye</code> function is called immediately following the <code>greet</code> function's completion, making it an example of a synchronous callback function.</p>
+
+        <p>In the next example, the <code>asyncOperation</code> function uses <code>setTimeout</code> to simulate an asynchronous task. The callback is executed after a delay of 1 second.</p>
+        
+        <p><code>setTimeout()</code> takes a callback function as an argument and executes the callback function after a specified amount of time.</p>
+
+        <pre><code class="language-bash hljs">function asyncOperation(callback) {
+    console.log("Start operation");
+    setTimeout(function() {
+        callback();
+    }, 1000);
+    console.log("End operation");
+};
+
+function callback() {
+    console.log("Callback executed");
+}
+
+asyncOperation(callback);</code></pre>
+
+        <p>It will output:</p>
+
+        <pre><code class="language-bash hljs">Start operation
+End operation
+Callback executed</code></pre>
+
+        <p>Callbacks can lead to callback hell or pyramid of doom, where multiple nested callbacks can make code hard to read and maintain.</p>
+        
+        <p>Here is a example of nested callbacks:</p>
+
+        <pre><code class="language-bash hljs">function pyramidOfDoom() {
+    setTimeout(() => {
+        console.log(1);
+        setTimeout(() => {
+            console.log(2);
+            setTimeout(() => {
+                console.log(3);
+                setTimeout(() => {
+                    console.log(4);
+                    setTimeout(() => {
+                        console.log(5);
+                    }, 3500);
+                }, 1500);
+            }, 500);
+        }, 2000);
+    }, 1000);
+}</code></pre>
+
+        <p>In the above code, each new <code>setTimeout</code> is nested inside a higher order function, creating a pyramid shape of deeper and deeper callbacks.</p>
+
+        <p>Let's look at another example, say we have a list of users, their posts and their respective comments, like this:</p>
+
+        <pre><code class="language-bash hljs">const users = [
+    { id: 1, name: 'Luther Hargreeves' },
+    { id: 2, name: 'Diego Hargreeves' },
+    { id: 3, name: 'Allison Hargreeves' },
+];
+const posts = [
+    { id: 1, title: 'First Post', user_id: 2 },
+    { id: 2, title: 'Second Post', user_id: 1 },
+    { id: 3, title: 'Third Post', user_id: 2 },
+    { id: 4, title: 'Fourth Post', user_id: 2 },
+    { id: 5, title: 'Fifth Post', user_id: 3 },
+];
+
+const comments = [
+    { user_id: 2, post_id: 2, text: 'Great!'},
+    { user_id: 3, post_id: 2, text: 'Nice Post!'},
+    { user_id: 1, post_id: 3, text: 'Awesome Post!'},
+];</code></pre>
+        
+        <p>Now, we will write a function to get a post by passing the post id. If the post is found, we will retrieve the comments related to that post.</p>
+
+        <pre><code class="language-bash hljs">const getPost = (post_id, callback) => {
+    const post = posts.find( post => post.id === post_id);
+    setTimeout(() => {
+        if(post) {
+            callback(null, post);
+        } else {
+            callback("No such post found", undefined);
+        }
+    }, 1000);
+};
+
+const getUser = (user_id, callback) => {
+    const user = users.find( user => user.id === user_id);
+    setTimeout(() => {
+        if(user) {
+            callback(null, user);
+        } else {
+            callback("No such user found", undefined);
+        }
+    }, 500);
+};
+
+const getComments = (post_id, callback) => {
+    const result = comments.filter( comment => comment.post_id === post_id);
+    setTimeout(() => {
+        if(result) {
+            callback(null, result);
+        } else {
+            callback("No comments found", undefined);
+        }
+    }, 100);
+}
+
+getPost(2, (err, post) => {
+    if (err) {
+        console.error('Error getting post:', err);
+    } else {
+        getUser(post.user_id, (err, user) => {
+            if (err) {
+                console.error('Error getting user:', err);
+            } else {
+                console.log(`${user.name} created a post with title ${post.title}`);
+                getComments(post.id, (err, comments) => {
+                    if (err) {
+                        console.error('Error getting comment:', err);
+                    } else {
+                        comments.forEach((comment) => {
+                            getUser(comment.user_id, (err, user) => {
+                                if(err) {
+                                    console.error('Error getting user:', err);
+                                }
+                                else {
+                                    console.log(`${user.name} comments: ${comment.text}`);
+                                }
+                            });
+                        });
+                    }
+                });
+            }
+        });
+    }
+});</code></pre>
+
+        <p>After executing the above code, you will see the following output:</p>
+
+        <pre><code class="language-bash hljs">Luther Hargreeves created a post with title Second Post
+Luther Hargreeves comment: Great! 
+Allison Hargreeves comment: Nice Post!</code></pre>
+
+        <h5>Promises</h5>
+
+        <p>Promises help in solving the callback hell problem. A promise represents a value that may not be available yet but will be resolved in the future, either successfully with a value or unsuccessfully with an error.</p>
+
+        <p>You can initialize a promise with the <code>new Promise</code> syntax, and you must initialize it with a function. The function that gets passed to a promise has <code>resolve</code> and <code>reject</code> parameters. The <code>resolve</code> and <code>reject</code> functions handle the success and failure of an operation, respectively.</p>
+        
+        <p>When we initialize a promise, it has a <code>pending</code> state and <code>undefined</code> value:</p>
+
+        <pre><code class="language-bash hljs">// Initialize a promise
+const promise = new Promise((resolve, reject) => {})
+console.log(promise);
+// Promise { &lt;state&gt;: "pending" }</code></pre>
+        
+        <p>When we call the <code>resolve</code> function and pass a value, it has a <code>fulfilled</code> state and a value.</p>
+        
+        <pre><code class="language-bash hljs">const promise = new Promise((resolve, reject) => {
+    resolve('result value');
+});
+console.log(promise);
+// Promise { &lt;state&gt;: "fulfilled", &lt;value&gt;: "result value" }</code></pre>
+        
+        <p>If we call <code>reject</code> function and pass a value, it will has a <code>rejected</code> state and a value.</p>
+
+        <pre><code class="language-bash hljs">const promise = new Promise((resolve, reject) => {
+    reject('error value');
+});
+console.log(promise);
+// Promise { &lt;state&gt;: "rejected", &lt;value&gt;: "error value" }</code></pre>
+
+        <p>A promise can have three possible states: pending, fulfilled, and rejected.</p>
+
+        <ul>
+            <li>Pending - Initial state before being resolved or rejected</li>
+            <li>Fulfilled - Successful operation, promise has resolved</li>
+            <li>Rejected - Failed operation, promise has rejected</li>
+        </ul>
+
+        <p>To get the result of the successful promise execution, we need to register a callback handler using <code>.then</code> like this:</p>
+
+        <pre><code class="language-bash hljs">promise.then(function(result) {
+    console.log(result); // result value
+});</code></pre>
+
+        <p>To catch the error, we need to register another callback using <code>.catch</code> like this:</p>
+
+        <pre><code class="language-bash hljs">promise.then(function(result) {
+    console.log(result); // result value
+}).catch(function(error) {
+    console.log(error);  // error value
+});</code></pre>
+
+        <p>For reference, here is a table with the handler methods on <code>Promise</code> objects:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <code>then()</code>
+                    </td>
+                    <td>Handles a <code>resolve</code>. Returns a promise, and calls <code>onFulfilled</code> function asynchronously </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>catch()</code>
+                    </td>
+                    <td>Handles a <code>reject</code>. Returns a promise, and calls <code>onRejected</code> function asynchronously </td>
+                </tr>
+                <tr>
+                    <td>
+                        <code>finally()</code>
+                    </td>
+                    <td>Called when a promise is settled. Returns a promise, and calls <code>onFinally</code> function asynchronously </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <p>One of the most useful and frequently used Web APIs that returns a promise is the Fetch API, which allows you to make an asynchronous resource request over a network. fetch is a two-part process, and therefore requires chaining then. This example demonstrates hitting the GitHub API to fetch a user's data, while also handling any potential error:</p>
+
+        <pre><code class="language-bash hljs">// Fetch a user from the GitHub API
+fetch('https://api.github.com/users/octocat')
+    .then((response) => {
+    return response.json()
+    })
+    .then((data) => {
+    console.log(data)
+    })
+    .catch((error) => {
+    console.error(error)
+    });</code></pre>
+
+        <p>The fetch request is sent to the <code>https://api.github.com/users/octocat</code> URL, which asynchronously waits for a response. The first then passes the response to an anonymous function that formats the response as JSON data, then passes the JSON to a second then that logs the data to the console. The catch statement logs any error to the console.</p>
+
+        <p>Sometimes, you want to execute two or more related asynchronous operations, where the next operation starts with the result from the previous one. For example:</p>
+
+        <pre><code class="language-bash hljs">let p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(10);
+    }, 1000);
+});
+
+p.then((result) => {
+    console.log(result); // 10
+    return result * 2;
+}).then((result) => {
+    console.log(result); // 20
+    return result * 3;
+}).then((result) => {
+    console.log(result); // 60
+    return result * 4;
+});</code></pre>
+
+        <p>In the above example, the return value in the first <code>then()</code> method is passed to the second <code>then()</code> method and the return value in the second <code>then()</code> method is passed the third <code>then()</code>. Because the <code>then()</code> method returns a new <code>Promise</code> with a value resolved to a value, you can call the <code>then()</code> method on the return <code>Promise</code>.</p>
+
+        <p>The way we call the <code>then()</code> method like this is often referred to as a promise chain.</p>
+
+        <p>When you call the <code>then()</code> method multiple times on a promise, it is not the promise chaining. For example:</p>
+
+        <pre><code class="language-bash hljs">let p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(10);
+    }, 1000);
+});
+        
+p.then((result) => {
+    console.log(result); // 10
+    return result * 2;
+})
+
+p.then((result) => {
+    console.log(result); // 10
+    return result * 3;
+})
+
+p.then((result) => {
+    console.log(result); // 10
+    return result * 4;
+});</code></pre>
+
+        <p>Here is the modified code of callback function example that uses Promises instead of callbacks:</p>
+
+        <pre><code class="language-bash hljs">const users = [  
+    { id: 1, name: 'Luther Hargreeves' },  
+    { id: 2, name: 'Diego Hargreeves' },  
+    { id: 3, name: 'Allison Hargreeves' },  
+];  
+
+const posts = [  
+    { id: 1, title: 'First Post', user_id: 2 },  
+    { id: 2, title: 'Second Post', user_id: 1 },  
+    { id: 3, title: 'Third Post', user_id: 2 },  
+    { id: 4, title: 'Fourth Post', user_id: 2 },  
+    { id: 5, title: 'Fifth Post', user_id: 3 },  
+];  
+
+const comments = [  
+    { user_id: 2, post_id: 2, text: 'Great!'},  
+    { user_id: 3, post_id: 2, text: 'Nice Post!'},  
+    { user_id: 1, post_id: 3, text: 'Awesome Post!'},  
+];  
+
+const getPost = (post_id) => {  
+    return new Promise((resolve, reject) => {  
+        const post = posts.find(post => post.id === post_id);  
+        setTimeout(() => {  
+            if (post) {  
+                resolve(post);  
+            } else {  
+                reject("No such post found");  
+            }  
+        }, 1000);  
+    });  
+};  
+
+const getUser = (user_id) => {  
+    return new Promise((resolve, reject) => {  
+        const user = users.find(user => user.id === user_id);  
+        setTimeout(() => {  
+            if (user) {  
+                resolve(user);  
+            } else {  
+                reject("No such user found");  
+            }  
+        }, 500);  
+    });  
+};  
+
+const getComments = (post_id) => {  
+    return new Promise((resolve, reject) => {  
+        const result = comments.filter(comment => comment.post_id === post_id);  
+        setTimeout(() => {  
+            if (result) {  
+                resolve(result);  
+            } else {  
+                reject("No comments found");  
+            }  
+        }, 100);  
+    });  
+};  
+
+getPost(2)  
+    .then(post => {  
+        return getUser(post.user_id)  
+            .then(user => {  
+                console.log(`${user.name} created a post with title ${post.title}`);  
+                return getComments(post.id);  
+            });  
+    })  
+    .then(comments => {  
+        comments.forEach(comment => {  
+            getUser(comment.user_id)  
+                .then(user => {  
+                    console.log(`${user.name} comments: ${comment.text}`);  
+                })  
+                .catch(err => {  
+                    console.error('Error getting user:', err);  
+                });  
+        });  
+    })  
+    .catch(err => {  
+        console.error('Error:', err);  
+    }); </code></pre>
+
+        <h5>Async/Await</h5>
+
+        <p>An <code>async</code> function allows you to handle asynchronous code in a manner that appears synchronous. <code>async</code> functions still use promises under the hood, but have a more traditional JavaScript syntax.</p>
+
+        <p>The <code>async</code> keyword allows you to define a function that handles asynchronous operations.</p>
+
+        <p>To define an <code>async</code> function, you place the <code>async</code> keyword in front of the function as follows:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return `Hello, ${name}`;
+}</code></pre>
+
+        <p>Since <code>async</code> functions always returns a <code>Promise</code>, you can use <code>then()</code> method to consume it, like this:</p>
+
+        <pre><code class="language-bash hljs">greet('Alison').then(console.log);</code></pre>
+
+        <p>You can also explicitly return a <code>Promise</code> from the <code>greet()</code> function as shown in the following code:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return Promise.resolve(`Hello, ${name}`);
+}</code></pre>
+
+        <p>Besides the regular functions, you can use the <code>async</code> keyword in the function expressions:</p>
+
+        <pre><code class="language-bash hljs">let greet = async function (name) {
+    return `Hello, ${name}`;
+}</code></pre>
+
+        <p>Or in arrow functions:</p>
+
+        <pre><code class="language-bash hljs">let greet = async (name) => `Hello, ${name}`;</code></pre>
+
+        <p>Or in methods of classes:</p>
+
+        <pre><code class="language-bash hljs">class person {
+    async greet(name) {
+        return `Hello, ${name}`;
+    }
+}</code></pre>
+
+        <p>You use the <code>await</code> keyword to wait for a <code>Promise</code> to settle either in a resolved or rejected state.</p>
+        
+        <p>You cannot use the <code>await</code> keyword inside a sync function:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return Promise.resolve(`Hello, ${name}`);
+}
+function print() {
+    let result = await greet('Alison');
+    console.log(result);
+}
+print();
+// SyntaxError: await is only valid in async functions, async generators and modules</code></pre>
+
+        <p>You use the <code>await</code> keyword only inside an <code>async</code> function:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return Promise.resolve(`Hello, ${name}`);
+}
+async function print() {
+    let result = await greet('Alison');
+    console.log(result);
+}
+
+print(); // Hello, Alison</code></pre>
+
+        <p>You cannot use the <code>await</code> keyword at the top level of a script:</p>
+
+        <pre><code class="language-bash hljs">&lt;script&gt;
+    async function greet(name) {
+        return Promise.resolve(`Hello, ${name}`);
+    }
+    
+    let result = await greet('Alison');
+    // SyntaxError: await is only valid in async functions, async generators and modules
+&lt;/script&gt;</code></pre>
+        
+        <p>Instead, make the script a module:</p>
+
+        <pre><code class="language-bash hljs">&lt;script type="module"&gt;
+    async function greet(name) {
+        return Promise.resolve(`Hello, ${name}`);
+    }
+    
+    let result = await greet('Alison');
+    // SyntaxError: await is only valid in async functions, async generators and modules
+&lt;/script&gt;</code></pre>
+
+        <p>If a promise resolves normally, then <code>await promise</code> returns the result. But in case of a promise is rejected, it throws the error, just as if there were a <code>throw</code> statement at that line.</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return Promise.reject(new Error('Invalid name'));
+}
+async function print() {
+    let result = await greet('Alison');
+    console.log(result);
+}
+
+print(); // Uncaught (in promise) Error: Invalid name</code></pre>
+
+        <p>The above code is the same as this:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    throw new Error('Invalid name');
+}
+async function print() {
+    let result = await greet('Alison');
+    console.log(result);
+}
+
+print(); // Uncaught (in promise) Error: Invalid name</code></pre>
+
+        <p>You can catch the error by using the <code>try...catch</code> statement, the same way as a regular <code>throw</code> statement:</p>
+
+        <pre><code class="language-bash hljs">async function greet(name) {
+    return Promise.reject(new Error('Invalid name'));
+}
+async function print() {
+    try {
+        let result = await greet('Alison');
+        console.log(result);
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+print(); // Uncaught (in promise) Error: Invalid name</code></pre>
+
+        <p>Here is the modified code of callback function example that uses async/await instead of callbacks:</p>
+
+        <pre><code class="language-bash hljs">const users = [  
+    { id: 1, name: 'Luther Hargreeves' },  
+    { id: 2, name: 'Diego Hargreeves' },  
+    { id: 3, name: 'Allison Hargreeves' },  
+];  
+
+const posts = [  
+    { id: 1, title: 'First Post', user_id: 2 },  
+    { id: 2, title: 'Second Post', user_id: 1 },  
+    { id: 3, title: 'Third Post', user_id: 2 },  
+    { id: 4, title: 'Fourth Post', user_id: 2 },  
+    { id: 5, title: 'Fifth Post', user_id: 3 },  
+];  
+
+const comments = [  
+    { user_id: 2, post_id: 2, text: 'Great!'},  
+    { user_id: 3, post_id: 2, text: 'Nice Post!'},  
+    { user_id: 1, post_id: 3, text: 'Awesome Post!'},  
+];  
+  
+const getPost = async (post_id) => {  
+    return new Promise((resolve, reject) => {  
+        const post = posts.find(post => post.id === post_id);  
+        setTimeout(() => {  
+            if (post) {  
+            resolve(post);  
+            } else {  
+            reject("No such post found");  
+            }  
+        }, 1000);  
+    });  
+};  
+  
+const getUser = async (user_id) => {  
+    return new Promise((resolve, reject) => {  
+        const user = users.find(user => user.id === user_id);  
+        setTimeout(() => {  
+            if (user) {  
+            resolve(user);  
+            } else {  
+            reject("No such user found");  
+            }  
+        }, 500);  
+    });  
+};  
+  
+const getComments = async (post_id) => {  
+    return new Promise((resolve, reject) => {  
+        const result = comments.filter(comment => comment.post_id === post_id);  
+        setTimeout(() => {  
+            if (result) {  
+                resolve(result);  
+            } else {  
+                reject("No comments found");  
+            }  
+        }, 100);  
+    });  
+};  
+  
+async function main() {  
+    try {  
+        const post = await getPost(2);  
+        const user = await getUser(post.user_id);  
+        console.log(`${user.name} created a post with title ${post.title}`);  
+        const comments = await getComments(post.id);  
+        comments.forEach(async (comment) => {  
+            const user = await getUser(comment.user_id);  
+            console.log(`${user.name} comments: ${comment.text}`);  
+        });  
+    } catch (err) {  
+        console.error('Error:', err);  
+    }  
+}  
+  
+main();</code></pre>
+        </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
