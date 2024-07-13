@@ -1,0 +1,383 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Execution Context in JavaScript"
+thumb: "javascript.jpg"
+eyebrow: "Tutorial"
+description: "Execution context in JavaScript refers to the environment in which code is executed. This includes the global execution context, which encompasses code not within any function, and function execution contexts, which are created when functions are invoked. The execution context goes through two phases: the creation phase, where the JavaScript engine sets up the environment, and the execution phase, where the code is run. Understanding these concepts is crucial for effectively scoping variables and functions and comprehending how JavaScript code is processed."
+date: 2024-07-13 15:30:00 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2024", "month-07", "day-13"]
+tags: ["javascript", "global execution context", "function execution context", "creation phase", "execution phase"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>JavaScript is a single-threaded programming language. This means that JavaScript can do only one thing at a single point in time.</p>
+
+        <p>The JavaScript engine executes a script from the top of the file and works its way down. It creates the execution contexts, and pushes, and pops functions onto and off the call stack in the execution phase.</p>
+
+        <p>When the JavaScript engine scans a script file, it makes an environment called the Execution Context that handles the entire transformation and execution of the code.</p>
+        
+        <p>JavaScript Execution Context is the environment in which JavaScript code is executed. It contains information about the variables, functions, and objects that are available to the code being executed, as well as the scope chain and the value of the <code>this</code> keyword.</p>
+        
+        <p>Execution stack, also known as “calling stack” in other programming languages, is a stack with a LIFO (Last in, First out) structure, which is used to store all the execution context created during the code execution.</p>
+        <p>There are two types of execution contexts:</p>
+
+        <ul>
+            <li><b>Global Execution Context (GEC)</b>: The Global Execution Context is also called the base/default execution. The global execution context is created when a JavaScript script first starts to run, and it represents the global scope in JavaScript. Each JavaScript file has only one GEC.</li>
+            <li><b>Function Execution Context (FEC)</b>: When a function is called, the JavaScript engine creates a Function Execution Context within the GEC to execute the code within that function. Multiple FECs can exist during script runtime, as each function call has its own FEC. FEC can access the entire code of the GEC, but it is not possible for GEC to access all the code of the FEC. During the GEC code execution.</li>
+        </ul>
+
+        <p>When Global Execution Context or Function Execution Context is created. Execution of code is happening in two phases:</p>
+
+        <ul>
+            <li><b>Creation Phase</b>, the JavaScript engine sets up the environment for the code to be executed. During this phase, the JavaScript engine creates the following:<br>
+                <ul>
+                    <li><b>Variable Environment</b>: an Environment Record that holds bindings created by <code>var</code> declarations within this execution context.</li>
+                    <li><b>Lexical Environment</b>: an Environment Record
+                    used to resolve identifier references, ie. <code>let</code> or <code>const</code>, made by code within this execution context.<br><br>
+                    An Environment Record is used to define the association of identifiers to specific variables and functions based upon the lexical nesting structure of the code. Each Environment Record has a reference to the outer environment, which could either point to the Global environment or an outer function environment, enabling the scope chain.<br><br>
+                    The <b>Scope Chain</b> is a list of Variable Objects that are accessible in the current scope. Each Variable Object in the Scope Chain represents a higher level of scope.<br><br>
+                    There are a few different types of environment records: Global Environment Record, Declarative Environment Record and Object Environment Record.<br><br>
+                    The Global Environment Record is a composite environment record, made up of a Declarative Environment Record and an Object Environment Record.<br><br>
+                    The Declarative Environment Record is associated with a scope containing variable, <code>const</code>, <code>let</code>, <code>class</code>, <code>module</code>, <code>import</code>, and/or <code>function</code> declarations. A Declarative Environment Record binds the set of identifiers defined by the declarations contained within its scope.<br><br>
+                    The Object Environment Record is associated with an object called its binding object. Its binding object is the global object, which is window in the case of browsers.<br><br>
+                    For every function declaration, a property is added to the record, pointing to that function, and that property is stored in memory. But function expressions are not included. This means all the function declarations will be stored and made accessible inside the execution context, even before the code starts running. This process of storing variables and function declaration in memory prior to the execution of the code is known as Hoisting.</li>
+                    <li><b>Determining the value of the <code>this</code> keyword</b>: The value of <code>this</code> is determined and stored in the Execution Context. The value of <code>this</code> depends on how the function is called, and can refer to the global context, the current instance of an object (in the case of methods), or be set explicitly using functions like <code>call</code>, <code>apply</code>, or <code>bind</code>.</li>
+                </ul><br>
+
+                In the below code, <code>letter</code> is a binding identifier and the value the variable or binding contains is <code>"a"</code>. Note that variables or bindings contain values, they aren't the values themselves. This is important to understand, variables are containers for values.<br><br>
+
+                <pre><code class="language-bash hljs">const letter = "a"
+var number = 1
+
+function greeting() {
+    console.log('Welcome to Javascript')
+}
+
+const person = {
+    name: "John Doe"
+}</code></pre><br>
+                The below snippet is a pseudo-code representation of execution context.<br><br>
+                <pre><code class="language-bash hljs">GlobalExecutionContext = {
+    LexicalEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            letter: "a",
+            greeting: &lt;ref. to greeting function object&gt;,
+            outer: null
+        },
+        ObjectEnvironmentRecord: {
+            window: &lt;ref.to Global object&gt;,
+            this: &lt;ref.to window Object&gt;,
+            person: {
+                name: "John Doe"
+            }
+        }
+    },
+    VariableEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            number: 1,
+            outer: null
+        }
+    }
+}</code></pre>
+            </li>
+            <li><b>Execution Phase</b>, the JavaScript engine executes the code line by line. The JavaScript engine reads the code and executes it one line at a time. This phase involves the following steps:<br>
+                <ul>
+                    <li><b>Assigning Values to Variables</b>: JavaScript engine assigns values to variables. If a variable is not initialized, it has the value of <code>undefined</code>.</li>
+                    <li><b>Executing Functions and Code Blocks</b>: JavaScript engine executes functions and code blocks as it encounters them in the code. If a function is called, the engine creates a new execution context for that function and adds it to the call stack.</li>
+                    <li><b>Managing the Call Stack</b>:  When a function is called, its execution context is added to the top of the call stack. When the function returns, its execution context is removed from the stack.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>The two main components of an execution context in JavaScript are</p>
+
+        <ul>
+            <li><b>Memory Component</b> — This refers to the memory space that is allocated for the code and data components within the context. This includes variables, objects, arrays, and other data structures that are used or manipulated by the code. The memory component is also responsible for maintaining the scope chain, which is a list of variable objects that a function has access to, starting with its own variable object and continuing with the variable objects of its parent functions, all the way up to the global variable object.</li>
+            <li><b>Code Component</b> — This refers to the actual code that is being executed within the context. It includes any function and variable declarations, as well as any other instructions that make up the code. During the creation phase of the execution context, the JavaScript engine sets up memory space for all variables and function declarations through a process known as hoisting.</li>
+        </ul>
+
+        <p>These two components enable the JavaScript engine to execute code and manage data within the program.</p>
+
+        <p>Let's understand the Execution Context with the following code example below:</p>
+
+        <pre><code class="language-bash hljs">function greeting() {
+    console.log("Welcome to the JS world!");
+}
+
+greeting();
+
+var number1 = 10;
+var number2 = 5;
+
+function add(number1, number2) {
+    return number1 + number2;
+}
+
+function addExtra(number1, number2) {
+    var extra = 15;
+    return number1 + number2 + extra;
+}
+
+var result1 = add(number1, number2);
+var result2 = addExtra(number1, number2);
+
+console.log(result1);
+console.log(result2);</code></pre>
+        
+        <p>Using the example code above, let's walk through each stage of what happens during the Memory Creation Phase:</p>
+
+        <ul>
+            <li>Javascript engine will create and push a global execution context into the call stack.</li>
+            <li>Javascript engine will create the this object and bind it to the global object i.e., <code>window</code> in the web browser or <code>global</code> in Node.js.</li>
+            <li>Javascript engine will create a new object called <code>this</code>, which is a reference to the current execution context.</li>
+            <li>Javascript engine will set the value of this to the global object, which is the top-most object in the scope chain. In a browser, the global object is the window object, while in a Node.js environment, it's the global object.</li>
+            <li>Javascript engine will allocate memory for variables <code>number1</code>, <code>number2</code>, <code>result1</code>, <code>result2</code> and assign undefined to them</li>
+            <li>Javascript engine also allocates memory for function <code>greeting</code>, <code>add</code>, <code>addExtra</code> which includes space for the function's code, its name, and its scope.</li>
+            <li>The below snippet is a pseudo-code representation of global execution context during the creation phase:<br>
+            <pre><code class="language-bash hljs">GlobalExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        greeting: &lt;ref. to greeting function object&gt;,
+                        add: &lt;ref. to add function object&gt;,
+                        addExtra: &lt;ref. to addExtra function object&gt;,
+                        outer: null
+                    },
+                    ObjectEnvironmentRecord: {
+                        window: &lt;ref.to Global object&gt;,
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: undefined,
+                        number2: undefined,
+                        outer: null
+                    }
+                }
+            }</code></pre>
+            </li>
+        </ul>
+
+        <p>After the memory creation phase is completed, the Javascript engine moves on to the execution phase. The JS engines scan over the function in the code one more time, updating the variable object with the values of the variables and then running the code, which is known as an execution phase.</p>
+
+        <p>Let's look at what happens during the execution phase:</p>
+
+        <ul>
+            <li><code>greeting</code> function is called, Javascript engine will create a new local execution context for it and push it to the top of the call stack.</li>
+            <li>The <code>greeting</code> function execution context enters the Creation Phase.</li>
+            <li>Javascript engine will create arguments object in the function's local memory with a length of 0 as its starting value.</li>
+            <li>Javascript engine will create <code>this</code> object and bind to the global object.</li>
+            <li>Here is a pseudo-code representation of <code>greeting</code> function execution context during the creation phase:<br>
+            <pre><code class="language-bash hljs">GreetingFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            length: 0
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The <code>greeting</code> function execution context enters the Execution Phase.</li>
+            <li>Javascript engine will display <code>"Welcome to the JS world!"</code> to the console.</li>
+            <li>Here is a pseudo-code representation of <code>greeting</code> function execution context during the execution phase:<br>
+            <pre><code class="language-bash hljs">GreetingFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            length: 0
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The <code>greeting</code> function execution context is returned and the call stack is popped off.</li>
+            <li>Control returns to the global execution context.</li>
+            <li>Javascript engine will assign 10 to <code>number1</code>.</li>
+            <li>Javascript engine will assign 5 to<code>number2</code>.</li>
+            <li><code>add</code> function is called, Javascript engine will create a new local execution context for it and push it to the top of the call stack.</li>
+            <li>The <code>add</code> function execution context enters the Creation Phase.</li>
+            <li>Javascript engine will create arguments object in the function's local memory with a length of 2 as its starting value.</li>
+            <li>Assign the value of <code>number1</code> to the first index of the arguments object.</li>
+            <li>Assign the value of <code>number2</code> to the second index of the arguments object.</li>
+            <li>Javascript engine will create <code>number1</code> and <code>number2</code> variable in the function's local memory and assignthe corresponding values from the arguments object.</li>
+            <li>Javascript engine will create <code>this</code> object and bind to the window object.</li>
+            <li>Here is a pseudo-code representation of <code>add</code> function execution context during the creation phase:<br>
+            <pre><code class="language-bash hljs">AddFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: 10,
+                        number2: 5,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            0: 10,
+                            1: 5,
+                            length: 2
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The <code>add</code> function execution context enters the Execution Phase.</li>
+            <li>The return statement is evaluated.</li>
+            <li>Javascript engine will look up <code>number1</code>, <code>number2</code> variables in the function's local memory.</li>
+            <li>Javascript engine locates the <code>number1</code>, <code>number2</code> variables in local memory, then swaps the values to the variable references.</li>
+            <li>The evaluated result of the <code>add</code> function execution context is returned and the call stack is popped off.</li>
+            <li>Here is a pseudo-code representation of <code>add</code> function execution context during the execution phase:<br>
+            <pre><code class="language-bash hljs">AddFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: 10,
+                        number2: 5,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            0: 10,
+                            1: 5,
+                            length: 2
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The control returns to its caller context (the global execution context) with the returned value of 15.</li>
+            <li>Javascript engine will assign 15 to <code>result1</code>.</li>
+            <li><code>addExtra</code> function is called, Javascript engine will create a new local execution context for it and push it to the top of the call stack.</li>
+            <li>The <code>addExtra</code> function execution context enters the Creation Phase.</li>
+            <li>Javascript engine will create arguments object in the function's local memory with a length of 2 as its starting value.</li>
+            <li>Assign the value of <code>number1</code> to the first index of the arguments object.</li>
+            <li>Assign the value of <code>number2</code> to the second index of the arguments object.</li>
+            <li>Javascript engine will create <code>number1</code> and <code>number2</code> variables in the function's local memory and assign the corresponding values from the arguments object.</li>
+            <li>Javascript engine will create <code>extra</code> variable in the function's local memory and assign undefined to it</li>
+            <li>Javascript engine will create <code>this</code> object and bind to the window object.</li>
+            <li>Here is a pseudo-code representation of <code>addExtra</code> function execution context during the creation phase:<br>
+            <pre><code class="language-bash hljs">AddExtraFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: 10,
+                        number2: 5,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            0: 10,
+                            1: 5,
+                            length: 2
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        extra: undefined,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The <code>addExtra</code> function execution context enters the Execution Phase.</li>
+            <li>Javascript engine will assign 15 to <code>extra</code>.</li>
+            <li>The return statement is evaluated.</li>
+            <li>Javascript engine will look up <code>number1</code>, <code>number2</code>, <code>extra</code> variables in the function's local memory.</li>
+            <li>Javascript engine locates the <code>number1</code>, <code>number2</code>, <code>extra</code> variables in local memory, then swaps the values to the variable references.</li>
+            <li>The evaluated result of the <code>addExtra</code> function execution context is returned and the call stack is popped off.</li>
+            <li>Here is a pseudo-code representation of <code>addExtra</code> function execution context during the execution phase:<br>
+            <pre><code class="language-bash hljs">AddExtraFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: 10,
+                        number2: 5,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            0: 10,
+                            1: 5,
+                            length: 2
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        extra: 15,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The control returns to its caller context (the global execution context) with the returned value of 30.</li>
+            <li>Javascript engine will assign 30 to <code>result2</code>.</li>
+            <li>Javascript engine will display <code>15</code> and <code>30</code> to the console.</li>
+            <li>The below snippet is a pseudo-code representation of global execution context during the execution phase:<br>
+            <pre><code class="language-bash hljs">GlobalExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        greeting: &lt;ref. to greeting function object&gt;,
+                        add: &lt;ref. to add function object&gt;,
+                        addExtra: &lt;ref. to addExtra function object&gt;,
+                        outer: null
+                    },
+                    ObjectEnvironmentRecord: {
+                        window: &lt;ref.to Global object&gt;,
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: 10,
+                        number2: 5,
+                        result1: 10,
+                        result2: 30,
+                        outer: null
+                    }
+                }
+            }</code></pre>
+            </li>
+            <li>The global execution context is removed from the call stack or the call stack is popped off.</li>
+        </ul>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/callstack-01.jpg" alt="Global Execution Context into the call stack">
+        </figure>
+
+        
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
