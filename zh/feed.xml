@@ -1,4 +1,403 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-07-09T06:49:36+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Handling Asynchronous Operations in Node.js</title><link href="https://hemimorphite.github.io/zh/2024/07/09/handling-asynchronous-operations-in-nodejs/" rel="alternate" type="text/html" title="Handling Asynchronous Operations in Node.js" /><published>2024-07-09T05:21:00+00:00</published><updated>2024-07-09T05:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/09/handling-asynchronous-operations-in-nodejs</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/09/handling-asynchronous-operations-in-nodejs/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-07-13T09:01:10+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Execution Context in JavaScript</title><link href="https://hemimorphite.github.io/zh/2024/07/13/execution-context-in-javascript/" rel="alternate" type="text/html" title="Execution Context in JavaScript" /><published>2024-07-13T08:30:00+00:00</published><updated>2024-07-13T08:30:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/13/execution-context-in-javascript</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/13/execution-context-in-javascript/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">Execution Context in JavaScript</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 13, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/javascript.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>JavaScript is a single-threaded programming language. This means that JavaScript can do only one thing at a single point in time.</p>
+
+        <p>The JavaScript engine executes a script from the top of the file and works its way down. It creates the execution contexts, and pushes, and pops functions onto and off the call stack in the execution phase.</p>
+
+        <p>When the JavaScript engine scans a script file, it makes an environment called the Execution Context that handles the entire transformation and execution of the code.</p>
+        
+        <p>JavaScript Execution Context is the environment in which JavaScript code is executed. It contains information about the variables, functions, and objects that are available to the code being executed, as well as the scope chain and the value of the <code>this</code> keyword.</p>
+        
+        <p>Execution stack, also known as “calling stack” in other programming languages, is a stack with a LIFO (Last in, First out) structure, which is used to store all the execution context created during the code execution.</p>
+        <p>There are two types of execution contexts:</p>
+
+        <ul>
+            <li><b>Global Execution Context (GEC)</b>: The Global Execution Context is also called the base/default execution. The global execution context is created when a JavaScript script first starts to run, and it represents the global scope in JavaScript. Each JavaScript file has only one GEC.</li>
+            <li><b>Function Execution Context (FEC)</b>: When a function is called, the JavaScript engine creates a Function Execution Context within the GEC to execute the code within that function. Multiple FECs can exist during script runtime, as each function call has its own FEC. FEC can access the entire code of the GEC, but it is not possible for GEC to access all the code of the FEC. During the GEC code execution.</li>
+        </ul>
+
+        <p>When Global Execution Context or Function Execution Context is created. Execution of code is happening in two phases:</p>
+
+        <ul>
+            <li><b>Creation Phase</b>, the JavaScript engine sets up the environment for the code to be executed. During this phase, the JavaScript engine creates the following:<br>
+                <ul>
+                    <li><b>Variable Environment</b>: an Environment Record that holds bindings created by <code>var</code> declarations within this execution context.</li>
+                    <li><b>Lexical Environment</b>: an Environment Record
+                    used to resolve identifier references, ie. <code>let</code> or <code>const</code>, made by code within this execution context.<br><br>
+                    An Environment Record is used to define the association of identifiers to specific variables and functions based upon the lexical nesting structure of the code. Each Environment Record has a reference to the outer environment, which could either point to the Global environment or an outer function environment, enabling the scope chain.<br><br>
+                    The <b>Scope Chain</b> is a list of Variable Objects that are accessible in the current scope. Each Variable Object in the Scope Chain represents a higher level of scope.<br><br>
+                    There are a few different types of environment records: Global Environment Record, Declarative Environment Record and Object Environment Record.<br><br>
+                    The Global Environment Record is a composite environment record, made up of a Declarative Environment Record and an Object Environment Record.<br><br>
+                    The Declarative Environment Record is associated with a scope containing variable, <code>const</code>, <code>let</code>, <code>class</code>, <code>module</code>, <code>import</code>, and/or <code>function</code> declarations. A Declarative Environment Record binds the set of identifiers defined by the declarations contained within its scope.<br><br>
+                    The Object Environment Record is associated with an object called its binding object. Its binding object is the global object, which is window in the case of browsers.<br><br>
+                    For every function declaration, a property is added to the record, pointing to that function, and that property is stored in memory. But function expressions are not included. This means all the function declarations will be stored and made accessible inside the execution context, even before the code starts running. This process of storing variables and function declaration in memory prior to the execution of the code is known as Hoisting.</li>
+                    <li><b>Determining the value of the <code>this</code> keyword</b>: The value of <code>this</code> is determined and stored in the Execution Context. The value of <code>this</code> depends on how the function is called, and can refer to the global context, the current instance of an object (in the case of methods), or be set explicitly using functions like <code>call</code>, <code>apply</code>, or <code>bind</code>.</li>
+                </ul><br>
+
+                In the below code, <code>letter</code> is a binding identifier and the value the variable or binding contains is <code>"a"</code>. Note that variables or bindings contain values, they aren't the values themselves. This is important to understand, variables are containers for values.<br><br>
+
+                <pre><code class="language-bash hljs">const letter = "a"
+var number = 1
+
+function greeting() {
+    console.log('Welcome to Javascript')
+}
+
+const person = {
+    name: "John Doe"
+}</code></pre><br>
+                The below snippet is a pseudo-code representation of execution context.<br><br>
+                <pre><code class="language-bash hljs">GlobalExecutionContext = {
+    LexicalEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            letter: "a",
+            greeting: &lt;ref. to greeting function object&gt;,
+            outer: null
+        },
+        ObjectEnvironmentRecord: {
+            window: &lt;ref.to Global object&gt;,
+            this: &lt;ref.to window Object&gt;,
+            person: {
+                name: "John Doe"
+            }
+        }
+    },
+    VariableEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            number: 1,
+            outer: null
+        }
+    }
+}</code></pre>
+            </li>
+            <li><b>Execution Phase</b>, the JavaScript engine executes the code line by line. The JavaScript engine reads the code and executes it one line at a time. This phase involves the following steps:<br>
+                <ul>
+                    <li><b>Assigning Values to Variables</b>: JavaScript engine assigns values to variables. If a variable is not initialized, it has the value of <code>undefined</code>.</li>
+                    <li><b>Executing Functions and Code Blocks</b>: JavaScript engine executes functions and code blocks as it encounters them in the code. If a function is called, the engine creates a new execution context for that function and adds it to the call stack.</li>
+                    <li><b>Managing the Call Stack</b>:  When a function is called, its execution context is added to the top of the call stack. When the function returns, its execution context is removed from the stack.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>The two main components of an execution context in JavaScript are</p>
+
+        <ul>
+            <li><b>Memory Component</b> — This refers to the memory space that is allocated for the code and data components within the context. This includes variables, objects, arrays, and other data structures that are used or manipulated by the code. The memory component is also responsible for maintaining the scope chain, which is a list of variable objects that a function has access to, starting with its own variable object and continuing with the variable objects of its parent functions, all the way up to the global variable object.</li>
+            <li><b>Code Component</b> — This refers to the actual code that is being executed within the context. It includes any function and variable declarations, as well as any other instructions that make up the code. During the creation phase of the execution context, the JavaScript engine sets up memory space for all variables and function declarations through a process known as hoisting.</li>
+        </ul>
+
+        <p>These two components enable the JavaScript engine to execute code and manage data within the program.</p>
+
+        <p>Let's understand the Execution Context with the following code example below:</p>
+
+        <pre><code class="language-bash hljs">function greeting() {
+    console.log("Welcome to the JS world!");
+}
+
+greeting();
+
+var number1 = 10;
+var number2 = 5;
+
+function add(number1, number2) {
+    return number1 + number2;
+}
+
+function addExtra(number1, number2) {
+    var extra = 15;
+    return number1 + number2 + extra;
+}
+
+var result1 = add(number1, number2);
+var result2 = addExtra(number1, number2);
+
+console.log(result1);
+console.log(result2);</code></pre>
+        
+        <p>Using the example code above, let's walk through each stage of what happens during the Memory Creation Phase:</p>
+
+        <ul>
+            <li>Javascript engine will create and push a global execution context into the call stack.</li>
+            <li>Javascript engine will create the this object and bind it to the global object i.e., <code>window</code> in the web browser or <code>global</code> in Node.js.</li>
+            <li>Javascript engine will create a new object called <code>this</code>, which is a reference to the current execution context.</li>
+            <li>Javascript engine will set the value of this to the global object, which is the top-most object in the scope chain. In a browser, the global object is the window object, while in a Node.js environment, it's the global object.</li>
+            <li>Javascript engine will allocate memory for variables <code>number1</code>, <code>number2</code>, <code>result1</code>, <code>result2</code> and assign undefined to them</li>
+            <li>Javascript engine also allocates memory for function <code>greeting</code>, <code>add</code>, <code>addExtra</code> which includes space for the function's code, its name, and its scope.</li>
+            <li>The below snippet is a pseudo-code representation of global execution context during the creation phase:<br>
+            <pre><code class="language-bash hljs">GlobalExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        greeting: &lt;ref. to greeting function object&gt;,
+                        add: &lt;ref. to add function object&gt;,
+                        addExtra: &lt;ref. to addExtra function object&gt;,
+                        outer: null
+                    },
+                    ObjectEnvironmentRecord: {
+                        window: &lt;ref.to Global object&gt;,
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: undefined,
+                        number2: undefined,
+                        outer: null
+                    }
+                }
+            }</code></pre>
+            </li>
+        </ul>
+
+        <p>After the memory creation phase is completed, the Javascript engine moves on to the execution phase. The JS engines scan over the function in the code one more time, updating the variable object with the values of the variables and then running the code, which is known as an execution phase.</p>
+
+        <p>Let's look at what happens during the execution phase:</p>
+
+        <ul>
+            <li><code>greeting</code> function is called, Javascript engine will create a new local execution context for it and push it to the top of the call stack.</li>
+            <li>The <code>greeting</code> function execution context enters the Creation Phase.</li>
+            <li>Javascript engine will create arguments object in the function's local memory with a length of 0 as its starting value.</li>
+            <li>Javascript engine will create <code>this</code> object and bind to the global object.</li>
+            <li>Here is a pseudo-code representation of <code>greeting</code> function execution context during the creation phase:<br>
+            <pre><code class="language-bash hljs">GreetingFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            length: 0
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The <code>greeting</code> function execution context enters the Execution Phase.</li>
+            <li>Javascript engine will display <code>"Welcome to the JS world!"</code> to the console.</li>
+            <li>Here is a pseudo-code representation of <code>greeting</code> function execution context during the execution phase:<br>
+            <pre><code class="language-bash hljs">GreetingFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            length: 0
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The <code>greeting</code> function execution context is returned and the call stack is popped off.</li>
+            <li>Control returns to the global execution context.</li>
+            <li>Javascript engine will assign 10 to <code>number1</code>.</li>
+            <li>Javascript engine will assign 5 to<code>number2</code>.</li>
+            <li><code>add</code> function is called, Javascript engine will create a new local execution context for it and push it to the top of the call stack.</li>
+            <li>The <code>add</code> function execution context enters the Creation Phase.</li>
+            <li>Javascript engine will create arguments object in the function's local memory with a length of 2 as its starting value.</li>
+            <li>Assign the value of <code>number1</code> to the first index of the arguments object.</li>
+            <li>Assign the value of <code>number2</code> to the second index of the arguments object.</li>
+            <li>Javascript engine will create <code>number1</code> and <code>number2</code> variable in the function's local memory and assignthe corresponding values from the arguments object.</li>
+            <li>Javascript engine will create <code>this</code> object and bind to the window object.</li>
+            <li>Here is a pseudo-code representation of <code>add</code> function execution context during the creation phase:<br>
+            <pre><code class="language-bash hljs">AddFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: 10,
+                        number2: 5,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            0: 10,
+                            1: 5,
+                            length: 2
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The <code>add</code> function execution context enters the Execution Phase.</li>
+            <li>The return statement is evaluated.</li>
+            <li>Javascript engine will look up <code>number1</code>, <code>number2</code> variables in the function's local memory.</li>
+            <li>Javascript engine locates the <code>number1</code>, <code>number2</code> variables in local memory, then swaps the values to the variable references.</li>
+            <li>The evaluated result of the <code>add</code> function execution context is returned and the call stack is popped off.</li>
+            <li>Here is a pseudo-code representation of <code>add</code> function execution context during the execution phase:<br>
+            <pre><code class="language-bash hljs">AddFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: 10,
+                        number2: 5,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            0: 10,
+                            1: 5,
+                            length: 2
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The control returns to its caller context (the global execution context) with the returned value of 15.</li>
+            <li>Javascript engine will assign 15 to <code>result1</code>.</li>
+            <li><code>addExtra</code> function is called, Javascript engine will create a new local execution context for it and push it to the top of the call stack.</li>
+            <li>The <code>addExtra</code> function execution context enters the Creation Phase.</li>
+            <li>Javascript engine will create arguments object in the function's local memory with a length of 2 as its starting value.</li>
+            <li>Assign the value of <code>number1</code> to the first index of the arguments object.</li>
+            <li>Assign the value of <code>number2</code> to the second index of the arguments object.</li>
+            <li>Javascript engine will create <code>number1</code> and <code>number2</code> variables in the function's local memory and assign the corresponding values from the arguments object.</li>
+            <li>Javascript engine will create <code>extra</code> variable in the function's local memory and assign undefined to it</li>
+            <li>Javascript engine will create <code>this</code> object and bind to the window object.</li>
+            <li>Here is a pseudo-code representation of <code>addExtra</code> function execution context during the creation phase:<br>
+            <pre><code class="language-bash hljs">AddExtraFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: 10,
+                        number2: 5,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            0: 10,
+                            1: 5,
+                            length: 2
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        extra: undefined,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The <code>addExtra</code> function execution context enters the Execution Phase.</li>
+            <li>Javascript engine will assign 15 to <code>extra</code>.</li>
+            <li>The return statement is evaluated.</li>
+            <li>Javascript engine will look up <code>number1</code>, <code>number2</code>, <code>extra</code> variables in the function's local memory.</li>
+            <li>Javascript engine locates the <code>number1</code>, <code>number2</code>, <code>extra</code> variables in local memory, then swaps the values to the variable references.</li>
+            <li>The evaluated result of the <code>addExtra</code> function execution context is returned and the call stack is popped off.</li>
+            <li>Here is a pseudo-code representation of <code>addExtra</code> function execution context during the execution phase:<br>
+            <pre><code class="language-bash hljs">AddExtraFunctionExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: 10,
+                        number2: 5,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    },
+                    ObjectEnvironmentRecord: {
+                        arguments: {
+                            0: 10,
+                            1: 5,
+                            length: 2
+                        },
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        extra: 15,
+                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+                    }
+                }
+            }</code></pre></li>
+            <li>The control returns to its caller context (the global execution context) with the returned value of 30.</li>
+            <li>Javascript engine will assign 30 to <code>result2</code>.</li>
+            <li>Javascript engine will display <code>15</code> and <code>30</code> to the console.</li>
+            <li>The below snippet is a pseudo-code representation of global execution context during the execution phase:<br>
+            <pre><code class="language-bash hljs">GlobalExecutionContext = {
+                LexicalEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        greeting: &lt;ref. to greeting function object&gt;,
+                        add: &lt;ref. to add function object&gt;,
+                        addExtra: &lt;ref. to addExtra function object&gt;,
+                        outer: null
+                    },
+                    ObjectEnvironmentRecord: {
+                        window: &lt;ref.to Global object&gt;,
+                        this: &lt;ref.to window Object&gt;
+                    }
+                },
+                VariableEnvironment: {
+                    DeclarativeEnvironmentRecord: {
+                        number1: 10,
+                        number2: 5,
+                        result1: 10,
+                        result2: 30,
+                        outer: null
+                    }
+                }
+            }</code></pre>
+            </li>
+            <li>The global execution context is removed from the call stack or the call stack is popped off.</li>
+        </ul>
+        
+        <figure class="post-figure">
+            <img src="/assets/images/callstack-01.jpg" alt="Global Execution Context into the call stack">
+        </figure>
+
+        
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/javascript" class="tag">javascript</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/global-execution-context" class="tag">global execution context</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/function-execution-context" class="tag">function execution context</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/creation-phase" class="tag">creation phase</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/execution-phase" class="tag">execution phase</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-07" /><category term="day-13" /><category term="javascript" /><category term="global execution context" /><category term="function execution context" /><category term="creation phase" /><category term="execution phase" /><summary type="html"><![CDATA[Execution context in JavaScript refers to the environment in which code is executed. This includes the global execution context, which encompasses code not within any function, and function execution contexts, which are created when functions are invoked. The execution context goes through two phases: the creation phase, where the JavaScript engine sets up the environment, and the execution phase, where the code is run. Understanding these concepts is crucial for effectively scoping variables and functions and comprehending how JavaScript code is processed.]]></summary></entry><entry xml:lang="en"><title type="html">Handling Asynchronous Operations in Node.js</title><link href="https://hemimorphite.github.io/zh/2024/07/09/handling-asynchronous-operations-in-nodejs/" rel="alternate" type="text/html" title="Handling Asynchronous Operations in Node.js" /><published>2024-07-09T05:21:00+00:00</published><updated>2024-07-09T05:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/09/handling-asynchronous-operations-in-nodejs</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/09/handling-asynchronous-operations-in-nodejs/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Handling Asynchronous Operations in Node.js</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -4897,841 +5296,4 @@ Address of 0x78 = 0x7fffe86cb72b</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-06" /><category term="day-22" /><category term="UCS-2" /><category term="unicode" /><category term="algorithm" /><category term="encoding" /><category term="decoding" /><category term="byte order mark" /><summary type="html"><![CDATA[This tutorial explains the UCS-2 encoding and decoding algorithm in detail, providing a comprehensive guide to understanding and implementing this encoding scheme.]]></summary></entry><entry xml:lang="en"><title type="html">UTF-8 Encoding and Decoding Algorithm</title><link href="https://hemimorphite.github.io/zh/2024/06/22/utf-8-encoding-and-decoding-algorithm/" rel="alternate" type="text/html" title="UTF-8 Encoding and Decoding Algorithm" /><published>2024-06-22T14:51:00+00:00</published><updated>2024-06-22T14:51:00+00:00</updated><id>https://hemimorphite.github.io/2024/06/22/utf-8-encoding-and-decoding-algorithm</id><content type="html" xml:base="https://hemimorphite.github.io/2024/06/22/utf-8-encoding-and-decoding-algorithm/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">UTF-8 Encoding and Decoding Algorithm</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published June 22, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/unicode.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>In computer systems, characters are transformed and stored as numbers (sequences of bits) that can be handled by the processor. A code page is an encoding scheme that maps a specific sequence of bits to its character representation. Before Unicode, there were hundreds of different encoding schemes that assigned a number to each letter or character. Many such schemes included code pages that contained only 256 characters – each character requiring 8 bits of storage. While this was relatively compact, it was insufficient to hold ideographic character sets containing thousands of characters such as Chinese and Japanese, and also did not allow the character sets of many languages to co-exist with each other.</p>
-
-        <p>Unicode is an attempt to include all the different schemes into one universal text-encoding standard.</p>
-
-        <p>Unicode represents each individual character as a unique code point with a unique number. For example, the character <b>A</b> – <b>Latin Capital Letter A</b> – is represented as <b>U+0041</b> and the Hiragana <b>ふ</b> is <b>U+3075</b></p>
-
-        <p>An individual Unicode code point is expressed as <b>U+n</b>, where <b>n</b> is four to six hexadecimal digits, using the digits <b>0–9</b> and uppercase letters <b>A–F</b> (for 10 through 15, respectively). Leading zeros are omitted, unless the code point would have fewer than four hexadecimal digits. For example, <b>U+0001</b>, <b>U+0012</b>, <b>U+0123</b>, <b>U+1234</b>, <b>U+12345</b>, <b>U+102345</b>.</p>
-
-        <p>Unicode also defines multiple encodings of its single character set: <b>UTF-8</b>, <b>UTF-16</b>, and <b>UTF-32</b>.</p>
-
-        <h5 class="post-subtitle">UTF-8 Encoding</h5>
-
-        <p>UTF-8 is a character encoding that maps code points of Unicode character to a sequence of one, two, three or four 8-bit code units. UTF-8 uses 1, 2, 3 or 4 8-bit code units to represent a unicode character.</p>
-
-        <p>Code unit is a value that encoded code point to 8/16/32 bits to store/transmit Unicode text efficiently on a computer.</p>
-        
-        <p>When representing characters in UTF-8, each code point is represented by a sequence of one or more bytes. The number of bytes used depends on the code point being represented by the character. Here's a breakdown of the usage range:</p>
-
-        <ul>
-            <li>code points in the ASCII range <b>U+0000 - U+007F (0-127)</b> are represented by a single byte</li>
-            <li>code points in the range <b>U+0080 - U+07FF (128-2047)</b> are represented by two bytes</li>
-            <li>code points in the range <b>U+0800 - U+FFFF (2048-65535)</b> are represented by three bytes</li>
-            <li>code points in the range <b>U+010000 - U+10FFFF (65536-1114111)</b> are represented by four bytes</li>
-        </ul>
-
-        <p>In the following table, the x characters are replaced by the bits of the code point:</p>
-
-        <table class="table table-bordered border-primary">
-            <tbody>
-                <tr>
-                    <th>First code point </th>
-                    <th>Last code point </th>
-                    <th>Byte 1 </th>
-                    <th>Byte 2 </th>
-                    <th>Byte 3 </th>
-                    <th>Byte 4 </th>
-                </tr>
-                <tr>
-                    <td style="text-align: right;">
-                        U+00<span style="color:red;">0</span><span style="color:purple;">0</span>
-                    </td>
-                    <td style="text-align: right;">
-                        U+00<span style="color:red;">7</span><span style="color:purple;">F</span>
-                    </td>
-                    <td>
-                        0<span style="color:red;">xxx</span><span style="color:purple;">xxxx</span>
-                    </td>
-                    <td style="background: darkgray;" colspan="3"></td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;">
-                        U+0<span style="color:green;">0</span><span style="color:red;">8</span><span style="color:purple;">0</span>
-                    </td>
-                    <td style="text-align: right;">
-                        U+0<span style="color:green;">7</span><span style="color:red;">F</span><span style="color:purple;">F</span>
-                    </td>
-                    <td>
-                        110<span style="color:green;">xxx</span><span style="color:red;">xx</span>
-                    </td>
-                    <td>
-                        10<span style="color:red;">xx</span><span style="color:purple;">xxxx</span>
-                    </td>
-                    <td style="background: darkgray;" colspan="2"></td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;">
-                        U+<span style="color:blue;">0</span><span style="color:green;">8</span><span style="color:red;">0</span><span style="color:purple;">0</span>
-                    </td>
-                    <td style="text-align: right;">
-                        U+<span style="color:blue;">F</span><span style="color:green;">F</span><span style="color:red;">F</span><span style="color:purple;">F</span>
-                    </td>
-                    <td>
-                        1110<span style="color:blue;">xxxx</span>
-                    </td>
-                    <td>
-                        10<span style="color:green;">xxxx</span><span style="color:red;">xx</span>
-                    </td>
-                    <td>
-                        10<span style="color:red;">xx</span><span style="color:purple;">xxxx</span>
-                    </td>
-                    <td style="background: darkgray;"></td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;">
-                        U+<span style="color:crimson;">0</span><span style="color:orange;">1</span><span style="color:blue;">0</span><span style="color:green;">0</span><span style="color:red;">0</span><span style="color:purple;">0</span>
-                    </td>
-                    <td style="text-align: right;">
-                        U+<span style="color:crimson;">1</span><span style="color:orange;">0</span><span style="color:blue;">F</span><span style="color:green;">F</span><span style="color:red;">F</span><span style="color:purple;">F</span>
-                    </td>
-                    <td>
-                        11110<span style="color:crimson;">x</span><span style="color:orange;">xx</span>
-                    </td>
-                    <td>
-                        10<span style="color:orange;">xx</span><span style="color:blue;">xxxx</span>
-                    </td>
-                    <td>
-                        10<span style="color:green;">xxxx</span><span style="color:red;">xx</span>
-                    </td>
-                    <td>
-                        10<span style="color:red;">xx</span><span style="color:purple;">xxxx</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p>The algorithm to convert a unicode code point to UTF-8 sequence is as follows:</p>
-
-        <ol>
-            <li>If the code point is less than <b>U+0080</b> or between <b>U+0000</b> and <b>U+007F</b>, it is encoded in a single byte.<br>
-                <ul>
-                    <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: perform <b>right shift</b> operation on the code point by <b>0</b> bit</li>
-                            <li><b>Substep 2</b>: perform masking using <b>AND</b> operator between the result of substep 1 with <b>0x7F (0b01111111)</b> to extract the 7 bits in the result of step 1</li>
-                            <li><b>Substep 3</b>: perform masking using <b>OR</b> operator between the result of substep 2 with 0</li>
-                            <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Final step</b>: the UTF-8 sequence is the result of step 1</li>
-                </ul>
-                <br>
-                For example, encoding the character <b>$</b> (U+0024):<br>
-                <ul>
-                    <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: 0x24 >> 0 = 0x80</li>
-                            <li><b>Substep 2</b>: 0x24 & 0x7F = 0x24</li>
-                            <li><b>Substep 3</b>: 0x24 | 0x0 = 0x24</li>
-                            <li><b>Substep 4</b>: first byte of UTF-8 sequence = 0x24</li>
-                        </ul>
-                    </li>
-                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>$</b> (U+0024) is 0x24</li>
-                </ul>
-                <br>
-                As you can see, for a single-byte UTF-8 sequence, the first byte is the code point itself.
-            </li>
-            <li>If the code point is less than U+0800 or between U+0080 and U+07FF, it is encoded in two bytes.<br>
-                <ul>
-                    <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: perform right shift operation on the code point by 6 bits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the result of substep 1 with 0x1F (0b00011111) to extract the trailing 5 bits of the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform masking using OR operator between the result of substep 2 with 0xC0 (0b11000000) to add the leading 3 bits (i.e. 110) to the result of substep 2</li>
-                            <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: perform right shift operation on the code point by 0 bit</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
-                            <li><b>Substep 4</b>: the second byte of UTF-8 sequence is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <b>Final step</b>: combine the result of step 1 and the result of step 2 to form a UTF-8 sequence.
-                    </li>
-                </ul>
-                
-                <br>
-                For example, encoding the Character <b>ü</b> (U+00FC):<br>
-
-                <ul>
-                    <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: 0xfc >> 6 = 0x03</li>
-                            <li><b>Substep 2</b>: 0x03 & 0x1f = 0x03</li>
-                            <li><b>Substep 3</b>: 0x03 | 0xc0 = 0xc3</li>
-                            <li><b>Substep 4</b>: first byte of UTF-8 sequence = 0xc3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: 0xfc >> 0 = 0xfc</li>
-                            <li><b>Substep 2</b>: 0xfc & 0x3f = 0x3c</li>
-                            <li><b>Substep 3</b>: 0x3c | 0x80 = 0xbc</li>
-                            <li><b>Substep 3</b>: second byte of UTF-8 sequence = 0xbc</li>
-                        </ul>
-                    </li>
-                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>ü</b> (U+00FC) is 0xc3bc</li>
-                </ul>
-            </li>
-            <li>If the code point is less than U+010000 or between U+0800 and U+FFFF, it is encoded in three bytes.<br>
-                <ul>
-                    <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: perform the right shift operation on the code point by 12 bits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x0F  (0b00001111) to extract the trailing 4 bits of the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0xE0 (0b11100000) to add the leading 4 bits (i.e. 1110) to the result of substep 2</li>
-                            <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: perform right shift operation on the code point by 6 bits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
-                            <li><b>Substep 4</b>: the second byte of UTF-8 sequence is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 3</b>: get the third byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: perform right shift operation on the code point by 0 bit</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
-                            <li><b>Substep 4</b>: the third byte of UTF-8 sequence is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Final step</b>: combine the first byte, second byte and the third byte to form a UTF-8 sequence</li>
-                </ul>
-                
-                <br>
-                For example, encoding the Character <b>€</b> (U+20AC):<br>
-
-                <ul>
-                    <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: 0x20ac >> 12 = 0x02</li>
-                            <li><b>Substep 2</b>: 0x02 & 0xf = 0x02</li>
-                            <li><b>Substep 3</b>: 0x02 | 0xe0 = 0xe2</li>
-                            <li><b>Substep 4</b>: first byte of UTF-8 sequence = 0xe2</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: 0x20ac >> 6 = 0x82</li>
-                            <li><b>Substep 2</b>: 0x82 & 0x3f = 0x02</li>
-                            <li><b>Substep 3</b>: 0x02 | 0x80 = 0x82</li>
-                            <li><b>Substep 4</b>: second byte of UTF-8 sequence = 0x82</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 3</b>: get the third byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: 0x20ac >> 0 = 0x20ac</li>
-                            <li><b>Substep 2</b>: 0x20ac & 0x3f = 0x2c</li>
-                            <li><b>Substep 3</b>: 0x2c | 0x80 = 0xac</li>
-                            <li><b>Substep 4</b>: third byte of UTF-8 sequence = 0xac</li>
-                        </ul>
-                    </li>
-                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>€</b> (U+20AC) is 0xe282ac</li>
-                </ul>
-            </li>
-            <li>If the code point is less than U+110000 or between U+010000 and U+10FFFF, it is encoded in four bytes.<br>
-                <ul>
-                    <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: perform right shift operation on the code point by 18 bits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x07  (0b00000111) to extract the trailing 3 bits of the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0xF0 (0b11110000) to add the leading 5 bits (i.e. 11110) to the result of substep 2</li>
-                            <li><b>Substep 4</b>: the first byte of UTF-8 sequence is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: perform right shift operation on the code point by 12 bits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
-                            <li><b>Substep 4</b>: the second byte of UTF-8 sequence is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 3</b>: get the third byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: perform right shift operation on the code point by 6 bits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
-                            <li><b>Substep 4</b>: the third byte of UTF-8 sequence is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 4</b>: get the fourth byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: perform right shift operation on the code point by 0 bit</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the result of <b>Substep 1</b> with 0x3F (0b00111111) to extract the trailing 6 bits in the result of substep 1</li>
-                            <li><b>Substep 3</b>: perform masking using OR operator between the result of <b>Substep 2</b> with 0x80 (0b11000000) to add leading 2 bits (i.e. 10) to the result of substep 2</li>
-                            <li><b>Substep 4</b>: the fourth byte of UTF-8 sequence is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Final step</b>: combine the first byte, second byte third byte, and the forth byte to form a UTF-8 sequence</li>
-                </ul>
-                
-                <br>
-                For example, encoding the Character <b>😀</b> (U+1F600):<br>
-                <ul>
-                    <li><b>Step 1</b>: get the first byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: 0x1f600 >> 18 = 0x0</li>
-                            <li><b>Substep 2</b>: 0x0 & 0x07 = 0x0</li>
-                            <li><b>Substep 3</b>: 0x0 | 0xf0 = 0xf0</li>
-                            <li><b>Substep 4</b>: first byte of UTF-8 sequence = 0xf0</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: get the second byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: 0x1f600 >> 12 = 0x1f</li>
-                            <li><b>Substep 2</b>: 0x1f & 0x3f = 0x1f</li>
-                            <li><b>Substep 3</b>: 0x1f | 0x80 = 0x9f</li>
-                            <li><b>Substep 4</b>: second byte of UTF-8 sequence = 0x9f</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 3</b>: get the third byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: 0x1f600 >> 6 = 0x7d8</li>
-                            <li><b>Substep 2</b>: 0x7d8 & 0x3f = 0x18</li>
-                            <li><b>Substep 3</b>: 0x18 | 0x80 = 0x98</li>
-                            <li><b>Substep 4</b>: third byte of UTF-8 sequence = 0x98</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 4</b>: get the fourth byte of UTF-8 sequence<br>
-                        <ul>
-                            <li><b>Substep 1</b>: 0x1f600 >> 0 = 0x1f600</li>
-                            <li><b>Substep 2</b>: 0x1f600 & 0x3f = 0x0</li>
-                            <li><b>Substep 3</b>: 0x0 | 0x80 = 0x80</li>
-                            <li><b>Substep 4</b>: fourth byte of UTF-8 sequence = 0x80</li>
-                        </ul>
-                    </li>
-                    <li><b>Final step</b>: the UTF-8 sequence of the character <b>😀</b> (U+1F600) is 0xf09f9880</li>
-                </ul>  
-            </li>
-        </ol>
-
-        <p>The following table summarizes the conversion code points to UTF-8 sequence:</p>
-
-        <table class="table table-bordered border-primary">
-            <tbody>
-                <tr>
-                    <th colspan="2">Character</th>
-                    <th>Binary code point</th>
-                    <th>Binary UTF-8</th>
-                    <th>Hex UTF-8 </th>
-                </tr>
-                <tr>
-                    <td>
-                        $
-                    </td>
-                    <td align="right">
-                        U+0024
-                    </td>
-                    <td align="right">
-                        <span style="color:red;">010 0100</span>
-                    </td>
-                    <td align="left">
-                        0<span style="color:red;">0100100</span>
-                    </td>
-                    <td align="left">
-                        <span style="color:red;">24</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        ü
-                    </td>
-                    <td align="right">
-                        U+00FC
-                    </td>
-                    <td align="right">
-                        <span style="color:green;">000 11</span><span style="color:red;">11 1100</span>
-                    </td>
-                    <td align="left">
-                        110<span style="color:green;">00011</span> 
-                        10<span style="color:red;">111100</span>
-                    </td>
-                    <td align="left">
-                        <span style="color:green;">C3</span>
-                        <span style="color:red;">BC</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        €
-                    </td>
-                    <td align="right">
-                        U+20AC
-                    </td>
-                    <td align="right">
-                        <span style="color:blue;">0010</span><span style="color:green;">0000 10</span><span style="color:red;">10 1100</span>
-                    </td>
-                    <td align="left">
-                        1110<span style="color:blue;">0010</span>
-                        10<span style="color:green;">000010</span>
-                        10<span style="color:red;">101100</span>
-                    </td>
-                    <td align="left">
-                        <span style="color:blue;">E2</span>
-                        <span style="color:green;">82</span>
-                        <span style="color:red;">AC</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        😀
-                    </td>
-                    <td align="right">
-                        U+1F600
-                    </td>
-                    <td align="right">
-                        <span style="color: #C000C0;">0 01</span><span style="color:blue;">11 1101</span><span style="color:green;">1000 00</span><span style="color:red;">00 0000</span>
-                    </td>
-                    <td align="left">
-                        11110<span style="color: #C000C0;">001</span>
-                        10<span style="color:blue;">111101</span> 
-                        10<span style="color:green;">100000</span> 
-                        10<span style="color:red;">000000</span>
-                    </td>
-                    <td align="left">
-                        <span style="color: #C000C0;">F0</span>
-                        <span style="color:blue;">9F</span>
-                        <span style="color:green;">98</span>
-                        <span style="color:red;">80</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h5 class="post-subtitle">UTF-8 Decoding</h5>
-
-        <p>The algorithm to convert UTF-8 sequence to a unicode code point is as follows:</p>
-
-        <ul>
-            <li>If the first byte of UTF-8 sequence is between 0x0 and 0x7F, the length of the UTF-8 sequence is a single byte. The maximum number of bits in a byte is 8 bits and is represented as two hexadecimal digits.<br>
-                <ul>
-                    <li><b>Step 1</b>: decode the first byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as two hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x7F (0b01111111) to extract the trailing 7 bits of the first byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: perform lef shift on the result of <b>Substep 2</b> by 0 bit</li>
-                            <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <b>Final step</b>: the code point of the UTF-8 sequence is the result of step 1
-                    </li>
-                </ul>
-                
-                <br>
-                For example, decoding the UTF-8 sequence 0x24:<br>
-                <ul>
-                    <li><b>Step 1</b>: decode the first byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: the first byte of the UTF-8 sequence = 0x24</li>
-                            <li><b>Substep 2</b>: 0x24 & 0x7f = 0x24</li>
-                            <li><b>Substep 3</b>: 0x24 <<  0 = 0x24</li>
-                            <li><b>Substep 4</b>: the decoded first byte = 0x24</li>
-                        </ul>
-                    </li>
-                    <li><b>Final step</b>: the code point of the UTF-8 sequence 0x24 is U+0024</li>
-                </ul>
-                <br>
-                As you can see, for a single-byte UTF-8 sequence, the first byte is the code point itself.
-            </li>
-            <li>If the first byte of UTF-8 sequence is between 0xC0 and 0xDF, the length of the UTF-8 sequence is two bytes. The maximum number of bits in two bytes is 16 bits and is represented as four hexadecimal digits.<br>
-                <ul>
-                    <li><b>Step 1</b>: decode the first byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as four hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x1F (0b00011111) to extract the trailing 5 bits of the first byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: do the shift left the result of step 2 by 6 bits</li>
-                            <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: decode the second byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as four hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 0 bit</li>
-                            <li><b>Substep 4</b>: the decoded second byte is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <b>Step 3</b>: perform the OR operation among the result of step 1 and the result of step 2 to get the code point value.
-                    </li>
-                    <li>
-                        <b>Final step</b>: the code point of UTF-8 sequence is the result of step 3
-                    </li>
-                </ul>
-
-                <br>
-                For example, decoding the UTF-8 sequence 0xc3bc:<br>
-
-                <ul>
-                    <li><b>Step 1</b>: decode the first byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: the first byte of the UTF-8 sequence = 0x00c3</li>
-                            <li><b>Substep 2</b>: 0x00c3 & 0x1f = 0x0003</li>
-                            <li><b>Substep 3</b>: 0x0003 << 6 = 0x00c0</li>
-                            <li><b>Substep 4</b>: the decoded first byte is 0x00c0</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: decode the second byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: the second byte of the UTF-8 sequence = 0x00bc</li>
-                            <li><b>Substep 1</b>: 0x00bc & 0x3f = 0x003c</li>
-                            <li><b>Substep 2</b>: 0x003c << 0 = 0x003c</li>
-                            <li><b>Substep 3</b>: the decoded second byte is 0x003c</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 3</b>: 0x00c0 | 0x003c = 0x00fc</li>
-                    <li>
-                        <b>Final step</b>: the code point of UTF-8 sequence 0xc3bc is U+00FC
-                    </li>
-                </ul>
-                
-            </li>
-            <li>If the first byte of UTF-8 sequence is between 0xE0 and 0xEF, the length of the UTF-8 sequence is three bytes. The maximum number of bits in three bytes is 24 bits and is represented as six hexadecimal digits.<br>
-                <ul>
-                    <li><b>Step 1</b>: decode the first byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x0F (0b00001111) to extract the trailing 4 bits of the first byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 12 bits</li>
-                            <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: decode the second byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bit</li>
-                            <li><b>Substep 4</b>: the decoded second byte is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 3</b>: decode the third byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as six hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bit</li>
-                            <li><b>Substep 4</b>: the decoded third byte is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <b>Step 4</b>: perform the OR operation among the result of step 1, the result of step 2 and the result of the step 3 to get the code point value.
-                    </li>
-                    <li>
-                        <b>Final step</b>: the code point of UTF-8 sequence is the result of step 4
-                    </li>
-                </ul>
-
-                <br>
-                For example, decoding the UTF-8 sequence 0xe282ac:<br>
-
-                <ul>
-                    <li><b>Step 1</b>: decode the first byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: the first byte of the UTF-8 sequence = 0x0000e2</li>
-                            <li><b>Substep 2</b>: 0x0000e2 & 0x0f = 0x000002</li>
-                            <li><b>Substep 3</b>: 0x000002 << 12 = 0x002000</li>
-                            <li><b>Substep 4</b>: the decoded first byte is 0x002000</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: decode the second byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: the second byte of the UTF-8 sequence = 0x000082</li>
-                            <li><b>Substep 2</b>: 0x000082 & 0x3f = 0x000002</li>
-                            <li><b>Substep 3</b>: 0x000002 << 6 = 0x000080</li>
-                            <li><b>Substep 4</b>: the decoded second byte is 0x000080</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 3</b>: decode the third byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: the third byte of the UTF-8 sequence = 0x0000ac</li>
-                            <li><b>Substep 2</b>: 0x0000ac & 0x3f = 0x00002c</li>
-                            <li><b>Substep 3</b>: 0x00002c << 0 = 0x00002c</li>
-                            <li><b>Substep 4</b>: the decoded second byte is 0x00002c</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 4</b>: 0x002000 | 0x000080 | 0x00002c = 0x0020ac</li>
-                    <li>
-                        <b>Final step</b>: the code point of UTF-8 sequence 0xc3bc is U+20AC
-                    </li>
-                </ul>
-            </li>
-            <li>If the first byte of UTF-8 sequence is between 0xF0 and 0xF7, the length of the UTF-8 sequence is four bytes. The maximum number of bits in four bytes is 32 bits and is represented as eight hexadecimal digits.<br>
-                <ul>
-                    <li><b>Step 1</b>: decode the first byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: represent the first byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the first byte UTF-8 sequence with 0x07 (0b00000111) to extract the trailing 3 bits of the first byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 18 bits</li>
-                            <li><b>Substep 4</b>: the decoded first byte is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: decode the second byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: represent the second byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the second byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the second byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 12 bits</li>
-                            <li><b>Substep 4</b>: the decoded second byte is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 3</b>: decode the third byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: represent the third byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the third byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the third byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bits</li>
-                            <li><b>Substep 4</b>: the decoded third byte is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 4</b>: decode the fourth byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: represent the fourth byte of the UTF-8 sequence as eight hexadecimal digits</li>
-                            <li><b>Substep 2</b>: perform masking using AND operator between the fourth byte UTF-8 sequence with 0x3F (0b00111111) to extract the trailing 6 bits of the fourth byte UTF-8 sequence</li>
-                            <li><b>Substep 3</b>: perform shift left the result of step 2 by 6 bits</li>
-                            <li><b>Substep 4</b>: the decoded fourth byte is the result of substep 3</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <b>Step 5</b>: perform the OR operation among the result of step 1, the result of step 2, the result of the step 3 and the result of the step 4 to get the code point value.
-                    </li>
-                    <li>
-                        <b>Final step</b>: the code point of UTF-8 sequence is the result of step 4
-                    </li>
-                </ul>  
-                
-                <br>
-                For example, decoding the UTF-8 sequence 0xf09f9880:<br>
-
-                <ul>
-                    <li><b>Step 1</b>: decode the first byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: the first byte of the UTF-8 sequence = 0x000000f0</li>
-                            <li><b>Substep 2</b>: 0x000000f0 & 0x07 = 0x00000000</li>
-                            <li><b>Substep 3</b>: 0x00000000 << 18 = 0x00000000</li>
-                            <li><b>Substep 4</b>: the decoded first byte is 0x00000000</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>: decode the second byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: the second byte of the UTF-8 sequence = 0x0000009f</li>
-                            <li><b>Substep 2</b>: 0x0000009f & 0x3f = 0x0000001f</li>
-                            <li><b>Substep 3</b>: 0x0000001f << 12 = 0x0001f000</li>
-                            <li><b>Substep 4</b>: the decoded second byte is 0x0001f000</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 3</b>: decode the third byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: the third byte of the UTF-8 sequence = 0x00000098</li>
-                            <li><b>Substep 2</b>: 0x00000098 & 0x3f = 0x00000018</li>
-                            <li><b>Substep 3</b>: 0x00000018 << 6 = 0x00000600</li>
-                            <li><b>Substep 4</b>: the decoded second byte is 0x00000600</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 4</b>: decode the fourth byte<br>
-                        <ul>
-                            <li><b>Substep 1</b>: the third byte of the UTF-8 sequence = 0x00000080</li>
-                            <li><b>Substep 2</b>: 0x00000080 & 0x3f = 0x00000000</li>
-                            <li><b>Substep 3</b>: 0x00000000 << 0 = 0x00000000</li>
-                            <li><b>Substep 4</b>: the decoded second byte is 0x00000000</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 5</b>: 0x00000000 | 0x0001f000 | 0x00000600 | 0x00000000 = 0x0001f600</li>
-                    <li>
-                        <b>Final step</b>: the code point of UTF-8 sequence 0xf09f9880 is U+1F600
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        
-        <h5 class="post-subtitle">Byte Order Mark (BOM)</h5>
-
-        <p>The Byte Order Mark (BOM) in UTF-8 is represented by the Unicode code point U+FEFF. In UTF-8, this code point is encoded as the following three-byte sequence: <b>EF BB BF</b>. This sequence is placed at the beginning of a file or stream to indicate that the contents are encoded in UTF-8. UTF-8 has no Litte-Endian or Big-Endian variants.</p>
-
-        <p>For example, Suppose we have a text file containing the string "Hello, World!" encoded in UTF-8. The file would start with the BOM sequence EF BB BF, followed by the UTF-8 encoding of the string:</p>
-
-        <p><b>EF BB BF 48 65 6C 6C 6F 2C 20 57 6F 72 6C 64 21</b></p>
-
-        <h5 class="post-subtitle">UTF-8 Encoding and Decoding Algorithm in Programming Languages</h5>
-
-        <h6 class="post-subtitle">C Programming Language</h6>
-
-        <p>In C programming language, the UTF-8 encoding and decoding algorithm look as follow:</p>
-
-        <pre><code class="language-bash hljs">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;inttypes.h&gt;
-
-typedef struct {
-    char mask;    /* char data will be bitwise AND with this */
-    char lead;    /* start bytes of current char in utf-8 encoded character */
-    uint32_t beg; /* beginning of codepoint range */
-    uint32_t end; /* end of codepoint range */
-    int bits_stored; /* the number of bits from the codepoint that fits in char */
-}utf_t;
-
-utf_t * utf[] = {
-    /*             mask        lead        beg      end       bits */
-    [0] = &(utf_t){0b00111111, 0b10000000, 0,       0,        6    },
-    [1] = &(utf_t){0b01111111, 0b00000000, 0000,    0177,     7    },
-    [2] = &(utf_t){0b00011111, 0b11000000, 0200,    03777,    5    },
-    [3] = &(utf_t){0b00001111, 0b11100000, 04000,   0177777,  4    },
-    [4] = &(utf_t){0b00000111, 0b11110000, 0200000, 04177777, 3    },
-            &(utf_t){0},
-};
-
-/* All lengths are in bytes */
-int codepoint_len(const uint32_t cp); /* len of associated utf-8 char */
-int utf8_len(const char ch);          /* len of utf-8 encoded char */
-
-char *to_utf8(const uint32_t cp);
-uint32_t to_cp(const char chr[4]);
-
-int codepoint_len(const uint32_t cp)
-{
-    int len = 0;
-    for(utf_t **u = utf; *u; ++u) {
-        if((cp >= (*u)->beg) && (cp <= (*u)->end)) {
-            break;
-        }
-        ++len;
-    }
-    if(len > 4) /* Out of bounds */
-        exit(1);
-
-    return len;
-}
-
-int utf8_len(const char ch)
-{
-    int len = 0;
-    for(utf_t **u = utf; *u; ++u) {
-        if((ch & ~(*u)->mask) == (*u)->lead) {
-            break;
-        }
-        ++len;
-    }
-    if(len > 4) { /* Malformed leading byte */
-        exit(1);
-    }
-    return len;
-}
-
-char *to_utf8(const uint32_t cp)
-{
-    static char ret[5];
-    const int bytes = codepoint_len(cp);
-
-    int shift = utf[0]->bits_stored * (bytes - 1);
-    ret[0] = (cp >> shift & utf[bytes]->mask) | utf[bytes]->lead;
-    shift -= utf[0]->bits_stored;
-    for(int i = 1; i < bytes; ++i) {
-        ret[i] = (cp >> shift & utf[0]->mask) | utf[0]->lead;
-        shift -= utf[0]->bits_stored;
-    }
-    ret[bytes] = '\0';
-    return ret;
-}
-
-uint32_t to_cp(const char chr[4])
-{
-    int bytes = utf8_len(*chr);
-    int shift = utf[0]->bits_stored * (bytes - 1);
-    uint32_t codep = (*chr++ & utf[bytes]->mask) << shift;
-
-    for(int i = 1; i < bytes; ++i, ++chr) {
-        shift -= utf[0]->bits_stored;
-        codep |= ((char)*chr & utf[0]->mask) << shift;
-    }
-
-    return codep;
-}
-
-int main(void)
-{
-    const uint32_t *in, input[] = {0x0041, 0x00f6, 0x0416, 0x20ac, 0x1d11e, 0x0};
-
-    printf("Character  Unicode  UTF-8 encoding (hex)\n");
-    printf("----------------------------------------\n");
-
-    char *utf8;
-    uint32_t codepoint;
-    for(in = input; *in; ++in) {
-        utf8 = to_utf8(*in);
-        codepoint = to_cp(utf8);
-        printf("%s          U+%-7.4x", utf8, codepoint);
-
-        for(int i = 0; utf8[i] && i < 4; ++i) {
-            printf("%hhx ", utf8[i]);
-        }
-        printf("\n");
-    }
-    return 0;
-}</code></pre>
-
-        <p>Compile and run the program:</p>
-
-        <pre><code class="language-bash hljs">gcc utf8.c && ./a.out</code></pre>
-
-        <p>The output is as follows:</p>
-
-        <pre><code class="language-bash hljs">Character  Unicode  UTF-8 encoding (hex)
-----------------------------------------
-A          U+0041   41
-ö          U+00f6   c3 b6
-Ж          U+0416   d0 96
-€          U+20ac   e2 82 ac
-𝄞          U+1d11e  f0 9d 84 9e</code></pre>
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/utf-8" class="tag">UTF-8</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/unicode" class="tag">unicode</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/algorithm" class="tag">algorithm</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/encoding" class="tag">encoding</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/decoding" class="tag">decoding</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/c" class="tag">c</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/byte-order-mark" class="tag">byte order mark</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-06" /><category term="day-22" /><category term="UTF-8" /><category term="unicode" /><category term="algorithm" /><category term="encoding" /><category term="decoding" /><category term="c" /><category term="byte order mark" /><summary type="html"><![CDATA[UTF-8 encoding and decoding algorithm is crucial for processing text in various programming languages. This page explains the implementation of UTF-8 encoding and decoding with examples for programmers to understand and utilize effectively.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-06" /><category term="day-22" /><category term="UCS-2" /><category term="unicode" /><category term="algorithm" /><category term="encoding" /><category term="decoding" /><category term="byte order mark" /><summary type="html"><![CDATA[This tutorial explains the UCS-2 encoding and decoding algorithm in detail, providing a comprehensive guide to understanding and implementing this encoding scheme.]]></summary></entry></feed>
