@@ -1,0 +1,380 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Event Loop in Javascript"
+thumb: "javascript.jpg"
+eyebrow: "Tutorial"
+description: "The event loop is a fundamental concept in JavaScript that governs the asynchronous execution of code. It manages the order in which various tasks are processed, ensuring smooth and efficient operation of JavaScript programs. The event loop involves the interaction of the call stack, web API, macrotasks, microtasks, and their respective queues. Understanding the event loop is essential for developing responsive and high-performance JavaScript applications. This concept is particularly important for handling asynchronous operations, such as fetching data from servers or responding to user interactions."
+date: 2024-07-15 13:21:00 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2024", "month-07", "day-15"]
+tags: ["javascript", "event loop", "call stack", "web api", "macrotask", "macrotask queue", "microtask", "microtask queue"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>JavaScript is a single-threaded programming language. This means that JavaScript can do only one thing at a single point in time.</p>
+
+        <p>The main thread is responsible for executing JavaScript code, performing rendering tasks, and handling user interactions. Since JavaScript is single-threaded, it can perform only one task at a time on the main thread.</p>
+
+        <p>The JavaScript engine executes a script from the top of the file and works its way down. It creates the execution contexts, and pushes, and pops functions onto and off the call stack in the execution phase.</p>
+
+        <p>If a function takes a long time to execute, you cannot interact with the web browser during the function's execution because the page hangs.</p>
+
+        <p>A function that takes a long time to complete is called a blocking function. Technically, a blocking function blocks all the interactions on the webpage, such as mouse clicks.</p>
+
+        <p>The following example uses a big loop to simulate a blocking function:</p>
+
+        <pre><code class="language-bash hljs">function task(message) {
+    // emulate time consuming task
+    let n = 10000000000;
+    while (n > 0){
+        n--;
+    }
+    console.log(message);
+}
+
+console.log('Start script...');
+task('Doing a task');
+console.log('Done!');</code></pre>
+
+        <p>The script hangs for a few seconds (depending on how fast the computer is) and issues the following output:</p>
+
+        <pre><code class="language-bash hljs">Start script...
+Doing a task
+Done!</code></pre>
+        
+        <p>The JavaScript Event Loop is a mechanism that enables JavaScript to perform non-blocking I/O operations despite being single-threaded. It allows asynchronous operations, such as handling user inputs, network requests, and timers, to be executed without blocking the main execution thread.</p>
+
+        <p>The Event Loop is a continuous process that coordinates the execution of tasks in JavaScript. It is composed of several components that work together to facilitate asynchronous programming:</p>
+
+        <ul>
+            <li>Call Stack</li>
+            <li>Web APIs</li>
+            <li>Macrotask Queue</li>
+            <li>Microtask Queue</li>
+        </ul>
+
+        <h5 class="post-subtitle">Call Stack</h5>
+
+        <p>The call stack is a fundamental concept in JavaScript and plays a key role in understanding the language's asynchronous behavior. It is a data structure known as a Last In, First Out (LIFO) stack, which is responsible for keeping track of the function calls and their execution order. Whenever a function is called, it gets added to the call stack, and once it finishes executing, it is removed from the stack (sort of).</p>
+        
+        <p>JavaScript is single-threaded, meaning it has only one call stack that can handle one task at a time. This is why blocking operations, such as time-consuming calculations or network requests, can freeze the browser's UI until the task is completed.</p>
+        
+        <p>Here's an example:</p>
+
+        <pre><code class="language-bash hljs">function fifth() { 
+    console.log("fifth")
+}
+
+function fourth() { 
+    console.log("fourth")
+    fifth() 
+}
+
+function third() { 
+    console.log("third")
+    fourth() 
+}
+
+function second() { 
+    console.log("second")
+    third() 
+}
+
+function first() {
+    console.log("first") 
+    second() 
+}
+
+first();</code></pre>
+
+        <p>The execution flow is as follows:</p>
+
+        <ul>
+            <li>The main thread starts by creating the global execution context.</li>
+            <li>The main thread pushes the global execution context onto the call stack.</li>
+            <li>The main thread executes <code>first</code> function call, a function execution context for <code>first</code> (or frame) is added to the call stack.<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-01.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The <code>first</code> function's code is executed line-by-line.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"first"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread executes <code>second</code> function call, a function execution context for  <code>second</code> (or frame) is added to the call stack.<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-02.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The <code>second</code> function's code is executed line-by-line.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"second"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread executes <code>third</code> function call, a function execution context for  <code>third</code> (or frame) is added to the call stack.<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-03.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The <code>third</code> function's code is executed line-by-line.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"third"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread executes <code>fourth</code> function call, a function execution context for  <code>fourth</code> (or frame) is added to the call stack.<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-04.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The <code>fourth</code> function's code is executed line-by-line.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"fourth"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <code>fifth</code> (or frame) is added to the call stack.<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-05.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The <code>fifth</code> function's code is executed line-by-line.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"fifth"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread removes function execution context for <code>fifth</code>, <code>fourth</code>, <code>third</code>, <code>second</code> and <code>first</code> consecutively from the call stack.</li>
+            <li>The main thread removes the global execution context from the call stack.</li>
+        </ul>
+
+        <h5 class="post-subtitle">Web APIs</h5>
+
+        <p>Web APIs are provided by the browser environment to extend JavaScript's functionality beyond its single-threaded nature. These APIs allow developers to access features like the DOM, timers, and network requests, enabling JavaScript to perform tasks asynchronously without blocking the call stack.</p>
+
+        <p>When a function utilizing a Web API is called, the API handles the task in the background and returns a callback function. This callback is then placed into a queue, waiting to be executed once the call stack is empty.</p>
+
+        <p>Here are some common examples of Web APIs: DOM (Document Object Model) API, Fetch API, Geolocation API, Canvas API, Web Storage API, etc.</p>
+
+        <p>Here's an example:</p>
+
+        <pre><code class="language-bash hljs">console.log('Start');
+
+setTimeout(() => {
+    console.log('Timeout');
+}, 1000);
+
+console.log('End');</code></pre>
+
+        <p>The execution flow is as follows:</p>
+
+        <ul>
+            <li>The main thread starts by creating the global execution context.</li>
+            <li>The main thread pushes the global execution context onto the call stack.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"Start"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread executes <code>setTimeout</code> function call.</li>
+            <li>The main thread creates a new function execution context and places it on the call stack.</li>
+            <li>The main thread registers the callback function and the delay with the Web API.</li>
+            <li>The Web API (e.g., the browser's timer system) sets up a timer that counts down in the background within the Web API environment from the specified delay (1000 milliseconds in this case).</li>
+            <li>The main thread removes the function execution context from the call stack.</li>
+            <li>When the timers expires after the specified delays, the Web API moves the callback function to the callback queue (or task queue).</li>
+            <li>The main thread continues to execute any synchronous code that follows.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"End"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>If the call stack is clear, the event loop pushes the first task from the callback queue onto the call stack and creates a new function execution context for the callback function.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"Timeout"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread removes the function execution context from the call stack.</li>
+            <li>The main thread removes the global execution context from the call stack.</li>
+        </ul>
+
+        <h5 class="post-subtitle">Tasks and the Task Queue</h5>
+        
+        <p>Tasks are scheduled, synchronous blocks of code. While executing, they have exclusive access to the Call Stack and can also enqueue other tasks. Between Tasks, the browser can perform rendering updates. Tasks are stored in the Task Queue, waiting to be executed by their associated functions. These tasks come from:</p>
+
+        <ul>
+            <li>Timers (via setTimeout or setInterval)</li>
+            <li>Event listeners (when an event is triggered)</li>
+            <li>Network operations (when a response is received)</li>
+        </ul>
+
+        <p>The Task Queue is a FIFO (First In, First Out) data structure.</p>
+
+        <p>Here's an example:</p>
+
+        <pre><code class="language-bash hljs">setTimeout(function a() {
+    console.log("task A")            
+}, 1000);
+
+setTimeout(function b() {
+    console.log("task B")
+}, 500);
+
+setTimeout(function c() {
+    console.log("task C")
+}, 0);
+
+function d() {
+    console.log("task D")
+}
+
+d();</code></pre>
+
+        <p>The execution flow is as follows:</p>
+
+        <ul>
+            <li>The main thread starts by creating the global execution context.</li>
+            <li>The main thread pushes the global execution context onto the call stack.</li>
+            <li>The main thread executes <code>setTimeout</code> function calls.</li>
+            <li>The main thread creates new function execution contexts and places it on the call stack.</li>
+            <li>The main thread registers the callback functions and the delays with the Web API.</li>
+            <li>The Web API (e.g., the browser's timer system) sets up timers that count down in the background within the Web API environment from the specified delays.</li>
+            <li>The main thread removes the function execution contexts for the <code>setTimeout</code> functions from the call stack.</li>
+            <li>When the timers expires after the specified delays, the Web API moves the callback function to the callback queue (or task queue).<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-06.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The main thread continues to execute any synchronous code that follows.</li>
+            <li>The main thread executes <code>d</code> function call, a function execution context for <code>d</code> (or frame) is added to the call stack.<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-07.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The <code>d</code> function's code is executed line-by-line.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"task D"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread removes function execution context for <code>d</code> from the call stack.</li>
+            <li>If the call stack is clear, the event loop pushes the first task from the callback queue onto the call stack and creates a new function execution context for the callback function.<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-08.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"task C"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread removes the function execution context for the callback function from the call stack.</li>
+            <li>The event loop pushes the next task from the callback queue onto the call stack and creates a new function execution context for the callback function.<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-09.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"task B"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread removes the function execution context from the call stack.</li>
+            <li>The event loop pushes the next task from the callback queue onto the call stack and creates a new function execution context for the callback function.<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-10.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"task A"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread removes the function execution context for the <code>setTimeout</code> callback function from the call stack.</li>
+            <li>The main thread removes the global execution context from the call stack.</li>
+        </ul>
+
+        <h5 class="post-subtitle">Microtasks and the Microtask Queue</h5>
+
+        <p>Microtasks are similar to Tasks in that they're scheduled, synchronous blocks of code with exclusive access to the Call Stack while executing. Additionally, they are stored in their own FIFO (First In, First Out) data structure, the Microtask Queue. Microtasks differ from Tasks, however, in that the Microtask Queue must be emptied out after a Task completes and before re-rendering.</p>
+
+        <p>Microtasks and the Microtask Queue are also referred to as Jobs and the Job Queue.</p>
+        
+        <p>The microtask queue holds tasks that are prioritized over tasks in the task queue. Microtasks include promises and mutation observer callbacks. When the call stack is empty and before fetching tasks from the task queue, the event loop first processes all tasks in the microtask queue. This ensures that microtasks are executed as soon as possible.</p>
+
+        <p>Here's an example:</p>
+
+        <pre><code class="language-bash hljs">console.log("Start");
+
+const promise = new Promise((resolve, reject) => {
+    console.log("Promise executor function started");
+    resolve("Promise resolved successfully");
+});
+
+promise.then((result) => {
+    console.log(result);
+});
+
+setTimeout(function d() {
+    console.log("task D");
+}, 0);
+
+function e() {
+    console.log("task E");
+}
+
+e();
+
+console.log("End");</code></pre>
+
+        <p>The execution flow is as follows:</p>
+
+        <ul>
+            <li>The main thread starts by creating the global execution context.</li>
+            <li>The main thread pushes the global execution context onto the call stack.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"Start"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread executes Promise constructor call, and its execution context is created and pushed onto the call stack.</li>
+            <li>The executor function within the Promise constructor initializes the promise.</li>
+            <li>The main thread executes executor function call, and its execution context is created and pushed onto the call stack.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"Promise executor function started"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread executes resolve function call, and its execution context is created and pushed onto the call stack.</li>
+            <li>Calling resolve transitions the promise from the pending state to the fulfilled (or resolved) state.</li>
+            <li>The value "Promise resolved successfully" is set as the value of the promise.</li>
+            <li>The main thread removes function execution context for <code>resolve</code> from the call stack.</li>
+            <li>The executor function finishes its synchronous execution, and its execution context is popped off the call stack.</li>
+            <li>Once the executor function completes its synchronous execution, the promise constructor itself has no more code to run.</li>
+            <li>The Promise constructor completes, and its execution context is popped off the call stack.</li>
+            <li>The main thread executes <code>.then()</code> method call, and its execution context is created and pushed onto the call stack.</li>
+            <li>The main thread moves the resolve callback function to the microtask queue (or job queue).<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-11.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The main thread removes the execution context for <code>then()</code> from the call stack.</li>
+            <li>The main thread executes <code>setTimeout</code> function calls.</li>
+            <li>The main thread creates new function execution contexts and places it on the call stack.</li>
+            <li>The main thread registers the callback functions and the delays with the Web API.</li>
+            <li>The Web API (e.g., the browser's timer system) sets up timers that count down in the background within the Web API environment from the specified delays.</li>
+            <li>The main thread removes the function execution contexts for <code>setTimeout</code> from the call stack.</li>
+            <li>When the timer expires after the specified delay, the Web API moves the callback function to the callback queue (or task queue).<br>
+                <figure class="post-figure">
+                    <img src="/assets/images/callstack-12.jpg" alt="call stack">
+                </figure>
+            </li>
+            <li>The main thread continues to execute any synchronous code that follows.</li>
+            <li>The main thread executes <code>e</code> function call, and its execution context is created and pushed onto the call stack.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"task E"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread removes the execution context for <code>e</code> from the call stack.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"End"</code> to the console.</li>
+            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+            <li>After the current synchronous code finishes, the event loop proceeds to handle the microtask queue before handling any macrotasks.</li>
+            <li>If there are microtasks in the microtask queue, the event loop moves the first microtask callback from the microtask queue to the call stack and creates a new function execution context for the resolve callback function.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"Promise resolved successfully"</code> to the console.</li>
+            <li>The main thread removes the function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread removes the function execution context for the resolve callback function from the call stack.</li>
+            <li>After all microtasks have been processed, the event loop proceeds to handle macrotasks.</li>
+            <li>The event loop moves the first macrotask callback from the macrotask queue to the call stack  and creates a new function execution context for the <code>setTimeout</code> callback function.</li>
+            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> (or frame) is added to the call stack.</li>
+            <li>The main thread logs <code>"task D"</code> to the console.</li>
+            <li>The main thread removes the function execution context for <code>console.log</code> from the call stack.</li>
+            <li>The main thread removes the function execution context for the <code>setTimeout</code> callback function from the call stack.</li>
+            <li>The main thread removes the global execution context from the call stack.</li>
+        </ul>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
