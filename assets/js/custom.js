@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
 });
 
-jQuery( document ).ready(function( $ ) {
+/*jQuery( document ).ready(function( $ ) {
 	"use strict";
 
     // Page loading animation
@@ -42,4 +42,4 @@ jQuery( document ).ready(function( $ ) {
         }, 300);
     });
         
-});
+});*/
