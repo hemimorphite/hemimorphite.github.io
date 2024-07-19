@@ -629,11 +629,11 @@ Pending callback</code></pre>
             </li>
         </ul>
 
-        <h5>Idle Phase</h5>
+        <h5 class="post-subtitle">Idle Phase</h5>
 
         <p>The idle phase is not a normal phase of the Node.js event loop. It is a period whereby the event loop has nothing to do but perform background tasks like checking for low-priority results or running garbage collection.</p>
 
-        <h5>Poll Phase</h5>
+        <h5 class="post-subtitle">Poll Phase</h5>
 
         <p>The poll phase is where I/O operations execute. I/O  operations transfer data to or from a computer. The event loop checks for new I/O operations and executes them in the poll queue.</p>
 
@@ -900,7 +900,7 @@ Pending callback</code></pre>
             </li>
         </ul>  
 
-        <h5>Check Phase</h5>
+        <h5 class="post-subtitle">Check Phase</h5>
 
         <p>The check phase is where the <code>setImmediate</code> timer runs. The Node.js event loop goes to the check phase when there is a <code>setImmediate</code> in the program, and the poll phase becomes idle or when the poll phase completes.</p>
 
@@ -1180,7 +1180,7 @@ Pending callback</code></pre>
             </li>
         </ul>
 
-        <h5>Close Callbacks Phase</h5>  
+        <h5 class="post-subtitle">Close Callbacks Phase</h5>  
 
         <p>The close callbacks phase is the last phase of the Node.js event loop. The close callback phase is where callbacks from the close event of a socket and the closing of an HTTP server run.</p>
 
