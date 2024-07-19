@@ -1,0 +1,3165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="Explore the intricacies of the event loop in Node.js with our comprehensive guide. This resource delves into the event loop's components, including the call stack, Node.js API, microtasks, microtask queue, timers phase, pending callbacks phase, idle phase, check phase, close callbacks phase, timer queue, IO queue, check queue, close queue, and event queue (task queue). Gain a deeper understanding of how the event loop manages asynchronous operations, and learn how to write efficient and responsive Node.js applications. With clear explanations and practical examples, this guide is your gateway to mastering the event loop in Node.js.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/zh/2024/07/18/event-loop-in-nodejs/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/zh/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Event Loop in Node.Js">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/zh/2024/07/18/event-loop-in-nodejs/">
+		<meta property="og:description" content="Explore the intricacies of the event loop in Node.js with our comprehensive guide. This resource delves into the event loop's components, including the call stack, Node.js API, microtasks, microtask queue, timers phase, pending callbacks phase, idle phase, check phase, close callbacks phase, timer queue, IO queue, check queue, close queue, and event queue (task queue). Gain a deeper understanding of how the event loop manages asynchronous operations, and learn how to write efficient and responsive Node.js applications. With clear explanations and practical examples, this guide is your gateway to mastering the event loop in Node.js.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/eventloop-nodejs.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Event Loop in Node.Js">
+		<meta name="twitter:description" content="Explore the intricacies of the event loop in Node.js with our comprehensive guide. This resource delves into the event loop's components, including the call stack, Node.js API, microtasks, microtask queue, timers phase, pending callbacks phase, idle phase, check phase, close callbacks phase, timer queue, IO queue, check queue, close queue, and event queue (task queue). Gain a deeper understanding of how the event loop manages asynchronous operations, and learn how to write efficient and responsive Node.js applications. With clear explanations and practical examples, this guide is your gateway to mastering the event loop in Node.js.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/eventloop-nodejs.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Event Loop in Node.Js</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <!-- Additional CSS Files -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <!--<div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>-->  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/zh/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '9cf40e8a46ab80f525196d3376630858',
+								'format' : 'iframe',
+								'height' : 90,
+								'width' : 728,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<script type="text/javascript">
+					atOptions = {
+						'key' : '9cf40e8a46ab80f525196d3376630858',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+			</div>
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">Event Loop in Node.Js</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 18, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/eventloop-nodejs.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Node.js uses a single-threaded event loop to handle asynchronous operations. This means that all the JavaScript code is executed on a single thread, but the event loop can handle multiple operations concurrently.</p>
+
+        <p>The JavaScript code consists of two lines of execution:</p>
+
+        <ul>
+            <li>The mainline: This is the JavaScript that runs when Node first runs your program. It runs from start to finish, and when it is finished, it gives up control to the event loop.</li>
+            <li>The event loop: This is where all of your callbacks are run.</li>
+        </ul>
+
+        <p>The following diagram shows a simplified overview of the event loop's order of operations.</p>
+
+        <pre><code class="language-bash hljs"> ┌───────────────────────────┐
+┌─>│           timers          │
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+│  │     pending callbacks     │
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+│  │       idle, prepare       │
+│  └─────────────┬─────────────┘      ┌───────────────┐
+│  ┌─────────────┴─────────────┐      │   incoming:   │
+│  │           poll            │<─────┤  connections, │
+│  └─────────────┬─────────────┘      │   data, etc.  │
+│  ┌─────────────┴─────────────┐      └───────────────┘
+│  │           check           │
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+└──┤      close callbacks      │
+   └───────────────────────────┘</code></pre>
+
+        <p>The event loop in Node.js does not have a predefined number of iterations; it continues running indefinitely until there are no more tasks to perform. Each iteration of the event loop is referred to as a tick. The event loop will keep ticking as long as there are pending operations, such as:</p>
+        
+        <ul>
+            <li>Promises and other microtasks.</li>
+            <li>Pending timers (callbacks scheduled with <code>setTimeout</code> or <code>setInterval</code>).</li>
+            <li>Pending I/O operations (e.g., file system operations, network requests).</li>
+            <li>Pending callbacks (e.g., deferred I/O callbacks).</li>
+            <li><code>setImmediate</code> callbacks.</li>
+            <li>Close callbacks.</li>
+        </ul>
+
+        <h5 class="post-subtitle">Microtasks</h5>
+
+        <p>All microtasks line up in a specialized queue, made solely for them — the microtask queue.</p>
+
+        <p>The microtask queue is processed and emptied before every phase iteration of the event loop.</p>
+
+        <p>Microtasks are executed at specific points in the event loop:</p>
+
+        <ol>
+            <li>After executing JavaScript code: When the call stack becomes empty, the event loop checks for and executes any pending microtasks before moving to the next phase.</li>
+            <li>After processing each phase of the event loop: Once the current phase of the event loop is completed, before moving to the next phase, the event loop processes all the pending microtasks.</li>
+        </ol>
+    
+        <p>Here are the main types of microtasks:</p>
+
+        <ul>
+            <li>Promise Callbacks: <code>.then()</code>, <code>.catch()</code>, and <code>.finally()</code> handlers.</li>
+            <li><code>queueMicrotask</code>: Both queueMicrotask and Promise Callbacks added to the microtask queue and have similar priority.</li>
+            <li><code>process.nextTick</code>: Callbacks scheduled with <code>process.nextTick</code> are executed before promise callbacks or queueMicrotask callbacks. <code>process.nextTick</code> callbacks are added to the beginning of the microtask queue.</li>
+        </ul>
+
+        <p>Here's an example:</p>
+
+        <pre><code class="language-bash hljs">console.log('Start');
+process.nextTick(console.log, "nextTick 1");
+Promise.resolve("Promise 1").then(console.log);
+queueMicrotask(() => console.log("queueMicrotask 1"));
+Promise.reject("Promise 2").catch(console.log);
+queueMicrotask(() => console.log("queueMicrotask 2"));
+process.nextTick(console.log, "nextTick 2");
+console.log('End');</code></pre>
+        
+        <p>The output would be:</p>
+
+        <pre><code class="language-bash hljs">Start
+End
+nextTick 1
+nextTick 2
+Promise 1
+queueMicrotask 1
+Promise 2
+queueMicrotask 2</code></pre>
+
+        <p>The execution flow is as follows:</p>
+        
+        <ul>
+            <li>The mainline<br>
+                <ul>
+                    <li>The main thread starts by creating the global execution context and pushes it onto the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"Start"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>The main thread executes <code>process.nextTick</code> function call, a function execution context for <code>process.nextTick</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>process.nextTick</code> callback function to the next tick queue.</li>
+                    <li>The main thread removes the function execution context for <code>process.nextTick</code> from the call stack.</li>
+                    <li>The main thread executes Promise constructor call, and its execution context is created and pushed onto the call stack.</li>
+                    <li>The executor function within the Promise constructor initializes the promise.</li>
+                    <li>The main thread executes executor function call, and its execution context is created and pushed onto the call stack.</li>
+                    <li>The main thread executes resolve function call, and its execution context is created and pushed onto the call stack.</li>
+                    <li>Calling resolve transitions the promise from the pending state to the fulfilled (or resolved) state.</li>
+                    <li>The value "Promise 1" is set as the value of the new promise internally.</li>
+                    <li>The main thread removes function execution context for <code>resolve</code> from the call stack.</li>
+                    <li>The main thread removes function execution context for <code>executor function</code> from the call stack.</li>
+                    <li>The Promise constructor completes, and its execution context is popped off the call stack.</li>
+                    <li>The main thread executes <code>.then()</code> method call, and its execution context is created and pushed onto the call stack.</li>
+                    <li>The main thread moves the resolve callback function to the microtask queue (or job queue).</li>
+                    <li>The main thread removes the execution context for <code>then()</code> from the call stack.</li>
+                    <li>The main thread executes <code>queueMicrotask</code> function call, a function execution context for <code>queueMicrotask</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>queueMicrotask</code> callback function to the microtask queue.</li>
+                    <li>The main thread removes the function execution context for <code>queueMicrotask</code> from the call stack.</li>
+                    <li>The main thread executes the second Promise constructor call, and its execution context is created and pushed onto the call stack.</li>
+                    <li>The executor function within the second Promise constructor initializes the promise.</li>
+                    <li>The main thread executes executor function call, and its execution context is created and pushed onto the call stack.</li>
+                    <li>The main thread executes reject function call, and its execution context is created and pushed onto the call stack.</li>
+                    <li>Calling resolve transitions the promise from the pending state to the rejected state.</li>
+                    <li>The value "Promise 2" is set as the value of the new promise internally.</li>
+                    <li>The main thread removes function execution context for <code>reject</code> from the call stack.</li>
+                    <li>The main thread removes function execution context for <code>executor function</code> from the call stack.</li>
+                    <li>The second Promise constructor completes, and its execution context is popped off the call stack.</li>
+                    <li>The main thread executes <code>.then()</code> method call, and its execution context is created and pushed onto the call stack.</li>
+                    <li>The main thread moves the resolve callback function to the microtask queue (or job queue).</li>
+                    <li>The main thread removes the execution context for <code>then()</code> from the call stack.</li>
+                    <li>The main thread executes the second <code>queueMicrotask</code> function call, a function execution context for the second <code>queueMicrotask</code> is added to the call stack.</li>
+                    <li>The main thread moves the second <code>queueMicrotask</code> callback function to the microtask queue.</li>
+                    <li>The main thread removes the function execution context for the second  <code>queueMicrotask</code> from the call stack.</li>
+                    <li>The main thread executes the second <code>process.nextTick</code> function call, a function execution context for the second <code>process.nextTick</code> is added to the call stack.</li>
+                    <li>The main thread moves the second <code>process.nextTick</code> callback function to the next tick queue.</li>
+                    <li>The main thread removes the function execution context for the second <code>process.nextTick</code> from the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"End"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>Once all the synchronous code has executed, the main thread removes the global execution context from the call stack.</li>
+                    <li>The call stack is now empty, waiting for asynchronous callbacks to be executed.</li>
+                </ul>
+            </li>
+            <li>The event loop starts processing the asynchronous callbacks that have been registered.</li>
+            <li>The first loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue. The nextTick queue gets priority over the microtask queue.<br>
+                        <ul>
+                            <li>The event loop pushes the task from the nextTick queue onto the call stack and creates a new function execution context for the first <code>process.nextTick</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The main thread logs <code>"nextTick 1"</code> to the console.</li>
+                            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The main thread removes the function execution context for the first <code>process.nextTick</code> callback function from the call stack.</li>
+                            <li>The event loop pushes the second task from the nextTick queue onto the call stack and creates a new function execution context for the second <code>process.nextTick</code> callback function.</li>
+                            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The main thread logs <code>"nextTick 2"</code> to the console.</li>
+                            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The main thread removes the function execution context for the second <code>process.nextTick</code> callback function from the call stack.</li>
+                            <li>The event loop pushes the task from the microtask queue onto the call stack and creates a new function execution context for promise <code>then()</code> callback function.</li>
+                            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The main thread logs <code>"Promise 1"</code> to the console.</li>
+                            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The main thread removes the function execution context for promise <code>then()</code> callback function from the call stack.</li>
+                            <li>The event loop pushes the next task from the microtask queue onto the call stack and creates a new function execution context for <code>queueMicrotask</code> callback function.</li>
+                            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The main thread logs <code>"queueMicrotask 1"</code> to the console.</li>
+                            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The main thread removes the function execution context for <code>queueMicrotask</code> callback function from the call stack.</li>
+                            <li>The event loop pushes the next task from the microtask queue onto the call stack and creates a new function execution context for promise <code>then()</code> callback function.</li>
+                            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The main thread logs <code>"Promise 2"</code> to the console.</li>
+                            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The main thread removes the function execution context for promise <code>then()</code> callback function from the call stack.</li>
+                            <li>The event loop pushes the next task from the microtask queue onto the call stack and creates a new function execution context for the second <code>queueMicrotask</code> callback function.</li>
+                            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The main thread logs <code>"queueMicrotask 2"</code> to the console.</li>
+                            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The main thread removes the function execution context for the second  <code>queueMicrotask</code> callback function from the call stack.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>No timers have expired yet (since less than 500 milliseconds have passed).</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>No pending callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>No I/O events to process.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h5 class="post-subtitle">Timers</h5>
+        
+        <p>The first phase of the event loop is the Timers phase. This phase deals with timer callbacks that have reached their scheduled time. Timers in Node.js can be used to schedule code execution after a specified delay or at specific intervals. When a timer's time comes, its callback function is added to the event queue (task queue) to be executed.</p>
+
+        <p>Timers are not guaranteed to execute exactly at their scheduled time, as they are subject to the availability of the system and the event loop. For example, if the event loop is busy processing other events, the timer callback may be delayed until the next iteration of the event loop. Therefore, timers should not be used for precise timing, but rather for approximate timing.</p>
+
+        <p>Here's an example:</p>
+
+        <pre><code class="language-bash hljs">console.log('Start');
+
+setTimeout(() => {
+    console.log('Timeout callback 1');
+}, 1000);
+
+setTimeout(() => {
+    console.log('Timeout callback 2');
+}, 500);
+
+process.nextTick(console.log, "nextTick callback");
+
+queueMicrotask(() => console.log("queueMicrotask callback"));
+
+console.log('End');</code></pre>
+
+        <p>The output would be:</p>
+
+        <pre><code class="language-bash hljs">Start
+End
+nextTick callback
+queueMicrotask callback
+Timeout callback 2
+Timeout callback 1</code></pre>
+
+        <p>The execution flow is as follows:</p>
+
+        <ul>
+            <li>The mainline<br>
+                <ul>
+                    <li>The main thread starts by creating the global execution context and pushes it onto the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"Start"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>The main thread executes <code>setTimeout</code> function call, a function execution context for <code>setTimeout</code> is added to the call stack.</li>
+                    <li>The main thread adds the <code>setTimeout</code> callback function to the timer queue.</li>
+                    <li>The event loop continuously checks the timer queue. When the specified delay has elapsed, the callback function is moved to the appropriate phase of the event loop.</li>
+                    <li>The main thread removes the function execution context for <code>setTimeout</code> from the call stack.</li>
+                    <li>The main thread executes the second <code>setTimeout</code> function call, a function execution context for the second <code>setTimeout</code> is added to the call stack.</li>
+                    <li>The main thread adds the second <code>setTimeout</code> callback function to the timer queue.</li>
+                    <li>The event loop continuously checks the timer queue. When the specified delay has elapsed, the callback function is moved to the appropriate phase of the event loop.</li>
+                    <li>The main thread removes the function execution context for the second <code>setTimeout</code> from the call stack.</li>
+                    <li>The main thread executes <code>process.nextTick</code> function call, a function execution context for <code>process.nextTick</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>process.nextTick</code> callback function to the next tick queue.</li>
+                    <li>The main thread removes the function execution context for <code>process.nextTick</code> from the call stack.</li>
+                    <li>The main thread executes <code>queueMicrotask</code> function call, a function execution context for <code>queueMicrotask</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>queueMicrotask</code> callback function to the microtask queue.</li>
+                    <li>The main thread removes the function execution context for <code>queueMicrotask</code> from the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"End"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>Once all the synchronous code has executed, the main thread removes the global execution context from the call stack.</li>
+                    <li>The call stack is now empty, waiting for asynchronous callbacks to be executed.</li>
+                </ul>
+            </li>
+            <li>The event loop starts processing the asynchronous callbacks that have been registered.</li> 
+            <li>The first loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue. The nextTick queue gets priority over the microtask queue.<br>
+                        <ul>
+                            <li>The event loop pushes the task from the nextTick queue onto the call stack and creates a new function execution context for <code>process.nextTick</code> callback function.</li>
+                            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The main thread logs <code>"nextTick callback"</code> to the console.</li>
+                            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The main thread removes the function execution context for <code>process.nextTick</code> callback function from the call stack.</li>
+                            <li>The event loop pushes the task from the microtask queue onto the call stack and creates a new function execution context for <code>queueMicrotask</code> callback function.</li>
+                            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The main thread logs <code>"queueMicrotask callback"</code> to the console.</li>
+                            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The main thread removes the function execution context for <code>queueMicrotask</code> callback function from the call stack.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>No timers have expired yet (since less than 500 milliseconds have passed).</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>No pending callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>No I/O events to process.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The event loop will continue to loop.
+            </li>
+            <li>The next loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue.<br>
+                        <ul>
+                            <li>No microtasks to execute.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase (After 500 milliseconds)<br>
+                        <ul>
+                            <li>The event loop pushes the task from the callback queue onto the call stack and creates a new function execution context for the second <code>setTimeout</code> callback function.</li>
+                            <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The main thread logs <code>"Timeout callback 2"</code> to the console.</li>
+                            <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The main thread removes the function execution context for <code>setTimeout</code> callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>No pending callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>No I/O events to process.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The event loop will continue to loop.
+            </li>
+            <li>The next loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue.<br>
+                        <ul>
+                            <li>No microtasks to execute.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase (After 1000 milliseconds)<br>
+                        <ul>
+                            <li>The event loop pushes the task from the callback queue onto the call stack and creates a new function execution context for the first <code>setTimeout</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Timeout callback 1"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The event loop removes the function execution context for <code>setTimeout</code> callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>No pending callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>No I/O events to process.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h5 class="post-subtitle">Pending Callbacks</h5>
+
+        <p>I/O operations execute in the poll phase of the event loop. During the poll phase, some specific I/O operations callbacks defer to the pending phase of the next iteration of the event loop. I/O operations callbacks deferred from the previous iteration run in the pending callbacks phase.</p>
+
+        <p>Here's an example:</p>
+
+        <pre><code class="language-bash hljs">console.log('Start');
+
+const fs = require("fs");
+
+fs.readFile(__filename, (err, data) => {
+    if (err) throw err;
+    console.log("Pending callback");
+});
+            
+setTimeout(() => {
+    console.log('Timeout callback');
+}, 0);
+
+process.nextTick(console.log, "nextTick callback");
+
+queueMicrotask(() => console.log("queueMicrotask callback"));
+
+console.log('End');</code></pre>
+
+        <p>The output would be:</p>
+
+        <pre><code class="language-bash hljs">Start
+End
+nextTick callback
+queueMicrotask callback
+Timeout callback
+Pending callback</code></pre>
+        
+        <p>The execution flow is as follows:</p>
+
+        <ul>
+            <li>The mainline<br>
+                <ul>
+                    <li>The main thread starts by creating the global execution context and pushes it onto the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"Start"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>The main thread executes <code>require</code> function call, a function execution context for <code>require</code> is added to the call stack.</li>
+                    <li>The main thread starts resolving the module identifier <code>fs</code>.</li>
+                    <li>The main thread wraps the contents of <code>fs</code> in a function and executes it, a function execution context for <code>fs</code> is added to the call stack.</li>
+                    <li>The <code>module.exports</code> object is returned and assigned to <code>fs</code>.</li>
+                    <li>The main thread removes function execution context for <code>fs</code> from the call stack.</li>
+                    <li>The main thread removes function execution context for <code>require</code> from the call stack.</li>
+                    <li>The main thread executes <code>fs.readFile</code> function call, a function execution context for <code>fs.readFile</code> is added to the call stack.</li>
+                    <li>The main thread initiates a non-blocking file system operation to read the current file.</li>
+                    <li>The main thread removes the function execution context for the first <code>fs.readFile</code> from the call stack.</li>
+                    <li>The main thread executes <code>setTimeout</code> function call, a function execution context for <code>setTimeout</code> is added to the call stack.</li>
+                    <li>The main thread adds the <code>setTimeout</code> callback function to the timer queue.</li>
+                    <li>The event loop continuously checks the timer queue. When the specified delay has elapsed, the callback function is moved to the appropriate phase of the event loop.</li>
+                    <li>The main thread removes the function execution context for <code>setTimeout</code> from the call stack.</li>
+                    <li>The main thread executes <code>process.nextTick</code> function call, a function execution context for <code>process.nextTick</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>process.nextTick</code> callback function to the next tick queue.</li>
+                    <li>The main thread removes the function execution context for <code>process.nextTick</code> from the call stack.</li>
+                    <li>The main thread executes <code>queueMicrotask</code> function call, a function execution context for <code>queueMicrotask</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>queueMicrotask</code> callback function to the microtask queue.</li>
+                    <li>The main thread removes the function execution context for <code>queueMicrotask</code> from the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"End"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>Once all the synchronous code has executed, the main thread removes the global execution context from the call stack.</li>
+                    <li>The call stack is now empty, waiting for asynchronous callbacks to be executed.</li>
+                </ul>
+            </li>
+            <li>The event loop starts processing the asynchronous callbacks that have been registered.</li> 
+            <li>The first loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue. The nextTick queue gets priority over the microtask queue.<br>
+                        <ul>
+                            <li>The event loop pushes the task from the nextTick queue onto the call stack and creates a new function execution context for <code>process.nextTick</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"nextTick callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The event loop removes the function execution context for <code>process.nextTick</code> callback function from the call stack.</li>
+                            <li>The event loop pushes the task from the microtask queue onto the call stack and creates a new function execution context for <code>queueMicrotask</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"queueMicrotask callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The event loop removes the function execution context for <code>queueMicrotask</code> callback function from the call stack.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>The event loop pushes the task from the timer queue onto the call stack and creates a new function execution context for <code>setTimeout</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Timeout callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The event loop removes the function execution context for <code>setTimeout</code> callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>The file reading process is finished, but its callback is not yet marked to be executed because IO callbacks get queued up only at the IO Poll Phase.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>The <code>fs.readFile</code> callback event is collected and added to the I/O queue.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The event loop will continue to loop.
+            </li>
+            <li>The next loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue.<br>
+                        <ul>
+                            <li>No microtasks to execute.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>No timeout callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>The event loop pushes the task from the I/O queue onto the call stack and creates a new function execution context for <code>fs.readFile</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Pending callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The event loop removes the function execution context for <code>fs.readFile</code> callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>No I/O events to process.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h5>Idle Phase</h5>
+
+        <p>The idle phase is not a normal phase of the Node.js event loop. It is a period whereby the event loop has nothing to do but perform background tasks like checking for low-priority results or running garbage collection.</p>
+
+        <h5>Poll Phase</h5>
+
+        <p>The poll phase is where I/O operations execute. I/O  operations transfer data to or from a computer. The event loop checks for new I/O operations and executes them in the poll queue.</p>
+
+        <p>Here's an example:</p>
+
+        <pre><code class="language-bash hljs">console.log('Start');
+
+const fs = require("fs");
+
+fs.readFile(__filename, (err, data) => {
+    if (err) throw err;
+    console.log("Pending callback");
+});
+
+const http = require("http");
+
+http.get("http://localhost", (res) => {
+    console.log("Poll callback");
+    res.on("data", (chunk) => {
+        // Do something with the data
+        console.log("Data event listener callback");
+    });
+});
+
+setTimeout(() => {
+    console.log('Timeout callback');
+}, 0);
+
+process.nextTick(console.log, "nextTick callback");
+
+queueMicrotask(() => console.log("queueMicrotask callback"));
+
+console.log('End');</code></pre>
+
+        <p>The output would be:</p>
+
+        <pre><code class="language-bash hljs">Start
+End
+nextTick callback
+queueMicrotask callback
+Timeout callback
+Poll callback
+Data event listener callback
+Pending callback</code></pre>
+        
+        <p>The execution flow is as follows:</p>
+
+        <ul>
+            <li>The mainline<br>
+                <ul>
+                    <li>The main thread starts by creating the global execution context and pushes it onto the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"Start"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>The main thread executes <code>require</code> function call, a function execution context for <code>require</code> is added to the call stack.</li>
+                    <li>The main thread starts resolving the module identifier <code>fs</code>.</li>
+                    <li>The main thread wraps the contents of <code>fs</code> in a function and executes it, a function execution context for <code>fs</code> is added to the call stack.</li>
+                    <li>The <code>module.exports</code> object is returned and assigned to <code>fs</code>.</li>
+                    <li>The main thread removes function execution context for <code>fs</code> from the call stack.</li>
+                    <li>The main thread removes function execution context for <code>require</code> from the call stack.</li>
+                    <li>The main thread executes <code>fs.readFile</code> function call, a function execution context for <code>fs.readFile</code> is added to the call stack.</li>
+                    <li>The main thread initiates a non-blocking file system operation to read the current file.</li>
+                    <li>The main thread moves the <code>fs.readFile</code> callback function to the I/O queue.</li>
+                    <li>The main thread removes the function execution context for the first <code>fs.readFile</code> from the call stack.</li>
+                    <li>The main thread executes <code>require</code> function call, a function execution context for <code>require</code> is added to the call stack.</li>
+                    <li>The main thread starts resolving the module identifier <code>http</code>.</li>
+                    <li>The main thread wraps the contents of <code>http</code> in a function and executes it, a function execution context for <code>http</code> is added to the call stack.</li>
+                    <li>The <code>module.exports</code> object is returned and assigned to <code>http</code>.</li>
+                    <li>The main thread removes function execution context for <code>http</code> from the call stack.</li>
+                    <li>The main thread removes function execution context for <code>require</code> from the call stack.</li>
+                    <li>The main thread executes <code>http.get</code> function call, a function execution context for <code>http.get</code> is added to the call stack.</li>
+                    <li>The main thread initiates initiates an HTTP GET request.</li>
+                    <li>The main thread moves the <code>http.get</code> callback function to the I/O queue.</li>
+                    <li>The main thread removes the function execution context for the first <code>http.get</code> from the call stack.</li>
+                    <li>The main thread executes <code>setTimeout</code> function call, a function execution context for <code>setTimeout</code> is added to the call stack.</li>
+                    <li>The main thread adds the <code>setTimeout</code> callback function to the timer queue.</li>
+                    <li>The event loop continuously checks the timer queue. When the specified delay has elapsed, the callback function is moved to the appropriate phase of the event loop.</li>
+                    <li>The main thread removes the function execution context for <code>setTimeout</code> from the call stack.</li>
+                    <li>The main thread executes <code>process.nextTick</code> function call, a function execution context for <code>process.nextTick</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>process.nextTick</code> callback function to the next tick queue.</li>
+                    <li>The main thread removes the function execution context for <code>process.nextTick</code> from the call stack.</li>
+                    <li>The main thread executes <code>queueMicrotask</code> function call, a function execution context for <code>queueMicrotask</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>queueMicrotask</code> callback function to the microtask queue.</li>
+                    <li>The main thread removes the function execution context for <code>queueMicrotask</code> from the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"End"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>Once all the synchronous code has executed, the main thread removes the global execution context from the call stack.</li>
+                    <li>The call stack is now empty, waiting for asynchronous callbacks to be executed.</li>
+                </ul>
+            </li>
+            <li>The event loop starts processing the asynchronous callbacks that have been registered.</li> 
+            <li>The first loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue. The nextTick queue gets priority over the microtask queue.<br>
+                        <ul>
+                            <li>The event loop pushes the task from the nextTick queue onto the call stack and creates a new function execution context for <code>process.nextTick</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"nextTick callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The event loop removes the function execution context for <code>process.nextTick</code> callback function from the call stack.</li>
+                            <li>The event loop pushes the task from the microtask queue onto the call stack and creates a new function execution context for <code>queueMicrotask</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"queueMicrotask callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes the function execution context for <code>queueMicrotask</code> callback function from the call stack.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>The event loop pushes the task from the timer queue onto the call stack and creates a new function execution context for <code>setTimeout</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Timeout callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes the function execution context for <code>setTimeout</code> callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>No pending callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>The file reading process isn't finished.</li>
+                            <li>The HTTP request is sent over the network and waits for the server response.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The event loop will continue to loop.
+            </li>
+            <li>The next loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue.<br>
+                        <ul>
+                            <li>No microtasks to execute.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>No timeout callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>The file reading process is finished, but its callback is not yet marked to be executed because IO callbacks get queued up only at the IO Poll Phase.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>The <code>fs.readFile</code> callback event is collected and added to the I/O queue.</li>
+                            <li>When the response headers from the server are received, the event loop pushes the task from the I/O queue onto the call stack and creates a new function execution context for <code>http.get</code> callback function.</li>
+                            <li>The server <code>localhost</code> responds HTTP GET request, the data starts arriving in chunks.</li>
+                            <li>The event loop executes the data event listener call, a function execution context for data event listener is added to the call stack.</li>
+                            <li>The event loop moves the calbback function for data event listener to the event queue (task queue).</li>
+                            <li>Each chunk of data triggers a data event on the response object.</li>
+                            <li>Once the event loop detects the data event, the event loop will move the callback function for data event listener from the event queue (task queue) to the call stack to be executed and create a new function execution context for callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Data event listener callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes function execution context for callback function from the call stack.</li>
+                            <li>The data event listener also has no more code to run.</li>     
+                            <li>The event loop removes function execution context for data event listener from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The event loop will continue to loop.
+            </li>
+            <li>The next loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue.<br>
+                        <ul>
+                            <li>No microtasks to execute.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>No timeout callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>The event loop pushes the task from the I/O queue onto the call stack and creates a new function execution context for <code>fs.readFile</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Pending callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes the function execution context for <code>fs.readFile</code> callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>No I/O events to process.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>  
+
+        <h5>Check Phase</h5>
+
+        <p>The check phase is where the <code>setImmediate</code> timer runs. The Node.js event loop goes to the check phase when there is a <code>setImmediate</code> in the program, and the poll phase becomes idle or when the poll phase completes.</p>
+
+        <p>Here's an example:</p>
+
+        <pre><code class="language-bash hljs">console.log('Start');
+
+const fs = require("fs");
+
+fs.readFile(__filename, (err, data) => {
+    if (err) throw err;
+    console.log("Pending callback");
+});
+
+const http = require("http");
+
+http.get("http://localhost", (res) => {
+    console.log("Poll callback");
+    res.on("data", (chunk) => {
+        // Do something with the data
+        console.log("Data event listener callback");
+    });
+});
+
+setTimeout(() => {
+    console.log('Timeout callback');
+}, 0);
+
+setImmediate(() => {
+    console.log("Check callback");
+});
+
+process.nextTick(console.log, "nextTick callback");
+
+queueMicrotask(() => console.log("queueMicrotask callback"));
+
+console.log('End');</code></pre>
+
+        <p>The output would be:</p>
+
+        <pre><code class="language-bash hljs">Start
+End
+nextTick callback
+queueMicrotask callback
+Timeout callback
+Check callback
+Poll callback
+Data event listener callback
+Pending callback</code></pre>
+        
+        <p>The execution flow is as follows:</p>
+
+        <ul>
+            <li>The mainline<br>
+                <ul>
+                    <li>The main thread starts by creating the global execution context and pushes it onto the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"Start"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>The main thread executes <code>require</code> function call, a function execution context for <code>require</code> is added to the call stack.</li>
+                    <li>The main thread starts resolving the module identifier <code>fs</code>.</li>
+                    <li>The main thread wraps the contents of <code>fs</code> in a function and executes it, a function execution context for <code>fs</code> is added to the call stack.</li>
+                    <li>The <code>module.exports</code> object is returned and assigned to <code>fs</code>.</li>
+                    <li>The main thread removes function execution context for <code>fs</code> from the call stack.</li>
+                    <li>The main thread removes function execution context for <code>require</code> from the call stack.</li>
+                    <li>The main thread executes <code>fs.readFile</code> function call, a function execution context for <code>fs.readFile</code> is added to the call stack.</li>
+                    <li>The main thread initiates a non-blocking file system operation to read the current file.</li>
+                    <li>The main thread moves the <code>fs.readFile</code> callback function to the I/O queue.</li>
+                    <li>The main thread removes the function execution context for the first <code>fs.readFile</code> from the call stack.</li>
+                    <li>The main thread executes <code>require</code> function call, a function execution context for <code>require</code> is added to the call stack.</li>
+                    <li>The main thread starts resolving the module identifier <code>http</code>.</li>
+                    <li>The main thread wraps the contents of <code>http</code> in a function and executes it, a function execution context for <code>http</code> is added to the call stack.</li>
+                    <li>The <code>module.exports</code> object is returned and assigned to <code>http</code>.</li>
+                    <li>The main thread removes function execution context for <code>http</code> from the call stack.</li>
+                    <li>The main thread removes function execution context for <code>require</code> from the call stack.</li>
+                    <li>The main thread executes <code>http.get</code> function call, a function execution context for <code>http.get</code> is added to the call stack.</li>
+                    <li>The main thread initiates initiates an HTTP GET request.</li>
+                    <li>The main thread moves the <code>http.get</code> callback function to the I/O queue.</li>
+                    <li>The main thread removes the function execution context for the first <code>http.get</code> from the call stack.</li>
+                    <li>The main thread executes <code>setTimeout</code> function call, a function execution context for <code>setTimeout</code> is added to the call stack.</li>
+                    <li>The main thread adds the <code>setTimeout</code> callback function to the timer queue.</li>
+                    <li>The event loop continuously checks the timer queue. When the specified delay has elapsed, the callback function is moved to the appropriate phase of the event loop.</li>
+                    <li>The main thread removes the function execution context for <code>setTimeout</code> from the call stack.</li>
+                    <li>The main thread executes <code>setImmediate</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>setImmediate</code> callback function to the check queue.</li>
+                    <li>The main thread removes function execution context for <code>setImmediate</code> from the call stack.</li>
+                    <li>The main thread executes <code>process.nextTick</code> function call, a function execution context for <code>process.nextTick</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>process.nextTick</code> callback function to the next tick queue.</li>
+                    <li>The main thread removes the function execution context for <code>process.nextTick</code> from the call stack.</li>
+                    <li>The main thread executes <code>queueMicrotask</code> function call, a function execution context for <code>queueMicrotask</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>queueMicrotask</code> callback function to the microtask queue.</li>
+                    <li>The main thread removes the function execution context for <code>queueMicrotask</code> from the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"End"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>Once all the synchronous code has executed, the main thread removes the global execution context from the call stack.</li>
+                    <li>The call stack is now empty, waiting for asynchronous callbacks to be executed.</li>
+                </ul>
+            </li>
+            <li>The event loop starts processing the asynchronous callbacks that have been registered.</li> 
+            <li>The first loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue. The nextTick queue gets priority over the microtask queue.<br>
+                        <ul>
+                            <li>The event loop pushes the task from the nextTick queue onto the call stack and creates a new function execution context for <code>process.nextTick</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"nextTick callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The event loop removes the function execution context for <code>process.nextTick</code> callback function from the call stack.</li>
+                            <li>The event loop pushes the task from the microtask queue onto the call stack and creates a new function execution context for <code>queueMicrotask</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"queueMicrotask callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes the function execution context for <code>queueMicrotask</code> callback function from the call stack.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>The event loop pushes the task from the timer queue onto the call stack and creates a new function execution context for <code>setTimeout</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Timeout callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes the function execution context for <code>setTimeout</code> callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>No pending callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>The file reading operation isn't finished.</li>
+                            <li>The HTTP request is sent over the network and waits for the server response.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>The event loop pushes the task from the check queue onto the call stack and creates a new function execution context for <code>setImmediate</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Check callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes the function execution context for <code>setImmediate</code> callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The event loop will continue to loop.
+            </li>
+            <li>The next loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue.<br>
+                        <ul>
+                            <li>No microtasks to execute.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>No timeout callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>The file reading operation is finished, but its callback is not yet marked to be executed because IO callbacks get queued up only at the IO Poll Phase.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>The <code>fs.readFile</code> callback event is collected and added to the I/O queue.</li>
+                            <li>When the response headers from the server are received, the event loop pushes the task from the I/O queue onto the call stack and creates a new function execution context for <code>http.get</code> callback function.</li>
+                            <li>The server <code>localhost</code> responds HTTP GET request, the data starts arriving in chunks.</li>
+                            <li>The event loop executes the data event listener call, a function execution context for data event listener is added to the call stack.</li>
+                            <li>The event loop moves the calbback function for data event listener to the event queue (task queue).</li>
+                            <li>Each chunk of data triggers a data event on the response object.</li>
+                            <li>Once the event loop detects the data event, the event loop will move the callback function for data event listener from the event queue (task queue) to the call stack to be executed and create a new function execution context for callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Data event listener callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes function execution context for callback function from the call stack.</li>
+                            <li>The data event listener also has no more code to run.</li>     
+                            <li>The event loop removes function execution context for data event listener from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The event loop will continue to loop.
+            </li>
+            <li>The next loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue.<br>
+                        <ul>
+                            <li>No microtasks to execute.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>No timeout callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>The event loop pushes the task from the I/O queue onto the call stack and creates a new function execution context for <code>fs.readFile</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Pending callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes the function execution context for <code>fs.readFile</code> callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>No I/O events to process.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h5>Close Callbacks Phase</h5>  
+
+        <p>The close callbacks phase is the last phase of the Node.js event loop. The close callback phase is where callbacks from the close event of a socket and the closing of an HTTP server run.</p>
+
+        <p>The close callbacks phase is designed to handle cleanup operations related to resource closure, such as the closing of TCP connections, file descriptors, and other resources.</p>
+
+        <p>Here's an example:</p>
+
+        <pre><code class="language-bash hljs">console.log('Start');
+
+const fs = require('fs');
+
+const readable = fs.createReadStream(__filename);
+
+readable.on('data', (chunk) => {
+    console.log('Data event listener');
+});
+
+readable.on('close', () => {
+    console.log('Close callback');
+});
+
+const http = require("http");
+
+http.get("http://localhost", (res) => {
+    console.log("Poll callback");
+    res.on("data", (chunk) => {
+        // Do something with the data
+        console.log("Data event listener callback");
+    });
+});
+
+setTimeout(() => {
+    console.log('Timeout callback');
+}, 0);
+
+setImmediate(() => {
+    console.log("Check callback");
+});
+
+process.nextTick(console.log, "nextTick callback");
+
+queueMicrotask(() => console.log("queueMicrotask callback"));
+
+console.log('End');</code></pre>  
+
+        <p>The output depends on which operation finishes first, the HTTP request or the file reading operation.</p>
+
+        <p>The output would be:</p>
+
+        <pre><code class="language-bash hljs">Start
+End
+nextTick callback
+queueMicrotask callback
+Timeout callback
+Check callback
+Poll callback
+Data event listener callback
+Pending callback</code></pre>
+        
+        <p>Or:</p>
+
+        <pre><code class="language-bash hljs">Start
+End
+nextTick callback
+queueMicrotask callback
+Timeout callback
+Check callback
+Data event listener
+Poll callback
+Data event listener callback
+Close callback</code></pre>
+        
+        <p>The execution flow is as follows:</p>
+
+        <ul>
+            <li>The mainline<br>
+                <ul>
+                    <li>The main thread starts by creating the global execution context and pushes it onto the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"Start"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>The main thread executes <code>require</code> function call, a function execution context for <code>require</code> is added to the call stack.</li>
+                    <li>The main thread starts resolving the module identifier <code>fs</code>.</li>
+                    <li>The main thread wraps the contents of <code>fs</code> in a function and executes it, a function execution context for <code>fs</code> is added to the call stack.</li>
+                    <li>The <code>module.exports</code> object is returned and assigned to <code>readable</code>.</li>
+                    <li>The main thread removes function execution context for <code>fs</code> from the call stack.</li>
+                    <li>The main thread removes function execution context for <code>require</code> from the call stack.</li>
+                    <li>The main thread executes <code>fs.createReadStream</code> function call, a function execution context for <code>fs.createReadStream</code> is added to the call stack.</li>
+                    <li>The main thread initiates a non-blocking file system operation to read the current file.</li>
+                    <li>This function is synchronous, meaning it runs immediately and returns a Readable stream object assigned to the <code>readable</code>.</li>
+                    <li>The main thread moves the <code>fs.createReadStream</code> callback function to the I/O queue.</li>
+                    <li>The main thread removes the function execution context for the first <code>fs.createReadStream</code> from the call stack.</li>
+                    <li>The main thread executes <code>readable.on</code> function call, a function execution context for <code>readable.on</code> is added to the call stack.</li>
+                    <li>The main thread moves the callback function to the event queue (task queue) which will be invoked whenever a chunk of data is available to be read from the stream.</li>
+                    <li>This callback is an asynchronous event listener, meaning it will be called asynchronously whenever the 'data' event is emitted.</li>
+                    <li>The main thread moves the <code>readable.on</code> callback function to the I/O queue.</li>
+                    <li>The main thread executes the second <code>readable.on</code> function call, a function execution context for <code>readable.on</code> is added to the call stack.</li>
+                    <li>The main thread moves the callback function to the event queue (task queue) which will be  invoked when the stream is closed.</li>
+                    <li>This callback is also asynchronous and will be called when the 'close' event is emitted.</li>
+                    <li>The main thread moves the <code>readable.on</code> callback function to the I/O queue.</li>
+
+                    <li>The main thread executes <code>require</code> function call, a function execution context for <code>require</code> is added to the call stack.</li>
+                    <li>The main thread starts resolving the module identifier <code>http</code>.</li>
+                    <li>The main thread wraps the contents of <code>http</code> in a function and executes it, a function execution context for <code>http</code> is added to the call stack.</li>
+                    <li>The <code>module.exports</code> object is returned and assigned to <code>http</code>.</li>
+                    <li>The main thread removes function execution context for <code>http</code> from the call stack.</li>
+                    <li>The main thread removes function execution context for <code>require</code> from the call stack.</li>
+                    <li>The main thread executes <code>http.get</code> function call, a function execution context for <code>http.get</code> is added to the call stack.</li>
+                    <li>The main thread initiates initiates an HTTP GET request.</li>
+                    <li>The main thread moves the <code>http.get</code> callback function to the I/O queue.</li>
+                    <li>The main thread removes the function execution context for the first <code>http.get</code> from the call stack.</li>
+                    <li>The main thread executes <code>setTimeout</code> function call, a function execution context for <code>setTimeout</code> is added to the call stack.</li>
+                    <li>The main thread adds the <code>setTimeout</code> callback function to the timer queue.</li>
+                    <li>The event loop continuously checks the timer queue. When the specified delay has elapsed, the callback function is moved to the appropriate phase of the event loop.</li>
+                    <li>The main thread removes the function execution context for <code>setTimeout</code> from the call stack.</li>
+                    <li>The main thread executes <code>setImmediate</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>setImmediate</code> callback function to the check queue.</li>
+                    <li>The main thread removes function execution context for <code>setImmediate</code> from the call stack.</li>
+                    <li>The main thread executes <code>process.nextTick</code> function call, a function execution context for <code>process.nextTick</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>process.nextTick</code> callback function to the next tick queue.</li>
+                    <li>The main thread removes the function execution context for <code>process.nextTick</code> from the call stack.</li>
+                    <li>The main thread executes <code>queueMicrotask</code> function call, a function execution context for <code>queueMicrotask</code> is added to the call stack.</li>
+                    <li>The main thread moves the <code>queueMicrotask</code> callback function to the microtask queue.</li>
+                    <li>The main thread removes the function execution context for <code>queueMicrotask</code> from the call stack.</li>
+                    <li>The main thread executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                    <li>The main thread logs <code>"End"</code> to the console.</li>
+                    <li>The main thread removes function execution context for <code>console.log</code> from the call stack.</li>
+                    <li>Once all the synchronous code has executed, the main thread removes the global execution context from the call stack.</li>
+                    <li>The call stack is now empty, waiting for asynchronous callbacks to be executed.</li>
+                </ul>
+            </li>
+            <li>The event loop starts processing the asynchronous callbacks that have been registered.</li> 
+            <li>The first loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue. The nextTick queue gets priority over the microtask queue.<br>
+                        <ul>
+                            <li>The event loop pushes the task from the nextTick queue onto the call stack and creates a new function execution context for <code>process.nextTick</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"nextTick callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The event loop removes the function execution context for <code>process.nextTick</code> callback function from the call stack.</li>
+                            <li>The event loop pushes the task from the microtask queue onto the call stack and creates a new function execution context for <code>queueMicrotask</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"queueMicrotask callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes the function execution context for <code>queueMicrotask</code> callback function from the call stack.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>The event loop pushes the task from the timer queue onto the call stack and creates a new function execution context for <code>setTimeout</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Timeout callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes the function execution context for <code>setTimeout</code> callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>No pending callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>The event loop waits for data from streams.</li>
+                            <li>The HTTP request is sent over the network and waits for the server response.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>The event loop pushes the task from the check queue onto the call stack and creates a new function execution context for <code>setImmediate</code> callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Check callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes the function execution context for <code>setImmediate</code> callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>No close callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The event loop will continue to loop.
+            </li>
+            <li>The next loop<br>
+                <ul>
+                    <li>The first loop starts by running the microtasks queue.<br>
+                        <ul>
+                            <li>No microtasks to execute.</li>
+                        </ul>
+                    </li>
+                    <li>Timers Phase<br>
+                        <ul>
+                            <li>No timeout callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Pending Callbacks Phase<br>
+                        <ul>
+                            <li>No pending callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Poll Phase<br>
+                        <ul>
+                            <li>When a chunk of data is received, the event loop will move the callback function for data event listener from the event queue (task queue) to the call stack to be executed and create a new function execution context for callback function.</li>
+                            <li>Each chunk of data triggers a data event on the readable stream object.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Data event listener"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes function execution context for callback function from the call stack.</li>
+                            <li>When the response headers from the server are received, the event loop pushes the task from the I/O queue onto the call stack and creates a new function execution context for <code>http.get</code> callback function.</li>
+                            <li>The server <code>localhost</code> responds HTTP GET request, the data starts arriving in chunks.</li>
+                            <li>The event loop executes the data event listener call, a function execution context for data event listener is added to the call stack.</li>
+                            <li>The event loop moves the calbback function for data event listener to the event queue (task queue).</li>
+                            <li>Each chunk of data triggers a data event on the response object.</li>
+                            <li>Once the event loop detects the data event, the event loop will move the callback function for data event listener from the event queue (task queue) to the call stack to be executed and create a new function execution context for callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Data event listener callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes function execution context for callback function from the call stack.</li>
+                            <li>The data event listener also has no more code to run.</li>     
+                            <li>The event loop removes function execution context for data event listener from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Check Phase<br>
+                        <ul>
+                            <li>No check callbacks to execute.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                    <li>Close Callbacks Phase<br>
+                        <ul>
+                            <li>When the entire file is read, the event loop will move the callback function for close event listener from the event queue (task queue) to the call stack to be executed and create a new function execution context for callback function.</li>
+                            <li>The event loop executes <code>console.log</code> function call, a function execution context for <code>console.log</code> is added to the call stack.</li>
+                            <li>The event loop logs <code>"Close callback"</code> to the console.</li>
+                            <li>The event loop removes function execution context for <code>console.log</code> from the call stack.</li>
+                            <li>The callback function has no more code to run.</li>
+                            <li>The event loop removes function execution context for callback function from the call stack.</li>
+                            <li>The event loop checks for any new callbacks added to the microtasks queue.</li>
+                            <li>If no any new callbacks added to the microtasks queue, the event loop continues to next phase.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/nodejs" class="tag">nodejs</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/event-loop" class="tag">event loop</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/call-stack" class="tag">call stack</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/nodejs-api" class="tag">nodejs api</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/microtask" class="tag">microtask</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/microtask-queue" class="tag">microtask queue</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/timers-phase" class="tag">timers phase</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/pending-callbacks-phase" class="tag">pending callbacks phase</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/idle-phase" class="tag">idle phase</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/check-phase" class="tag">check phase</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/close-callbacks-phase" class="tag">close callbacks phase</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/timer-queue" class="tag">timer queue</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/io-queue" class="tag">IO queue</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/check-queue" class="tag">check queue</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/close-queue" class="tag">close queue</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/event-queue-task-queue" class="tag">event queue (task queue)</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+					</div>
+				</div>
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/07/09/handling-asynchronous-operations-in-nodejs/"><img src="https://hemimorphite.github.io/assets/images/nodejs.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/07/09/handling-asynchronous-operations-in-nodejs/">Handling Asynchronous Operations in Node.js</a></h4>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<script async="async" data-cfasync="false" src="//pl23622823.highrevenuenetwork.com/82849ac901fcdf553b99a113d233ce38/invoke.js"></script>
+						<div id="container-82849ac901fcdf553b99a113d233ce38"></div>
+					</div>
+					<div class="col-md-6">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '08760f2487e830ed5039902de4007bec',
+								'format' : 'iframe',
+								'height' : 250,
+								'width' : 300,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/zh/2024/07/18/event-loop-in-nodejs/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/zh/2024/07/18/event-loop-in-nodejs/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+		
+  	</body>
+</html>
