@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-07-19T08:26:33+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Event Loop in Node.Js</title><link href="https://hemimorphite.github.io/2024/07/18/event-loop-in-nodejs/" rel="alternate" type="text/html" title="Event Loop in Node.Js" /><published>2024-07-18T16:21:00+00:00</published><updated>2024-07-18T16:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/18/event-loop-in-nodejs</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/18/event-loop-in-nodejs/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2024-07-19T08:47:49+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Event Loop in Node.Js</title><link href="https://hemimorphite.github.io/2024/07/18/event-loop-in-nodejs/" rel="alternate" type="text/html" title="Event Loop in Node.Js" /><published>2024-07-18T16:21:00+00:00</published><updated>2024-07-18T16:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/18/event-loop-in-nodejs</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/18/event-loop-in-nodejs/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Event Loop in Node.Js</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -623,11 +623,11 @@ Pending callback</code></pre>
             </li>
         </ul>
 
-        <h5>Idle Phase</h5>
+        <h5 class="post-subtitle">Idle Phase</h5>
 
         <p>The idle phase is not a normal phase of the Node.js event loop. It is a period whereby the event loop has nothing to do but perform background tasks like checking for low-priority results or running garbage collection.</p>
 
-        <h5>Poll Phase</h5>
+        <h5 class="post-subtitle">Poll Phase</h5>
 
         <p>The poll phase is where I/O operations execute. I/O  operations transfer data to or from a computer. The event loop checks for new I/O operations and executes them in the poll queue.</p>
 
@@ -894,7 +894,7 @@ Pending callback</code></pre>
             </li>
         </ul>  
 
-        <h5>Check Phase</h5>
+        <h5 class="post-subtitle">Check Phase</h5>
 
         <p>The check phase is where the <code>setImmediate</code> timer runs. The Node.js event loop goes to the check phase when there is a <code>setImmediate</code> in the program, and the poll phase becomes idle or when the poll phase completes.</p>
 
@@ -1174,7 +1174,7 @@ Pending callback</code></pre>
             </li>
         </ul>
 
-        <h5>Close Callbacks Phase</h5>  
+        <h5 class="post-subtitle">Close Callbacks Phase</h5>  
 
         <p>The close callbacks phase is the last phase of the Node.js event loop. The close callback phase is where callbacks from the close event of a socket and the closing of an HTTP server run.</p>
 
@@ -2093,26 +2093,26 @@ console.log(result2);</code></pre>
             <li>Javascript engine also allocates memory for function <code>greeting</code>, <code>add</code>, <code>addExtra</code> which includes space for the function's code, its name, and its scope.</li>
             <li>The below snippet is a pseudo-code representation of global execution context during the creation phase:<br>
             <pre><code class="language-bash hljs">GlobalExecutionContext = {
-                LexicalEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        greeting: &lt;ref. to greeting function object&gt;,
-                        add: &lt;ref. to add function object&gt;,
-                        addExtra: &lt;ref. to addExtra function object&gt;,
-                        outer: null
-                    },
-                    ObjectEnvironmentRecord: {
-                        window: &lt;ref.to Global object&gt;,
-                        this: &lt;ref.to window Object&gt;
-                    }
-                },
-                VariableEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        number1: undefined,
-                        number2: undefined,
-                        outer: null
-                    }
-                }
-            }</code></pre>
+    LexicalEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            greeting: &lt;ref. to greeting function object&gt;,
+            add: &lt;ref. to add function object&gt;,
+            addExtra: &lt;ref. to addExtra function object&gt;,
+            outer: null
+        },
+        ObjectEnvironmentRecord: {
+            window: &lt;ref.to Global object&gt;,
+            this: &lt;ref.to window Object&gt;
+        }
+    },
+    VariableEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            number1: undefined,
+            number2: undefined,
+            outer: null
+        }
+    }
+}</code></pre>
             </li>
         </ul>
 
@@ -2127,44 +2127,44 @@ console.log(result2);</code></pre>
             <li>Javascript engine will create <code>this</code> object and bind to the global object.</li>
             <li>Here is a pseudo-code representation of <code>greeting</code> function execution context during the creation phase:<br>
             <pre><code class="language-bash hljs">GreetingFunctionExecutionContext = {
-                LexicalEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    },
-                    ObjectEnvironmentRecord: {
-                        arguments: {
-                            length: 0
-                        },
-                        this: &lt;ref.to window Object&gt;
-                    }
-                },
-                VariableEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    }
-                }
-            }</code></pre></li>
+    LexicalEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        },
+        ObjectEnvironmentRecord: {
+            arguments: {
+                length: 0
+            },
+            this: &lt;ref.to window Object&gt;
+        }
+    },
+    VariableEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        }
+    }
+}</code></pre></li>
             <li>The <code>greeting</code> function execution context enters the Execution Phase.</li>
             <li>Javascript engine will display <code>"Welcome to the JS world!"</code> to the console.</li>
             <li>Here is a pseudo-code representation of <code>greeting</code> function execution context during the execution phase:<br>
             <pre><code class="language-bash hljs">GreetingFunctionExecutionContext = {
-                LexicalEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    },
-                    ObjectEnvironmentRecord: {
-                        arguments: {
-                            length: 0
-                        },
-                        this: &lt;ref.to window Object&gt;
-                    }
-                },
-                VariableEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    }
-                }
-            }</code></pre></li>
+    LexicalEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        },
+        ObjectEnvironmentRecord: {
+            arguments: {
+                length: 0
+            },
+            this: &lt;ref.to window Object&gt;
+        }
+    },
+    VariableEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        }
+    }
+}</code></pre></li>
             <li>The <code>greeting</code> function execution context is returned and the call stack is popped off.</li>
             <li>Control returns to the global execution context.</li>
             <li>Javascript engine will assign 10 to <code>number1</code>.</li>
@@ -2178,27 +2178,27 @@ console.log(result2);</code></pre>
             <li>Javascript engine will create <code>this</code> object and bind to the window object.</li>
             <li>Here is a pseudo-code representation of <code>add</code> function execution context during the creation phase:<br>
             <pre><code class="language-bash hljs">AddFunctionExecutionContext = {
-                LexicalEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        number1: 10,
-                        number2: 5,
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    },
-                    ObjectEnvironmentRecord: {
-                        arguments: {
-                            0: 10,
-                            1: 5,
-                            length: 2
-                        },
-                        this: &lt;ref.to window Object&gt;
-                    }
-                },
-                VariableEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    }
-                }
-            }</code></pre></li>
+    LexicalEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            number1: 10,
+            number2: 5,
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        },
+        ObjectEnvironmentRecord: {
+            arguments: {
+                0: 10,
+                1: 5,
+                length: 2
+            },
+            this: &lt;ref.to window Object&gt;
+        }
+    },
+    VariableEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        }
+    }
+}</code></pre></li>
             <li>The <code>add</code> function execution context enters the Execution Phase.</li>
             <li>The return statement is evaluated.</li>
             <li>Javascript engine will look up <code>number1</code>, <code>number2</code> variables in the function's local memory.</li>
@@ -2206,27 +2206,27 @@ console.log(result2);</code></pre>
             <li>The evaluated result of the <code>add</code> function execution context is returned and the call stack is popped off.</li>
             <li>Here is a pseudo-code representation of <code>add</code> function execution context during the execution phase:<br>
             <pre><code class="language-bash hljs">AddFunctionExecutionContext = {
-                LexicalEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        number1: 10,
-                        number2: 5,
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    },
-                    ObjectEnvironmentRecord: {
-                        arguments: {
-                            0: 10,
-                            1: 5,
-                            length: 2
-                        },
-                        this: &lt;ref.to window Object&gt;
-                    }
-                },
-                VariableEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    }
-                }
-            }</code></pre></li>
+    LexicalEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            number1: 10,
+            number2: 5,
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        },
+        ObjectEnvironmentRecord: {
+            arguments: {
+                0: 10,
+                1: 5,
+                length: 2
+            },
+            this: &lt;ref.to window Object&gt;
+        }
+    },
+    VariableEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        }
+    }
+}</code></pre></li>
             <li>The control returns to its caller context (the global execution context) with the returned value of 15.</li>
             <li>Javascript engine will assign 15 to <code>result1</code>.</li>
             <li><code>addExtra</code> function is called, Javascript engine will create a new local execution context for it and push it to the top of the call stack.</li>
@@ -2239,28 +2239,28 @@ console.log(result2);</code></pre>
             <li>Javascript engine will create <code>this</code> object and bind to the window object.</li>
             <li>Here is a pseudo-code representation of <code>addExtra</code> function execution context during the creation phase:<br>
             <pre><code class="language-bash hljs">AddExtraFunctionExecutionContext = {
-                LexicalEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        number1: 10,
-                        number2: 5,
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    },
-                    ObjectEnvironmentRecord: {
-                        arguments: {
-                            0: 10,
-                            1: 5,
-                            length: 2
-                        },
-                        this: &lt;ref.to window Object&gt;
-                    }
-                },
-                VariableEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        extra: undefined,
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    }
-                }
-            }</code></pre></li>
+    LexicalEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            number1: 10,
+            number2: 5,
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        },
+        ObjectEnvironmentRecord: {
+            arguments: {
+                0: 10,
+                1: 5,
+                length: 2
+            },
+            this: &lt;ref.to window Object&gt;
+        }
+    },
+    VariableEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            extra: undefined,
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        }
+    }
+}</code></pre></li>
             <li>The <code>addExtra</code> function execution context enters the Execution Phase.</li>
             <li>Javascript engine will assign 15 to <code>extra</code>.</li>
             <li>The return statement is evaluated.</li>
@@ -2269,63 +2269,58 @@ console.log(result2);</code></pre>
             <li>The evaluated result of the <code>addExtra</code> function execution context is returned and the call stack is popped off.</li>
             <li>Here is a pseudo-code representation of <code>addExtra</code> function execution context during the execution phase:<br>
             <pre><code class="language-bash hljs">AddExtraFunctionExecutionContext = {
-                LexicalEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        number1: 10,
-                        number2: 5,
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    },
-                    ObjectEnvironmentRecord: {
-                        arguments: {
-                            0: 10,
-                            1: 5,
-                            length: 2
-                        },
-                        this: &lt;ref.to window Object&gt;
-                    }
-                },
-                VariableEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        extra: 15,
-                        outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
-                    }
-                }
-            }</code></pre></li>
+    LexicalEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            number1: 10,
+            number2: 5,
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        },
+        ObjectEnvironmentRecord: {
+            arguments: {
+                0: 10,
+                1: 5,
+                length: 2
+            },
+            this: &lt;ref.to window Object&gt;
+        }
+    },
+    VariableEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            extra: 15,
+            outer: &lt;ref. to GlobalExecutionContext Lexical Environment&gt;
+        }
+    }
+}</code></pre></li>
             <li>The control returns to its caller context (the global execution context) with the returned value of 30.</li>
             <li>Javascript engine will assign 30 to <code>result2</code>.</li>
             <li>Javascript engine will display <code>15</code> and <code>30</code> to the console.</li>
             <li>The below snippet is a pseudo-code representation of global execution context during the execution phase:<br>
             <pre><code class="language-bash hljs">GlobalExecutionContext = {
-                LexicalEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        greeting: &lt;ref. to greeting function object&gt;,
-                        add: &lt;ref. to add function object&gt;,
-                        addExtra: &lt;ref. to addExtra function object&gt;,
-                        outer: null
-                    },
-                    ObjectEnvironmentRecord: {
-                        window: &lt;ref.to Global object&gt;,
-                        this: &lt;ref.to window Object&gt;
-                    }
-                },
-                VariableEnvironment: {
-                    DeclarativeEnvironmentRecord: {
-                        number1: 10,
-                        number2: 5,
-                        result1: 10,
-                        result2: 30,
-                        outer: null
-                    }
-                }
-            }</code></pre>
+    LexicalEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            greeting: &lt;ref. to greeting function object&gt;,
+            add: &lt;ref. to add function object&gt;,
+            addExtra: &lt;ref. to addExtra function object&gt;,
+            outer: null
+        },
+        ObjectEnvironmentRecord: {
+            window: &lt;ref.to Global object&gt;,
+            this: &lt;ref.to window Object&gt;
+        }
+    },
+    VariableEnvironment: {
+        DeclarativeEnvironmentRecord: {
+            number1: 10,
+            number2: 5,
+            result1: 10,
+            result2: 30,
+            outer: null
+        }
+    }
+}</code></pre>
             </li>
             <li>The global execution context is removed from the call stack or the call stack is popped off.</li>
         </ul>
-        
-        <figure class="post-figure">
-            <img src="/assets/images/callstack-01.jpg" alt="Global Execution Context into the call stack">
-        </figure>
-
         
     </article>
 
@@ -2369,7 +2364,7 @@ console.log(result2);</code></pre>
     <article class="post-content">
         <p>In Node JS, asynchronous operations allow us to perform tasks without blocking the main thread, enabling the application to handle multiple requests concurrently. These operations include reading/writing files, making HTTP requests, querying databases, and more.</p>
 
-        <h5>Callbacks</h5>
+        <h5 class="post-subtitle">Callbacks</h5>
 
         <p>A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.</p>
 
@@ -2535,7 +2530,7 @@ getPost(2, (err, post) => {
 Luther Hargreeves comment: Great! 
 Allison Hargreeves comment: Nice Post!</code></pre>
 
-        <h5>Promises</h5>
+        <h5 class="post-subtitle">Promises</h5>
 
         <p>Promises help in solving the callback hell problem. A promise represents a value that may not be available yet but will be resolved in the future, either successfully with a value or unsuccessfully with an error.</p>
 
@@ -2764,7 +2759,7 @@ getPost(2)
         console.error('Error:', err);  
     }); </code></pre>
 
-        <h5>Async/Await</h5>
+        <h5 class="post-subtitle">Async/Await</h5>
 
         <p>An <code>async</code> function allows you to handle asynchronous code in a manner that appears synchronous. <code>async</code> functions still use promises under the hood, but have a more traditional JavaScript syntax.</p>
 
@@ -6336,7 +6331,9 @@ const sym3 = Symbol("foo");</code></pre>
             </tbody>
         </table>
 
-        <p>The following code retrieves the object descriptor for the data property <code>firstName</code>:</p>
+        <p>Every object property is more than just a name and value pair. Each property is having property descriptor that helps to see all the attributes of that property.</p>
+
+        <p>The following code retrieves the property descriptor for the data property <code>firstName</code>:</p>
 
         <pre><code class="language-bash hljs">const person = {
     firstName:"John", 
@@ -6344,23 +6341,109 @@ const sym3 = Symbol("foo");</code></pre>
     age:50
 };
 console.log(Object.getOwnPropertyDescriptor(person, "firstName"));
-// Object { value: "John", writable: true, enumerable: true, configurable: true }
-</code></pre>
+// Object { value: "John", writable: true, enumerable: true, configurable: true }</code></pre>
 
-        <p>In the next example, we retrieve the property descriptor for the getter <code>fullName</code>:</p>
+        <p>In the above example, besides the <code>value</code> attribute, the data property <code>firstName</code> has three more attributes such as <code>configurable</code>, <code>enumerable</code> and <code>writable</code>.</p>
+
+        <p><code>writable</code> attribute decides whether the value associated with the property can be changed or not, from its initial value.</p>
+
+        <p>By default the properties of the object are <code>writable</code> that means we can change its value.</p>
 
         <pre><code class="language-bash hljs">const person = {
     firstName:"John", 
     lastName:"Doe", 
+    age:50
+};
+person.firstName = "Donald";
+person.lastName = "Duck";
+console.log(person.firstName);
+// Output: "Donald"
+console.log(person.lastName);
+// Output: "Duck"</code></pre>
+
+        <p>Now let's make the property <code>firstName</code> read only. Change the <code>writable</code> attribute of property <code>firstName</code> to <code>false</code>.</p>
+
+        <pre><code class="language-bash hljs">const person = {
+    firstName:"John", 
+    lastName:"Doe", 
+    age:50
+};
+person.firstName = "Donald";
+// Throws error in strict mode
+// Uncaught TypeError: Cannot assign to read only property
+console.log(person.firstName);
+// Output: "John"</code></pre>
+
+        <p>By default the properties of the object are enumerable that means we can enumerate them with <code>for..in</code> loop or <code>Object.keys()</code> method.</p>
+
+        <pre><code class="language-bash hljs">const person = {
+    firstName:"John", 
+    lastName:"Doe", 
+    age:50
+};
+for(const property in person) { 
+    const item = `${property}: ${person[property]}`; 
+    console.log(item);
+}
+// firstName: John
+// lastName: Doe
+// age: 50
+console.log(Object.keys(person));
+// Array(3) ["firstName", "lastName", "age"]</code></pre>
+
+        <p>Now let's make the property <code>firstName</code> ignored in iteration using <code>for..in</code> loop or <code>Object.keys()</code> method. Change the <code>enumerable</code> attribute of property <code>firstName</code> to <code>false</code>.</p>
+        
+        <pre><code class="language-bash hljs">Object.defineProperty(person, "firstName", { enumerable: false });
+for(const property in person) { 
+    const item = `${property}: ${person[property]}`; 
+    console.log(item);
+}
+// lastName: Doe
+// age: 50
+console.log(Object.keys(person));
+// Array(2) ["lastName", "age"]</code></pre>
+
+        <p>By default the attributes of the properties of the object can be changed. By making the attributes of the property non-configurable you can not change the attributes of the property further.</p>
+
+        <p>Now let's make the property <code>firstName</code> non-configurable. Change the <code>configurable</code> attribute of property <code>firstName</code> to <code>false</code>.</p>
+        
+        <pre><code class="language-bash hljs">const person = {
+    firstName:"John", 
+    lastName:"Doe", 
+    age:50
+};
+Object.defineProperty(person, "firstName", { configurable: false });
+// let's change the attribute configurable again
+Object.defineProperty(person, "firstName", { configurable: true });
+// Uncaught TypeError: can't redefine non-configurable property "firstName"</code></pre>
+
+        <p>The <code>get</code> and <code>set</code> attributes in property descriptors are functions that serve as getter and setter methods for a property, respectively. The <code>get</code> attribute is called when the property is accessed, and the <code>set</code> attribute is called when the property is modified. These attributes are used to define accessor properties, which are a type of property that provides a way to customize the behavior of getting and setting a property's value.</p>
+
+        <p>In the next example, we define an object <code>person</code> with two private properties <code>_firstName</code> and <code>_lastName</code>. The property name <code>_firstName</code> and <code>_lastName</code> have a getter and setter function. The getter function returns the value of the associated property, and the setter function sets the value of the associated property to the input value.</p>
+
+        <pre><code class="language-bash hljs">const person = {
+    _firstName:"John", 
+    _lastName:"Doe", 
     age:50,
-    get fullName() {
-        return this.firstName + " " + this.lastName;
+    set firstName(name) {
+        this._firstName = name;
+    },
+    get firstName() {
+        return this._firstName;
+    },
+    set lastName(name) {
+        this._lastName = name;
+    },
+    get lastName() {
+        return this._lastName;
     }
 };
-console.log(Object.getOwnPropertyDescriptor(person, "fullName"));
-// Object { get: get fullName() {
-//    return this.firstName + " " + this.lastName;
-// }, set: undefined, enumerable: true, configurable: true }</code></pre>
+person.firstName = "Donald";
+person.lastName = "Duck";
+console.log(person.firstName);
+// "Donald"
+console.log(person.lastName);
+// "Duck"</code></pre>
 
     </article>
 

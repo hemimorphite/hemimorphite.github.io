@@ -1754,7 +1754,9 @@ const sym3 = Symbol("foo");</code></pre>
             </tbody>
         </table>
 
-        <p>The following code retrieves the object descriptor for the data property <code>firstName</code>:</p>
+        <p>Every object property is more than just a name and value pair. Each property is having property descriptor that helps to see all the attributes of that property.</p>
+
+        <p>The following code retrieves the property descriptor for the data property <code>firstName</code>:</p>
 
         <pre><code class="language-bash hljs">const person = {
     firstName:"John", 
@@ -1762,23 +1764,109 @@ const sym3 = Symbol("foo");</code></pre>
     age:50
 };
 console.log(Object.getOwnPropertyDescriptor(person, "firstName"));
-// Object { value: "John", writable: true, enumerable: true, configurable: true }
-</code></pre>
+// Object { value: "John", writable: true, enumerable: true, configurable: true }</code></pre>
 
-        <p>In the next example, we retrieve the property descriptor for the getter <code>fullName</code>:</p>
+        <p>In the above example, besides the <code>value</code> attribute, the data property <code>firstName</code> has three more attributes such as <code>configurable</code>, <code>enumerable</code> and <code>writable</code>.</p>
+
+        <p><code>writable</code> attribute decides whether the value associated with the property can be changed or not, from its initial value.</p>
+
+        <p>By default the properties of the object are <code>writable</code> that means we can change its value.</p>
 
         <pre><code class="language-bash hljs">const person = {
     firstName:"John", 
     lastName:"Doe", 
+    age:50
+};
+person.firstName = "Donald";
+person.lastName = "Duck";
+console.log(person.firstName);
+// Output: "Donald"
+console.log(person.lastName);
+// Output: "Duck"</code></pre>
+
+        <p>Now let's make the property <code>firstName</code> read only. Change the <code>writable</code> attribute of property <code>firstName</code> to <code>false</code>.</p>
+
+        <pre><code class="language-bash hljs">const person = {
+    firstName:"John", 
+    lastName:"Doe", 
+    age:50
+};
+person.firstName = "Donald";
+// Throws error in strict mode
+// Uncaught TypeError: Cannot assign to read only property
+console.log(person.firstName);
+// Output: "John"</code></pre>
+
+        <p>By default the properties of the object are enumerable that means we can enumerate them with <code>for..in</code> loop or <code>Object.keys()</code> method.</p>
+
+        <pre><code class="language-bash hljs">const person = {
+    firstName:"John", 
+    lastName:"Doe", 
+    age:50
+};
+for(const property in person) { 
+    const item = `${property}: ${person[property]}`; 
+    console.log(item);
+}
+// firstName: John
+// lastName: Doe
+// age: 50
+console.log(Object.keys(person));
+// Array(3) ["firstName", "lastName", "age"]</code></pre>
+
+        <p>Now let's make the property <code>firstName</code> ignored in iteration using <code>for..in</code> loop or <code>Object.keys()</code> method. Change the <code>enumerable</code> attribute of property <code>firstName</code> to <code>false</code>.</p>
+        
+        <pre><code class="language-bash hljs">Object.defineProperty(person, "firstName", { enumerable: false });
+for(const property in person) { 
+    const item = `${property}: ${person[property]}`; 
+    console.log(item);
+}
+// lastName: Doe
+// age: 50
+console.log(Object.keys(person));
+// Array(2) ["lastName", "age"]</code></pre>
+
+        <p>By default the attributes of the properties of the object can be changed. By making the attributes of the property non-configurable you can not change the attributes of the property further.</p>
+
+        <p>Now let's make the property <code>firstName</code> non-configurable. Change the <code>configurable</code> attribute of property <code>firstName</code> to <code>false</code>.</p>
+        
+        <pre><code class="language-bash hljs">const person = {
+    firstName:"John", 
+    lastName:"Doe", 
+    age:50
+};
+Object.defineProperty(person, "firstName", { configurable: false });
+// let's change the attribute configurable again
+Object.defineProperty(person, "firstName", { configurable: true });
+// Uncaught TypeError: can't redefine non-configurable property "firstName"</code></pre>
+
+        <p>The <code>get</code> and <code>set</code> attributes in property descriptors are functions that serve as getter and setter methods for a property, respectively. The <code>get</code> attribute is called when the property is accessed, and the <code>set</code> attribute is called when the property is modified. These attributes are used to define accessor properties, which are a type of property that provides a way to customize the behavior of getting and setting a property's value.</p>
+
+        <p>In the next example, we define an object <code>person</code> with two private properties <code>_firstName</code> and <code>_lastName</code>. The property name <code>_firstName</code> and <code>_lastName</code> have a getter and setter function. The getter function returns the value of the associated property, and the setter function sets the value of the associated property to the input value.</p>
+
+        <pre><code class="language-bash hljs">const person = {
+    _firstName:"John", 
+    _lastName:"Doe", 
     age:50,
-    get fullName() {
-        return this.firstName + " " + this.lastName;
+    set firstName(name) {
+        this._firstName = name;
+    },
+    get firstName() {
+        return this._firstName;
+    },
+    set lastName(name) {
+        this._lastName = name;
+    },
+    get lastName() {
+        return this._lastName;
     }
 };
-console.log(Object.getOwnPropertyDescriptor(person, "fullName"));
-// Object { get: get fullName() {
-//    return this.firstName + " " + this.lastName;
-// }, set: undefined, enumerable: true, configurable: true }</code></pre>
+person.firstName = "Donald";
+person.lastName = "Duck";
+console.log(person.firstName);
+// "Donald"
+console.log(person.lastName);
+// "Duck"</code></pre>
 
     </article>
 
