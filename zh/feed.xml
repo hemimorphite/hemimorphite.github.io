@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-07-22T14:54:35+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry><title type="html"></title><link href="https://hemimorphite.github.io/zh/2024/07/22/2024-07-21-git-error-rpc-failed-curl-gnutls-recv-error-error-decoding-the-received-tls-packet-on-ubuntu-2204-and-debian-12/" rel="alternate" type="text/html" title="" /><published>2024-07-22T14:54:35+00:00</published><updated>2024-07-22T14:54:35+00:00</updated><id>https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-gnutls-recv-error-error-decoding-the-received-tls-packet-on-ubuntu-2204-and-debian-12</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-gnutls-recv-error-error-decoding-the-received-tls-packet-on-ubuntu-2204-and-debian-12/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2024-07-22T15:19:27+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry><title type="html"></title><link href="https://hemimorphite.github.io/zh/2024/07/22/2024-07-21-git-error-curl-gnutls-recv-error-error-decoding-the-received-tls-packet-on-ubuntu-2204-and-debian-12/" rel="alternate" type="text/html" title="" /><published>2024-07-22T15:19:27+00:00</published><updated>2024-07-22T15:19:27+00:00</updated><id>https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-curl-gnutls-recv-error-error-decoding-the-received-tls-packet-on-ubuntu-2204-and-debian-12</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-curl-gnutls-recv-error-error-decoding-the-received-tls-packet-on-ubuntu-2204-and-debian-12/"><![CDATA[<div class="blog-post">
     <h2 class="post-title"></h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -99,7 +99,7 @@ deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted</code></
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hemimorphite.github.io/zh/2024/07/22/2024-07-21-git-error-rpc-failed-curl-http2-stream-was-not-closed-cleanly-on-ubuntu-2204-and-debian-12/" rel="alternate" type="text/html" title="" /><published>2024-07-22T14:54:35+00:00</published><updated>2024-07-22T14:54:35+00:00</updated><id>https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-http2-stream-was-not-closed-cleanly-on-ubuntu-2204-and-debian-12</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-http2-stream-was-not-closed-cleanly-on-ubuntu-2204-and-debian-12/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hemimorphite.github.io/zh/2024/07/22/2024-07-21-git-error-curl-http2-stream-was-not-closed-cleanly-on-ubuntu-2204-and-debian-12/" rel="alternate" type="text/html" title="" /><published>2024-07-22T15:19:27+00:00</published><updated>2024-07-22T15:19:27+00:00</updated><id>https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-curl-http2-stream-was-not-closed-cleanly-on-ubuntu-2204-and-debian-12</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-curl-http2-stream-was-not-closed-cleanly-on-ubuntu-2204-and-debian-12/"><![CDATA[<div class="blog-post">
     <h2 class="post-title"></h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -135,7 +135,144 @@ deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted</code></
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hemimorphite.github.io/zh/2024/07/22/2024-07-21-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12/" rel="alternate" type="text/html" title="" /><published>2024-07-22T14:54:35+00:00</published><updated>2024-07-22T14:54:35+00:00</updated><id>https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hemimorphite.github.io/zh/2024/07/22/2024-07-21-git-error-rpc-failed-curl-gnutls-recv-error-error-decoding-the-received-tls-packet-on-ubuntu-2204-and-debian-12/" rel="alternate" type="text/html" title="" /><published>2024-07-22T15:19:27+00:00</published><updated>2024-07-22T15:19:27+00:00</updated><id>https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-gnutls-recv-error-error-decoding-the-received-tls-packet-on-ubuntu-2204-and-debian-12</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-gnutls-recv-error-error-decoding-the-received-tls-packet-on-ubuntu-2204-and-debian-12/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title"></h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 22, 2024</span><br><span class="name">By </span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>The error "RPC failed; curl GnuTLS recv error: Error decoding the received TLS packet" generally indicates an issue with the network connection or the TLS/SSL protocol used by Git and Curl. </p>
+
+        <p>To resolve the "RPC failed; curl GnuTLS recv error: Error decoding the received TLS packet" error, you can recompile Git using <code>libcurl-openssl-dev</code> instead of <code>libcurl4-gnutls-dev</code>.</p>
+
+        <p>Remove Git and its dependencies:</p>
+
+        <pre><code class="language-bash hljs">sudo apt-get -y purge git</code></pre>
+
+        <p>Install necessary dependencies:</p>
+
+        <pre><code class="language-bash hljs">sudo apt-get install build-essential fakeroot dpkg-dev</code></pre>
+
+        <p>Create a directory for compiling git:</p>
+
+        <pre><code class="language-bash hljs">mkdir git-source
+cd git-source</code></pre>
+        
+        <p>open the <code>sources.list</code> file located in the <code>/etc/apt/</code> directory using a vim editor:</p>
+
+        <pre><code class="language-bash hljs">sudo vi /etc/apt/sources.list</code></pre>
+        
+        <p>For Debian 12, add the following line:</p>
+
+        <pre><code class="language-bash hljs">deb-src http://deb.debian.org/debian bookworm main
+deb-src http://deb.debian.org/debian bookworm-updates main</code></pre>
+        
+        <p>For Ubuntu 22.04, uncomment the following line:</p>
+
+        <pre><code class="language-bash hljs">deb-src http://archive.ubuntu.com/ubuntu/ jammy main restricted
+deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted</code></pre>
+        
+        <p>Then run the following to update the package index files from their sources:</p>
+        
+        <pre><code class="language-bash hljs">sudo apt-get update</code></pre>
+
+        <p>Download git source code:</p>
+        
+        <pre><code class="language-bash hljs">apt-get source git</code></pre>
+
+        <p>Install build dependencies for git:</p>
+        
+        <pre><code class="language-bash hljs">sudo apt-get build-dep git</code></pre>
+        
+        <p>Install <code>libcurl4-openssl-dev</code> package:</p>
+
+        <pre><code class="language-bash hljs">sudo apt-get install -y libcurl4-openssl-dev</code></pre>
+        
+        <p>Enter the git source code directory:</p>
+        
+        <pre><code class="language-bash hljs">cd git-2.39.2</code></pre>
+
+        <p>Change <code>libcurl4-gnutls-dev</code> to <code>libcurl4-openssl-dev</code> in <code>./debian/control</code>:</p>
+        
+        <pre><code class="language-bash hljs">sed -i -- 's/libcurl4-gnutls-dev/libcurl4-openssl-dev/' ./debian/control</code></pre>
+
+        <p>Edit <code>./debian/rules</code> to delete the entire line containing <code>TEST=test</code>:</p>
+
+        <pre><code class="language-bash hljs">sed -i -- '/TEST=test/d' ./debian/rules
+        </code></pre>
+
+        <p>Build git from the source code.</p>
+
+        <pre><code class="language-bash hljs">sudo dpkg-buildpackage -rfakeroot -b</code></pre>
+
+        <p>Back to the <code>~/git-source</code> directory:</p>
+
+        <pre><code class="language-bash hljs">cd ..</code></pre>
+
+        <p>Install the compiled git package:</p>
+
+        <pre><code class="language-bash hljs">sudo dpkg -i git_2.39.2-1.1_amd64.deb</code></pre>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hemimorphite.github.io/zh/2024/07/22/2024-07-21-git-error-rpc-failed-curl-http2-stream-was-not-closed-cleanly-on-ubuntu-2204-and-debian-12/" rel="alternate" type="text/html" title="" /><published>2024-07-22T15:19:27+00:00</published><updated>2024-07-22T15:19:27+00:00</updated><id>https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-http2-stream-was-not-closed-cleanly-on-ubuntu-2204-and-debian-12</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-http2-stream-was-not-closed-cleanly-on-ubuntu-2204-and-debian-12/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title"></h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 22, 2024</span><br><span class="name">By </span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>The error "RPC failed; curl 18 HTTP/2 stream 5 was not closed cleanly" typically indicates a problem with the HTTP/2 protocol during a Git operation, such as cloning or pushing to a repository. This error can be related to network issues, HTTP/2 protocol handling, or configuration problems. </p>
+
+        <p>To resolve the "RPC failed; curl 92 HTTP/2 stream 0 was not closed cleanly" error, you can force Git to use HTTP/1.1 instead of HTTP/2.</p>
+
+        <pre><code class="language-bash hljs">git config --global http.version HTTP/1.1</code></pre>
+
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hemimorphite.github.io/zh/2024/07/22/2024-07-21-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12/" rel="alternate" type="text/html" title="" /><published>2024-07-22T15:19:27+00:00</published><updated>2024-07-22T15:19:27+00:00</updated><id>https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/22/2024-07-21-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12/"><![CDATA[<div class="blog-post">
     <h2 class="post-title"></h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -180,7 +317,52 @@ deb-src http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted</code></
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hemimorphite.github.io/zh/2024/07/22/2024-07-22-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12/" rel="alternate" type="text/html" title="" /><published>2024-07-22T14:54:35+00:00</published><updated>2024-07-22T14:54:35+00:00</updated><id>https://hemimorphite.github.io/2024/07/22/2024-07-22-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/22/2024-07-22-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hemimorphite.github.io/zh/2024/07/22/2024-07-22-git-error-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12/" rel="alternate" type="text/html" title="" /><published>2024-07-22T15:19:27+00:00</published><updated>2024-07-22T15:19:27+00:00</updated><id>https://hemimorphite.github.io/2024/07/22/2024-07-22-git-error-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/22/2024-07-22-git-error-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title"></h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published July 22, 2024</span><br><span class="name">By </span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>The error RPC failed; curl transfer closed with outstanding read data remaining typically occurs when you have to clone a large repository from a slow internet connection, and the connection tends to close.</p>
+
+        <p>Do a shallow clone:</p>
+
+        <pre><code class="language-bash hljs">git clone https://github.com/microsoft/TypeScript.git --depth 1</code></pre>
+
+        <p>This option allows you to clone only the latest commits, which can be helpful when dealing with large repositories or slow network connections.</p>
+
+        <p>Navigate in the local repository directory:</p>
+
+        <pre><code class="language-bash hljs">cd TypeScript</code></pre>
+
+        <p>Convert a shallow clone of a Git repository into a complete repository with the full commit history:</p>
+
+        <pre><code class="language-bash hljs">git fetch --unshallow</code></pre>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name></name></author></entry><entry><title type="html"></title><link href="https://hemimorphite.github.io/zh/2024/07/22/2024-07-22-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12/" rel="alternate" type="text/html" title="" /><published>2024-07-22T15:19:27+00:00</published><updated>2024-07-22T15:19:27+00:00</updated><id>https://hemimorphite.github.io/2024/07/22/2024-07-22-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/22/2024-07-22-git-error-rpc-failed-curl-transfer-closed-with-outstanding-read-data-remaining-ubuntu-2204-and-debian-12/"><![CDATA[<div class="blog-post">
     <h2 class="post-title"></h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -2577,1921 +2759,4 @@ console.log(result2);</code></pre>
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-07" /><category term="day-13" /><category term="javascript" /><category term="global execution context" /><category term="function execution context" /><category term="creation phase" /><category term="execution phase" /><summary type="html"><![CDATA[Execution context in JavaScript refers to the environment in which code is executed. This includes the global execution context, which encompasses code not within any function, and function execution contexts, which are created when functions are invoked. The execution context goes through two phases: the creation phase, where the JavaScript engine sets up the environment, and the execution phase, where the code is run. Understanding these concepts is crucial for effectively scoping variables and functions and comprehending how JavaScript code is processed.]]></summary></entry><entry xml:lang="en"><title type="html">Handling Asynchronous Operations in Node.js</title><link href="https://hemimorphite.github.io/zh/2024/07/09/handling-asynchronous-operations-in-nodejs/" rel="alternate" type="text/html" title="Handling Asynchronous Operations in Node.js" /><published>2024-07-09T05:21:00+00:00</published><updated>2024-07-09T05:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/09/handling-asynchronous-operations-in-nodejs</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/09/handling-asynchronous-operations-in-nodejs/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Handling Asynchronous Operations in Node.js</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published July 09, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/nodejs.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>In Node JS, asynchronous operations allow us to perform tasks without blocking the main thread, enabling the application to handle multiple requests concurrently. These operations include reading/writing files, making HTTP requests, querying databases, and more.</p>
-
-        <h5 class="post-subtitle">Callbacks</h5>
-
-        <p>A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.</p>
-
-        <p>Synchronous callback functions execute instantly, but asynchronous callback functions execute at a later time.</p>
-
-        <p>In this example, we have two functions: <code>greet</code> and <code>sayGoodbye</code>. The greet function takes two arguments: <code>name</code> (a string) and <code>callback</code> (a function).</p>
-
-        <pre><code class="language-bash hljs">function greet(name, callback) {
-    console.log(`Hello, ${name}!`);
-    callback();
-}
-
-function sayGoodbye() {
-    console.log("Goodbye!");
-}; 
-
-greet("Alice", sayGoodbye);</code></pre>
-
-        <p>It will output:</p>
-
-        <pre><code class="language-bash hljs">Hello, Alice!
-Goodbye!</code></pre>
-
-        <p>The <code>sayGoodbye</code> function is called immediately following the <code>greet</code> function's completion, making it an example of a synchronous callback function.</p>
-
-        <p>In the next example, the <code>asyncOperation</code> function uses <code>setTimeout</code> to simulate an asynchronous task. The callback is executed after a delay of 1 second.</p>
-        
-        <p><code>setTimeout()</code> takes a callback function as an argument and executes the callback function after a specified amount of time.</p>
-
-        <pre><code class="language-bash hljs">function asyncOperation(callback) {
-    console.log("Start operation");
-    setTimeout(function() {
-        callback();
-    }, 1000);
-    console.log("End operation");
-};
-
-function callback() {
-    console.log("Callback executed");
-}
-
-asyncOperation(callback);</code></pre>
-
-        <p>It will output:</p>
-
-        <pre><code class="language-bash hljs">Start operation
-End operation
-Callback executed</code></pre>
-
-        <p>Callbacks can lead to callback hell or pyramid of doom, where multiple nested callbacks can make code hard to read and maintain.</p>
-        
-        <p>Here is a example of nested callbacks:</p>
-
-        <pre><code class="language-bash hljs">function pyramidOfDoom() {
-    setTimeout(() => {
-        console.log(1);
-        setTimeout(() => {
-            console.log(2);
-            setTimeout(() => {
-                console.log(3);
-                setTimeout(() => {
-                    console.log(4);
-                    setTimeout(() => {
-                        console.log(5);
-                    }, 3500);
-                }, 1500);
-            }, 500);
-        }, 2000);
-    }, 1000);
-}</code></pre>
-
-        <p>In the above code, each new <code>setTimeout</code> is nested inside a higher order function, creating a pyramid shape of deeper and deeper callbacks.</p>
-
-        <p>Let's look at another example, say we have a list of users, their posts and their respective comments, like this:</p>
-
-        <pre><code class="language-bash hljs">const users = [
-    { id: 1, name: 'Luther Hargreeves' },
-    { id: 2, name: 'Diego Hargreeves' },
-    { id: 3, name: 'Allison Hargreeves' },
-];
-const posts = [
-    { id: 1, title: 'First Post', user_id: 2 },
-    { id: 2, title: 'Second Post', user_id: 1 },
-    { id: 3, title: 'Third Post', user_id: 2 },
-    { id: 4, title: 'Fourth Post', user_id: 2 },
-    { id: 5, title: 'Fifth Post', user_id: 3 },
-];
-
-const comments = [
-    { user_id: 2, post_id: 2, text: 'Great!'},
-    { user_id: 3, post_id: 2, text: 'Nice Post!'},
-    { user_id: 1, post_id: 3, text: 'Awesome Post!'},
-];</code></pre>
-        
-        <p>Now, we will write a function to get a post by passing the post id. If the post is found, we will retrieve the comments related to that post.</p>
-
-        <pre><code class="language-bash hljs">const getPost = (post_id, callback) => {
-    const post = posts.find( post => post.id === post_id);
-    setTimeout(() => {
-        if(post) {
-            callback(null, post);
-        } else {
-            callback("No such post found", undefined);
-        }
-    }, 1000);
-};
-
-const getUser = (user_id, callback) => {
-    const user = users.find( user => user.id === user_id);
-    setTimeout(() => {
-        if(user) {
-            callback(null, user);
-        } else {
-            callback("No such user found", undefined);
-        }
-    }, 500);
-};
-
-const getComments = (post_id, callback) => {
-    const result = comments.filter( comment => comment.post_id === post_id);
-    setTimeout(() => {
-        if(result) {
-            callback(null, result);
-        } else {
-            callback("No comments found", undefined);
-        }
-    }, 100);
-}
-
-getPost(2, (err, post) => {
-    if (err) {
-        console.error('Error getting post:', err);
-    } else {
-        getUser(post.user_id, (err, user) => {
-            if (err) {
-                console.error('Error getting user:', err);
-            } else {
-                console.log(`${user.name} created a post with title ${post.title}`);
-                getComments(post.id, (err, comments) => {
-                    if (err) {
-                        console.error('Error getting comment:', err);
-                    } else {
-                        comments.forEach((comment) => {
-                            getUser(comment.user_id, (err, user) => {
-                                if(err) {
-                                    console.error('Error getting user:', err);
-                                }
-                                else {
-                                    console.log(`${user.name} comments: ${comment.text}`);
-                                }
-                            });
-                        });
-                    }
-                });
-            }
-        });
-    }
-});</code></pre>
-
-        <p>After executing the above code, you will see the following output:</p>
-
-        <pre><code class="language-bash hljs">Luther Hargreeves created a post with title Second Post
-Luther Hargreeves comment: Great! 
-Allison Hargreeves comment: Nice Post!</code></pre>
-
-        <h5 class="post-subtitle">Promises</h5>
-
-        <p>Promises help in solving the callback hell problem. A promise represents a value that may not be available yet but will be resolved in the future, either successfully with a value or unsuccessfully with an error.</p>
-
-        <p>You can initialize a promise with the <code>new Promise</code> syntax, and you must initialize it with a function. The function that gets passed to a promise has <code>resolve</code> and <code>reject</code> parameters. The <code>resolve</code> and <code>reject</code> functions handle the success and failure of an operation, respectively.</p>
-        
-        <p>When we initialize a promise, it has a <code>pending</code> state and <code>undefined</code> value:</p>
-
-        <pre><code class="language-bash hljs">// Initialize a promise
-const promise = new Promise((resolve, reject) => {})
-console.log(promise);
-// Promise { &lt;state&gt;: "pending" }</code></pre>
-        
-        <p>When we call the <code>resolve</code> function and pass a value, it has a <code>fulfilled</code> state and a value.</p>
-        
-        <pre><code class="language-bash hljs">const promise = new Promise((resolve, reject) => {
-    resolve('result value');
-});
-console.log(promise);
-// Promise { &lt;state&gt;: "fulfilled", &lt;value&gt;: "result value" }</code></pre>
-        
-        <p>If we call <code>reject</code> function and pass a value, it will has a <code>rejected</code> state and a value.</p>
-
-        <pre><code class="language-bash hljs">const promise = new Promise((resolve, reject) => {
-    reject('error value');
-});
-console.log(promise);
-// Promise { &lt;state&gt;: "rejected", &lt;value&gt;: "error value" }</code></pre>
-
-        <p>A promise can have three possible states: pending, fulfilled, and rejected.</p>
-
-        <ul>
-            <li>Pending - Initial state before being resolved or rejected</li>
-            <li>Fulfilled - Successful operation, promise has resolved</li>
-            <li>Rejected - Failed operation, promise has rejected</li>
-        </ul>
-
-        <p>To get the result of the successful promise execution, we need to register a callback handler using <code>.then</code> like this:</p>
-
-        <pre><code class="language-bash hljs">promise.then(function(result) {
-    console.log(result); // result value
-});</code></pre>
-
-        <p>To catch the error, we need to register another callback using <code>.catch</code> like this:</p>
-
-        <pre><code class="language-bash hljs">promise.then(function(result) {
-    console.log(result); // result value
-}).catch(function(error) {
-    console.log(error);  // error value
-});</code></pre>
-
-        <p>For reference, here is a table with the handler methods on <code>Promise</code> objects:</p>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Method</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <code>then()</code>
-                    </td>
-                    <td>Handles a <code>resolve</code>. Returns a promise, and calls <code>onFulfilled</code> function asynchronously </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>catch()</code>
-                    </td>
-                    <td>Handles a <code>reject</code>. Returns a promise, and calls <code>onRejected</code> function asynchronously </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>finally()</code>
-                    </td>
-                    <td>Called when a promise is settled. Returns a promise, and calls <code>onFinally</code> function asynchronously </td>
-                </tr>
-            </tbody>
-        </table>
-
-
-        <p>One of the most useful and frequently used Web APIs that returns a promise is the Fetch API, which allows you to make an asynchronous resource request over a network. fetch is a two-part process, and therefore requires chaining then. This example demonstrates hitting the GitHub API to fetch a user's data, while also handling any potential error:</p>
-
-        <pre><code class="language-bash hljs">// Fetch a user from the GitHub API
-fetch('https://api.github.com/users/octocat')
-    .then((response) => {
-    return response.json()
-    })
-    .then((data) => {
-    console.log(data)
-    })
-    .catch((error) => {
-    console.error(error)
-    });</code></pre>
-
-        <p>The fetch request is sent to the <code>https://api.github.com/users/octocat</code> URL, which asynchronously waits for a response. The first then passes the response to an anonymous function that formats the response as JSON data, then passes the JSON to a second then that logs the data to the console. The catch statement logs any error to the console.</p>
-
-        <p>Sometimes, you want to execute two or more related asynchronous operations, where the next operation starts with the result from the previous one. For example:</p>
-
-        <pre><code class="language-bash hljs">let p = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(10);
-    }, 1000);
-});
-
-p.then((result) => {
-    console.log(result); // 10
-    return result * 2;
-}).then((result) => {
-    console.log(result); // 20
-    return result * 3;
-}).then((result) => {
-    console.log(result); // 60
-    return result * 4;
-});</code></pre>
-
-        <p>In the above example, the return value in the first <code>then()</code> method is passed to the second <code>then()</code> method and the return value in the second <code>then()</code> method is passed the third <code>then()</code>. Because the <code>then()</code> method returns a new <code>Promise</code> with a value resolved to a value, you can call the <code>then()</code> method on the return <code>Promise</code>.</p>
-
-        <p>The way we call the <code>then()</code> method like this is often referred to as a promise chain.</p>
-
-        <p>When you call the <code>then()</code> method multiple times on a promise, it is not the promise chaining. For example:</p>
-
-        <pre><code class="language-bash hljs">let p = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(10);
-    }, 1000);
-});
-        
-p.then((result) => {
-    console.log(result); // 10
-    return result * 2;
-})
-
-p.then((result) => {
-    console.log(result); // 10
-    return result * 3;
-})
-
-p.then((result) => {
-    console.log(result); // 10
-    return result * 4;
-});</code></pre>
-
-        <p>Here is the modified code of callback function example that uses Promises instead of callbacks:</p>
-
-        <pre><code class="language-bash hljs">const users = [  
-    { id: 1, name: 'Luther Hargreeves' },  
-    { id: 2, name: 'Diego Hargreeves' },  
-    { id: 3, name: 'Allison Hargreeves' },  
-];  
-
-const posts = [  
-    { id: 1, title: 'First Post', user_id: 2 },  
-    { id: 2, title: 'Second Post', user_id: 1 },  
-    { id: 3, title: 'Third Post', user_id: 2 },  
-    { id: 4, title: 'Fourth Post', user_id: 2 },  
-    { id: 5, title: 'Fifth Post', user_id: 3 },  
-];  
-
-const comments = [  
-    { user_id: 2, post_id: 2, text: 'Great!'},  
-    { user_id: 3, post_id: 2, text: 'Nice Post!'},  
-    { user_id: 1, post_id: 3, text: 'Awesome Post!'},  
-];  
-
-const getPost = (post_id) => {  
-    return new Promise((resolve, reject) => {  
-        const post = posts.find(post => post.id === post_id);  
-        setTimeout(() => {  
-            if (post) {  
-                resolve(post);  
-            } else {  
-                reject("No such post found");  
-            }  
-        }, 1000);  
-    });  
-};  
-
-const getUser = (user_id) => {  
-    return new Promise((resolve, reject) => {  
-        const user = users.find(user => user.id === user_id);  
-        setTimeout(() => {  
-            if (user) {  
-                resolve(user);  
-            } else {  
-                reject("No such user found");  
-            }  
-        }, 500);  
-    });  
-};  
-
-const getComments = (post_id) => {  
-    return new Promise((resolve, reject) => {  
-        const result = comments.filter(comment => comment.post_id === post_id);  
-        setTimeout(() => {  
-            if (result) {  
-                resolve(result);  
-            } else {  
-                reject("No comments found");  
-            }  
-        }, 100);  
-    });  
-};  
-
-getPost(2)  
-    .then(post => {  
-        return getUser(post.user_id)  
-            .then(user => {  
-                console.log(`${user.name} created a post with title ${post.title}`);  
-                return getComments(post.id);  
-            });  
-    })  
-    .then(comments => {  
-        comments.forEach(comment => {  
-            getUser(comment.user_id)  
-                .then(user => {  
-                    console.log(`${user.name} comments: ${comment.text}`);  
-                })  
-                .catch(err => {  
-                    console.error('Error getting user:', err);  
-                });  
-        });  
-    })  
-    .catch(err => {  
-        console.error('Error:', err);  
-    }); </code></pre>
-
-        <h5 class="post-subtitle">Async/Await</h5>
-
-        <p>An <code>async</code> function allows you to handle asynchronous code in a manner that appears synchronous. <code>async</code> functions still use promises under the hood, but have a more traditional JavaScript syntax.</p>
-
-        <p>The <code>async</code> keyword allows you to define a function that handles asynchronous operations.</p>
-
-        <p>To define an <code>async</code> function, you place the <code>async</code> keyword in front of the function as follows:</p>
-
-        <pre><code class="language-bash hljs">async function greet(name) {
-    return `Hello, ${name}`;
-}</code></pre>
-
-        <p>Since <code>async</code> functions always returns a <code>Promise</code>, you can use <code>then()</code> method to consume it, like this:</p>
-
-        <pre><code class="language-bash hljs">greet('Alison').then(console.log);</code></pre>
-
-        <p>You can also explicitly return a <code>Promise</code> from the <code>greet()</code> function as shown in the following code:</p>
-
-        <pre><code class="language-bash hljs">async function greet(name) {
-    return Promise.resolve(`Hello, ${name}`);
-}</code></pre>
-
-        <p>Besides the regular functions, you can use the <code>async</code> keyword in the function expressions:</p>
-
-        <pre><code class="language-bash hljs">let greet = async function (name) {
-    return `Hello, ${name}`;
-}</code></pre>
-
-        <p>Or in arrow functions:</p>
-
-        <pre><code class="language-bash hljs">let greet = async (name) => `Hello, ${name}`;</code></pre>
-
-        <p>Or in methods of classes:</p>
-
-        <pre><code class="language-bash hljs">class person {
-    async greet(name) {
-        return `Hello, ${name}`;
-    }
-}</code></pre>
-
-        <p>You use the <code>await</code> keyword to wait for a <code>Promise</code> to settle either in a resolved or rejected state.</p>
-        
-        <p>You cannot use the <code>await</code> keyword inside a sync function:</p>
-
-        <pre><code class="language-bash hljs">async function greet(name) {
-    return Promise.resolve(`Hello, ${name}`);
-}
-function print() {
-    let result = await greet('Alison');
-    console.log(result);
-}
-print();
-// SyntaxError: await is only valid in async functions, async generators and modules</code></pre>
-
-        <p>You use the <code>await</code> keyword only inside an <code>async</code> function:</p>
-
-        <pre><code class="language-bash hljs">async function greet(name) {
-    return Promise.resolve(`Hello, ${name}`);
-}
-async function print() {
-    let result = await greet('Alison');
-    console.log(result);
-}
-
-print(); // Hello, Alison</code></pre>
-
-        <p>You cannot use the <code>await</code> keyword at the top level of a script:</p>
-
-        <pre><code class="language-bash hljs">&lt;script&gt;
-    async function greet(name) {
-        return Promise.resolve(`Hello, ${name}`);
-    }
-    
-    let result = await greet('Alison');
-    // SyntaxError: await is only valid in async functions, async generators and modules
-&lt;/script&gt;</code></pre>
-        
-        <p>Instead, make the script a module:</p>
-
-        <pre><code class="language-bash hljs">&lt;script type="module"&gt;
-    async function greet(name) {
-        return Promise.resolve(`Hello, ${name}`);
-    }
-    
-    let result = await greet('Alison');
-    // SyntaxError: await is only valid in async functions, async generators and modules
-&lt;/script&gt;</code></pre>
-
-        <p>If a promise resolves normally, then <code>await promise</code> returns the result. But in case of a promise is rejected, it throws the error, just as if there were a <code>throw</code> statement at that line.</p>
-
-        <pre><code class="language-bash hljs">async function greet(name) {
-    return Promise.reject(new Error('Invalid name'));
-}
-async function print() {
-    let result = await greet('Alison');
-    console.log(result);
-}
-
-print(); // Uncaught (in promise) Error: Invalid name</code></pre>
-
-        <p>The above code is the same as this:</p>
-
-        <pre><code class="language-bash hljs">async function greet(name) {
-    throw new Error('Invalid name');
-}
-async function print() {
-    let result = await greet('Alison');
-    console.log(result);
-}
-
-print(); // Uncaught (in promise) Error: Invalid name</code></pre>
-
-        <p>You can catch the error by using the <code>try...catch</code> statement, the same way as a regular <code>throw</code> statement:</p>
-
-        <pre><code class="language-bash hljs">async function greet(name) {
-    return Promise.reject(new Error('Invalid name'));
-}
-async function print() {
-    try {
-        let result = await greet('Alison');
-        console.log(result);
-    } catch(error) {
-        console.log(error);
-    }
-}
-
-print(); // Uncaught (in promise) Error: Invalid name</code></pre>
-
-        <p>Here is the modified code of callback function example that uses async/await instead of callbacks:</p>
-
-        <pre><code class="language-bash hljs">const users = [  
-    { id: 1, name: 'Luther Hargreeves' },  
-    { id: 2, name: 'Diego Hargreeves' },  
-    { id: 3, name: 'Allison Hargreeves' },  
-];  
-
-const posts = [  
-    { id: 1, title: 'First Post', user_id: 2 },  
-    { id: 2, title: 'Second Post', user_id: 1 },  
-    { id: 3, title: 'Third Post', user_id: 2 },  
-    { id: 4, title: 'Fourth Post', user_id: 2 },  
-    { id: 5, title: 'Fifth Post', user_id: 3 },  
-];  
-
-const comments = [  
-    { user_id: 2, post_id: 2, text: 'Great!'},  
-    { user_id: 3, post_id: 2, text: 'Nice Post!'},  
-    { user_id: 1, post_id: 3, text: 'Awesome Post!'},  
-];  
-  
-const getPost = async (post_id) => {  
-    return new Promise((resolve, reject) => {  
-        const post = posts.find(post => post.id === post_id);  
-        setTimeout(() => {  
-            if (post) {  
-            resolve(post);  
-            } else {  
-            reject("No such post found");  
-            }  
-        }, 1000);  
-    });  
-};  
-  
-const getUser = async (user_id) => {  
-    return new Promise((resolve, reject) => {  
-        const user = users.find(user => user.id === user_id);  
-        setTimeout(() => {  
-            if (user) {  
-            resolve(user);  
-            } else {  
-            reject("No such user found");  
-            }  
-        }, 500);  
-    });  
-};  
-  
-const getComments = async (post_id) => {  
-    return new Promise((resolve, reject) => {  
-        const result = comments.filter(comment => comment.post_id === post_id);  
-        setTimeout(() => {  
-            if (result) {  
-                resolve(result);  
-            } else {  
-                reject("No comments found");  
-            }  
-        }, 100);  
-    });  
-};  
-  
-async function main() {  
-    try {  
-        const post = await getPost(2);  
-        const user = await getUser(post.user_id);  
-        console.log(`${user.name} created a post with title ${post.title}`);  
-        const comments = await getComments(post.id);  
-        comments.forEach(async (comment) => {  
-            const user = await getUser(comment.user_id);  
-            console.log(`${user.name} comments: ${comment.text}`);  
-        });  
-    } catch (err) {  
-        console.error('Error:', err);  
-    }  
-}  
-  
-main();</code></pre>
-        </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/javascript" class="tag">javascript</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/nodejs" class="tag">nodejs</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/async" class="tag">async</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/await" class="tag">await</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/promise" class="tag">promise</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/callback" class="tag">callback</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-07" /><category term="day-09" /><category term="javascript" /><category term="nodejs" /><category term="async" /><category term="await" /><category term="promise" /><category term="callback" /><summary type="html"><![CDATA[Learn how to handle asynchronous operations in Node.js using callback functions, async/await, and promises. Get detailed explanations and examples to enhance your understanding.]]></summary></entry><entry xml:lang="en"><title type="html">__proto__ VS Prototype in Javascript</title><link href="https://hemimorphite.github.io/zh/2024/07/07/proto-vs-prototype-in-javascript/" rel="alternate" type="text/html" title="__proto__ VS Prototype in Javascript" /><published>2024-07-07T11:21:00+00:00</published><updated>2024-07-07T11:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/07/proto-vs-prototype-in-javascript</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/07/proto-vs-prototype-in-javascript/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">__proto__ VS Prototype in Javascript</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published July 07, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/javascript.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>In programming, inheritance refers to passing down characteristics from a parent to a child so that a new piece of code can reuse and build upon the features of an existing one. JavaScript implements inheritance by using objects. Each object has an internal link to another object called its prototype. That prototype object has a prototype of its own, and so on until an object is reached with null as its prototype. By definition, <code>null</code> has no prototype and acts as the final link in this prototype chain.</p>
-
-        <p>Every object in JavaScript has a built-in property, which is called its prototype. The prototype is itself an object, so the prototype will have its own prototype, making what's called a prototype chain. The chain ends when we reach a prototype that has <code>null</code> for its own prototype.</p>
-
-        <p>When you try to access a property of an object: if the property can't be found in the object itself, the prototype is searched for the property. If the property still can't be found, then the prototype's prototype is searched, and so on until either the property is found, or the end of the chain is reached, in which case <code>undefined</code> is returned.</p>
-
-        <p>So when we call <code>myObject.toString()</code>, the Javascript engine follows the prototype chain to resolve the method:</p>
-
-        <ul>
-            <li>looks for <code>toString()</code> method in <code>myObject</code></li>
-            <li>if the Javascript engine can't find it there, the Javascript engine looks into the prototype object of <code>myObject</code> for <code>toString()</code> method</li>
-            <li>if the Javascript engine finds it there, the Javascript engine calls the <code>toString()</code> method.</li>
-        </ul>
-
-        <p>In JavaScript, <code>__proto__</code> and <code>prototype</code> are two related but distinct concepts that are often confused with each other.</p>
-
-        <p><code>__proto__</code> (also called the Dunder Proto or Double Underscore Prototype) is a property of an object that points to its prototype. This property is used internally by the JavaScript engine to search for properties and methods on an object's prototype chain.</p>
-
-        <p>The <code>__proto__</code> is not part of the ECMAScript standard, but is supported by browsers.</p>
-
-        <p><code>Object.getPrototypeOf()</code> and <code>Object.setPrototypeOf()</code> are the modern ways of getting access to and setting an object's prototype.</p>
-
-        <p>Let's create an object literal:</p>
-
-        <pre><code class="language-bash hljs">const myObject = {
-    name: "John Doe",
-    greet() {
-        console.log(`Hello ${this.name}`);
-    },
-};
-myObject.greet(); // Hello John Doe
-myObject.__proto__ // Object { }
-Object.getPrototypeOf(myObject); // Object { }</code></pre>
-
-        <p><code>Object.prototype</code> is the most basic prototype, that all objects have by default. The prototype of <code>Object.prototype</code> is <code>null</code>, so it's at the end of the prototype chain.</p>
-
-        <p>The prototype of an object is not always <code>Object.prototype</code>. For example:</p>
-
-        <pre><code class="language-bash hljs">const myDate = new Date();
-let object = myDate;
-
-do {
-    object = Object.getPrototypeOf(object);
-    console.log(object);
-} while (object);
-
-// Date.prototype
-// Object { }
-// null</code></pre>
-
-        <p><code>prototype</code> is a built-in property when you create an object from a constructor function. This is like a blueprint for all the objects created from that constructor function. It defines the shared properties and methods that all instances of that object will have.</p>
-
-        <p>Let's create a constructor function:</p>
-
-        <pre><code class="language-bash hljs">function Circle(radius) {
-    this.radius = radius;
-}
-
-Circle.prototype.getArea = function() {
-    return Math.PI * Math.pow(this.radius, 2);
-};
-
-const circle1 = new Circle(5);
-circle1.getArea();   // 78.53981633974483
-const circle2 = new Circle(6);
-circle2.getArea();   // 113.09733552923255
-console.log(circle1.__proto__ === Circle.prototype); // true
-console.log(circle2.__proto__ === Circle.prototype); // true</code></pre>
-
-        <p>In the code above, the <code>getArea</code> method is contained in an object called <code>Circle.prototype</code>. When a new <code>Circle</code> instance is created, its <code>__proto__</code> property is set to <code>Circle.prototype</code>.</p>
-
-        <pre><code class="language-bash hljs">circle1.getCircumference = function () {
-    return Math.PI * 2 * this.radius;
-}
-circle1.getCircumference(); // 31.41592653589793
-circle2.getCircumference(); // Uncaught TypeError: circle2.getCircumference is not a function</code></pre>
-
-        <p>In the code above, the <code>getCircumference()</code> method is added to only <code>circle1</code> object and not on <code>Circle.prototype</code> or <code>circle2</code>.</p>
-
-        <p>Here we are comparing the <code>__proto__</code> (which is the prototype from which the object was created), with the <code>prototype</code> (a property that only exists in constructor functions).</p>
-
-        <pre><code class="language-bash hljs">const fn = () => {};
-fn.__proto__ === Function.prototype;   // Output: true</code></pre>
-
-        <p>Every function has a prototype property that points to the <code>Function.prototype</code> object. <code>fn</code> is an anonymous function created using the arrow function syntax. This means that <code>fn</code> inherits properties and methods from <code>Function.prototype</code>. For example, <code>fn</code> can use methods like <code>call()</code>, <code>apply()</code>, and <code>bind()</code> because they are defined on <code>Function.prototype</code>.</p>
-
-        <pre><code class="language-bash hljs">const fn = () => {};
-fn.__proto__ === new Function().__proto__ // Output: true</code></pre>
-        
-        <p><code>fn</code> is an anonymous function created using the arrow function syntax. <code>new Function()</code> creates a new function object using the Function constructor. The <code>__proto__</code> property of <code>fn</code> points to the same object as the <code>__proto__</code> property of the newly created function object using <code>new Function()</code>.</p>
-
-        <pre><code class="language-bash hljs">const arr = [];
-arr.__proto__ === Array.prototype;     // Output: true</code></pre>
-
-        <p>Every array in JavaScript has a prototype property that points to the <code>Array.prototype</code> object. <code>arr</code> is an array created using the array literal syntax <code>[]</code>. This means that <code>arr</code> inherits properties and methods from <code>Array.prototype</code>, such as <code>push()</code>, <code>pop()</code>, and <code>forEach()</code>.</p>
-        
-        <pre><code class="language-bash hljs">const arr = [];
-arr.__proto__ === new Array().__proto__;     // Output: true</code></pre>
-
-        <p><code>arr</code> is an array created using the array literal syntax <code>[]</code>. <code>new Array()</code> creates a new array object using the Array constructor. The <code>__proto__</code> property of <code>arr</code> points to the same object as the <code>__proto__</code> property of the newly created array object using <code>new Array()</code>.</p>
-
-        <pre><code class="language-bash hljs">const obj = {};
-obj.__proto__ === Object.prototype;     // Output: true</code></pre>
-
-        <p>Every object in JavaScript has a prototype property that points to the <code>Object.prototype</code> object. <code>obj</code> is an object created using the object literal syntax <code>{}</code>. This means that <code>obj</code> inherits properties and methods from <code>Object.prototype</code>, such as <code>toString()</code> and <code>hasOwnProperty()</code>.</p>
-        
-        <pre><code class="language-bash hljs">const obj = {};
-obj.__proto__ === new Object().__proto__;     // Output: true</code></pre>
-        
-        <p><code>obj</code> is an object created using the object literal syntax <code>{}</code>. <code>new Object()</code> creates a new object using the Object constructor. The <code>__proto__</code> property of <code>obj</code> points to the same object as the <code>__proto__</code> property of the newly created object using <code>new Object()</code>.</p>
-
-        <pre><code class="language-bash hljs">const str = 'Hello';
-str.__proto__ === String.prototype;     // Output: true</code></pre>
-
-        <p>Strings in Javascript have a prototype property that points to the <code>String.prototype</code> object. <code>str</code> is a string created using the string literal syntax <code>'Hello'</code>. This means that <code>str</code> inherits properties and methods from <code>String.prototype</code>, such as <code>toUpperCase()</code> and <code>substr()</code>.</p>
-        
-        <pre><code class="language-bash hljs">const str = 'Hello';
-str.__proto__ === String.prototype;     // Output: true</code></pre>
-        
-        <p><code>str</code> is a string created using the string literal syntax <code>'Hello'</code>. <code>new String()</code> creates a new string object using the String constructor. The <code>__proto__</code> property of <code>str</code> points to the same object as the <code>__proto__</code> property of the newly created string object using <code>new String()</code>.</p>
-
-        <pre><code class="language-bash hljs">const num = 123;
-num.__proto__ === Number.prototype;     // Output: true</code></pre>
-        
-        <p>Numbers in JavaScript have a prototype property that points to the <code>Number.prototype</code> object. <code>num</code> is a number created using the number literal syntax 123. This means that <code>num</code> inherits properties and methods from <code>Number.prototype</code>, such as <code>toFixed()</code> and <code>toExponential()</code>.</p>
-        
-        <pre><code class="language-bash hljs">const num = 123;
-num.__proto__ === new Number().__proto__;     // Output: true</code></pre>
-
-        <p><code>num</code> is a number created using the number literal syntax 123. <code>new Number()</code> creates a new number object using the Number constructor. The <code>__proto__</code> property of <code>num</code> points to the same object as the <code>__proto__</code> property of the newly created number object using <code>new Number()</code>.</p>
-
-        <pre><code class="language-bash hljs">const bool = true;
-bool.__proto__ === Boolean.prototype;     // Output: true</code></pre>
-        
-        <p>Booleans in JavaScript have a prototype property that points to the <code>Boolean.prototype</code> object. <code>bool</code> is a boolean created using the boolean literal syntax <code>true</code>. This means that <code>bool</code> inherits properties and methods from <code>Boolean.prototype</code>, such as <code>toString()</code> and <code>valueOf()</code>.</p>
-        
-        <pre><code class="language-bash hljs">const bool = true;
-bool.__proto__ === new Boolean().__proto__;     // Output: true</code></pre>
-
-        <p><code>bool</code> is a boolean created using the boolean literal syntax <code>true</code>. <code>new Boolean()</code> creates a new boolean object using the Boolean constructor. The <code>__proto__</code> property of <code>bool</code> points to the same object as the <code>__proto__</code> property of the newly created boolean object using <code>new Boolean()</code>.</p>
-
-</article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/javascript" class="tag">javascript</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/prototype" class="tag">prototype</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/proto" class="tag">__proto__</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/inheritance" class="tag">inheritance</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/prototype-chain" class="tag">prototype chain</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-07" /><category term="day-07" /><category term="javascript" /><category term="prototype" /><category term="__proto__" /><category term="inheritance" /><category term="prototype chain" /><summary type="html"><![CDATA[Understanding the difference between __proto__ and prototype in JavaScript is crucial for grasping prototype-based inheritance. Learn the distinction, see examples, and gain clarity on these concepts.]]></summary></entry><entry xml:lang="en"><title type="html">Javascript Language Specification: Abstract Operations of BigIInt Type Binary and Arithmetic Operations</title><link href="https://hemimorphite.github.io/zh/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations/" rel="alternate" type="text/html" title="Javascript Language Specification: Abstract Operations of BigIInt Type Binary and Arithmetic Operations" /><published>2024-07-05T11:21:00+00:00</published><updated>2024-07-05T11:21:00+00:00</updated><id>https://hemimorphite.github.io/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations</id><content type="html" xml:base="https://hemimorphite.github.io/2024/07/05/javascript-language-specification-abstract-operations-of-bigint-type-binary-and-arithmetic-operations/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Javascript Language Specification: Abstract Operations of BigIInt Type Binary and Arithmetic Operations</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published July 05, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/javascript.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-        <p>An abstract operation is a conceptual operation that is not an actual operation in the language but is used to aid in the specification and understanding of a programming concept or system.</p>
-
-        <p>The following abstract operations are defined over the BigInt type:</p>
-
-        <table>
-            <tbody>
-                <tr>
-                    <th>Operation</th>
-                    <th>Example</th>
-                    <th>Invoked by</th>
-                    <th>Result</th>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::unaryMinus</code>
-                    </td>
-                    <td>
-                        <code>-x</code>
-                    </td>
-                    <td>
-                        Unary <code>-</code> Operator
-                    </td>
-                    <td> BigInt </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::bitwiseNOT</code>
-                    </td>
-                    <td>
-                        <code>~x</code>
-                    </td>
-                    <td>
-                        Bitwise NOT Operator (<code>~</code>)
-                    </td>
-                    <td> BigInt </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::exponentiate</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;**&nbsp;y</code>
-                    </td>
-                    <td>
-                        Exponentiation Operator (<code>**</code>)
-                        and <code>Math.pow(base, exponent)</code>
-                    </td>
-                    <td> either a normal completion containing a BigInt or a throw completion </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::multiply</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;*&nbsp;y</code>
-                    </td>
-                    <td>
-                        Multiplicative Operators
-                    </td>
-                    <td> BigInt </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::divide</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;/&nbsp;y</code>
-                    </td>
-                    <td>
-                        Multiplicative Operators
-                    </td>
-                    <td> either a normal completion containing a BigInt or a throw completion </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        <code>BigInt::remainder</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;%&nbsp;y</code>
-                    </td>
-                    <td>
-                        Multiplicative Operators
-                    </td>
-                    <td> either a normal completion containing a BigInt or a throw completion </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::add</code>
-                    </td>
-                    <td>
-                        <code>x ++</code>
-                        <br>
-                        <code>++ x</code>
-                        <br>
-                        <code>x&nbsp;+&nbsp;y</code>
-                    </td>
-                    <td>
-                        Postfix Increment Operator, Prefix Increment Operator, and The Addition Operator (<code>+</code>)
-                    </td>
-                    <td> BigInt </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        <code>BigInt::subtract</code>
-                    </td>
-                    <td>
-                        <code>x --</code>
-                        <br>
-                        <code>-- x</code>
-                        <br>
-                        <code>x&nbsp;-&nbsp;y</code>
-                    </td>
-                    <td>
-                        Postfix Decrement Operator, Prefix Decrement Operator, and The Subtraction Operator (<code>-</code>)
-                    </td>
-                    <td> BigInt </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::leftShift</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;&lt;&lt;&nbsp;y</code>
-                    </td>
-                    <td>
-                        The Left Shift Operator(<code>&lt;&lt;</code>)
-                    </td>
-                    <td> BigInt </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::signedRightShift</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;&gt;&gt;&nbsp;y</code>
-                    </td>
-                    <td>
-                        The Signed Right Shift Operator(<code>&gt;&gt;</code>)
-                    </td>
-                    <td> BigInt </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>Number::unsignedRightShift</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;&gt;&gt;&gt;&nbsp;y</code>
-                    </td>
-                    <td>
-                        The Unsigned Right Shift Operator (<code>&gt;&gt;&gt;</code>)
-                    </td>
-                    <td>  a throw completion  </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::lessThan</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;&lt;&nbsp;y</code>
-                        <br>
-                        <code>x&nbsp;&gt;&nbsp;y</code>
-                        <br>
-                        <code>x&nbsp;&lt;=&nbsp;y</code>
-                        <br>
-                        <code>x&nbsp;&gt;=&nbsp;y</code>
-                    </td>
-                    <td>
-                        Relational Operators, via <code>IsLessThan (x, y, LeftFirst)</code>
-                    </td>
-                    <td> Boolean </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::equal</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;==&nbsp;y</code>
-                        <br>
-                        <code>x&nbsp;!=&nbsp;y</code>
-                        <br>
-                        <code>x&nbsp;===&nbsp;y</code>
-                        <br>
-                        <code>x&nbsp;!==&nbsp;y</code>
-                    </td>
-                    <td>
-                        Equality Operators, via <code>IsStrictlyEqual (x, y)</code>
-                    </td>
-                    <td> Boolean </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::sameValue</code>
-                    </td>
-                    <td>
-                        <code>Object.is(x, y)</code>
-                    </td>
-                    <td> 
-                        Object internal methods, via <code>SameValue (x, y)</code>, to test exact value equality 
-                    </td>
-                    <td> Boolean </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::sameValueZero</code>
-                    </td>
-                    <td>
-                        <code>[x].includes(y)</code>
-                    </td>
-                    <td> 
-                        Array, Map, and Set methods, via <code>SameValueZero (x, y)</code>, to test value equality, ignoring the difference between +0 and -0
-                    </td>
-                    <td> Boolean </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::bitwiseAND</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;&amp;&nbsp;y</code>
-                    </td>
-                    <td rowspan="3">
-                        Binary Bitwise Operators
-                    </td>
-                    <td> BigInt </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::bitwiseXOR</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;^&nbsp;y</code>
-                    </td>
-                    <td> BigInt </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::bitwiseOR</code>
-                    </td>
-                    <td>
-                        <code>x&nbsp;|&nbsp;y</code>
-                    </td>
-                    <td> BigInt </td>
-                </tr>
-                <tr>
-                    <td>
-                        <code>BigInt::toString</code>
-                    </td>
-                    <td>
-                        <code>String(x)</code>
-                    </td>
-                    <td> Many expressions and built-in functions, via <code>ToString (argument)</code> 
-                    </td>
-                    <td> String </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h6>BigInt::unaryMinus (x)</h6>
-
-        <p>The abstract operation <code>BigInt::unaryMinus</code> takes argument <code>x</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
-
-        <ol>
-            <li>If <code>x</code> is 0, return 0.</li>
-            <li>Return the BigInt value that represents the negation of <code>x</code>.</li>
-        </ol>
-
-        <pre><code class="language-bash hljs">BigInt.unaryMinus = function (x) {
-    if(x === 0n) {
-        return BigInt(x);
-    }
-    return -BigInt(x);
-}
-BigInt.unaryMinus(100n);</code></pre>
-        
-        <h6>BigInt::bitwiseNOT (x)</h6>
-
-        <p>The abstract operation <code>BigInt::bitwiseNOT</code> takes argument <code>x</code> (a BigInt) and returns a BigInt. It returns the one's complement of x. It performs the following steps when called:</p>
-
-        <ol>
-            <li>Return -x - 1.</li>
-            <li>Return the BigInt value that represents the negation of <code>x</code>.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.bitwiseNOT = function (x) {
-    return -BigInt(x) - 1;
-}
-BigInt.bitwiseNOT(100n);</code></pre>
-
-        <h6>BigInt::exponentiate (base, exponent)</h6>
-
-        <p>The abstract operation <code>BigInt::exponentiate</code> takes arguments <code>base</code> (a BigInt) and <code>exponent</code> (a BigInt) and returns either a normal completion containing a BigInt or a throw completion. It performs the following steps when called:</p>
-
-        <ol>
-            <li>If <code>exponent</code> < 0, throw a <code>RangeError</code> exception.</li>
-            <li>If <code>base</code> is 0 and <code>exponent</code> is 0, return 1.</li>
-            <li>Return the BigInt value that represents <code>base</code> raised to the power <code>exponent</code>.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.exponentiate = function (base, exponent) {
-    if(BigInt(exponent) < 0n) {
-        // If exponent < 0, throw a RangeError exception
-        throw new RangeError("The exponent must be greater than 0.");
-    }
-    if(BigInt(base) === 0n && BigInt(exponent) === 0n) {
-        // If base is 0 and exponent is 0, return 1
-        return BigInt(1);
-    }
-
-    // Return the BigInt value that represents base raised to the power exponent
-    return BigInt(base) ** BigInt(exponent);
-}
-BigInt.exponentiate(100n, 100n);</code></pre>
-
-        <h6>BigInt::multiply  (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::multiply</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
-
-        <ol>
-            <li>Return the BigInt value that represents the product of <code>x</code> and <code>y</code>.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.multiply = function (x, y) {
-    // Return the BigInt value that represents the product of x and y
-    return BigInt(x) * BigInt(y);
-}
-BigInt.multiply(100n, 100n);</code></pre>
-
-        <h6>BigInt::divide (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::divide</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns either a normal completion containing a BigInt or a throw completion. It performs the following steps when called:</p>
-
-        <ol>
-            <li>If <code>y</code> is 0, throw a <code>RangeError</code> exception.</li>
-            <li>Let <code>quotient</code> be <code>x</code> / <code>y</code>.</li>
-            <li>Return <code>truncate(quotient)</code>.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.divide = function (x, y) {
-    // If y is 0, throw a RangeError exception.
-    if(BigInt(y) === 0n) {
-        throw new RangeError("The divisor must be greater than 0.");
-    }
-
-    // Let quotient be x / y
-    let quotient = BigInt(x) / BigInt(y);
-
-    // Return truncate(quotient)
-    return BigInt(quotient);
-}
-BigInt.divide(100n, 2n);</code></pre>
-
-        <h6>BigInt::remainder (n, d)</h6>
-
-        <p>The abstract operation <code>BigInt::remainder</code> takes arguments <code>n</code> (a BigInt) and <code>d</code> (a BigInt) and returns either a normal completion containing a BigInt or a throw completion. It performs the following steps when called:</p>
-
-        <ol>
-            <li>If <code>d</code> is 0, throw a <code>RangeError</code> exception.</li>
-            <li>If <code>n</code> is 0, return 0.</li>
-            <li>Let <code>quotient</code> be <code>n</code> / <code>d</code>.</li>
-            <li>Let <code>q</code> be <code>truncate(quotient)</code>.</li>
-            <li>Return <code>n</code> - (<code>d</code> × <code>q</code>).</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.remainder = function (n, d) {
-    // If d is 0, throw a RangeError exception
-    if(BigInt(d) === 0n) {
-        throw new RangeError("The divisor must be greater than 0.");
-    }
-
-    // If n is 0, return 0
-    if(BigInt(n) === 0n) {
-        return BigInt(0);
-    }
-
-    // Let quotient be n / d
-    let quotient = BigInt(n) / BigInt(d);
-
-    // Let q be truncate(quotient)
-    let q = quotient;
-
-    // Return n - (d × q)
-    return BigInt(n) - (BigInt(d) * BigInt(q));
-}
-BigInt.remainder(13n, 3n);</code></pre>
-
-        <h6>BigInt::add (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::add</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
-
-        <ol>
-            <li>Return the BigInt value that represents the sum of <code>x</code> and <code>y</code>.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.add = function (x, y) {
-    // Return the BigInt value that represents the sum of x and y
-    return BigInt(x) + BigInt(y);
-}
-BigInt.add(13n, 3n);</code></pre>
-
-        <h6>BigInt::subtract (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::subtract</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
-
-        <ol>
-            <li>Return the BigInt value that represents the difference <code>x</code> minus <code>y</code>.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.subtract = function (x, y) {
-    // Return the BigInt value that represents the difference x minus y
-    return BigInt(x) - BigInt(y);
-}
-BigInt.add(13n, 3n);</code></pre>
-
-        <h6>BigInt::leftShift (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::leftShift</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
-
-        <ol>
-            <li>If <code>y</code> < 0, then<br>
-                <ol>
-                    <li>Return the BigInt value that represents $$x / 2^-y$$, rounding down to the nearest integer, including for negative numbers.</li>
-                </ol>
-            </li>
-            <li>Return the BigInt value that represents $$x × 2^y$$.</li>
-        </ol>
-        
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.leftShift = function (x, y) {
-    if(y < 0) {
-        // If y < 0, then return the BigInt value that represents x / 2^-y, rounding down to the nearest integer, including for negative numbers.
-        return BigInt(x) / BigInt(2) ** BigInt(-y);
-    }
-
-    // Return the BigInt value that represents x × 2^y.
-    return BigInt(x) * BigInt(2) ** BigInt(y);
-}
-BigInt.leftShift(13n, -3n);</code></pre>
-
-        <h6>BigInt::signedRightShift (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::signedRightShift</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
-
-        <ol>
-            <li>Return <code>BigInt::leftShift(x, -y)</code>.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.leftShift = function (x, y) {
-    if(y < 0) {
-        // If y < 0, then return the BigInt value that represents x / 2^-y, rounding down to the nearest integer, including for negative numbers.
-        return BigInt(x) / BigInt(2) ** BigInt(-y);
-    }
-
-    // Return the BigInt value that represents x × 2^y.
-    return BigInt(x) * BigInt(2) ** BigInt(y);
-};
-BigInt.signedRightShift = function (x, y) {
-    // Return BigInt::leftShift(x, -y).
-    return BigInt.leftShift(x, -y);
-};
-BigInt.signedRightShift(13n, -3n);</code></pre>
-
-
-        <h6>BigInt::unsignedRightShift (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::unsignedRightShift</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a throw completion. It performs the following steps when called:</p>
-
-        <ol>
-            <li>Throw a <code>TypeError</code> exception.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.unsignedRightShift = function (x, y) {
-    throw new TypeError("Invalid operator") 
-};
-BigInt.unsignedRightShift(13n, -3n);</code></pre>
-
-        <h6>BigInt::lessThan (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::lessThan</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a Boolean. It performs the following steps when called:</p>
-
-        <ol>
-            <li>If <code>x</code> < <code>y</code>, return <code>true</code>; otherwise return <code>false</code>.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.lessThan = function (x, y) {
-    if(BigInt(x) < BigInt(y)) {
-        // If x < y, return true; 
-        return true;
-    }else {
-        // otherwise return false
-        return false;
-    }
-};
-BigInt.lessThan(13n, -13n);</code></pre>
-
-        <h6>BigInt::equal (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::equal</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a Boolean. It performs the following steps when called:</p>
-
-        <ol>
-            <li>If <code>x</code> = <code>y</code>, return <code>true</code>; otherwise return <code>false</code>.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.lessThan = function (x, y) {
-    if(BigInt(x) === BigInt(y)) {
-        // If x = y, return true; 
-        return true;
-    }else {
-        // otherwise return false
-        return false;
-    }
-};
-BigInt.lessThan(13n, -13n);</code></pre>
-
-        <h6>BinaryAnd (x, y)</h6>
-
-        <p>The abstract operation <code>BinaryAnd</code> takes arguments <code>x</code> (0 or 1) and <code>y</code> (0 or 1) and returns 0 or 1. It performs the following steps when called:</p>
-
-        <ol>
-            <li>If x = 1 and y = 1, return 1.</li>
-            <li>Else, return 0.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">function BinaryAnd(x, y) {
-    if(x === BigInt(1) && y === BigInt(1)) {
-        // If x = 1 and y = 1, return 1;
-        return BigInt(1);
-    }else {
-        // otherwise return false
-        return BigInt(0);
-    }
-};
-BinaryAnd(1n, 0n);</code></pre>
-
-        <h6>BinaryOr (x, y)</h6>
-
-        <p>The abstract operation <code>BinaryOr</code> takes arguments <code>x</code> (0 or 1) and <code>y</code> (0 or 1) and returns 0 or 1. It performs the following steps when called:</p>
-
-        <ol>
-            <li>If x = 1 or y = 1, return 1.</li>
-            <li>Else, return 0.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">function BinaryOr(x, y) {
-    if(x === BigInt(1) || y === BigInt(1)) {
-        // If x = 1 or y = 1, return true; 
-        return BigInt(1);
-    }else {
-        // otherwise return false
-        return BigInt(0);
-    }
-};
-BinaryOr(1n, 0n);</code></pre>
-
-        <h6>BinaryXor (x, y)</h6>
-
-        <p>The abstract operation <code>BinaryXor</code> takes arguments <code>x</code> (0 or 1) and <code>y</code> (0 or 1) and returns 0 or 1. It performs the following steps when called:</p>
-
-        <ol>
-            <li>If x = 1 and y = 0, return 1.</li>
-            <li>Else if x = 0 and y = 1, return 1.</li>
-            <li>Else, return 0.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">function BinaryXor(x, y) {
-    if(x === BigInt(1) && y === BigInt(0)) {
-        // If x = 1 and y = 0, return 1 
-        return BigInt(1);
-    } else if(x === BigInt(0) && y === BigInt(1)) {
-        // Else if x = 0 and y = 1, return 1
-        return BigInt(1);
-    } else {
-        // Else, return 0
-        return BigInt(0);
-    }
-};
-BinaryXor(1n, 0n);</code></pre>
-
-
-        <h6>BigIntBitwiseOp (op, x, y)</h6>
-
-        <p>The abstract operation <code>BigIntBitwiseOp</code> takes arguments <code>op</code> (<code>&</code>, <code>^</code>, or <code>|</code>), <code>x</code> (a BigInt), and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
-
-        <ol>
-            <li>Set <code>x</code> to <code>x</code>.</li>
-            <li>Set <code>y</code> to <code>y</code>.</li>
-            <li>Let <code>result</code> be 0.</li>
-            <li>Let <code>shift</code> be 0.</li>
-            <li>Repeat, until (x = 0 or x = -1) and (y = 0 or y = -1),<br>
-                <ol>
-                    <li>Let <code>xDigit</code> be <code>x</code> modulo 2.</li>
-                    <li>Let <code>yDigit</code> be <code>y</code> modulo 2.</li>
-                    <li>If <code>op</code> is <code>&</code>, set <code>result</code> to $$result + 2^shift × BinaryAnd(xDigit, yDigit)$$.</li>
-                    <li>Else if <code>op</code> is <code>|</code>, set <code>result</code> to $$result + 2^shift × BinaryOr(xDigit, yDigit)$$.</li>
-                    <li>Else<br>
-                        <ol>
-                            <li>Assert: <code>op</code> is <code>^</code>.</li>
-                            <li>Set <code>result</code> to $$result + 2^shift × BinaryXor(xDigit, yDigit)$$.</li>
-                        </ol>
-                    </li>
-                    <li>Set <code>shift</code> to <code>shift</code> + 1.</li>
-                    <li>Set <code>x</code> to $$(x - xDigit) / 2$$.</li>
-                    <li>Set <code>y</code> to $$(y - yDigit) / 2$$.</li>
-                </ol>
-            </li>
-            <li>If <code>op</code> is <code>&</code>, let <code>tmp</code> be <code>BinaryAnd(x modulo 2, y modulo 2)</code>.</li>
-            <li>Else if <code>op</code> is <code>|</code>, let <code>tmp</code> be <code>BinaryOr(x modulo 2, y modulo 2)</code>.</li>
-            <li>Else,<br>
-                <ol>
-                    <li>Assert: <code>op</code> is <code>^</code>.</li>
-                    <li>Let <code>tmp</code> be <code>BinaryXor(x modulo 2, y modulo 2)</code>.</li>
-                </ol>
-            </li>
-            <li>If <code>tmp</code> ≠ 0, then<br>
-                <ol>
-                    <li>Set <code>result</code> to $$result - 2^shift$$.</li>
-                    <li>NOTE: This extends the sign.</li>
-                </ol>
-            </li>
-            <li>Return the BigInt value for <code>result</code>.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">function BigIntBitwiseOp(op, x, y) {
-    // Set x to x
-    x = BigInt(x);
-    // Set y to y
-    y = BigInt(y);
-    // Let result be 0
-    let result = BigInt(0);
-    // Let shift be 0
-    let shift = BigInt(0);
-    // Repeat, until (x = 0 or x = -1) and (y = 0 or y = -1)
-    do {
-        // Let xDigit be x modulo 2
-        let xDigit = x % BigInt(2);
-        // Let yDigit be y modulo 2
-        let yDigit = y % BigInt(2);
-        
-        if(op === '&') {
-            // If op is &, set result to result + 2^shift × BinaryAnd(xDigit, yDigit).
-            result = result + (BigInt(2) ** shift) * BinaryAnd(xDigit, yDigit);
-            
-        } else if(op === '|') {
-            // Else if op is |, set result to result + 2^shift × BinaryOr(xDigit, yDigit)
-            result = result + BigInt(2) ** shift * BinaryOr(xDigit, yDigit);
-        } else {
-            // Else op is ^.
-            // Set result to result + 2^shift × BinaryXor(xDigit, yDigit)
-            result = result + BigInt(2) ** shift * BinaryXor(xDigit, yDigit);
-        }
-        // Set shift to shift + 1
-        shift = shift + BigInt(1);
-        // Set x to (x - xDigit) / 2
-        x = (x - xDigit) / BigInt(2);
-        // Set y to (y - yDigit) / 2
-        y = (y - yDigit) / BigInt(2);
-        
-        if((x === BigInt(0) || x === BigInt(-1)) && (y === BigInt(0) || y === BigInt(-1))) {
-            break;
-        }
-    }
-    while (true);
-
-    if(op === '&') {
-        // If op is &, let tmp be BinaryAnd(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryAnd(x % BigInt(2), y % BigInt(2)));
-        
-    } else if(op === '|') {
-        // Else if op is |, let tmp be BinaryOr(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryOr(x % BigInt(2), y % BigInt(2)));
-    } else {
-        // Else
-        // Assert: op is ^
-        // Let tmp be BinaryXor(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryXor(x % BigInt(2), y % BigInt(2)));
-    }
-
-    if(tmp !== BigInt(0)) {
-        result = result - BigInt(2) ** shift;
-    }
-    
-    return BigInt(result);
-};</code></pre>
-
-        <h6>BigInt::bitwiseAND (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::bitwiseAND</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
-
-        <ol>
-            <li>Return BigIntBitwiseOp(&, x, y).</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">function BinaryAnd(x, y) {
-    if(x === BigInt(1) && y === BigInt(1)) {
-        // If x = y, return true; 
-        return BigInt(1);
-    }else {
-        // otherwise return false
-        return BigInt(0);
-    }
-};
-function BigIntBitwiseOp(op, x, y) {
-    // Set x to x
-    x = BigInt(x);
-    // Set y to y
-    y = BigInt(y);
-    // Let result be 0
-    let result = BigInt(0);
-    // Let shift be 0
-    let shift = BigInt(0);
-    // Repeat, until (x = 0 or x = -1) and (y = 0 or y = -1)
-    do {
-        // Let xDigit be x modulo 2
-        let xDigit = x % BigInt(2);
-        // Let yDigit be y modulo 2
-        let yDigit = y % BigInt(2);
-        
-        if(op === '&') {
-            // If op is &, set result to result + 2^shift × BinaryAnd(xDigit, yDigit).
-            result = result + (BigInt(2) ** shift) * BinaryAnd(xDigit, yDigit);
-            
-        } else if(op === '|') {
-            // Else if op is |, set result to result + 2^shift × BinaryOr(xDigit, yDigit)
-            result = result + BigInt(2) ** shift * BinaryOr(xDigit, yDigit);
-        } else {
-            // Else op is ^.
-            // Set result to result + 2^shift × BinaryXor(xDigit, yDigit)
-            result = result + BigInt(2) ** shift * BinaryXor(xDigit, yDigit);
-        }
-        // Set shift to shift + 1
-        shift = shift + BigInt(1);
-        // Set x to (x - xDigit) / 2
-        x = (x - xDigit) / BigInt(2);
-        // Set y to (y - yDigit) / 2
-        y = (y - yDigit) / BigInt(2);
-        
-        if((x === BigInt(0) || x === BigInt(-1)) && (y === BigInt(0) || y === BigInt(-1))) {
-            break;
-        }
-    }
-    while (true);
-
-    if(op === '&') {
-        // If op is &, let tmp be BinaryAnd(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryAnd(x % BigInt(2), y % BigInt(2)));
-        
-    } else if(op === '|') {
-        // Else if op is |, let tmp be BinaryOr(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryOr(x % BigInt(2), y % BigInt(2)));
-    } else {
-        // Else
-        // Assert: op is ^
-        // Let tmp be BinaryXor(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryXor(x % BigInt(2), y % BigInt(2)));
-    }
-
-    if(tmp !== BigInt(0)) {
-        result = result - BigInt(2) ** shift;
-    }
-    
-    return BigInt(result);
-};
-BigInt.bitwiseAND = function (x, y) {
-    return BigIntBitwiseOp('&', x, y);
-}
-BigInt.bitwiseAND(102n, 875n);</code></pre>
-
-        <h6>BigInt::bitwiseXOR (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::bitwiseXOR</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
-
-        <ol>
-            <li>Return BigIntBitwiseOp(^, x, y).</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">function BinaryXor(x, y) {
-    if(x === BigInt(1) && y === BigInt(0)) {
-        // If x = 1 and y = 0, return 1 
-        return BigInt(1);
-    } else if(x === BigInt(0) && y === BigInt(1)) {
-        // Else if x = 0 and y = 1, return 1
-        return BigInt(1);
-    } else {
-        // Else, return 0
-        return BigInt(0);
-    }
-};
-function BigIntBitwiseOp(op, x, y) {
-    // Set x to x
-    x = BigInt(x);
-    // Set y to y
-    y = BigInt(y);
-    // Let result be 0
-    let result = BigInt(0);
-    // Let shift be 0
-    let shift = BigInt(0);
-    // Repeat, until (x = 0 or x = -1) and (y = 0 or y = -1)
-    do {
-        // Let xDigit be x modulo 2
-        let xDigit = x % BigInt(2);
-        // Let yDigit be y modulo 2
-        let yDigit = y % BigInt(2);
-        
-        if(op === '&') {
-            // If op is &, set result to result + 2^shift × BinaryAnd(xDigit, yDigit).
-            result = result + (BigInt(2) ** shift) * BinaryAnd(xDigit, yDigit);
-            
-        } else if(op === '|') {
-            // Else if op is |, set result to result + 2^shift × BinaryOr(xDigit, yDigit)
-            result = result + BigInt(2) ** shift * BinaryOr(xDigit, yDigit);
-        } else {
-            // Else op is ^.
-            // Set result to result + 2^shift × BinaryXor(xDigit, yDigit)
-            result = result + BigInt(2) ** shift * BinaryXor(xDigit, yDigit);
-        }
-        // Set shift to shift + 1
-        shift = shift + BigInt(1);
-        // Set x to (x - xDigit) / 2
-        x = (x - xDigit) / BigInt(2);
-        // Set y to (y - yDigit) / 2
-        y = (y - yDigit) / BigInt(2);
-        
-        if((x === BigInt(0) || x === BigInt(-1)) && (y === BigInt(0) || y === BigInt(-1))) {
-            break;
-        }
-    }
-    while (true);
-
-    if(op === '&') {
-        // If op is &, let tmp be BinaryAnd(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryAnd(x % BigInt(2), y % BigInt(2)));
-        
-    } else if(op === '|') {
-        // Else if op is |, let tmp be BinaryOr(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryOr(x % BigInt(2), y % BigInt(2)));
-    } else {
-        // Else
-        // Assert: op is ^
-        // Let tmp be BinaryXor(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryXor(x % BigInt(2), y % BigInt(2)));
-    }
-
-    if(tmp !== BigInt(0)) {
-        result = result - BigInt(2) ** shift;
-    }
-    
-    return BigInt(result);
-};
-BigInt.bitwiseXOR = function (x, y) {
-    return BigIntBitwiseOp('^', x, y);
-}
-BigInt.bitwiseXOR(102n, 875n);</code></pre>
-
-        <h6>BigInt::bitwiseOR (x, y)</h6>
-
-        <p>The abstract operation <code>BigInt::bitwiseOR</code> takes arguments <code>x</code> (a BigInt) and <code>y</code> (a BigInt) and returns a BigInt. It performs the following steps when called:</p>
-
-        <ol>
-            <li>Return BigIntBitwiseOp(|, x, y).</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">function BinaryOr(x, y) {
-    if(x === BigInt(1) || y === BigInt(1)) {
-        // If x = 1 or y = 1, return true; 
-        return BigInt(1);
-    }else {
-        // otherwise return false
-        return BigInt(0);
-    }
-};
-function BigIntBitwiseOp(op, x, y) {
-    // Set x to x
-    x = BigInt(x);
-    // Set y to y
-    y = BigInt(y);
-    // Let result be 0
-    let result = BigInt(0);
-    // Let shift be 0
-    let shift = BigInt(0);
-    // Repeat, until (x = 0 or x = -1) and (y = 0 or y = -1)
-    do {
-        // Let xDigit be x modulo 2
-        let xDigit = x % BigInt(2);
-        // Let yDigit be y modulo 2
-        let yDigit = y % BigInt(2);
-        
-        if(op === '&') {
-            // If op is &, set result to result + 2^shift × BinaryAnd(xDigit, yDigit).
-            result = result + (BigInt(2) ** shift) * BinaryAnd(xDigit, yDigit);
-            
-        } else if(op === '|') {
-            // Else if op is |, set result to result + 2^shift × BinaryOr(xDigit, yDigit)
-            result = result + BigInt(2) ** shift * BinaryOr(xDigit, yDigit);
-        } else {
-            // Else op is ^.
-            // Set result to result + 2^shift × BinaryXor(xDigit, yDigit)
-            result = result + BigInt(2) ** shift * BinaryXor(xDigit, yDigit);
-        }
-        // Set shift to shift + 1
-        shift = shift + BigInt(1);
-        // Set x to (x - xDigit) / 2
-        x = (x - xDigit) / BigInt(2);
-        // Set y to (y - yDigit) / 2
-        y = (y - yDigit) / BigInt(2);
-        
-        if((x === BigInt(0) || x === BigInt(-1)) && (y === BigInt(0) || y === BigInt(-1))) {
-            break;
-        }
-    }
-    while (true);
-
-    if(op === '&') {
-        // If op is &, let tmp be BinaryAnd(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryAnd(x % BigInt(2), y % BigInt(2)));
-        
-    } else if(op === '|') {
-        // Else if op is |, let tmp be BinaryOr(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryOr(x % BigInt(2), y % BigInt(2)));
-    } else {
-        // Else
-        // Assert: op is ^
-        // Let tmp be BinaryXor(x modulo 2, y modulo 2)
-        tmp = BigInt(BinaryXor(x % BigInt(2), y % BigInt(2)));
-    }
-
-    if(tmp !== BigInt(0)) {
-        result = result - BigInt(2) ** shift;
-    }
-    
-    return BigInt(result);
-};
-BigInt.bitwiseOR = function (x, y) {
-    return BigIntBitwiseOp('|', x, y);
-}
-BigInt.bitwiseOR(102n, 875n);</code></pre>
-
-        <h6>BigInt::toString (x, radix)</h6>
-
-        <p>The abstract operation <code>BigInt::toString</code> takes arguments <code>x</code> (a BigInt) and <code>radix</code> (an integer in the inclusive interval from 2 to 36) and returns a String. It represents <code>x</code> as a String using a positional numeral system with radix <code>radix</code>. The digits used in the representation of a BigInt using radix <code>r</code> are taken from the first <code>r</code> code units of <b>"0123456789abcdefghijklmnopqrstuvwxyz"</b> in order. The representation of BigInts other than 0 never includes leading zeroes. It performs the following steps when called:</p>
-
-        <ol>
-            <li>If <code>x</code> < 0, return the string-concatenation of <code>"-"</code> and <code>BigInt::toString(-x, radix)</code>.</li>
-            <li>Return the String value consisting of the representation of <code>x</code> using radix <code>radix</code>.</li>
-        </ol>
-
-        <p>If we translated the steps into Javascript codes, this is more or less it would look like:</p>
-
-        <pre><code class="language-bash hljs">BigInt.toString = function (x, radix) {
-    if(x < BigInt(0)) {
-        return "-" + BigInt.toString(-x, radix);
-    }
-
-    let result = "";
-    let number = BigInt(x);
-
-    while(number > BigInt(0n)) {    
-        let remainder = number % BigInt(radix);
-            
-        if (remainder === BigInt(10n)) {
-            result = "A" + result;
-        } else if (remainder === BigInt(11n)) {
-            result = "B" + result;
-        } else if (remainder === BigInt(12n)) {
-            result = "C" + result;
-        } else if (remainder === BigInt(13n)) {
-            result = "D" + result;
-        } else if (remainder === BigInt(14n)) {
-            result = "E" + result;
-        } else if (remainder === BigInt(15n)) {
-            result = "F" + result;
-        } else if (remainder === BigInt(16n)) {
-            result = "G" + result;
-        } else if (remainder === BigInt(17n)) {
-            result = "H" + result;
-        } else if (remainder === BigInt(18n)) {
-            result = "I" + result;
-        } else if (remainder === BigInt(19n)) {
-            result = "J" + result;
-        } else if (remainder === BigInt(20n)) {
-            result = "K" + result;
-        } else if (remainder === BigInt(21n)) {
-            result = "L" + result;
-        } else if (remainder === BigInt(22n)) {
-            result = "M" + result;
-        } else if (remainder === BigInt(23n)) {
-            result = "N" + result;
-        } else if (remainder === BigInt(24n)) {
-            result = "O" + result;
-        } else if (remainder === BigInt(25n)) {
-            result = "P" + result;
-        } else if (remainder === BigInt(26n)) {
-            result = "Q" + result;
-        } else if (remainder === BigInt(27n)) {
-            result = "R" + result;
-        } else if (remainder === BigInt(28n)) {
-            result = "S" + result;
-        } else if (remainder === BigInt(29n)) {
-            result = "T" + result;
-        } else if (remainder === BigInt(30n)) {
-            result = "U" + result;
-        } else if (remainder === BigInt(31n)) {
-            result = "V" + result;
-        } else if (remainder === BigInt(32n)) {
-            result = "W" + result;
-        } else if (remainder === BigInt(33n)) {
-            result = "X" + result;
-        } else if (remainder === BigInt(34n)) {
-            result = "Y" + result;
-        } else if (remainder === BigInt(35n)) {
-            result = "Z" + result;
-        } else {
-            result = remainder + result;
-        }    
-        
-        number = number / radix;
-    }
-    return result;
-}
-BigInt.toString(123456789012345678901234567890n, 16n);</code></pre>
-        
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/javascript" class="tag">javascript</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/abstract-operation" class="tag">abstract operation</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Complete Reference" /><category term="year-2024" /><category term="month-07" /><category term="day-05" /><category term="javascript" /><category term="abstract operation" /><summary type="html"><![CDATA[Learn about the abstract operations of the BigInt type in JavaScript, focusing on binary and arithmetic operations. This article provides examples, algorithms, and explanations to help you understand these concepts better.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-07" /><category term="day-13" /><category term="javascript" /><category term="global execution context" /><category term="function execution context" /><category term="creation phase" /><category term="execution phase" /><summary type="html"><![CDATA[Execution context in JavaScript refers to the environment in which code is executed. This includes the global execution context, which encompasses code not within any function, and function execution contexts, which are created when functions are invoked. The execution context goes through two phases: the creation phase, where the JavaScript engine sets up the environment, and the execution phase, where the code is run. Understanding these concepts is crucial for effectively scoping variables and functions and comprehending how JavaScript code is processed.]]></summary></entry></feed>
