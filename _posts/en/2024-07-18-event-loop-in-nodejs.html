@@ -27,7 +27,7 @@ tags: ["nodejs", "event loop", "call stack", "nodejs api", "microtask", "microta
 
         <p>The following diagram shows a simplified overview of the event loop's order of operations.</p>
 
-        <pre><code class="language-bash hljs"> ┌───────────────────────────┐
+        <pre><code class="language-bash hljs">    ┌───────────────────────────┐
 ┌─>│           timers          │
 │  └─────────────┬─────────────┘
 │  ┌─────────────┴─────────────┐
@@ -59,7 +59,7 @@ tags: ["nodejs", "event loop", "call stack", "nodejs api", "microtask", "microta
 
         <h5 class="post-subtitle">Microtasks</h5>
 
-        <p>All microtasks line up in a specialized queue, made solely for them — the microtask queue.</p>
+        <p>All microtasks are placed into a microtask queue, designed specifically for handling them.</p>
 
         <p>The microtask queue is processed and emptied before every phase iteration of the event loop.</p>
 
