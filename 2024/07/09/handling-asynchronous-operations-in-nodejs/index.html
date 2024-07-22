@@ -1760,13 +1760,13 @@ console.log(promise);
         <pre><code class="language-bash hljs">// Fetch a user from the GitHub API
 fetch('https://api.github.com/users/octocat')
     .then((response) => {
-    return response.json()
+        return response.json()
     })
     .then((data) => {
-    console.log(data)
+        console.log(data)
     })
     .catch((error) => {
-    console.error(error)
+        console.error(error)
     });</code></pre>
 
         <p>The fetch request is sent to the <code>https://api.github.com/users/octocat</code> URL, which asynchronously waits for a response. The first then passes the response to an anonymous function that formats the response as JSON data, then passes the JSON to a second then that logs the data to the console. The catch statement logs any error to the console.</p>
