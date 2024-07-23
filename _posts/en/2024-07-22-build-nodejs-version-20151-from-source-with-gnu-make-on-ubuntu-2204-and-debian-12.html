@@ -1,0 +1,57 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Build Node JS Version 20.15.1 from Source with GNU Make on Ubuntu 22.04 and Debian 12"
+thumb: "build20151-nodejs.jpg"
+eyebrow: "Tutorial"
+description: "In this guide, we will walk you through the process of building Node.js version 20.15.1 from source using GNU Make on both Ubuntu 22.04 and Debian 12."
+date: 2024-07-22 20:21:00 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2024", "month-07", "day-22"]
+tags: ["ubuntu 22.04", "debian 12", "nodejs", "build source code", "gnu make"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Install necessary dependencies:</p>
+
+        <pre><code class="language-bash hljs">sudo apt-get install -y python3 g++ make python3-pip</code></pre>
+
+        <p>Download Node.js version 20.15.1 source:</p>
+
+        <pre><code class="language-bash hljs">wget https://nodejs.org/dist/v20.5.1/node-v20.15.1.tar.gz</code></pre>
+
+        <p>Extract the Node.js archive in the current directory with the following command:</p>
+
+        <pre><code class="language-bash hljs">tar -xvzf node-v20.15.1.tar.gz</code></pre>
+
+        <p>If the path to your build directory contains a space, the build will likely fail.</p>
+
+        <p>Then run the following to build Node.js:</p>
+
+        <pre><code class="language-bash hljs">sudo apt-get install python3 g++ make python3-pip</code></pre>
+
+        <p>Navigate into the directory node-v20.15.1 after extracting the archive.</p>
+
+        <pre><code class="language-bash hljs">cd node-v20.15.1</code></pre>
+
+        <p>Run the configure script:</p>
+
+        <pre><code class="language-bash hljs">./configure</code></pre>
+
+        <p>Compile the source code:</p>
+
+        <pre><code class="language-bash hljs">make -j4</code></pre>
+
+        <p>Install Node.js:</p>
+
+        <pre><code class="language-bash hljs">sudo make install</code></pre>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>

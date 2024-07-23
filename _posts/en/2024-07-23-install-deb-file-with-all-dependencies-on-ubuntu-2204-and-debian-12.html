@@ -1,0 +1,57 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Install deb file with all dependencies on Ubuntu 22.04 and Debian 12"
+thumb: "debfile.jpg"
+eyebrow: "Tutorial"
+description: "Learn how to efficiently install .deb files with all dependencies on Ubuntu 22.04 and Debian 12 using various methods. This comprehensive guide covers the use of apt, dpkg, apt-get, and gdebi to ensure smooth and hassle-free installation. Whether you're a beginner or an experienced user, our step-by-step instructions will help you navigate the process effortlessly, ensuring that all necessary dependencies are resolved and installed correctly. Perfect for users looking to manage their software installations on Ubuntu 22.04 and Debian 12."
+date: 2024-07-23 20:40:00 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2024", "month-07", "day-23"]
+tags: ["ubuntu 22.04", "debian 12", "apt", "dpkg", "apt-get", "gdebi"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Installing a .deb package with all dependencies on Ubuntu or Debian can be done easily using the terminal.</p>
+
+        <h5>Method 1: Using <code>apt</code> Command</h5>
+
+        <ol>
+            <li>Download the .deb file from a trusted source.</li>
+            <li>Open the terminal and navigate to the directory where the .deb file is located.</li>
+            <li>Use the dpkg command to install the package:<br>
+                <pre><code class="language-bash hljs">sudo dpkg -i package-name.deb</code></pre>
+            </li>
+        </ol>
+
+        <h5>Method 2: Using <code>dpkg</code> and <code>apt-get</code></h5>
+
+        <ol>
+            <li>Download the .deb file from a trusted source.</li>
+            <li>Open the terminal and navigate to the directory where the .deb file is located.</li>
+            <li>Use the <code>apt</code> command to install the package and resolve dependencies:<br>
+                <pre><code class="language-bash hljs">sudo apt install ./package-name.deb</code></pre>
+            </li>
+            <li>After running <code>dpkg</code>, you might have missing dependencies. Fix them using <code>apt-get</code>:<br>
+                <pre><code class="language-bash hljs">sudo apt-get install -f</code></pre></li>
+        </ol>
+
+        <h5>Method 3: Using <code>gdebi</code></h5>
+
+        <ol>
+            <li>First, install <code>gdebi</code> if it's not already installed:<br>
+                <pre><code class="language-bash hljs">sudo apt-get install gdebi</code></pre></li>
+            <li>Use <code>gdebi</code> to install the package and automatically resolve dependencies:<br>
+                <pre><code class="language-bash hljs">sudo gdebi package-name.deb</code></pre></li>
+        </ol>
+        
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>

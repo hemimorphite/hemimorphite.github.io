@@ -1,0 +1,54 @@
+---
+layout: post
+lang: en
+locale: en
+title: "UTF-32 or UCS-4 Encoding and Decoding Algorithm"
+thumb: "unicode.jpg"
+eyebrow: "Tutorial"
+description: "UTF-32, UTF-32LE, UTF-32BE or UCS-4 encoding and decoding algorithm is crucial for processing text in various programming languages. This page explains the implementation of UTF-16, UTF-16LE, UTF-16BE encoding and decoding with examples for programmers to understand and utilize effectively."
+date: 2024-06-24 23:57:00 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2024", "month-06", "day-24"]
+tags: ["UTF-32", "UTF-32LE", "UTF-32BE", "UCS-4", "unicode", "algorithm", "encoding", "decoding", "byte order mark"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>In computer systems, characters are transformed and stored as numbers (sequences of bits) that can be handled by the processor. A code page is an encoding scheme that maps a specific sequence of bits to its character representation. Before Unicode, there were hundreds of different encoding schemes that assigned a number to each letter or character. Many such schemes included code pages that contained only 256 characters – each character requiring 8 bits of storage. While this was relatively compact, it was insufficient to hold ideographic character sets containing thousands of characters such as Chinese and Japanese, and also did not allow the character sets of many languages to co-exist with each other.</p>
+
+        <p>Unicode is an attempt to include all the different schemes into one universal text-encoding standard.</p>
+
+        <p>Unicode represents each individual character as a unique code point with a unique number. For example, the character <b>A</b> – <b>Latin Capital Letter A</b> – is represented as <b>U+0041</b> and the Hiragana <b>ふ</b> is <b>U+3075</b>.</p>
+
+        <p>An individual Unicode code point is expressed as <b>U+n</b>, where <b>n</b> is four to six hexadecimal digits, using the digits <b>0–9</b> and uppercase letters <b>A–F</b> (for 10 through 15, respectively). Leading zeros are omitted, unless the code point would have fewer than four hexadecimal digits. For example, <b>U+0001</b>, <b>U+0012</b>, <b>U+0123</b>, <b>U+1234</b>, <b>U+12345</b>, <b>U+102345</b>.</p>
+
+        <p>The Unicode code space is divided into seventeen planes (the basic multilingual plane, and 16 supplementary planes), each with 65,536 code points. Thus the total size of the Unicode code space is 17 × 65,536 = 1,114,112.</p>
+
+        <p>The first plane is called the Basic Multilingual Plane or BMP. It contains the code points from <b>U+0000</b> to <b>U+FFFF</b>, which are the most frequently used characters.</p>
+
+        <p>Unicode also defines multiple encodings of its single character set: <b>UTF-8</b>, <b>UTF-16</b>, and <b>UTF-32</b>.</p>
+
+        <h5 class="post-subtitle">UTF-32/UCS-4 Encoding and Decoding</h5>
+
+        <p>UTF-132/UCS-4 is a character encoding that maps code points of Unicode character to a sequence of 32-bit code units. UTF-32 uses a 32-bit code unit to represent a unicode character.</p>
+
+        <p>Code unit is a value that encoded code point to 8/16/32 bits to store/transmit Unicode text efficiently on a computer.</p>
+
+        <p>The algorithm to convert a unicode code point to UTF-32/UCS-4 sequence is as follows: represent the unicode code point as a 32-bit unsigned integer. For example, U+0041 becomes the UTF-32 sequence 0x00000041.</p>
+
+        <p>The algorithm to convert UTF-32/UCS-4 sequence to a unicode code point is as follows: represent the 32-bit code unit a unicode code point. For example, the UTF-32 sequence 0x00000041 becomes U+00000041. Leading zeros in unicode code points are omitted, unless the code point would have fewer than four hexadecimal digits. Thus the UTF-32 sequence 0x00000041 becomes <b>U+0041</b>.</p>
+        
+        <h5 class="post-subtitle">Byte Order Mark (BOM)</h5>
+
+        <p>UTF-32 comes in two variations, big endian and little endian. In big-endian UTF-32 or UTF-32BE, the most significant byte of the character comes first. In little-endian UTF-32 or UTF-32LE, the order is reversed. Thus, in big-endian UTF-32, the code point of letter A is <b>U+0041</b> and the encoded bytes are <b>0x00</b>, <b>0x00</b>, <b>0x00</b>, and <b>0x41</b>. In little-endian UTF-32, the encoded bytes are swapped, and A is <b>0x41</b>, <b>0x00</b>, <b>0x00</b>, and <b>0x00</b>. In big-endian UTF-32, the code point of letter B is <b>U+0042</b> and the encoded bytes are <b>0x00</b>, <b>0x00</b>, <b>0x00</b>, and <b>0x42</b>; in little-endian UTF-32, it's <b>0x42</b>, <b>0x00</b>, <b>0x00</b>, and <b>0x00</b>. In big-endian UTF-32, the code point of letter Σ is <b>U+03A3</b> and the encoded bytes are <b>0x00</b>, <b>0x00</b>, <b>0x03</b>, and <b>0xA3</b>; in little-endian UTF-32, it's <b>0xA3</b>, <b>0x03</b>, <b>0x00</b>, and <b>0x00</b>. In big-endian UTF-32, the code point of emoticon 😀 is <b>U+1F600</b> and the encoded bytes are <b>0x00</b>, <b>0x01</b>, <b>0xF6</b> and <b>0x00</b>; in little-endian UTF-16, it's <b>0x00</b>, <b>0xF6</b>, <b>0x01</b>, and <b>0x00</b>. In big-endian UTF-16, the code point of character 𠂤 is <b>U+200A4</b> and the encoded bytes are <b>0x00</b>, <b>0x02</b>, <b>0x00</b> and <b>0xA4</b>; in little-endian UTF-16, it's <b>0xA4</b>, <b>0x00</b>, <b>0x02</b> and <b>0x00</b>.</p>
+
+        <p>To distinguish between big-endian and little-endian UTF-32, a program can look at the first two bytes of a UTF-32 encoded document, a document encoded in big-endian UTF-32 begins with Unicode character <b>U+FEFF</b>, the zero-width nonbreaking space and the encoded bytes are <b>0x00</b>, <b>0x00</b>, <b>0xFE</b>, and <b>0xFF</b>. A document encoded in big-endian UTF-32 begins with the same Unicode character (<b>U+FEFF</b>) but the bytes is swapped <b>0xFF</b>, <b>0xFE</b>, <b>0x00</b> and <b>0x00</b>.</p>
+        
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
