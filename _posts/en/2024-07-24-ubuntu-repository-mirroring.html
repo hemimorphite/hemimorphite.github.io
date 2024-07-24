@@ -1,0 +1,89 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Ubuntu Repository Mirroring"
+thumb: "repositorymirror.jpg"
+eyebrow: "Tutorial"
+description: " Discover how to create a local mirror of Ubuntu repositories using debmirror. This comprehensive guide covers everything from installing debmirror to customizing your mirroring setup for different Ubuntu releases and architectures."
+date: 2024-07-24 13:34:00 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2024", "month-07", "day-24"]
+tags: ["ubuntu", "repository", "pocket", "component"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>When you mirror a repository, you create a local copy of the entire repository, which includes all its data and structural elements.</p>
+
+        <p>To understand the repository mirroring hierarchy in Landscape, you should know the following terms:</p>
+
+        <ol>
+            <li>Repository: The repository is the highest level of the hierarchy. It can also be called the "distribution". If you're mirroring an Ubuntu repository, the repository would simply be "Ubuntu".</li>
+            <li>Series: Series are inside the repository; they are specific versions of your repository. For example, "Jammy 22.04" could be the series from the Ubuntu repository. When you download a series, you download every package locally that's available from that particular series.</li>
+            <li>Pocket: Pockets are inside the series. There are different pockets, or sections, of packages:<br>
+                <ul>
+                    <li>Release pocket: Contains all packages that were available at the moment of releasing that particular series. For example, the Jammy 22.04 release pocket contains all of the packages that were included with Jammy 22.04 at the time of its initial release.</li>
+                    <li>Updates pocket: Contains all the updates, or newer versions, of the packages in the series that were added to the repository after its initial release. For example, the Jammy 22.04 updates pocket contains all package updates that have been added to Jammy 22.04 after its initial release. If the repository doesn't have any updates, then there won't be an updates pocket.</li>
+                    <li>Security pocket: This is a subset of the updates pocket, and it contains all the newer versions of packages that were updated specifically to fix a security issue.</li>
+                    <li>Pull pocket (optional - user-defined): Pull pockets are user-defined pockets that you can create to make specific packages and updates available to different groups of machines. Pull pockets are essentially a "staging" area for you to prepare packages from other pockets before they're distributed to your systems. You can use allowlist and blocklist filters to control which packages are included or excluded from your user-defined pull pocket.</li>
+                </ul>
+            </li>
+            <li>Component: Components are categories of packages in the system-defined pockets (release, updates, security). There are four possible components:<br>
+                <ul>
+                    <li>Main: Contains all packages that are directly maintained by the repository owner. For an Ubuntu repository, this would be all packages directly maintained by Canonical.</li>
+                    <li>Restricted: Contains proprietary packages and drivers that aren't fully open-source.</li>
+                    <li>Universe: Contains packages that are maintained by the community, rather than the owner of the repository (Canonical, for Ubuntu repositories).</li>
+                    <li>Multiverse: Contains packages that are maintained by the community, but these packages may have restrictions or other reasons to be separate from the universe component.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <figure class="post-figure">
+            <img src="/assets/images/repositorymirrorhierarchy.jpg" alt="Repository mirror hierarchy">
+        </figure>
+        
+        <p>By default, Ubuntu systems get their updates straight from the internet at archive.ubuntu.com. In an environment with lots of Ubuntu systems (servers and/or desktops) this can cause a lot of internet traffic as each system needs to download the same updates.</p>
+
+        <p>Here's a step-by-step guide to mirroring an Ubuntu repository using <code>debmirror</code>:</p>
+
+        <ul>
+            <li>First, install <code>debmirror</code>.<br>
+                <pre><code class="language-bash hljs">sudo apt-get install debmirror</code></pre>
+            </li>
+            <li>Decide which repository (e.g. focal, jammy, noble) you want to mirror and the sections you need (e.g., main, restricted, universe, multiverse).</li>
+            <li>Below is an example command to mirror the Ubuntu jammy repository for the i386 architecture, including the main, restricted, universe, and multiverse sections.<br>
+                <pre><code class="language-bash hljs">debmirror \
+    --nosource -m --passive \
+    --host=archive.ubuntu.com \
+    --root=ubuntu/ --method=http --progress \
+    --dist='jammy','jammy-security','jammy-updates','jammy-backports' \
+    --section=main,restricted,universe,multiverse \
+    --arch='i386' ~/UbuntuRepos \
+    --ignore-release-gpg</code></pre><br>
+                
+                Explanation of Options:<br>
+                <ul>
+                    <li><code>--nosource</code>: Do not download source packages.</li>
+                    <li><code>-m</code>: Enable verbose output.</li>
+                    <li><code>--passive</code>: Use passive FTP mode.</li>
+                    <li><code>--host=archive.ubuntu.com</code>: The remote repository host.</li>
+                    <li><code>--root=ubuntu/</code>: The root directory of the repository on the remote server.</li>
+                    <li><code>--method=http</code>: Use HTTP for downloading files.</li>
+                    <li><code>--progress</code>: Show progress of the download.</li>
+                    <li><code>--dist='jammy','jammy-security','jammy-updates','jammy-backports'</code>: The distributions (releases) to mirror.</li>
+                    <li><code>--section=main,restricted,universe,multiverse</code>: The sections of the repository to mirror.</li>
+                    <li><code>--arch='i386'</code>: The architecture to mirror.</li>
+                    <li>~/UbuntuRepos: Local directory to store the mirrored repository.</li>
+                    <li><code>--ignore-release-gpg</code>: Ignore GPG errors related to the Release file.</li>
+                </ul>
+            </li>
+        </ul>
+</article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
