@@ -1,0 +1,3582 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="Dive into the world of Windows-1250 encoding with our in-depth guide. Windows-1250 (CP-1250) is a character encoding system used primarily for Central European languages. This page covers everything you need to know about encoding and decoding text using Windows-1250 (CP-1250), including the underlying algorithm and practical applications.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/zh/2024/06/24/windows-1250-encoding-and-decoding/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/zh/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Windows-1250 (CP-1250) Encoding and Decoding">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/zh/2024/06/24/windows-1250-encoding-and-decoding/">
+		<meta property="og:description" content="Dive into the world of Windows-1250 encoding with our in-depth guide. Windows-1250 (CP-1250) is a character encoding system used primarily for Central European languages. This page covers everything you need to know about encoding and decoding text using Windows-1250 (CP-1250), including the underlying algorithm and practical applications.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/windows1250.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Windows-1250 (CP-1250) Encoding and Decoding">
+		<meta name="twitter:description" content="Dive into the world of Windows-1250 encoding with our in-depth guide. Windows-1250 (CP-1250) is a character encoding system used primarily for Central European languages. This page covers everything you need to know about encoding and decoding text using Windows-1250 (CP-1250), including the underlying algorithm and practical applications.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/windows1250.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Windows-1250 (CP-1250) Encoding and Decoding</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <!-- Additional CSS Files -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <!--<div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>-->  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/zh/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '9cf40e8a46ab80f525196d3376630858',
+								'format' : 'iframe',
+								'height' : 90,
+								'width' : 728,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<script type="text/javascript">
+					atOptions = {
+						'key' : '9cf40e8a46ab80f525196d3376630858',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+			</div>
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">Windows-1250 (CP-1250) Encoding and Decoding</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published June 24, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/windows1250.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Windows-1250 is a single-byte character encoding designed for Central and Eastern European languages that use the Latin alphabet. Designed to support languages such as Polish, Czech, Hungarian, Slovak, and others in the Central and Eastern European region.</p>
+
+        <p>Windows-1250 consists of 256 characters, where the first 128 characters are the same as ASCII. The remaining 128 characters cover additional Latin-based characters, diacritics, and special symbols needed for languages like Polish, Czech, Hungarian, and others.</p>
+
+        <p>Windows-1250 also known as CP-1250.</p>
+
+        <p>The following table displays ASCII control characters:</p>
+
+        <table class="table table-bordered border-primary">
+            <tr>
+                <td>DEC</td>
+                <td>OCT</td>
+                <td>HEX</td>
+                <td>Symbol</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>000</td>
+                <td>00</td>
+                <td>␀</td>
+                <td>Null character</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>001</td>
+                <td>01</td>
+                <td>␁</td>
+                <td>Start of Heading</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>002</td>
+                <td>02</td>
+                <td>␂</td>
+                <td>Start of Text</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>003</td>
+                <td>03</td>
+                <td>␃</td>
+                <td>End of Text</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>004</td>
+                <td>04</td>
+                <td>␄</td>
+                <td>End of Transmission</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>005</td>
+                <td>05</td>
+                <td>␅</td>
+                <td>Enquiry</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>006</td>
+                <td>06</td>
+                <td>␆</td>
+                <td>Acknowledge</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>007</td>
+                <td>07</td>
+                <td>␇</td>
+                <td>Bell, Alert</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>010</td>
+                <td>08</td>
+                <td>␈</td>
+                <td>Backspace</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>011</td>
+                <td>09</td>
+                <td>␉</td>
+                <td>Horizontal Tab</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>012</td>
+                <td>0A</td>
+                <td>␊</td>
+                <td>Line Feed</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>013</td>
+                <td>0B</td>
+                <td>␋</td>
+                <td>Vertical Tabulation</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>014</td>
+                <td>0C</td>
+                <td>␌</td>
+                <td>Form Feed</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>015</td>
+                <td>0D</td>
+                <td>␍</td>
+                <td>Carriage Return</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>016</td>
+                <td>0E</td>
+                <td>␎</td>
+                <td>Shift Out</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>017</td>
+                <td>0F</td>
+                <td>␏</td>
+                <td>Shift In</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>020</td>
+                <td>10</td>
+                <td>␐</td>
+                <td>Data Link Escape</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>021</td>
+                <td>11</td>
+                <td>␑</td>
+                <td>Device Control One (XON)</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>022</td>
+                <td>12</td>
+                <td>␒</td>
+                <td>Device Control Two</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>023</td>
+                <td>13</td>
+                <td>␓</td>
+                <td>Device Control Three (XOFF)</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>024</td>
+                <td>14</td>
+                <td>␔</td>
+                <td>Device Control Four</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>025</td>
+                <td>15</td>
+                <td>␕</td>
+                <td>Negative Acknowledge</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>026</td>
+                <td>16</td>
+                <td>␖</td>
+                <td>Synchronous Idle</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>027</td>
+                <td>17</td>
+                <td>␗</td>
+                <td>End of Transmission Block</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>030</td>
+                <td>18</td>
+                <td>␘</td>
+                <td>Cancel</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>031</td>
+                <td>19</td>
+                <td>␙</td>
+                <td>End of medium</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>032</td>
+                <td>1A</td>
+                <td>␚</td>
+                <td>Substitute</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>033</td>
+                <td>1B</td>
+                <td>␛</td>
+                <td>Escape</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>034</td>
+                <td>1C</td>
+                <td>␜</td>
+                <td>File Separator</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>035</td>
+                <td>1D</td>
+                <td>␝</td>
+                <td>Group Separator</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>036</td>
+                <td>1E</td>
+                <td>␞</td>
+                <td>Record Separator</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>037</td>
+                <td>1F</td>
+                <td>␟</td>
+                <td>Unit Separator</td>
+            </tr>
+        </table>
+
+        <p>The following table displays ASCII printable characters:</p>
+
+        <table class="table table-bordered border-primary">
+            <tr>
+                <td>DEC</td>
+                <td>OCT</td>
+                <td>HEX</td>
+                <td>Symbol</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>040</td>
+                <td>20</td>
+                <td>␠</td>
+                <td>Space</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>041</td>
+                <td>21</td>
+                <td>!</td>
+                <td>Exclamation mark</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>042</td>
+                <td>22</td>
+                <td></td>
+                <td>Double quotes (or speech marks)</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>043</td>
+                <td>23</td>
+                <td>#</td>
+                <td>Number sign</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>044</td>
+                <td>24</td>
+                <td>$</td>
+                <td>Dollar</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>045</td>
+                <td>25</td>
+                <td>%</td>
+                <td>Per cent sign</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>046</td>
+                <td>26</td>
+                <td>&amp;</td>
+                <td>Ampersand</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>047</td>
+                <td>27</td>
+                <td>&#39;</td>
+                <td>Single quote</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>050</td>
+                <td>28</td>
+                <td>(</td>
+                <td>Open parenthesis (or open bracket)</td>
+            </tr>
+            <tr>
+                <td>41</td>
+                <td>051</td>
+                <td>29</td>
+                <td>)</td>
+                <td>Close parenthesis (or close bracket)</td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>052</td>
+                <td>2A</td>
+                <td>*</td>
+                <td>Asterisk</td>
+            </tr>
+            <tr>
+                <td>43</td>
+                <td>053</td>
+                <td>2B</td>
+                <td>+</td>
+                <td>Plus</td>
+            </tr>
+            <tr>
+                <td>44</td>
+                <td>054</td>
+                <td>2C</td>
+                <td>,</td>
+                <td>Comma</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>055</td>
+                <td>2D</td>
+                <td>-</td>
+                <td>Hyphen-minus</td>
+            </tr>
+            <tr>
+                <td>46</td>
+                <td>056</td>
+                <td>2E</td>
+                <td>.</td>
+                <td>Period, dot or full stop</td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td>057</td>
+                <td>2F</td>
+                <td>/</td>
+                <td>Slash or divide</td>
+            </tr>
+            <tr>
+                <td>48</td>
+                <td>060</td>
+                <td>30</td>
+                <td>0</td>
+                <td>Zero</td>
+            </tr>
+            <tr>
+                <td>49</td>
+                <td>061</td>
+                <td>31</td>
+                <td>1</td>
+                <td>One</td>
+            </tr>
+            <tr>
+                <td>50</td>
+                <td>062</td>
+                <td>32</td>
+                <td>2</td>
+                <td>Two</td>
+            </tr>
+            <tr>
+                <td>51</td>
+                <td>063</td>
+                <td>33</td>
+                <td>3</td>
+                <td>Three</td>
+            </tr>
+            <tr>
+                <td>52</td>
+                <td>064</td>
+                <td>34</td>
+                <td>4</td>
+                <td>Four</td>
+            </tr>
+            <tr>
+                <td>53</td>
+                <td>065</td>
+                <td>35</td>
+                <td>5</td>
+                <td>Five</td>
+            </tr>
+            <tr>
+                <td>54</td>
+                <td>066</td>
+                <td>36</td>
+                <td>6</td>
+                <td>Six</td>
+            </tr>
+            <tr>
+                <td>55</td>
+                <td>067</td>
+                <td>37</td>
+                <td>7</td>
+                <td>Seven</td>
+            </tr>
+            <tr>
+                <td>56</td>
+                <td>070</td>
+                <td>38</td>
+                <td>8</td>
+                <td>Eight</td>
+            </tr>
+            <tr>
+                <td>57</td>
+                <td>071</td>
+                <td>39</td>
+                <td>9</td>
+                <td>Nine</td>
+            </tr>
+            <tr>
+                <td>58</td>
+                <td>072</td>
+                <td>3A</td>
+                <td>:</td>
+                <td>Colon</td>
+            </tr>
+            <tr>
+                <td>59</td>
+                <td>073</td>
+                <td>3B</td>
+                <td>;</td>
+                <td>Semicolon</td>
+            </tr>
+            <tr>
+                <td>60</td>
+                <td>074</td>
+                <td>3C</td>
+                <td>&lt;</td>
+                <td>Less than (or open angled bracket)</td>
+            </tr>
+            <tr>
+                <td>61</td>
+                <td>075</td>
+                <td>3D</td>
+                <td>=</td>
+                <td>Equals</td>
+            </tr>
+            <tr>
+                <td>62</td>
+                <td>076</td>
+                <td>3E</td>
+                <td>&gt;</td>
+                <td>Greater than (or close angled bracket)</td>
+            </tr>
+            <tr>
+                <td>63</td>
+                <td>077</td>
+                <td>3F</td>
+                <td>?</td>
+                <td>Question mark</td>
+            </tr>
+            <tr>
+                <td>64</td>
+                <td>100</td>
+                <td>40</td>
+                <td>@</td>
+                <td>At sign</td>
+            </tr>
+            <tr>
+                <td>65</td>
+                <td>101</td>
+                <td>41</td>
+                <td>A</td>
+                <td>Uppercase A</td>
+            </tr>
+            <tr>
+                <td>66</td>
+                <td>102</td>
+                <td>42</td>
+                <td>B</td>
+                <td>Uppercase B</td>
+            </tr>
+            <tr>
+                <td>67</td>
+                <td>103</td>
+                <td>43</td>
+                <td>C</td>
+                <td>Uppercase C</td>
+            </tr>
+            <tr>
+                <td>68</td>
+                <td>104</td>
+                <td>44</td>
+                <td>D</td>
+                <td>Uppercase D</td>
+            </tr>
+            <tr>
+                <td>69</td>
+                <td>105</td>
+                <td>45</td>
+                <td>E</td>
+                <td>Uppercase E</td>
+            </tr>
+            <tr>
+                <td>70</td>
+                <td>106</td>
+                <td>46</td>
+                <td>F</td>
+                <td>Uppercase F</td>
+            </tr>
+            <tr>
+                <td>71</td>
+                <td>107</td>
+                <td>47</td>
+                <td>G</td>
+                <td>Uppercase G</td>
+            </tr>
+            <tr>
+                <td>72</td>
+                <td>110</td>
+                <td>48</td>
+                <td>H</td>
+                <td>Uppercase H</td>
+            </tr>
+            <tr>
+                <td>73</td>
+                <td>111</td>
+                <td>49</td>
+                <td>I</td>
+                <td>Uppercase I</td>
+            </tr>
+            <tr>
+                <td>74</td>
+                <td>112</td>
+                <td>4A</td>
+                <td>J</td>
+                <td>Uppercase J</td>
+            </tr>
+            <tr>
+                <td>75</td>
+                <td>113</td>
+                <td>4B</td>
+                <td>K</td>
+                <td>Uppercase K</td>
+            </tr>
+            <tr>
+                <td>76</td>
+                <td>114</td>
+                <td>4C</td>
+                <td>L</td>
+                <td>Uppercase L</td>
+            </tr>
+            <tr>
+                <td>77</td>
+                <td>115</td>
+                <td>4D</td>
+                <td>M</td>
+                <td>Uppercase M</td>
+            </tr>
+            <tr>
+                <td>78</td>
+                <td>116</td>
+                <td>4E</td>
+                <td>N</td>
+                <td>Uppercase N</td>
+            </tr>
+            <tr>
+                <td>79</td>
+                <td>117</td>
+                <td>4F</td>
+                <td>O</td>
+                <td>Uppercase O</td>
+            </tr>
+            <tr>
+                <td>80</td>
+                <td>120</td>
+                <td>50</td>
+                <td>P</td>
+                <td>Uppercase P</td>
+            </tr>
+            <tr>
+                <td>81</td>
+                <td>121</td>
+                <td>51</td>
+                <td>Q</td>
+                <td>Uppercase Q</td>
+            </tr>
+            <tr>
+                <td>82</td>
+                <td>122</td>
+                <td>52</td>
+                <td>R</td>
+                <td>Uppercase R</td>
+            </tr>
+            <tr>
+                <td>83</td>
+                <td>123</td>
+                <td>53</td>
+                <td>S</td>
+                <td>Uppercase S</td>
+            </tr>
+            <tr>
+                <td>84</td>
+                <td>124</td>
+                <td>54</td>
+                <td>T</td>
+                <td>Uppercase T</td>
+            </tr>
+            <tr>
+                <td>85</td>
+                <td>125</td>
+                <td>55</td>
+                <td>U</td>
+                <td>Uppercase U</td>
+            </tr>
+            <tr>
+                <td>86</td>
+                <td>126</td>
+                <td>56</td>
+                <td>V</td>
+                <td>Uppercase V</td>
+            </tr>
+            <tr>
+                <td>87</td>
+                <td>127</td>
+                <td>57</td>
+                <td>W</td>
+                <td>Uppercase W</td>
+            </tr>
+            <tr>
+                <td>88</td>
+                <td>130</td>
+                <td>58</td>
+                <td>X</td>
+                <td>Uppercase X</td>
+            </tr>
+            <tr>
+                <td>89</td>
+                <td>131</td>
+                <td>59</td>
+                <td>Y</td>
+                <td>Uppercase Y</td>
+            </tr>
+            <tr>
+                <td>90</td>
+                <td>132</td>
+                <td>5A</td>
+                <td>Z</td>
+                <td>Uppercase Z</td>
+            </tr>
+            <tr>
+                <td>91</td>
+                <td>133</td>
+                <td>5B</td>
+                <td>[</td>
+                <td>Opening bracket</td>
+            </tr>
+            <tr>
+                <td>92</td>
+                <td>134</td>
+                <td>5C</td>
+                <td>\</td>
+                <td>Backslash</td>
+            </tr>
+            <tr>
+                <td>93</td>
+                <td>135</td>
+                <td>5D</td>
+                <td>]</td>
+                <td>Closing bracket</td>
+            </tr>
+            <tr>
+                <td>94</td>
+                <td>136</td>
+                <td>5E</td>
+                <td>^</td>
+                <td>Caret - circumflex</td>
+            </tr>
+            <tr>
+                <td>95</td>
+                <td>137</td>
+                <td>5F</td>
+                <td>_</td>
+                <td>Underscore</td>
+            </tr>
+            <tr>
+                <td>96</td>
+                <td>140</td>
+                <td>60</td>
+                <td>`</td>
+                <td>Grave accent</td>
+            </tr>
+            <tr>
+                <td>97</td>
+                <td>141</td>
+                <td>61</td>
+                <td>a</td>
+                <td>Lowercase a</td>
+            </tr>
+            <tr>
+                <td>98</td>
+                <td>142</td>
+                <td>62</td>
+                <td>b</td>
+                <td>Lowercase b</td>
+            </tr>
+            <tr>
+                <td>99</td>
+                <td>143</td>
+                <td>63</td>
+                <td>c</td>
+                <td>Lowercase c</td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>144</td>
+                <td>64</td>
+                <td>d</td>
+                <td>Lowercase d</td>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>145</td>
+                <td>65</td>
+                <td>e</td>
+                <td>Lowercase e</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>146</td>
+                <td>66</td>
+                <td>f</td>
+                <td>Lowercase f</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>147</td>
+                <td>67</td>
+                <td>g</td>
+                <td>Lowercase g</td>
+            </tr>
+            <tr>
+                <td>104</td>
+                <td>150</td>
+                <td>68</td>
+                <td>h</td>
+                <td>Lowercase h</td>
+            </tr>
+            <tr>
+                <td>105</td>
+                <td>151</td>
+                <td>69</td>
+                <td>i</td>
+                <td>Lowercase i</td>
+            </tr>
+            <tr>
+                <td>106</td>
+                <td>152</td>
+                <td>6A</td>
+                <td>j</td>
+                <td>Lowercase j</td>
+            </tr>
+            <tr>
+                <td>107</td>
+                <td>153</td>
+                <td>6B</td>
+                <td>k</td>
+                <td>Lowercase k</td>
+            </tr>
+            <tr>
+                <td>108</td>
+                <td>154</td>
+                <td>6C</td>
+                <td>l</td>
+                <td>Lowercase l</td>
+            </tr>
+            <tr>
+                <td>109</td>
+                <td>155</td>
+                <td>6D</td>
+                <td>m</td>
+                <td>Lowercase m</td>
+            </tr>
+            <tr>
+                <td>110</td>
+                <td>156</td>
+                <td>6E</td>
+                <td>n</td>
+                <td>Lowercase n</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>157</td>
+                <td>6F</td>
+                <td>o</td>
+                <td>Lowercase o</td>
+            </tr>
+            <tr>
+                <td>112</td>
+                <td>160</td>
+                <td>70</td>
+                <td>p</td>
+                <td>Lowercase p</td>
+            </tr>
+            <tr>
+                <td>113</td>
+                <td>161</td>
+                <td>71</td>
+                <td>q</td>
+                <td>Lowercase q</td>
+            </tr>
+            <tr>
+                <td>114</td>
+                <td>162</td>
+                <td>72</td>
+                <td>r</td>
+                <td>Lowercase r</td>
+            </tr>
+            <tr>
+                <td>115</td>
+                <td>163</td>
+                <td>73</td>
+                <td>s</td>
+                <td>Lowercase s</td>
+            </tr>
+            <tr>
+                <td>116</td>
+                <td>164</td>
+                <td>74</td>
+                <td>t</td>
+                <td>Lowercase t</td>
+            </tr>
+            <tr>
+                <td>117</td>
+                <td>165</td>
+                <td>75</td>
+                <td>u</td>
+                <td>Lowercase u</td>
+            </tr>
+            <tr>
+                <td>118</td>
+                <td>166</td>
+                <td>76</td>
+                <td>v</td>
+                <td>Lowercase v</td>
+            </tr>
+            <tr>
+                <td>119</td>
+                <td>167</td>
+                <td>77</td>
+                <td>w</td>
+                <td>Lowercase w</td>
+            </tr>
+            <tr>
+                <td>120</td>
+                <td>170</td>
+                <td>78</td>
+                <td>x</td>
+                <td>Lowercase x</td>
+            </tr>
+            <tr>
+                <td>121</td>
+                <td>171</td>
+                <td>79</td>
+                <td>y</td>
+                <td>Lowercase y</td>
+            </tr>
+            <tr>
+                <td>122</td>
+                <td>172</td>
+                <td>7A</td>
+                <td>z</td>
+                <td>Lowercase z</td>
+            </tr>
+            <tr>
+                <td>123</td>
+                <td>173</td>
+                <td>7B</td>
+                <td>{</td>
+                <td>Opening brace</td>
+            </tr>
+            <tr>
+                <td>124</td>
+                <td>174</td>
+                <td>7C</td>
+                <td>|</td>
+                <td>Vertical bar</td>
+            </tr>
+            <tr>
+                <td>125</td>
+                <td>175</td>
+                <td>7D</td>
+                <td>}</td>
+                <td>Closing brace</td>
+            </tr>
+            <tr>
+                <td>126</td>
+                <td>176</td>
+                <td>7E</td>
+                <td>~</td>
+                <td>Equivalency sign - tilde</td>
+            </tr>
+            <tr>
+                <td>127</td>
+                <td>177</td>
+                <td>7F</td>
+                <td>␡</td>
+                <td>Delete</td>
+            </tr>
+        </table>
+
+        <p>The following table displays characters and symbols for Central and Eastern European languages, such as Polish, Czech, Slovak, Hungarian, Slovene, and others:</p>
+
+        <table class="table table-bordered border-primary">
+            <tr>
+                <td>DEC</td>
+                <td>OCT</td>
+                <td>HEX</td>
+                <td>Symbol</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>128</td>
+                <td>200</td>
+                <td>80</td>
+                <td>€</td>
+                <td>Euro sign</td>
+            </tr>
+            <tr>
+                <td>129</td>
+                <td>201</td>
+                <td>81</td>
+                <td></td>
+                <td>Unused</td>
+            </tr>
+            <tr>
+                <td>130</td>
+                <td>202</td>
+                <td>82</td>
+                <td>‚</td>
+                <td>Single low-9 quotation mark</td>
+            </tr>
+            <tr>
+                <td>131</td>
+                <td>203</td>
+                <td>83</td>
+                <td></td>
+                <td>Unused</td>
+            </tr>
+            <tr>
+                <td>132</td>
+                <td>204</td>
+                <td>84</td>
+                <td>„</td>
+                <td>Double low-9 quotation mark</td>
+            </tr>
+            <tr>
+                <td>133</td>
+                <td>205</td>
+                <td>85</td>
+                <td>…</td>
+                <td>Horizontal ellipsis</td>
+            </tr>
+            <tr>
+                <td>134</td>
+                <td>206</td>
+                <td>86</td>
+                <td>†</td>
+                <td>Dagger</td>
+            </tr>
+            <tr>
+                <td>135</td>
+                <td>207</td>
+                <td>87</td>
+                <td>‡</td>
+                <td>Double dagger</td>
+            </tr>
+            <tr>
+                <td>136</td>
+                <td>210</td>
+                <td>88</td>
+                <td></td>
+                <td>Unused</td>
+            </tr>
+            <tr>
+                <td>137</td>
+                <td>211</td>
+                <td>89</td>
+                <td>‰</td>
+                <td>Per mille sign</td>
+            </tr>
+            <tr>
+                <td>138</td>
+                <td>212</td>
+                <td>8A</td>
+                <td>Š</td>
+                <td>Latin capital letter S with caron</td>
+            </tr>
+            <tr>
+                <td>139</td>
+                <td>213</td>
+                <td>8B</td>
+                <td>‹</td>
+                <td>Single left-pointing angle quotation</td>
+            </tr>
+            <tr>
+                <td>140</td>
+                <td>214</td>
+                <td>8C</td>
+                <td>Ś</td>
+                <td>Latin capital letter S with acute</td>
+            </tr>
+            <tr>
+                <td>141</td>
+                <td>215</td>
+                <td>8D</td>
+                <td>Ť</td>
+                <td>Latin capital letter T with caron</td>
+            </tr>
+            <tr>
+                <td>142</td>
+                <td>216</td>
+                <td>8E</td>
+                <td>Ž</td>
+                <td>Latin capital letter Z with caron</td>
+            </tr>
+            <tr>
+                <td>143</td>
+                <td>217</td>
+                <td>8F</td>
+                <td>Ź</td>
+                <td>Latin capital letter Z with acute</td>
+            </tr>
+            <tr>
+                <td>144</td>
+                <td>220</td>
+                <td>90</td>
+                <td></td>
+                <td>Unused</td>
+            </tr>
+            <tr>
+                <td>145</td>
+                <td>221</td>
+                <td>91</td>
+                <td>‘</td>
+                <td>Left single quotation mark</td>
+            </tr>
+            <tr>
+                <td>146</td>
+                <td>222</td>
+                <td>92</td>
+                <td>’</td>
+                <td>Right single quotation mark</td>
+            </tr>
+            <tr>
+                <td>147</td>
+                <td>223</td>
+                <td>93</td>
+                <td>“</td>
+                <td>Left double quotation mark</td>
+            </tr>
+            <tr>
+                <td>148</td>
+                <td>224</td>
+                <td>94</td>
+                <td>”</td>
+                <td>Right double quotation mark</td>
+            </tr>
+            <tr>
+                <td>149</td>
+                <td>225</td>
+                <td>95</td>
+                <td>•</td>
+                <td>Bullet</td>
+            </tr>
+            <tr>
+                <td>150</td>
+                <td>226</td>
+                <td>96</td>
+                <td>–</td>
+                <td>En dash</td>
+            </tr>
+            <tr>
+                <td>151</td>
+                <td>227</td>
+                <td>97</td>
+                <td>—</td>
+                <td>Em dash</td>
+            </tr>
+            <tr>
+                <td>152</td>
+                <td>230</td>
+                <td>98</td>
+                <td></td>
+                <td>Unused</td>
+            </tr>
+            <tr>
+                <td>153</td>
+                <td>231</td>
+                <td>99</td>
+                <td>™</td>
+                <td>Trade mark sign</td>
+            </tr>
+            <tr>
+                <td>154</td>
+                <td>232</td>
+                <td>9A</td>
+                <td>š</td>
+                <td>Latin small letter S with caron</td>
+            </tr>
+            <tr>
+                <td>155</td>
+                <td>233</td>
+                <td>9B</td>
+                <td>›</td>
+                <td>Single right-pointing angle quotation mark</td>
+            </tr>
+            <tr>
+                <td>156</td>
+                <td>234</td>
+                <td>9C</td>
+                <td>ś</td>
+                <td>Latin small letter s with acute</td>
+            </tr>
+            <tr>
+                <td>157</td>
+                <td>235</td>
+                <td>9D</td>
+                <td>ť</td>
+                <td>Latin small letter t with caron</td>
+            </tr>
+            <tr>
+                <td>158</td>
+                <td>236</td>
+                <td>9E</td>
+                <td>ž</td>
+                <td>Latin small letter z with caron</td>
+            </tr>
+            <tr>
+                <td>159</td>
+                <td>237</td>
+                <td>9F</td>
+                <td>ź</td>
+                <td>Latin small letter z with acute</td>
+            </tr>
+            <tr>
+                <td>160</td>
+                <td>240</td>
+                <td>A0</td>
+                <td></td>
+                <td>Non-breaking space</td>
+            </tr>
+            <tr>
+                <td>161</td>
+                <td>241</td>
+                <td>A1</td>
+                <td>ˇ</td>
+                <td>Caron</td>
+            </tr>
+            <tr>
+                <td>162</td>
+                <td>242</td>
+                <td>A2</td>
+                <td>˘</td>
+                <td>Breve</td>
+            </tr>
+            <tr>
+                <td>163</td>
+                <td>243</td>
+                <td>A3</td>
+                <td>Ł</td>
+                <td>Latin capital letter L with stroke</td>
+            </tr>
+            <tr>
+                <td>164</td>
+                <td>244</td>
+                <td>A4</td>
+                <td>¤</td>
+                <td>Currency sign</td>
+            </tr>
+            <tr>
+                <td>165</td>
+                <td>245</td>
+                <td>A5</td>
+                <td>Ą</td>
+                <td>Latin capital letter A with ogonek</td>
+            </tr>
+            <tr>
+                <td>166</td>
+                <td>246</td>
+                <td>A6</td>
+                <td>¦</td>
+                <td>Pipe, broken vertical bar</td>
+            </tr>
+            <tr>
+                <td>167</td>
+                <td>247</td>
+                <td>A7</td>
+                <td>§</td>
+                <td>Section sign</td>
+            </tr>
+            <tr>
+                <td>168</td>
+                <td>250</td>
+                <td>A8</td>
+                <td>¨</td>
+                <td>Spacing diaeresis - umlaut</td>
+            </tr>
+            <tr>
+                <td>169</td>
+                <td>251</td>
+                <td>A9</td>
+                <td>©</td>
+                <td>Copyright sign</td>
+            </tr>
+            <tr>
+                <td>170</td>
+                <td>252</td>
+                <td>AA</td>
+                <td>Ş</td>
+                <td>Latin capital letter S with cedilla</td>
+            </tr>
+            <tr>
+                <td>171</td>
+                <td>253</td>
+                <td>AB</td>
+                <td>«</td>
+                <td>Left double angle quotes</td>
+            </tr>
+            <tr>
+                <td>172</td>
+                <td>254</td>
+                <td>AC</td>
+                <td>¬</td>
+                <td>Negation</td>
+            </tr>
+            <tr>
+                <td>173</td>
+                <td>255</td>
+                <td>AD</td>
+                <td>­</td>
+                <td>Soft hyphen</td>
+            </tr>
+            <tr>
+                <td>174</td>
+                <td>256</td>
+                <td>AE</td>
+                <td>®</td>
+                <td>Registered trade mark sign</td>
+            </tr>
+            <tr>
+                <td>175</td>
+                <td>257</td>
+                <td>AF</td>
+                <td>Ż</td>
+                <td>Latin capital letter Z with dot above</td>
+            </tr>
+            <tr>
+                <td>176</td>
+                <td>260</td>
+                <td>B0</td>
+                <td>°</td>
+                <td>Degree sign</td>
+            </tr>
+            <tr>
+                <td>177</td>
+                <td>261</td>
+                <td>B1</td>
+                <td>±</td>
+                <td>Plus-or-minus sign</td>
+            </tr>
+            <tr>
+                <td>178</td>
+                <td>262</td>
+                <td>B2</td>
+                <td>˛</td>
+                <td>Ogonek</td>
+            </tr>
+            <tr>
+                <td>179</td>
+                <td>263</td>
+                <td>B3</td>
+                <td>ł</td>
+                <td>Latin small letter l with stroke</td>
+            </tr>
+            <tr>
+                <td>180</td>
+                <td>264</td>
+                <td>B4</td>
+                <td>´</td>
+                <td>Acute accent - spacing acute</td>
+            </tr>
+            <tr>
+                <td>181</td>
+                <td>265</td>
+                <td>B5</td>
+                <td>µ</td>
+                <td>Micro sign</td>
+            </tr>
+            <tr>
+                <td>182</td>
+                <td>266</td>
+                <td>B6</td>
+                <td>¶</td>
+                <td>Pilcrow sign - paragraph sign</td>
+            </tr>
+            <tr>
+                <td>183</td>
+                <td>267</td>
+                <td>B7</td>
+                <td>·</td>
+                <td>Middle dot - Georgian comma</td>
+            </tr>
+            <tr>
+                <td>184</td>
+                <td>270</td>
+                <td>B8</td>
+                <td>¸</td>
+                <td>Spacing cedilla</td>
+            </tr>
+            <tr>
+                <td>185</td>
+                <td>271</td>
+                <td>B9</td>
+                <td>ą</td>
+                <td>Latin small letter a with ogonek</td>
+            </tr>
+            <tr>
+                <td>186</td>
+                <td>272</td>
+                <td>BA</td>
+                <td>ş</td>
+                <td>Latin small letter s with cedilla</td>
+            </tr>
+            <tr>
+                <td>187</td>
+                <td>273</td>
+                <td>BB</td>
+                <td>»</td>
+                <td>Right double angle quotes</td>
+            </tr>
+            <tr>
+                <td>188</td>
+                <td>274</td>
+                <td>BC</td>
+                <td>Ľ</td>
+                <td>Latin capital letter L with caron</td>
+            </tr>
+            <tr>
+                <td>189</td>
+                <td>275</td>
+                <td>BD</td>
+                <td>˝</td>
+                <td>Double acute accent</td>
+            </tr>
+            <tr>
+                <td>190</td>
+                <td>276</td>
+                <td>BE</td>
+                <td>ľ</td>
+                <td>Latin small letter l with caron</td>
+            </tr>
+            <tr>
+                <td>191</td>
+                <td>277</td>
+                <td>BF</td>
+                <td>ż</td>
+                <td>Latin small letter z with dot above</td>
+            </tr>
+            <tr>
+                <td>192</td>
+                <td>300</td>
+                <td>C0</td>
+                <td>Ŕ</td>
+                <td>Latin capital letter R with acute</td>
+            </tr>
+            <tr>
+                <td>193</td>
+                <td>301</td>
+                <td>C1</td>
+                <td>Á</td>
+                <td>Latin capital letter A with acute</td>
+            </tr>
+            <tr>
+                <td>194</td>
+                <td>302</td>
+                <td>C2</td>
+                <td>Â</td>
+                <td>Latin capital letter A with circumflex</td>
+            </tr>
+            <tr>
+                <td>195</td>
+                <td>303</td>
+                <td>C3</td>
+                <td>Ă</td>
+                <td>Latin capital letter A with breve</td>
+            </tr>
+            <tr>
+                <td>196</td>
+                <td>304</td>
+                <td>C4</td>
+                <td>Ä</td>
+                <td>Latin capital letter A with diaeresis</td>
+            </tr>
+            <tr>
+                <td>197</td>
+                <td>305</td>
+                <td>C5</td>
+                <td>Ĺ</td>
+                <td>Latin capital letter L with acute</td>
+            </tr>
+            <tr>
+                <td>198</td>
+                <td>306</td>
+                <td>C6</td>
+                <td>Ć</td>
+                <td>Latin capital letter C with acute</td>
+            </tr>
+            <tr>
+                <td>199</td>
+                <td>307</td>
+                <td>C7</td>
+                <td>Ç</td>
+                <td>Latin capital letter C with cedilla</td>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>310</td>
+                <td>C8</td>
+                <td>Č</td>
+                <td>Latin capital letter C with caron</td>
+            </tr>
+            <tr>
+                <td>201</td>
+                <td>311</td>
+                <td>C9</td>
+                <td>É</td>
+                <td>Latin capital letter E with acute</td>
+            </tr>
+            <tr>
+                <td>202</td>
+                <td>312</td>
+                <td>CA</td>
+                <td>Ę</td>
+                <td>Latin capital letter E with ogonek</td>
+            </tr>
+            <tr>
+                <td>203</td>
+                <td>313</td>
+                <td>CB</td>
+                <td>Ë</td>
+                <td>Latin capital letter E with diaeresis</td>
+            </tr>
+            <tr>
+                <td>204</td>
+                <td>314</td>
+                <td>CC</td>
+                <td>Ě</td>
+                <td>Latin capital letter E with caron</td>
+            </tr>
+            <tr>
+                <td>205</td>
+                <td>315</td>
+                <td>CD</td>
+                <td>Í</td>
+                <td>Latin capital letter I with acute</td>
+            </tr>
+            <tr>
+                <td>206</td>
+                <td>316</td>
+                <td>CE</td>
+                <td>Î</td>
+                <td>Latin capital letter I with circumflex</td>
+            </tr>
+            <tr>
+                <td>207</td>
+                <td>317</td>
+                <td>CF</td>
+                <td>Ď</td>
+                <td>Latin capital letter D with caron</td>
+            </tr>
+            <tr>
+                <td>208</td>
+                <td>320</td>
+                <td>D0</td>
+                <td>Đ</td>
+                <td>Latin capital letter D with stroke</td>
+            </tr>
+            <tr>
+                <td>209</td>
+                <td>321</td>
+                <td>D1</td>
+                <td>Ń</td>
+                <td>Latin capital letter N with acute</td>
+            </tr>
+            <tr>
+                <td>210</td>
+                <td>322</td>
+                <td>D2</td>
+                <td>Ň</td>
+                <td>Latin capital letter N with caron</td>
+            </tr>
+            <tr>
+                <td>211</td>
+                <td>323</td>
+                <td>D3</td>
+                <td>Ó</td>
+                <td>Latin capital letter O with acute</td>
+            </tr>
+            <tr>
+                <td>212</td>
+                <td>324</td>
+                <td>D4</td>
+                <td>Ô</td>
+                <td>Latin capital letter O with circumflex</td>
+            </tr>
+            <tr>
+                <td>213</td>
+                <td>325</td>
+                <td>D5</td>
+                <td>Ő</td>
+                <td>Latin capital letter O with double acute</td>
+            </tr>
+            <tr>
+                <td>214</td>
+                <td>326</td>
+                <td>D6</td>
+                <td>Ö</td>
+                <td>Latin capital letter O with diaeresis</td>
+            </tr>
+            <tr>
+                <td>215</td>
+                <td>327</td>
+                <td>D7</td>
+                <td>×</td>
+                <td>Multiplication sign</td>
+            </tr>
+            <tr>
+                <td>216</td>
+                <td>330</td>
+                <td>D8</td>
+                <td>Ř</td>
+                <td>Latin capital letter R with caron</td>
+            </tr>
+            <tr>
+                <td>217</td>
+                <td>331</td>
+                <td>D9</td>
+                <td>Ů</td>
+                <td>Latin capital letter U with ring above</td>
+            </tr>
+            <tr>
+                <td>218</td>
+                <td>332</td>
+                <td>DA</td>
+                <td>Ú</td>
+                <td>Latin capital letter U with acute</td>
+            </tr>
+            <tr>
+                <td>219</td>
+                <td>333</td>
+                <td>DB</td>
+                <td>Ű</td>
+                <td>Latin capital letter U with double acute</td>
+            </tr>
+            <tr>
+                <td>220</td>
+                <td>334</td>
+                <td>DC</td>
+                <td>Ü</td>
+                <td>Latin capital letter U with diaeresis</td>
+            </tr>
+            <tr>
+                <td>221</td>
+                <td>335</td>
+                <td>DD</td>
+                <td>Ý</td>
+                <td>Latin capital letter Y with acute</td>
+            </tr>
+            <tr>
+                <td>222</td>
+                <td>336</td>
+                <td>DE</td>
+                <td>Ţ</td>
+                <td>Latin capital letter T with cedilla</td>
+            </tr>
+            <tr>
+                <td>223</td>
+                <td>337</td>
+                <td>DF</td>
+                <td>ß</td>
+                <td>Latin small letter sharp s - ess-zed</td>
+            </tr>
+            <tr>
+                <td>224</td>
+                <td>340</td>
+                <td>E0</td>
+                <td>ŕ</td>
+                <td>Latin small letter r with acute</td>
+            </tr>
+            <tr>
+                <td>225</td>
+                <td>341</td>
+                <td>E1</td>
+                <td>á</td>
+                <td>Latin small letter a with acute</td>
+            </tr>
+            <tr>
+                <td>226</td>
+                <td>342</td>
+                <td>E2</td>
+                <td>â</td>
+                <td>Latin small letter a with circumflex</td>
+            </tr>
+            <tr>
+                <td>227</td>
+                <td>343</td>
+                <td>E3</td>
+                <td>ă</td>
+                <td>Latin small letter a with breve</td>
+            </tr>
+            <tr>
+                <td>228</td>
+                <td>344</td>
+                <td>E4</td>
+                <td>ä</td>
+                <td>Latin small letter a with diaeresis</td>
+            </tr>
+            <tr>
+                <td>229</td>
+                <td>345</td>
+                <td>E5</td>
+                <td>ĺ</td>
+                <td>Latin small letter l with acute</td>
+            </tr>
+            <tr>
+                <td>230</td>
+                <td>346</td>
+                <td>E6</td>
+                <td>ć</td>
+                <td>Latin small letter c with acute</td>
+            </tr>
+            <tr>
+                <td>231</td>
+                <td>347</td>
+                <td>E7</td>
+                <td>ç</td>
+                <td>Latin small letter c with cedilla</td>
+            </tr>
+            <tr>
+                <td>232</td>
+                <td>350</td>
+                <td>E8</td>
+                <td>č</td>
+                <td>Latin small letter c with caron</td>
+            </tr>
+            <tr>
+                <td>233</td>
+                <td>351</td>
+                <td>E9</td>
+                <td>é</td>
+                <td>Latin small letter e with acute</td>
+            </tr>
+            <tr>
+                <td>234</td>
+                <td>352</td>
+                <td>EA</td>
+                <td>ę</td>
+                <td>Latin small letter e with ogonek</td>
+            </tr>
+            <tr>
+                <td>235</td>
+                <td>353</td>
+                <td>EB</td>
+                <td>ë</td>
+                <td>Latin small letter e with diaeresis</td>
+            </tr>
+            <tr>
+                <td>236</td>
+                <td>354</td>
+                <td>EC</td>
+                <td>ě</td>
+                <td>Latin small letter e with caron</td>
+            </tr>
+            <tr>
+                <td>237</td>
+                <td>355</td>
+                <td>ED</td>
+                <td>í</td>
+                <td>Latin small letter i with acute</td>
+            </tr>
+            <tr>
+                <td>238</td>
+                <td>356</td>
+                <td>EE</td>
+                <td>î</td>
+                <td>Latin small letter i with circumflex</td>
+            </tr>
+            <tr>
+                <td>239</td>
+                <td>357</td>
+                <td>EF</td>
+                <td>ď</td>
+                <td>Latin small letter d with caron</td>
+            </tr>
+            <tr>
+                <td>240</td>
+                <td>360</td>
+                <td>F0</td>
+                <td>đ</td>
+                <td>Latin small letter d with stroke</td>
+            </tr>
+            <tr>
+                <td>241</td>
+                <td>361</td>
+                <td>F1</td>
+                <td>ń</td>
+                <td>Latin xmall letter n with acute</td>
+            </tr>
+            <tr>
+                <td>242</td>
+                <td>362</td>
+                <td>F2</td>
+                <td>ň</td>
+                <td>Latin small letter n with caron</td>
+            </tr>
+            <tr>
+                <td>243</td>
+                <td>363</td>
+                <td>F3</td>
+                <td>ó</td>
+                <td>Latin small letter o with acute</td>
+            </tr>
+            <tr>
+                <td>244</td>
+                <td>364</td>
+                <td>F4</td>
+                <td>ô</td>
+                <td>Latin small letter o with circumflex</td>
+            </tr>
+            <tr>
+                <td>245</td>
+                <td>365</td>
+                <td>F5</td>
+                <td>ő</td>
+                <td>Latin small letter o with double acute</td>
+            </tr>
+            <tr>
+                <td>246</td>
+                <td>366</td>
+                <td>F6</td>
+                <td>ö</td>
+                <td>Latin small letter o with diaeresis</td>
+            </tr>
+            <tr>
+                <td>247</td>
+                <td>367</td>
+                <td>F7</td>
+                <td>÷</td>
+                <td>Division sign</td>
+            </tr>
+            <tr>
+                <td>248</td>
+                <td>370</td>
+                <td>F8</td>
+                <td>ř</td>
+                <td>Latin small letter r with caron</td>
+            </tr>
+            <tr>
+                <td>249</td>
+                <td>371</td>
+                <td>F9</td>
+                <td>ů</td>
+                <td>Latin small letter u with ring above</td>
+            </tr>
+            <tr>
+                <td>250</td>
+                <td>372</td>
+                <td>FA</td>
+                <td>ú</td>
+                <td>Latin small letter u with acute</td>
+            </tr>
+            <tr>
+                <td>251</td>
+                <td>373</td>
+                <td>FB</td>
+                <td>ű</td>
+                <td>Latin small letter u with double acute</td>
+            </tr>
+            <tr>
+                <td>252</td>
+                <td>374</td>
+                <td>FC</td>
+                <td>ü</td>
+                <td>Latin small letter u with diaeresis</td>
+            </tr>
+            <tr>
+                <td>253</td>
+                <td>375</td>
+                <td>FD</td>
+                <td>ý</td>
+                <td>Latin small letter y with acute</td>
+            </tr>
+            <tr>
+                <td>254</td>
+                <td>376</td>
+                <td>FE</td>
+                <td>ţ</td>
+                <td>Latin small letter t with cedilla</td>
+            </tr>
+            <tr>
+                <td>255</td>
+                <td>377</td>
+                <td>FF</td>
+                <td>˙</td>
+                <td>Dot above</td>
+            </tr>
+        </table>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/windows-1250" class="tag">windows-1250</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/algorithm" class="tag">algorithm</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/encoding" class="tag">encoding</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/decoding" class="tag">decoding</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+					</div>
+				</div>
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/06/24/windows-1256-encoding-and-decoding/"><img src="https://hemimorphite.github.io/assets/images/windows1256.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/06/24/windows-1256-encoding-and-decoding/">Windows-1256 (CP-1256) Encoding and Decoding</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<script async="async" data-cfasync="false" src="//pl23622823.highrevenuenetwork.com/82849ac901fcdf553b99a113d233ce38/invoke.js"></script>
+						<div id="container-82849ac901fcdf553b99a113d233ce38"></div>
+					</div>
+					<div class="col-md-6">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '08760f2487e830ed5039902de4007bec',
+								'format' : 'iframe',
+								'height' : 250,
+								'width' : 300,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/zh/2024/06/24/windows-1250-encoding-and-decoding/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/zh/2024/06/24/windows-1250-encoding-and-decoding/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+		
+  	</body>
+</html>
