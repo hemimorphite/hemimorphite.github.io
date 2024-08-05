@@ -389,12 +389,13 @@ header {
 		background-color: #37aece;
 		color: #fff;
 	}
-	.blog-post .post-content .table-responsive tbody tr {
-		background-color: #fff;
-		display: block;
+	.blog-post .post-content .table-responsive tbody tr:nth-of-type(even),
+	.blog-post .post-content .table-responsive tbody tr:nth-of-type(odd) {
+		background-color: #fff !important;
 	}
 	.blog-post .post-content .table-responsive tbody td {
 		text-align: right;
+		display: block;
 	}
 	.blog-post .post-content .table-responsive tbody td[data-title]::before {
 		content: attr(data-title);
