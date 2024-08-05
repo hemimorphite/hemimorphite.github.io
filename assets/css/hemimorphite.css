@@ -381,9 +381,24 @@ header {
 .blog-post .post-content .table-responsive tbody tr:nth-of-type(even) {
 	background-color: #D7EEF5;
 }
-@media (min-width: 30em) {
+@media (max-width: 30em) {
 	.blog-post .post-content .table-responsive thead {
 		display: none;
+	}
+	.blog-post .post-content .table-responsive tbody td:first-child {
+		background-color: #37aece;
+		color: #fff;
+	}
+	.blog-post .post-content .table-responsive tbody tr {
+		background-color: #fff;
+		display: block;
+	}
+	.blog-post .post-content .table-responsive tbody td {
+		text-align: right;
+	}
+	.blog-post .post-content .table-responsive tbody td[data-title]::before {
+		content: attr(data-title);
+		float: left;
 	}
 }
 .blog-post .post-share,
