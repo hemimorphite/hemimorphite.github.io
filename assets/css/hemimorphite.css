@@ -371,6 +371,21 @@ header {
 .blog-post .post-content ol li a {
   font-weight: 400;
 }
+.blog-post .post-content .table-responsive {
+	border-color: #298ea9 !important;
+}
+.blog-post .post-content .table-responsive thead th {
+	background-color: #37aece;
+	color: #fff;
+}
+.blog-post .post-content .table-responsive tbody tr:nth-of-type(even) {
+	background-color: #D7EEF5;
+}
+@media (min-width: 30em) {
+	.blog-post .post-content .table-responsive thead {
+		display: none;
+	}
+}
 .blog-post .post-share,
 .blog-post .post-tags {
 	margin-bottom: 1rem;
