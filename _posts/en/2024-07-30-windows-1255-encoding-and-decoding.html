@@ -4,11 +4,11 @@ lang: en
 locale: en
 title: "Windows-1255 (CP-1255) Encoding and Decoding"
 thumb: "windows1255.jpg"
-eyebrow: "Tutorial"
+eyebrow: "Complete Reference"
 description: "Explore Windows-1255 (CP-1255) encoding and decoding, specifically designed for Hebrew text in Windows environments. "
 date: 2024-07-30 23:00:00 +0700
 author: Samuel Yang
-categories: ["Tutorial", "year-2024", "month-07", "day-30"]
+categories: ["Complete Reference", "year-2024", "month-07", "day-30"]
 tags: ["windows-1255", "cp-1255", "algorithm", "encoding", "decoding"]
 ---
 
@@ -22,1830 +22,291 @@ tags: ["windows-1255", "cp-1255", "algorithm", "encoding", "decoding"]
 
         <p>The following table displays ASCII control characters:</p>
 
-        <table class="table table-bordered border-primary">
-            <tr>
-                <td>DEC</td>
-                <td>OCT</td>
-                <td>HEX</td>
-                <td>Symbol</td>
-                <td>Description</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>000</td>
-                <td>00</td>
-                <td>␀</td>
-                <td>Null character</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>001</td>
-                <td>01</td>
-                <td>␁</td>
-                <td>Start of Heading</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>002</td>
-                <td>02</td>
-                <td>␂</td>
-                <td>Start of Text</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>003</td>
-                <td>03</td>
-                <td>␃</td>
-                <td>End of Text</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>004</td>
-                <td>04</td>
-                <td>␄</td>
-                <td>End of Transmission</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>005</td>
-                <td>05</td>
-                <td>␅</td>
-                <td>Enquiry</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>006</td>
-                <td>06</td>
-                <td>␆</td>
-                <td>Acknowledge</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>007</td>
-                <td>07</td>
-                <td>␇</td>
-                <td>Bell, Alert</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>010</td>
-                <td>08</td>
-                <td>␈</td>
-                <td>Backspace</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>011</td>
-                <td>09</td>
-                <td>␉</td>
-                <td>Horizontal Tab</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>012</td>
-                <td>0A</td>
-                <td>␊</td>
-                <td>Line Feed</td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>013</td>
-                <td>0B</td>
-                <td>␋</td>
-                <td>Vertical Tabulation</td>
-            </tr>
-            <tr>
-                <td>12</td>
-                <td>014</td>
-                <td>0C</td>
-                <td>␌</td>
-                <td>Form Feed</td>
-            </tr>
-            <tr>
-                <td>13</td>
-                <td>015</td>
-                <td>0D</td>
-                <td>␍</td>
-                <td>Carriage Return</td>
-            </tr>
-            <tr>
-                <td>14</td>
-                <td>016</td>
-                <td>0E</td>
-                <td>␎</td>
-                <td>Shift Out</td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td>017</td>
-                <td>0F</td>
-                <td>␏</td>
-                <td>Shift In</td>
-            </tr>
-            <tr>
-                <td>16</td>
-                <td>020</td>
-                <td>10</td>
-                <td>␐</td>
-                <td>Data Link Escape</td>
-            </tr>
-            <tr>
-                <td>17</td>
-                <td>021</td>
-                <td>11</td>
-                <td>␑</td>
-                <td>Device Control One (XON)</td>
-            </tr>
-            <tr>
-                <td>18</td>
-                <td>022</td>
-                <td>12</td>
-                <td>␒</td>
-                <td>Device Control Two</td>
-            </tr>
-            <tr>
-                <td>19</td>
-                <td>023</td>
-                <td>13</td>
-                <td>␓</td>
-                <td>Device Control Three (XOFF)</td>
-            </tr>
-            <tr>
-                <td>20</td>
-                <td>024</td>
-                <td>14</td>
-                <td>␔</td>
-                <td>Device Control Four</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>025</td>
-                <td>15</td>
-                <td>␕</td>
-                <td>Negative Acknowledge</td>
-            </tr>
-            <tr>
-                <td>22</td>
-                <td>026</td>
-                <td>16</td>
-                <td>␖</td>
-                <td>Synchronous Idle</td>
-            </tr>
-            <tr>
-                <td>23</td>
-                <td>027</td>
-                <td>17</td>
-                <td>␗</td>
-                <td>End of Transmission Block</td>
-            </tr>
-            <tr>
-                <td>24</td>
-                <td>030</td>
-                <td>18</td>
-                <td>␘</td>
-                <td>Cancel</td>
-            </tr>
-            <tr>
-                <td>25</td>
-                <td>031</td>
-                <td>19</td>
-                <td>␙</td>
-                <td>End of medium</td>
-            </tr>
-            <tr>
-                <td>26</td>
-                <td>032</td>
-                <td>1A</td>
-                <td>␚</td>
-                <td>Substitute</td>
-            </tr>
-            <tr>
-                <td>27</td>
-                <td>033</td>
-                <td>1B</td>
-                <td>␛</td>
-                <td>Escape</td>
-            </tr>
-            <tr>
-                <td>28</td>
-                <td>034</td>
-                <td>1C</td>
-                <td>␜</td>
-                <td>File Separator</td>
-            </tr>
-            <tr>
-                <td>29</td>
-                <td>035</td>
-                <td>1D</td>
-                <td>␝</td>
-                <td>Group Separator</td>
-            </tr>
-            <tr>
-                <td>30</td>
-                <td>036</td>
-                <td>1E</td>
-                <td>␞</td>
-                <td>Record Separator</td>
-            </tr>
-            <tr>
-                <td>31</td>
-                <td>037</td>
-                <td>1F</td>
-                <td>␟</td>
-                <td>Unit Separator</td>
-            </tr>
+        <table class="table table-bordered table-responsive">
+        <thead>
+            <tr><th>Decimal</th><th>Octal</th><th>Hexadecimal</th><th>Symbol</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+            
+            <tr><td data-title="Decimal">0</td><td data-title="Octal">000</td><td data-title="Hexdecimal">00</td><td data-title="Symbol">␀</td><td data-title="Description">Null character</td></tr>
+            <tr><td data-title="Decimal">1</td><td data-title="Octal">001</td><td data-title="Hexdecimal">01</td><td data-title="Symbol">␁</td><td data-title="Description">Start of Heading</td></tr>
+            <tr><td data-title="Decimal">2</td><td data-title="Octal">002</td><td data-title="Hexdecimal">02</td><td data-title="Symbol">␂</td><td data-title="Description">Start of Text</td></tr>
+            <tr><td data-title="Decimal">3</td><td data-title="Octal">003</td><td data-title="Hexdecimal">03</td><td data-title="Symbol">␃</td><td data-title="Description">End of Text</td></tr>
+            <tr><td data-title="Decimal">4</td><td data-title="Octal">004</td><td data-title="Hexdecimal">04</td><td data-title="Symbol">␄</td><td data-title="Description">End of Transmission</td></tr>
+            <tr><td data-title="Decimal">5</td><td data-title="Octal">005</td><td data-title="Hexdecimal">05</td><td data-title="Symbol">␅</td><td data-title="Description">Enquiry</td></tr>
+            <tr><td data-title="Decimal">6</td><td data-title="Octal">006</td><td data-title="Hexdecimal">06</td><td data-title="Symbol">␆</td><td data-title="Description">Acknowledge</td></tr>
+            <tr><td data-title="Decimal">7</td><td data-title="Octal">007</td><td data-title="Hexdecimal">07</td><td data-title="Symbol">␇</td><td data-title="Description">Bell, Alert</td></tr>
+            <tr><td data-title="Decimal">8</td><td data-title="Octal">010</td><td data-title="Hexdecimal">08</td><td data-title="Symbol">␈</td><td data-title="Description">Backspace</td></tr>
+            <tr><td data-title="Decimal">9</td><td data-title="Octal">011</td><td data-title="Hexdecimal">09</td><td data-title="Symbol">␉</td><td data-title="Description">Horizontal Tab</td></tr>
+            <tr><td data-title="Decimal">10</td><td data-title="Octal">012</td><td data-title="Hexdecimal">0A</td><td data-title="Symbol">␊</td><td data-title="Description">Line Feed</td></tr>
+            <tr><td data-title="Decimal">11</td><td data-title="Octal">013</td><td data-title="Hexdecimal">0B</td><td data-title="Symbol">␋</td><td data-title="Description">Vertical Tabulation</td></tr>
+            <tr><td data-title="Decimal">12</td><td data-title="Octal">014</td><td data-title="Hexdecimal">0C</td><td data-title="Symbol">␌</td><td data-title="Description">Form Feed</td></tr>
+            <tr><td data-title="Decimal">13</td><td data-title="Octal">015</td><td data-title="Hexdecimal">0D</td><td data-title="Symbol">␍</td><td data-title="Description">Carriage Return</td></tr>
+            <tr><td data-title="Decimal">14</td><td data-title="Octal">016</td><td data-title="Hexdecimal">0E</td><td data-title="Symbol">␎</td><td data-title="Description">Shift Out</td></tr>
+            <tr><td data-title="Decimal">15</td><td data-title="Octal">017</td><td data-title="Hexdecimal">0F</td><td data-title="Symbol">␏</td><td data-title="Description">Shift In</td></tr>
+            <tr><td data-title="Decimal">16</td><td data-title="Octal">020</td><td data-title="Hexdecimal">10</td><td data-title="Symbol">␐</td><td data-title="Description">Data Link Escape</td></tr>
+            <tr><td data-title="Decimal">17</td><td data-title="Octal">021</td><td data-title="Hexdecimal">11</td><td data-title="Symbol">␑</td><td data-title="Description">Device Control One (XON)</td></tr>
+            <tr><td data-title="Decimal">18</td><td data-title="Octal">022</td><td data-title="Hexdecimal">12</td><td data-title="Symbol">␒</td><td data-title="Description">Device Control Two</td></tr>
+            <tr><td data-title="Decimal">19</td><td data-title="Octal">023</td><td data-title="Hexdecimal">13</td><td data-title="Symbol">␓</td><td data-title="Description">Device Control Three (XOFF)</td></tr>
+            <tr><td data-title="Decimal">20</td><td data-title="Octal">024</td><td data-title="Hexdecimal">14</td><td data-title="Symbol">␔</td><td data-title="Description">Device Control Four</td></tr>
+            <tr><td data-title="Decimal">21</td><td data-title="Octal">025</td><td data-title="Hexdecimal">15</td><td data-title="Symbol">␕</td><td data-title="Description">Negative Acknowledge</td></tr>
+            <tr><td data-title="Decimal">22</td><td data-title="Octal">026</td><td data-title="Hexdecimal">16</td><td data-title="Symbol">␖</td><td data-title="Description">Synchronous Idle</td></tr>
+            <tr><td data-title="Decimal">23</td><td data-title="Octal">027</td><td data-title="Hexdecimal">17</td><td data-title="Symbol">␗</td><td data-title="Description">End of Transmission Block</td></tr>
+            <tr><td data-title="Decimal">24</td><td data-title="Octal">030</td><td data-title="Hexdecimal">18</td><td data-title="Symbol">␘</td><td data-title="Description">Cancel</td></tr>
+            <tr><td data-title="Decimal">25</td><td data-title="Octal">031</td><td data-title="Hexdecimal">19</td><td data-title="Symbol">␙</td><td data-title="Description">End of medium</td></tr>
+            <tr><td data-title="Decimal">26</td><td data-title="Octal">032</td><td data-title="Hexdecimal">1A</td><td data-title="Symbol">␚</td><td data-title="Description">Substitute</td></tr>
+            <tr><td data-title="Decimal">27</td><td data-title="Octal">033</td><td data-title="Hexdecimal">1B</td><td data-title="Symbol">␛</td><td data-title="Description">Escape</td></tr>
+            <tr><td data-title="Decimal">28</td><td data-title="Octal">034</td><td data-title="Hexdecimal">1C</td><td data-title="Symbol">␜</td><td data-title="Description">File Separator</td></tr>
+            <tr><td data-title="Decimal">29</td><td data-title="Octal">035</td><td data-title="Hexdecimal">1D</td><td data-title="Symbol">␝</td><td data-title="Description">Group Separator</td></tr>
+            <tr><td data-title="Decimal">30</td><td data-title="Octal">036</td><td data-title="Hexdecimal">1E</td><td data-title="Symbol">␞</td><td data-title="Description">Record Separator</td></tr>
+            <tr><td data-title="Decimal">31</td><td data-title="Octal">037</td><td data-title="Hexdecimal">1F</td><td data-title="Symbol">␟</td><td data-title="Description">Unit Separator</td></tr>
+        </tbody>
         </table>
 
         <p>The following table displays ASCII printable characters:</p>
 
-        <table class="table table-bordered border-primary">
-            <tr>
-                <td>DEC</td>
-                <td>OCT</td>
-                <td>HEX</td>
-                <td>Symbol</td>
-                <td>Description</td>
-            </tr>
-            <tr>
-                <td>32</td>
-                <td>040</td>
-                <td>20</td>
-                <td>␠</td>
-                <td>Space</td>
-            </tr>
-            <tr>
-                <td>33</td>
-                <td>041</td>
-                <td>21</td>
-                <td>!</td>
-                <td>Exclamation mark</td>
-            </tr>
-            <tr>
-                <td>34</td>
-                <td>042</td>
-                <td>22</td>
-                <td></td>
-                <td>Double quotes (or speech marks)</td>
-            </tr>
-            <tr>
-                <td>35</td>
-                <td>043</td>
-                <td>23</td>
-                <td>#</td>
-                <td>Number sign</td>
-            </tr>
-            <tr>
-                <td>36</td>
-                <td>044</td>
-                <td>24</td>
-                <td>$</td>
-                <td>Dollar</td>
-            </tr>
-            <tr>
-                <td>37</td>
-                <td>045</td>
-                <td>25</td>
-                <td>%</td>
-                <td>Per cent sign</td>
-            </tr>
-            <tr>
-                <td>38</td>
-                <td>046</td>
-                <td>26</td>
-                <td>&amp;</td>
-                <td>Ampersand</td>
-            </tr>
-            <tr>
-                <td>39</td>
-                <td>047</td>
-                <td>27</td>
-                <td>&#39;</td>
-                <td>Single quote</td>
-            </tr>
-            <tr>
-                <td>40</td>
-                <td>050</td>
-                <td>28</td>
-                <td>(</td>
-                <td>Open parenthesis (or open bracket)</td>
-            </tr>
-            <tr>
-                <td>41</td>
-                <td>051</td>
-                <td>29</td>
-                <td>)</td>
-                <td>Close parenthesis (or close bracket)</td>
-            </tr>
-            <tr>
-                <td>42</td>
-                <td>052</td>
-                <td>2A</td>
-                <td>*</td>
-                <td>Asterisk</td>
-            </tr>
-            <tr>
-                <td>43</td>
-                <td>053</td>
-                <td>2B</td>
-                <td>+</td>
-                <td>Plus</td>
-            </tr>
-            <tr>
-                <td>44</td>
-                <td>054</td>
-                <td>2C</td>
-                <td>,</td>
-                <td>Comma</td>
-            </tr>
-            <tr>
-                <td>45</td>
-                <td>055</td>
-                <td>2D</td>
-                <td>-</td>
-                <td>Hyphen-minus</td>
-            </tr>
-            <tr>
-                <td>46</td>
-                <td>056</td>
-                <td>2E</td>
-                <td>.</td>
-                <td>Period, dot or full stop</td>
-            </tr>
-            <tr>
-                <td>47</td>
-                <td>057</td>
-                <td>2F</td>
-                <td>/</td>
-                <td>Slash or divide</td>
-            </tr>
-            <tr>
-                <td>48</td>
-                <td>060</td>
-                <td>30</td>
-                <td>0</td>
-                <td>Zero</td>
-            </tr>
-            <tr>
-                <td>49</td>
-                <td>061</td>
-                <td>31</td>
-                <td>1</td>
-                <td>One</td>
-            </tr>
-            <tr>
-                <td>50</td>
-                <td>062</td>
-                <td>32</td>
-                <td>2</td>
-                <td>Two</td>
-            </tr>
-            <tr>
-                <td>51</td>
-                <td>063</td>
-                <td>33</td>
-                <td>3</td>
-                <td>Three</td>
-            </tr>
-            <tr>
-                <td>52</td>
-                <td>064</td>
-                <td>34</td>
-                <td>4</td>
-                <td>Four</td>
-            </tr>
-            <tr>
-                <td>53</td>
-                <td>065</td>
-                <td>35</td>
-                <td>5</td>
-                <td>Five</td>
-            </tr>
-            <tr>
-                <td>54</td>
-                <td>066</td>
-                <td>36</td>
-                <td>6</td>
-                <td>Six</td>
-            </tr>
-            <tr>
-                <td>55</td>
-                <td>067</td>
-                <td>37</td>
-                <td>7</td>
-                <td>Seven</td>
-            </tr>
-            <tr>
-                <td>56</td>
-                <td>070</td>
-                <td>38</td>
-                <td>8</td>
-                <td>Eight</td>
-            </tr>
-            <tr>
-                <td>57</td>
-                <td>071</td>
-                <td>39</td>
-                <td>9</td>
-                <td>Nine</td>
-            </tr>
-            <tr>
-                <td>58</td>
-                <td>072</td>
-                <td>3A</td>
-                <td>:</td>
-                <td>Colon</td>
-            </tr>
-            <tr>
-                <td>59</td>
-                <td>073</td>
-                <td>3B</td>
-                <td>;</td>
-                <td>Semicolon</td>
-            </tr>
-            <tr>
-                <td>60</td>
-                <td>074</td>
-                <td>3C</td>
-                <td>&lt;</td>
-                <td>Less than (or open angled bracket)</td>
-            </tr>
-            <tr>
-                <td>61</td>
-                <td>075</td>
-                <td>3D</td>
-                <td>=</td>
-                <td>Equals</td>
-            </tr>
-            <tr>
-                <td>62</td>
-                <td>076</td>
-                <td>3E</td>
-                <td>&gt;</td>
-                <td>Greater than (or close angled bracket)</td>
-            </tr>
-            <tr>
-                <td>63</td>
-                <td>077</td>
-                <td>3F</td>
-                <td>?</td>
-                <td>Question mark</td>
-            </tr>
-            <tr>
-                <td>64</td>
-                <td>100</td>
-                <td>40</td>
-                <td>@</td>
-                <td>At sign</td>
-            </tr>
-            <tr>
-                <td>65</td>
-                <td>101</td>
-                <td>41</td>
-                <td>A</td>
-                <td>Uppercase A</td>
-            </tr>
-            <tr>
-                <td>66</td>
-                <td>102</td>
-                <td>42</td>
-                <td>B</td>
-                <td>Uppercase B</td>
-            </tr>
-            <tr>
-                <td>67</td>
-                <td>103</td>
-                <td>43</td>
-                <td>C</td>
-                <td>Uppercase C</td>
-            </tr>
-            <tr>
-                <td>68</td>
-                <td>104</td>
-                <td>44</td>
-                <td>D</td>
-                <td>Uppercase D</td>
-            </tr>
-            <tr>
-                <td>69</td>
-                <td>105</td>
-                <td>45</td>
-                <td>E</td>
-                <td>Uppercase E</td>
-            </tr>
-            <tr>
-                <td>70</td>
-                <td>106</td>
-                <td>46</td>
-                <td>F</td>
-                <td>Uppercase F</td>
-            </tr>
-            <tr>
-                <td>71</td>
-                <td>107</td>
-                <td>47</td>
-                <td>G</td>
-                <td>Uppercase G</td>
-            </tr>
-            <tr>
-                <td>72</td>
-                <td>110</td>
-                <td>48</td>
-                <td>H</td>
-                <td>Uppercase H</td>
-            </tr>
-            <tr>
-                <td>73</td>
-                <td>111</td>
-                <td>49</td>
-                <td>I</td>
-                <td>Uppercase I</td>
-            </tr>
-            <tr>
-                <td>74</td>
-                <td>112</td>
-                <td>4A</td>
-                <td>J</td>
-                <td>Uppercase J</td>
-            </tr>
-            <tr>
-                <td>75</td>
-                <td>113</td>
-                <td>4B</td>
-                <td>K</td>
-                <td>Uppercase K</td>
-            </tr>
-            <tr>
-                <td>76</td>
-                <td>114</td>
-                <td>4C</td>
-                <td>L</td>
-                <td>Uppercase L</td>
-            </tr>
-            <tr>
-                <td>77</td>
-                <td>115</td>
-                <td>4D</td>
-                <td>M</td>
-                <td>Uppercase M</td>
-            </tr>
-            <tr>
-                <td>78</td>
-                <td>116</td>
-                <td>4E</td>
-                <td>N</td>
-                <td>Uppercase N</td>
-            </tr>
-            <tr>
-                <td>79</td>
-                <td>117</td>
-                <td>4F</td>
-                <td>O</td>
-                <td>Uppercase O</td>
-            </tr>
-            <tr>
-                <td>80</td>
-                <td>120</td>
-                <td>50</td>
-                <td>P</td>
-                <td>Uppercase P</td>
-            </tr>
-            <tr>
-                <td>81</td>
-                <td>121</td>
-                <td>51</td>
-                <td>Q</td>
-                <td>Uppercase Q</td>
-            </tr>
-            <tr>
-                <td>82</td>
-                <td>122</td>
-                <td>52</td>
-                <td>R</td>
-                <td>Uppercase R</td>
-            </tr>
-            <tr>
-                <td>83</td>
-                <td>123</td>
-                <td>53</td>
-                <td>S</td>
-                <td>Uppercase S</td>
-            </tr>
-            <tr>
-                <td>84</td>
-                <td>124</td>
-                <td>54</td>
-                <td>T</td>
-                <td>Uppercase T</td>
-            </tr>
-            <tr>
-                <td>85</td>
-                <td>125</td>
-                <td>55</td>
-                <td>U</td>
-                <td>Uppercase U</td>
-            </tr>
-            <tr>
-                <td>86</td>
-                <td>126</td>
-                <td>56</td>
-                <td>V</td>
-                <td>Uppercase V</td>
-            </tr>
-            <tr>
-                <td>87</td>
-                <td>127</td>
-                <td>57</td>
-                <td>W</td>
-                <td>Uppercase W</td>
-            </tr>
-            <tr>
-                <td>88</td>
-                <td>130</td>
-                <td>58</td>
-                <td>X</td>
-                <td>Uppercase X</td>
-            </tr>
-            <tr>
-                <td>89</td>
-                <td>131</td>
-                <td>59</td>
-                <td>Y</td>
-                <td>Uppercase Y</td>
-            </tr>
-            <tr>
-                <td>90</td>
-                <td>132</td>
-                <td>5A</td>
-                <td>Z</td>
-                <td>Uppercase Z</td>
-            </tr>
-            <tr>
-                <td>91</td>
-                <td>133</td>
-                <td>5B</td>
-                <td>[</td>
-                <td>Opening bracket</td>
-            </tr>
-            <tr>
-                <td>92</td>
-                <td>134</td>
-                <td>5C</td>
-                <td>\</td>
-                <td>Backslash</td>
-            </tr>
-            <tr>
-                <td>93</td>
-                <td>135</td>
-                <td>5D</td>
-                <td>]</td>
-                <td>Closing bracket</td>
-            </tr>
-            <tr>
-                <td>94</td>
-                <td>136</td>
-                <td>5E</td>
-                <td>^</td>
-                <td>Caret - circumflex</td>
-            </tr>
-            <tr>
-                <td>95</td>
-                <td>137</td>
-                <td>5F</td>
-                <td>_</td>
-                <td>Underscore</td>
-            </tr>
-            <tr>
-                <td>96</td>
-                <td>140</td>
-                <td>60</td>
-                <td>`</td>
-                <td>Grave accent</td>
-            </tr>
-            <tr>
-                <td>97</td>
-                <td>141</td>
-                <td>61</td>
-                <td>a</td>
-                <td>Lowercase a</td>
-            </tr>
-            <tr>
-                <td>98</td>
-                <td>142</td>
-                <td>62</td>
-                <td>b</td>
-                <td>Lowercase b</td>
-            </tr>
-            <tr>
-                <td>99</td>
-                <td>143</td>
-                <td>63</td>
-                <td>c</td>
-                <td>Lowercase c</td>
-            </tr>
-            <tr>
-                <td>100</td>
-                <td>144</td>
-                <td>64</td>
-                <td>d</td>
-                <td>Lowercase d</td>
-            </tr>
-            <tr>
-                <td>101</td>
-                <td>145</td>
-                <td>65</td>
-                <td>e</td>
-                <td>Lowercase e</td>
-            </tr>
-            <tr>
-                <td>102</td>
-                <td>146</td>
-                <td>66</td>
-                <td>f</td>
-                <td>Lowercase f</td>
-            </tr>
-            <tr>
-                <td>103</td>
-                <td>147</td>
-                <td>67</td>
-                <td>g</td>
-                <td>Lowercase g</td>
-            </tr>
-            <tr>
-                <td>104</td>
-                <td>150</td>
-                <td>68</td>
-                <td>h</td>
-                <td>Lowercase h</td>
-            </tr>
-            <tr>
-                <td>105</td>
-                <td>151</td>
-                <td>69</td>
-                <td>i</td>
-                <td>Lowercase i</td>
-            </tr>
-            <tr>
-                <td>106</td>
-                <td>152</td>
-                <td>6A</td>
-                <td>j</td>
-                <td>Lowercase j</td>
-            </tr>
-            <tr>
-                <td>107</td>
-                <td>153</td>
-                <td>6B</td>
-                <td>k</td>
-                <td>Lowercase k</td>
-            </tr>
-            <tr>
-                <td>108</td>
-                <td>154</td>
-                <td>6C</td>
-                <td>l</td>
-                <td>Lowercase l</td>
-            </tr>
-            <tr>
-                <td>109</td>
-                <td>155</td>
-                <td>6D</td>
-                <td>m</td>
-                <td>Lowercase m</td>
-            </tr>
-            <tr>
-                <td>110</td>
-                <td>156</td>
-                <td>6E</td>
-                <td>n</td>
-                <td>Lowercase n</td>
-            </tr>
-            <tr>
-                <td>111</td>
-                <td>157</td>
-                <td>6F</td>
-                <td>o</td>
-                <td>Lowercase o</td>
-            </tr>
-            <tr>
-                <td>112</td>
-                <td>160</td>
-                <td>70</td>
-                <td>p</td>
-                <td>Lowercase p</td>
-            </tr>
-            <tr>
-                <td>113</td>
-                <td>161</td>
-                <td>71</td>
-                <td>q</td>
-                <td>Lowercase q</td>
-            </tr>
-            <tr>
-                <td>114</td>
-                <td>162</td>
-                <td>72</td>
-                <td>r</td>
-                <td>Lowercase r</td>
-            </tr>
-            <tr>
-                <td>115</td>
-                <td>163</td>
-                <td>73</td>
-                <td>s</td>
-                <td>Lowercase s</td>
-            </tr>
-            <tr>
-                <td>116</td>
-                <td>164</td>
-                <td>74</td>
-                <td>t</td>
-                <td>Lowercase t</td>
-            </tr>
-            <tr>
-                <td>117</td>
-                <td>165</td>
-                <td>75</td>
-                <td>u</td>
-                <td>Lowercase u</td>
-            </tr>
-            <tr>
-                <td>118</td>
-                <td>166</td>
-                <td>76</td>
-                <td>v</td>
-                <td>Lowercase v</td>
-            </tr>
-            <tr>
-                <td>119</td>
-                <td>167</td>
-                <td>77</td>
-                <td>w</td>
-                <td>Lowercase w</td>
-            </tr>
-            <tr>
-                <td>120</td>
-                <td>170</td>
-                <td>78</td>
-                <td>x</td>
-                <td>Lowercase x</td>
-            </tr>
-            <tr>
-                <td>121</td>
-                <td>171</td>
-                <td>79</td>
-                <td>y</td>
-                <td>Lowercase y</td>
-            </tr>
-            <tr>
-                <td>122</td>
-                <td>172</td>
-                <td>7A</td>
-                <td>z</td>
-                <td>Lowercase z</td>
-            </tr>
-            <tr>
-                <td>123</td>
-                <td>173</td>
-                <td>7B</td>
-                <td>{</td>
-                <td>Opening brace</td>
-            </tr>
-            <tr>
-                <td>124</td>
-                <td>174</td>
-                <td>7C</td>
-                <td>|</td>
-                <td>Vertical bar</td>
-            </tr>
-            <tr>
-                <td>125</td>
-                <td>175</td>
-                <td>7D</td>
-                <td>}</td>
-                <td>Closing brace</td>
-            </tr>
-            <tr>
-                <td>126</td>
-                <td>176</td>
-                <td>7E</td>
-                <td>~</td>
-                <td>Equivalency sign - tilde</td>
-            </tr>
-            <tr>
-                <td>127</td>
-                <td>177</td>
-                <td>7F</td>
-                <td>␡</td>
-                <td>Delete</td>
-            </tr>
+        <table class="table table-bordered table-responsive">
+        <thead>
+            <tr><th>Decimal</th><th>Octal</th><th>Hexadecimal</th><th>Symbol</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+            
+            <tr><td data-title="Decimal">32</td><td data-title="Octal">040</td><td data-title="Hexdecimal">20</td><td data-title="Symbol">␠</td><td data-title="Description">Space</td></tr>
+            <tr><td data-title="Decimal">33</td><td data-title="Octal">041</td><td data-title="Hexdecimal">21</td><td data-title="Symbol">!</td><td data-title="Description">Exclamation mark</td></tr>
+            <tr><td data-title="Decimal">34</td><td data-title="Octal">042</td><td data-title="Hexdecimal">22</td><td data-title="Symbol"></td><td data-title="Description">Double quotes (or speech marks)</td></tr>
+            <tr><td data-title="Decimal">35</td><td data-title="Octal">043</td><td data-title="Hexdecimal">23</td><td data-title="Symbol">#</td><td data-title="Description">Number sign</td></tr>
+            <tr><td data-title="Decimal">36</td><td data-title="Octal">044</td><td data-title="Hexdecimal">24</td><td data-title="Symbol">$</td><td data-title="Description">Dollar</td></tr>
+            <tr><td data-title="Decimal">37</td><td data-title="Octal">045</td><td data-title="Hexdecimal">25</td><td data-title="Symbol">%</td><td data-title="Description">Per cent sign</td></tr>
+            <tr><td data-title="Decimal">38</td><td data-title="Octal">046</td><td data-title="Hexdecimal">26</td><td data-title="Symbol">&amp;</td><td data-title="Description">Ampersand</td></tr>
+            <tr><td data-title="Decimal">39</td><td data-title="Octal">047</td><td data-title="Hexdecimal">27</td><td data-title="Symbol">&#39;</td><td data-title="Description">Single quote</td></tr>
+            <tr><td data-title="Decimal">40</td><td data-title="Octal">050</td><td data-title="Hexdecimal">28</td><td data-title="Symbol">(</td><td data-title="Description">Open parenthesis (or open bracket)</td></tr>
+            <tr><td data-title="Decimal">41</td><td data-title="Octal">051</td><td data-title="Hexdecimal">29</td><td data-title="Symbol">)</td><td data-title="Description">Close parenthesis (or close bracket)</td></tr>
+            <tr><td data-title="Decimal">42</td><td data-title="Octal">052</td><td data-title="Hexdecimal">2A</td><td data-title="Symbol">*</td><td data-title="Description">Asterisk</td></tr>
+            <tr><td data-title="Decimal">43</td><td data-title="Octal">053</td><td data-title="Hexdecimal">2B</td><td data-title="Symbol">+</td><td data-title="Description">Plus</td></tr>
+            <tr><td data-title="Decimal">44</td><td data-title="Octal">054</td><td data-title="Hexdecimal">2C</td><td data-title="Symbol">,</td><td data-title="Description">Comma</td></tr>
+            <tr><td data-title="Decimal">45</td><td data-title="Octal">055</td><td data-title="Hexdecimal">2D</td><td data-title="Symbol">-</td><td data-title="Description">Hyphen-minus</td></tr>
+            <tr><td data-title="Decimal">46</td><td data-title="Octal">056</td><td data-title="Hexdecimal">2E</td><td data-title="Symbol">.</td><td data-title="Description">Period, dot or full stop</td></tr>
+            <tr><td data-title="Decimal">47</td><td data-title="Octal">057</td><td data-title="Hexdecimal">2F</td><td data-title="Symbol">/</td><td data-title="Description">Slash or divide</td></tr>
+            <tr><td data-title="Decimal">48</td><td data-title="Octal">060</td><td data-title="Hexdecimal">30</td><td data-title="Symbol">0</td><td data-title="Description">Zero</td></tr>
+            <tr><td data-title="Decimal">49</td><td data-title="Octal">061</td><td data-title="Hexdecimal">31</td><td data-title="Symbol">1</td><td data-title="Description">One</td></tr>
+            <tr><td data-title="Decimal">50</td><td data-title="Octal">062</td><td data-title="Hexdecimal">32</td><td data-title="Symbol">2</td><td data-title="Description">Two</td></tr>
+            <tr><td data-title="Decimal">51</td><td data-title="Octal">063</td><td data-title="Hexdecimal">33</td><td data-title="Symbol">3</td><td data-title="Description">Three</td></tr>
+            <tr><td data-title="Decimal">52</td><td data-title="Octal">064</td><td data-title="Hexdecimal">34</td><td data-title="Symbol">4</td><td data-title="Description">Four</td></tr>
+            <tr><td data-title="Decimal">53</td><td data-title="Octal">065</td><td data-title="Hexdecimal">35</td><td data-title="Symbol">5</td><td data-title="Description">Five</td></tr>
+            <tr><td data-title="Decimal">54</td><td data-title="Octal">066</td><td data-title="Hexdecimal">36</td><td data-title="Symbol">6</td><td data-title="Description">Six</td></tr>
+            <tr><td data-title="Decimal">55</td><td data-title="Octal">067</td><td data-title="Hexdecimal">37</td><td data-title="Symbol">7</td><td data-title="Description">Seven</td></tr>
+            <tr><td data-title="Decimal">56</td><td data-title="Octal">070</td><td data-title="Hexdecimal">38</td><td data-title="Symbol">8</td><td data-title="Description">Eight</td></tr>
+            <tr><td data-title="Decimal">57</td><td data-title="Octal">071</td><td data-title="Hexdecimal">39</td><td data-title="Symbol">9</td><td data-title="Description">Nine</td></tr>
+            <tr><td data-title="Decimal">58</td><td data-title="Octal">072</td><td data-title="Hexdecimal">3A</td><td data-title="Symbol">:</td><td data-title="Description">Colon</td></tr>
+            <tr><td data-title="Decimal">59</td><td data-title="Octal">073</td><td data-title="Hexdecimal">3B</td><td data-title="Symbol">;</td><td data-title="Description">Semicolon</td></tr>
+            <tr><td data-title="Decimal">60</td><td data-title="Octal">074</td><td data-title="Hexdecimal">3C</td><td data-title="Symbol">&lt;</td><td data-title="Description">Less than (or open angled bracket)</td></tr>
+            <tr><td data-title="Decimal">61</td><td data-title="Octal">075</td><td data-title="Hexdecimal">3D</td><td data-title="Symbol">=</td><td data-title="Description">Equals</td></tr>
+            <tr><td data-title="Decimal">62</td><td data-title="Octal">076</td><td data-title="Hexdecimal">3E</td><td data-title="Symbol">&gt;</td><td data-title="Description">Greater than (or close angled bracket)</td></tr>
+            <tr><td data-title="Decimal">63</td><td data-title="Octal">077</td><td data-title="Hexdecimal">3F</td><td data-title="Symbol">?</td><td data-title="Description">Question mark</td></tr>
+            <tr><td data-title="Decimal">64</td><td data-title="Octal">100</td><td data-title="Hexdecimal">40</td><td data-title="Symbol">@</td><td data-title="Description">At sign</td></tr>
+            <tr><td data-title="Decimal">65</td><td data-title="Octal">101</td><td data-title="Hexdecimal">41</td><td data-title="Symbol">A</td><td data-title="Description">Uppercase A</td></tr>
+            <tr><td data-title="Decimal">66</td><td data-title="Octal">102</td><td data-title="Hexdecimal">42</td><td data-title="Symbol">B</td><td data-title="Description">Uppercase B</td></tr>
+            <tr><td data-title="Decimal">67</td><td data-title="Octal">103</td><td data-title="Hexdecimal">43</td><td data-title="Symbol">C</td><td data-title="Description">Uppercase C</td></tr>
+            <tr><td data-title="Decimal">68</td><td data-title="Octal">104</td><td data-title="Hexdecimal">44</td><td data-title="Symbol">D</td><td data-title="Description">Uppercase D</td></tr>
+            <tr><td data-title="Decimal">69</td><td data-title="Octal">105</td><td data-title="Hexdecimal">45</td><td data-title="Symbol">E</td><td data-title="Description">Uppercase E</td></tr>
+            <tr><td data-title="Decimal">70</td><td data-title="Octal">106</td><td data-title="Hexdecimal">46</td><td data-title="Symbol">F</td><td data-title="Description">Uppercase F</td></tr>
+            <tr><td data-title="Decimal">71</td><td data-title="Octal">107</td><td data-title="Hexdecimal">47</td><td data-title="Symbol">G</td><td data-title="Description">Uppercase G</td></tr>
+            <tr><td data-title="Decimal">72</td><td data-title="Octal">110</td><td data-title="Hexdecimal">48</td><td data-title="Symbol">H</td><td data-title="Description">Uppercase H</td></tr>
+            <tr><td data-title="Decimal">73</td><td data-title="Octal">111</td><td data-title="Hexdecimal">49</td><td data-title="Symbol">I</td><td data-title="Description">Uppercase I</td></tr>
+            <tr><td data-title="Decimal">74</td><td data-title="Octal">112</td><td data-title="Hexdecimal">4A</td><td data-title="Symbol">J</td><td data-title="Description">Uppercase J</td></tr>
+            <tr><td data-title="Decimal">75</td><td data-title="Octal">113</td><td data-title="Hexdecimal">4B</td><td data-title="Symbol">K</td><td data-title="Description">Uppercase K</td></tr>
+            <tr><td data-title="Decimal">76</td><td data-title="Octal">114</td><td data-title="Hexdecimal">4C</td><td data-title="Symbol">L</td><td data-title="Description">Uppercase L</td></tr>
+            <tr><td data-title="Decimal">77</td><td data-title="Octal">115</td><td data-title="Hexdecimal">4D</td><td data-title="Symbol">M</td><td data-title="Description">Uppercase M</td></tr>
+            <tr><td data-title="Decimal">78</td><td data-title="Octal">116</td><td data-title="Hexdecimal">4E</td><td data-title="Symbol">N</td><td data-title="Description">Uppercase N</td></tr>
+            <tr><td data-title="Decimal">79</td><td data-title="Octal">117</td><td data-title="Hexdecimal">4F</td><td data-title="Symbol">O</td><td data-title="Description">Uppercase O</td></tr>
+            <tr><td data-title="Decimal">80</td><td data-title="Octal">120</td><td data-title="Hexdecimal">50</td><td data-title="Symbol">P</td><td data-title="Description">Uppercase P</td></tr>
+            <tr><td data-title="Decimal">81</td><td data-title="Octal">121</td><td data-title="Hexdecimal">51</td><td data-title="Symbol">Q</td><td data-title="Description">Uppercase Q</td></tr>
+            <tr><td data-title="Decimal">82</td><td data-title="Octal">122</td><td data-title="Hexdecimal">52</td><td data-title="Symbol">R</td><td data-title="Description">Uppercase R</td></tr>
+            <tr><td data-title="Decimal">83</td><td data-title="Octal">123</td><td data-title="Hexdecimal">53</td><td data-title="Symbol">S</td><td data-title="Description">Uppercase S</td></tr>
+            <tr><td data-title="Decimal">84</td><td data-title="Octal">124</td><td data-title="Hexdecimal">54</td><td data-title="Symbol">T</td><td data-title="Description">Uppercase T</td></tr>
+            <tr><td data-title="Decimal">85</td><td data-title="Octal">125</td><td data-title="Hexdecimal">55</td><td data-title="Symbol">U</td><td data-title="Description">Uppercase U</td></tr>
+            <tr><td data-title="Decimal">86</td><td data-title="Octal">126</td><td data-title="Hexdecimal">56</td><td data-title="Symbol">V</td><td data-title="Description">Uppercase V</td></tr>
+            <tr><td data-title="Decimal">87</td><td data-title="Octal">127</td><td data-title="Hexdecimal">57</td><td data-title="Symbol">W</td><td data-title="Description">Uppercase W</td></tr>
+            <tr><td data-title="Decimal">88</td><td data-title="Octal">130</td><td data-title="Hexdecimal">58</td><td data-title="Symbol">X</td><td data-title="Description">Uppercase X</td></tr>
+            <tr><td data-title="Decimal">89</td><td data-title="Octal">131</td><td data-title="Hexdecimal">59</td><td data-title="Symbol">Y</td><td data-title="Description">Uppercase Y</td></tr>
+            <tr><td data-title="Decimal">90</td><td data-title="Octal">132</td><td data-title="Hexdecimal">5A</td><td data-title="Symbol">Z</td><td data-title="Description">Uppercase Z</td></tr>
+            <tr><td data-title="Decimal">91</td><td data-title="Octal">133</td><td data-title="Hexdecimal">5B</td><td data-title="Symbol">[</td><td data-title="Description">Opening bracket</td></tr>
+            <tr><td data-title="Decimal">92</td><td data-title="Octal">134</td><td data-title="Hexdecimal">5C</td><td data-title="Symbol">\</td><td data-title="Description">Backslash</td></tr>
+            <tr><td data-title="Decimal">93</td><td data-title="Octal">135</td><td data-title="Hexdecimal">5D</td><td data-title="Symbol">]</td><td data-title="Description">Closing bracket</td></tr>
+            <tr><td data-title="Decimal">94</td><td data-title="Octal">136</td><td data-title="Hexdecimal">5E</td><td data-title="Symbol">^</td><td data-title="Description">Caret - circumflex</td></tr>
+            <tr><td data-title="Decimal">95</td><td data-title="Octal">137</td><td data-title="Hexdecimal">5F</td><td data-title="Symbol">_</td><td data-title="Description">Underscore</td></tr>
+            <tr><td data-title="Decimal">96</td><td data-title="Octal">140</td><td data-title="Hexdecimal">60</td><td data-title="Symbol">`</td><td data-title="Description">Grave accent</td></tr>
+            <tr><td data-title="Decimal">97</td><td data-title="Octal">141</td><td data-title="Hexdecimal">61</td><td data-title="Symbol">a</td><td data-title="Description">Lowercase a</td></tr>
+            <tr><td data-title="Decimal">98</td><td data-title="Octal">142</td><td data-title="Hexdecimal">62</td><td data-title="Symbol">b</td><td data-title="Description">Lowercase b</td></tr>
+            <tr><td data-title="Decimal">99</td><td data-title="Octal">143</td><td data-title="Hexdecimal">63</td><td data-title="Symbol">c</td><td data-title="Description">Lowercase c</td></tr>
+            <tr><td data-title="Decimal">100</td><td data-title="Octal">144</td><td data-title="Hexdecimal">64</td><td data-title="Symbol">d</td><td data-title="Description">Lowercase d</td></tr>
+            <tr><td data-title="Decimal">101</td><td data-title="Octal">145</td><td data-title="Hexdecimal">65</td><td data-title="Symbol">e</td><td data-title="Description">Lowercase e</td></tr>
+            <tr><td data-title="Decimal">102</td><td data-title="Octal">146</td><td data-title="Hexdecimal">66</td><td data-title="Symbol">f</td><td data-title="Description">Lowercase f</td></tr>
+            <tr><td data-title="Decimal">103</td><td data-title="Octal">147</td><td data-title="Hexdecimal">67</td><td data-title="Symbol">g</td><td data-title="Description">Lowercase g</td></tr>
+            <tr><td data-title="Decimal">104</td><td data-title="Octal">150</td><td data-title="Hexdecimal">68</td><td data-title="Symbol">h</td><td data-title="Description">Lowercase h</td></tr>
+            <tr><td data-title="Decimal">105</td><td data-title="Octal">151</td><td data-title="Hexdecimal">69</td><td data-title="Symbol">i</td><td data-title="Description">Lowercase i</td></tr>
+            <tr><td data-title="Decimal">106</td><td data-title="Octal">152</td><td data-title="Hexdecimal">6A</td><td data-title="Symbol">j</td><td data-title="Description">Lowercase j</td></tr>
+            <tr><td data-title="Decimal">107</td><td data-title="Octal">153</td><td data-title="Hexdecimal">6B</td><td data-title="Symbol">k</td><td data-title="Description">Lowercase k</td></tr>
+            <tr><td data-title="Decimal">108</td><td data-title="Octal">154</td><td data-title="Hexdecimal">6C</td><td data-title="Symbol">l</td><td data-title="Description">Lowercase l</td></tr>
+            <tr><td data-title="Decimal">109</td><td data-title="Octal">155</td><td data-title="Hexdecimal">6D</td><td data-title="Symbol">m</td><td data-title="Description">Lowercase m</td></tr>
+            <tr><td data-title="Decimal">110</td><td data-title="Octal">156</td><td data-title="Hexdecimal">6E</td><td data-title="Symbol">n</td><td data-title="Description">Lowercase n</td></tr>
+            <tr><td data-title="Decimal">111</td><td data-title="Octal">157</td><td data-title="Hexdecimal">6F</td><td data-title="Symbol">o</td><td data-title="Description">Lowercase o</td></tr>
+            <tr><td data-title="Decimal">112</td><td data-title="Octal">160</td><td data-title="Hexdecimal">70</td><td data-title="Symbol">p</td><td data-title="Description">Lowercase p</td></tr>
+            <tr><td data-title="Decimal">113</td><td data-title="Octal">161</td><td data-title="Hexdecimal">71</td><td data-title="Symbol">q</td><td data-title="Description">Lowercase q</td></tr>
+            <tr><td data-title="Decimal">114</td><td data-title="Octal">162</td><td data-title="Hexdecimal">72</td><td data-title="Symbol">r</td><td data-title="Description">Lowercase r</td></tr>
+            <tr><td data-title="Decimal">115</td><td data-title="Octal">163</td><td data-title="Hexdecimal">73</td><td data-title="Symbol">s</td><td data-title="Description">Lowercase s</td></tr>
+            <tr><td data-title="Decimal">116</td><td data-title="Octal">164</td><td data-title="Hexdecimal">74</td><td data-title="Symbol">t</td><td data-title="Description">Lowercase t</td></tr>
+            <tr><td data-title="Decimal">117</td><td data-title="Octal">165</td><td data-title="Hexdecimal">75</td><td data-title="Symbol">u</td><td data-title="Description">Lowercase u</td></tr>
+            <tr><td data-title="Decimal">118</td><td data-title="Octal">166</td><td data-title="Hexdecimal">76</td><td data-title="Symbol">v</td><td data-title="Description">Lowercase v</td></tr>
+            <tr><td data-title="Decimal">119</td><td data-title="Octal">167</td><td data-title="Hexdecimal">77</td><td data-title="Symbol">w</td><td data-title="Description">Lowercase w</td></tr>
+            <tr><td data-title="Decimal">120</td><td data-title="Octal">170</td><td data-title="Hexdecimal">78</td><td data-title="Symbol">x</td><td data-title="Description">Lowercase x</td></tr>
+            <tr><td data-title="Decimal">121</td><td data-title="Octal">171</td><td data-title="Hexdecimal">79</td><td data-title="Symbol">y</td><td data-title="Description">Lowercase y</td></tr>
+            <tr><td data-title="Decimal">122</td><td data-title="Octal">172</td><td data-title="Hexdecimal">7A</td><td data-title="Symbol">z</td><td data-title="Description">Lowercase z</td></tr>
+            <tr><td data-title="Decimal">123</td><td data-title="Octal">173</td><td data-title="Hexdecimal">7B</td><td data-title="Symbol">{</td><td data-title="Description">Opening brace</td></tr>
+            <tr><td data-title="Decimal">124</td><td data-title="Octal">174</td><td data-title="Hexdecimal">7C</td><td data-title="Symbol">|</td><td data-title="Description">Vertical bar</td></tr>
+            <tr><td data-title="Decimal">125</td><td data-title="Octal">175</td><td data-title="Hexdecimal">7D</td><td data-title="Symbol">}</td><td data-title="Description">Closing brace</td></tr>
+            <tr><td data-title="Decimal">126</td><td data-title="Octal">176</td><td data-title="Hexdecimal">7E</td><td data-title="Symbol">~</td><td data-title="Description">Equivalency sign - tilde</td></tr>
+            <tr><td data-title="Decimal">127</td><td data-title="Octal">177</td><td data-title="Hexdecimal">7F</td><td data-title="Symbol">␡</td><td data-title="Description">Delete</td></tr>
+        </tbody>
         </table>
 
         <p>The following table displays characters and symbols used in the Hebrew language:</p>
 
-        <table>
-            <tr>
-                <td>DEC</td>
-                <td>OCT</td>
-                <td>HEX</td>
-                <td>Symbol</td>
-                <td>Description</td>
-            </tr>
-            <tr>
-                <td>128</td>
-                <td>200</td>
-                <td>80</td>
-                <td>€</td>
-                <td>Euro sign</td>
-            </tr>
-            <tr>
-                <td>129</td>
-                <td>201</td>
-                <td>81</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>130</td>
-                <td>202</td>
-                <td>82</td>
-                <td>‚</td>
-                <td>Single low-9 quotation mark</td>
-            </tr>
-            <tr>
-                <td>131</td>
-                <td>203</td>
-                <td>83</td>
-                <td>ƒ</td>
-                <td>Latin small letter f with hook</td>
-            </tr>
-            <tr>
-                <td>132</td>
-                <td>204</td>
-                <td>84</td>
-                <td>„</td>
-                <td>Double low-9 quotation mark</td>
-            </tr>
-            <tr>
-                <td>133</td>
-                <td>205</td>
-                <td>85</td>
-                <td>…</td>
-                <td>Horizontal ellipsis</td>
-            </tr>
-            <tr>
-                <td>134</td>
-                <td>206</td>
-                <td>86</td>
-                <td>†</td>
-                <td>Dagger</td>
-            </tr>
-            <tr>
-                <td>135</td>
-                <td>207</td>
-                <td>87</td>
-                <td>‡</td>
-                <td>Double dagger</td>
-            </tr>
-            <tr>
-                <td>136</td>
-                <td>210</td>
-                <td>88</td>
-                <td>ˆ</td>
-                <td>Modifier letter circumflex accent</td>
-            </tr>
-            <tr>
-                <td>137</td>
-                <td>211</td>
-                <td>89</td>
-                <td>‰</td>
-                <td>Per mille sign</td>
-            </tr>
-            <tr>
-                <td>138</td>
-                <td>212</td>
-                <td>8A</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>139</td>
-                <td>213</td>
-                <td>8B</td>
-                <td>‹</td>
-                <td>Single left-pointing angle quotation</td>
-            </tr>
-            <tr>
-                <td>140</td>
-                <td>214</td>
-                <td>8C</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>141</td>
-                <td>215</td>
-                <td>8D</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>142</td>
-                <td>216</td>
-                <td>8E</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>143</td>
-                <td>217</td>
-                <td>8F</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>144</td>
-                <td>220</td>
-                <td>90</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>145</td>
-                <td>221</td>
-                <td>91</td>
-                <td>‘</td>
-                <td>Left single quotation mark</td>
-            </tr>
-            <tr>
-                <td>146</td>
-                <td>222</td>
-                <td>92</td>
-                <td>’</td>
-                <td>Right single quotation mark</td>
-            </tr>
-            <tr>
-                <td>147</td>
-                <td>223</td>
-                <td>93</td>
-                <td>“</td>
-                <td>Left double quotation mark</td>
-            </tr>
-            <tr>
-                <td>148</td>
-                <td>224</td>
-                <td>94</td>
-                <td>”</td>
-                <td>Right double quotation mark</td>
-            </tr>
-            <tr>
-                <td>149</td>
-                <td>225</td>
-                <td>95</td>
-                <td>•</td>
-                <td>Bullet</td>
-            </tr>
-            <tr>
-                <td>150</td>
-                <td>226</td>
-                <td>96</td>
-                <td>–</td>
-                <td>En dash</td>
-            </tr>
-            <tr>
-                <td>151</td>
-                <td>227</td>
-                <td>97</td>
-                <td>—</td>
-                <td>Em dash</td>
-            </tr>
-            <tr>
-                <td>152</td>
-                <td>230</td>
-                <td>98</td>
-                <td>˜</td>
-                <td>Small tilde</td>
-            </tr>
-            <tr>
-                <td>153</td>
-                <td>231</td>
-                <td>99</td>
-                <td>™</td>
-                <td>Trade mark sign</td>
-            </tr>
-            <tr>
-                <td>154</td>
-                <td>232</td>
-                <td>9A</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>155</td>
-                <td>233</td>
-                <td>9B</td>
-                <td>›</td>
-                <td>Single right-pointing angle quotation mark</td>
-            </tr>
-            <tr>
-                <td>156</td>
-                <td>234</td>
-                <td>9C</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>157</td>
-                <td>235</td>
-                <td>9D</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>158</td>
-                <td>236</td>
-                <td>9E</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>159</td>
-                <td>237</td>
-                <td>9F</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>160</td>
-                <td>240</td>
-                <td>A0</td>
-                <td></td>
-                <td>Non-breaking space</td>
-            </tr>
-            <tr>
-                <td>161</td>
-                <td>241</td>
-                <td>A1</td>
-                <td>¡</td>
-                <td>Inverted exclamation mark</td>
-            </tr>
-            <tr>
-                <td>162</td>
-                <td>242</td>
-                <td>A2</td>
-                <td>¢</td>
-                <td>Cent sign</td>
-            </tr>
-            <tr>
-                <td>163</td>
-                <td>243</td>
-                <td>A3</td>
-                <td>£</td>
-                <td>Pound sign</td>
-            </tr>
-            <tr>
-                <td>164</td>
-                <td>244</td>
-                <td>A4</td>
-                <td>₪</td>
-                <td>New Sheqel sign</td>
-            </tr>
-            <tr>
-                <td>165</td>
-                <td>245</td>
-                <td>A5</td>
-                <td>¥</td>
-                <td>Yen sign</td>
-            </tr>
-            <tr>
-                <td>166</td>
-                <td>246</td>
-                <td>A6</td>
-                <td>¦</td>
-                <td>Pipe, broken vertical bar</td>
-            </tr>
-            <tr>
-                <td>167</td>
-                <td>247</td>
-                <td>A7</td>
-                <td>§</td>
-                <td>Section sign</td>
-            </tr>
-            <tr>
-                <td>168</td>
-                <td>250</td>
-                <td>A8</td>
-                <td>¨</td>
-                <td>Spacing diaeresis - umlaut</td>
-            </tr>
-            <tr>
-                <td>169</td>
-                <td>251</td>
-                <td>A9</td>
-                <td>©</td>
-                <td>Copyright sign</td>
-            </tr>
-            <tr>
-                <td>170</td>
-                <td>252</td>
-                <td>AA</td>
-                <td>×</td>
-                <td>Multiplication sign</td>
-            </tr>
-            <tr>
-                <td>171</td>
-                <td>253</td>
-                <td>AB</td>
-                <td>«</td>
-                <td>Left double angle quotes</td>
-            </tr>
-            <tr>
-                <td>172</td>
-                <td>254</td>
-                <td>AC</td>
-                <td>¬</td>
-                <td>Negation</td>
-            </tr>
-            <tr>
-                <td>173</td>
-                <td>255</td>
-                <td>AD</td>
-                <td>­</td>
-                <td>Soft hyphen</td>
-            </tr>
-            <tr>
-                <td>174</td>
-                <td>256</td>
-                <td>AE</td>
-                <td>®</td>
-                <td>Registered trade mark sign</td>
-            </tr>
-            <tr>
-                <td>175</td>
-                <td>257</td>
-                <td>AF</td>
-                <td>¯</td>
-                <td>Spacing macron - overline</td>
-            </tr>
-            <tr>
-                <td>176</td>
-                <td>260</td>
-                <td>B0</td>
-                <td>°</td>
-                <td>Degree sign</td>
-            </tr>
-            <tr>
-                <td>177</td>
-                <td>261</td>
-                <td>B1</td>
-                <td>±</td>
-                <td>Plus-or-minus sign</td>
-            </tr>
-            <tr>
-                <td>178</td>
-                <td>262</td>
-                <td>B2</td>
-                <td>²</td>
-                <td>Superscript two - squared</td>
-            </tr>
-            <tr>
-                <td>179</td>
-                <td>263</td>
-                <td>B3</td>
-                <td>³</td>
-                <td>Superscript three - cubed</td>
-            </tr>
-            <tr>
-                <td>180</td>
-                <td>264</td>
-                <td>B4</td>
-                <td>´</td>
-                <td>Acute accent - spacing acute</td>
-            </tr>
-            <tr>
-                <td>181</td>
-                <td>265</td>
-                <td>B5</td>
-                <td>µ</td>
-                <td>Micro sign</td>
-            </tr>
-            <tr>
-                <td>182</td>
-                <td>266</td>
-                <td>B6</td>
-                <td>¶</td>
-                <td>Pilcrow sign - paragraph sign</td>
-            </tr>
-            <tr>
-                <td>183</td>
-                <td>267</td>
-                <td>B7</td>
-                <td>·</td>
-                <td>Middle dot - Georgian comma</td>
-            </tr>
-            <tr>
-                <td>184</td>
-                <td>270</td>
-                <td>B8</td>
-                <td>¸</td>
-                <td>Spacing cedilla</td>
-            </tr>
-            <tr>
-                <td>185</td>
-                <td>271</td>
-                <td>B9</td>
-                <td>¹</td>
-                <td>Superscript one</td>
-            </tr>
-            <tr>
-                <td>186</td>
-                <td>272</td>
-                <td>BA</td>
-                <td>÷</td>
-                <td>Division sign</td>
-            </tr>
-            <tr>
-                <td>187</td>
-                <td>273</td>
-                <td>BB</td>
-                <td>»</td>
-                <td>Right double angle quotes</td>
-            </tr>
-            <tr>
-                <td>188</td>
-                <td>274</td>
-                <td>BC</td>
-                <td>¼</td>
-                <td>Fraction one quarter</td>
-            </tr>
-            <tr>
-                <td>189</td>
-                <td>275</td>
-                <td>BD</td>
-                <td>½</td>
-                <td>Fraction one half</td>
-            </tr>
-            <tr>
-                <td>190</td>
-                <td>276</td>
-                <td>BE</td>
-                <td>¾</td>
-                <td>Fraction three quarters</td>
-            </tr>
-            <tr>
-                <td>191</td>
-                <td>277</td>
-                <td>BF</td>
-                <td>¿</td>
-                <td>Inverted question mark</td>
-            </tr>
-            <tr>
-                <td>192</td>
-                <td>300</td>
-                <td>C0</td>
-                <td>ְ</td>
-                <td>Hebrew point Sheva</td>
-            </tr>
-            <tr>
-                <td>193</td>
-                <td>301</td>
-                <td>C1</td>
-                <td>ֱ</td>
-                <td>Hebrew point Hataf Segol</td>
-            </tr>
-            <tr>
-                <td>194</td>
-                <td>302</td>
-                <td>C2</td>
-                <td>ֲ</td>
-                <td>Hebrew point Hataf Patah</td>
-            </tr>
-            <tr>
-                <td>195</td>
-                <td>303</td>
-                <td>C3</td>
-                <td>ֳ</td>
-                <td>Hebrew point Hataf Qamats</td>
-            </tr>
-            <tr>
-                <td>196</td>
-                <td>304</td>
-                <td>C4</td>
-                <td>ִ</td>
-                <td>Hebrew point Hiriq</td>
-            </tr>
-            <tr>
-                <td>197</td>
-                <td>305</td>
-                <td>C5</td>
-                <td>ֵ</td>
-                <td>Hebrew point Tsere</td>
-            </tr>
-            <tr>
-                <td>198</td>
-                <td>306</td>
-                <td>C6</td>
-                <td>ֶ</td>
-                <td>Hebrew point Segol</td>
-            </tr>
-            <tr>
-                <td>199</td>
-                <td>307</td>
-                <td>C7</td>
-                <td>ַ</td>
-                <td>Hebrew point Patah</td>
-            </tr>
-            <tr>
-                <td>200</td>
-                <td>310</td>
-                <td>C8</td>
-                <td>ָ</td>
-                <td>Hebrew point Qamats</td>
-            </tr>
-            <tr>
-                <td>201</td>
-                <td>311</td>
-                <td>C9</td>
-                <td>ֹ</td>
-                <td>Hebrew point Holam</td>
-            </tr>
-            <tr>
-                <td>202</td>
-                <td>312</td>
-                <td>CA</td>
-                <td>ֺ</td>
-                <td>Hebrew point Holam Haser for Vav</td>
-            </tr>
-            <tr>
-                <td>203</td>
-                <td>313</td>
-                <td>CB</td>
-                <td>ֻ</td>
-                <td>Hebrew point Qubuts</td>
-            </tr>
-            <tr>
-                <td>204</td>
-                <td>314</td>
-                <td>CC</td>
-                <td>ּ</td>
-                <td>Hebrew point Dagesh</td>
-            </tr>
-            <tr>
-                <td>205</td>
-                <td>315</td>
-                <td>CD</td>
-                <td>ֽ</td>
-                <td>Hebrew point Meteg</td>
-            </tr>
-            <tr>
-                <td>206</td>
-                <td>316</td>
-                <td>CE</td>
-                <td>־</td>
-                <td>Hebrew punctuation Maqaf</td>
-            </tr>
-            <tr>
-                <td>207</td>
-                <td>317</td>
-                <td>CF</td>
-                <td>ֿ</td>
-                <td>Hebrew point Rafe</td>
-            </tr>
-            <tr>
-                <td>208</td>
-                <td>320</td>
-                <td>D0</td>
-                <td>׀</td>
-                <td>Hebrew point Paseq</td>
-            </tr>
-            <tr>
-                <td>209</td>
-                <td>321</td>
-                <td>D1</td>
-                <td>ׁ</td>
-                <td>Hebrew point Shin dot</td>
-            </tr>
-            <tr>
-                <td>210</td>
-                <td>322</td>
-                <td>D2</td>
-                <td>ׂ</td>
-                <td>Hebrew point Sin dot</td>
-            </tr>
-            <tr>
-                <td>211</td>
-                <td>323</td>
-                <td>D3</td>
-                <td>׃</td>
-                <td>Hebrew punctuation Sof pasuq</td>
-            </tr>
-            <tr>
-                <td>212</td>
-                <td>324</td>
-                <td>D4</td>
-                <td>װ</td>
-                <td>Hebrew ligature Yiddish double Vav</td>
-            </tr>
-            <tr>
-                <td>213</td>
-                <td>325</td>
-                <td>D5</td>
-                <td>ױ</td>
-                <td>Hebrew ligature Yiddish Vav Yod</td>
-            </tr>
-            <tr>
-                <td>214</td>
-                <td>326</td>
-                <td>D6</td>
-                <td>ײ</td>
-                <td>Hebrew ligature Yiddish double Yod</td>
-            </tr>
-            <tr>
-                <td>215</td>
-                <td>327</td>
-                <td>D7</td>
-                <td>׳</td>
-                <td>Hebrew punctuation Geresh</td>
-            </tr>
-            <tr>
-                <td>216</td>
-                <td>330</td>
-                <td>D8</td>
-                <td>״</td>
-                <td>Hebrew punctuation Gershayim</td>
-            </tr>
-            <tr>
-                <td>217</td>
-                <td>331</td>
-                <td>D9</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>218</td>
-                <td>332</td>
-                <td>DA</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>219</td>
-                <td>333</td>
-                <td>DB</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>220</td>
-                <td>334</td>
-                <td>DC</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>221</td>
-                <td>335</td>
-                <td>DD</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>222</td>
-                <td>336</td>
-                <td>DE</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>223</td>
-                <td>337</td>
-                <td>DF</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>224</td>
-                <td>340</td>
-                <td>E0</td>
-                <td>א</td>
-                <td>Hebrew letter Alef</td>
-            </tr>
-            <tr>
-                <td>225</td>
-                <td>341</td>
-                <td>E1</td>
-                <td>ב</td>
-                <td>Hebrew letter Bet</td>
-            </tr>
-            <tr>
-                <td>226</td>
-                <td>342</td>
-                <td>E2</td>
-                <td>ג</td>
-                <td>Hebrew letter Gimel</td>
-            </tr>
-            <tr>
-                <td>227</td>
-                <td>343</td>
-                <td>E3</td>
-                <td>ד</td>
-                <td>Hebrew letter Dalet</td>
-            </tr>
-            <tr>
-                <td>228</td>
-                <td>344</td>
-                <td>E4</td>
-                <td>ה</td>
-                <td>Hebrew letter He</td>
-            </tr>
-            <tr>
-                <td>229</td>
-                <td>345</td>
-                <td>E5</td>
-                <td>ו</td>
-                <td>Hebrew letter Vav</td>
-            </tr>
-            <tr>
-                <td>230</td>
-                <td>346</td>
-                <td>E6</td>
-                <td>ז</td>
-                <td>Hebrew letter Zayin</td>
-            </tr>
-            <tr>
-                <td>231</td>
-                <td>347</td>
-                <td>E7</td>
-                <td>ח</td>
-                <td>Hebrew letter Het</td>
-            </tr>
-            <tr>
-                <td>232</td>
-                <td>350</td>
-                <td>E8</td>
-                <td>ט</td>
-                <td>Hebrew letter Tet</td>
-            </tr>
-            <tr>
-                <td>233</td>
-                <td>351</td>
-                <td>E9</td>
-                <td>י</td>
-                <td>Hebrew letter Yod</td>
-            </tr>
-            <tr>
-                <td>234</td>
-                <td>352</td>
-                <td>EA</td>
-                <td>ך</td>
-                <td>Hebrew letter final Kaf</td>
-            </tr>
-            <tr>
-                <td>235</td>
-                <td>353</td>
-                <td>EB</td>
-                <td>כ</td>
-                <td>Hebrew letter Kaf</td>
-            </tr>
-            <tr>
-                <td>236</td>
-                <td>354</td>
-                <td>EC</td>
-                <td>ל</td>
-                <td>Hebrew letter Lamed</td>
-            </tr>
-            <tr>
-                <td>237</td>
-                <td>355</td>
-                <td>ED</td>
-                <td>ם</td>
-                <td>Hebrew letter final Mem</td>
-            </tr>
-            <tr>
-                <td>238</td>
-                <td>356</td>
-                <td>EE</td>
-                <td>מ</td>
-                <td>Hebrew letter Mem</td>
-            </tr>
-            <tr>
-                <td>239</td>
-                <td>357</td>
-                <td>EF</td>
-                <td>ן</td>
-                <td>Hebrew letter final Nun</td>
-            </tr>
-            <tr>
-                <td>240</td>
-                <td>360</td>
-                <td>F0</td>
-                <td>נ</td>
-                <td>Hebrew letter Nun</td>
-            </tr>
-            <tr>
-                <td>241</td>
-                <td>361</td>
-                <td>F1</td>
-                <td>ס</td>
-                <td>Hebrew letter Samekh</td>
-            </tr>
-            <tr>
-                <td>242</td>
-                <td>362</td>
-                <td>F2</td>
-                <td>ע</td>
-                <td>Hebrew letter Ayin</td>
-            </tr>
-            <tr>
-                <td>243</td>
-                <td>363</td>
-                <td>F3</td>
-                <td>ף</td>
-                <td>Hebrew letter final Pe</td>
-            </tr>
-            <tr>
-                <td>244</td>
-                <td>364</td>
-                <td>F4</td>
-                <td>פ</td>
-                <td>Hebrew letter Pe</td>
-            </tr>
-            <tr>
-                <td>245</td>
-                <td>365</td>
-                <td>F5</td>
-                <td>ץ</td>
-                <td>Hebrew letter final Tsadi</td>
-            </tr>
-            <tr>
-                <td>246</td>
-                <td>366</td>
-                <td>F6</td>
-                <td>צ</td>
-                <td>Hebrew letter Tsadi</td>
-            </tr>
-            <tr>
-                <td>247</td>
-                <td>367</td>
-                <td>F7</td>
-                <td>ק</td>
-                <td>Hebrew letter Qof</td>
-            </tr>
-            <tr>
-                <td>248</td>
-                <td>370</td>
-                <td>F8</td>
-                <td>ר</td>
-                <td>Hebrew letter Resh</td>
-            </tr>
-            <tr>
-                <td>249</td>
-                <td>371</td>
-                <td>F9</td>
-                <td>ש</td>
-                <td>Hebrew letter Shin</td>
-            </tr>
-            <tr>
-                <td>250</td>
-                <td>372</td>
-                <td>FA</td>
-                <td>ת</td>
-                <td>Hebrew letter Tav</td>
-            </tr>
-            <tr>
-                <td>251</td>
-                <td>373</td>
-                <td>FB</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>252</td>
-                <td>374</td>
-                <td>FC</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
-            <tr>
-                <td>253</td>
-                <td>375</td>
-                <td>FD</td>
-                <td>‎</td>
-                <td>Left-To-Right Mark</td>
-            </tr>
-            <tr>
-                <td>254</td>
-                <td>376</td>
-                <td>FE</td>
-                <td>‏</td>
-                <td>Right-To-Left Mark</td>
-            </tr>
-            <tr>
-                <td>255</td>
-                <td>377</td>
-                <td>FF</td>
-                <td></td>
-                <td>Unused</td>
-            </tr>
+        <table class="table table-bordered table-responsive">
+        <thead>
+            <tr><th>Decimal</th><th>Octal</th><th>Hexadecimal</th><th>Symbol</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+            
+            <tr><td data-title="Decimal">128</td><td data-title="Octal">200</td><td data-title="Hexdecimal">80</td><td data-title="Symbol">€</td><td data-title="Description">Euro sign</td></tr>
+            <tr><td data-title="Decimal">129</td><td data-title="Octal">201</td><td data-title="Hexdecimal">81</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">130</td><td data-title="Octal">202</td><td data-title="Hexdecimal">82</td><td data-title="Symbol">‚</td><td data-title="Description">Single low-9 quotation mark</td></tr>
+            <tr><td data-title="Decimal">131</td><td data-title="Octal">203</td><td data-title="Hexdecimal">83</td><td data-title="Symbol">ƒ</td><td data-title="Description">Latin small letter f with hook</td></tr>
+            <tr><td data-title="Decimal">132</td><td data-title="Octal">204</td><td data-title="Hexdecimal">84</td><td data-title="Symbol">„</td><td data-title="Description">Double low-9 quotation mark</td></tr>
+            <tr><td data-title="Decimal">133</td><td data-title="Octal">205</td><td data-title="Hexdecimal">85</td><td data-title="Symbol">…</td><td data-title="Description">Horizontal ellipsis</td></tr>
+            <tr><td data-title="Decimal">134</td><td data-title="Octal">206</td><td data-title="Hexdecimal">86</td><td data-title="Symbol">†</td><td data-title="Description">Dagger</td></tr>
+            <tr><td data-title="Decimal">135</td><td data-title="Octal">207</td><td data-title="Hexdecimal">87</td><td data-title="Symbol">‡</td><td data-title="Description">Double dagger</td></tr>
+            <tr><td data-title="Decimal">136</td><td data-title="Octal">210</td><td data-title="Hexdecimal">88</td><td data-title="Symbol">ˆ</td><td data-title="Description">Modifier letter circumflex accent</td></tr>
+            <tr><td data-title="Decimal">137</td><td data-title="Octal">211</td><td data-title="Hexdecimal">89</td><td data-title="Symbol">‰</td><td data-title="Description">Per mille sign</td></tr>
+            <tr><td data-title="Decimal">138</td><td data-title="Octal">212</td><td data-title="Hexdecimal">8A</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">139</td><td data-title="Octal">213</td><td data-title="Hexdecimal">8B</td><td data-title="Symbol">‹</td><td data-title="Description">Single left-pointing angle quotation</td></tr>
+            <tr><td data-title="Decimal">140</td><td data-title="Octal">214</td><td data-title="Hexdecimal">8C</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">141</td><td data-title="Octal">215</td><td data-title="Hexdecimal">8D</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">142</td><td data-title="Octal">216</td><td data-title="Hexdecimal">8E</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">143</td><td data-title="Octal">217</td><td data-title="Hexdecimal">8F</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">144</td><td data-title="Octal">220</td><td data-title="Hexdecimal">90</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">145</td><td data-title="Octal">221</td><td data-title="Hexdecimal">91</td><td data-title="Symbol">‘</td><td data-title="Description">Left single quotation mark</td></tr>
+            <tr><td data-title="Decimal">146</td><td data-title="Octal">222</td><td data-title="Hexdecimal">92</td><td data-title="Symbol">’</td><td data-title="Description">Right single quotation mark</td></tr>
+            <tr><td data-title="Decimal">147</td><td data-title="Octal">223</td><td data-title="Hexdecimal">93</td><td data-title="Symbol">“</td><td data-title="Description">Left double quotation mark</td></tr>
+            <tr><td data-title="Decimal">148</td><td data-title="Octal">224</td><td data-title="Hexdecimal">94</td><td data-title="Symbol">”</td><td data-title="Description">Right double quotation mark</td></tr>
+            <tr><td data-title="Decimal">149</td><td data-title="Octal">225</td><td data-title="Hexdecimal">95</td><td data-title="Symbol">•</td><td data-title="Description">Bullet</td></tr>
+            <tr><td data-title="Decimal">150</td><td data-title="Octal">226</td><td data-title="Hexdecimal">96</td><td data-title="Symbol">–</td><td data-title="Description">En dash</td></tr>
+            <tr><td data-title="Decimal">151</td><td data-title="Octal">227</td><td data-title="Hexdecimal">97</td><td data-title="Symbol">—</td><td data-title="Description">Em dash</td></tr>
+            <tr><td data-title="Decimal">152</td><td data-title="Octal">230</td><td data-title="Hexdecimal">98</td><td data-title="Symbol">˜</td><td data-title="Description">Small tilde</td></tr>
+            <tr><td data-title="Decimal">153</td><td data-title="Octal">231</td><td data-title="Hexdecimal">99</td><td data-title="Symbol">™</td><td data-title="Description">Trade mark sign</td></tr>
+            <tr><td data-title="Decimal">154</td><td data-title="Octal">232</td><td data-title="Hexdecimal">9A</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">155</td><td data-title="Octal">233</td><td data-title="Hexdecimal">9B</td><td data-title="Symbol">›</td><td data-title="Description">Single right-pointing angle quotation mark</td></tr>
+            <tr><td data-title="Decimal">156</td><td data-title="Octal">234</td><td data-title="Hexdecimal">9C</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">157</td><td data-title="Octal">235</td><td data-title="Hexdecimal">9D</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">158</td><td data-title="Octal">236</td><td data-title="Hexdecimal">9E</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">159</td><td data-title="Octal">237</td><td data-title="Hexdecimal">9F</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">160</td><td data-title="Octal">240</td><td data-title="Hexdecimal">A0</td><td data-title="Symbol"></td><td data-title="Description">Non-breaking space</td></tr>
+            <tr><td data-title="Decimal">161</td><td data-title="Octal">241</td><td data-title="Hexdecimal">A1</td><td data-title="Symbol">¡</td><td data-title="Description">Inverted exclamation mark</td></tr>
+            <tr><td data-title="Decimal">162</td><td data-title="Octal">242</td><td data-title="Hexdecimal">A2</td><td data-title="Symbol">¢</td><td data-title="Description">Cent sign</td></tr>
+            <tr><td data-title="Decimal">163</td><td data-title="Octal">243</td><td data-title="Hexdecimal">A3</td><td data-title="Symbol">£</td><td data-title="Description">Pound sign</td></tr>
+            <tr><td data-title="Decimal">164</td><td data-title="Octal">244</td><td data-title="Hexdecimal">A4</td><td data-title="Symbol">₪</td><td data-title="Description">New Sheqel sign</td></tr>
+            <tr><td data-title="Decimal">165</td><td data-title="Octal">245</td><td data-title="Hexdecimal">A5</td><td data-title="Symbol">¥</td><td data-title="Description">Yen sign</td></tr>
+            <tr><td data-title="Decimal">166</td><td data-title="Octal">246</td><td data-title="Hexdecimal">A6</td><td data-title="Symbol">¦</td><td data-title="Description">Pipe, broken vertical bar</td></tr>
+            <tr><td data-title="Decimal">167</td><td data-title="Octal">247</td><td data-title="Hexdecimal">A7</td><td data-title="Symbol">§</td><td data-title="Description">Section sign</td></tr>
+            <tr><td data-title="Decimal">168</td><td data-title="Octal">250</td><td data-title="Hexdecimal">A8</td><td data-title="Symbol">¨</td><td data-title="Description">Spacing diaeresis - umlaut</td></tr>
+            <tr><td data-title="Decimal">169</td><td data-title="Octal">251</td><td data-title="Hexdecimal">A9</td><td data-title="Symbol">©</td><td data-title="Description">Copyright sign</td></tr>
+            <tr><td data-title="Decimal">170</td><td data-title="Octal">252</td><td data-title="Hexdecimal">AA</td><td data-title="Symbol">×</td><td data-title="Description">Multiplication sign</td></tr>
+            <tr><td data-title="Decimal">171</td><td data-title="Octal">253</td><td data-title="Hexdecimal">AB</td><td data-title="Symbol">«</td><td data-title="Description">Left double angle quotes</td></tr>
+            <tr><td data-title="Decimal">172</td><td data-title="Octal">254</td><td data-title="Hexdecimal">AC</td><td data-title="Symbol">¬</td><td data-title="Description">Negation</td></tr>
+            <tr><td data-title="Decimal">173</td><td data-title="Octal">255</td><td data-title="Hexdecimal">AD</td><td data-title="Symbol">­</td><td data-title="Description">Soft hyphen</td></tr>
+            <tr><td data-title="Decimal">174</td><td data-title="Octal">256</td><td data-title="Hexdecimal">AE</td><td data-title="Symbol">®</td><td data-title="Description">Registered trade mark sign</td></tr>
+            <tr><td data-title="Decimal">175</td><td data-title="Octal">257</td><td data-title="Hexdecimal">AF</td><td data-title="Symbol">¯</td><td data-title="Description">Spacing macron - overline</td></tr>
+            <tr><td data-title="Decimal">176</td><td data-title="Octal">260</td><td data-title="Hexdecimal">B0</td><td data-title="Symbol">°</td><td data-title="Description">Degree sign</td></tr>
+            <tr><td data-title="Decimal">177</td><td data-title="Octal">261</td><td data-title="Hexdecimal">B1</td><td data-title="Symbol">±</td><td data-title="Description">Plus-or-minus sign</td></tr>
+            <tr><td data-title="Decimal">178</td><td data-title="Octal">262</td><td data-title="Hexdecimal">B2</td><td data-title="Symbol">²</td><td data-title="Description">Superscript two - squared</td></tr>
+            <tr><td data-title="Decimal">179</td><td data-title="Octal">263</td><td data-title="Hexdecimal">B3</td><td data-title="Symbol">³</td><td data-title="Description">Superscript three - cubed</td></tr>
+            <tr><td data-title="Decimal">180</td><td data-title="Octal">264</td><td data-title="Hexdecimal">B4</td><td data-title="Symbol">´</td><td data-title="Description">Acute accent - spacing acute</td></tr>
+            <tr><td data-title="Decimal">181</td><td data-title="Octal">265</td><td data-title="Hexdecimal">B5</td><td data-title="Symbol">µ</td><td data-title="Description">Micro sign</td></tr>
+            <tr><td data-title="Decimal">182</td><td data-title="Octal">266</td><td data-title="Hexdecimal">B6</td><td data-title="Symbol">¶</td><td data-title="Description">Pilcrow sign - paragraph sign</td></tr>
+            <tr><td data-title="Decimal">183</td><td data-title="Octal">267</td><td data-title="Hexdecimal">B7</td><td data-title="Symbol">·</td><td data-title="Description">Middle dot - Georgian comma</td></tr>
+            <tr><td data-title="Decimal">184</td><td data-title="Octal">270</td><td data-title="Hexdecimal">B8</td><td data-title="Symbol">¸</td><td data-title="Description">Spacing cedilla</td></tr>
+            <tr><td data-title="Decimal">185</td><td data-title="Octal">271</td><td data-title="Hexdecimal">B9</td><td data-title="Symbol">¹</td><td data-title="Description">Superscript one</td></tr>
+            <tr><td data-title="Decimal">186</td><td data-title="Octal">272</td><td data-title="Hexdecimal">BA</td><td data-title="Symbol">÷</td><td data-title="Description">Division sign</td></tr>
+            <tr><td data-title="Decimal">187</td><td data-title="Octal">273</td><td data-title="Hexdecimal">BB</td><td data-title="Symbol">»</td><td data-title="Description">Right double angle quotes</td></tr>
+            <tr><td data-title="Decimal">188</td><td data-title="Octal">274</td><td data-title="Hexdecimal">BC</td><td data-title="Symbol">¼</td><td data-title="Description">Fraction one quarter</td></tr>
+            <tr><td data-title="Decimal">189</td><td data-title="Octal">275</td><td data-title="Hexdecimal">BD</td><td data-title="Symbol">½</td><td data-title="Description">Fraction one half</td></tr>
+            <tr><td data-title="Decimal">190</td><td data-title="Octal">276</td><td data-title="Hexdecimal">BE</td><td data-title="Symbol">¾</td><td data-title="Description">Fraction three quarters</td></tr>
+            <tr><td data-title="Decimal">191</td><td data-title="Octal">277</td><td data-title="Hexdecimal">BF</td><td data-title="Symbol">¿</td><td data-title="Description">Inverted question mark</td></tr>
+            <tr><td data-title="Decimal">192</td><td data-title="Octal">300</td><td data-title="Hexdecimal">C0</td><td data-title="Symbol">ְ</td><td data-title="Description">Hebrew point Sheva</td></tr>
+            <tr><td data-title="Decimal">193</td><td data-title="Octal">301</td><td data-title="Hexdecimal">C1</td><td data-title="Symbol">ֱ</td><td data-title="Description">Hebrew point Hataf Segol</td></tr>
+            <tr><td data-title="Decimal">194</td><td data-title="Octal">302</td><td data-title="Hexdecimal">C2</td><td data-title="Symbol">ֲ</td><td data-title="Description">Hebrew point Hataf Patah</td></tr>
+            <tr><td data-title="Decimal">195</td><td data-title="Octal">303</td><td data-title="Hexdecimal">C3</td><td data-title="Symbol">ֳ</td><td data-title="Description">Hebrew point Hataf Qamats</td></tr>
+            <tr><td data-title="Decimal">196</td><td data-title="Octal">304</td><td data-title="Hexdecimal">C4</td><td data-title="Symbol">ִ</td><td data-title="Description">Hebrew point Hiriq</td></tr>
+            <tr><td data-title="Decimal">197</td><td data-title="Octal">305</td><td data-title="Hexdecimal">C5</td><td data-title="Symbol">ֵ</td><td data-title="Description">Hebrew point Tsere</td></tr>
+            <tr><td data-title="Decimal">198</td><td data-title="Octal">306</td><td data-title="Hexdecimal">C6</td><td data-title="Symbol">ֶ</td><td data-title="Description">Hebrew point Segol</td></tr>
+            <tr><td data-title="Decimal">199</td><td data-title="Octal">307</td><td data-title="Hexdecimal">C7</td><td data-title="Symbol">ַ</td><td data-title="Description">Hebrew point Patah</td></tr>
+            <tr><td data-title="Decimal">200</td><td data-title="Octal">310</td><td data-title="Hexdecimal">C8</td><td data-title="Symbol">ָ</td><td data-title="Description">Hebrew point Qamats</td></tr>
+            <tr><td data-title="Decimal">201</td><td data-title="Octal">311</td><td data-title="Hexdecimal">C9</td><td data-title="Symbol">ֹ</td><td data-title="Description">Hebrew point Holam</td></tr>
+            <tr><td data-title="Decimal">202</td><td data-title="Octal">312</td><td data-title="Hexdecimal">CA</td><td data-title="Symbol">ֺ</td><td data-title="Description">Hebrew point Holam Haser for Vav</td></tr>
+            <tr><td data-title="Decimal">203</td><td data-title="Octal">313</td><td data-title="Hexdecimal">CB</td><td data-title="Symbol">ֻ</td><td data-title="Description">Hebrew point Qubuts</td></tr>
+            <tr><td data-title="Decimal">204</td><td data-title="Octal">314</td><td data-title="Hexdecimal">CC</td><td data-title="Symbol">ּ</td><td data-title="Description">Hebrew point Dagesh</td></tr>
+            <tr><td data-title="Decimal">205</td><td data-title="Octal">315</td><td data-title="Hexdecimal">CD</td><td data-title="Symbol">ֽ</td><td data-title="Description">Hebrew point Meteg</td></tr>
+            <tr><td data-title="Decimal">206</td><td data-title="Octal">316</td><td data-title="Hexdecimal">CE</td><td data-title="Symbol">־</td><td data-title="Description">Hebrew punctuation Maqaf</td></tr>
+            <tr><td data-title="Decimal">207</td><td data-title="Octal">317</td><td data-title="Hexdecimal">CF</td><td data-title="Symbol">ֿ</td><td data-title="Description">Hebrew point Rafe</td></tr>
+            <tr><td data-title="Decimal">208</td><td data-title="Octal">320</td><td data-title="Hexdecimal">D0</td><td data-title="Symbol">׀</td><td data-title="Description">Hebrew point Paseq</td></tr>
+            <tr><td data-title="Decimal">209</td><td data-title="Octal">321</td><td data-title="Hexdecimal">D1</td><td data-title="Symbol">ׁ</td><td data-title="Description">Hebrew point Shin dot</td></tr>
+            <tr><td data-title="Decimal">210</td><td data-title="Octal">322</td><td data-title="Hexdecimal">D2</td><td data-title="Symbol">ׂ</td><td data-title="Description">Hebrew point Sin dot</td></tr>
+            <tr><td data-title="Decimal">211</td><td data-title="Octal">323</td><td data-title="Hexdecimal">D3</td><td data-title="Symbol">׃</td><td data-title="Description">Hebrew punctuation Sof pasuq</td></tr>
+            <tr><td data-title="Decimal">212</td><td data-title="Octal">324</td><td data-title="Hexdecimal">D4</td><td data-title="Symbol">װ</td><td data-title="Description">Hebrew ligature Yiddish double Vav</td></tr>
+            <tr><td data-title="Decimal">213</td><td data-title="Octal">325</td><td data-title="Hexdecimal">D5</td><td data-title="Symbol">ױ</td><td data-title="Description">Hebrew ligature Yiddish Vav Yod</td></tr>
+            <tr><td data-title="Decimal">214</td><td data-title="Octal">326</td><td data-title="Hexdecimal">D6</td><td data-title="Symbol">ײ</td><td data-title="Description">Hebrew ligature Yiddish double Yod</td></tr>
+            <tr><td data-title="Decimal">215</td><td data-title="Octal">327</td><td data-title="Hexdecimal">D7</td><td data-title="Symbol">׳</td><td data-title="Description">Hebrew punctuation Geresh</td></tr>
+            <tr><td data-title="Decimal">216</td><td data-title="Octal">330</td><td data-title="Hexdecimal">D8</td><td data-title="Symbol">״</td><td data-title="Description">Hebrew punctuation Gershayim</td></tr>
+            <tr><td data-title="Decimal">217</td><td data-title="Octal">331</td><td data-title="Hexdecimal">D9</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">218</td><td data-title="Octal">332</td><td data-title="Hexdecimal">DA</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">219</td><td data-title="Octal">333</td><td data-title="Hexdecimal">DB</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">220</td><td data-title="Octal">334</td><td data-title="Hexdecimal">DC</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">221</td><td data-title="Octal">335</td><td data-title="Hexdecimal">DD</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">222</td><td data-title="Octal">336</td><td data-title="Hexdecimal">DE</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">223</td><td data-title="Octal">337</td><td data-title="Hexdecimal">DF</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">224</td><td data-title="Octal">340</td><td data-title="Hexdecimal">E0</td><td data-title="Symbol">א</td><td data-title="Description">Hebrew letter Alef</td></tr>
+            <tr><td data-title="Decimal">225</td><td data-title="Octal">341</td><td data-title="Hexdecimal">E1</td><td data-title="Symbol">ב</td><td data-title="Description">Hebrew letter Bet</td></tr>
+            <tr><td data-title="Decimal">226</td><td data-title="Octal">342</td><td data-title="Hexdecimal">E2</td><td data-title="Symbol">ג</td><td data-title="Description">Hebrew letter Gimel</td></tr>
+            <tr><td data-title="Decimal">227</td><td data-title="Octal">343</td><td data-title="Hexdecimal">E3</td><td data-title="Symbol">ד</td><td data-title="Description">Hebrew letter Dalet</td></tr>
+            <tr><td data-title="Decimal">228</td><td data-title="Octal">344</td><td data-title="Hexdecimal">E4</td><td data-title="Symbol">ה</td><td data-title="Description">Hebrew letter He</td></tr>
+            <tr><td data-title="Decimal">229</td><td data-title="Octal">345</td><td data-title="Hexdecimal">E5</td><td data-title="Symbol">ו</td><td data-title="Description">Hebrew letter Vav</td></tr>
+            <tr><td data-title="Decimal">230</td><td data-title="Octal">346</td><td data-title="Hexdecimal">E6</td><td data-title="Symbol">ז</td><td data-title="Description">Hebrew letter Zayin</td></tr>
+            <tr><td data-title="Decimal">231</td><td data-title="Octal">347</td><td data-title="Hexdecimal">E7</td><td data-title="Symbol">ח</td><td data-title="Description">Hebrew letter Het</td></tr>
+            <tr><td data-title="Decimal">232</td><td data-title="Octal">350</td><td data-title="Hexdecimal">E8</td><td data-title="Symbol">ט</td><td data-title="Description">Hebrew letter Tet</td></tr>
+            <tr><td data-title="Decimal">233</td><td data-title="Octal">351</td><td data-title="Hexdecimal">E9</td><td data-title="Symbol">י</td><td data-title="Description">Hebrew letter Yod</td></tr>
+            <tr><td data-title="Decimal">234</td><td data-title="Octal">352</td><td data-title="Hexdecimal">EA</td><td data-title="Symbol">ך</td><td data-title="Description">Hebrew letter final Kaf</td></tr>
+            <tr><td data-title="Decimal">235</td><td data-title="Octal">353</td><td data-title="Hexdecimal">EB</td><td data-title="Symbol">כ</td><td data-title="Description">Hebrew letter Kaf</td></tr>
+            <tr><td data-title="Decimal">236</td><td data-title="Octal">354</td><td data-title="Hexdecimal">EC</td><td data-title="Symbol">ל</td><td data-title="Description">Hebrew letter Lamed</td></tr>
+            <tr><td data-title="Decimal">237</td><td data-title="Octal">355</td><td data-title="Hexdecimal">ED</td><td data-title="Symbol">ם</td><td data-title="Description">Hebrew letter final Mem</td></tr>
+            <tr><td data-title="Decimal">238</td><td data-title="Octal">356</td><td data-title="Hexdecimal">EE</td><td data-title="Symbol">מ</td><td data-title="Description">Hebrew letter Mem</td></tr>
+            <tr><td data-title="Decimal">239</td><td data-title="Octal">357</td><td data-title="Hexdecimal">EF</td><td data-title="Symbol">ן</td><td data-title="Description">Hebrew letter final Nun</td></tr>
+            <tr><td data-title="Decimal">240</td><td data-title="Octal">360</td><td data-title="Hexdecimal">F0</td><td data-title="Symbol">נ</td><td data-title="Description">Hebrew letter Nun</td></tr>
+            <tr><td data-title="Decimal">241</td><td data-title="Octal">361</td><td data-title="Hexdecimal">F1</td><td data-title="Symbol">ס</td><td data-title="Description">Hebrew letter Samekh</td></tr>
+            <tr><td data-title="Decimal">242</td><td data-title="Octal">362</td><td data-title="Hexdecimal">F2</td><td data-title="Symbol">ע</td><td data-title="Description">Hebrew letter Ayin</td></tr>
+            <tr><td data-title="Decimal">243</td><td data-title="Octal">363</td><td data-title="Hexdecimal">F3</td><td data-title="Symbol">ף</td><td data-title="Description">Hebrew letter final Pe</td></tr>
+            <tr><td data-title="Decimal">244</td><td data-title="Octal">364</td><td data-title="Hexdecimal">F4</td><td data-title="Symbol">פ</td><td data-title="Description">Hebrew letter Pe</td></tr>
+            <tr><td data-title="Decimal">245</td><td data-title="Octal">365</td><td data-title="Hexdecimal">F5</td><td data-title="Symbol">ץ</td><td data-title="Description">Hebrew letter final Tsadi</td></tr>
+            <tr><td data-title="Decimal">246</td><td data-title="Octal">366</td><td data-title="Hexdecimal">F6</td><td data-title="Symbol">צ</td><td data-title="Description">Hebrew letter Tsadi</td></tr>
+            <tr><td data-title="Decimal">247</td><td data-title="Octal">367</td><td data-title="Hexdecimal">F7</td><td data-title="Symbol">ק</td><td data-title="Description">Hebrew letter Qof</td></tr>
+            <tr><td data-title="Decimal">248</td><td data-title="Octal">370</td><td data-title="Hexdecimal">F8</td><td data-title="Symbol">ר</td><td data-title="Description">Hebrew letter Resh</td></tr>
+            <tr><td data-title="Decimal">249</td><td data-title="Octal">371</td><td data-title="Hexdecimal">F9</td><td data-title="Symbol">ש</td><td data-title="Description">Hebrew letter Shin</td></tr>
+            <tr><td data-title="Decimal">250</td><td data-title="Octal">372</td><td data-title="Hexdecimal">FA</td><td data-title="Symbol">ת</td><td data-title="Description">Hebrew letter Tav</td></tr>
+            <tr><td data-title="Decimal">251</td><td data-title="Octal">373</td><td data-title="Hexdecimal">FB</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">252</td><td data-title="Octal">374</td><td data-title="Hexdecimal">FC</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+            <tr><td data-title="Decimal">253</td><td data-title="Octal">375</td><td data-title="Hexdecimal">FD</td><td data-title="Symbol">‎</td><td data-title="Description">Left-To-Right Mark</td></tr>
+            <tr><td data-title="Decimal">254</td><td data-title="Octal">376</td><td data-title="Hexdecimal">FE</td><td data-title="Symbol">‏</td><td data-title="Description">Right-To-Left Mark</td></tr>
+            <tr><td data-title="Decimal">255</td><td data-title="Octal">377</td><td data-title="Hexdecimal">FF</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+        </tbody>
         </table>
     </article>
 
