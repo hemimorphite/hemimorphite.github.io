@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="Learn about the ISO-8859-11 encoding and decoding algorithm, including its use, principles, and application in character encoding. Understand how this standard facilitates communication and data exchange.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/2024/08/18/iso-8859-11-encoding-and-decoding/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="ISO-8859-11 Encoding and Decoding">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/2024/08/18/iso-8859-11-encoding-and-decoding/">
+		<meta property="og:description" content="Learn about the ISO-8859-11 encoding and decoding algorithm, including its use, principles, and application in character encoding. Understand how this standard facilitates communication and data exchange.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/iso885911.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="ISO-8859-11 Encoding and Decoding">
+		<meta name="twitter:description" content="Learn about the ISO-8859-11 encoding and decoding algorithm, including its use, principles, and application in character encoding. Understand how this standard facilitates communication and data exchange.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/iso885911.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>ISO-8859-11 Encoding and Decoding</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <!-- Additional CSS Files -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <!--<div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>-->  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '9cf40e8a46ab80f525196d3376630858',
+								'format' : 'iframe',
+								'height' : 90,
+								'width' : 728,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<script type="text/javascript">
+					atOptions = {
+						'key' : '9cf40e8a46ab80f525196d3376630858',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+			</div>
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">ISO-8859-11 Encoding and Decoding</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published August 18, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/iso885911.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>ISO-8859-11, also known as Latin/Thai or ISO Latin/Thai, is a character encoding standard from the ISO/IEC 8859 series.</p>
+
+        <p>ISO-8859-11 consists of 256 characters, where the first 128 characters are the same as ASCII. The remaining 128 characters cover Thai script characters and additional symbols.</p>
+
+        <p>The following table displays ASCII control characters:</p>
+
+        <table class="table table-bordered table-responsive">
+        <thead>
+            <tr><th>Decimal</th><th>Octal</th><th>Hexadecimal</th><th>Symbol</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+            
+            <tr><td data-title="Decimal">0</td><td data-title="Octal">000</td><td data-title="Hexdecimal">00</td><td data-title="Symbol">␀</td><td data-title="Description">Null character</td></tr>
+            <tr><td data-title="Decimal">1</td><td data-title="Octal">001</td><td data-title="Hexdecimal">01</td><td data-title="Symbol">␁</td><td data-title="Description">Start of Heading</td></tr>
+            <tr><td data-title="Decimal">2</td><td data-title="Octal">002</td><td data-title="Hexdecimal">02</td><td data-title="Symbol">␂</td><td data-title="Description">Start of Text</td></tr>
+            <tr><td data-title="Decimal">3</td><td data-title="Octal">003</td><td data-title="Hexdecimal">03</td><td data-title="Symbol">␃</td><td data-title="Description">End of Text</td></tr>
+            <tr><td data-title="Decimal">4</td><td data-title="Octal">004</td><td data-title="Hexdecimal">04</td><td data-title="Symbol">␄</td><td data-title="Description">End of Transmission</td></tr>
+            <tr><td data-title="Decimal">5</td><td data-title="Octal">005</td><td data-title="Hexdecimal">05</td><td data-title="Symbol">␅</td><td data-title="Description">Enquiry</td></tr>
+            <tr><td data-title="Decimal">6</td><td data-title="Octal">006</td><td data-title="Hexdecimal">06</td><td data-title="Symbol">␆</td><td data-title="Description">Acknowledge</td></tr>
+            <tr><td data-title="Decimal">7</td><td data-title="Octal">007</td><td data-title="Hexdecimal">07</td><td data-title="Symbol">␇</td><td data-title="Description">Bell, Alert</td></tr>
+            <tr><td data-title="Decimal">8</td><td data-title="Octal">010</td><td data-title="Hexdecimal">08</td><td data-title="Symbol">␈</td><td data-title="Description">Backspace</td></tr>
+            <tr><td data-title="Decimal">9</td><td data-title="Octal">011</td><td data-title="Hexdecimal">09</td><td data-title="Symbol">␉</td><td data-title="Description">Horizontal Tab</td></tr>
+            <tr><td data-title="Decimal">10</td><td data-title="Octal">012</td><td data-title="Hexdecimal">0A</td><td data-title="Symbol">␊</td><td data-title="Description">Line Feed</td></tr>
+            <tr><td data-title="Decimal">11</td><td data-title="Octal">013</td><td data-title="Hexdecimal">0B</td><td data-title="Symbol">␋</td><td data-title="Description">Vertical Tabulation</td></tr>
+            <tr><td data-title="Decimal">12</td><td data-title="Octal">014</td><td data-title="Hexdecimal">0C</td><td data-title="Symbol">␌</td><td data-title="Description">Form Feed</td></tr>
+            <tr><td data-title="Decimal">13</td><td data-title="Octal">015</td><td data-title="Hexdecimal">0D</td><td data-title="Symbol">␍</td><td data-title="Description">Carriage Return</td></tr>
+            <tr><td data-title="Decimal">14</td><td data-title="Octal">016</td><td data-title="Hexdecimal">0E</td><td data-title="Symbol">␎</td><td data-title="Description">Shift Out</td></tr>
+            <tr><td data-title="Decimal">15</td><td data-title="Octal">017</td><td data-title="Hexdecimal">0F</td><td data-title="Symbol">␏</td><td data-title="Description">Shift In</td></tr>
+            <tr><td data-title="Decimal">16</td><td data-title="Octal">020</td><td data-title="Hexdecimal">10</td><td data-title="Symbol">␐</td><td data-title="Description">Data Link Escape</td></tr>
+            <tr><td data-title="Decimal">17</td><td data-title="Octal">021</td><td data-title="Hexdecimal">11</td><td data-title="Symbol">␑</td><td data-title="Description">Device Control One (XON)</td></tr>
+            <tr><td data-title="Decimal">18</td><td data-title="Octal">022</td><td data-title="Hexdecimal">12</td><td data-title="Symbol">␒</td><td data-title="Description">Device Control Two</td></tr>
+            <tr><td data-title="Decimal">19</td><td data-title="Octal">023</td><td data-title="Hexdecimal">13</td><td data-title="Symbol">␓</td><td data-title="Description">Device Control Three (XOFF)</td></tr>
+            <tr><td data-title="Decimal">20</td><td data-title="Octal">024</td><td data-title="Hexdecimal">14</td><td data-title="Symbol">␔</td><td data-title="Description">Device Control Four</td></tr>
+            <tr><td data-title="Decimal">21</td><td data-title="Octal">025</td><td data-title="Hexdecimal">15</td><td data-title="Symbol">␕</td><td data-title="Description">Negative Acknowledge</td></tr>
+            <tr><td data-title="Decimal">22</td><td data-title="Octal">026</td><td data-title="Hexdecimal">16</td><td data-title="Symbol">␖</td><td data-title="Description">Synchronous Idle</td></tr>
+            <tr><td data-title="Decimal">23</td><td data-title="Octal">027</td><td data-title="Hexdecimal">17</td><td data-title="Symbol">␗</td><td data-title="Description">End of Transmission Block</td></tr>
+            <tr><td data-title="Decimal">24</td><td data-title="Octal">030</td><td data-title="Hexdecimal">18</td><td data-title="Symbol">␘</td><td data-title="Description">Cancel</td></tr>
+            <tr><td data-title="Decimal">25</td><td data-title="Octal">031</td><td data-title="Hexdecimal">19</td><td data-title="Symbol">␙</td><td data-title="Description">End of medium</td></tr>
+            <tr><td data-title="Decimal">26</td><td data-title="Octal">032</td><td data-title="Hexdecimal">1A</td><td data-title="Symbol">␚</td><td data-title="Description">Substitute</td></tr>
+            <tr><td data-title="Decimal">27</td><td data-title="Octal">033</td><td data-title="Hexdecimal">1B</td><td data-title="Symbol">␛</td><td data-title="Description">Escape</td></tr>
+            <tr><td data-title="Decimal">28</td><td data-title="Octal">034</td><td data-title="Hexdecimal">1C</td><td data-title="Symbol">␜</td><td data-title="Description">File Separator</td></tr>
+            <tr><td data-title="Decimal">29</td><td data-title="Octal">035</td><td data-title="Hexdecimal">1D</td><td data-title="Symbol">␝</td><td data-title="Description">Group Separator</td></tr>
+            <tr><td data-title="Decimal">30</td><td data-title="Octal">036</td><td data-title="Hexdecimal">1E</td><td data-title="Symbol">␞</td><td data-title="Description">Record Separator</td></tr>
+            <tr><td data-title="Decimal">31</td><td data-title="Octal">037</td><td data-title="Hexdecimal">1F</td><td data-title="Symbol">␟</td><td data-title="Description">Unit Separator</td></tr>
+        </tbody>
+        </table>
+
+        <p>The following table displays ASCII printable characters:</p>
+
+        <table class="table table-bordered table-responsive">
+        <thead>
+            <tr><th>Decimal</th><th>Octal</th><th>Hexadecimal</th><th>Symbol</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+            
+            <tr><td data-title="Decimal">32</td><td data-title="Octal">040</td><td data-title="Hexdecimal">20</td><td data-title="Symbol">␠</td><td data-title="Description">Space</td></tr>
+            <tr><td data-title="Decimal">33</td><td data-title="Octal">041</td><td data-title="Hexdecimal">21</td><td data-title="Symbol">!</td><td data-title="Description">Exclamation mark</td></tr>
+            <tr><td data-title="Decimal">34</td><td data-title="Octal">042</td><td data-title="Hexdecimal">22</td><td data-title="Symbol"></td><td data-title="Description">Double quotes (or speech marks)</td></tr>
+            <tr><td data-title="Decimal">35</td><td data-title="Octal">043</td><td data-title="Hexdecimal">23</td><td data-title="Symbol">#</td><td data-title="Description">Number sign</td></tr>
+            <tr><td data-title="Decimal">36</td><td data-title="Octal">044</td><td data-title="Hexdecimal">24</td><td data-title="Symbol">$</td><td data-title="Description">Dollar</td></tr>
+            <tr><td data-title="Decimal">37</td><td data-title="Octal">045</td><td data-title="Hexdecimal">25</td><td data-title="Symbol">%</td><td data-title="Description">Per cent sign</td></tr>
+            <tr><td data-title="Decimal">38</td><td data-title="Octal">046</td><td data-title="Hexdecimal">26</td><td data-title="Symbol">&amp;</td><td data-title="Description">Ampersand</td></tr>
+            <tr><td data-title="Decimal">39</td><td data-title="Octal">047</td><td data-title="Hexdecimal">27</td><td data-title="Symbol">&#39;</td><td data-title="Description">Single quote</td></tr>
+            <tr><td data-title="Decimal">40</td><td data-title="Octal">050</td><td data-title="Hexdecimal">28</td><td data-title="Symbol">(</td><td data-title="Description">Open parenthesis (or open bracket)</td></tr>
+            <tr><td data-title="Decimal">41</td><td data-title="Octal">051</td><td data-title="Hexdecimal">29</td><td data-title="Symbol">)</td><td data-title="Description">Close parenthesis (or close bracket)</td></tr>
+            <tr><td data-title="Decimal">42</td><td data-title="Octal">052</td><td data-title="Hexdecimal">2A</td><td data-title="Symbol">*</td><td data-title="Description">Asterisk</td></tr>
+            <tr><td data-title="Decimal">43</td><td data-title="Octal">053</td><td data-title="Hexdecimal">2B</td><td data-title="Symbol">+</td><td data-title="Description">Plus</td></tr>
+            <tr><td data-title="Decimal">44</td><td data-title="Octal">054</td><td data-title="Hexdecimal">2C</td><td data-title="Symbol">,</td><td data-title="Description">Comma</td></tr>
+            <tr><td data-title="Decimal">45</td><td data-title="Octal">055</td><td data-title="Hexdecimal">2D</td><td data-title="Symbol">-</td><td data-title="Description">Hyphen-minus</td></tr>
+            <tr><td data-title="Decimal">46</td><td data-title="Octal">056</td><td data-title="Hexdecimal">2E</td><td data-title="Symbol">.</td><td data-title="Description">Period, dot or full stop</td></tr>
+            <tr><td data-title="Decimal">47</td><td data-title="Octal">057</td><td data-title="Hexdecimal">2F</td><td data-title="Symbol">/</td><td data-title="Description">Slash or divide</td></tr>
+            <tr><td data-title="Decimal">48</td><td data-title="Octal">060</td><td data-title="Hexdecimal">30</td><td data-title="Symbol">0</td><td data-title="Description">Zero</td></tr>
+            <tr><td data-title="Decimal">49</td><td data-title="Octal">061</td><td data-title="Hexdecimal">31</td><td data-title="Symbol">1</td><td data-title="Description">One</td></tr>
+            <tr><td data-title="Decimal">50</td><td data-title="Octal">062</td><td data-title="Hexdecimal">32</td><td data-title="Symbol">2</td><td data-title="Description">Two</td></tr>
+            <tr><td data-title="Decimal">51</td><td data-title="Octal">063</td><td data-title="Hexdecimal">33</td><td data-title="Symbol">3</td><td data-title="Description">Three</td></tr>
+            <tr><td data-title="Decimal">52</td><td data-title="Octal">064</td><td data-title="Hexdecimal">34</td><td data-title="Symbol">4</td><td data-title="Description">Four</td></tr>
+            <tr><td data-title="Decimal">53</td><td data-title="Octal">065</td><td data-title="Hexdecimal">35</td><td data-title="Symbol">5</td><td data-title="Description">Five</td></tr>
+            <tr><td data-title="Decimal">54</td><td data-title="Octal">066</td><td data-title="Hexdecimal">36</td><td data-title="Symbol">6</td><td data-title="Description">Six</td></tr>
+            <tr><td data-title="Decimal">55</td><td data-title="Octal">067</td><td data-title="Hexdecimal">37</td><td data-title="Symbol">7</td><td data-title="Description">Seven</td></tr>
+            <tr><td data-title="Decimal">56</td><td data-title="Octal">070</td><td data-title="Hexdecimal">38</td><td data-title="Symbol">8</td><td data-title="Description">Eight</td></tr>
+            <tr><td data-title="Decimal">57</td><td data-title="Octal">071</td><td data-title="Hexdecimal">39</td><td data-title="Symbol">9</td><td data-title="Description">Nine</td></tr>
+            <tr><td data-title="Decimal">58</td><td data-title="Octal">072</td><td data-title="Hexdecimal">3A</td><td data-title="Symbol">:</td><td data-title="Description">Colon</td></tr>
+            <tr><td data-title="Decimal">59</td><td data-title="Octal">073</td><td data-title="Hexdecimal">3B</td><td data-title="Symbol">;</td><td data-title="Description">Semicolon</td></tr>
+            <tr><td data-title="Decimal">60</td><td data-title="Octal">074</td><td data-title="Hexdecimal">3C</td><td data-title="Symbol">&lt;</td><td data-title="Description">Less than (or open angled bracket)</td></tr>
+            <tr><td data-title="Decimal">61</td><td data-title="Octal">075</td><td data-title="Hexdecimal">3D</td><td data-title="Symbol">=</td><td data-title="Description">Equals</td></tr>
+            <tr><td data-title="Decimal">62</td><td data-title="Octal">076</td><td data-title="Hexdecimal">3E</td><td data-title="Symbol">&gt;</td><td data-title="Description">Greater than (or close angled bracket)</td></tr>
+            <tr><td data-title="Decimal">63</td><td data-title="Octal">077</td><td data-title="Hexdecimal">3F</td><td data-title="Symbol">?</td><td data-title="Description">Question mark</td></tr>
+            <tr><td data-title="Decimal">64</td><td data-title="Octal">100</td><td data-title="Hexdecimal">40</td><td data-title="Symbol">@</td><td data-title="Description">At sign</td></tr>
+            <tr><td data-title="Decimal">65</td><td data-title="Octal">101</td><td data-title="Hexdecimal">41</td><td data-title="Symbol">A</td><td data-title="Description">Uppercase A</td></tr>
+            <tr><td data-title="Decimal">66</td><td data-title="Octal">102</td><td data-title="Hexdecimal">42</td><td data-title="Symbol">B</td><td data-title="Description">Uppercase B</td></tr>
+            <tr><td data-title="Decimal">67</td><td data-title="Octal">103</td><td data-title="Hexdecimal">43</td><td data-title="Symbol">C</td><td data-title="Description">Uppercase C</td></tr>
+            <tr><td data-title="Decimal">68</td><td data-title="Octal">104</td><td data-title="Hexdecimal">44</td><td data-title="Symbol">D</td><td data-title="Description">Uppercase D</td></tr>
+            <tr><td data-title="Decimal">69</td><td data-title="Octal">105</td><td data-title="Hexdecimal">45</td><td data-title="Symbol">E</td><td data-title="Description">Uppercase E</td></tr>
+            <tr><td data-title="Decimal">70</td><td data-title="Octal">106</td><td data-title="Hexdecimal">46</td><td data-title="Symbol">F</td><td data-title="Description">Uppercase F</td></tr>
+            <tr><td data-title="Decimal">71</td><td data-title="Octal">107</td><td data-title="Hexdecimal">47</td><td data-title="Symbol">G</td><td data-title="Description">Uppercase G</td></tr>
+            <tr><td data-title="Decimal">72</td><td data-title="Octal">110</td><td data-title="Hexdecimal">48</td><td data-title="Symbol">H</td><td data-title="Description">Uppercase H</td></tr>
+            <tr><td data-title="Decimal">73</td><td data-title="Octal">111</td><td data-title="Hexdecimal">49</td><td data-title="Symbol">I</td><td data-title="Description">Uppercase I</td></tr>
+            <tr><td data-title="Decimal">74</td><td data-title="Octal">112</td><td data-title="Hexdecimal">4A</td><td data-title="Symbol">J</td><td data-title="Description">Uppercase J</td></tr>
+            <tr><td data-title="Decimal">75</td><td data-title="Octal">113</td><td data-title="Hexdecimal">4B</td><td data-title="Symbol">K</td><td data-title="Description">Uppercase K</td></tr>
+            <tr><td data-title="Decimal">76</td><td data-title="Octal">114</td><td data-title="Hexdecimal">4C</td><td data-title="Symbol">L</td><td data-title="Description">Uppercase L</td></tr>
+            <tr><td data-title="Decimal">77</td><td data-title="Octal">115</td><td data-title="Hexdecimal">4D</td><td data-title="Symbol">M</td><td data-title="Description">Uppercase M</td></tr>
+            <tr><td data-title="Decimal">78</td><td data-title="Octal">116</td><td data-title="Hexdecimal">4E</td><td data-title="Symbol">N</td><td data-title="Description">Uppercase N</td></tr>
+            <tr><td data-title="Decimal">79</td><td data-title="Octal">117</td><td data-title="Hexdecimal">4F</td><td data-title="Symbol">O</td><td data-title="Description">Uppercase O</td></tr>
+            <tr><td data-title="Decimal">80</td><td data-title="Octal">120</td><td data-title="Hexdecimal">50</td><td data-title="Symbol">P</td><td data-title="Description">Uppercase P</td></tr>
+            <tr><td data-title="Decimal">81</td><td data-title="Octal">121</td><td data-title="Hexdecimal">51</td><td data-title="Symbol">Q</td><td data-title="Description">Uppercase Q</td></tr>
+            <tr><td data-title="Decimal">82</td><td data-title="Octal">122</td><td data-title="Hexdecimal">52</td><td data-title="Symbol">R</td><td data-title="Description">Uppercase R</td></tr>
+            <tr><td data-title="Decimal">83</td><td data-title="Octal">123</td><td data-title="Hexdecimal">53</td><td data-title="Symbol">S</td><td data-title="Description">Uppercase S</td></tr>
+            <tr><td data-title="Decimal">84</td><td data-title="Octal">124</td><td data-title="Hexdecimal">54</td><td data-title="Symbol">T</td><td data-title="Description">Uppercase T</td></tr>
+            <tr><td data-title="Decimal">85</td><td data-title="Octal">125</td><td data-title="Hexdecimal">55</td><td data-title="Symbol">U</td><td data-title="Description">Uppercase U</td></tr>
+            <tr><td data-title="Decimal">86</td><td data-title="Octal">126</td><td data-title="Hexdecimal">56</td><td data-title="Symbol">V</td><td data-title="Description">Uppercase V</td></tr>
+            <tr><td data-title="Decimal">87</td><td data-title="Octal">127</td><td data-title="Hexdecimal">57</td><td data-title="Symbol">W</td><td data-title="Description">Uppercase W</td></tr>
+            <tr><td data-title="Decimal">88</td><td data-title="Octal">130</td><td data-title="Hexdecimal">58</td><td data-title="Symbol">X</td><td data-title="Description">Uppercase X</td></tr>
+            <tr><td data-title="Decimal">89</td><td data-title="Octal">131</td><td data-title="Hexdecimal">59</td><td data-title="Symbol">Y</td><td data-title="Description">Uppercase Y</td></tr>
+            <tr><td data-title="Decimal">90</td><td data-title="Octal">132</td><td data-title="Hexdecimal">5A</td><td data-title="Symbol">Z</td><td data-title="Description">Uppercase Z</td></tr>
+            <tr><td data-title="Decimal">91</td><td data-title="Octal">133</td><td data-title="Hexdecimal">5B</td><td data-title="Symbol">[</td><td data-title="Description">Opening bracket</td></tr>
+            <tr><td data-title="Decimal">92</td><td data-title="Octal">134</td><td data-title="Hexdecimal">5C</td><td data-title="Symbol">\</td><td data-title="Description">Backslash</td></tr>
+            <tr><td data-title="Decimal">93</td><td data-title="Octal">135</td><td data-title="Hexdecimal">5D</td><td data-title="Symbol">]</td><td data-title="Description">Closing bracket</td></tr>
+            <tr><td data-title="Decimal">94</td><td data-title="Octal">136</td><td data-title="Hexdecimal">5E</td><td data-title="Symbol">^</td><td data-title="Description">Caret - circumflex</td></tr>
+            <tr><td data-title="Decimal">95</td><td data-title="Octal">137</td><td data-title="Hexdecimal">5F</td><td data-title="Symbol">_</td><td data-title="Description">Underscore</td></tr>
+            <tr><td data-title="Decimal">96</td><td data-title="Octal">140</td><td data-title="Hexdecimal">60</td><td data-title="Symbol">`</td><td data-title="Description">Grave accent</td></tr>
+            <tr><td data-title="Decimal">97</td><td data-title="Octal">141</td><td data-title="Hexdecimal">61</td><td data-title="Symbol">a</td><td data-title="Description">Lowercase a</td></tr>
+            <tr><td data-title="Decimal">98</td><td data-title="Octal">142</td><td data-title="Hexdecimal">62</td><td data-title="Symbol">b</td><td data-title="Description">Lowercase b</td></tr>
+            <tr><td data-title="Decimal">99</td><td data-title="Octal">143</td><td data-title="Hexdecimal">63</td><td data-title="Symbol">c</td><td data-title="Description">Lowercase c</td></tr>
+            <tr><td data-title="Decimal">100</td><td data-title="Octal">144</td><td data-title="Hexdecimal">64</td><td data-title="Symbol">d</td><td data-title="Description">Lowercase d</td></tr>
+            <tr><td data-title="Decimal">101</td><td data-title="Octal">145</td><td data-title="Hexdecimal">65</td><td data-title="Symbol">e</td><td data-title="Description">Lowercase e</td></tr>
+            <tr><td data-title="Decimal">102</td><td data-title="Octal">146</td><td data-title="Hexdecimal">66</td><td data-title="Symbol">f</td><td data-title="Description">Lowercase f</td></tr>
+            <tr><td data-title="Decimal">103</td><td data-title="Octal">147</td><td data-title="Hexdecimal">67</td><td data-title="Symbol">g</td><td data-title="Description">Lowercase g</td></tr>
+            <tr><td data-title="Decimal">104</td><td data-title="Octal">150</td><td data-title="Hexdecimal">68</td><td data-title="Symbol">h</td><td data-title="Description">Lowercase h</td></tr>
+            <tr><td data-title="Decimal">105</td><td data-title="Octal">151</td><td data-title="Hexdecimal">69</td><td data-title="Symbol">i</td><td data-title="Description">Lowercase i</td></tr>
+            <tr><td data-title="Decimal">106</td><td data-title="Octal">152</td><td data-title="Hexdecimal">6A</td><td data-title="Symbol">j</td><td data-title="Description">Lowercase j</td></tr>
+            <tr><td data-title="Decimal">107</td><td data-title="Octal">153</td><td data-title="Hexdecimal">6B</td><td data-title="Symbol">k</td><td data-title="Description">Lowercase k</td></tr>
+            <tr><td data-title="Decimal">108</td><td data-title="Octal">154</td><td data-title="Hexdecimal">6C</td><td data-title="Symbol">l</td><td data-title="Description">Lowercase l</td></tr>
+            <tr><td data-title="Decimal">109</td><td data-title="Octal">155</td><td data-title="Hexdecimal">6D</td><td data-title="Symbol">m</td><td data-title="Description">Lowercase m</td></tr>
+            <tr><td data-title="Decimal">110</td><td data-title="Octal">156</td><td data-title="Hexdecimal">6E</td><td data-title="Symbol">n</td><td data-title="Description">Lowercase n</td></tr>
+            <tr><td data-title="Decimal">111</td><td data-title="Octal">157</td><td data-title="Hexdecimal">6F</td><td data-title="Symbol">o</td><td data-title="Description">Lowercase o</td></tr>
+            <tr><td data-title="Decimal">112</td><td data-title="Octal">160</td><td data-title="Hexdecimal">70</td><td data-title="Symbol">p</td><td data-title="Description">Lowercase p</td></tr>
+            <tr><td data-title="Decimal">113</td><td data-title="Octal">161</td><td data-title="Hexdecimal">71</td><td data-title="Symbol">q</td><td data-title="Description">Lowercase q</td></tr>
+            <tr><td data-title="Decimal">114</td><td data-title="Octal">162</td><td data-title="Hexdecimal">72</td><td data-title="Symbol">r</td><td data-title="Description">Lowercase r</td></tr>
+            <tr><td data-title="Decimal">115</td><td data-title="Octal">163</td><td data-title="Hexdecimal">73</td><td data-title="Symbol">s</td><td data-title="Description">Lowercase s</td></tr>
+            <tr><td data-title="Decimal">116</td><td data-title="Octal">164</td><td data-title="Hexdecimal">74</td><td data-title="Symbol">t</td><td data-title="Description">Lowercase t</td></tr>
+            <tr><td data-title="Decimal">117</td><td data-title="Octal">165</td><td data-title="Hexdecimal">75</td><td data-title="Symbol">u</td><td data-title="Description">Lowercase u</td></tr>
+            <tr><td data-title="Decimal">118</td><td data-title="Octal">166</td><td data-title="Hexdecimal">76</td><td data-title="Symbol">v</td><td data-title="Description">Lowercase v</td></tr>
+            <tr><td data-title="Decimal">119</td><td data-title="Octal">167</td><td data-title="Hexdecimal">77</td><td data-title="Symbol">w</td><td data-title="Description">Lowercase w</td></tr>
+            <tr><td data-title="Decimal">120</td><td data-title="Octal">170</td><td data-title="Hexdecimal">78</td><td data-title="Symbol">x</td><td data-title="Description">Lowercase x</td></tr>
+            <tr><td data-title="Decimal">121</td><td data-title="Octal">171</td><td data-title="Hexdecimal">79</td><td data-title="Symbol">y</td><td data-title="Description">Lowercase y</td></tr>
+            <tr><td data-title="Decimal">122</td><td data-title="Octal">172</td><td data-title="Hexdecimal">7A</td><td data-title="Symbol">z</td><td data-title="Description">Lowercase z</td></tr>
+            <tr><td data-title="Decimal">123</td><td data-title="Octal">173</td><td data-title="Hexdecimal">7B</td><td data-title="Symbol">{</td><td data-title="Description">Opening brace</td></tr>
+            <tr><td data-title="Decimal">124</td><td data-title="Octal">174</td><td data-title="Hexdecimal">7C</td><td data-title="Symbol">|</td><td data-title="Description">Vertical bar</td></tr>
+            <tr><td data-title="Decimal">125</td><td data-title="Octal">175</td><td data-title="Hexdecimal">7D</td><td data-title="Symbol">}</td><td data-title="Description">Closing brace</td></tr>
+            <tr><td data-title="Decimal">126</td><td data-title="Octal">176</td><td data-title="Hexdecimal">7E</td><td data-title="Symbol">~</td><td data-title="Description">Equivalency sign - tilde</td></tr>
+            <tr><td data-title="Decimal">127</td><td data-title="Octal">177</td><td data-title="Hexdecimal">7F</td><td data-title="Symbol">␡</td><td data-title="Description">Delete</td></tr>
+        </tbody>
+        </table>
+
+        <p>The following table displays characters and symbols for Thai script:</p>
+
+        <table class="table table-bordered table-responsive">
+        <thead>
+            <tr><th>Decimal</th><th>Octal</th><th>Hexadecimal</th><th>Symbol</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+
+    <tr><td data-title="Decimal">128</td><td data-title="Octal">200</td><td data-title="Hexadecimal">80</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">129</td><td data-title="Octal">201</td><td data-title="Hexadecimal">81</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">130</td><td data-title="Octal">202</td><td data-title="Hexadecimal">82</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">131</td><td data-title="Octal">203</td><td data-title="Hexadecimal">83</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">132</td><td data-title="Octal">204</td><td data-title="Hexadecimal">84</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td>133</td><td>205</td><td>85</td><td></td><td>control</td></tr>
+    <tr><td data-title="Decimal">134</td><td data-title="Octal">206</td><td data-title="Hexadecimal">86</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">135</td><td data-title="Octal">207</td><td data-title="Hexadecimal">87</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">136</td><td data-title="Octal">210</td><td data-title="Hexadecimal">88</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">137</td><td data-title="Octal">211</td><td data-title="Hexadecimal">89</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">138</td><td data-title="Octal">212</td><td data-title="Hexadecimal">8A</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">139</td><td data-title="Octal">213</td><td data-title="Hexadecimal">8B</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">140</td><td data-title="Octal">214</td><td data-title="Hexadecimal">8C</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">141</td><td data-title="Octal">215</td><td data-title="Hexadecimal">8D</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">142</td><td data-title="Octal">216</td><td data-title="Hexadecimal">8E</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">143</td><td data-title="Octal">217</td><td data-title="Hexadecimal">8F</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">144</td><td data-title="Octal">220</td><td data-title="Hexadecimal">90</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">145</td><td data-title="Octal">221</td><td data-title="Hexadecimal">91</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">146</td><td data-title="Octal">222</td><td data-title="Hexadecimal">92</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">147</td><td data-title="Octal">223</td><td data-title="Hexadecimal">93</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">148</td><td data-title="Octal">224</td><td data-title="Hexadecimal">94</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">149</td><td data-title="Octal">225</td><td data-title="Hexadecimal">95</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">150</td><td data-title="Octal">226</td><td data-title="Hexadecimal">96</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">151</td><td data-title="Octal">227</td><td data-title="Hexadecimal">97</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">152</td><td data-title="Octal">230</td><td data-title="Hexadecimal">98</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">153</td><td data-title="Octal">231</td><td data-title="Hexadecimal">99</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">154</td><td data-title="Octal">232</td><td data-title="Hexadecimal">9A</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">155</td><td data-title="Octal">233</td><td data-title="Hexadecimal">9B</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">156</td><td data-title="Octal">234</td><td data-title="Hexadecimal">9C</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">157</td><td data-title="Octal">235</td><td data-title="Hexadecimal">9D</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">158</td><td data-title="Octal">236</td><td data-title="Hexadecimal">9E</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">159</td><td data-title="Octal">237</td><td data-title="Hexadecimal">9F</td><td data-title="Symbol"></td><td data-title="Description">control</td></tr>
+    <tr><td data-title="Decimal">160</td><td data-title="Octal">240</td><td data-title="Hexadecimal">A0</td><td data-title="Symbol"></td><td data-title="Description">Non-breaking space</td></tr>
+    <tr><td data-title="Decimal">161</td><td data-title="Octal">241</td><td data-title="Hexadecimal">A1</td><td data-title="Symbol">ก</td><td data-title="Description">Thai character Ko Kai</td></tr>
+    <tr><td data-title="Decimal">162</td><td data-title="Octal">242</td><td data-title="Hexadecimal">A2</td><td data-title="Symbol">ข</td><td data-title="Description">Thai character Kho Khai</td></tr>
+    <tr><td data-title="Decimal">163</td><td data-title="Octal">243</td><td data-title="Hexadecimal">A3</td><td data-title="Symbol">ฃ</td><td data-title="Description">Thai character Kho Khuat</td></tr>
+    <tr><td data-title="Decimal">164</td><td data-title="Octal">244</td><td data-title="Hexadecimal">A4</td><td data-title="Symbol">ค</td><td data-title="Description">Thai character Kho Khwai</td></tr>
+    <tr><td data-title="Decimal">165</td><td data-title="Octal">245</td><td data-title="Hexadecimal">A5</td><td data-title="Symbol">ฅ</td><td data-title="Description">Thai character Kho Khon</td></tr>
+    <tr><td data-title="Decimal">166</td><td data-title="Octal">246</td><td data-title="Hexadecimal">A6</td><td data-title="Symbol">ฆ</td><td data-title="Description">Thai character Kho Rakhang</td></tr>
+    <tr><td data-title="Decimal">167</td><td data-title="Octal">247</td><td data-title="Hexadecimal">A7</td><td data-title="Symbol">ง</td><td data-title="Description">Thai character Ngo Ngu</td></tr>
+    <tr><td data-title="Decimal">168</td><td data-title="Octal">250</td><td data-title="Hexadecimal">A8</td><td data-title="Symbol">จ</td><td data-title="Description">Thai character Cho Chan</td></tr>
+    <tr><td data-title="Decimal">169</td><td data-title="Octal">251</td><td data-title="Hexadecimal">A9</td><td data-title="Symbol">ฉ</td><td data-title="Description">Thai character Cho Ching</td></tr>
+    <tr><td data-title="Decimal">170</td><td data-title="Octal">252</td><td data-title="Hexadecimal">AA</td><td data-title="Symbol">ช</td><td data-title="Description">Thai character Cho Chang</td></tr>
+    <tr><td data-title="Decimal">171</td><td data-title="Octal">253</td><td data-title="Hexadecimal">AB</td><td data-title="Symbol">ซ</td><td data-title="Description">Thai character So So</td></tr>
+    <tr><td data-title="Decimal">172</td><td data-title="Octal">254</td><td data-title="Hexadecimal">AC</td><td data-title="Symbol">ฌ</td><td data-title="Description">Thai character Cho Choe</td></tr>
+    <tr><td data-title="Decimal">173</td><td data-title="Octal">255</td><td data-title="Hexadecimal">AD</td><td data-title="Symbol">ญ</td><td data-title="Description">Thai character Yo Ying</td></tr>
+    <tr><td data-title="Decimal">174</td><td data-title="Octal">256</td><td data-title="Hexadecimal">AE</td><td data-title="Symbol">ฎ</td><td data-title="Description">Thai character Do Chada</td></tr>
+    <tr><td data-title="Decimal">175</td><td data-title="Octal">257</td><td data-title="Hexadecimal">AF</td><td data-title="Symbol">ฏ</td><td data-title="Description">Thai character to Patak</td></tr>
+    <tr><td data-title="Decimal">176</td><td data-title="Octal">260</td><td data-title="Hexadecimal">B0</td><td data-title="Symbol">ฐ</td><td data-title="Description">Thai character Tho Than</td></tr>
+    <tr><td data-title="Decimal">177</td><td data-title="Octal">261</td><td data-title="Hexadecimal">B1</td><td data-title="Symbol">ฑ</td><td data-title="Description">Thai character Tho Nangmontho</td></tr>
+    <tr><td data-title="Decimal">178</td><td data-title="Octal">262</td><td data-title="Hexadecimal">B2</td><td data-title="Symbol">ฒ</td><td data-title="Description">Thai character Tho Phuthao</td></tr>
+    <tr><td data-title="Decimal">179</td><td data-title="Octal">263</td><td data-title="Hexadecimal">B3</td><td data-title="Symbol">ณ</td><td data-title="Description">Thai character No Nen</td></tr>
+    <tr><td data-title="Decimal">180</td><td data-title="Octal">264</td><td data-title="Hexadecimal">B4</td><td data-title="Symbol">ด</td><td data-title="Description">Thai character Do Dek</td></tr>
+    <tr><td data-title="Decimal">181</td><td data-title="Octal">265</td><td data-title="Hexadecimal">B5</td><td data-title="Symbol">ต</td><td data-title="Description">Thai character to Tao</td></tr>
+    <tr><td data-title="Decimal">182</td><td data-title="Octal">266</td><td data-title="Hexadecimal">B6</td><td data-title="Symbol">ถ</td><td data-title="Description">Thai character Tho Thung</td></tr>
+    <tr><td data-title="Decimal">183</td><td data-title="Octal">267</td><td data-title="Hexadecimal">B7</td><td data-title="Symbol">ท</td><td data-title="Description">Thai character Tho Thahan</td></tr>
+    <tr><td data-title="Decimal">184</td><td data-title="Octal">270</td><td data-title="Hexadecimal">B8</td><td data-title="Symbol">ธ</td><td data-title="Description">Thai character Tho Thong</td></tr>
+    <tr><td data-title="Decimal">185</td><td data-title="Octal">271</td><td data-title="Hexadecimal">B9</td><td data-title="Symbol">น</td><td data-title="Description">Thai character No Nu</td></tr>
+    <tr><td data-title="Decimal">186</td><td data-title="Octal">272</td><td data-title="Hexadecimal">BA</td><td data-title="Symbol">บ</td><td data-title="Description">Thai character Bo Baimai</td></tr>
+    <tr><td data-title="Decimal">187</td><td data-title="Octal">273</td><td data-title="Hexadecimal">BB</td><td data-title="Symbol">ป</td><td data-title="Description">Thai character Po Pla</td></tr>
+    <tr><td data-title="Decimal">188</td><td data-title="Octal">274</td><td data-title="Hexadecimal">BC</td><td data-title="Symbol">ผ</td><td data-title="Description">Thai character Pho Phung</td></tr>
+    <tr><td data-title="Decimal">189</td><td data-title="Octal">275</td><td data-title="Hexadecimal">BD</td><td data-title="Symbol">ฝ</td><td data-title="Description">Thai character Fo Fa</td></tr>
+    <tr><td data-title="Decimal">190</td><td data-title="Octal">276</td><td data-title="Hexadecimal">BE</td><td data-title="Symbol">พ</td><td data-title="Description">Thai character Pho Phan</td></tr>
+    <tr><td data-title="Decimal">191</td><td data-title="Octal">277</td><td data-title="Hexadecimal">BF</td><td data-title="Symbol">ฟ</td><td data-title="Description">Thai character Fo Fan</td></tr>
+    <tr><td data-title="Decimal">192</td><td data-title="Octal">300</td><td data-title="Hexadecimal">C0</td><td data-title="Symbol">ภ</td><td data-title="Description">Thai character Pho Samphao</td></tr>
+    <tr><td data-title="Decimal">193</td><td data-title="Octal">301</td><td data-title="Hexadecimal">C1</td><td data-title="Symbol">ม</td><td data-title="Description">Thai character Mo Ma</td></tr>
+    <tr><td data-title="Decimal">194</td><td data-title="Octal">302</td><td data-title="Hexadecimal">C2</td><td data-title="Symbol">ย</td><td data-title="Description">Thai character Yo Yak</td></tr>
+    <tr><td data-title="Decimal">195</td><td data-title="Octal">303</td><td data-title="Hexadecimal">C3</td><td data-title="Symbol">ร</td><td data-title="Description">Thai character Ro Rua</td></tr>
+    <tr><td data-title="Decimal">196</td><td data-title="Octal">304</td><td data-title="Hexadecimal">C4</td><td data-title="Symbol">ฤ</td><td data-title="Description">Thai character Ru</td></tr>
+    <tr><td data-title="Decimal">197</td><td data-title="Octal">305</td><td data-title="Hexadecimal">C5</td><td data-title="Symbol">ล</td><td data-title="Description">Thai character Lo Ling</td></tr>
+    <tr><td data-title="Decimal">198</td><td data-title="Octal">306</td><td data-title="Hexadecimal">C6</td><td data-title="Symbol">ฦ</td><td data-title="Description">Thai character Lu</td></tr>
+    <tr><td data-title="Decimal">199</td><td data-title="Octal">307</td><td data-title="Hexadecimal">C7</td><td data-title="Symbol">ว</td><td data-title="Description">Thai character Wo Waen</td></tr>
+    <tr><td data-title="Decimal">200</td><td data-title="Octal">310</td><td data-title="Hexadecimal">C8</td><td data-title="Symbol">ศ</td><td data-title="Description">Thai character So Sala</td></tr>
+    <tr><td data-title="Decimal">201</td><td data-title="Octal">311</td><td data-title="Hexadecimal">C9</td><td data-title="Symbol">ษ</td><td data-title="Description">Thai character So Rusi</td></tr>
+    <tr><td data-title="Decimal">202</td><td data-title="Octal">312</td><td data-title="Hexadecimal">CA</td><td data-title="Symbol">ส</td><td data-title="Description">Thai character So Sua</td></tr>
+    <tr><td data-title="Decimal">203</td><td data-title="Octal">313</td><td data-title="Hexadecimal">CB</td><td data-title="Symbol">ห</td><td data-title="Description">Thai character Ho Hip</td></tr>
+    <tr><td data-title="Decimal">204</td><td data-title="Octal">314</td><td data-title="Hexadecimal">CC</td><td data-title="Symbol">ฬ</td><td data-title="Description">Thai character Lo Chula</td></tr>
+    <tr><td data-title="Decimal">205</td><td data-title="Octal">315</td><td data-title="Hexadecimal">CD</td><td data-title="Symbol">อ</td><td data-title="Description">Thai character o Ang</td></tr>
+    <tr><td data-title="Decimal">206</td><td data-title="Octal">316</td><td data-title="Hexadecimal">CE</td><td data-title="Symbol">ฮ</td><td data-title="Description">Thai character Ho Nokhuk</td></tr>
+    <tr><td data-title="Decimal">207</td><td data-title="Octal">317</td><td data-title="Hexadecimal">CF</td><td data-title="Symbol">ฯ</td><td data-title="Description">Thai character Paiyannoi</td></tr>
+    <tr><td data-title="Decimal">208</td><td data-title="Octal">320</td><td data-title="Hexadecimal">D0</td><td data-title="Symbol">ะ</td><td data-title="Description">Thai character Sara A</td></tr>
+    <tr><td data-title="Decimal">209</td><td data-title="Octal">321</td><td data-title="Hexadecimal">D1</td><td data-title="Symbol">ั</td><td data-title="Description">Thai character Mai Han-akat</td></tr>
+    <tr><td data-title="Decimal">210</td><td data-title="Octal">322</td><td data-title="Hexadecimal">D2</td><td data-title="Symbol">า</td><td data-title="Description">Thai character Sara Aa</td></tr>
+    <tr><td data-title="Decimal">211</td><td data-title="Octal">323</td><td data-title="Hexadecimal">D3</td><td data-title="Symbol">ำ</td><td data-title="Description">Thai character Sara Am</td></tr>
+    <tr><td data-title="Decimal">212</td><td data-title="Octal">324</td><td data-title="Hexadecimal">D4</td><td data-title="Symbol">ิ</td><td data-title="Description">Thai character Sara I</td></tr>
+    <tr><td data-title="Decimal">213</td><td data-title="Octal">325</td><td data-title="Hexadecimal">D5</td><td data-title="Symbol">ี</td><td data-title="Description">Thai character Sara II</td></tr>
+    <tr><td data-title="Decimal">214</td><td data-title="Octal">326</td><td data-title="Hexadecimal">D6</td><td data-title="Symbol">ึ</td><td data-title="Description">Thai character Sara Ue</td></tr>
+    <tr><td data-title="Decimal">215</td><td data-title="Octal">327</td><td data-title="Hexadecimal">D7</td><td data-title="Symbol">ื</td><td data-title="Description">Thai character Sara Uee</td></tr>
+    <tr><td data-title="Decimal">216</td><td data-title="Octal">330</td><td data-title="Hexadecimal">D8</td><td data-title="Symbol">ุ</td><td data-title="Description">Thai character Sara U</td></tr>
+    <tr><td data-title="Decimal">217</td><td data-title="Octal">331</td><td data-title="Hexadecimal">D9</td><td data-title="Symbol">ู</td><td data-title="Description">Thai character Sara Uu</td></tr>
+    <tr><td data-title="Decimal">218</td><td data-title="Octal">332</td><td data-title="Hexadecimal">DA</td><td data-title="Symbol">ฺ</td><td data-title="Description">Thai character Phinthu</td></tr>
+    <tr><td data-title="Decimal">219</td><td data-title="Octal">333</td><td data-title="Hexadecimal">DB</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+    <tr><td data-title="Decimal">220</td><td data-title="Octal">334</td><td data-title="Hexadecimal">DC</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+    <tr><td data-title="Decimal">221</td><td data-title="Octal">335</td><td data-title="Hexadecimal">DD</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+    <tr><td data-title="Decimal">222</td><td data-title="Octal">336</td><td data-title="Hexadecimal">DE</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+    <tr><td data-title="Decimal">223</td><td data-title="Octal">337</td><td data-title="Hexadecimal">DF</td><td data-title="Symbol">฿</td><td data-title="Description">Thai currency symbol baht</td></tr>
+    <tr><td data-title="Decimal">224</td><td data-title="Octal">340</td><td data-title="Hexadecimal">E0</td><td data-title="Symbol">เ</td><td data-title="Description">Thai character Sara E</td></tr>
+    <tr><td data-title="Decimal">225</td><td data-title="Octal">341</td><td data-title="Hexadecimal">E1</td><td data-title="Symbol">แ</td><td data-title="Description">Thai character Sara Ae</td></tr>
+    <tr><td data-title="Decimal">226</td><td data-title="Octal">342</td><td data-title="Hexadecimal">E2</td><td data-title="Symbol">โ</td><td data-title="Description">Thai character Sara O</td></tr>
+    <tr><td data-title="Decimal">227</td><td data-title="Octal">343</td><td data-title="Hexadecimal">E3</td><td data-title="Symbol">ใ</td><td data-title="Description">Thai character Sara Ai Maimuan</td></tr>
+    <tr><td data-title="Decimal">228</td><td data-title="Octal">344</td><td data-title="Hexadecimal">E4</td><td data-title="Symbol">ไ</td><td data-title="Description">Thai character Sara Ai Maimalai</td></tr>
+    <tr><td data-title="Decimal">229</td><td data-title="Octal">345</td><td data-title="Hexadecimal">E5</td><td data-title="Symbol">ๅ</td><td data-title="Description">Thai character Lakkhangyao</td></tr>
+    <tr><td data-title="Decimal">230</td><td data-title="Octal">346</td><td data-title="Hexadecimal">E6</td><td data-title="Symbol">ๆ</td><td data-title="Description">Thai character Maiyamok</td></tr>
+    <tr><td data-title="Decimal">231</td><td data-title="Octal">347</td><td data-title="Hexadecimal">E7</td><td data-title="Symbol">็</td><td data-title="Description">Thai character Maitaikhu</td></tr>
+    <tr><td data-title="Decimal">232</td><td data-title="Octal">350</td><td data-title="Hexadecimal">E8</td><td data-title="Symbol">่</td><td data-title="Description">Thai character Mai Ek</td></tr>
+    <tr><td data-title="Decimal">233</td><td data-title="Octal">351</td><td data-title="Hexadecimal">E9</td><td data-title="Symbol">้</td><td data-title="Description">Thai character Mai Tho</td></tr>
+    <tr><td data-title="Decimal">234</td><td data-title="Octal">352</td><td data-title="Hexadecimal">EA</td><td data-title="Symbol">๊</td><td data-title="Description">Thai character Mai Tri</td></tr>
+    <tr><td data-title="Decimal">235</td><td data-title="Octal">353</td><td data-title="Hexadecimal">EB</td><td data-title="Symbol">๋</td><td data-title="Description">Thai character Mai Chattawa</td></tr>
+    <tr><td data-title="Decimal">236</td><td data-title="Octal">354</td><td data-title="Hexadecimal">EC</td><td data-title="Symbol">์</td><td data-title="Description">Thai character Thanthakhat</td></tr>
+    <tr><td data-title="Decimal">237</td><td data-title="Octal">355</td><td data-title="Hexadecimal">ED</td><td data-title="Symbol">ํ</td><td data-title="Description">Thai character Nikhahit</td></tr>
+    <tr><td data-title="Decimal">238</td><td data-title="Octal">356</td><td data-title="Hexadecimal">EE</td><td data-title="Symbol">๎</td><td data-title="Description">Thai character Yamakkan</td></tr>
+    <tr><td data-title="Decimal">239</td><td data-title="Octal">357</td><td data-title="Hexadecimal">EF</td><td data-title="Symbol">๏</td><td data-title="Description">Thai character Fongman</td></tr>
+    <tr><td data-title="Decimal">240</td><td data-title="Octal">360</td><td data-title="Hexadecimal">F0</td><td data-title="Symbol">๐</td><td data-title="Description">Thai digit zero</td></tr>
+    <tr><td data-title="Decimal">241</td><td data-title="Octal">361</td><td data-title="Hexadecimal">F1</td><td data-title="Symbol">๑</td><td data-title="Description">Thai digit one</td></tr>
+    <tr><td data-title="Decimal">242</td><td data-title="Octal">362</td><td data-title="Hexadecimal">F2</td><td data-title="Symbol">๒</td><td data-title="Description">Thai digit two</td></tr>
+    <tr><td data-title="Decimal">243</td><td data-title="Octal">363</td><td data-title="Hexadecimal">F3</td><td data-title="Symbol">๓</td><td data-title="Description">Thai digit three</td></tr>
+    <tr><td data-title="Decimal">244</td><td data-title="Octal">364</td><td data-title="Hexadecimal">F4</td><td data-title="Symbol">๔</td><td data-title="Description">Thai digit four</td></tr>
+    <tr><td data-title="Decimal">245</td><td data-title="Octal">365</td><td data-title="Hexadecimal">F5</td><td data-title="Symbol">๕</td><td data-title="Description">Thai digit five</td></tr>
+    <tr><td data-title="Decimal">246</td><td data-title="Octal">366</td><td data-title="Hexadecimal">F6</td><td data-title="Symbol">๖</td><td data-title="Description">Thai digit six</td></tr>
+    <tr><td data-title="Decimal">247</td><td data-title="Octal">367</td><td data-title="Hexadecimal">F7</td><td data-title="Symbol">๗</td><td data-title="Description">Thai digit seven</td></tr>
+    <tr><td data-title="Decimal">248</td><td data-title="Octal">370</td><td data-title="Hexadecimal">F8</td><td data-title="Symbol">๘</td><td data-title="Description">Thai digit eight</td></tr>
+    <tr><td data-title="Decimal">249</td><td data-title="Octal">371</td><td data-title="Hexadecimal">F9</td><td data-title="Symbol">๙</td><td data-title="Description">Thai digit nine</td></tr>
+    <tr><td data-title="Decimal">250</td><td data-title="Octal">372</td><td data-title="Hexadecimal">FA</td><td data-title="Symbol">๚</td><td data-title="Description">Thai character Angkhankhu</td></tr>
+    <tr><td data-title="Decimal">251</td><td data-title="Octal">373</td><td data-title="Hexadecimal">FB</td><td data-title="Symbol">๛</td><td data-title="Description">Thai character Khomut</td></tr>
+    <tr><td data-title="Decimal">252</td><td data-title="Octal">374</td><td data-title="Hexadecimal">FC</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+    <tr><td data-title="Decimal">253</td><td data-title="Octal">375</td><td data-title="Hexadecimal">FD</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+    <tr><td data-title="Decimal">254</td><td data-title="Octal">376</td><td data-title="Hexadecimal">FE</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+    <tr><td data-title="Decimal">255</td><td data-title="Octal">377</td><td data-title="Hexadecimal">FF</td><td data-title="Symbol"></td><td data-title="Description">Unused</td></tr>
+
+        </tbody>
+        </table>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/iso-8859-11" class="tag">iso-8859-11</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/algorithm" class="tag">algorithm</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/encoding" class="tag">encoding</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/decoding" class="tag">decoding</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+					</div>
+				</div>
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<script async="async" data-cfasync="false" src="//pl23622823.highrevenuenetwork.com/82849ac901fcdf553b99a113d233ce38/invoke.js"></script>
+						<div id="container-82849ac901fcdf553b99a113d233ce38"></div>
+					</div>
+					<div class="col-md-6">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '08760f2487e830ed5039902de4007bec',
+								'format' : 'iframe',
+								'height' : 250,
+								'width' : 300,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/2024/08/18/iso-8859-11-encoding-and-decoding/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/2024/08/18/iso-8859-11-encoding-and-decoding/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+		
+  	</body>
+</html>
