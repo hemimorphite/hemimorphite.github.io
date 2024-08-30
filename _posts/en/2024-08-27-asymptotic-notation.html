@@ -1,0 +1,355 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Asymptotic Notation"
+thumb: "asymptotic.jpg"
+eyebrow: "Tutorial"
+description: "Explore the fundamentals of Asymptotic Notation, a crucial concept in algorithm analysis and mathematics. This page provides an in-depth look at different notations like Big O, Little o, Big Omega, Little Omega, and Big Theta. Learn how these notations are used to describe the efficiency and performance of algorithms as input sizes grow, helping you to understand and compare algorithms more effectively. Whether you're a student or a professional, this guide will enhance your understanding of algorithmic efficiency and complexity analysis."
+date: 2024-08-30 21:21:00 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2024", "month-08", "day-30"]
+tags: ["mathematics", "algorithm", "asymptotic analysis", big O", "little o", "big omega", "little omega", "big theta"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>The efficiency of an algorithm depends on the amount of time, storage and other resources required to execute the algorithm. The efficiency is measured with the help of asymptotic notations.</p>
+
+        <p>An algorithm may not have the same performance for different types of inputs. With the increase in the input size, the performance will change.</p>
+
+        <p>The study of change in performance of the algorithm with the change in the order of the input size is defined as asymptotic analysis.</p>
+
+        <p>There are five types of asymptotic notation: O (Big O), Ω (Big omega), Θ (Big theta), o (Little o) and ω (Little Omega).</p>
+
+        <h5>Big-O Notation</h5>
+
+        <p>Big O notation represents the upper bound or worst-case scenario of the growth rate of a function. It describes an algorithm’s maximum time or space complexity.</p>
+
+        <p class="definition">Let $f(n)$ and $g(n)$ be functions that map positive integers to positive real numbers. We say that $f(n)$ is $O(g(n))$ (or $f(n) \in O(g(n))$) if there exists a real constant $c \gt 0$ and there exists an integer constant $n_0 \geq 1$ such that $f(n) \leq c \cdot g(n)$ for every integer $n \geq n_0$.</p>
+
+        <div class="textBox" style="border:0.16rem solid firebrick;padding:0;">
+            <h5 style="background-color:firebrick;color:white;padding:1rem;font-weight:bold;margin:0;">Example</h5>
+            <div style="padding:1rem;margin:0;">
+                <p>Let $f(n) = 7n + 8$ and $g(n) = n$. Is $f(n) \in O(g(n))$?</p>
+                
+                <p>Solution</p>
+                
+                <p>To determine whether $f(n) = 7n + 8$ belongs to $O(g(n))$ where $g(n) = n$, we need to check if $f(n)$ is asymptotically bounded above by $g(n)$. Specifically, we want to see if there exist positive constants $c$ and $n_0$ such that:</p>
+
+                $$f(n) \leq c \cdot g(n) \qquad \text{for all} n \geq n_0$$
+
+                <p>Substituting the given functions:</p>
+
+                $$7n + 8 \leq c \cdot n \qquad \text{for all} n \geq n_0$$
+
+                <p>Subtract $7n$ from both sides:</p>
+
+                $$8 \leq (c − 7)n$$
+
+                <p>To satisfy this inequality, we need $c - 7 \gt 0$ and $n \geq n_0$, which implies $c \gt 7$. Thus, the inequality becomes:</p>
+
+                $$n \geq \frac{8}{c - 7}$$
+
+                <p>Let's pick $c = 8$ (any $c$ greater than to $7$ will work):</p>
+
+                $$n \geq \frac{8}{8 - 7} = 8$$
+
+                <p>So, for $c = 8$ and $n_0 = 8$, the inequality holds for all $n \geq n_0$. Therefore, we can conclude that $f(n) \in O(g(n))$.</p>
+            </div>
+        </div>
+
+        <div class="textBox" style="border:0.16rem solid firebrick;padding:0;">
+            <h5 style="background-color:firebrick;color:white;padding:1rem;font-weight:bold;margin:0;">Example</h5>
+            <div style="padding:1rem;margin:0;">
+                <p>Prove that running time $f(n) = n^3 + 20n + 1 is O(n^3)$</p>
+                
+                <p>Solution</p>
+
+                <p>To prove that the running time $f(n) = n^3 + 20n + 1 is O(n^3)$, we need to show that there exist constants $c \gt 0$ and $n_0 \geq 1$ such that:</p>
+
+                $$f(n) \leq c \cdot g(n) \qquad \text{for all} n \geq n_0$$
+
+                <p>Substituting the given functions:</p>
+
+                $$n^3 + 20n + 1 \leq c \cdot n^3 \qquad \text{for all} n \geq n_0$$
+
+                <p>Divide by n^3 from both sides:</p>
+
+                $$1 + \frac{20}{n^2} + \frac{1}{n^3} \leq c$$
+
+                <p>As n increases, the terms $\frac{20}{n^2}$ and $\frac{1}{n^3}$ decrease. Specifically, for $n \geq 1$:</p>
+
+                $$\frac{n^2}{20} \leq 20 \qquad and \qquad \frac{1}{n^3} \leq 1$$
+
+                <p>Thus, for $n \leq 1$, we have:</p>
+
+                $$1 + \frac{n^2}{20} + \frac{1}{n^3} \leq c$$
+
+                $$1 + 20 + 1 \leq c$$
+
+                $$22 \leq c$$
+
+                <p>So, for $c = 22$ and $n_0 = 1$, the inequality holds for all $n \geq n_0$. Therefore, we can conclude that $f(n)$ is $O(n^3)$.</p>
+            </div>
+        </div>
+
+        <div class="textBox" style="border:0.16rem solid firebrick;padding:0;">
+            <h5 style="background-color:firebrick;color:white;padding:1rem;font-weight:bold;margin:0;">Example</h5>
+            <div style="padding:1rem;margin:0;">
+                <p>Prove that running time $f(n) = n^3 + 20n + 1$ is not $O(n^2)$</p>
+                
+                <p>Solution</p>
+                
+                <p>To prove that the running time $f(n) = n^3 + 20n + 1$ is not $O(n^2)$, we need to show that there do not exist constants $c \gt 0$ and $n_0 \geq 1$ such that:</p>
+
+                $$f(n) \leq c \cdot g(n) \qquad \text{for all} n \geq n_0$$
+
+                <p>Assume, for contradiction, that $f(n)$ is $O(n^2)$. Then there exist constants $c \gt 0$ and $n_0 \geq 1$ such that for all $n \geq n_0$:</p>
+
+                $$n^3 + 20n + 1 \leq C \cdot n^2$$
+
+                <p>For large $n$, the $n^3$ term dominates the left-hand side. Therefore, the inequality simplifies to:</p>
+
+                $$n^3 \leq c \cdot n^2$$
+
+                <p>Dividing both sides by $n^2$ (assuming $n \gt 0$):</p>
+
+                $$n \leq c$$
+
+                <p>This implies that $n$ is bounded above by the constant $c$. However, this contradicts the fact that $n$ can grow arbitrarily large.</p>
+
+                <p>Since assuming that $f(n) = n^3 + 20n + 1$ is $O(n^2)$ leads to a contradiction, we conclude that $f(n)$ is not $O(n^2)$.</p>
+            </div>
+        </div>
+
+        <div class="textBox" style="border:0.16rem solid firebrick;padding:0;">
+            <h5 style="background-color:firebrick;color:white;padding:1rem;font-weight:bold;margin:0;">Example</h5>
+            <div style="padding:1rem;margin:0;">
+                <p>Prove that running time $f(n) = n^3 + 20n + 1$ is $O(n^4)$</p>
+
+                <p>Solution</p>
+
+                <p>To prove that the running time $f(n) = n^3 + 20n + 1$ is $O(n^4)$, we need to show that there exist constants $c \gt 0$ and $n_0 \geq 1$ such that:</p>
+
+                $$f(n) \leq c \cdot g(n) \qquad \text{for all} n \geq n_0$$
+
+                <p>Substituting the given functions:</p>
+
+                $$n^3 + 20n + 1 \leq c \cdot n^4 \qquad \text{for all} n \geq n_0$$
+
+                <p>Divide by $n^4$ from both sides:</p>
+
+                $$\frac{1}{n} + \frac{20}{n^3} + \frac{1}{n^4} \leq c$$
+
+                <p>As $n$ increases, the terms $\frac{1}{n}$, $\frac{20}{n^3}$, and $\frac{1}{n^4}$ all approach $0$. Specifically, for $n \geq 1$, we have:</p>
+
+                $$\frac{1}{n} \leq 1, \qquad \frac{20}{n^3} \leq 20, \qquad \frac{1}{n^4} \leq 1$$
+
+                <p>Thus, for $n \geq 1$:</p>
+
+                $$\frac{1}{n} + \frac{20}{n^3} + \frac{1}{n^4} \leq c$$
+
+                $$1 + 20 + 1 \leq c$$
+
+                $$22 \leq c$$
+
+                <p>So, for $c = 22$ and $n_0 = 1$, the inequality holds for all $n \geq n_0$. Therefore, we can conclude that $f(n)$ is $O(n^4)$.</p>
+            </div>
+        </div>
+
+        <div class="textBox" style="border:0.16rem solid firebrick;padding:0;">
+            <h5 style="background-color:firebrick;color:white;padding:1rem;font-weight:bold;margin:0;">Example</h5>
+            <div style="padding:1rem;margin:0;">
+                <p>Prove that running time $f(n) = 2^{n+1} is O(2^n)$</p>
+
+                <p>Solution</p>
+
+                <p>To prove that the running time $f(n) = 2^{n+1}$ is $O(2^n)$, we need to show that there exist constants $c \gt 0$ and $n_0 \geq 1$ such that:</p>
+
+                $$f(n) \leq c \cdot g(n) \qquad \text{for all} n \geq n_0$$
+
+                <p>Substituting the given functions:</p>
+
+                $$2^{n+1} \leq c \cdot 2^n \qquad \text{for all} n \geq n_0$$
+
+                <p>Divide by $2^n$ from both sides (assuming $n \geq 1$):</p>
+
+                $$2 \leq c$$
+
+                <p>So, for $c = 2$ and $n_0 = 1$, the inequality holds for all $n \geq n_0$. Therefore, we can conclude that $f(n)$ is $O(2^n)$.</p>
+            </div>
+        </div>
+
+        <div class="textBox" style="border:0.16rem solid firebrick;padding:0;">
+            <h5 style="background-color:firebrick;color:white;padding:1rem;font-weight:bold;margin:0;">Example</h5>
+            <div style="padding:1rem;margin:0;">
+                <p>Prove that running time $f(n) = 10^80$ is $O(1)$</p>
+
+                <p>Solution</p>
+
+                <p>To prove that the running time $f(n) = 10^80$ is $O(1)$, we need to show that there exist constants $c \gt 0$ and $n_0 \geq 1$ such that:</p>
+
+                $$f(n) \leq c \cdot g(n) \qquad \text{for all} n \geq n_0$$
+
+                <p>Substituting the given functions:</p>
+
+                $$10^80 \leq c \cdot 1 \qquad \text{for all} n \geq n_0$$
+
+                <p>Divide by $2^n$ from both sides (assuming $n \geq 1$):</p>
+
+                $$2 \leq c$$
+
+                <p>Here, we can choose $c = 10^80$ and $n_0$ can be any value because $10^80$ is constant and does not depend on $n$. Therefore, we can conclude that $f(n)$ is $O(1)$.</p>
+            </div>
+        </div>
+
+        <div class="textBox" style="border:0.16rem solid firebrick;padding:0;">
+            <h5 style="background-color:firebrick;color:white;padding:1rem;font-weight:bold;margin:0;">Example</h5>
+            <div style="padding:1rem;margin:0;">
+                <p>Prove that running time $f(n) = \log_{ln 5}(\log^{\log 100} n)$ is $O(\log(\log n))$</p>
+
+                <p>Solution</p>
+
+                <p>The function $f(n) = \log_{ln 5}(\log^{\log 100} n)$ can be rewritten using the change of base formula:</p>
+
+                $$f(n) = \log_{ln 5}(\log^{\log 100} n) = \frac{\log (\log^{\log 100} n)}{\log (\ln 5)}$$
+
+                <p>Next, simplify the expression $\log (\log^{\log 100} n)$:</p>
+
+                $$\log (\log^{\log 100} n) = \log 100 \cdot \log(\log n)$$
+
+                <p>Substituting this back into $f(n)$, we get:</p>
+
+                $$f(n) = \frac{\log 100 \cdot \log(\log n)}{\log (\ln 5)}$$
+
+                <p>To prove that the running time $f(n) = \log_{ln 5}(\log^{\log 100} n)$ is $O(\log(\log n))$, we need to show that there exist constants $c \gt 0$ and $n_0 \geq 1$ such that:</p>
+
+                $$f(n) \leq c \cdot g(n) \qquad \text{for all} n \geq n_0$$
+
+                <p>Substituting the given functions:</p>
+
+                $$\log_{ln 5}(\log^{\log 100} n) \leq c \cdot \log(\log n) \qquad \text{for all} n \geq n_0$$
+
+                $$\frac{\log 100 \cdot \log(\log n)}{\log (\ln 5)} \leq c \cdot \log(\log n)$$
+
+                <p>Divide by $\log(\log n)$ from both sides (assuming $n \geq 1$):</p>
+
+                $$\frac{\log 100}{\log (\ln 5)} \leq c$$
+
+                <p>Here, we can choose $c = 10^80$ and $n_0 = 1$, the inequality holds for all $n \geq n_0$. Therefore, we can conclude that $f(n)$ is $O(\log(\log n))$.</p>
+            </div>
+        </div>
+
+        <div class="textBox" style="border:0.16rem solid firebrick;padding:0;">
+            <h5 style="background-color:firebrick;color:white;padding:1rem;font-weight:bold;margin:0;">Example</h5>
+            <div style="padding:1rem;margin:0;">
+                <p>Prove that running time $f(n) = 5^log(3) n^3 + 10^80 n^2 + log(3) n^{3.1} + 6006$ is $O(n^{3.1})$.</p>
+
+                <p>Solution</p>
+
+                <p>To prove that the running time $f(n) = 5^log(3) n^3 + 10^80 n^2 + log(3) n^{3.1} + 6006$ is $O(n^{3.1})$, we need to show that there exist constants $c \gt 0$ and $n_0 \geq 1$ such that:</p>
+
+                $$f(n) \leq c \cdot g(n) \qquad \text{for all} n \geq n_0$$
+
+                <p>Substituting the given functions:</p>
+
+                $$5^log(3) n^3 + 10^80 n^2 + log(3) n^{3.1} + 6006 \leq c \cdot n^{3.1} \qquad \text{for all} n \geq n_0$$
+
+                <p>Divide by $n^{3.1}$ from both sides (assuming $n \geq 1$):</p>
+
+                $$\frac{5^log(3)}{n^{0.1}} + \frac{10^80}{n^{1.1}} + log(3) + \frac{6006}{n^{3.1}} \leq c$$
+
+                <p>As n increases, the terms $\frac{5^log(3)}{n^{0.1}}$, $\frac{10^80}{n^{1.1}}$, and $\frac{6006}{n^{3.1}}$ all approach $0$. Specifically, for $n \geq 1$, we have:</p>
+
+                $$\frac{5^log(3)}{n^{0.1}} \leq 5^log(3), \qquad \frac{10^80}{n^{1.1}} \leq 10^80, \qquad \frac{6006}{n^{3.1}} \leq 6006$$
+
+                <p>Thus, for $n \geq 1$:</p>
+
+                $$\frac{5^log(3)}{n^{0.1}} + \frac{10^80}{n^{1.1}} + log(3) + \frac{6006}{n^{3.1}} \leq c$$
+
+                $$5^log(3) + 10^80 + log(3) + 6006 \leq c$$
+
+                <p>Here, we can choose $c = 5^log(3) + 10^80 + log(3) + 6006$ and $n_0 = 1$, the inequality holds for all $n \geq n_0$. Therefore, we can conclude that $f(n)$ is $O(n^{3.1})$.</p>
+            </div>
+        </div>
+
+        <div class="textBox" style="border:0.16rem solid firebrick;padding:0;">
+            <h5 style="background-color:firebrick;color:white;padding:1rem;font-weight:bold;margin:0;">Example</h5>
+            <div style="padding:1rem;margin:0;">
+                <p>Prove that running time $f(n) = \binom{n}{n/2} is O(\frac{2^n}{\sqrt{n}})$.</p>
+
+                <p>Solution</p>
+
+                <p>The binomial coefficient $\binom{n}{n/2}$ can be approximated using Stirling's approximation for factorials, which is useful for large $n$. Stirling's approximation states:</p>
+
+                $$n! \approx \sqrt{2\pin} (\frac{n}{e})^n$$
+
+                <p>The binomial coefficient can be expressed as:</p>
+
+                $$\binom{n}{n/2} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!}$$
+
+                <p>Applying Stirling's approximation:</p>
+
+                $$n! \approx \sqrt{2\pin} (\frac{n}{e})^n$$
+
+                $$\frac{n}{2}! \approx \sqrt{\pin} (\frac{\frac{n}{2}}{e})^\frac{n}{2}$$
+
+                <p>Thus:</p>
+
+                $$$\binom{n}{n/2} \approx \frac{\sqrt{2\pin} (\frac{n}{e})^n}{(\sqrt{\pin} (\frac{\frac{n}{2}}{e})^\frac{n}{2})^2}$$
+
+                <p>Simplifying this expression:</p>
+
+                $$\binom{n}{n/2} \approx \frac{\sqrt{2\pin} (\frac{n}{e})^n}{\pin (\frac{\frac{n}{2}}{e})^n} = \frac{2^n \sqrt{2\pin}}{\pin}$$
+
+                <p>Simplify further:</p>
+
+                $$\binom{n}{n/2} \approx \frac{2^n}{\sqrt{\pin}}$$
+
+                <p>To prove that the running time $f(n) = \binom{n}{n/2}$ is $O(\frac{2^n}{\sqrt{n}})$, we need to show that there exist constants $c \gt 0$ and $n_0 \geq 1$ such that:</p>
+
+                $$f(n) \leq c \cdot g(n) \qquad \text{for all} n \geq n_0$$
+
+                <p>Substituting the given functions:</p>
+
+                $$\binom{n}{n/2} \leq c \cdot \frac{2^n}{\sqrt{n}} \qquad \text{for all} n \geq n_0$$
+
+                <p>Divide by $\frac{2^n}{\sqrt{n}}$ from both sides (assuming $n \geq 1$):</p>
+
+                $$\frac{2^n}{\sqrt{\pin}} \leq c \cdot \frac{2^n}{\sqrt{n}}$$
+
+                $$\frac{1}{\sqrt{\pi}} \leq c$$
+
+                <p>Here, we can choose $c = \frac{1}{\sqrt{\pi}}$ and $n_0 = 1$, the inequality holds for all $n \geq n_0$. Therefore, we can conclude that $f(n)$ is $O(\frac{2^n}{\sqrt{n}})$.</p>
+            </div>
+        </div>
+
+        <h5>Little-o Notation</h5>
+
+        <p>Let f(n) and g(n) be functions that map positive integers to positive real numbers. We say that f(n) is o(g(n)) (or f(n) \in o(g(n))) if for any real constant c \gt 0, there exists an integer constant n_0 \geq 1 such that f(n) \lt c \cdot g(n) for every integer n \geq n_0.</p>
+
+        <h5>Big–Omega Notation</h5>
+
+        <p>Big Omega notation represents the lower bound or best-case scenario of the growth rate of a function. It describes an algorithm’s minimum time or space complexity.</p>
+
+        <p>Let f(n) and g(n) be functions that map positive integers to positive real numbers. We say that f(n) is \Omega(g(n)) (or f(n) \in \Omega(g(n))) if there exists a real constant c \gt 0 and there exists an integer constant n_0 \geq 1 such that f(n) \geq c \cdot g(n) for every integer n \geq n_0.</p>
+
+        <h5>Little–Omega Notation</h5>
+
+        <p>Let f(n) and g(n) be functions that map positive integers to positive real numbers. We say that f(n) is \omega(g(n)) (or f(n) \in \omega(g(n))) if for any real constant c \gt 0, there exists an integer constant n_0 \geq 1 such that f(n) \gt c \cdot g(n) for every integer n \geq n_0.</p>
+
+        <h5>Big–Theta Notation</h5>
+
+        <p>Big Theta notation represents both the upper and lower bounds of the growth rate of a function. It provides a tight bound on the time or space complexity of an algorithm.</p>
+
+        <p>Let f(n) and g(n) be functions that map positive integers to positive real numbers. We say that f(n) is \Theta(g(n)) (or f(n) \in \Theta(g(n))) if and only if f(n) \in O(g(n)) and f(n) \in \Omega(g(n)).</p>
+
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
