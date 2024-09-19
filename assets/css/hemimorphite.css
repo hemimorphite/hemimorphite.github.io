@@ -403,9 +403,9 @@ header {
 	margin: 0;
 }
 .katex-container {
-		white-space: normal;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+		white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
 }
 @media (max-width: 30em) {
 	.blog-post .post-content .table thead {
