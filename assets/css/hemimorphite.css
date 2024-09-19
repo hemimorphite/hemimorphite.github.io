@@ -402,10 +402,10 @@ header {
 	padding: 1rem;
 	margin: 0;
 }
-.katex-container {
-		white-space: normal !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
+.equation-container {
+    width: 100%;
+    white-space: normal;
+    overflow: auto;
 }
 @media (max-width: 30em) {
 	.blog-post .post-content .table thead {
