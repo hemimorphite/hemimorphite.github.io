@@ -371,27 +371,48 @@ header {
 .blog-post .post-content ol li a {
   font-weight: 400;
 }
-.blog-post .post-content .table-responsive {
+.blog-post .post-content .table {
+	display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.blog-post .post-content .table {
 	border-color: #298ea9 !important;
 }
-.blog-post .post-content .table-responsive thead th {
+.blog-post .post-content .table thead th {
 	background-color: #37aece;
 	color: #fff;
 }
-.blog-post .post-content .table-responsive tbody tr:nth-of-type(even) {
+.blog-post .post-content .table tbody tr:nth-of-type(even) {
 	background-color: #D7EEF5;
 }
+.blog-post .textbox {
+	border: 0.16rem solid firebrick;
+	padding: 0;
+	margin-top: 1.5rem;
+}
+.blog-post .textbox .title {
+	background-color: firebrick;
+	color: white;
+	padding: 1rem;
+	font-weight: bold;
+	margin: 0;
+}
+.blog-post .textbox .content {
+	padding: 1rem;
+	margin: 0;
+}
 @media (max-width: 30em) {
-	.blog-post .post-content .table-responsive thead {
+	.blog-post .post-content .table thead {
 		display: none;
+	}
+	.blog-post .post-content .table tbody tr:nth-of-type(even),
+	.blog-post .post-content .table tbody tr:nth-of-type(odd) {
+		background-color: #fff !important;
 	}
 	.blog-post .post-content .table-responsive tbody td:first-child {
 		background-color: #37aece;
 		color: #fff;
-	}
-	.blog-post .post-content .table-responsive tbody tr:nth-of-type(even),
-	.blog-post .post-content .table-responsive tbody tr:nth-of-type(odd) {
-		background-color: #fff !important;
 	}
 	.blog-post .post-content .table-responsive tbody td {
 		text-align: right;
