@@ -402,6 +402,11 @@ header {
 	padding: 1rem;
 	margin: 0;
 }
+.katex-container {
+		white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
 @media (max-width: 30em) {
 	.blog-post .post-content .table thead {
 		display: none;
