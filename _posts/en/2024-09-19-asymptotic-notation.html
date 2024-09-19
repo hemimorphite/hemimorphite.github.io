@@ -39,25 +39,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 7n + 8\) belongs to \(O(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows at most as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to determine if there exist constants \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n + 8 \leq c \cdot n \]
                 </div>
 
                 <p>Subtract both sides by \(c \cdot n\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (7 - c)n + 8 \leq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((7 - c)n\) must be negative. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7 - c \lt 0 \implies c \gt 7 \]
                 </div>
 
@@ -65,13 +65,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Choose \(c = 8\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n + 8 \leq 8n \implies n \geq 8 \]
                 </div>
 
                 <p>Therefore, we can pick \(c = 8\) and \(n_0 = 8\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 8 \geq 8 \]
                 </div>
 
@@ -88,19 +88,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 7n^{2} + 8\) belongs to \(O(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows at most as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to determine if there exist constants \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n^{2} + 8 \leq c \cdot n \]
                 </div>
 
                 <p>Subtract both sides by \(c \cdot n\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n^{2} - c \cdot n + 8 \leq 0 \]
                 </div>
 
@@ -119,25 +119,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = n^{3} + 20n + 1\) belongs to \(O(g(n))\) where \(g(n) = n^{3}\), we need to check if \(f(n)\) grows at most as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to determine if there exist constants \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{3} + 20n + 1 \leq c \cdot n^{3} \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (c - 1)n^{3} - 20n - 1 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((c - 1)n^{3}\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c - 1 \gt 0 \implies c \gt 1 \]
                 </div>
 
@@ -145,13 +145,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Choose \(c = 2\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{3} - 20n - 1 \geq 0 \]
                 </div>
 
                 <p>We want to find \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{3} - 20n - 1 \geq 0 \]
                 </div>
 
@@ -159,7 +159,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>\(n^{3}\) is the highest-degree positive term and \(20n\) is the highest-degree negative term. We compare \(n^{3}\) with \(20n\) to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{3} \gt 20n \implies n \gt \sqrt{20} \approx 4.4721 \]
                 </div>
 
@@ -169,7 +169,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 5\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5^{3} - 20(5) - 1 = 125 - 20 - 1 = 24 (\text{which} \quad \gt 0) \]
                 </div>
 
@@ -186,19 +186,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = n^{3} + 20n + 1\) belongs to \(O(g(n))\) where \(g(n) = n^{2}\), we need to check if \(f(n)\) grows at most as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Assume, for contradiction, that \(f(n) = n^{3} + 20n + 1\) is \(O(n^{2})\). Then there exist constants \(c \gt 0\) and \(n_0 \geq 1\) such that for all \(n \geq n_0\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{3} + 20n + 1 \leq c \cdot n^{2} \]
                 </div>
 
                 <p>Subtract by \(c \cdot n^{2}\) from both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{3} - c \cdot n^{2} + 20n + 1 \leq 0 \]
                 </div>
 
@@ -217,25 +217,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = 100n^{3} + 20n + 1\) belongs to \(O(g(n))\) where \(g(n) = n^{4}\), we need to check if \(f(n)\) grows at most as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to determine if there exist constants \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 100n^{3} + 20n + 1 \leq c \cdot n^{4} \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c \cdot n^{4} - 100n^{3} - 20n - 1 \geq 0 \]
                 </div>
                 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \(c \cdot n^{4}\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c \gt 0 \]
                 </div>
 
@@ -243,13 +243,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Choose \(c = 1\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{4} - 100n^{3} - 20n - 1 \geq 0 \]
                 </div>
 
                 <p>We want to find \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{4} - 100n^{3} - 20n - 1 \geq 0 \]
                 </div>
 
@@ -257,7 +257,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>\(n^{4}\) is the highest-degree positive term and \(100n^{3}\) is the highest-degree negative term. We compare \(n^{4}\) with \(100n^{3}\) to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{4} \gt 100n^{3} \implies n \gt 100 \]
                 </div>
 
@@ -267,13 +267,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 101\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 101^{4} - 100(101^{3}) - 20(101) - 1 = 104060401 -103030100 - 2020 - 1 = 1028280 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 100\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 100^{4} - 100(100^{3}) - 20(100) - 1 = 100000000 -100000000 - 2000 - 1 = -2001 (\text{which} \quad \lt 0) \]
                 </div>
 
@@ -290,19 +290,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = 2^{n+1}\) belongs to \(O(g(n))\) where \(g(n) = 2^{n}\), we need to check if f(n) grows at most as fast as g(n) asymptotically. A function f(n) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to determine if there exist constants \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2^{n+1} \leq c \cdot 2^{n} \]
                 </div>
 
                 <p>Divide by \(2^{n}\) from both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c \geq 2 \]
                 </div>
 
@@ -310,13 +310,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Choose \(c = 2\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2^{n+1} \leq 2 \cdot 2^{n} \implies 2^{n+1} \leq 2^{n+1} \]
                 </div>
 
                 <p>Therefore, we can pick \(c = 2\) and \(n_0 = 1\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2^{2} \leq 2^{2} \]
                 </div>
 
@@ -333,19 +333,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = 10^{80}\) belongs to \(O(g(n))\) where \(g(n) = 1\), we need to check if \(f(n)\) grows at most as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>The function \(f(n) = 10^{80}\) is a constant value, meaning that it does not depend on \(n\). It remains \(10^{80}\) regardless of the input \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 10^{80} \leq c \cdot 1 \]
                 </div>
 
                 <p>We need to find a constant \(c\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 10^{80} \leq c \]
                 </div>
 
@@ -364,37 +364,37 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>The function \(f(n) = \log_{\ln(5)}(\log^{\log(100)}(n))\) can be rewritten using the change of base formula:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) = \log_{\ln(5)}(\log^{\log(100)}(n)) = \frac{\log (\log^{\log(100)}(n))}{\log(\ln(5))} \]
                 </div>
 
                 <p>Next, simplify the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) = \log_{\ln(5)}(\log^{\log(100)}(n)) = \frac{\log(100)}{\log (\ln(5))} \cdot \log(\log(n)) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log_{\ln(5)}(\log^{\log(100)}(n))\) belongs to \(O(g(n))\) where \(g(n) = \log(\log(n))\), we need to check if \(f(n)\) grows at most as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to determine if there exist constants \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{\ln(5)}(\log^{\log(100)}(n)) \leq c \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Simplify the function \(f(n)\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\log (\ln(5))} \cdot \log(\log(n)) \leq c \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Divide by \(\log(\log(n))\) from both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\log (\ln(5))} \leq c \]
                 </div>
 
@@ -413,25 +413,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = 5^{log(3)} n^{3} + 10^{80} n^{2} + log(3) n^{3.1} + 6006\) belongs to \(O(g(n))\) where \(g(n) = n^{3.1}\), we need to check if f(n) grows at most as fast as g(n) asymptotically. A function f(n) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to determine if there exist constants \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5^{log(3)} n^{3} + 10^{80} n^{2} + log(3) n^{3.1} + 6006 \leq c \cdot n^{3.1} \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (c - log(3))n^{3.1} - 5^{log(3)}n^{3} - 10^{80}n^{2} - 6006 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((c - log(3))n^{3.1}\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c - log(3) \gt 0 \implies c \gt log(3) \approx 0.4771 \]
                 </div>
 
@@ -439,7 +439,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Choose \(c = 1\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - log(3))n^{3.1} - 5^{log(3)}n^{3} - 10^{80}n^{2} - 6006 \geq 0 \]
                 </div>
 
@@ -447,43 +447,43 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>We compare \((1 - log(3))n^{3.1}\) which is the highest-degree positive term with \(5^{log(3)}n^{3}\) which is the highest-degree negative term to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - log(3))n^{3.1} \gt 5^{log(3)}n^{3} \]
                 </div>
 
                 <p>Divide both sides by \((1 - log(3))n^{3}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{0.1} \gt \frac{5^{log(3)}}{1 - log(3)} \approx 8.85 \]
                 </div>
 
                 <p>Raise both sides to the power of \(10\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \gt 4.94 \cdot 10^{9} \]
                 </div>
 
                 <p>Next, we compare \((1 - log(3))n^{3.1}\) which is the highest-degree positive term with \(10^{80}n^{2}\) which is the term with the largest constant magnitude to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - log(3))n^{3.1} \gt 10^{80}n^{2} \]
                 </div>
 
                 <p>Divide both sides of the inequality by n^{2}</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - log(3))n^{1.1} \gt 10^{80} \]
                 </div>
 
                 <p>Divide both sides by \(1−log⁡(3)\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{1.1} \gt \frac{10^{80}}{1 - log(3)} \approx 10^{80} \]
                 </div>
 
                 <p>Now, take the 1.11-th root of both sides to isolate \(n\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \gt 10^{72.73} \]
                 </div>
 
@@ -493,13 +493,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 10^{73}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - log(3)) (10^{73})^{3.1} - 5^{log(3)} (10^{73})^{3} - 10^{80} (10^{73})^{2} - 6006 \approx -10^{226} (\text{which} \quad \lt 0) \]
                 </div>
 
                 <p>For \(n = 10^{74}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - log(3)) (10^{74})^{3.1} - 5^{log(3)} (10^{74})^{3} - 10^{80} (10^{74})^{2} - 6006 \approx 5.23 \cdot 10^{228.4} (\text{which} \quad \gt 0) \]
                 </div>
 
@@ -516,65 +516,65 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>The binomial coefficient can be expressed as:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
                 </div>
 
                 <p>Applying Stirling's approximation:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
                 <p>Thus:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} = \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
                 <p>Simplify the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
                 <p>Simplify further:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>To determine whether \(f(n) = \binom{n}{\frac{n}{2}}\) belongs to \(O(g(n))\) where \(g(n) = \frac{2^{n}}{\sqrt{n}}\), we need to check if \(f(n)\) grows at most as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to determine if there exist constants \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \leq c \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>From the above approximation:</p>
                 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \leq c \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>Divide by \(\frac{2^{n}}{\sqrt{n}}\) from both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\sqrt{2}}{\sqrt{\pi}} \leq c \]
                 </div>
 
@@ -593,37 +593,37 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12}\) belongs to \(O(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows at most as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to determine if there exist constants \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12} \leq c \cdot n \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \leq c \cdot n \cdot (2n^{2} − 11n + 12) \]
                 </div>
 
                 <p>Expand the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \leq 2c \cdot n^{3} − 11c \cdot n^{2} + 12c \cdot n \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (2c - 4)n^{3} + (28 - 11c)n^{2} + (12c - 56)n + 35 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((2c - 4)n^{3}\) must be positive or zero. If the dominant term \((2c - 4)n^{3}\) becomes zero, the term \((28 - 11c)n^{2}\) can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2c - 4 \geq 0 \implies c \geq 2 \]
                 </div>
 
@@ -631,7 +631,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Choose \(c = 2\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6n^{2} - 32n + 35 \geq 0 \]
                 </div>
 
@@ -639,13 +639,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>We compare \(6n^{2}\) which is the highest-degree positive term with \(32n\) which is the highest-degree negative term to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6n^{2} \geq 32n \]
                 </div>
 
                 <p>Divide both sides by \(6n\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \geq 5.4 \]
                 </div>
 
@@ -655,25 +655,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 6\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6(6^{2}) - 32(6) + 35 = 216 - 192 + 35 = 59 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 5\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6(5^{2}) - 32(5) + 35 = 150 - 160 + 35 = 25 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 4\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6(4^{2}) - 32(4) + 35 = 96 - 128 + 35 = 3 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 3\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6(3^{2}) - 32(3) + 35 = 54 - 96 + 35 = -7 (\text{which} \quad \lt 0) \]
                 </div>
 
@@ -690,37 +690,37 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45}\) belongs to \(O(g(n))\) where \(g(n) = \frac{1}{n^{2}}\), we need to check if \(f(n)\) grows at most as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to determine if there exist constants \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45} \leq c \cdot \frac{1}{n^{2}} \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{2} \cdot (5n^{2} − 2n − 35) \leq c \cdot (2n^{4} − 11n^{3} + 12n^{2} + 4n + 45) \]
                 </div>
 
                 <p>Expand the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5n^{4} − 2n^{3} − 35n^{2} \leq 2c \cdot n^{4} − 11c \cdot n^{3} + 12c \cdot n^{2} + 4c \cdot n + 45c \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (2c - 5)n^{4} + (2 - 11c)n^{3} + (12c + 35)n^{2} + (4c)n + 45c \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((2c - 5)n^{4}\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2c - 5 \gt 0 \implies c \gt 2.5 \]
                 </div>
 
@@ -728,13 +728,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Choose \(c = 2.6\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.2n^{4} - 26.6n^{3} + 66.2n^{2} + 10.4n + 117 \geq 0 \]
                 </div>
 
                 <p>Multiply both sides by \(5\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{4} - 133n^{3} + 331n^{2} + 52n + 585 \geq 0 \]
                 </div>
 
@@ -742,13 +742,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>We compare \(n^{4}\) which is the highest-degree positive term with \(133n^{2}\) which is the highest-degree negative term to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{4} \geq 133n^{3} \]
                 </div>
 
                 <p>Solving for \(n\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \geq 133 \]
                 </div>
 
@@ -756,25 +756,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 133\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (133)^{4} - 133(133^{3}) + 331(133^{2}) + 52(133) + 585 = 312900721 - 312900721 + 5855059 + 6916 + 585 = 5862560 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 132\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (132)^{4} - 133(132^{3}) + 331(132^{2}) + 52(132) + 585 = 303180864 - 306789024 + 5763054 + 6864 + 585 = 2168343 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 131\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (131)^{4} - 133(131^{3}) + 331(131^{2}) + 52(131) + 585 = 294616321 - 299674083 + 5688511 + 6792 + 585 = 642126 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 130\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (130)^{4} - 133(130^{3}) + 331(130^{2}) + 52(130) + 585 = 285610000 - 292321000 + 5596900 + 6760 + 585 = -1106755 (\text{which} \quad \lt 0) \]
                 </div>
 
@@ -791,55 +791,55 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>The factorial function can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>Taking the logarithm of both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
                 <p>Using the properties of logarithms, we can expand the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n}) + n \log (\frac{n}{e}) \]
                 </div>
 
                 <p>Simplify each term:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log(n!)\) belongs to \(O(g(n))\) where \(g(n) = n \log(n)\), we need to check if f(n) grows at most as fast as g(n) asymptotically. A function f(n) is in \(O(g(n))\) if there exists a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to determine if there exist constants \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \leq c \cdot n \log(n) \]
                 </div>
 
                 <p>From the approximation above:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \leq c \cdot n \log(n) \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (c - 1)n \log(n) + n \log(e) - \frac{1}{2} \log(n) - \frac{1}{2} \log(2\pi) \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((c - 1)n \log(n)\) must be positive or zero. If the dominant term \((c - 1)n \log(n)\) becomes zero, the term \(n \log(e)\) can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c - 1 \geq 0 \implies c \geq 1 \]
                 </div>
 
@@ -847,7 +847,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Choose \(c = 1\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \log(e) - \frac{1}{2} \log(n) - \frac{1}{2} \log(2\pi) \geq 0 \]
                 </div>
 
@@ -855,13 +855,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>We compare \(n \log(e)\) which is the highest-degree positive term with \(\frac{1}{2} \log(n)\) which is the highest-degree negative term to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \log(e) \gt \frac{1}{2} \log(n) \]
                 </div>
 
                 <p>The inequality \(n \log(e) \gt \frac{1}{2} \log(n)\) holds for all positive \(n\)</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \gt 0 \]
                 </div>
 
@@ -869,7 +869,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 1\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 1 \cdot log(e) - \frac{1}{2} \log(1) - \frac{1}{2} \log(2\pi) \geq 0 \approx 0.434 - 0 - 0.399 \approx 0.035 (\text{which} \quad \gt 0) \]
                 </div>
 
@@ -890,25 +890,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = 7n + 8\) belongs to \(o(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows strictly slower than \(g(n)\) asymptotically. A function \(f(n)\) is in \(o(g(n))\) if for any given positive real constant \(c\), there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \lt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n + 8 \lt c \cdot n \]
                 </div>
 
                 <p>Subtract both sides by \(c \cdot n\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (7 - c)n + 8 \lt 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((7 - c)n\) must be negative. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7 - c \lt 0 \implies c \gt 7 \]
                 </div>
 
@@ -922,7 +922,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 7n + 8\) is in \(o(g(n))\) where \(g(n) = n\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -930,19 +930,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = 7n + 8\) and \(g(n) = n\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{7n + 8}{n} \]
                 </div>
 
                 <p>Simplify the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{7n + 8}{n} = \lim_{n \to \infty} (7 + \frac{8}{n}) \]
                 </div>
 
                 <p>As \(n\) approaches infinity, the term \(\frac{8}{n}\) approaches \(0\). Thus, the limit becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} (7 + \frac{8}{n}) = 7 \]
                 </div>
 
@@ -960,25 +960,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 7n + 8\) belongs to \(o(g(n))\) where \(g(n) = n^{2}\), we need to check if \(f(n)\) grows strictly slower than \(g(n)\) asymptotically. A function \(f(n)\) is in \(o(g(n))\) if for any given positive real constant \(c\), there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \lt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n + 8 \lt c \cdot n^{2} \]
                 </div>
 
                 <p>Subtract both sides by \(c \cdot n^{2}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (-c)n^{2} + 7n + 8 \lt 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((-c)n^{2}\) must be negative. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ -c \lt 0 \implies c \gt 0 \]
                 </div>
 
@@ -990,7 +990,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 7n + 8\) is in \(o(g(n))\) where \(g(n) = n^{2}\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -998,19 +998,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = 7n + 8\) and \(g(n) = n^{2}\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{7n + 8}{n^{2}} \]
                 </div>
 
                 <p>Simplify the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{7n + 8}{n^{2}} = \lim_{n \to \infty} (\frac{7}{n} + \frac{8}{n^{2}}) \]
                 </div>
 
                 <p>As \(n\) approaches infinity, the terms \(\frac{7}{n}\) and \(\frac{8}{n^{2}}\) approach \(0\). Thus, the limit becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} (\frac{7}{n} + \frac{8}{n^{2}}) = 0 \]
                 </div>
 
@@ -1027,19 +1027,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 2^{n+1}\) belongs to \(o(g(n))\) where \(g(n) = 2^{n}\), we need to see if for any given positive value of \(c\), we can find a point \(n_0\) beyond which the function \(f(n) = 2^{n+1}\) grows strictly slower than \(c\) times \(g(n) = 2^{n}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \lt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2^{n+1} \lt c \cdot 2^{n} \]
                 </div>
 
                 <p>Divide both sides by \(2^{n}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2 \lt c \]
                 </div>
 
@@ -1053,7 +1053,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 2^{n+1}\) belongs to \(o(g(n))\) where \(g(n) = 2^{n}\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -1061,13 +1061,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = 2^{n+1}\) and \(g(n) = 2^{n}\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{2^{n+1}}{2^{n}} \]
                 </div>
 
                 <p>Simplify the expression and evaluate the limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{2^{n+1}}{2^{n}} = \lim_{n \to \infty} 2 = 2 \]
                 </div>
 
@@ -1087,50 +1087,50 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>The change of base formula states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{a}(x) = \frac{\log_{b}(x)}{\log_{b}(a)} \]
                 </div>
 
                 <p>Applying this to the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{\ln(5)}(\log^{\log(100)}(n)) = \frac{\log (\log^{\log(100)}(n))}{\ln(5)} \]
                 </div>
 
                 <p>The expression inside the logarithm can be simplified using the logarithm power rule, \(\log⁡ (x^{y}) = y \cdot \log⁡ (x)\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log (\log^{\log(100)}(n)) = \log(100) \cdot \log (\log(n)) \]
                 </div>
 
                 <p>So, the original expression becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log (\log^{\log(100)}(n))}{\ln(5)} = \frac{\log(100)}{\ln(5)} \cdot \log (\log(n)) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log_{\ln(5)}(\log^{\log(100)}(n))\) belongs to \(o(g(n))\) where \(g(n) = \log(\log(n))\), we need to check if \(f(n)\) grows strictly slower than \(g(n)\) asymptotically. A function \(f(n)\) is in \(o(g(n))\) if for any given positive real constant \(c\), there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \lt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{\ln(5)}(\log^{\log(100)}(n)) \lt c \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Simplify the expression \(\log_{\ln(5)}(\log^{\log(100)}(n))\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\ln(5)} \cdot \log (\log(n)) \lt c \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Divide both sides by \(\log(\log(n))\) (\text{which} \quad is positive for all \(n\)):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\ln(5)} \lt c \]
                 </div>
 
@@ -1146,31 +1146,31 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>The change of base formula states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{a}(x) = \frac{\log_{b}(x)}{\log_{b}(a)} \]
                 </div>
 
                 <p>Applying this to the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{\ln(5)}(\log^{\log(100)}(n)) = \frac{\log (\log^{\log(100)}(n))}{\ln(5)} \]
                 </div>
 
                 <p>The expression inside the logarithm can be simplified using the logarithm power rule, \(\log⁡ (x^{y}) = y \cdot \log⁡ (x)\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log (\log^{\log(100)}(n)) = \log(100) \cdot \log (\log(n)) \]
                 </div>
 
                 <p>So, the original expression becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log (\log^{\log(100)}(n))}{\ln(5)} = \frac{\log(100)}{\ln(5)} \cdot \log (\log(n)) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log_{\ln(5)}(\log^{\log(100)}(n))\) belongs to \(o(g(n))\) where \(g(n) = \log(\log(n))\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -1178,13 +1178,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = \log_{\ln(5)}(\log^{\log(100)}(n))\) and \(g(n) = \log(\log(n))\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\log_{\ln(5)}(\log^{\log(100)}(n))}{\log(\log(n))} \]
                 </div>
 
                 <p>Simplify the expression and evaluate the limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\log_{\ln(5)}(\log^{\log(100)}(n))}{\log(\log(n))} = \lim_{n \to \infty} \frac{\frac{\log(100)}{\ln(5)} \cdot \log (\log(n))}{\log(\log(n))} = \frac{\log(100)}{\ln(5)} \]
                 </div>
 
@@ -1202,71 +1202,71 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>The binomial coefficient can be expressed as:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
                 </div>
 
                 <p>Applying Stirling's approximation:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
                 <p>Thus:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
                 <p>Simplifying this expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
                 <p>Simplify further:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>To determine whether \(f(n) = \binom{n}{\frac{n}{2}}\) belongs to \(o(g(n))\) where \(g(n) = \frac{2^{n}}{\sqrt{n}}\), we need to check if \(f(n)\) grows strictly slower than \(g(n)\) asymptotically. A function \(f(n)\) is in \(o(g(n))\) if for any given positive real constant \(c\), there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \lt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \lt c \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation:</p>
 
-                <div class="katex-container">
-                \[ \sqrt{\frac{2}{\pi} \cdot \frac{2^{n}}{\sqrt{n}} \lt c \cdot \frac{2^{n}}{\sqrt{n}} \]
+                <div class="equation-container">
+                \[ \sqrt{\frac{2}{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \lt c \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>Divide both sides by \(\frac{2^{n}}{\sqrt{n}}\) (\text{which} \quad is positive for all \(n\)):</p>
 
-                <div class="katex-container">
-                \[ \sqrt{\frac{2}{\pi} \lt c \]
+                <div class="equation-container">
+                \[ \sqrt{\frac{2}{\pi}} \lt c \]
                 </div>
 
-                <p>This means that for the inequality to hold for large enough \(n\), \(c\) must be greater than \(\sqrt{\frac{2}{\pi}\). However, \(o(g(n))\) requires the inequality to hold for any positive \(c\), no matter how small.</p>
+                <p>This means that for the inequality to hold for large enough \(n\), \(c\) must be greater than \(\sqrt{\frac{2}{\pi}}\). However, \(o(g(n))\) requires the inequality to hold for any positive \(c\), no matter how small.</p>
 
-                <p>Since \(c \gt \sqrt{\frac{2}{\pi}\) requires \(c\) to be at least \(\sqrt{\frac{2}{\pi}\), \(f(n)\) cannot be less than \(c \cdot n\) for arbitrary small values of \(c\). Therefore, \(f(n)\) does not satisfy the condition for \(o(g(n))\) because there exists a lower bound on \(c\) (namely \(\sqrt{\frac{2}{\pi}\)).</p>
+                <p>Since \(c \gt \sqrt{\frac{2}{\pi}}\) requires \(c\) to be at least \(\sqrt{\frac{2}{\pi}}\), \(f(n)\) cannot be less than \(c \cdot n\) for arbitrary small values of \(c\). Therefore, \(f(n)\) does not satisfy the condition for \(o(g(n))\) because there exists a lower bound on \(c\) (namely \(\sqrt{\frac{2}{\pi}}\)).</p>
 
                 <p>Hence, \(f(n) = \binom{n}{\frac{n}{2}} \notin o(g(n) = \frac{2^{n}}{\sqrt{n}})\).</p>
 
@@ -1274,47 +1274,47 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>The binomial coefficient can be expressed as:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
                 </div>
 
                 <p>Applying Stirling's approximation:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
                 <p>Thus:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
                 <p>Simplifying this expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
                 <p>Simplify further:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>To determine whether \(f(n) = \binom{n}{\frac{n}{2}}\) belongs to \(o(g(n))\) where \(g(n) = \frac{2^{n}}{\sqrt{n}}\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -1322,17 +1322,17 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = \binom{n}{\frac{n}{2}}\) and \(g(n) = \frac{2^{n}}{\sqrt{n}}\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\binom{n}{\frac{n}{2}}}{\frac{2^{n}}{\sqrt{n}}} \]
                 </div>
 
                 <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation and be simplified to:</p>
 
-                <div class="katex-container">
-                \[ \lim_{n \to \infty} \frac{\binom{n}{\frac{n}{2}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \frac{\sqrt{\frac{2}{\pi}} \cdot \frac{2^{n}}{\sqrt{n}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \sqrt{\frac{2}{\pi} = \sqrt{\frac{2}{\pi} \]
+                <div class="equation-container">
+                \[ \lim_{n \to \infty} \frac{\binom{n}{\frac{n}{2}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \frac{\sqrt{\frac{2}{\pi}} \cdot \frac{2^{n}}{\sqrt{n}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \sqrt{\frac{2}{\pi}} = \sqrt{\frac{2}{\pi}} \]
                 </div>
 
-                <p>Since the limit is \(\sqrt{\frac{2}{\pi}\) (and not \(0\)), the function \(f(n) = \binom{n}{\frac{n}{2}}\) does not grow faster than \(g(n) = \frac{2^{n}}{\sqrt{n}}\). Therefore, \(f(n) \notin o(g(n))\).</p>
+                <p>Since the limit is \(\sqrt{\frac{2}{\pi}}\) (and not \(0\)), the function \(f(n) = \binom{n}{\frac{n}{2}}\) does not grow faster than \(g(n) = \frac{2^{n}}{\sqrt{n}}\). Therefore, \(f(n) \notin o(g(n))\).</p>
                 
             </div>
         </div>
@@ -1346,55 +1346,55 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>The factorial function can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>Taking the logarithm of both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
                 <p>Using the properties of logarithms, we can expand the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n}) + n \log (\frac{n}{e}) \]
                 </div>
 
                 <p>Simplify each term:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log(n!)\) belongs to \(o(g(n))\) where \(g(n) = n \log(n)\), we need to check if \(f(n)\) grows strictly slower than \(g(n)\) asymptotically. A function \(f(n)\) is in \(o(g(n))\) if for any given positive real constant \(c\), there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \lt c \cdot g(n) \quad \text{for all} \quad \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \lt c \cdot n \log(n) \]
                 </div>
 
                 <p>The factorial \(n!\) can be approximated using Stirling's approximation and be simplified to:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \lt c \cdot n \log(n) \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (c - 1)n \log(n) + n \log(e) - \frac{1}{2} \log(n) - \frac{1}{2} \log(2\pi) \gt 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((c - 1)n \log(n)\) must be positive or zero. If the dominant term \((c - 1)n \log(n)\) becomes zero, the term \(n \log(e)\) can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c - 1 \geq 0 \implies c \geq 1 \]
                 </div>
 
@@ -1408,31 +1408,31 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>The factorial function can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>Taking the logarithm of both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
                 <p>Using the properties of logarithms, we can expand the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n}) + n \log (\frac{n}{e}) \]
                 </div>
 
                 <p>Simplify each term:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log(n!)\) is in \(o(g(n))\) where \(g(n) = n \log(n)\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -1440,19 +1440,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = \log(n!)\) and \(g(n) = n \log(n)\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\log(n!)}{n \log(n)} \]
                 </div>
 
                 <p>The factorial \(n!\) can be approximated using Stirling's approximation and be simplified to:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e)}{n \log(n)} = \lim_{n \to \infty} (\frac{\log(2\pi)}{2n \log(n)} + \frac{1}{2n} + 1 - \frac{\log(e)}{\log(n)}) \]
                 </div>
 
                 <p>As n approaches infinity, the term \(\frac{\log(2\pi)}{2n \log(n)}\), \(\frac{1}{2n}\) and \(\frac{\log(e)}{\log(n)}\) approach \(0\). Thus, the limit becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} (\frac{\log(2\pi)}{2n \log(n)} + \frac{1}{2n} + 1 - \frac{\log(e)}{\log(n)}) = 0 + 0 + 1 - 0 = 1 \]
                 </div>
 
@@ -1469,37 +1469,37 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12}\) belongs to \(o(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows strictly slower than \(g(n)\) asymptotically. A function \(f(n)\) is in \(o(g(n))\) if for any given positive real constant \(c\), there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \lt c \cdot g(n) \quad \text{for all} \quad \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12} \lt c \cdot n \]
                 </div>
 
                 <p>Multiply both sides by the denominator \(2n^{2} − 11n + 12\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \lt c \cdot n \cdot (2n^{2} − 11n + 12) \]
                 </div>
 
                 <p>Expand the right-hand side, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \lt 2c \cdot n^{3} - 11c \cdot n^{2} + 12c \cdot n \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (2c - 4)n^{3} + (28 - 11c)n^{2} + (12c - 56)n + 35 \gt 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((2c - 4)n^{3}\) must be positive or zero. If the dominant term \((2c - 4)n^{3}\) becomes zero, the term \((28 - 11c)n^{2}\) can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2c - 4 \geq 0 \implies c \geq 2 \]
                 </div>
 
@@ -1513,7 +1513,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12}\) belongs to \(o(g(n))\) where \(g(n) = n\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -1521,31 +1521,31 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) =  \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12}\) and \(g(n) = n\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12}}{n} \]
                 </div>
 
                 <p>Simplify the fraction:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{3} − 11n^{2} + 12n} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (4n^{3} − 28n^{2} + 56n − 35)}{\frac{d}{dn} \, (2n^{3} − 11n^{2} + 12n)} = \lim_{n \to \infty} \frac{12n^{2} − 56n + 56}{6n^{2} − 22n + 12} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule again:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (12n^{2} − 56n + 56)}{\frac{d}{dn} \, (6n^{2} − 22n + 12)} = \lim_{n \to \infty} \frac{24n − 56}{12n − 22} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule again:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (24n − 56)}{\frac{d}{dn} \, (12n − 22)} = \lim_{n \to \infty} \frac{24}{12} = 2 \]
                 </div>
 
@@ -1562,37 +1562,37 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45}\) belongs to \(o(g(n))\) where \(g(n) = \frac{1}{n^{2}}\), we need to check if \(f(n)\) grows strictly slower than \(g(n)\) asymptotically. A function \(f(n)\) is in \(o(g(n))\) if for any given positive real constant \(c\), there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \lt c \cdot g(n) \quad \text{for all} \quad \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45} \lt c \cdot \frac{1}{n^{2}} \]
                 </div>
 
                 <p>Multiply both sides by the denominators \(2n^{4} − 11n^{3} + 12n^{2} + 4n + 45\) and \(n^{2}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{2} (5n^{2} − 2n − 35) \lt c \cdot (2n^{4} − 11n^{3} + 12n^{2} + 4n + 45) \]
                 </div>
 
                 <p>Expand the expression, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5n^{4} − 2n^{3} − 35n^{2} \lt 2c \cdot n^{4} - 11c \cdot n^{3} + 12c \cdot n^{2} + 4c \cdot n + 45c \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (2c - 5)n^{4} + (2 - 11c)n^{3} + (35 + 12c)n^{2} + (4c)n + 45c \gt 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((2c - 5)n^{4}\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2c - 5 \gt 0 \implies c \gt 2.5 \]
                 </div>
 
@@ -1604,7 +1604,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45}\) belongs to \(o(g(n))\) where \(g(n) = \frac{1}{n^{2}}\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -1612,37 +1612,37 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45}\) and \(g(n) = \frac{1}{n^{2}}\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45}}{\frac{1}{n^{2}}} \]
                 </div>
 
                 <p>Simplify the fraction:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{5n^{4} − 2n^{3} − 35n^{2}}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (5n^{4} − 2n^{3} − 35n^{2})}{\frac{d}{dn} \, (2n^{4} − 11n^{3} + 12n^{2} + 4n + 45)} = \lim_{n \to \infty} \frac{20n^{3} − 6n^{2} − 70n}{8n^{3} − 33n^{2} + 24n + 4} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule again:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (20n^{3} − 6n^{2} − 70n)}{\frac{d}{dn} \, (8n^{3} − 33n^{2} + 24n + 4)} = \lim_{n \to \infty} \frac{60n^{2} − 12n − 70}{24n^{2} − 66n + 24} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule again:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (60n^{2} − 12n − 70)}{\frac{d}{dn} \, (24n^{2} − 66n + 24)} = \lim_{n \to \infty} \frac{120n − 12}{48n − 66} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule again:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (120n − 12)}{\frac{d}{dn} \, (48n − 66)} = \lim_{n \to \infty} \frac{120}{48} = \frac{5}{2} \]
                 </div>
 
@@ -1666,37 +1666,37 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 <p>To determine whether \(f(n) = 7n + 8\) belongs to \(\Omega(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows at least as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Omega(g(n))\) if there exist a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \geq c \cdot g(n) \quad \text{for all} \quad \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n + 8 \geq c \cdot n \]
                 </div>
 
                 <p>Subtract \(c \cdot n\) from both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (7 - c)n + 8 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((7 - c)n\) must be positive or zero. If the dominant term \((7 - c)n\) becomes zero, the term \(8\) can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7 - c  \geq 0 \implies c \leq 7 \]
                 </div>
 
                 <p>We can choose \(c = 7\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n + 8 \geq 7n \]
                 </div>
 
                 <p>Subtract both sides by \(7n\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 8 \geq 0 \]
                 </div>
 
@@ -1715,31 +1715,31 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = n^{3} + 20n + 1\) belongs to \(\Omega(g(n))\) where \(g(n) = n^{3}\), we need to check if \(f(n)\) grows at least as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Omega(g(n))\) if there exist a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \geq c \cdot g(n) \quad \text{for all} \quad \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{3} + 20n + 1 \geq c \cdot n^{3} \]
                 </div>
 
                 <p>Subtract \(c \cdot n^{3}\) from both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - c)n^{3} + 20n + 1 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((1 - c)n^{3}\) must be positive or zero. If the dominant term \((1 - c)n^{3}\) becomes zero, the term \(20n\) can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 1 - c \geq 0 \implies c \leq 1 \]
                 </div>
 
                 <p>We can choose \(c = 1\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 20n + 1 \geq 0 \]
                 </div>
 
@@ -1758,32 +1758,32 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = 2^{n+1}\) belongs to \(\Omega(g(n))\) where \(g(n) = 2^{n}\), we need to check if \(f(n)\) grows at least as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Omega(g(n))\) if there exist a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \geq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2^{n+1} \geq c \cdot 2^{n} \]
                 </div>
 
 
                 <p>Cancel \(2^{n}\) from both sides of the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2 \geq c \]
                 </div>
 
                 <p>We can choose \(c = 2\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2^{n+1} \geq 2 \cdot 2^{n} \]
                 </div>
 
                 <p>Divide both sides by \(2^{n+1}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 1 \geq 1 \]
                 </div>
 
@@ -1802,19 +1802,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = 10^{80}\) belongs to \(\Omega(g(n))\) where \(g(n) = 1\), we need to check if \(f(n)\) grows at least as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Omega(g(n))\) if there exist a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \geq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 10^{80} \geq c \cdot 1 \]
                 </div>
 
                 <p>We can choose \(c = 10^{80}\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 10^{80} \geq 10^{80} \]
                 </div>
 
@@ -1833,55 +1833,55 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>The function \(f(n) = \log_{\ln(5)}(\log^{\log(100)}(n))\) can be rewritten using the change of base formula:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) = \log_{\ln(5)}(\log^{\log(100)}(n)) = \frac{\log (\log^{\log(100)}(n))}{\log (\ln(5))} \]
                 </div>
 
                 <p>Next, simplify the expression \(\log (\log^{\log(100)}(n))\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log (\log^{\log(100)}(n)) = \log(100) \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Substituting this back into \(f(n)\), we get:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) = \frac{\log(100)}{\log (\ln(5))} \cdot \log(\log(n)) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log_{\ln(5)}(\log^{\log(100)}(n))\) belongs to \(\Omega(g(n))\) where \(g(n) = \log(\log(n))\), we need to check if \(f(n)\) grows at least as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Omega(g(n))\) if there exist a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \geq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{\ln(5)}(\log^{\log(100)}(n)) \geq c \cdot \log(\log(n)) \]
                 </div>
 
                 <p>From the simplified form of \(f(n)\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\log (\ln(5))} \cdot \log(\log(n)) \geq c \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Cancel \(\log(\log(n))\) from both sides of the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\log (\ln(5))} \geq c \]
                 </div>
 
                 <p>We can choose \(c = \frac{\log(100)}{\log (\ln(5))}\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\log (\ln(5))}  \cdot \log(\log(n)) \geq \frac{\log(100)}{\log (\ln(5))} \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Divide both sides by \(\frac{\log(100)}{\log (\ln(5))} \cdot \log(\log(n))\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 1 \geq 1 \]
                 </div>
 
@@ -1900,71 +1900,71 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>The binomial coefficient can be expressed as:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
                 </div>
 
                 <p>Applying Stirling's approximation:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
                 <p>Thus:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
                 <p>Simplifying this expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
                 <p>Simplify further:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>To determine whether \(f(n) = \binom{n}{\frac{n}{2}}\) belongs to \(\Omega(g(n))\) where \(g(n) = \frac{2^{n}}{\sqrt{n}}\), we need to check if \(f(n)\) grows at least as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Omega(g(n))\) if there exist a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \geq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \geq c \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>From the simplified form of \(f(n)\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \geq c \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>Cancel \(\frac{2^{n}}{\sqrt{n}}\) from both sides of the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\sqrt{2}}{\sqrt{\pi}} \geq c \]
                 </div>
 
                 <p>We can choose \(c = \frac{\sqrt{2}}{\sqrt{\pi}}\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \geq \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
@@ -1983,49 +1983,49 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12}\) belongs to \(\Omega(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows at least as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Omega(g(n))\) if there exist a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \geq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12} \geq c \cdot n \]
                 </div>
 
                 <p>Multiply both sides by the denominator \(2n^{2} − 11n + 12\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \geq c \cdot n \cdot (2n^{2} − 11n + 12) \]
                 </div>
 
                 <p>Expand the right-hand side, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \geq 2c \cdot n^{3} − 11c \cdot n^{2} + 12c \cdot n \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (4 - 2c)n^{3} + (11c - 28)n^{2} + (56 - 12c)n - 35 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((4 - 2c)n^{3}\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4 - 2c \gt 0 \implies c \lt 2 \]
                 </div>
 
                 <p>Choose \(c = 1.9\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.2n^{3} - 7.1n^{2} + 33.2n - 35 \geq 0 \]
                 </div>
 
                 <p>Multiply both sides by \(10\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2n^{3} - 71n^{2} + 332n - 350 \geq 0 \]
                 </div>
 
@@ -2033,13 +2033,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>We compare \(2n^{3}\) which is the highest-degree positive term with \(71n^{2}\) which is the highest-degree negative term to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2n^{3} \gt 71n^{2} \]
                 </div>
 
                 <p>Divide both sides by \(2n^{2}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \gt 30.5 \]
                 </div>
 
@@ -2047,13 +2047,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 31\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2(31^{3}) - 71(31^{2}) + 332(31) - 350 = 59582 - 68131 + 10292 - 350 = 1393 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 30\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2(30^{3}) - 71(30^{2}) + 332(30) - 350 = 54000 - 63900 + 9960 - 350 = -290 (\text{which} \quad \lt 0) \]
                 </div>
 
@@ -2071,49 +2071,49 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45}\) belongs to \(\Omega(g(n))\) where \(g(n) = \frac{1}{n^{2}}\), we need to check if \(f(n)\) grows at least as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Omega(g(n))\) if there exist a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \geq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45} \geq c \cdot \frac{1}{n^{2}} \]
                 </div>
 
                 <p>Multiply both sides by the denominator \(2n^{2} − 11n + 12\) and \(n^{2}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{2}(5n^{2} − 2n − 35) \geq c \cdot (2n^{4} − 11n^{3} + 12n^{2} + 4n + 45) \]
                 </div>
 
                 <p>Expand the expression, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5n^{4} − 2n^{3} − 35n^{2} \geq 2c \cdot n^{4} − 11c \cdot n^{3} + 12c \cdot n^{2} + 4c \cdot n + 45c \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (5 - 2c)n^{4} + (11c - 2)n^{3} - (35 + 12c)n^{2} - (4c)n - 45c \geq 0 \]
                 </div>
                 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((5 - 2c)n^{4}\) must be positive or zero. If the dominant term \((5 - 2c)n^{4}\) becomes zero, the term \((11c - 2)n^{3}\) can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5 - 2c \geq 0 \implies c \leq 2.5 \]
                 </div>
 
                 <p>Choose \(c = 2.5\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (5 - 2(2.5))n^{4} + (11(2.5) - 2)n^{3} - (35 + 12(2.5))n^{2} - (4(2.5))n - 45(2.5) \geq 0 \]
                 </div>
 
                 <p>Calculate each coefficient:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 51n^{3} - 130n^{2} - 20n - 225 \geq 0 \]
                 </div>
 
@@ -2121,13 +2121,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>We compare \(51n^{3}\) which is the highest-degree positive term with \(130n^{2}\) which is the highest-degree negative term to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 51n^{3} \geq 130n^{2} \]
                 </div>
 
                 <p>Divide both sides by \(51n^{2}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \geq 2.549 \]
                 </div>
 
@@ -2135,13 +2135,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 3\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 51(3)^{3} - 130(3)^{2} - 20(3) - 225 = 1377 - 1170 - 60 - 225 = -78 (\text{which} \quad \lt 0) \]
                 </div>
 
                 <p>For \(n = 4\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 51(4)^{3} - 130(4)^{2} - 20(4) - 225 = 3264 - 2080 - 80- 225 = 879 (\text{which} \quad \gt 0) \]
                 </div>
 
@@ -2158,67 +2158,67 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Stirling's approximation for \(n!\) is given by:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>Taking the logarithm of both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
                 <p>Using the properties of logarithms, we can expand the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n}) + \log (\frac{n^{n}}{e^{n}}) \]
                 </div>
 
                 <p>Simplify each term:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log (2\pi) + \frac{1}{2} \log (n) + n \log (n) - n log (e) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log(n!)\) belongs to \(\Omega(g(n))\) where \(g(n) = n \log(n)\), we need to check if \(f(n)\) grows at least as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Omega(g(n))\) if there exist a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \geq c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c\) and \(n_0\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \geq c \cdot n \log(n) \]
                 </div>
 
                 <p>From the simplified form of \(f(n)\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{1}{2} \log (2\pi) + \frac{1}{2} \log (n) + n \log (n) - n log (e) \geq c \cdot n \log(n) \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - c) n \log(n) - n \log (e) + \frac{1}{2} \log (n) + \frac{1}{2} \log (2\pi) \geq 0 \]
                 </div>
                 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((1 - c)n \log(n)\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 1 - c \gt 0 \implies c \lt 1 \]
                 </div>
 
                 <p>Choose \(c = 0.9\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{1}{10} n \log(n) - n \log (e) + \frac{1}{2} \log (n) + \frac{1}{2} \log (2\pi) \geq 0 \]
                 </div>
 
                 <p>Multiply both sides by \(10\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \log(n) - 10n \log (e) + 5 \log (n) + 5 \log (2\pi) \geq 0 \]
                 </div>
 
@@ -2226,19 +2226,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>We compare \(n \log(n)\) which is the highest-degree positive term with \(10n \log (e)\) which is the highest-degree negative term to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \log(n) \geq 10n \log (e) \]
                 </div>
 
                 <p>Divide both sides by \(n\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n) \geq 10 \log (e) \approx 4.34 \]
                 </div>
 
                 <p>Rewrite it in its exponential form:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \geq 10^{4.34} \]
                 </div>
 
@@ -2246,7 +2246,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 10^{5}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 10^{5} \cdot \log(10^{5}) - 10 \cdot 10^{5} \cdot \log (e) + 5 \log (10^{5}) + 5 \log (2\pi) = 5 \cdot 10^{5} - 4.34 \cdot 10^{5} + 25 + 3.99 \approx 66029 (\text{which} \quad \gt 0) \]
                 </div>
 
@@ -2267,25 +2267,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 7n + 8\) belongs to \(\omega(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows strictly faster than \(g(n)\) asymptotically. A function \(f(n)\) is in \(\omega(g(n))\) if for any given positive constant \(c\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \gt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n + 8 \gt c \cdot n \]
                 </div>
 
                 <p>Subtract both sides by \(c \cdot n\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (7 - c)n + 8 \gt 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((7 - c)n\) must be positive or zero. If the dominant term \((7 - c)n\) becomes zero, the term 8 can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7 - c \geq 0 \implies c \leq 7 \]
                 </div>
 
@@ -2299,7 +2299,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 7n + 8\) is in \(\omega(g(n))\) where \(g(n) = n\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -2307,19 +2307,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = 7n + 8\) and \(g(n) = n\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{7n + 8}{n} \]
                 </div>
 
                 <p>Simplify the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{7n + 8}{n} = \lim_{n \to \infty} (7 + \frac{8}{n}) \]
                 </div>
 
                 <p>As \(n\) approaches infinity, the term \(\frac{8}{n}\) approaches \(0\). Thus, the limit becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} (7 + \frac{8}{n}) = 7 \]
                 </div>
 
@@ -2336,25 +2336,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 7n^{2} + 8\) belongs to \(\omega(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows strictly faster than \(g(n)\) asymptotically. A function \(f(n)\) is in \(\omega(g(n))\) if for any given positive constant \(c\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \gt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n^{2} + 8 \gt c \cdot n \]
                 </div>
 
                 <p>Subtract both sides by \(c \cdot n\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n^{2} + (-c)n + 8 \gt 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the coefficient of the dominant term \(n^{2}\), must be positive and it does not depend on \(c\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c \gt 0 \]
                 </div>
 
@@ -2366,7 +2366,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 7n^{2} + 8\) is in \(\omega(g(n))\) where \(g(n) = n\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -2374,19 +2374,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = 7n^{2} + 8\) and \(g(n) = n\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{7n^{2} + 8}{n} \]
                 </div>
 
                 <p>Simplify the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{7n^{2} + 8}{n} = \lim_{n \to \infty} (7n + \frac{8}{n^{2}}) \]
                 </div>
 
                 <p>As \(n\) approaches infinity, the terms \(\frac{8}{n^{2}}\) approach \(0\). Thus, the limit becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} 7n = \infty \]
                 </div>
 
@@ -2403,19 +2403,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 2^{n+1}\) belongs to \(\omega(g(n))\) where \(g(n) = 2^{n}\), we need to check if \(f(n)\) grows strictly faster than \(g(n)\) asymptotically. A function \(f(n)\) is in \(\omega(g(n))\) if for any given positive constant \(c\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \lt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2^{n+1} \lt c \cdot 2^{n} \]
                 </div>
 
                 <p>Divide both sides by \(2^{n}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2 \lt c \]
                 </div>
 
@@ -2429,7 +2429,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 2^{n+1}\) belongs to \(\omega(g(n))\) where \(g(n) = 2^{n}\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -2437,13 +2437,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = 2^{n+1}\) and \(g(n) = 2^{n}\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{2^{n+1}}{2^{n}} \]
                 </div>
 
                 <p>Simplify the expression and evaluate the limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{2^{n+1}}{2^{n}} = \lim_{n \to \infty} 2 = 2 \]
                 </div>
 
@@ -2460,43 +2460,43 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>Simplify the expression using the change of base formula, \(\log_{a}(x) = \frac{\log_{b}(x)}{\log_{b}(a)}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{\ln(5)}(\log^{\log(100)}(n)) = \frac{\log(\log^{\log(100)}(n))}{\ln(5)} \]
                 </div>
 
                 <p>The expression inside the logarithm can be simplified using the logarithm power rule, \(\log⁡ (x^{y}) = y \cdot \log⁡(x)\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(\log^{\log(100)}(n)) = \log(100) \cdot \log(\log(n)) \]
                 </div>
 
                 <p>So, the original expression becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(\log^{\log(100)}(n))}{\ln(5)} = \frac{\log(100)}{\ln(5)} \cdot \log(\log(n)) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log_{\ln(5)}(\log^{\log(100)}(n))\) belongs to \(\omega(g(n))\) where \(g(n) = \log(\log(n))\), we need to check if \(f(n)\) grows strictly faster than \(g(n)\) asymptotically. A function \(f(n)\) is in \(\omega(g(n))\) if for any given positive constant \(c\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \gt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{\ln(5)}(\log^{\log(100)}(n)) \gt c \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Simplify the expression \log_{\ln(5)}(\log^{\log(100)}(n)):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\ln(5)} \cdot \log (\log(n)) \gt c \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Divide both sides by \(\log(\log(n))\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\ln(5)} \gt c \]
                 </div>
 
@@ -2512,31 +2512,31 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>The change of base formula states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{a}(x) = \frac{\log_{b}(x)}{\log_{b}(a)} \]
                 </div>
 
                 <p>Applying this to the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{\ln(5)}(\log^{\log(100)}(n)) = \frac{\log (\log^{\log(100)}(n))}{\ln(5)} \]
                 </div>
 
                 <p>The expression inside the logarithm can be simplified using the logarithm power rule, \(\log⁡ (x^{y}) = y \cdot \log⁡ (x)\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log (\log^{\log(100)}(n)) = \log(100) \cdot \log (\log(n)) \]
                 </div>
 
                 <p>So, the original expression becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log (\log^{\log(100)}(n))}{\ln(5)} = \frac{\log(100)}{\ln(5)} \cdot \log (\log(n)) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log_{\ln(5)}(\log^{\log(100)}(n))\) belongs to \(\omega(g(n))\) where \(g(n) = \log(\log(n))\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -2544,13 +2544,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = \log_{\ln(5)}(\log^{\log(100)}(n))\) and \(g(n) = \log(\log(n))\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\log_{\ln(5)}(\log^{\log(100)}(n))}{\log(\log(n))} \]
                 </div>
 
                 <p>Simplify the expression and evaluate the limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\log_{\ln(5)}(\log^{\log(100)}(n))}{\log(\log(n))} = \lim_{n \to \infty} \frac{\frac{\log(100)}{\ln(5)} \cdot \log (\log(n))}{\log(\log(n))} = \frac{\log(100)}{\ln(5)} \]
                 </div>
 
@@ -2567,71 +2567,71 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>The binomial coefficient can be expressed as:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
                 </div>
 
                 <p>Applying Stirling's approximation:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
                 <p>Thus:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
                 <p>Simplifying this expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
                 <p>Simplify further:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>To determine whether \(f(n) = \binom{n}{\frac{n}{2}}\) belongs to \(\omega(g(n))\) where \(g(n) = \frac{2^{n}}{\sqrt{n}}\), we need to check if \(f(n)\) grows strictly faster than \(g(n)\) asymptotically. A function \(f(n)\) is in \(\omega(g(n))\) if for any given positive constant \(c\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \gt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \gt c \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation:</p>
 
-                <div class="katex-container">
-                \[ \sqrt{\frac{2}{\pi} \cdot \frac{2^{n}}{\sqrt{n}} \gt c \cdot \frac{2^{n}}{\sqrt{n}} \]
+                <div class="equation-container">
+                \[ \sqrt{\frac{2}{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \gt c \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>Divide both sides by \(\frac{2^{n}}{\sqrt{n}}\):</p>
 
-                <div class="katex-container">
-                \[ \sqrt{\frac{2}{\pi} \lt c \]
+                <div class="equation-container">
+                \[ \sqrt{\frac{2}{\pi}} \lt c \]
                 </div>
 
-                <p>This means that for the inequality to hold for large enough \(n\), \(c\) must be larger than \(\sqrt{\frac{2}{\pi}\). However, \(\omega(g(n))\) requires the inequality to hold for any positive \(c\), no matter how small.</p>
+                <p>This means that for the inequality to hold for large enough \(n\), \(c\) must be larger than \(\sqrt{\frac{2}{\pi}}\). However, \(\omega(g(n))\) requires the inequality to hold for any positive \(c\), no matter how small.</p>
 
-                <p>Since \(c \gt \sqrt{\frac{2}{\pi}\) requires \(c\) to be at least \(\sqrt{\frac{2}{\pi}\), \(f(n)\) cannot grow faster than \(c \cdot n\) for arbitrary small values of \(c\). Therefore, \(f(n)\) does not satisfy the condition for \(\omega(g(n))\) because there exists a lower bound on \(c\) (namely \(\sqrt{\frac{2}{\pi}\)).</p>
+                <p>Since \(c \gt \sqrt{\frac{2}{\pi}}\) requires \(c\) to be at least \(\sqrt{\frac{2}{\pi}}\), \(f(n)\) cannot grow faster than \(c \cdot n\) for arbitrary small values of \(c\). Therefore, \(f(n)\) does not satisfy the condition for \(\omega(g(n))\) because there exists a lower bound on \(c\) (namely \(\sqrt{\frac{2}{\pi}}\)).</p>
 
                 <p>Hence, \(f(n) = \binom{n}{\frac{n}{2}} \notin \omega(g(n) = \frac{2^{n}}{\sqrt{n}})\).</p>
 
@@ -2639,47 +2639,47 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>The binomial coefficient can be expressed as:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
                 </div>
 
                 <p>Applying Stirling's approximation:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
                 <p>Thus:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
                 <p>Simplifying this expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
                 <p>Simplify further:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>To determine whether \(f(n) = \binom{n}{\frac{n}{2}}\) belongs to \(\omega(g(n))\) where \(g(n) = \frac{2^{n}}{\sqrt{n}}\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -2687,17 +2687,17 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = \binom{n}{\frac{n}{2}}\) and \(g(n) = \frac{2^{n}}{\sqrt{n}}\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\binom{n}{\frac{n}{2}}}{\frac{2^{n}}{\sqrt{n}}} \]
                 </div>
 
                 <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation and be simplified to:</p>
 
-                <div class="katex-container">
-                \[ \lim_{n \to \infty} \frac{\binom{n}{\frac{n}{2}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \frac{\sqrt{\frac{2}{\pi}} \cdot \frac{2^{n}}{\sqrt{n}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \sqrt{\frac{2}{\pi} = \sqrt{\frac{2}{\pi} \]
+                <div class="equation-container">
+                \[ \lim_{n \to \infty} \frac{\binom{n}{\frac{n}{2}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \frac{\sqrt{\frac{2}{\pi}} \cdot \frac{2^{n}}{\sqrt{n}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \sqrt{\frac{2}{\pi}} = \sqrt{\frac{2}{\pi}} \]
                 </div>
 
-                <p>Since the limit is \(\sqrt{\frac{2}{\pi}\) (and not \(\infty\)), the function \(f(n) = \binom{n}{\frac{n}{2}}\) does not grow faster than \(g(n) = \frac{2^{n}}{\sqrt{n}} \log(n)\). Therefore, \(f(n) \notin \omega(g(n))\).</p>
+                <p>Since the limit is \(\sqrt{\frac{2}{\pi}}\) (and not \(\infty\)), the function \(f(n) = \binom{n}{\frac{n}{2}}\) does not grow faster than \(g(n) = \frac{2^{n}}{\sqrt{n}} \log(n)\). Therefore, \(f(n) \notin \omega(g(n))\).</p>
 
             </div>
         </div>
@@ -2711,56 +2711,56 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Stirling's approximation for \(n!\) is given by:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>Taking the logarithm of both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
                 <p>Using the properties of logarithms, we can expand the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n}) + \log (\frac{n^{n}}{e^{n}}) \]
                 </div>
 
                 <p>Simplify each term:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log (2\pi) + \frac{1}{2} \log (n) + n \log (n) - n log (e) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log(n!)\) belongs to \(\omega(g(n))\) where \(g(n) = n \log(n)\), we need to check if \(f(n)\) grows strictly faster than \(g(n)\) asymptotically. A function \(f(n)\) is in \(\omega(g(n))\) if for any given positive constant \(c\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \gt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \gt c \cdot n \log(n) \]
                 </div>
 
                 <p>The factorial \(n!\) can be approximated using Stirling's approximation and be simplified to:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n log (e) \gt c \cdot n \log(n) \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - c)n \log(n) - n \log(e) + \frac{1}{2} \log(n) + \frac{1}{2} \log(2\pi) \gt 0 \]
                 </div>
                 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((1 - c)n \log(n)\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 1 - c \gt 0 \implies c \lt 1 \]
                 </div>
 
@@ -2774,31 +2774,31 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Stirling's approximation for \(n!\) is given by:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>Taking the logarithm of both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log(\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
                 <p>Using the properties of logarithms, we can expand the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log(\sqrt{2\pi n}) + \log (\frac{n^{n}}{e^{n}}) \]
                 </div>
 
                 <p>Simplify each term:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log(n!)\) is in \(\omega(g(n))\) where \(g(n) = n \log(n)\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -2806,19 +2806,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = \log(n!)\) and \(g(n) = n \log(n)\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\log(n!)}{n \log(n)} \]
                 </div>
 
                 <p>The factorial \(n!\) can be approximated using Stirling's approximation and be simplified to:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e)}{n \log(n)} = \lim_{n \to \infty} (\frac{\log (2\pi)}{2n \log(n)} + \frac{1}{2n} + 1 - \frac{log(e)}{log(n)}) \]
                 </div>
 
                 <p>As \(n\) approaches infinity, the term \(\frac{\log (2\pi)}{2n \log(n)}\), \(\frac{1}{2n}\) and \(\frac{log(e)}{log(n)}\) approach \(0\). Thus, the limit becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} (\frac{\log(2\pi)}{2n \log(n)} + \frac{1}{2n} + 1 - \frac{log(e)}{log(n)}) = 1 \]
                 </div>
 
@@ -2835,37 +2835,37 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12}\) belongs to \(\omega(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows strictly faster than \(g(n)\) asymptotically. A function \(f(n)\) is in \(\omega(g(n))\) if for any given positive constant \(c\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \gt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12} \gt c \cdot n \]
                 </div>
 
                 <p>Multiply both sides by the denominator \(2n^{2} − 11n + 12\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \gt c \cdot n \cdot (2n^{2} − 11n + 12) \]
                 </div>
 
                 <p>Expand the right-hand side, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \gt 2c \cdot n^{3} - 11c \cdot n^{2} + 12c \cdot n \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (4 - 2c)n^{3} + (11c − 28)n^{2} + (56 - 12c)n − 35 \gt 0 \]
                 </div>
                 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((4 - 2c)n^{3}\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4 - 2c \gt 0 \implies c \lt 2 \]
                 </div>
 
@@ -2879,7 +2879,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12}\) belongs to \(\omega(g(n))\) where \(g(n) = n\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -2887,31 +2887,31 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) =  \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12}\) and \(g(n) = n\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12}}{n} \]
                 </div>
 
                 <p>Simplify the fraction:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{3} − 11n^{2} + 12n} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (4n^{3} − 28n^{2} + 56n − 35)}{\frac{d}{dn} \, (2n^{3} − 11n^{2} + 12n)} = \lim_{n \to \infty} \frac{12n^{2} − 56n + 56}{6n^{2} − 22n + 12} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule again:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (12n^{2} − 56n + 56)}{\frac{d}{dn} \, (6n^{2} − 22n + 12)} = \lim_{n \to \infty} \frac{24n − 56}{12n − 22} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule again:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (24n − 56)}{\frac{d}{dn} \, (12n − 22)} = \lim_{n \to \infty} \frac{24}{12} = 2 \]
                 </div>
 
@@ -2928,37 +2928,37 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45}\) belongs to \(\omega(g(n))\) where \(g(n) = \frac{1}{n^{2}}\), we need to check if \(f(n)\) grows strictly faster than \(g(n)\) asymptotically. A function \(f(n)\) is in \(\omega(g(n))\) if for any given positive constant \(c\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ f(n) \gt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>Substituting the given functions:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45} \gt c \cdot \frac{1}{n^{2}} \]
                 </div>
 
                 <p>Multiply both sides by the denominators \(2n^{4} − 11n^{3} + 12n^{2} + 4n + 45\) and \(n^{2}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{2} (5n^{2} − 2n − 35) \gt c \cdot (2n^{4} − 11n^{3} + 12n^{2} + 4n + 45) \]
                 </div>
 
                 <p>Expand the expression, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5n^{4} − 2n^{3} − 35n^{2} \gt 2c \cdot n^{4} - 11c \cdot n^{3} + 12c \cdot n^{2} + 4c \cdot n + 45c \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (5 - 2c)n^{4} + (11c − 2)n^{3} - (12c + 35)n^{2} - 4c \cdot n - 45c \gt 0 \]
                 </div>
                 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((5 - 2c)n^{4}\) must be positive or zero. If the dominant term \((5 - 2c)n^{4}\) becomes zero, the term \((11c − 2)n^{3}\) can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5 - 2c \geq 0 \implies c \geq 2.5 \]
                 </div>
 
@@ -2970,7 +2970,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45}\) belongs to \(\omega(g(n))\) where \(g(n) = \frac{1}{n^{2}}\) using limits, we need to evaluate the following limit:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{f(n)}{g(n)} \]
                 </div>
 
@@ -2978,37 +2978,37 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Given \(f(n) = \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45}\) and \(g(n) = \frac{1}{n^{2}}\), we need to evaluate:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45}}{\frac{1}{n^{2}}} \]
                 </div>
 
                 <p>Simplify the fraction:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{5n^{4} − 2n^{3} − 35n^{2}}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (5n^{4} − 2n^{3} − 35n^{2})}{\frac{d}{dn} \, (2n^{4} − 11n^{3} + 12n^{2} + 4n + 45)} = \lim_{n \to \infty} \frac{20n^{3} − 6n^{2} − 70n}{8n^{3} − 33n^{2} + 24n + 4} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule again:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (20n^{3} − 6n^{2} − 70n)}{\frac{d}{dn} \, (8n^{3} − 33n^{2} + 24n + 4)} = \lim_{n \to \infty} \frac{60n^{2} − 12n − 70}{24n^{2} − 66n + 24} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule again:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (60n^{2} − 12n − 70)}{\frac{d}{dn} \, (24n^{2} − 66n + 24)} = \lim_{n \to \infty} \frac{120n − 12}{48n − 66} \]
                 </div>
 
                 <p>Applying L'Hôpital's rule again:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{d}{dn} \, (120n − 12)}{\frac{d}{dn} \, (48n − 66)} = \lim_{n \to \infty} \frac{120}{48} = \frac{5}{2} \]
                 </div>
 
@@ -3031,43 +3031,43 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = 7n + 8\) is in \(\Theta(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows at the same rate as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Theta(g(n))\) if there exist positive real constants \(c_1 \gt 0\), \(c_2 \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c_1\), \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot n \leq 7n + 8 \leq c_2 \cdot n \]
                 </div>
 
                 <p>To show \(f(n)\) is in \(O(g(n))\), we need to find \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n + 8 \leq c_2 \cdot n \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (c_2 - 7)n - 8 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((c_2 - 7)n\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_2 - 7 \gt 0 \implies c_2 \gt 7 \]
                 </div>
 
                 <p>We can choose \(c_2 = 8\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (8 - 7)n - 8 \geq 0 \]
                 </div>
 
                 <p>Solve for \(n\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \geq 8 \]
                 </div>
 
@@ -3076,31 +3076,31 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To show \(f(n)\) is in \(\Omega(g(n))\), we need to find \(c_1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7n + 8 \geq c_1 \cdot n \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (7 - c_1)n + 8 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((7 - c_1)n\) must be positive or zero. If the dominant term \((7 - c_1)n\) becomes zero, the term \(8\) can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 7 - c_1 \geq 0 \implies c_1 \lt 7 \]
                 </div>
 
                 <p>We can choose \(c_1 = 7\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (7 - 7)n + 8 \geq 0 \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 8 \geq 0 \]
                 </div>
 
@@ -3121,43 +3121,43 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
                 
                 <p>To determine whether \(f(n) = n^{3} + 20n + 1\) is in \(\Theta(g(n))\) where \(g(n) = n^{3}\), we need to check if \(f(n)\) grows at the same rate as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Theta(g(n))\) if there exist positive real constants \(c_1 \gt 0\), \(c_2 \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c_1\), \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot n^{3} \leq n^{3} + 20n + 1 \leq c_2 \cdot n^{3} \]
                 </div>
 
                 <p>To show \(f(n)\) is in \(O(g(n))\), we need to find \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{3} + 20n + 1 \leq c_2 \cdot n^{3} \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (c_2 - 1)n^{3} - 20n - 1 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((c_2 - 1)n^{3}\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_2 - 1 \gt 0 \implies c_2 \gt 1 \]
                 </div>
 
                 <p>We can choose \(c_2 = 2\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (2 - 1)n^{3} - 20n - 1 \geq 0 \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{3} - 20n - 1 \geq 0 \]
                 </div>
 
@@ -3165,7 +3165,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>\(n^{3}\) is the highest-degree positive term and \(20n\) is the highest-degree negatiive term. We compare \(n^{3}\) with \(20n\) to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{3} \gt 20n \implies n \gt \sqrt{20} \approx 4.4721 \]
                 </div>
 
@@ -3175,7 +3175,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 5\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5^{3} - 20(5) - 1 = 125 - 20 - 1 = 24 (\text{which} \quad \gt 0) \]
                 </div>
 
@@ -3184,31 +3184,31 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To show \(f(n)\) is in \(\Omega(g(n))\), we need to find \(c_1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{3} + 20n + 1 \geq c_1 \cdot n^{3} \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - c_1)n^{3} + 20n + 1 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((1 - c_1)n^{3}\) must be positive or zero. If the dominant term \((1 - c_1)n^{3}\) becomes zero, the term \(20n\) can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 1 - c_1 \geq 0 \implies c_1 \leq 1 \]
                 </div>
 
                 <p>We can choose \(c_1 = 1\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - 1)n^{3} + 20n + 1 \geq 0 \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 20n + 1 \geq 0 \]
                 </div>
 
@@ -3231,25 +3231,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = 2^{n+1}\) is in \(\Theta(g(n))\) where \(g(n) = 2^{n}\), we need to check if \(f(n)\) grows at the same rate as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Theta(g(n))\) if there exist positive real constants \(c_1 \gt 0\), \(c_2 \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c_1\), \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot 2^{n} \leq 2^{n+1} \leq c_2 \cdot 2^{n} \]
                 </div>
 
                 <p>To show \(f(n)\) is in \(O(g(n))\), we need to find \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2^{n+1} \leq c_2 \cdot 2^{n} \]
                 </div>
 
                 <p>Divide both sides by \(2^{n}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2 \leq c_2 \]
                 </div>
 
@@ -3259,13 +3259,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To show \(f(n)\) is in \(\Omega(g(n))\), we need to find \(c_1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2^{n+1} \geq c_1 \cdot 2^{n} \]
                 </div>
 
                 <p>Divide both sides by \(2^{n}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2 \geq c_1 \]
                 </div>
 
@@ -3288,25 +3288,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = 10^{80}\) is in \(\Theta(g(n))\) where \(g(n) = 1\), we need to check if \(f(n)\) grows at the same rate as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Theta(g(n))\) if there exist positive real constants \(c_1 \gt 0\), \(c_2 \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c_1\), \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot 1 \leq 10^{80} \leq c_2 \cdot 1 \]
                 </div>
 
                 <p>To show \(f(n)\) is in \(O(g(n))\), we need to find \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 10^{80} \leq c_2 \cdot 1 \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 10^{80} \leq c_2 \]
                 </div>
 
@@ -3316,13 +3316,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To show \(f(n)\) is in \(\Omega(g(n))\), we need to find \(c_1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 10^{80} \geq c_1 \cdot 1 \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 10^{80} \geq c_1 \]
                 </div>
 
@@ -3345,49 +3345,49 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Simplify the expression using the change of base formula, \(\log_{a}(x) = \frac{\log_{b}(x)}{\log_{b}(a)}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{\ln(5)}(\log^{\log(100)}(n)) = \frac{\log(\log^{\log(100)}(n))}{\ln(5)} \]
                 </div>
 
                 <p>The expression inside the logarithm can be simplified using the logarithm power rule, \(\log⁡ (x^{y}) = y \cdot \log⁡(x)\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(\log^{\log(100)}(n)) = \log(100) \cdot \log(\log(n)) \]
                 </div>
 
                 <p>So, the original expression becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(\log^{\log(100)}(n))}{\ln(5)} = \frac{\log(100)}{\ln(5)} \cdot \log(\log(n)) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log_{\ln(5)}(\log^{\log(100)}(n))\) is in \(\Theta(g(n))\) where \(g(n) = \log(\log(n))\), we need to check if \(f(n)\) grows at the same rate as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Theta(g(n))\) if there exist positive real constants \(c_1 \gt 0\), \(c_2 \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c_1\), \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot \log(\log(n)) \leq \log_{\ln(5)}(\log^{\log(100)}(n)) \leq c_2 \cdot \log(\log(n)) \]
                 </div>
 
                 <p>To show \(f(n)\) is in \(O(g(n))\), we need to find \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{\ln(5)}(\log^{\log(100)}(n)) \leq c_2 \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Simplify the expression \(\log_{\ln(5)}(\log^{\log(100)}(n))\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\ln(5)} \cdot \log(\log(n)) \leq c_2 \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Divide both sides by \(\log(\log(n))\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\ln(5)} \leq c_2 \]
                 </div>
 
@@ -3397,19 +3397,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To show \(f(n)\) is in \(\Theta(g(n))\), we need to find \(c_1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log_{\ln(5)}(\log^{\log(100)}(n)) \geq c_1 \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Simplify the expression \(\log_{\ln(5)}(\log^{\log(100)}(n))\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\ln(5)} \cdot \log(\log(n)) \geq c_1 \cdot \log(\log(n)) \]
                 </div>
 
                 <p>Divide both sides by \(\log(\log(n))\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\log(100)}{\ln(5)} \geq c_1 \]
                 </div>
 
@@ -3432,71 +3432,71 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Stirling's approximation states:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>The binomial coefficient can be expressed as:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
                 </div>
 
                 <p>Applying Stirling's approximation:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
                 <p>Thus:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
                 <p>Simplifying this expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
                 <p>Simplify further:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>To determine whether \(f(n) = \binom{n}{\frac{n}{2}}\) is in \(\Theta(g(n))\) where \(g(n) = \frac{2^{n}}{\sqrt{n}}\), we need to check if \(f(n)\) grows at the same rate as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Theta(g(n))\) if there exist positive real constants \(c_1 \gt 0\), \(c_2 \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c_1\), \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot \frac{2^{n}}{\sqrt{n}} \leq \binom{n}{\frac{n}{2}} \leq c_2 \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>To show \(f(n)\) is in \(O(g(n))\), we need to find \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \leq c_2 \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>Simplify the expression \(\binom{n}{\frac{n}{2}}\) using Stirling's approximation:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \leq c_2 \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>Divide both sides by \(\frac{2^{n}}{\sqrt{n}}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\sqrt{2}}{\sqrt{\pi}} \leq c_2 \]
                 </div>
 
@@ -3506,19 +3506,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To show \(f(n)\) is in \(\Omega(g(n))\), we need to find \(c_1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \geq c_1 \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>Simplify the expression \(\binom{n}{\frac{n}{2}}\) using Stirling's approximation:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \geq c_1 \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
                 <p>Divide both sides by \(\frac{2^{n}}{\sqrt{n}}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{\sqrt{2}}{\sqrt{\pi}} \geq c_1 \]
                 </div>
 
@@ -3541,55 +3541,55 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12}\) is in \(\Theta(g(n))\) where \(g(n) = n\), we need to check if \(f(n)\) grows at the same rate as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Theta(g(n))\) if there exist positive real constants \(c_1 \gt 0\), \(c_2 \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c_1\), \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot n \leq \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12} \leq c_2 \cdot n \]
                 </div>
 
                 <p>To show \(f(n)\) is in \(O(g(n))\), we need to find \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12} \leq c_2 \cdot n \]
                 </div>
 
                 <p>Multiply both sides by the denominator \(2n^{2} − 11n + 12\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \leq c_2 \cdot n \cdot (2n^{2} − 11n + 12) \]
                 </div>
 
                 <p>Expand the right-hand side, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \leq 2c_2 \cdot n^{3} - 11c_2 \cdot n^{2} + 12c_2 \cdot n \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (2c_2 - 4)n^{3} + (28 - 11c_2)n^{2} + (12c_2 - 56)n + 35 \geq 0 \]
                 </div>
                 
                 <p>For the inequality to hold for sufficiently large n, the dominant term \((2c_2 - 4)n^{3}\) must be positive or zero. If the dominant term \((2c_2 - 4)n^{3}\) becomes zero, the term \((28 - 11c_2)n^{2}\) can still satisfy the inequality for large \(n\). Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2c_2 - 4 \geq 0 \implies c_2 \geq 2 \]
                 </div>
 
                 <p>We can choose \(c_2 = 2\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (2(2) - 4)n^{3} + (28 - 11(2))n^{2} + (12(2) - 56)n + 35 \geq 0 \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6n^{2} - 32n + 35 \geq 0 \]
                 </div>
 
@@ -3597,7 +3597,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>\(6n^{2}\) is the highest-degree positive term and \(32n\) is the highest-degree negatiive term. We compare \(6n^{2}\) with \(32n\) to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6n^{2} \geq 32n \implies n \geq 5.4 \]
                 </div>
 
@@ -3607,25 +3607,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 6\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6(6^{2}) - 32(6) + 35 = 216 - 192 + 35 = 59 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 5\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6(5^{2}) - 32(5) + 35 = 150 - 160 + 35 = 25 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 4\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6(4^{2}) - 32(4) + 35 = 96 - 128 + 35 = 3 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 3\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6(3^{2}) - 32(3) + 35 = 54 - 96 + 35 = -7 (\text{which} \quad \lt 0) \]
                 </div>
 
@@ -3634,43 +3634,43 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To show \(f(n)\) is in \(\Omega(g(n))\), we need to find \(c_1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{4n^{3} − 28n^{2} + 56n − 35}{2n^{2} − 11n + 12} \geq c_1 \cdot n \]
                 </div>
 
                 <p>Multiply both sides by the denominator \(2n^{2} − 11n + 12\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \geq c_1 \cdot n \cdot (2n^{2} − 11n + 12) \]
                 </div>
 
                 <p>Expand the left-hand side, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4n^{3} − 28n^{2} + 56n − 35 \geq 2c_1 \cdot n^{3} - 11c_1 \cdot n^{2} + 12c_1 \cdot n \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (4 - 2c_1)n^{3} + (11c_1 - 28)n^{2} + (56 - 12c_1)n - 35 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((4 - 2c_1)n^{3}\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4 - 2c_1 \gt 0 \implies c_1 \lt 2 \]
                 </div>
 
                 <p>We can choose \(c_1 = 1\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (4 - 2(1))n^{3} + (11(1) - 28)n^{2} + (56 - 12(1))n - 35 \geq 0 \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2n^{3} - 17n^{2} + 44n - 35 \geq 0 \]
                 </div>
 
@@ -3678,7 +3678,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>\(2n^{3}\) is the highest-degree positive term and \(17n^{2}\) is the highest-degree negative term. We compare \(2n^{3}\) with \(17n^{2}\) to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2n^{3} \geq 17n^{2} \implies n \geq 8.5 \]
                 </div>
 
@@ -3688,31 +3688,31 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 9\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2(9^{3}) - 17(9^{2}) + 44(9) - 35 = 1458 - 1377 + 396 - 35 = 442 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 8\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2(8^{3}) - 17(8^{2}) + 44(8) - 35 = 1024 - 1088 + 352 - 35 = 253 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 6\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2(6^{3}) - 17(6^{2}) + 44(6) - 35 = 432 - 612 + 264 - 35 = 49 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 4\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2(4^{3}) - 17(4^{2}) + 44(4) - 35 = 128 - 272 + 176 - 35 = -3 (\text{which} \quad \lt 0) \]
                 </div>
 
                 <p>For \(n = 5\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2(5^{3}) - 17(5^{2}) + 44(5) - 35 = 250 - 425 + 220 - 35 = 10 (\text{which} \quad \gt 0) \]
                 </div>
 
@@ -3734,55 +3734,55 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To determine whether \(f(n) = \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45}\) is in \(\Theta(g(n))\) where \(g(n) = \frac{1}{n^{2}}\), we need to check if \(f(n)\) grows at the same rate as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Theta(g(n))\) if there exist positive real constants \(c_1 \gt 0\), \(c_2 \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c_1\), \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot \frac{1}{n^{2}} \leq \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45} \leq c_2 \cdot \frac{1}{n^{2}} \]
                 </div>
 
                 <p>To show \(f(n)\) is in \(O(g(n))\), we need to find \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45} \leq c_2 \cdot \frac{1}{n^{2}} \]
                 </div>
 
                 <p>Multiply both sides by the denominator \(2n^{4} − 11n^{3} + 12n^{2} + 4n + 45\) and \(n^{2}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (5n^{2} − 2n − 35) \cdot n^{2} \leq c_2 \cdot (2n^{4} − 11n^{3} + 12n^{2} + 4n + 45) \]
                 </div>
 
                 <p>Expand the expression, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5n^{4} − 2n^{3} − 35n^{2} \leq 2c_2 \cdot n^{4} − 11c_2 \cdot n^{3} + 12c_2 \cdot n^{2} + 4c_2 \cdot n + 45c_2 \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (2c_2 - 5)n^{4} − (11c_2 - 2)n^{3} + (12c_2 + 35)n^{2} + (4c_2)n + 45c_2 \geq 0 \]
                 </div>
                 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((2c_2 - 5)n^{4}\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 2c_2 - 5 \gt 0 \implies c_2 \gt 2.5 \]
                 </div>
 
                 <p>We can choose \(c_2 = 3\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (2(3) - 5)n^{4} − (11(3) - 2)n^{3} + (12(3) + 35)n^{2} + (4(3))n + 45(3) \geq 0 \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{4} − 31n^{3} + 71n^{2} + 12n + 135 \geq 0 \]
                 </div>
 
@@ -3790,7 +3790,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>\(n^{4}\) is the highest-degree positive term and \(31n^{3}\) is the highest-degree negative term. We compare \(n^{4}\) with \(31n^{3}\) to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{4} \geq 31n^{3} \implies n \geq 31 \]
                 </div>
 
@@ -3800,25 +3800,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 31\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 31^{4} − 31(31^{3}) + 71(31^{2}) + 12(31) + 135 = 923521 - 923521 + 68131 + 372 + 135 = 68638 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 29\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 29^{4} − 31(29^{3}) + 71(29^{2}) + 12(29) + 135 = 707281 - 756059 + 59711 + 348 + 135 = 11416 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 27\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 27^{4} − 31(27^{3}) + 71(27^{2}) + 12(27) + 135 = 531441 - 610173 + 51759 + 324 + 135 = -26514 (\text{which} \quad \lt 0) \]
                 </div>
 
                 <p>For \(n = 28\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 28^{4} − 31(28^{3}) + 71(28^{2}) + 12(28) + 135 = 614656 - 680512 + 55664 + 336 + 135 = -9721 (\text{which} \quad \lt 0) \]
                 </div>
 
@@ -3827,44 +3827,44 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To show \(f(n)\) is in \(\Omega(g(n))\), we need to find \(c_1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{5n^{2} − 2n − 35}{2n^{4} − 11n^{3} + 12n^{2} + 4n + 45} \geq c_1 \cdot \frac{1}{n^{2}} \]
                 </div>
 
                 <p>Multiply both sides by the denominator \(2n^{4} − 11n^{3} + 12n^{2} + 4n + 45\) and \(n^{2}\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (5n^{2} − 2n − 35) \cdot n^{2} \geq c_1 \cdot (2n^{4} − 11n^{3} + 12n^{2} + 4n + 45) \]
                 </div>
 
                 <p>Expand the expression, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5n^{4} − 2n^{3} − 35n^{2} \geq 2c_1 \cdot n^{4} − 11c_1 \cdot n^{3} + 12c_1 \cdot n^{2} + 4c_1 \cdot n + 45c_1 \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (5 - 2c_1)n^{4} + (11c_1 - 2)n^{3} - (35 + 12c_1)n^{2} - (4c_1)n - 45c_1 \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((5 - 2c_1)n^{4}\) must be positive or zero. If the dominant term \((5 - 2c_1)n^{4}\) becomes zero, the term \((11c_1 - 2)n^{3}\) can still satisfy the inequality for large \(n\).  Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 5 - 2c_1 \geq 0 \implies c_1 \leq 2.5 \]
                 </div>
 
                 <p>We can choose \(c_1 = 2\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (5 - 2(2))n^{4} + (11(2) - 2)n^{3} - (35 + 12(2))n^{2} - (4(2))n - 45(2) \geq 0 \]
                 </div>
                 
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{4} + 20n^{3} - 59n^{2} - 8n - 90 \geq 0 \]
                 </div>
 
@@ -3872,7 +3872,7 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>\(n^{4}\) is the highest-degree positive term and \(59n^{2}\) is the highest-degree negative term. We compare \(n^{4}\) with \(59n^{2}\) to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n^{4} \geq 59n^{2} \implies n \geq 7.68 \]
                 </div>
 
@@ -3882,25 +3882,25 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 8\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 8^{4} + 20(8^{3}) - 59(8^{2}) - 8(8) - 90 = 4096 + 10240 - 3776 - 64 - 90 = 10506 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 6\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 6^{4} + 20(6^{3}) - 59(6^{2}) - 8(6) - 90 = 1296 + 4320 - 2124 - 48 - 90 = 3354 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 4\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 4^{4} + 20(4^{3}) - 59(4^{2}) - 8(4) - 90 = 256 + 1280 - 944 - 32 - 90 = 470 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 3\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 3^{4} + 20(3^{3}) - 59(3^{2}) - 8(3) - 90 = 81 + 540 - 531 - 24 - 90 = -24 (\text{which} \quad \lt 0) \]
                 </div>
 
@@ -3921,73 +3921,73 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>Stirling's approximation for \(n!\) is given by:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <p>Taking the logarithm of both sides:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log(\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
                 <p>Using the properties of logarithms, we can expand the expression:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \log(\sqrt{2\pi n}) + \log(\frac{n^{n}}{e^{n}}) \]
                 </div>
 
                 <p>Simplify each term:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log(n!)\) is in \(\Theta(g(n))\) where \(g(n) = n \log(n)\), we need to check if \(f(n)\) grows at the same rate as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Theta(g(n))\) if there exist positive real constants \(c_1 \gt 0\), \(c_2 \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
                 <p>We need to find \(c_1\), \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_1 \cdot n \log(n) \leq \log(n!) \leq c_2 \cdot n \log(n) \]
                 </div>
 
                 <p>To show \(f(n)\) is in \(O(g(n))\), we need to find \(c_2\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \leq c_2 \cdot n \log(n) \]
                 </div>
 
                 <p>Simplify the expression \(\log(n!)\) using Stirling's approximation:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \leq c_2 \cdot n \log(n) \]
                 </div>
 
                 <p>Move all terms to right side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (c_2 - 1)n \log(n) + n \log(e) - \frac{1}{2} \log(n) - \frac{1}{2} \log(2\pi) \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((c_2 - 1)n \log(n)\) must be positive or zero. If the dominant term \((c_2 - 1)n \log(n)\) becomes zero, the term \(n \log(e)\) can still satisfy the inequality for large \(n\).  Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ c_2 - 1 \geq 0 \implies c_2 \geq 1 \]
                 </div>
 
                 <p>We can choose \(c_2 = 1\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \log(e) - \frac{1}{2} \log(n) - \frac{1}{2} \log(2\pi) \geq 0 \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.4343n - 0.5 \log(n) - 0.39905 \geq 0 \]
                 </div>
 
@@ -3995,13 +3995,13 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>\(0.4343n\) is the highest-degree positive term and  \(0.5 \log(n)\) is the highest-degree negative term. We compare \(0.4343n\) with \(0.5 \log(n)\) to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.4343n \gt 0.5 \log(n) \]
                 </div>
 
                 <p>Divide both sides by \(0.5\)</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.8686n \gt \log(n) \]
                 </div>
 
@@ -4010,37 +4010,37 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>To show \(f(n)\) is in \(\Omega(g(n))\), we need to find \(c_1\) such that:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n!) \geq c_1 \cdot n \log(n) \]
                 </div>
 
                 <p>Simplify the expression \(\log(n!)\) using Stirling's approximation:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \geq c_1 \cdot n \log(n) \]
                 </div>
 
                 <p>Move all terms to left side of the inequality and combine like terms:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - c_1)n \log(n) - n \log(e) + \frac{1}{2} \log(n) + \frac{1}{2} \log(2\pi) \geq 0 \]
                 </div>
 
                 <p>For the inequality to hold for sufficiently large \(n\), the dominant term \((1 - c_1)n \log(n)\) must be positive. Therefore:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 1 - c_1 \gt 0 \implies c_1 \lt 1 \]
                 </div>
 
                 <p>We can choose \(c_1 = 0.5\). Then, the inequality becomes:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ (1 - 0.5)n \log(n) - n \log(e) + \frac{1}{2} \log(n) + \frac{1}{2} \log(2\pi) \geq 0 \]
                 </div>
 
                 <p>Simplify the inequality:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.5n \log(n) - 0.4343n + 0.5 \log(n) + 0.39905 \geq 0 \]
                 </div>
 
@@ -4048,19 +4048,19 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>\(0.5n \log(n)\) is the highest-degree positive term and \(0.4343n\) is the highest-degree negative term. We compare \(0.5n \log(n)\) with \(0.4343n\) to estimate \(n\).</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.5n \log(n) \geq 0.4343n \]
                 </div>
 
                 <p>Divide both sides by \(0.5n\)</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ \log(n) \geq 0.8686 \]
                 </div>
 
                 <p>Exponentiate both sides to remove the logarithm:</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ n \geq 10^{0.8686} \approx 7.35 \]
                 </div>
 
@@ -4070,31 +4070,31 @@ tags: [ "mathematics", "algorithm", "asymptotic analysis", "big O", "little o", 
 
                 <p>For \(n = 8\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.5(8) \log(8) - 0.4343(8) + 0.5 \log(8) + 0.39905 = 3.6124 - 3.4744 + 0.45155 + 0.39905 = 0.9886 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 7\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.5(7) \log(7) - 0.4343(7) + 0.5 \log(7) + 0.39905 = 2.95835 - 3.0431 + 0.42255 + 0.39905 = 0.73685 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 5\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.5(5) \log(5) - 0.4343(5) + 0.5 \log(5) + 0.39905 = 1.744925 - 2.1715 + 0.349485 + 0.39905 = 0.32196 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 3\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.5(3) \log(3) - 0.4343(3) + 0.5 \log(3) + 0.39905 = 0.71165 - 1.3029 + 0.23855 + 0.39905 = 0.04635 (\text{which} \quad \gt 0) \]
                 </div>
 
                 <p>For \(n = 2\):</p>
 
-                <div class="katex-container">
+                <div class="equation-container">
                 \[ 0.5(2) \log(2) - 0.4343(2) + 0.5 \log(2) + 0.39905 = 0.3010 - 0.8686 + 0.1505 + 0.39905 = -0.01805 (\text{which} \quad \lt 0) \]
                 </div>
 
