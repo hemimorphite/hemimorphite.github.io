@@ -1,0 +1,3683 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="Explore the concepts of linear stack data structures, including both fixed-sized and dynamic-sized variations, in this comprehensive guide. A stack is a fundamental data structure that operates on the Last In, First Out (LIFO) principle, meaning the most recently added element is the first to be removed. Fixed-sized stacks are typically implemented using arrays, where the maximum size is predefined, while dynamic-sized stacks, often implemented using linked lists or dynamic memory allocation, can grow or shrink as needed. This guide provides detailed explanations of stack operations such as push (inserting elements), pop (removing elements), and peek (accessing the top element).">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/2024/09/26/linear-stack-data-structure/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Linear Stack Data Structure">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/2024/09/26/linear-stack-data-structure/">
+		<meta property="og:description" content="Explore the concepts of linear stack data structures, including both fixed-sized and dynamic-sized variations, in this comprehensive guide. A stack is a fundamental data structure that operates on the Last In, First Out (LIFO) principle, meaning the most recently added element is the first to be removed. Fixed-sized stacks are typically implemented using arrays, where the maximum size is predefined, while dynamic-sized stacks, often implemented using linked lists or dynamic memory allocation, can grow or shrink as needed. This guide provides detailed explanations of stack operations such as push (inserting elements), pop (removing elements), and peek (accessing the top element).">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/linearstack.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Linear Stack Data Structure">
+		<meta name="twitter:description" content="Explore the concepts of linear stack data structures, including both fixed-sized and dynamic-sized variations, in this comprehensive guide. A stack is a fundamental data structure that operates on the Last In, First Out (LIFO) principle, meaning the most recently added element is the first to be removed. Fixed-sized stacks are typically implemented using arrays, where the maximum size is predefined, while dynamic-sized stacks, often implemented using linked lists or dynamic memory allocation, can grow or shrink as needed. This guide provides detailed explanations of stack operations such as push (inserting elements), pop (removing elements), and peek (accessing the top element).">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/linearstack.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Linear Stack Data Structure</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <!-- Additional CSS Files -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <!--<div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>-->  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '9cf40e8a46ab80f525196d3376630858',
+								'format' : 'iframe',
+								'height' : 90,
+								'width' : 728,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<script type="text/javascript">
+					atOptions = {
+						'key' : '9cf40e8a46ab80f525196d3376630858',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+			</div>
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">Linear Stack Data Structure</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published September 26, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/linearstack.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>A Stack is a fundamental data structure in computer science that follows the Last In, First Out (LIFO) principle. This means that the last element added to the stack is the first one to be removed. A stack is used in scenarios where you need to manage data in a reverse or nested order, such as function call management in programming, undo/redo features, and expression evaluation.</p>
+
+        <p>Suppose we want to store the elements in a stack and let's assume that stack is empty. We have taken the stack of size 3 in which we are pushing the elements one by one until the stack becomes full.</p>
+
+        <p>Since our stack is full as the size of the stack is 3. In the above cases, we can observe that it goes from the top to the bottom when we were entering the new element in the stack. The stack gets filled up from the bottom to the top.</p>
+    
+        <p>When we perform the delete operation on the stack, there is only one way for entry and exit as the other end is closed. It follows the LIFO pattern, which means that the value entered first will be removed last. In the above case, the value 3 is entered first, so it will be removed only after the deletion of all the other elements.</p>
+
+        <p>There are two types of Linear Stack Data Structure:</p>
+
+        <ul>
+            <li>Fixed Size Linear Stack : A fixed size linear stack has a fixed size and cannot grow or shrink dynamically. If the stack is full and an attempt is made to add an element to it, an overflow error occurs. If the stack is empty and an attempt is made to remove an element from it, an underflow error occurs. This type of stack is implemented using an array. The array size is fixed, so elements are added sequentially in the array.</li>
+            <li>Dynamic Size Linear Stack : A dynamic size linear stack can grow or shrink dynamically. When the stack is full, it automatically increases its size to accommodate the new element, and when the stack is empty, it decreases its size. This type of stack is implemented using a linked list, as it allows for easy resizing of the stack.</li>
+        </ul>
+
+        <p>The following are some common operations implemented on the stack:</p>
+
+        <ul>
+            <li><code>push()</code>: Adds an element to the top of the stack. If the stack is full then the overflow condition occurs.</li>
+            <li><code>pop()</code>: Removes the element from the top of the stack and returns it. If the stack is empty means that no element exists in the stack, this state is known as an underflow state.</li>
+            <li><code>isEmpty()</code>: Checks whether the stack is empty.</li>
+            <li><code>isFull()</code>: Checks if the stack has reached its maximum capacity.</li>
+            <li><code>peek()</code>: Returns the element at the top of the stack without removing it.</li>
+            <li><code>size()</code>: Returns the number of elements currently in the stack.</li>
+            <li><code>clear()</code>: Resets the stack to its initial empty state.</li>
+            <li><code>display()</code>: Prints all the elements available in the stack.</li>
+        </ul>
+
+        <p>A stack is a data structure with several key characteristics that make it unique and useful in various computational scenarios. Here are its main characteristics:</p>
+
+        <ul>
+            <li>LIFO Principle: Stacks operate based on the Last In, First Out (LIFO) principle, where the most recently added element is the first one to be removed.</li>
+            <li>Single Access Point: Stacks have a single access point, typically referred to as the top of the stack, where all push and pop operations occur.</li>
+            <li>Efficient Operations: Push, pop, and peek operations on stacks typically have a time complexity of O(1), making them efficient for certain applications.</li>
+            <li>Limited Access: Stacks support limited access to elements. In most cases, only the top element of the stack is accessible for modification or removal.</li>
+        </ul>
+
+        <p>In an array-based stack implementation, the push operation is implemented by incrementing the index of the top element and storing the new element at that index. The pop operation is implemented by returning the value stored at the top index and then decrementing the index of the top element.</p>
+
+        <p>C array-based simple stack implementation:</p>
+        
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct Stack {
+    int* stack;
+    int top;
+    int maxSize;
+}
+
+struct Stack* createStack(int size) {
+    struct Stack* s = (struct Stack*)malloc(sizeof(struct Stack));
+    s-&gt;maxSize = size;
+    s-&gt;stack = (int*)malloc(s-&gt;maxSize * sizeof(int));
+    s-&gt;top = -1;
+    return s;
+}
+
+void push(struct Stack* s, int element) {
+    if (s-&gt;top == s-&gt;maxSize - 1) {
+        printf("Stack Overflow\n");
+        return;
+    }
+    printf("Pushed %d to stack\n", element);
+    s-&gt;stack[++(s-&gt;top)] = element;
+}
+
+int pop(struct Stack* s) {
+    if (s-&gt;top == -1) {
+        printf("Stack Underflow\n");
+        return -1;
+    }
+    printf("Popped %d from stack\n", s-&gt;stack[s-&gt;top]);
+    return s-&gt;stack[(s-&gt;top)--];
+}
+
+int isFull(struct Stack* s) {
+    return s-&gt;top == s-&gt;maxSize - 1;
+}
+
+int isEmpty(struct Stack* s) {
+    return s-&gt;top == -1;
+}
+
+int peek(struct Stack* s) {
+    if (isEmpty(s)) {
+        return -1;
+    }
+    return s-&gt;stack[s-&gt;top];
+}
+
+int size(struct Stack* s) {
+    return s-&gt;top + 1;
+}
+
+void clear(struct Stack* s) {
+    s-&gt;top = -1;
+    printf("Stack is cleared!\n");
+}
+
+void display(struct Stack* s) {
+    if (isEmpty(s)) {
+        printf("Stack is empty!\n");
+    } else {
+        for (int i = 0; i &lt;= s-&gt;top; i++) {
+            if (i == s-&gt;top)
+                printf("%d", s-&gt;stack[i]);
+            else
+                printf("%d, ", s-&gt;stack[i]);
+        }
+        printf("\n");
+    }
+}
+
+void freeStack(struct Stack* s) {
+    free(s-&gt;stack);
+    free(s);
+}</code></pre>
+
+        <p>C++ array-based simple stack implementation:</p>
+        
+        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+using namespace std;
+
+class Stack {
+    private:
+        int* stack;
+        int top;
+        int maxSize;
+
+    public:
+        Stack(int size) {
+            maxSize = size;
+            stack = new int[maxSize];
+            top = -1;
+        }
+
+        ~Stack() {
+            delete[] stack;
+        }
+
+        void push(int element) {
+            if (top == maxSize - 1) {
+                cout &lt;&lt; "Stack Overflow" &lt;&lt; endl;
+                return;
+            }
+            cout &lt;&lt; "Pushed " &lt;&lt; element &lt;&lt; " to stack" &lt;&lt; endl;
+            stack[++top] = element;
+        }
+
+        int pop() {
+            if (IsEmpty()) {
+                cout &lt;&lt; "Stack Underflow" &lt;&lt; endl;
+                return -1;
+            }
+            cout &lt;&lt; "Popped " &lt;&lt; stack[top] &lt;&lt; " from stack" &lt;&lt; endl;
+            return stack[top--];
+        }
+
+        bool isFull() {
+            return top == maxSize - 1;
+        }
+
+        bool isEmpty() {
+            return top == -1;
+        }
+
+        int peek() {
+            if (IsEmpty()) {
+                return -1;
+            }
+            return stack[top];
+        }
+
+        int size() {
+            return top + 1;
+        }
+
+        void clear() {
+            top = -1;
+            cout &lt;&lt; "Stack is cleared!" &lt;&lt; endl;
+        }
+
+        void display() {
+            if (IsEmpty()) {
+                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+            } else {
+                for (int i = 0; i &lt;= top; i++) {
+                    if (i == top)
+                        cout &lt;&lt; stack[i];
+                    else
+                        cout &lt;&lt; stack[i] &lt;&lt; ", ";
+                }
+                cout &lt;&lt; endl;
+            }
+        }
+}</code></pre>
+
+        <p>Java array-based simple stack implementation:</p>
+        
+        <pre><code class="language-java hljs">import java.lang;
+
+public class Stack {
+    private int[] stack;
+    private int top;
+    private int maxSize;
+
+    public Stack(int size) {
+        maxSize = size;
+        stack = new int[maxSize];
+        top = -1;
+    }
+
+    public void push(int element) {
+        if (top == maxSize - 1) {
+            System.out.println("Stack Overflow");
+            return;
+        }
+        System.out.println("Pushed " + element + " to stack");
+        stack[++top] = element;
+    }
+
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow");
+            return -1;
+        }
+        System.out.println("Popped " + stack[top] + " from stack");
+        return stack[top--];
+    }
+
+    public boolean isFull() {
+        return top == maxSize - 1;
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return stack[top];
+    }
+
+    public int size() {
+        return top + 1;
+    }
+
+    public void clear() {
+        top = -1;
+        System.out.println("Stack is cleared!");
+    }
+
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+        } else {
+            for (int i = 0; i &lt;= top; i++) {
+                if (i == top)
+                    System.out.print(stack[i]);
+                else
+                    System.out.print(stack[i] + ", ");
+            }
+            System.out.println();
+        }
+    }
+}</code></pre>
+
+        <p>C# array-based simple stack implementation:</p>
+
+        <pre><code class="language-csharp hljs">using System;
+
+class Stack {
+    private int[] stack;
+    private int top;
+    private int maxSize;
+
+    public Stack(int size) {
+        maxSize = size;
+        stack = new int[maxSize];
+        top = -1;
+    }
+
+    public void Push(int element) {
+        if (top == maxSize - 1) {
+            Console.WriteLine("Stack Overflow");
+            return;
+        }
+        Console.WriteLine($"Pushed {element} to stack");
+        stack[++top] = element;
+    }
+
+    public int Pop() {
+        if (isEmpty()) {
+            Console.WriteLine("Stack Underflow");
+            return -1;
+        }
+        Console.WriteLine($"Popped {stack[top]} from stack");
+        return stack[top--];
+    }
+
+    public bool IsFull() {
+        return top == maxSize - 1;
+    }
+
+    public bool IsEmpty() {
+        return top == -1;
+    }
+
+    public int Peek() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return stack[top];
+    }
+
+    public int Size()
+    {
+        return top + 1;
+    }
+
+    public void Clear()
+    {
+        top = -1; // Reset the stack to its initial empty state
+        Console.WriteLine("Stack is cleared!");
+    }
+
+    public void Display()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("Stack is empty!");
+        }
+        else
+        {
+            for (int i = 0; i &lt;= top; i++)
+            {
+                if (i == top)
+                    Console.Write(stack[i]);
+                else
+                    Console.Write(stack[i] + ", ");
+            }
+            Console.WriteLine();
+        }
+    }
+}</code></pre>
+        
+        <p>To implement a generic stack in C requires using <code>void*</code> pointers and function pointers to manage various data types since C does not support generics directly (like in C++ or Java). C array-based generic stack implementation:</p>
+
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct StackElement {
+    void* data;
+    char* toString;
+};
+
+struct Stack {
+    struct StackElement* stack;
+    int top;
+    int maxSize;
+};
+
+struct Stack* createStack(int size) {
+    struct Stack* s = (struct Stack*)malloc(sizeof(struct Stack));
+    s-&gt;maxSize = size;
+    s-&gt;stack = (struct StackElement*)malloc(s-&gt;maxSize * sizeof(struct StackElement));
+    s-&gt;top = -1;
+    return s;
+}
+
+void push(struct Stack* s, struct StackElement element) {
+    if (s-&gt;top == s-&gt;maxSize - 1) {
+        printf("Stack Overflow\n");
+        return;
+    }
+    printf("Pushed %s to stack\n", (char*)element.toString);
+    s-&gt;stack[++(s-&gt;top)] = element;
+}
+
+struct StackElement pop(struct Stack* s) {
+    if (s-&gt;top == -1) {
+        printf("Stack Underflow\n");
+        
+        struct StackElement emptyElement;
+        emptyElement.data = NULL;
+        emptyElement.toString = "";
+        return emptyElement;
+    }
+    printf("Popped %s from stack\n", (char*)s-&gt;stack[s-&gt;top].toString);
+    return s-&gt;stack[(s-&gt;top)--];
+}
+
+int isFull(struct Stack* s) {
+    return s-&gt;top == s-&gt;maxSize - 1;
+}
+
+int isEmpty(struct Stack* s) {
+    return s-&gt;top == -1;
+}
+
+struct StackElement peek(struct Stack* s) {
+    if (isEmpty(s)) {
+        printf("Stack is empty!\n");
+        
+        struct StackElement emptyElement;
+        emptyElement.data = NULL;
+        emptyElement.toString = "";
+        return emptyElement;
+    }
+    return s-&gt;stack[s-&gt;top];
+}
+
+int size(struct Stack* s) {
+    return s-&gt;top + 1;
+}
+
+void clear(struct Stack* s) {
+    s-&gt;top = -1;
+    printf("Stack is cleared!\n");
+}
+
+void display(struct Stack* s) {
+    if (isEmpty(s)) {
+        printf("Stack is empty!\n");
+    } else {
+        for (int i = 0; i &lt;= s-&gt;top; i++) {
+            printf("%s", (char*)s-&gt;stack[s-&gt;top].toString);
+            if (i &lt; s-&gt;top) printf(", ");
+        }
+        printf("\n");
+    }
+}
+
+void freeStack(struct Stack* s) {
+    for (int i = 0; i &lt;= s-&gt;top; i++) {
+        free(s-&gt;stack[i].data);
+        free(s-&gt;stack[i].toString);
+    }
+    free(s-&gt;stack);
+    free(s);
+}
+
+
+struct Car {
+    char model[20];
+    int year;
+};
+
+struct Person {
+    char name[20];
+    int age;
+};
+
+
+int main() {
+    struct Car myCar = {"Tesla", 2020};
+    struct Person myPerson = {"Alice", 30};
+    int number = 12345;
+    char* subject = "number theory";
+
+    struct StackElement carElement;
+    carElement.data = &myCar;
+    carElement.toString = "Car{model:\"Tesla\",year:202}";
+
+    struct StackElement personElement;
+    personElement.data = &myPerson;
+    personElement.toString = "Person{name:\"Alice\",age:30}";
+
+    struct StackElement intElement;
+    intElement.data = &number;
+    intElement.toString = "Int{12345}";
+
+    struct StackElement stringElement;
+    stringElement.data = &subject;
+    stringElement.toString = "String{\"number theory\"}";
+
+    struct Stack* stack = createStack(5);
+
+    push(stack, carElement);
+    push(stack, personElement);
+    push(stack, intElement);
+    push(stack, stringElement);
+
+    while (!isEmpty(stack)) {
+        pop(stack);
+    }
+
+    freeStack(stack);
+    return 0;
+}</code></pre>
+
+        <p>To implement a generic stack in C++ that can store any type of object or data type, you can use generics. In C++, generics are implemented using templates. Templates allow the creation of classes, functions, and even member functions that can work with any data type, specified when the object or function is instantiated. Templates in C++ allow you to define generic classes and functions that can work with any data type. C++ array-based generic stack implementation:</p>
+
+        <pre><code class="language-csharp hljs">#include &lt;iostream&gt;
+using namespace std;
+
+template &lt;typename T&gt;
+class Stack {
+    private:
+        T* stack;
+        int top;
+        int maxSize;
+
+    public:
+        Stack(int size) {
+            maxSize = size;
+            stack = new T[maxSize];
+            top = -1;
+        }
+
+        ~Stack() {
+            delete[] stack;
+        }
+
+        void push(T element) {
+            if (top == maxSize - 1) {
+                cout &lt;&lt; "Stack Overflow" &lt;&lt; endl;
+                return;
+            }
+            stack[++top] = element;
+            cout &lt;&lt; "Pushed " &lt;&lt; element &lt;&lt; " to stack" &lt;&lt; endl;
+        }
+
+        T pop() {
+            if (isEmpty()) {
+                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+                return T();
+            }
+            cout &lt;&lt; "Popped " &lt;&lt; stack[top] &lt;&lt; " from stack" &lt;&lt; endl;
+            return stack[top--];
+        }
+
+        bool isFull() {
+            return top == maxSize - 1;
+        }
+
+        bool isEmpty() {
+            return top == -1;
+        }
+        
+        T peek() {
+            if (isEmpty()) {
+                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+                return T();
+            }
+            return stack[top];
+        }
+
+        int size() {
+            return top + 1;
+        }
+
+        void clear() {
+            top = -1;
+            cout &lt;&lt; "Stack is cleared!" &lt;&lt; endl;
+        }
+
+        void display() {
+            if (isEmpty()) {
+                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+            } else {
+                for (int i = 0; i &lt;= top; i++) {
+                    if (i == top)
+                        cout &lt;&lt; stack[i];
+                    else
+                        cout &lt;&lt; stack[i] &lt;&lt; ", ";
+                }
+                cout &lt;&lt; endl;
+            }
+        }
+};
+
+int main() {
+    // Integer stack
+    Stack&lt;int&gt; intStack(5);
+    intStack.push(10);
+    intStack.push(20);
+    intStack.display();
+    intStack.pop();
+    intStack.display();
+
+    // String stack
+    Stack&lt;string&gt; stringStack(3);
+    stringStack.push("Hello");
+    stringStack.push("World");
+    stringStack.display();
+    stringStack.pop();
+    stringStack.display();
+
+    // Double stack
+    Stack&lt;double&gt; doubleStack(4);
+    doubleStack.push(99.9);
+    doubleStack.push(123.45);
+    doubleStack.display();
+    doubleStack.pop();
+    doubleStack.display();
+
+    return 0;
+}</code></pre>
+
+        <p>To implement a generic stack in C# that can store any type of object or data type, you can use generics. Generics allow you to create classes and methods that work with any data type while maintaining type safety. C# array-based generic stack implementation:</p>
+
+        <pre><code class="language-csharp hljs">using System;
+
+class Stack&lt;T&gt;
+{
+    private T[] stack;
+    private int top;
+    private int maxSize;
+
+    public Stack(int size)
+    {
+        maxSize = size;
+        stack = new T[maxSize];
+        top = -1;
+    }
+
+    public void Push(T element)
+    {
+        if (top == maxSize - 1)
+        {
+            Console.WriteLine("Stack Overflow");
+            return;
+        }
+        Console.WriteLine($"Pushed {element} to stack");
+        stack[++top] = element;
+    }
+
+    public T Pop()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("Stack Underflow");
+            return default(T);
+        }
+        Console.WriteLine($"Popped {stack[top]} from stack");
+        return stack[top--];
+    }
+
+    public bool IsFull() {
+        return top == maxSize - 1;
+    }
+
+    public bool IsEmpty()
+    {
+        return top == -1;
+    }
+
+    public T Peek()
+    {
+        if (IsEmpty())
+        {
+            return default(T);
+        }
+        return stack[top];
+    }
+
+    public int Size()
+    {
+        return top + 1;
+    }
+
+    public void Clear()
+    {
+        top = -1;
+        Console.WriteLine("Stack is cleared!");
+    }
+
+    public void Display()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("Stack is empty!");
+        }
+        else
+        {
+            for (int i = 0; i &lt;= top; i++)
+            {
+                if (i == top)
+                    Console.Write(stack[i]);
+                else
+                    Console.Write(stack[i] + ", ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Stack&lt;int&gt; intStack = new Stack&lt;int&gt;(5);
+        intStack.Push(10);
+        intStack.Push(20);
+        intStack.Pop(); 
+        intStack.Pop();
+        intStack.Pop();
+
+        Stack&lt;string&gt; stringStack = new Stack&lt;string&gt;(5);
+        stringStack.Push("Hello");
+        stringStack.Push("World");
+        stringStack.Pop();
+        stringStack.Pop(); 
+        stringStack.Pop(); 
+    }
+}</code></pre>
+
+        <p>To implement a generic stack in Java that can store any type of object or data type, you can use generics. Generics allow you to create classes and methods that work with any data type while maintaining type safety. Java array-based generic stack implementation:</p>
+
+        <pre><code class="language-java hljs">import java.lang;
+
+public class Stack&lt;T&gt; {
+    private T[] stack;
+    private int top;
+    private int maxSize;
+
+    public Stack(int size) {
+        maxSize = size;
+        stack = (T[]) new Object[maxSize];
+        top = -1;
+    }
+
+    public void push(T element) {
+        if (top == maxSize - 1) {
+            System.out.println("Stack Overflow");
+            return;
+        }
+        stack[++top] = element;
+        System.out.println("Pushed " + element + " to stack");
+    }
+
+    public T pop() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+            return;
+        }
+        System.out.println("Popped " + stack[top] + " from stack");
+        return stack[top--];
+    }
+
+    public boolean isFull() {
+        return top == maxSize - 1;
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public T peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+            return;
+        }
+        return stack[top];
+    }
+
+    public int size() {
+        return top + 1;
+    }
+
+    public void clear() {
+        top = -1;
+        System.out.println("Stack is cleared!");
+    }
+
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+        } else {
+            for (int i = 0; i &lt;= top; i++) {
+                if (i == top)
+                    System.out.print(stack[i]);
+                else
+                    System.out.print(stack[i] + ", ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+class Program {
+    static void Main() {
+        Stack&lt;Person&gt; personStack = new Stack&lt;Person&gt;(5);
+        Person p1 = new Person("Alice", 30);
+        Person p2 = new Person("Bob", 25);
+
+        personStack.Push(p1);
+        personStack.Push(p2);
+    }
+}</code></pre>
+
+        <p>In a linked list-based implementation, the push operation is implemented by creating a new node with the new element and setting the next pointer of the current top node to the new node. The pop operation is implemented by setting the next pointer of the current top node to the next node and returning the value of the current top node.</p>
+
+        <p>C Linked List-based Simple Stack Implementation:</p>
+
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+struct Stack {
+    struct Node* top;
+    int size;
+};
+
+struct Stack* createStack() {
+    struct Stack* stack = (struct Stack*)malloc(sizeof(struct Stack));
+    stack-&gt;top = NULL;
+    stack-&gt;size = 0;
+    return stack;
+}
+
+struct Node* createNode(int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode-&gt;data = data;
+    newNode-&gt;next = NULL;
+    return newNode;
+}
+
+void push(struct Stack* stack, int data) {
+    struct Node* newNode = createNode(data);
+    newNode-&gt;next = stack-&gt;top;
+    stack-&gt;top = newNode;
+    stack-&gt;size++;
+    printf("Pushed %d to stack\n", data);
+}
+
+int pop(struct Stack* stack) {
+    if (stack-&gt;top == NULL) {
+        printf("Stack Underflow\n");
+        return -1;
+    }
+    struct Node* temp = stack-&gt;top;
+    int poppedData = temp-&gt;data;
+    stack-&gt;top = temp-&gt;next;
+    free(temp);
+    stack-&gt;size--;
+    printf("Popped %d from stack\n", poppedData);
+    return poppedData;
+}
+
+int peek(struct Stack* stack) {
+    if (stack-&gt;top == NULL) {
+        printf("Stack is empty\n");
+        return -1;
+    }
+    return stack-&gt;top-&gt;data;
+}
+
+int isEmpty(struct Stack* stack) {
+    return stack-&gt;top == NULL;
+}
+
+int size(struct Stack* stack) {
+    return stack-&gt;size;
+}
+
+void clear(struct Stack* stack) {
+    while (!isEmpty(stack)) {
+        pop(stack);
+    }
+    printf("Stack is cleared!\n");
+}
+
+void display(struct Stack* stack) {
+    if (isEmpty(stack)) {
+        printf("Stack is empty!\n");
+        return;
+    }
+    struct Node* temp = stack-&gt;top;
+    while (temp != NULL) {
+        printf("%d", temp-&gt;data);
+        if (temp-&gt;next != NULL) {
+            printf(" -&gt; ");
+        }
+        temp = temp-&gt;next;
+    }
+    printf("\n");
+}
+
+void freeStack(struct Stack* stack) {
+    clear(stack);
+    free(stack);
+}
+
+int main() {
+    struct Stack* stack = createStack();
+
+    push(stack, 10);
+    push(stack, 20);
+    push(stack, 30);
+    display(stack);
+
+    pop(stack);
+    display(stack);
+
+    printf("Top element is: %d\n", peek(stack));
+    printf("Size of stack: %d\n", size(stack));
+
+    clear(stack);
+    display(stack);
+
+    freeStack(stack);
+    return 0;
+}</code></pre>
+        
+        <p>C++ Linked List-based Simple Stack Implementation:</p>
+
+        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+class Stack {
+    private:
+        Node* top;
+        int size;
+
+    public:
+        Stack() {
+            top = nullptr;
+            size = 0;
+        }
+
+        ~Stack() {
+            while (top != nullptr) {
+                pop();
+            }
+        }
+
+        void push(int element) {
+            Node* newNode = new Node();
+            newNode-&gt;data = element;
+            newNode-&gt;next = top;
+            top = newNode;
+            size++;
+            cout &lt;&lt; "Pushed " &lt;&lt; element &lt;&lt; " to stack" &lt;&lt; endl;
+        }
+
+        int pop() {
+            if (isEmpty()) {
+                cout &lt;&lt; "Stack Underflow" &lt;&lt; endl;
+                return -1;
+            }
+
+            Node* temp = top;
+            int poppedData = temp-&gt;data;
+            top = top-&gt;next;
+            delete temp;
+            size--;
+            cout &lt;&lt; "Popped " &lt;&lt; poppedData &lt;&lt; " from stack" &lt;&lt; endl;
+            return poppedData;
+        }
+
+        int peek() {
+            if (isEmpty()) {
+                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+                return -1;
+            }
+            return top-&gt;data;
+        }
+
+        bool isEmpty() {
+            return top == nullptr;
+        }
+
+        void clear() {
+            while (!isEmpty()) {
+                pop();
+            }
+            cout &lt;&lt; "Stack is cleared!" &lt;&lt; endl;
+        }
+
+        void display() {
+            if (isEmpty()) {
+                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+            } else {
+                Node* current = top;
+                while (current != nullptr) {
+                    cout &lt;&lt; current-&gt;data;
+                    if (current-&gt;next != nullptr)
+                        cout &lt;&lt; ", ";
+                    current = current-&gt;next;
+                }
+                cout &lt;&lt; endl;
+            }
+        }
+
+        int getSize() {
+            return size;
+        }
+};
+
+int main() {
+    Stack stack;
+
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+    stack.display();  // Outputs: 30, 20, 10
+
+    stack.pop();      // Outputs: Popped 30 from stack
+    stack.display();  // Outputs: 20, 10
+
+    cout &lt;&lt; "Top element is: " &lt;&lt; stack.peek() &lt;&lt; endl;  // Outputs: 20
+    cout &lt;&lt; "Stack size is: " &lt;&lt; stack.getSize() &lt;&lt; endl;   // Outputs: 2
+
+    stack.clear();
+    stack.display();  // Outputs: Stack is empty!
+
+    return 0;
+}</code></pre>
+        
+        <p>C# Linked List-based Simple Stack Implementation:</p>
+
+        <pre><code class="language-cs hljs">using System;
+
+class Node {
+    public int data;
+    public Node next;
+}
+
+class Stack {
+    private Node top;
+    private int size;
+
+    public Stack() {
+        top = null;
+        size = 0;
+    }
+
+    public void Push(int element) {
+        Node newNode = new Node();
+        newNode.data = element;
+        newNode.next = top;
+        top = newNode;
+        size++;
+        Console.WriteLine($"Pushed {element} to stack");
+    }
+
+    public int Pop() {
+        if (IsEmpty()) {
+            Console.WriteLine("Stack Underflow");
+            return -1;
+        }
+
+        int poppedData = top.data;
+        top = top.next;
+        size--;
+        Console.WriteLine($"Popped {poppedData} from stack");
+        return poppedData;
+    }
+
+    public int Peek() {
+        if (IsEmpty()) {
+            Console.WriteLine("Stack is empty!");
+            return -1;
+        }
+        return top.data;
+    }
+
+    public bool IsEmpty() {
+        return top == null;
+    }
+
+    public int Size() {
+        return size;
+    }
+
+    public void Clear() {
+        top = null;
+        size = 0;
+        Console.WriteLine("Stack is cleared!");
+    }
+
+    public void Display() {
+        if (IsEmpty()) {
+            Console.WriteLine("Stack is empty!");
+        } else {
+            Node current = top;
+            while (current != null) {
+                Console.Write(current.data);
+                if (current.next != null) {
+                    Console.Write(", ");
+                }
+                current = current.next;
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+class Program {
+    static void Main() {
+        Stack stack = new Stack();
+
+        stack.Push(10);
+        stack.Push(20);
+        stack.Push(30);
+        stack.Display();  // Outputs: 30, 20, 10
+
+        stack.Pop();      // Outputs: Popped 30 from stack
+        stack.Display();  // Outputs: 20, 10
+
+        Console.WriteLine("Top element is: " + stack.Peek());  // Outputs: 20
+        Console.WriteLine("Stack size is: " + stack.Size());   // Outputs: 2
+
+        stack.Clear();
+        stack.Display();  // Outputs: Stack is empty!
+    }
+}</code></pre>
+
+        
+        <p>Java Linked List-based Simple Stack implementation:</p>
+        
+        <pre><code class="language-java hljs">import java.lang;
+
+public class Node {
+    public int data;
+    public Node next;
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+public class Stack {
+    private Node top;
+    private int size;
+
+    public Stack() {
+        top = null;
+        size = 0;
+    }
+
+    public void push(int element) {
+        Node newNode = new Node(element);
+        newNode.next = top;
+        top = newNode;
+        size++; 
+        System.out.println("Pushed " + element + " to stack");
+    }
+
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow");
+            return -1;  // Return -1 if the stack is empty
+        }
+
+        int poppedData = top.data;
+        top = top.next;
+        size--;
+        System.out.println("Popped " + poppedData + " from stack");
+        return poppedData;
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+            return -1;
+        }
+        return top.data;
+    }
+
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public void clear() {
+        top = null;
+        size = 0;
+        System.out.println("Stack is cleared!");
+    }
+
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+        } else {
+            Node current = top;
+            while (current != null) {
+                System.out.print(current.data);
+                if (current.next != null) {
+                    System.out.print(", ");
+                }
+                current = current.next;
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.display();  // Outputs: 30, 20, 10
+
+        stack.pop();      // Outputs: Popped 30 from stack
+        stack.display();  // Outputs: 20, 10
+
+        System.out.println("Top element is: " + stack.peek());  // Outputs: 20
+        System.out.println("Stack size is: " + stack.size());   // Outputs: 2
+
+        stack.clear();
+        stack.display();  // Outputs: Stack is empty!
+    }
+}</code></pre>
+        
+
+        <p>To implement a generic stack in C requires using void* pointers and function pointers to manage various data types since C does not support generics directly (like in C++ or Java). C Linked List-based generic stack implementation:</p>
+
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct StackElement {
+    void* data;
+    char* toString;
+};
+
+struct Node {
+    struct StackElement element;
+    struct Node* next;
+};
+
+struct Stack {
+    struct Node* top;
+    int size;
+};
+
+struct Stack* createStack() {
+    struct Stack* stack = (struct Stack*)malloc(sizeof(struct Stack));
+    stack-&gt;top = NULL;
+    stack-&gt;size = 0;
+    return stack;
+}
+
+struct Node* createNode(struct StackElement element) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode-&gt;element = element;
+    newNode-&gt;next = NULL;
+    return newNode;
+}
+
+void push(struct Stack* stack, struct StackElement element) {
+    struct Node* newNode = createNode(element);
+    newNode-&gt;next = stack-&gt;top;
+    stack-&gt;top = newNode;
+    stack-&gt;size++;
+    printf("Pushed %s to stack\n", element.toString);
+}
+
+struct StackElement pop(struct Stack* stack) {
+    if (stack-&gt;top == NULL) {
+        printf("Stack Underflow\n");
+        struct StackElement emptyElement = {NULL, ""};
+        return emptyElement;
+    }
+
+    struct Node* temp = stack-&gt;top;
+    struct StackElement poppedElement = temp-&gt;element;
+    stack-&gt;top = temp-&gt;next;
+    free(temp);
+    stack-&gt;size--;
+    printf("Popped %s from stack\n", poppedElement.toString);
+    return poppedElement;
+}
+
+int isEmpty(struct Stack* stack) {
+    return stack-&gt;top == NULL;
+}
+
+struct StackElement peek(struct Stack* stack) {
+    if (isEmpty(stack)) {
+        printf("Stack is empty!\n");
+        struct StackElement emptyElement = {NULL, ""};
+        return emptyElement;
+    }
+    return stack-&gt;top-&gt;element;
+}
+
+int size(struct Stack* stack) {
+    return stack-&gt;size;
+}
+
+void clear(struct Stack* stack) {
+    while (!isEmpty(stack)) {
+        pop(stack);
+    }
+    printf("Stack is cleared!\n");
+}
+
+void display(struct Stack* stack) {
+    if (isEmpty(stack)) {
+        printf("Stack is empty!\n");
+        return;
+    }
+    struct Node* temp = stack-&gt;top;
+    while (temp != NULL) {
+        printf("%s", temp-&gt;element.toString);
+        if (temp-&gt;next != NULL) {
+            printf(" -&gt; ");
+        }
+        temp = temp-&gt;next;
+    }
+    printf("\n");
+}
+
+void freeStack(struct Stack* stack) {
+    clear(stack);
+    free(stack);
+}
+
+struct Car {
+    char model[20];
+    int year;
+};
+
+struct Person {
+    char name[20];
+    int age;
+};
+
+int main() {
+    struct Car myCar = {"Tesla", 2020};
+    struct Person myPerson = {"Alice", 30};
+    int number = 12345;
+    char* subject = "number theory";
+
+    struct StackElement carElement;
+    carElement.data = &myCar;
+    carElement.toString = "Car{model:\"Tesla\",year:2020}";
+
+    struct StackElement personElement;
+    personElement.data = &myPerson;
+    personElement.toString = "Person{name:\"Alice\",age:30}";
+
+    struct StackElement intElement;
+    intElement.data = &number;
+    intElement.toString = "Int{12345}";
+
+    struct StackElement stringElement;
+    stringElement.data = &subject;
+    stringElement.toString = "String{\"number theory\"}";
+
+    // Create a linked list-based stack
+    struct Stack* stack = createStack();
+
+    // Push elements onto the stack
+    push(stack, carElement);
+    push(stack, personElement);
+    push(stack, intElement);
+    push(stack, stringElement);
+
+    // Display the stack
+    display(stack);
+
+    // Pop elements from the stack
+    while (!isEmpty(stack)) {
+        pop(stack);
+    }
+
+    // Free the stack
+    freeStack(stack);
+
+    return 0;
+}</code></pre>
+
+        <p>To implement a generic stack in C++ that can store any type of object or data type, you can use generics. In C++, generics are implemented using templates. Templates allow the creation of classes, functions, and even member functions that can work with any data type, specified when the object or function is instantiated. Templates in C++ allow you to define generic classes and functions that can work with any data type. C++ Linked List-based generic stack implementation:</p>
+
+        <pre><code class="language-csharp hljs">#include &lt;iostream&gt;
+using namespace std;
+
+template &lt;typename T&gt;
+class Node {
+public:
+    T data;
+    Node* next;
+
+    Node(T data) {
+        this-&gt;data = data;
+        this-&gt;next = nullptr;
+    }
+};
+
+template &lt;typename T&gt;
+class Stack {
+private:
+    Node&lt;T&gt;* top;
+    int size;
+
+public:
+    Stack() {
+        top = nullptr;
+        size = 0;
+    }
+
+    ~Stack() {
+        clear();
+    }
+
+    void push(T element) {
+        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(element);
+        newNode-&gt;next = top;
+        top = newNode;
+        size++;
+        cout &lt;&lt; "Pushed " &lt;&lt; element &lt;&lt; " to stack" &lt;&lt; endl;
+    }
+
+    T pop() {
+        if (isEmpty()) {
+            cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+            return T();
+        }
+        Node&lt;T&gt;* temp = top;
+        T poppedElement = top-&gt;data;
+        top = top-&gt;next;
+        delete temp;
+        size--;
+        cout &lt;&lt; "Popped " &lt;&lt; poppedElement &lt;&lt; " from stack" &lt;&lt; endl;
+        return poppedElement;
+    }
+
+    bool isEmpty() {
+        return top == nullptr;
+    }
+
+    T peek() {
+        if (isEmpty()) {
+            cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+            return T();
+        }
+        return top-&gt;data;
+    }
+
+    int getSize() {
+        return size;
+    }
+
+    void clear() {
+        while (!isEmpty()) {
+            pop();
+        }
+        cout &lt;&lt; "Stack is cleared!" &lt;&lt; endl;
+    }
+
+    void display() {
+        if (isEmpty()) {
+            cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+            return;
+        }
+        Node&lt;T&gt;* temp = top;
+        while (temp != nullptr) {
+            cout &lt;&lt; temp-&gt;data;
+            if (temp-&gt;next != nullptr)
+                cout &lt;&lt; " -&gt; ";
+            temp = temp-&gt;next;
+        }
+        cout &lt;&lt; endl;
+    }
+};
+
+int main() {
+    // Integer stack
+    Stack&lt;int&gt; intStack;
+    intStack.push(10);
+    intStack.push(20);
+    intStack.display();
+    intStack.pop();
+    intStack.display();
+
+    // String stack
+    Stack&lt;string&gt; stringStack;
+    stringStack.push("Hello");
+    stringStack.push("World");
+    stringStack.display();
+    stringStack.pop();
+    stringStack.display();
+
+    // Double stack
+    Stack&lt;double&gt; doubleStack;
+    doubleStack.push(99.9);
+    doubleStack.push(123.45);
+    doubleStack.display();
+    doubleStack.pop();
+    doubleStack.display();
+
+    return 0;
+}</code></pre>
+
+        <p>To implement a generic stack in C# that can store any type of object or data type, you can use generics. Generics allow you to create classes and methods that work with any data type while maintaining type safety. C# Linked List-based generic stack implementation:</p>
+
+        <pre><code class="language-csharp hljs">using System;
+
+class Node&lt;T&gt;
+{
+    public T data { get; set; }
+    public Node&lt;T&gt; next { get; set; }
+
+    public Node(T data)
+    {
+        data = data;
+        next = null;
+    }
+}
+
+class Stack&lt;T&gt;
+{
+    private Node&lt;T&gt; top;
+    private int size;
+
+    public Stack()
+    {
+        top = null;
+        size = 0;
+    }
+
+    public void Push(T element)
+    {
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(element);
+        newNode.next = top;
+        top = newNode;
+        size++;
+        Console.WriteLine($"Pushed {element} to stack");
+    }
+
+    public T Pop()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("Stack Underflow");
+            return default(T);
+        }
+
+        T poppedElement = top.data;
+        top = top.next;
+        size--;
+        Console.WriteLine($"Popped {poppedElement} from stack");
+        return poppedElement;
+    }
+
+    public bool IsEmpty()
+    {
+        return top == null;
+    }
+
+    public T Peek()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("Stack is empty!");
+            return default(T);
+        }
+        return top.data;
+    }
+
+    public int Size()
+    {
+        return size;
+    }
+
+    public void Clear()
+    {
+        top = null;
+        size = 0;
+        Console.WriteLine("Stack is cleared!");
+    }
+
+    public void Display()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("Stack is empty!");
+        }
+        else
+        {
+            Node&lt;T&gt; current = top;
+            while (current != null)
+            {
+                Console.Write(current.data);
+                if (current.next != null)
+                    Console.Write(" -> ");
+                current = current.next;
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Integer stack
+        Stack&lt;int&gt; intStack = new Stack&lt;int&gt;();
+        intStack.Push(10);
+        intStack.Push(20);
+        intStack.Pop(); 
+        intStack.Pop();
+        intStack.Pop();  // This will print "Stack Underflow"
+
+        // String stack
+        Stack&lt;string&gt; stringStack = new Stack&lt;string&gt;();
+        stringStack.Push("Hello");
+        stringStack.Push("World");
+        stringStack.Display();
+        stringStack.Pop();
+        stringStack.Display();
+        stringStack.Pop(); 
+        stringStack.Pop();  // This will print "Stack Underflow"
+    }
+}</code></pre>
+
+        <p>To implement a generic stack in Java that can store any type of object or data type, you can use generics. Generics allow you to create classes and methods that work with any data type while maintaining type safety. Java linked list-based generic stack implementation:</p>
+
+        <pre><code class="language-java hljs">import java.lang;
+
+public class Node&lt;T&gt; {
+    public T data;
+    public Node&lt;T&gt; next;
+
+    public Node(T data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+public class Stack&lt;T&gt; {
+    private Node&lt;T&gt; top;
+    private int size;
+
+    public Stack() {
+        top = null;
+        size = 0;
+    }
+
+    public void push(T element) {
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(element);
+        newNode.next = top;
+        top = newNode;
+        size++;
+        System.out.println("Pushed " + element + " to stack");
+    }
+
+    public T pop() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+            return null;
+        }
+        T poppedElement = top.data;
+        top = top.next;
+        size--;
+        System.out.println("Popped " + poppedElement + " from stack");
+        return poppedElement;
+    }
+
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    public T peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+            return null;
+        }
+        return top.data;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public void clear() {
+        top = null;
+        size = 0;
+        System.out.println("Stack is cleared!");
+    }
+
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+            return;
+        }
+
+        Node&lt;T&gt; current = top;
+        while (current != null) {
+            System.out.print(current.data);
+            if (current.next != null) {
+                System.out.print(" -> ");
+            }
+            current = current.next;
+        }
+        System.out.println();
+    }
+}
+
+public class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{name='" + name + "', age=" + age + '}';
+    }
+}
+
+public class Program {
+    public static void main(String[] args) {
+        Stack&lt;Person&gt; personStack = new Stack&lt;Person&gt;();
+        Person p1 = new Person("Alice", 30);
+        Person p2 = new Person("Bob", 25);
+
+        personStack.push(p1);
+        personStack.push(p2);
+
+        personStack.display();  // Displays all elements in the stack
+
+        personStack.pop();  // Removes the top element from the stack
+        personStack.display();  // Displays the stack after pop
+    }
+}</code></pre>
+
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/data-structure" class="tag">data structure</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/stack" class="tag">stack</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/linear-stack" class="tag">linear stack</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/fixed-sized-linear-stack" class="tag">fixed sized linear stack</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/dynamic-sized-linear-stack" class="tag">dynamic sized linear stack</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+					</div>
+				</div>
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<script async="async" data-cfasync="false" src="//pl23622823.highrevenuenetwork.com/82849ac901fcdf553b99a113d233ce38/invoke.js"></script>
+						<div id="container-82849ac901fcdf553b99a113d233ce38"></div>
+					</div>
+					<div class="col-md-6">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '08760f2487e830ed5039902de4007bec',
+								'format' : 'iframe',
+								'height' : 250,
+								'width' : 300,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/2024/09/26/linear-stack-data-structure/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/2024/09/26/linear-stack-data-structure/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+		
+  	</body>
+</html>
