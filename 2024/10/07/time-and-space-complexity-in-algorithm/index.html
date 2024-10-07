@@ -1,0 +1,3769 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="Delve into the world of time and space complexity in algorithms with practical examples and clear explanations. Understand how different tasks, such as calculating powers (exponential time) or iterating through data structures (linear time), impact performance. Explore how algorithms use memory and processing power, from simple loops (constant space) to more complex recursive functions like computing factorials (factorial space complexity).">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/2024/10/07/time-and-space-complexity-in-algorithm/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Time and Space Complexity in Algorithm">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/2024/10/07/time-and-space-complexity-in-algorithm/">
+		<meta property="og:description" content="Delve into the world of time and space complexity in algorithms with practical examples and clear explanations. Understand how different tasks, such as calculating powers (exponential time) or iterating through data structures (linear time), impact performance. Explore how algorithms use memory and processing power, from simple loops (constant space) to more complex recursive functions like computing factorials (factorial space complexity).">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/complexity.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Time and Space Complexity in Algorithm">
+		<meta name="twitter:description" content="Delve into the world of time and space complexity in algorithms with practical examples and clear explanations. Understand how different tasks, such as calculating powers (exponential time) or iterating through data structures (linear time), impact performance. Explore how algorithms use memory and processing power, from simple loops (constant space) to more complex recursive functions like computing factorials (factorial space complexity).">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/complexity.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Time and Space Complexity in Algorithm</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <!-- Additional CSS Files -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <!--<div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>-->  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '9cf40e8a46ab80f525196d3376630858',
+								'format' : 'iframe',
+								'height' : 90,
+								'width' : 728,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<script type="text/javascript">
+					atOptions = {
+						'key' : '9cf40e8a46ab80f525196d3376630858',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+			</div>
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">Time and Space Complexity in Algorithm</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published October 07, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/complexity.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Algorithmic complexity is a way of comparing the efficiency of an algorithm. Complexity can be measured in terms of the time that it takes for a program to run (time complexity) or in terms of the memory that it will use (space complexity).</p>
+
+        <p>In computer science, whenever we want to solve some computational problem then we define a set of steps that need to be followed to solve that problem. These steps are collectively known as an algorithm.</p>
+
+        <p>For example, you have two integers <code>a</code> and <code>b</code> and you want to find the sum of those two number. How will you solve this? One possible solution for the above problem can be:</p>
+
+        <ol>
+            <li>Take two integers as input</li>
+            <li>Create a variable <code>sum</code> to store the sum of two integers</li>
+            <li>Put the sum of those two variables in the <code>sum</code> variable</li>
+            <li>Return the <code>sum</code> variable</li>
+        </ol>
+
+        <pre><code class="language-c hljs">// Taking two integers as input
+int sum(int a, int b) 
+{
+    int sum; // creating the sum variable
+    sum = a + b; // storing the sum of a and b
+    return sum; // returning the sum variable
+}</code></pre>
+    
+        <p>In the above example, you will find three things i.e. input, algorithm, and output:</p>
+
+        <ul>
+            <li>Input: Input is something for which you need to write an algorithm and transform it into the desired output. In our example, the input is the two numbers i.e. <code>a</code> and <code>b</code>.</li>
+            <li>Algorithm: An algorithm is well-defined steps by step procedure that take some value or set of values as input and produce some value or set of values as output. In the above example, we are having three steps to find the sum of two numbers. So, all three steps are collectively called an algorithm to find the sum of two numbers.</li>
+            <li>Output: Output is the desired result in the problem. For example, if we are finding the sum of two integers <code>a</code> and <code>b</code> then for every value of <code>a</code> and <code>b</code> it must produce the correct sum as an output.</li>
+        </ul>
+
+        <p>The efficiency of an algorithm is mainly defined by two factors i.e. space and time. A good algorithm is one that is taking less time and less space, but this is not possible all the time. There is a trade-off between time and space. If you want to reduce the time, then space might increase. Similarly, if you want to reduce the space, then the time may increase. So, you have to compromise with either space or time.</p>
+
+        <h4 class="post-subtitle">Time Complexity</h4>
+
+        <p>Every algorithm requires some amount of time to execute its instruction to perform the task. This time required is called time complexity.</p>
+
+        <p>Time complexity is generally expressed as a function of the input size, often denoted as \(n\). The input size refers to the amount of data the algorithm needs to process (e.g., the number of elements in an array).</p>
+
+        <p>Time complexity analysis ignores machine-dependent details like processor speed, memory cache, or other low-level factors, because these are specific to hardware and can vary greatly. Instead, the focus is on how the algorithm behaves as the input size changes, regardless of these machine-specific factors.</p>
+
+        <p> When calculating time complexity, we consider the number of fundamental operations the algorithm performs (arithmetic, logical, comparison, assignments, etc.). Each of these operations is assumed to take constant time, even though on a real machine, their execution time may differ. The core idea behind time complexity is to measure how the number of operations scales as the input size increases, rather than calculating the exact time each operation takes.</p>
+
+        <p>Time complexity can vary depending on the input data, so algorithms may have different complexities for the worst-case, best-case, and average-case scenarios. The focus is often on worst-case complexity because it gives the upper bound on the algorithm's runtime.</p>
+
+        <p>Calculating the time complexity of an algorithm based on system configuration can be difficult, given that hardware characteristics like CPU speed, memory, and cache sizes vary across systems. This is why time complexity is typically calculated in a machine-independent manner using an abstract model of computation.</p>
+
+        <p>To calculate the time complexity of an algorithm, we need to define a model machine. Let us assume a machine with following assumptions:</p>
+
+        <ul>
+            <li>It performs sequential execution. The machine executes instructions one after another, without any parallelism.</li>
+            <li>It requires \(1\) unit of time for arithmetic and logical operations. Any arithmetic or logical operation (e.g., addition, subtraction, comparison) takes exactly \(1\) unit of time.</li>
+            <li>It requires \(1\) unit of time for assignment and return value. Assigning a value to a variable or returning a value from a function takes \(1\) unit of time.</li>
+            <li>It requires \(1\) unit of time for read and write operations. Reading from memory (e.g., accessing array elements) and writing to memory (e.g., updating a variable) both take \(1\) unit of time.</li>
+            <li>It requires \(1\) unit of time for increment and decrement operations.</li>
+        </ul>
+
+        <p>The following are the primary types of time complexities that commonly appear in algorithm analysis:</p>
+
+        <ul>
+            <li>Constant Time Complexity</li>
+            <li>Logarithmic Time Complexity</li>
+            <li>Linear Time Complexity</li>
+            <li>Linearithmic Time Complexity</li>
+            <li>Quadratic Time Complexity</li>
+            <li>Cubic Time Complexity</li>
+            <li>Exponential Time Complexity</li>
+            <li>Factorial Time Complexity</li>
+        </ul>
+
+        <h5 class="post-subtitle">Constant Time Complexity</h5>
+
+        <p>Constant time complexity, refers to an algorithm or operation that takes the same amount of time to complete, regardless of the size of the input. This means that no matter how large the input data set is, the time it takes to perform the operation remains constant.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">int sum(int a, int b)
+{
+   return a + b;
+}</code></pre>
+
+        <p>Let's break down the operations inside the <code>sum</code> function above and calculate the total time complexity:</p>
+
+        <ul>
+            <li>The addition and return statement <code>return a + b</code> take \(2\) units of time (\(1\) for addition, \(1\) for return statement).</li>
+        </ul>
+        
+        <p>Totally it takes \(2\) units of time to complete its execution and it is Constant Time Complexity. It does not change based on the input values of <code>a</code> and <code>b</code>. That means for all input values, it requires the same amount of time i.e. \(2\) units.</p>
+
+        <h5 class="post-subtitle">Linear Time Complexity</h5>
+
+        <p>Linear time complexity refers to an algorithm or operation whose time to complete increases linearly with the size of the input data. This means that if you double the input size, the time taken to complete the operation also roughly doubles.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">int sum(int arr[], int n)
+{
+    int sum = 0;
+    for(int i = 0; i &lt; n; i++)
+        sum = sum + arr[i];
+    return sum;
+}</code></pre>
+
+        <p>Let's break down the operations inside the sum function above and calculate the total time complexity:</p>
+
+        <ul>
+            <li>The initialization <code>int sum = 0</code> takes \(1\) unit of time</li>
+            <li>The initialization <code>int i = 0</code> in the <code>for</code> loop takes \(1\) unit of time</li>
+            <li>The loop runs \(n\) times, and each iteration involves:<br>
+                <ul>
+                    <li>The comparison <code>i &gt; n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(i = n\)).</li>
+                    <li>The increment <code>i++</code> takes \(1\) unit of time, repeated n times.</li>
+                    <li>Reading an element from the array (array access) <code>arr[i]</code> takes \(1\) unit of time, repeated \(n\) times.</li>
+                    <li>The addition and assignment <code>sum = sum + arr[i]</code> take \(2\) units of time (\(1\) for addition, \(1\) for assignment), repeated \(n\) times.</li>
+                </ul>
+            </li>
+            <li>The return statement <code>return sum</code> takes \(1\) unit of time.</li>
+        </ul>
+
+        <p>Totally it takes \(5n + 3\) units of time to complete its execution and it is Linear Time Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the time required also increases linearly.</p>
+
+        <h5 class="post-subtitle">Logarithmic Time Complexity</h5>
+
+        <p>Logarithmic time complexity describes an algorithm whose running time increases logarithmically as the size of the input data set increases. This means that if the input size doubles, the time taken to complete the operation increases by a constant amount. This complexity is much more efficient than linear time complexity for large inputs.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">int countDigits(int n) {
+    int digits = 0;
+
+    while (n &gt; 0) {
+        n = n / 10;
+        digits++;
+    }
+
+    return digits;
+}</code></pre>
+        
+        <p>Let's break down the operations inside the <code>countDigits</code> function above and calculate the total time complexity:</p>
+
+        <ul>
+            <li>The initialization <code>int digits = 0;</code> takes \(1\) unit of time</li>
+            <li>The loop runs \(\lfloor \log_{10}(n) \rfloor + 1\) times, and each iteration involves:<br>
+                <ul>
+                    <li>The comparison <code>n &gt; 0</code> takes \(1\) unit of time, repeated \(\lfloor \log_{10}(n) \rfloor + 1\) times.</li>
+                    <li>The increment <code>digits++</code> takes \(1\) unit of time, repeated \(\lfloor \log_{10}(n) \rfloor + 1\) times.</li>
+                </ul>
+            </li>
+            <li>The return statement <code>return digits</code> takes \(1\) unit of time.</li>
+        </ul>
+
+        <p>Totally it takes <code>\(2\lfloor \log_{10}(n) \rfloor + 4\)</code> units of time to complete its execution and it is Logarithmic Time Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the time required also increases logarithmically.</p>
+
+        <h5 class="post-subtitle">Quadratic Time Complexity</h5>
+
+        <p>Quadratic time complexity refers to algorithms whose running time increases quadratically as the size of the input data set increases. This means that if the input size doubles, the time taken to complete the operation increases by a factor of four. This type of complexity is often associated with algorithms that involve nested loops.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">int sumSquareMatrix(int** matrix, int n) {
+    int sum = 0;
+
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; n; j++) {
+            sum += matrix[i][j];
+        }
+    }
+
+    return sum;
+}</code></pre>
+		
+        <p>Let's break down the operations inside the <code>sumSquareMatrix</code> function above and calculate the total time complexity:</p>
+
+        <ul>
+            <li>The initialization <code>int sum = 0</code> takes \(1\) unit of time</li>
+            <li>The initialization <code>int i = 0</code> in the outer loop takes \(1\) unit of time</li>
+            <li>The outer loop runs \(n\) times, and each iteration involves:<br>
+                <ul>
+                    <li>The comparison <code>i &lt; n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(i = n\)).</li> 
+                    <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n\) times.</li> 
+                    <li>The initialization <code>int j = 0</code> in the inner loop takes \(1\) unit of time, repeated \(n\) times.</li> 
+                    <li>The inner loop runs \(n\) times for each outer loop iteration (the total number of iterations is \(n \cdot n\)), and each iteration involves:<br>
+                        <ul>
+                            <li>The comparison <code>j &lt; n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(j = n\)) for each outer loop iteration.</li> 
+                            <li>The increment <code>j++</code> takes \(1\) unit of time, repeated \(n\) times for each outer loop iteration.</li> 
+                            <li>The array access <code>matrix[i][j]</code> takes 1 unit of time, repeated \(n\) times for each outer loop iteration.</li> 
+                            <li>The addition and assignment <code>sum += matrix[i][j]</code> take \(2\) units of time (\(1\) for addition, \(1\) for assignment), repeated \(n\) times for each outer loop iteration.</li> 
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>The return statement <code>return sum</code> takes \(1\) unit of time.</li> 
+        </ul>
+
+        <p>Totally it takes \(4n^{2} + 4 + 4\) units of time to complete its execution and it is Quadratic Time Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the time required also increases quadratically.</p>
+
+        <h5 class="post-subtitle">Cubic Time Complexity</h5>
+
+        <p>Cubic time complexity refers to an algorithm whose running time grows proportionally to the cube of the size of the input. In other words, as the input size \(n\) increases, the number of operations increases as \(n \times n \times n\), or \(n^3\).</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">int sumCubeMatrix(int*** matrix, int n) {
+    int sum = 0;
+
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; n; j++) {
+            for (int k = 0; k &lt; n; k++) {
+                sum += matrix[i][j][k];
+            }
+        }
+    }
+
+    return sum;
+}</code></pre>
+        
+        <p>Let's break down the operations inside the <code>sumCubeMatrix</code> function above and calculate the total time complexity:</p>
+
+        <ul>
+            <li>The initialization <code>int sum = 0</code> takes \(1\) unit of time</li>
+            <li>The initialization <code>int i = 0</code> in the outer loop takes \(1\) unit of time</li> 
+            <li>The outer loop runs \(n\) times, and each iteration involves:<br>
+                <ul>
+                    <li>The comparison <code>i &lt; n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(i = n\)).</li> 
+                    <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n\) times.</li>
+                    <li>The initialization <code>int j = 0</code> in the middle loop takes \(1\) unit of time, repeated \(n\) times.</li>
+                    <li>The middle loop runs \(n\) times for each outer loop iteration (the total number of iterations is \(n \times n\), and each iteration involves:<br>
+                        <ul>
+                            <li>The comparison <code>j &lt; n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(j = n\)) for each outer loop iteration.</li> 
+                            <li>The increment <code>j++</code> takes \(1\) unit of time, repeated \(n\) times for each outer loop iteration.</li>
+                            <li>The initialization <code>int k = 0</code> in the inner loop takes \(1\) unit of time, repeated \(n\) times for each outer loop iteration.</li>
+                            <li>The inner loop runs \(n\) times for each middle loop iteration (the total number of iterations is \(n \times n \times n\)), and each iteration involves:<br>
+                                <li>The comparison <code>k &lt; n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(k = n\)) for each middle loop iteration.</li>
+                                <li>The increment <code>k++</code> takes \(1\) unit of time, repeated \(n\) times for each middle loop iteration.</li>
+                                <li>The array access <code>matrix[i][j][k]</code> takes \(1\) unit of time, repeated \(n\) times for each middle loop iteration.</li> 
+                                <li>The addition and assignment <code>sum += matrix[i][j][k]</code> take \(2\) units of time (\(1\) for addition, \(1\) for assignment), repeated \(n\) times for each middle loop iteration.</li> 
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>The return statement <code>return sum</code> takes \(1\) unit of time.</li>
+        </ul>
+        
+        <p>Totally it takes \(4n^{3} + 4n^{2} + 4n + 4\) units of time to complete its execution and it is Quadratic Time Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the time required also increases quadratically.</p>
+
+        <h5 class="post-subtitle">Exponential Time Complexity</h5>
+
+        <p>Exponential time complexity refers to an algorithm whose growth rate doubles with each additional input. In exponential time algorithms, the number of operations grows extremely fast as the size of the input increases.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">int fibonacci(int n) {
+    if (n &lt;= 1)
+        return n;
+    else
+        return fibonacci(n - 1) + fibonacci(n - 2);
+}</code></pre>
+        
+		<p>Here's a representation of the fibonacci tree for \(n = 5\) based on the recursive function:</p>
+		
+		<pre><code class="language-bash hljs">fibonacci(5)
+├── fibonacci(4)
+│   ├── fibonacci(3)
+│   │   ├── fibonacci(2)
+│   │   │   ├── fibonacci(1)
+│   │   │   └── fibonacci(0)
+│   │   └── fibonacci(1)
+│   └── fibonacci(2)
+│       ├── fibonacci(1)
+│       └── fibonacci(0)
+└── fibonacci(3)
+    ├── fibonacci(2)
+    │   ├── fibonacci(1)
+    │   └── fibonacci(0)
+    └── fibonacci(1)</code></pre>
+		
+		<p>This tree structure shows how <code>fibonacci(5)</code> breaks down into smaller subproblems recursively. The leaves of the tree are the base cases, <code>fibonacci(1)</code> and <code>fibonacci(0)</code>.</p>
+		
+		<p>To count how many times <code>fibonacci(0)</code> and <code>fibonacci(1)</code> are called, we need to track these calls across the recursion tree. Let's count the calls to <code>fibonacci(0)</code> and <code>fibonacci(1)</code> in the recursion tree for <code>fibonacci(5)</code>:</p>
+		
+		<pre><code class="language-bash hljs">fibonacci(5)
+├── fibonacci(4)
+│   ├── fibonacci(3)
+│   │   ├── fibonacci(2)
+│   │   │   ├── fibonacci(1)  &lt;-- 1st call to fibonacci(1)
+│   │   │   └── fibonacci(0)  &lt;-- 1st call to fibonacci(0)
+│   │   └── fibonacci(1)      &lt;-- 2nd call to fibonacci(1)
+│   └── fibonacci(2)
+│       ├── fibonacci(1)      &lt;-- 3rd call to fibonacci(1)
+│       └── fibonacci(0)      &lt;-- 2nd call to fibonacci(0)
+└── fibonacci(3)
+    ├── fibonacci(2)
+    │   ├── fibonacci(1)      &lt;-- 4th call to fibonacci(1)
+    │   └── fibonacci(0)      &lt;-- 3rd call to fibonacci(0)
+    └── fibonacci(1)          &lt;-- 5th call to fibonacci(1)
+</code></pre>
+		
+		<p><code>fibonacci(0)</code> is called \(3\) times and <code>fibonacci(1)</code> is called \(5\) times.</p>
+		
+		<p>The number of calls to <code>fibonacci(1)</code> is the Fibonacci number \(F_{n}\) and the number of calls to <code>fibonacci(0)</code> is the Fibonacci number \(F_{n-1}\).</p>
+		
+		<p>The total number of function calls can be represented by the recurrence relation:</p>
+		
+		\[ T(n) = T(n - 1) + T(n - 2) + 1 \]
+		
+		<p>Where:</p>
+		
+		<ul>
+			<li>\(T(n)\) is the total call count for <code>fibonacci(n)</code></li>
+			<li>The \(+1\) accounts for the current call itself</li>
+		</ul>
+		
+        <p>Let's break down the operations inside the <code>fibonacci</code> function above and calculate the total time complexity:</p>
+
+        <ul>
+            <li>The comparison <code>n &lt;= 1</code> takes \(1\) unit of time, repeated \(T(n)\) times recursively.</li>
+            <li>The return statement <code>return n</code> in the if block takes \(1\) unit of time, repeated \(F_{n}+F_{n-1}\) times recursively.</li>
+            <li>The addition <code>fibonacci(n - 1) + fibonacci(n - 2)</code> take \(1\) unit of time, repeated \(\frac{T(n)-1}{2}\) times recursively.</li>
+            <li>The return statement <code>return fibonacci(n - 1) + fibonacci(n - 2)</code> in the else block takes \(1\) unit of time, repeated \(\frac{T(n)-1}{2}\) times recursively.</li>
+        </ul>
+
+        <p>Totally it takes \(2T(n)+F_{n}+F_{n-1}-1\) units of time to complete its execution and it is Exponential Time Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the time required also increases exponentially.</p>
+				
+		<p>The Fibonacci function can be analyzed using the recursion tree method to understand its time complexity more intuitively.</p>
+		
+		<ol>
+			<li>Build the Recursion Tree<br>
+				<ul>
+					<li><b>Root Node</b>: The root of the tree is the initial call \(F(n)\).</li>
+					<li><b>Child Nodes</b>: Each node splits into two child nodes:<br>
+						<ul>
+							<li>The left child is \(F(n-1)\)</li>
+							<li>The right child is \(F(n-2)\)</li>
+						</ul>
+					</li>
+					<li>For \(n = 6\), the recursion tree looks like this:<br>
+						<pre><code class="language-bash hljs">					 F(5)                   
+                   /     \
+               F(4)       F(3)
+              /   \       /   \
+          F(3)   F(2)  F(2)  F(1)
+         /   \   /  \   / \
+     F(2)  F(1) F(1) F(0) F(1)
+     / \
+  F(1) F(0)</code></pre>
+					</li>
+				</ul>
+			</li>
+			<li>Calculate the Height of the Tree<br>
+				<ul>
+					<li>The height of the tree corresponds to how many levels we need to reach the base case \(F(0)\) or \(F(1)\).</li>
+					<li>The maximum height for Fibonacci \(F(n)\) is \(n\) because we keep decrementing \(n\) until it reaches \(0\) or \(1\).</li>
+				</ul>
+			</li>
+			<li>Count the Number of Nodes at Each Level<br>
+				<ul>
+					<li><b>Level 0</b>: 1 node (the root node, \(F(n)\))</li>
+					<li><b>Level 1</b>: 2 nodes (\(F(n−1)\), \(F(n−2)\))</li>
+					<li><b>Level 2</b>: 4 nodes (\(F(n−2)\), \(F(n−3)\), \(F(n−3)\), \(F(n−4)\))</li>
+					<li><b>Level 3</b>: 8 nodes (\(F(n−3)\), \(F(n−4)\), \(F(n−4)\), \(F(n−5)\), \(F(n−4)\), \(F(n−5)\), \(F(n−5)\), \(F(n−6)\))</li>
+					<li><b>Level k</b>: The number of nodes at level \(k\) is approximately \(2^{k}\)</li>
+				</ul>
+			</li>
+			<li>Calculate Total Work at Each Level<br>
+				<ul>
+					<li><b>Level 0</b>: \(1 \times O(1) = O(1)\)</li>
+					<li><b>Level 1</b>: \(2 \times O(1) = O(2)\)</li>
+					<li><b>Level 2</b>: \(4 \times O(1) = O(4)\)</li>
+					<li><b>Level 3</b>: \(8 \times O(1) = O(8)\)</li>
+					<li><b>Level k</b>: \(2^{k} \times O(1) = O(2^{k})\)</li>
+				</ul>
+			</li>
+			<li>The total work done can be calculated by summing the work done at each level of the tree until we reach the maximum height \(n\):<br>
+				\[ T(n) = O(1) + O(2) + O(4) + O(8) + ... + O(2n) \]
+				
+				This series can be simplified using the formula for the sum of a geometric series. The sum of a geometric series where the first term is \(a\) and the common ratio is \(r\) is given by:<br>
+				
+				\[ S = a\frac{(r^{n}-1)}{r-1} \]
+				
+				Calculating the series gives:<br>
+				
+				\[ T(n) = O(2^{n+1}-1) = O(2^n) \]
+			</li>
+		</ol>
+		
+        <h5 class="post-subtitle">Linearithmic Time Complexity</h5>
+
+        <p>Linearithmic time complexity is a common complexity class for algorithms that are more efficient than quadratic time complexity but less efficient than linear time complexity. This complexity typically arises in divide-and-conquer algorithms, where a problem is divided into smaller subproblems that are solved independently and then combined.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;math.h&gt;
+
+void fft(double* xRe, double* xIm, int n) {
+    if (n &lt;= 1) return;
+
+    // Divide
+    double* evenRe = malloc(n / 2 * sizeof(double));
+    double* evenIm = malloc(n / 2 * sizeof(double));
+    double* oddRe = malloc(n / 2 * sizeof(double));
+    double* oddIm = malloc(n / 2 * sizeof(double));
+
+    for (int i = 0; i &lt; n / 2; i++) {
+        evenRe[i] = xRe[i * 2];
+        evenIm[i] = xIm[i * 2];
+        oddRe[i] = xRe[i * 2 + 1];
+        oddIm[i] = xIm[i * 2 + 1];
+    }
+
+    // Conquer
+    fft(evenRe, evenIm, n / 2);
+    fft(oddRe, oddIm, n / 2);
+
+    // Combine
+    for (int k = 0; k &lt; n / 2; k++) {
+        double tRe = cos(-2 * M_PI * k / n) * oddRe[k] - sin(-2 * M_PI * k / n) * oddIm[k];
+        double tIm = sin(-2 * M_PI * k / n) * oddRe[k] + cos(-2 * M_PI * k / n) * oddIm[k];
+
+        xRe[k] = evenRe[k] + tRe;
+        xIm[k] = evenIm[k] + tIm;
+        xRe[k + n / 2] = evenRe[k] - tRe;
+        xIm[k + n / 2] = evenIm[k] - tIm;
+    }
+
+    free(evenRe);
+    free(evenIm);
+    free(oddRe);
+    free(oddIm);
+}
+
+int main() {
+    // Example input
+    int n = 8; // Size of input (must be a power of 2)
+    double xRe[] = {0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0}; // Real part
+    double xIm[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0}; // Imaginary part
+
+    // Perform FFT
+    fft(xRe, xIm, n);
+
+    // Print the results
+    printf("FFT Results:\n");
+    for (int i = 0; i &lt; n; i++) {
+        printf("x[%d] = %.2f + %.2fi\n", i, xRe[i], xIm[i]);
+    }
+
+    return 0;
+}</code></pre>
+        
+        <p>The size of the input \(n\) is required to be a power of \(2\). This allows the algorithm to recursively divide the input into two halves until it reaches a single element.</p>
+
+        <p>The recursive nature of the Fast Fourier Transform (FFT) algorithm leads to the division of the input array in half at each recursive step. This process creates a series where each subsequent level of recursion processes half the elements of the previous level.</p>
+
+        <p>Breakdown of Recursive Division:</p>
+
+        <ul>
+            <li>Level 0 (Initial Input of Size \(n\)):<br>
+                <ul>
+                    <li>This is the first level, where the input array of size \(n\) is processed.</li>
+                    <li>The array is split into two subarrays, each of size \(\frac{n}{2}\).</li>
+                    <li>The total work done at this level is to process all \(n\) elements (dividing them into even and odd parts), but no recursive calls have been made yet.</li>
+                </ul>   
+            </li>
+            <li>Level 1 (Subarrays of Size \(\frac{n}{2}\)):<br>
+                <ul>
+                    <li>After splitting the array into two subarrays, each of size \(\frac{n}{2}\), we recursively process both subarrays.</li>
+                    <li>There are two subarrays, each with \(\frac{n}{2}\) elements.</li>
+                    <li>The total work done at this level is:<br>
+                        \[ \frac{n}{2} + \frac{n}{2} = n \]
+                    </li>
+                    <li>Even though each subarray is smaller, we still process a total of \(n\) elements.</li>
+                </ul>   
+            </li>
+            <li>Level 2 (Subarrays of Size \(\frac{n}{4}\)):<br>
+                <ul>
+                    <li>Each of the \frac{n}{2}-sized subarrays is split further into two subarrays of size \frac{n}{4}, making a total of four subarrays.</li>
+                    <li>Each subarray has \frac{n}{4} elements.</li>
+                    <li>The total work done at this level is:<br>
+                        \[ \frac{n}{4} + \frac{n}{4} + \frac{n}{4} + \frac{n}{4} = n \]
+                    </li>   
+                    <li>Again, we process \(n\) elements in total.</li>
+                </ul>
+            </li>
+            <li>Level 3 (Subarrays of Size \(\frac{n}{8}\)):<br>
+                <ul>
+                    <li>Each of the \frac{n}{4}-sized subarrays is split further into two subarrays of size \frac{n}{8}, making a total of eight subarrays.</li>
+                    <li>Each subarray has \frac{n}{8} elements.</li>
+                    <li>The total work done at this level is:<br>
+                        \[ \frac{n}{8} + \frac{n}{8} + \frac{n}{8} + \frac{n}{8} + ... + \frac{n}{8} = n \]
+                    </li>   
+                    <li>The total work at this level is still \(n\).</li>
+                </ul>
+            </li>
+            <li>Level k:<br>
+                <ul>
+                    <li>At each level, the array is split into more subarrays, but the total number of elements processed at that level always remains \(n\).</li>
+                    <li>At level \(k\), there are \(2^k\) subarrays, each of size \(\frac{n}{2^k}\).</li>
+                    <li>The total work at level \(k\) is:<br>
+                        \[ 2^k \times \frac{n}{2^k} = n \]
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>The total number of levels in the recursion is \(\log_{2}(n)\), since the input size is divided by \(2\) at each level. At each level, the work done is \(n\), and there are \(\log_{2}(n)\) levels. Therefore, the total work done by the algorithm is:</p>
+
+        \[ n \times \log_{2}(n) \]
+
+        <p>Let's break down the operations inside the <code>fft</code> function above and calculate the total time complexity:</p>
+
+        <ul>
+            <li>Level \(0\) (function call with size \(n\)):<br>
+                <ul>
+                    <li>The comparison <code>n &lt;= 1</code> takes \(1\) unit of time</li>
+                    <li>The initialization <code>int i = 0</code> in the for loop takes \(1\) unit of time</li>
+                    <li>The for loop runs \(\frac{n}{2}\) times, and each iteration involves:<br> 
+                        <ul>
+                            <li>The comparison <code>i &lt; n / 2</code> takes \(1\) unit of time, repeated \(\frac{n}{2} + 1\) times (including the last comparison when \(i = \frac{n}{2}\)).</li>
+                            <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The multiplication <code>i * 2</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The array access <code>xRe[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The assigment <code>evenRe[i] = xRe[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The multiplication <code>i * 2</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The array access <code>xIm[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The assigment <code>evenIm[i] = xIm[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The multiplication and addition <code>i * 2 + 1</code> take \(2\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The array access <code>xRe[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The assigment <code>oddRe[i] = xRe[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The multiplication and addition <code>i * 2 + 1</code> take \(2\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The array access <code>xIm[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The assigment <code>oddIm[i] = xIm[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                        </ul>
+                    </li>
+					<li>The initialization <code>int k = 0</code> in the for loop takes \(1\) unit of time</li>
+                    <li>The for loop runs \(\frac{n}{2}\) times, and each iteration involves:<br>
+                        <ul>
+                            <li>The comparison <code>k &lt; n / 2</code> takes \(1\) unit of time, repeated \(\frac{n}{2} + 1\) times (including the last comparison when \(k = \frac{n}{2}\)).</li>
+                            <li>The increment <code>k++</code> takes \(1\) unit of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The cos function <code>cos(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The array access <code>oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The multiplication <code>cos(-2 * M_PI * k / n) * oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The sin function <code>sin(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The array access <code>oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The multiplication <code>sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The substraction <code>cos(-2 * M_PI * k / n) * oddRe[k] - sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The assigment <code>double tRe = cos(-2 * M_PI * k / n) * oddRe[k] - sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The sin function <code>sin(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The array access <code>oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The multiplication <code>sin(-2 * M_PI * k / n) * oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The cos function <code>cos(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The array access <code>oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The multiplication <code>cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The addition <code>sin(-2 * M_PI * k / n) * oddRe[k] + cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The assigment <code>double tIm = sin(-2 * M_PI * k / n) * oddRe[k] + cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The array access <code>evenRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The addition <code>evenRe[k] + tRe</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The assigment <code>xRe[k] = evenRe[k] + tRe</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The array access <code>evenIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The addition <code>evenIm[k] + tIm</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The assigment <code>xIm[k] = evenIm[k] + tIm</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The array access <code>evenRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The substraction <code>evenRe[k] - tRe</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The division and addition <code>k + n / 2</code> take \(2\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The assigment <code>xRe[k + n / 2] = evenRe[k] - tRe</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+
+                            <li>The array access <code>evenIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The substraction <code>evenIm[k] - tIm</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The division and addition <code>k + n / 2</code> take \(2\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                            <li>The assigment <code>xIm[k + n / 2] = evenIm[k] - tIm</code> take \(1\) units of time, repeated \(\frac{n}{2}\) times.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>Level 1 (There are \(2\) recursive calls with size \(\frac{n}{2}\)):<br>
+                <ul>
+                    <li>In each of recursive calls, the comparison <code>n &lt;= 1</code> takes \(1\) unit of time</li>
+                    <li>In each of recursive calls, the initialization <code>int i = 0</code> in the for loop takes \(1\) unit of time</li>
+                    <li>In each of recursive calls, the for loop runs \(\frac{n}{4}\) times, and each iteration involves:<br>
+                        <ul>
+                            <li>The comparison <code>i &lt; n / 2</code> takes \(1\) unit of time, repeated \(\frac{n}{4} + 1\) times (including the last comparison when \(i = \frac{n}{4}\)).</li>
+                            <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The multiplication <code>i * 2</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The array access <code>xRe[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The assigment <code>evenRe[i] = xRe[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The multiplication <code>i * 2</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The array access <code>xIm[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The assigment <code>evenIm[i] = xIm[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The multiplication and addition <code>i * 2 + 1</code> take \(2\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The array access <code>xRe[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The assigment <code>oddRe[i] = xRe[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The multiplication and addition <code>i * 2 + 1</code> take \(2\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The array access <code>xIm[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The assigment <code>oddIm[i] = xIm[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                        </ul>
+                    </li>
+					<li>In each of recursive calls, the initialization <code>int k = 0</code> in the for loop takes \(1\) unit of time</li>
+                    <li>In each of recursive calls, the for loop runs \(\frac{n}{4}\) times, and each iteration involves:<br>
+                        <ul>
+                            <li>The comparison <code>k &lt; n / 2</code> takes \(1\) unit of time, repeated \(\frac{n}{4} + 1\) times (including the last comparison when \(k = \frac{n}{4}\)).</li>
+                            <li>The increment <code>k++</code> takes \(1\) unit of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The cos function <code>cos(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The array access <code>oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The multiplication <code>cos(-2 * M_PI * k / n) * oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The sin function <code>sin(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The array access <code>oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The multiplication <code>sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The substraction <code>cos(-2 * M_PI * k / n) * oddRe[k] - sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The assigment <code>double tRe = cos(-2 * M_PI * k / n) * oddRe[k] - sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The sin function <code>sin(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The array access <code>oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The multiplication <code>sin(-2 * M_PI * k / n) * oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The cos function <code>cos(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The array access <code>oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The multiplication <code>cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The addition <code>sin(-2 * M_PI * k / n) * oddRe[k] + cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The assigment <code>double tIm = sin(-2 * M_PI * k / n) * oddRe[k] + cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The array access <code>evenRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The addition <code>evenRe[k] + tRe</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The assigment <code>xRe[k] = evenRe[k] + tRe</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The array access <code>evenIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The addition <code>evenIm[k] + tIm</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The assigment <code>xIm[k] = evenIm[k] + tIm</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The array access <code>evenRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The substraction <code>evenRe[k] - tRe</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The division and addition <code>k + n / 2</code> take \(2\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The assigment <code>xRe[k + n / 2] = evenRe[k] - tRe</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+
+                            <li>The array access <code>evenIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The substraction <code>evenIm[k] - tIm</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The division and addition <code>k + n / 2</code> take \(2\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                            <li>The assigment <code>xIm[k + n / 2] = evenIm[k] - tIm</code> take \(1\) units of time, repeated \(\frac{n}{4}\) times.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>Level \(2\) (There are \(4\) recursive calls with size \(\frac{n}{4}\)):<br>
+                <ul>
+                    <li>In each of recursive calls, the comparison <code>n &lt;= 1</code> takes \(1\) unit of time</li>
+                    <li>In each of recursive calls, the initialization <code>int i = 0</code> in the for loop takes \(1\) unit of time</li>
+                    <li>In each of recursive calls, the for loop runs \(\frac{n}{8}\) times, and each iteration involves:<br>
+                        <ul>
+                            <li>The comparison <code>i &lt; n / 2</code> takes \(1\) unit of time, repeated \(\frac{n}{8} + 1\) times (including the last comparison when \(i = \frac{n}{8}\)).</li>
+                            <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The multiplication <code>i * 2</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The array access <code>xRe[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The assigment <code>evenRe[i] = xRe[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The multiplication <code>i * 2</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The array access <code>xIm[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The assigment <code>evenIm[i] = xIm[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The multiplication and addition <code>i * 2 + 1</code> take \(2\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The array access <code>xRe[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The assigment <code>oddRe[i] = xRe[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The multiplication and addition <code>i * 2 + 1</code> take \(2\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The array access <code>xIm[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The assigment <code>oddIm[i] = xIm[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                        </ul>
+                    </li>
+					<li>In each of recursive calls, the initialization <code>int k = 0</code> in the for loop takes \(1\) unit of time</li>
+                    <li>In each of recursive calls, the for loop runs \(\frac{n}{8}\) times, and each iteration involves:<br>
+                        <ul>
+                            <li>The comparison <code>k &lt; n / 2</code> takes \(1\) unit of time, repeated \(\frac{n}{8} + 1\) times (including the last comparison when \(k = \frac{n}{8}\)).</li>
+                            <li>The increment <code>k++</code> takes \(1\) unit of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The cos function <code>cos(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The array access <code>oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The multiplication <code>cos(-2 * M_PI * k / n) * oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The sin function <code>sin(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The array access <code>oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The multiplication <code>sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The substraction <code>cos(-2 * M_PI * k / n) * oddRe[k] - sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The assigment <code>double tRe = cos(-2 * M_PI * k / n) * oddRe[k] - sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The sin function <code>sin(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The array access <code>oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The multiplication <code>sin(-2 * M_PI * k / n) * oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The cos function <code>cos(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The array access <code>oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The multiplication <code>cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The addition <code>sin(-2 * M_PI * k / n) * oddRe[k] + cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The assigment <code>double tIm = sin(-2 * M_PI * k / n) * oddRe[k] + cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The array access <code>evenRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The addition <code>evenRe[k] + tRe</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The assigment <code>xRe[k] = evenRe[k] + tRe</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The array access <code>evenIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The addition <code>evenIm[k] + tIm</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The assigment <code>xIm[k] = evenIm[k] + tIm</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The array access <code>evenRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The substraction <code>evenRe[k] - tRe</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The division and addition <code>k + n / 2</code> take \(2\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The assigment <code>xRe[k + n / 2] = evenRe[k] - tRe</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+
+                            <li>The array access <code>evenIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The substraction <code>evenIm[k] - tIm</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The division and addition <code>k + n / 2</code> take \(2\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                            <li>The assigment <code>xIm[k + n / 2] = evenIm[k] - tIm</code> take \(1\) units of time, repeated \(\frac{n}{8}\) times.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>Level \(k\) (There are \(2^{k}\) recursive calls with size \(\frac{n}{2^{k}}\)):<br>
+                <ul>
+                    <li>In each of recursive calls, the comparison <code>n &lt;= 1</code> takes \(1\) unit of time</li>
+                    <li>In each of recursive calls, the initialization <code>int i = 0</code> in the for loop takes \(1\) unit of time</li>
+                    <li>In each of recursive calls, the for loop runs \(\frac{n}{2^{k+1}}\) times, and each iteration involves:<br>
+                        <ul>
+                            <li>The comparison <code>i &lt; n / 2</code> takes \(1\) unit of time, repeated \(\frac{n}{2^{k+1}} + 1\) times (including the last comparison when \(i = \frac{n}{2^{k+1}}\)).</li>
+                            <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The multiplication <code>i * 2</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The array access <code>xRe[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The assigment <code>evenRe[i] = xRe[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The multiplication <code>i * 2</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The array access <code>xIm[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The assigment <code>evenIm[i] = xIm[i * 2]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The multiplication and addition <code>i * 2 + 1</code> take \(2\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The array access <code>xRe[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The assigment <code>oddRe[i] = xRe[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The multiplication and addition <code>i * 2 + 1</code> take \(2\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The array access <code>xIm[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The assigment <code>oddIm[i] = xIm[i * 2 + 1]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                        </ul>
+                    </li>
+					<li>In each of recursive calls, the initialization <code>int k = 0</code> in the for loop takes \(1\) unit of time</li>
+                    <li>In each of recursive calls, the for loop runs \(\frac{n}{2^{k+1}}\) times, and each iteration involves:<br>
+                        <ul>
+                            <li>The comparison <code>k &lt; n / 2</code> takes \(1\) unit of time, repeated \(\frac{n}{2^{k+1}} + 1\) times (including the last comparison when \(k = \frac{n}{2^{k+1}}\)).</li>
+                            <li>The increment <code>k++</code> takes \(1\) unit of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The cos function <code>cos(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The array access <code>oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The multiplication <code>cos(-2 * M_PI * k / n) * oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The sin function <code>sin(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The array access <code>oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The multiplication <code>sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The substraction <code>cos(-2 * M_PI * k / n) * oddRe[k] - sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The assigment <code>double tRe = cos(-2 * M_PI * k / n) * oddRe[k] - sin(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The sin function <code>sin(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The array access <code>oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The multiplication <code>sin(-2 * M_PI * k / n) * oddRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The multiplication and division <code>-2 * M_PI * k / n</code> take \(3\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The cos function <code>cos(-2 * M_PI * k / n)</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The array access <code>oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The multiplication <code>cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The addition <code>sin(-2 * M_PI * k / n) * oddRe[k] + cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The assigment <code>double tIm = sin(-2 * M_PI * k / n) * oddRe[k] + cos(-2 * M_PI * k / n) * oddIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The array access <code>evenRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The addition <code>evenRe[k] + tRe</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The assigment <code>xRe[k] = evenRe[k] + tRe</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The array access <code>evenIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The addition <code>evenIm[k] + tIm</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The assigment <code>xIm[k] = evenIm[k] + tIm</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The array access <code>evenRe[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The substraction <code>evenRe[k] - tRe</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The division and addition <code>k + n / 2</code> take \(2\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The assigment <code>xRe[k + n / 2] = evenRe[k] - tRe</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+
+                            <li>The array access <code>evenIm[k]</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The substraction <code>evenIm[k] - tIm</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The division and addition <code>k + n / 2</code> take \(2\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                            <li>The assigment <code>xIm[k + n / 2] = evenIm[k] - tIm</code> take \(1\) units of time, repeated \(\frac{n}{2^{k+1}}\) times.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>Level final (There are \(2^{\log_{2}(n)}\) recursive calls with size \(\frac{n}{2^{\log_{2}(n)}}\) or \(1\)):<br>
+                <ul>
+                    <li>In each of recursive calls, the comparison <code>n &lt;= 1</code> takes \(1\) unit of time</li>
+                    <li>In each of recursive calls, the return statement <code>return</code> takes \(1\) unit of time</li>
+                </ul>
+            </li>
+        </ul>
+		
+		<p>Thus, the total number of operations is:</p>
+		
+		<ul>
+			<li>The comparison <code>n &lt;= 1</code> takes \(2^{0} + 2^{1} + 2^{2} + ... + 2^{\log_{2}(n)} = 2^{\log_{2}(n) + 1} - 1\) units of time.</li>
+			<li>The return statement <code>return</code> takes \(2^{\log_{2}(n)}\) unit of time.</li>
+			<li>The initialization <code>int i = 0</code> in the first for loop takes \(2^{0} + 2^{1} + 2^{2} + ... + 2^{\log_{2}(n)-1} = 2^{\log_{2}(n)} - 1\) units of time.</li>
+			<li>The first for loop takes \(\frac{n}{2} \times \log(n) \times 16\) units of time.</li>
+			<li>The initialization <code>int k = 0</code> in the second for loop takes \(2^{0} + 2^{1} + 2^{2} + ... + 2^{\log_{2}(n)-1} = 2^{\log_{2}(n)} - 1\) units of time.</li>
+			<li>The second for loop takes \(\frac{n}{2} \times \log(n) \times 46\) units of time.</li>
+		</ul>
+		
+        <p>Totally it takes \(31n \log(n) + 4n - 3\) units of time to complete its execution and it is Linearithmic Time Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the time required also increases linearithmically.</p>
+
+        <h5 class="post-subtitle">Factorial Time Complexity</h5>
+
+        <p>Factorial time complexity describes algorithms whose running time grows factorially with the size of the input \(n\). This complexity arises in scenarios where the algorithm generates all possible arrangements (permutations) or combinations of \(n\) items.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void swap(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+// Function to generate permutations recursively and store them in a 2D array
+void generatePermutations(int *digits, int start, int n, int **permutations, int *index) {
+    if (start == n - 1) {
+        // Store the current permutation in the 2D array
+        for (int i = 0; i &lt; n; i++) {
+            permutations[*index][i] = digits[i];
+        }
+        (*index)++;  // Move to the next row
+        return;
+    } else {
+        for (int i = start; i &lt; n; i++) {
+            // Swap the current element with the start
+            swap(&digits[start], &digits[i]);
+
+            // Recursively generate permutations for the remaining elements
+            generatePermutations(digits, start + 1, n, permutations, index);
+
+            // Backtrack: restore the original order
+            swap(&digits[start], &digits[i]);
+        }
+    }
+}
+
+int main() {
+    // Try to crack a lock with 3 dials
+    printf("Cracking the lock with 3 dials:\n");
+    // Calculate the total number of permutations (n!)
+    int num_permutations = 1;
+    for (int i = 1; i &lt;= n; i++) {
+        num_permutations *= i;
+    }
+
+    // Allocate memory for the 2D array to store the permutations
+    int **permutations = malloc(num_permutations * sizeof(int *));
+    for (int i = 0; i &lt; num_permutations; i++) {
+        permutations[i] = malloc(n * sizeof(int));
+    }
+
+    // Initialize the array with digits [0, 1, 2, ..., n-1]
+    int digits[n];
+    for (int i = 0; i &lt; n; i++) {
+        digits[i] = i;
+    }
+
+    // Initialize the index to track the current permutation
+    int index = 0;
+
+    // Generate all permutations and store them in the 2D array
+    generatePermutations(digits, 0, n, permutations, &index);
+
+    // Print the stored permutations
+    printf("All generated permutations:\n");
+    for (int i = 0; i &lt; num_permutations; i++) {
+        printf("Permutation %d: ", i + 1);
+        for (int j = 0; j &lt; n; j++) {
+            printf("%d ", permutations[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Free the allocated memory
+    for (int i = 0; i &lt; num_permutations; i++) {
+        free(permutations[i]);
+    }
+    free(permutations);
+
+    return 0;
+}</code></pre>
+        
+		<p>Consider the array <code>digits[] = {0, 1, 2, 3}</code> with \(n = 4\). The detailed Steps with \(n = 4\):</p>
+		
+		<ul>
+			<li>Initial Call <code>generatePermutations(digits, 0, 4, permutations, index)</code></li>
+			<li>There is no swap since <code>i == start</code></li>
+			<li><code>start = 0</code> and the current permutation is not stored since <code>start != n - 1</code>.</li>
+			<li>The loop runs from <code>i = 0</code> to <code>i = 4</code>.</li>
+			<li>For <code>i = 0</code>:<br>
+				<ul>
+					<li>There is no swap since <code>i == start</code></li>
+					<li>Recursively call <code>generatePermutations(digits, 1, 4, permutations, index)</code></li>
+					<li><code>start = 1</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+					<li>The loop runs from <code>i = 1</code> to <code>i = 4</code>.</li>
+					<li>For <code>i = 1</code>:<br>
+						<li>There is no swap since <code>i == start</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{0, 1, 2, 3}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 3, 2}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{0, 1, 3, 2}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+						</li>
+						<li>There is no swap since <code>i == start</code></li>
+					</li>
+					<li>For <code>i = 2</code>:<br>
+						<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {0, 2, 1, 3}</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{0, 2, 1, 3}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 3, 2}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{0, 1, 3, 2}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+						</li>
+						<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+					</li>
+					<li>For <code>i = 3</code>:<br>
+						<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 3, 2, 1}</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{0, 3, 2, 1}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 3, 1, 2}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{0, 3, 1, 2}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 3, 2, 1}</code></li>
+						</li>
+						<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+					</li>
+					<li>There is no swap since <code>i == start</code></li>
+				</ul>
+			</li>
+			<li>For <code>i = 1</code>:<br>
+				<ul>
+					<li>Swap <code>digits[0]</code> with <code>digits[1]</code>, thus <code>digits[] = {1, 0, 2, 3}</code></li>
+					<li>Recursively call <code>generatePermutations(digits, 1, 4, permutations, index)</code></li>
+					<li><code>start = 1</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+					<li>The loop runs from <code>i = 1</code> to <code>i = 4</code>.</li>
+					<li>For <code>i = 1</code>:<br>
+						<li>There is no swap since <code>i == start</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{1, 0, 2, 3}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 0, 3, 2}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{1, 0, 3, 2}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 0, 2, 3}</code></li>
+						</li>
+						<li>There is no swap since <code>i == start</code></li>
+					</li>
+					<li>For <code>i = 2</code>:<br>
+						<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {1, 2, 0, 3}</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{1, 2, 0, 3}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 2, 3, 0}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{1, 2, 3, 0}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 2, 0, 3}</code></li>
+						</li>
+						<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {1, 0, 2, 3}</code></li>
+					</li>
+					<li>For <code>i = 3</code>:<br>
+						<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 3, 2, 0}</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{1, 3, 2, 0}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 3, 0, 2}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{1, 3, 0, 2}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 3, 2, 0}</code></li>
+						</li>
+						<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 0, 2, 3}</code></li>
+					</li>
+					<li>There is no swap since <code>i == start</code></li>
+				</ul>
+			</li>
+			
+			<li>For <code>i = 2</code>:<br>
+				<ul>
+					<li>Swap <code>digits[0]</code> with <code>digits[2]</code>, thus <code>digits[] = {2, 1, 0, 3}</code></li>
+					<li>Recursively call <code>generatePermutations(digits, 1, 4, permutations, index)</code></li>
+					<li><code>start = 1</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+					<li>The loop runs from <code>i = 1</code> to <code>i = 4</code>.</li>
+					<li>For <code>i = 1</code>:<br>
+						<li>There is no swap since <code>i == start</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{2, 1, 0, 3}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 1, 3, 0}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{2, 1, 3, 0}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 1, 0, 3}</code></li>
+						</li>
+						<li>There is no swap since <code>i == start</code></li>
+					</li>
+					<li>For <code>i = 2</code>:<br>
+						<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {2, 0, 1, 3}</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{2, 0, 1, 3}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 0, 3, 1}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{2, 0, 3, 1}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 0, 1, 3}</code></li>
+						</li>
+						<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {2, 1, 0, 3}</code></li>
+					</li>
+					<li>For <code>i = 3</code>:<br>
+						<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 3, 0, 1}</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{2, 3, 0, 1}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 3, 1, 0}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{2, 3, 1, 0}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 3, 0, 1}</code></li>
+						</li>
+						<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 1, 0, 3}</code></li>
+					</li>
+					<li>Swap back <code>digits[0]</code> with <code>digits[2]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+				</ul>
+			</li>
+			
+			<li>For <code>i = 3</code>:<br>
+				<ul>
+					<li>Swap <code>digits[0]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 1, 2, 0}</code></li>
+					<li>Recursively call <code>generatePermutations(digits, 1, 4, permutations, index)</code></li>
+					<li><code>start = 1</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+					<li>The loop runs from <code>i = 1</code> to <code>i = 4</code>.</li>
+					<li>For <code>i = 1</code>:<br>
+						<li>There is no swap since <code>i == start</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{3, 1, 2, 0}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 1, 0, 2}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{3, 1, 0, 2}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 1, 2, 0}</code></li>
+						</li>
+						<li>There is no swap since <code>i == start</code></li>
+					</li>
+					<li>For <code>i = 2</code>:<br>
+						<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {3, 2, 1, 0}</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{3, 2, 1, 0}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 2, 0, 1}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{3, 2, 0, 1}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 2, 1, 0}/code></li>
+						</li>
+						<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {3, 1, 2, 0}</code></li>
+					</li>
+					<li>For <code>i = 3</code>:<br>
+						<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 0, 2, 1}</code></li>
+						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+						<li>For <code>i = 2</code>:<br>
+							<li>There is no swap since <code>i == start</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{3, 0, 2, 1}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>There is no swap since <code>i == start</code></li>
+						</li>
+						<li>For <code>i = 3</code>:<br>
+							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 0, 1, 2}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+							<li><code>start = 3</code> and the current permutation <code>{3, 0, 1, 2}</code> is stored since <code>start == n - 1</code></li>
+							<li>Increment index and return to the previous call.</li>
+							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 0, 2, 1}</code></li>
+						</li>
+						<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 1, 2, 0}</code></li>
+					</li>
+					<li>Swap back <code>digits[0]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+				</ul>
+			</li>
+			<li>There is no swap since <code>i == start</code></li>
+		</ul>
+		
+		<p>Let's break down the operations inside the <code>generatePermutations</code> function above and calculate the total time complexity:</p>
+		
+        <ul>
+            <li>Level \(0\) (initial call):<br>
+                <ul>
+                    <li>The comparison <code>start == n - 1</code> takes \(1\) unit of time</li>
+                    <li>The initialization <code>int i = 0</code> in the second for loop takes \(1\) unit of time</li>
+                    <li>The for loop runs \(n\) times, and each iteration involves:<br> 
+                        <ul>
+							<li>The comparison <code>i < n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(i = n\)).</li>
+                            <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n\) times.</li>
+                            <li>The swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n\) times</li>
+                            <li>The second swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n\) times</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>Level \(1\) (There are \(n\) recursive calls):<br>
+                <ul>
+                    <li>The comparison <code>start == n - 1</code> takes \(1\) unit of time</li>
+                    <li>The initialization <code>int i = 0</code> in the second for loop takes \(1\) unit of time</li>
+                    <li>The for loop runs \(n-1\) times, and each iteration involves:<br> 
+                        <ul>
+                            <li>The comparison <code>i < n</code> takes \(1\) unit of time, repeated \(n - 1 + 1\) times (including the last comparison when \(i = n-1\)).</li>
+                            <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n - 1\) times.</li>
+                            <li>The swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - 1\) times</li>
+                            <li>The second swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - 1\) times</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>Level \(2\) (There are \(n \cdot (n-1)\) recursive calls):<br>
+                <ul>
+                    <li>The comparison <code>start == n - 1</code> takes \(1\) unit of time</li>
+                    <li>The initialization <code>int i = 0</code> in the second for loop takes \(1\) unit of time</li>
+                    <li>The for loop runs \(n-2\) times, and each iteration involves:<br> 
+                        <ul>
+                            <li>The comparison <code>i < n</code> takes \(1\) unit of time, repeated \(n - 2 + 1\) times (including the last comparison when \(i = n-2\)).</li>
+                            <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n - 2\) times.</li>
+                            <li>The swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - 2\) times</li>
+                            <li>The second swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - 2\) times</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>Level \(k\) (There are \(n \cdot (n-1) \cdot ... \cdot (n-k+1)\) recursive calls):<br>
+                <ul>
+                    <li>The comparison <code>start == n - 1</code> takes \(1\) unit of time</li>
+                    <li>The initialization <code>int i = 0</code> in the second for loop takes \(1\) unit of time</li>
+                    <li>The for loop runs \(n-k\) times, and each iteration involves:<br> 
+                        <ul>
+							<li>The comparison <code>i < n</code> takes \(1\) unit of time, repeated \(n - k + 1\) times (including the last comparison when \(i = n-k\)).</li>
+                            <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n - k\) times.</li>
+                            <li>The swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - k\) times.</li>
+                            <li>The second swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - k\) times.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>Level final (There is \(n \cdot (n-1) \cdot ... \cdot (n-k+1) \cdot 1\) recursive call):<br>
+                <ul>
+                    <li>The comparison <code>start == n - 1</code> takes \(1\) unit of time</li>
+                    <li>The initialization <code>int i = 0</code> in the first for loop takes \(1\) unit of time</li>
+                    <li>The for loop runs \(n\) times, and each iteration involves:<br> 
+                        <ul>
+							<li>The comparison <code>k < n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(i = n\)).</li>
+                            <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n\) times.</li>
+							<li>The array access <code>digits[i]</code> takes \(1\) unit of time, repeated \(n\) times.</li>
+                            <li>The assignment function <code>permutations[*index][i] = digits[i]</code> takes \(1\) unit of time, repeated \(n\) times.</li>
+                        </ul>
+                    </li>
+					<li>The increment <code>(*index)++</code> takes \(1\) unit of time</li>
+					<li>The return statement <code>return</code> takes \(1\) unit of time</li>
+                </ul>
+            </li>
+        </ul>
+		
+		<p>Thus, the total number of operations is:</p>
+		
+		<ul>
+			<li>The comparison <code>start == n - 1</code> takes \(n + n \cdot (n-1) + n \cdot (n-1) \cdot (n-2) + ... + n! + 1\) units of time.</li>
+			<li>The initialization <code>int i = 0</code> in the first for loop takes \(n + n \cdot (n-1) + n \cdot (n-1) \cdot (n-2) + ... + n \cdot (n-1) \cdot (n-2) \cdot ... \cdot (n-k+1) \cdot 2 + 1\) unit of time</li>
+			<li>The first for loop takes \(n! \times (4n + 1)\) units of time.</li>
+			<li>The increment <code>(*index)++</code> takes \(n!\) units of time</li>
+			<li>The return statement <code>return</code> takes \(n!\) units of time</li>
+			<li>The second for loop takes \((12 \cdot n + 1) + (12 \cdot n \cdot (n-1) + 1) + (12 \cdot n \cdot (n-1) \cdot (n-2) + 1) + ... + (12 \cdot n \cdot (n-1) \cdot (n-2) \cdot ... \cdot (n-k+1) + 1)\) units of time.</li>
+		</ul>
+		
+        <p>Totally it takes \(15 \cdot n + 14 \cdot n \cdot (n-1) + 14 \cdot n \cdot (n-1) \cdot (n-2) + ... + 14 \cdot n \cdot (n-1) \cdot (n-2) \cdot ... \cdot (n-k+1) \cdot 2 + (4n + 4) \cdot n! + 1\) units of time to complete its execution and it is Factorial Time Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the time required also increases factorially.</p>
+
+        <h4 class="post-subtitle">Space Complexity</h4>
+
+        <p>Space complexity measures the total amount of memory space required by an algorithm to execute, including both the space needed for the input data and any auxiliary space needed for computations.</p>
+
+        <p>When a program is executing, it utilizes memory primarily for these three reasons:</p>
+
+        <ol>
+            <li>Instruction Space: To store the compiled code of the program, which includes all the instructions the CPU will execute.</li>
+            <li>Environmental Stack: To manage function calls and local variables. This includes information about active functions, their parameters, and where to return after a function execution.</li>
+            <li>Data Space: To hold all the variables, constants, and data structures that the program uses during its execution.</li>
+        </ol>
+
+        <p>When analyzing an algorithm's space complexity, we typically focus on the data space, which includes the memory required for variables, constants, data structures, and any additional memory needed during the execution of the algorithm. Instruction space (the code itself) and environmental stack (such as function call stacks) are generally not included in this analysis. This helps in understanding how much memory an algorithm will require as the input size increases.</p>
+
+        <p>To calculate the space complexity, we must know the memory required to store different datatype values (according to the compiler).</p>
+
+        <p>In C, the memory required for different data types can vary based on the compiler and the architecture, but here are some common sizes:</p>
+
+        <ol>
+            <li>char: Typically 1 byte (8 bits).</li>
+            <li>int: Usually 4 bytes (32 bits) on most platforms, but can be 2 bytes (16 bits) on older systems.</li>
+            <li>float: Generally 4 bytes (32 bits).</li>
+            <li>double: Usually 8 bytes (64 bits).</li>
+            <li>long: Typically 4 bytes (32 bits) on 32-bit systems and 8 bytes (64 bits) on 64-bit systems.</li>
+            <li>long long: Generally 8 bytes (64 bits).</li>
+			<li>memory address: Generally 8 bytes (64 bits) for a 64-bit computer machine or 4 bytes for 32-bit computer machine.</li>
+        </ol>
+
+        <h5 class="post-subtitle">Constant Space Complexity</h5>
+
+        <p>Constant space complexity refers to an algorithm that requires a fixed amount of memory space regardless of the input size. In other words, the memory needed does not increase as the size of the input grows.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">int sum(int a, int b)
+{
+   return a + b;
+}</code></pre>
+
+        <p>Let's break down the operations inside the sum function above and calculate the total space complexity:</p>
+
+        <ul>
+            <li>The first parameter <code>a</code> requires \(4\) bytes.</li>
+            <li>The second parameter <code>b</code> requires \(4\) bytes.</li>
+            <li>The return value requires another \(4\) bytes.</li>
+        </ul>
+        
+        <p>Totally it requires \(12\) bytes of memory to complete its execution and it is Constant Space Complexity. It does not change based on the input values of <code>a</code> and <code>b</code>. That means for all input values, it requires the same amount of memory i.e. \(12\) bytes.</p>
+
+
+        <h5 class="post-subtitle">Linear Space Complexity</h5>
+
+        <p>Linear space complexity refers to an algorithm where the amount of memory required grows linearly with the size of the input. In other words, if the input size doubles, the memory usage also roughly doubles.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">int sum(int arr[], int n)
+{
+    int sum = 0;
+    for(int i = 0; i < n; i++)
+        sum = sum + arr[i];
+    return sum;
+}</code></pre>
+
+        <p>Let's break down the operations inside the sum function above and calculate the total space complexity:</p>
+
+        <ul>
+            <li>The first parameter <code>int arr[]</code> requires \(n \cdot 4\) bytes.</li>
+            <li>The second parameter <code>int n</code> requires \(4\) bytes.</li>
+            <li>The local variable <code>int sum</code> requires \(4\) bytes.</li>
+            <li>The local variable <code>int i</code> within the for loop requires \(4\) bytes.</li>
+            <li>The return value requires another \(4\) bytes.</li>
+        </ul>
+        
+        <p>Totally it requires \(4n + 16\) bytes of memory to complete its execution and it is Linear Space Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the memory required also increases linearly.</p>
+
+
+        <h5 class="post-subtitle">Logarithmic Space Complexity</h5>
+
+        <p>Logarithmic space complexity refers to algorithms where the amount of memory used grows logarithmically with the size of the input. This means that the space required increases very slowly as the input size grows, typically as the logarithm of the input size in some base (commonly base \(2\)).</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+
+// Function to compute GCD using recursion
+int gcd(int a, int b) {
+    if (b == 0) // Base case: GCD(a, 0) = a
+        return a;
+    return gcd(b, a % b); // Recursive call
+}
+
+int main() {
+    int a, b;
+    
+    // Input two integers
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+    
+    // Calculate GCD
+    int result = gcd(a, b);
+    
+    // Display the result
+    printf("GCD of %d and %d is %d\n", a, b, result);
+    
+    return 0; // Exit program
+}</code></pre>
+        
+        <p>Let's break down the operations inside the <code>gcd</code> function above and calculate the total space complexity:</p>
+
+        <ul>
+            <li>The first parameter <code>int a</code> requires \(4\) bytes.</li>
+			<li>The second parameter <code>int b</code> requires \(4\) bytes.</li>
+			<li>The return value <code>return a</code> requires another \(4\) bytes.</li>
+            <li>The return address <code>return gcd(b, a % b)</code> requires \(8\) bytes.</li>
+        </ul>
+		
+		<p>So, each recursive call adds \(4 + 4 + 4 + 8 = 20\) bytes. The number of recursive calls is \(\log(min(a, b))\). Therefore, the total space complexity is \(20 \cdot \log(min(a, b))\).</p>
+		
+		<p>Totally it requires \(20 \cdot \log(min(a, b))\) bytes of memory to complete its execution and it is Logarithmic Space Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the memory required also increases logarithmically.</p>
+		
+        <h5 class="post-subtitle">Quadratic Space Complexity</h5>
+		
+        <p>Quadratic space complexity refers to an algorithm or process where the amount of memory (or storage) required grows quadratically with respect to the size of the input.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">void fillSquareMatrix(int** matrix, int n) {
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; n; j++) {
+            matrix[i][j] = i + j;
+        }
+    }
+}</code></pre>
+        
+        <p>Let's break down the operations inside the fillSquareMatrix function above and calculate the total time complexity:</p>
+
+        <ul>
+            <li>The first parameter <code>int** matrix</code> requires \(8 \times n\) bytes for the pointer and \(4 \cdot n^{2}\) bytes for the array of integers.</li>
+			<li>The second parameter <code>int n</code> requires \(4\) bytes.</li>
+			<li>The local variable <code>int i</code> requires another \(4\) bytes.</li>
+			<li>The local variable <code>int j</code> requires another \(4\) bytes.</li>
+        </ul>
+		
+		<p>Totally it requires \(4n^{2} + 8n + 12\) bytes of memory to complete its execution and it is Quadratic Space Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the memory required also increases quadratically.</p>
+		
+        <h5 class="post-subtitle">Cubic Space Complexity</h5>
+		
+		<p>Cubic space complexity refers to an algorithm or process where the amount of memory (or storage) required grows cubically with respect to the size of the input.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">void fillCubeMatrix(int*** matrix, int n) {
+
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; n; j++) {
+            for (int k = 0; k &lt; n; k++) {
+                matrix[i][j][k] = i + j + k;
+            }
+        }
+    }
+}</code></pre>
+        
+        <p>Let's break down the operations inside the <code>fillCubeMatrix</code> function above and calculate the total time complexity:</p>
+
+        <ul>
+            <li>The first parameter <code>int*** matrix</code> requires \(8 \times n^{2}\) bytes for the pointer and \(4 \cdot n^{3}\) bytes for the array of integers.</li>
+			<li>The second parameter <code>int n</code> requires \(4\) bytes.</li>
+			<li>The local variable <code>int i</code> requires another \(4\) bytes.</li>
+			<li>The local variable <code>int j</code> requires another \(4\) bytes.</li>
+			<li>The local variable <code>int k</code> requires another \(4\) bytes.</li>
+        </ul>
+
+        <p>Totally it takes \(4n^{3} + 8n^{2} + 16\) bytes of memory to complete its execution and it is cubic space Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the amount of memory required also increases cubically.</p>
+
+        <h5>Exponential Space Complexity</h5>
+
+        <p>Exponential space complexity refers to an algorithm whose growth rate doubles with each additional input. In exponential space algorithms, the amount of memory (or storage) required grows extremely fast as the size of the input increases.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">int fibonacci(int n) {
+    if (n &lt;= 1)
+        return n;
+    else
+        return fibonacci(n - 1) + fibonacci(n - 2);
+}</code></pre>
+        
+		<p>The total number of function calls can be represented by the recurrence relation:</p>
+		
+		\[ T(n) = T(n - 1) + T(n - 2) + 1 \]
+		
+		<p>Where:</p>
+		
+		<ul>
+			<li>\(T(n)\) is the total call count for <code>fibonacci(n)</code></li>
+			<li>The \(+1\) accounts for the current call itself</li>
+		</ul>
+		
+        <p>Let's break down the operations inside the fibonacci function above and calculate the total space complexity:</p>
+
+        <ul>
+            <li>The parameter <code>int n</code> requires \(4\) bytes.</li>
+			<li>The return value <code>return n</code> or <code>return fibonacci(n - 1) + fibonacci(n - 2)</code> requires \(4\) bytes.</li>
+			<li>The return address <code>fibonacci(n - 1)</code> requires \(8\) bytes.</li>
+			<li>The return address <code>fibonacci(n - 2)</code> requires \(8\) bytes.</li>
+        </ul>
+		
+		<p>So, each recursive call adds \(4 + 4 + 8 + 8 = 24\) bytes. The number of recursive calls is \(T(n)\). Therefore, the total space complexity is \(24 \cdot T(n)\).</p>
+		
+		<p>Totally it requires \(24 \cdot T(n)\) bytes of memory to complete its execution and it is exponential Space Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the memory required also increases exponentially.</p>
+		
+
+        <h5 class="post-subtitle">Linearithmic Space Complexity</h5>
+
+        <p>Linearithmic complexity refers to the amount of space an algorithm requires in terms of both a linear and logarithmic relationship to the size of the input. This means that as the input size grows, the memory usage grows slightly faster than linear but much slower than quadratic or cubic space complexities.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;math.h&gt;
+
+void fft(double* xRe, double* xIm, int n) {
+    if (n &lt;= 1) return;
+
+    // Divide
+    double* evenRe = malloc(n / 2 * sizeof(double));
+    double* evenIm = malloc(n / 2 * sizeof(double));
+    double* oddRe = malloc(n / 2 * sizeof(double));
+    double* oddIm = malloc(n / 2 * sizeof(double));
+
+    for (int i = 0; i &lt; n / 2; i++) {
+        evenRe[i] = xRe[i * 2];
+        evenIm[i] = xIm[i * 2];
+        oddRe[i] = xRe[i * 2 + 1];
+        oddIm[i] = xIm[i * 2 + 1];
+    }
+
+    // Conquer
+    fft(evenRe, evenIm, n / 2);
+    fft(oddRe, oddIm, n / 2);
+
+    // Combine
+    for (int k = 0; k &lt; n / 2; k++) {
+        double tRe = cos(-2 * M_PI * k / n) * oddRe[k] - sin(-2 * M_PI * k / n) * oddIm[k];
+        double tIm = sin(-2 * M_PI * k / n) * oddRe[k] + cos(-2 * M_PI * k / n) * oddIm[k];
+
+        xRe[k] = evenRe[k] + tRe;
+        xIm[k] = evenIm[k] + tIm;
+        xRe[k + n / 2] = evenRe[k] - tRe;
+        xIm[k + n / 2] = evenIm[k] - tIm;
+    }
+
+    free(evenRe);
+    free(evenIm);
+    free(oddRe);
+    free(oddIm);
+}
+
+int main() {
+    // Example input
+    int n = 8; // Size of input (must be a power of 2)
+    double xRe[] = {0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0}; // Real part
+    double xIm[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0}; // Imaginary part
+
+    // Perform FFT
+    fft(xRe, xIm, n);
+
+    // Print the results
+    printf("FFT Results:\n");
+    for (int i = 0; i &lt; n; i++) {
+        printf("x[%d] = %.2f + %.2fi\n", i, xRe[i], xIm[i]);
+    }
+
+    return 0;
+}</code></pre>
+        
+        <p>Let's break down the operations inside the fft function above and calculate the total space complexity:</p>
+		
+        <ul>
+            <li>The parameter <code>double* xRe</code> requires \(8\) bytes for the pointer and \(8 \times \frac{n}{2^{k}}\) bytes for the array of doubles. For each level of recursion \(k\), the array size is dynamically allocated.</li>
+			<li>The parameter <code>double* xIm</code> requires \(8\) bytes for the pointer and \(8 \times \frac{n}{2^{k}}\)bytes for the array of doubles. For each level of recursion \(k\), the array size is dynamically allocated.</li>
+			<li>The parameter <code>int n</code> requires \(4\)bytes.</li>
+			<li>The local array <code>double* evenRe</code> requires \(8\) bytes for the pointer and \(8 \times \frac{1}{2} \times \frac{n}{2^{k}}\) bytes for the array of doubles. For each level of recursion \(k\), the array size is dynamically allocated.</li>
+			<li>The local array <code>double* evenIm</code> requires \(8\) bytes for the pointer and \(8 \times \frac{1}{2} \times \frac{n}{2^{k}}\) bytes for the array of doubles. For each level of recursion \(k\), the array size is dynamically allocated.</li>
+			<li>The local array <code>double* oddRe</code> requires \(8\) bytes for the pointer and \(8 \times \frac{1}{2} \times \frac{n}{2^{k}}\) bytes for the array of doubles. For each level of recursion \(k\), the array size is dynamically allocated.</li>
+			<li>The local array <code>double* oddIm</code> requires \(8\) bytes for the pointer and \(8 \times \frac{1}{2} \times \frac{n}{2^{k}}\) bytes for the array of doubles. For each level of recursion \(k\), the array size is dynamically allocated.</li>
+			<li>The return address <code>fft(evenRe, evenIm, n / 2)</code> requires \(8\) bytes.</li>
+			<li>The return address <code>fft(oddRe, oddIm, n / 2)</code> requires \(8\) bytes.</li>
+			<li>The local variable <code>double tRe</code> requires \(8\) bytes.</li>
+			<li>The local variable <code>double tIm</code> requires \(8\) bytes.</li>
+        </ul>
+		
+		<p>So, each recursive call adds \(8\frac{n}{2^{k}} + 8 + 8\frac{n}{2^{k}} + 8 + 4\frac{n}{2^{k}} + 8 + 4\frac{n}{2^{k}} + 8 + 4\frac{n}{2^{k}} + 8 + 4\frac{n}{2^{k}} + 8 + 8 + 8 + 8 + 8 = 32\frac{n}{2^{k}} + 56\) bytes. The total number of recursive calls is \(2^{0} + 2^{1} + 2^{2} + ... + 2^{\log_{2}(n)} = 2^{\log_{2}(n) + 1} - 1\). Therefore, the total space complexity is \(2^{0} \times (32\frac{n}{2^{0}} + 56) + 2^{1} \times (32\frac{n}{2^{1}} + 56) + 2^{2} \times (32\frac{n}{2^{2}} + 56) + ... + 2^{\log_{2}(n)} \times (32\frac{n}{2^{\log_{2}(n)}} + 56) = 32n \log(n) + 108n - 56\).</p>
+		
+		<p>Totally it requires \(32n \log(n) + 108n - 56\) bytes of memory to complete its execution and it is linearithmic space complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the memory required also increases linearithmically.</p>
+
+        <h5 class="post-subtitle">Factorial Space Complexity</h5>
+		
+        <p>Factorial space complexity arises in algorithms where the amount of memory used grows factorially with the size of the input. This is typical in problems involving permutations or combinations of a set of elements, where you need to store all possible arrangements or selections.</p>
+
+        <p>Consider the following piece of code</p>
+
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void swap(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+// Function to generate permutations recursively and store them in a 2D array
+void generatePermutations(int *digits, int start, int n, int **permutations, int *index) {
+    if (start == n - 1) {
+        // Store the current permutation in the 2D array
+        for (int i = 0; i &lt; n; i++) {
+            permutations[*index][i] = digits[i];
+        }
+        (*index)++;  // Move to the next row
+        return;
+    } else {
+        for (int i = start; i &lt; n; i++) {
+            // Swap the current element with the start
+            swap(&digits[start], &digits[i]);
+
+            // Recursively generate permutations for the remaining elements
+            generatePermutations(digits, start + 1, n, permutations, index);
+
+            // Backtrack: restore the original order
+            swap(&digits[start], &digits[i]);
+        }
+    }
+}
+
+int main() {
+    // Try to crack a lock with 3 dials
+    printf("Cracking the lock with 3 dials:\n");
+    // Calculate the total number of permutations (n!)
+    int num_permutations = 1;
+    for (int i = 1; i &lt;= n; i++) {
+        num_permutations *= i;
+    }
+
+    // Allocate memory for the 2D array to store the permutations
+    int **permutations = malloc(num_permutations * sizeof(int *));
+    for (int i = 0; i &lt; num_permutations; i++) {
+        permutations[i] = malloc(n * sizeof(int));
+    }
+
+    // Initialize the array with digits [0, 1, 2, ..., n-1]
+    int digits[n];
+    for (int i = 0; i &lt; n; i++) {
+        digits[i] = i;
+    }
+
+    // Initialize the index to track the current permutation
+    int index = 0;
+
+    // Generate all permutations and store them in the 2D array
+    generatePermutations(digits, 0, n, permutations, &index);
+
+    // Print the stored permutations
+    printf("All generated permutations:\n");
+    for (int i = 0; i &lt; num_permutations; i++) {
+        printf("Permutation %d: ", i + 1);
+        for (int j = 0; j &lt; n; j++) {
+            printf("%d ", permutations[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Free the allocated memory
+    for (int i = 0; i &lt; num_permutations; i++) {
+        free(permutations[i]);
+    }
+    free(permutations);
+
+    return 0;
+}</code></pre>
+        
+        <p>Let's break down the operations inside the <code>generatePermutations</code> function above and calculate the total space complexity:</p>
+
+        <ul>
+            <li>The parameter <code>int *digits</code> requires \(8\) bytes for the pointer and \(4 \times n\) for the array of integers.</li>
+			<li>The parameter <code>int start</code> requires \(4\) bytes.</li>
+			<li>The parameter <code>int n</code> requires \(4\) bytes.</li>
+			<li>The parameter <code>int **permutations</code> requires \(8 \times n!\) bytes for the pointer and \(4 \times n \times n!\) bytes for the array of integers.</li>
+			<li>The parameter <code>int *index</code> requires requires \(8\) bytes for the pointer and \(4\) for the array of integers.</li>
+			<li>The local variable <code>int i</code> in the first for loop requires \(4\) bytes.</li>
+			<li>The local variable <code>int i</code> in the second for loop requires \(4\) bytes.</li>
+			<li>The return address <code>swap(&digits[start], &digits[i])</code> requires \(8\) bytes.</li>
+			<li>The return address <code>generatePermutations(digits, start + 1, n, permutations, index)</code> requires \(8\) bytes.</li>
+			<li>The return address <code>swap(&digits[start], &digits[i])</code> requires \(8\) bytes.</li>
+        </ul>
+		
+		<p>So, each recursive call adds \(8 + 4n + 4 + 4 + 8n! + 4n \cdot n! + 8 + 4 + 4 + 4 + 8 + 8 + 8 = 4n \cdot n!+ 8n! + 4n + 60\) bytes. The number of recursive calls is \(n!\). Therefore, the total space complexity is \(n! \times (4n \cdot n! + 8n! + 4n + 60)\).</p>
+		
+		<p>Totally it requires \(n! \times (4n \cdot n!+8n!+4n+62)\) bytes of memory to complete its execution and it is factorial Space Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the memory required also increases factorially.</p>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/algorithm" class="tag">algorithm</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/time-complexity" class="tag">time complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/space-complexity" class="tag">space complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/constant-time-complexity" class="tag">constant time complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/logarithmic-time-complexity" class="tag">logarithmic time complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/linear-time-complexity" class="tag">linear time complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/linearithmic-time-complexity" class="tag">linearithmic time complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/quadratic-time-complexity" class="tag">quadratic time complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/cubic-time-complexity" class="tag">cubic time complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/exponential-time-complexity" class="tag">exponential time complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/factorial-time-complexity" class="tag">factorial time complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/constant-space-complexity" class="tag">constant space complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/logarithmic-space-complexity" class="tag">logarithmic space complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/linear-space-complexity" class="tag">linear space complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/linearithmic-space-complexity" class="tag">linearithmic space complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/quadratic-space-complexity" class="tag">quadratic space complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/cubic-space-complexity" class="tag">cubic space complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/exponential-space-complexity" class="tag">exponential space complexity</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/factorial-space-complexity" class="tag">factorial space complexity</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/&amp;hashtags=qemu,linux,fedora 38,firewalld,DHCP" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2023/08/16/setup-fedora-server-38-as-a-dhcp-server/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+					</div>
+				</div>
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/09/19/asymptotic-notation/"><img src="https://hemimorphite.github.io/assets/images/asymptotic.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/09/19/asymptotic-notation/">Asymptotic Notation</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/08/24/big5-encoding-and-decoding/"><img src="https://hemimorphite.github.io/assets/images/big5.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Complete Reference</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/08/24/big5-encoding-and-decoding/">Big5 Encoding and Decoding</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/08/24/big5-hkscs-encoding-and-decoding/"><img src="https://hemimorphite.github.io/assets/images/big5hk.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Complete Reference</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/08/24/big5-hkscs-encoding-and-decoding/">Big5-HKSCS Encoding and Decoding</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/08/23/big5e-encoding-and-decoding/"><img src="https://hemimorphite.github.io/assets/images/big5e.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Complete Reference</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/08/23/big5e-encoding-and-decoding/">Big5e Encoding and Decoding</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-9-encoding-and-decoding/"><img src="https://hemimorphite.github.io/assets/images/cns116439.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Complete Reference</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-9-encoding-and-decoding/">CNS11643 Plane 9 Encoding and Decoding</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-7-encoding-and-decoding/"><img src="https://hemimorphite.github.io/assets/images/cns116437.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Complete Reference</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-7-encoding-and-decoding/">CNS11643 Plane 7 Encoding and Decoding</a></h4>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<script async="async" data-cfasync="false" src="//pl23622823.highrevenuenetwork.com/82849ac901fcdf553b99a113d233ce38/invoke.js"></script>
+						<div id="container-82849ac901fcdf553b99a113d233ce38"></div>
+					</div>
+					<div class="col-md-6">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '08760f2487e830ed5039902de4007bec',
+								'format' : 'iframe',
+								'height' : 250,
+								'width' : 300,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/2024/10/07/time-and-space-complexity-in-algorithm/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/2024/10/07/time-and-space-complexity-in-algorithm/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+		
+  	</body>
+</html>
