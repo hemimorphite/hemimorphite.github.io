@@ -40,9 +40,9 @@ int sum(int a, int b)
         <p>In the above example, you will find three things i.e. input, algorithm, and output:</p>
 
         <ul>
-            <li>Input: Input is something for which you need to write an algorithm and transform it into the desired output. In our example, the input is the two numbers i.e. <code>a</code> and <code>b</code>.</li>
-            <li>Algorithm: An algorithm is well-defined steps by step procedure that take some value or set of values as input and produce some value or set of values as output. In the above example, we are having three steps to find the sum of two numbers. So, all three steps are collectively called an algorithm to find the sum of two numbers.</li>
-            <li>Output: Output is the desired result in the problem. For example, if we are finding the sum of two integers <code>a</code> and <code>b</code> then for every value of <code>a</code> and <code>b</code> it must produce the correct sum as an output.</li>
+            <li><b>Input</b>: Input is something for which you need to write an algorithm and transform it into the desired output. In our example, the input is the two numbers i.e. <code>a</code> and <code>b</code>.</li>
+            <li><b>Algorithm</b>: An algorithm is well-defined steps by step procedure that take some value or set of values as input and produce some value or set of values as output. In the above example, we are having three steps to find the sum of two numbers. So, all three steps are collectively called an algorithm to find the sum of two numbers.</li>
+            <li><b>Output</b>: Output is the desired result in the problem. For example, if we are finding the sum of two integers <code>a</code> and <code>b</code> then for every value of <code>a</code> and <code>b</code> it must produce the correct sum as an output.</li>
         </ul>
 
         <p>The efficiency of an algorithm is mainly defined by two factors i.e. space and time. A good algorithm is one that is taking less time and less space, but this is not possible all the time. There is a trade-off between time and space. If you want to reduce the time, then space might increase. Similarly, if you want to reduce the space, then the time may increase. So, you have to compromise with either space or time.</p>
@@ -165,7 +165,7 @@ int sum(int a, int b)
             <li>The return statement <code>return digits</code> takes \(1\) unit of time.</li>
         </ul>
 
-        <p>Totally it takes <code>\(2\lfloor \log_{10}(n) \rfloor + 4\)</code> units of time to complete its execution and it is Logarithmic Time Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the time required also increases logarithmically.</p>
+        <p>Totally it takes \(2\lfloor \log_{10}(n) \rfloor + 4\) units of time to complete its execution and it is Logarithmic Time Complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the time required also increases logarithmically.</p>
 
         <h5 class="post-subtitle">Quadratic Time Complexity</h5>
 
@@ -246,10 +246,12 @@ int sum(int a, int b)
                             <li>The increment <code>j++</code> takes \(1\) unit of time, repeated \(n\) times for each outer loop iteration.</li>
                             <li>The initialization <code>int k = 0</code> in the inner loop takes \(1\) unit of time, repeated \(n\) times for each outer loop iteration.</li>
                             <li>The inner loop runs \(n\) times for each middle loop iteration (the total number of iterations is \(n \times n \times n\)), and each iteration involves:<br>
-                                <li>The comparison <code>k &lt; n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(k = n\)) for each middle loop iteration.</li>
-                                <li>The increment <code>k++</code> takes \(1\) unit of time, repeated \(n\) times for each middle loop iteration.</li>
-                                <li>The array access <code>matrix[i][j][k]</code> takes \(1\) unit of time, repeated \(n\) times for each middle loop iteration.</li> 
-                                <li>The addition and assignment <code>sum += matrix[i][j][k]</code> take \(2\) units of time (\(1\) for addition, \(1\) for assignment), repeated \(n\) times for each middle loop iteration.</li> 
+								<ul>
+									<li>The comparison <code>k &lt; n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(k = n\)) for each middle loop iteration.</li>
+									<li>The increment <code>k++</code> takes \(1\) unit of time, repeated \(n\) times for each middle loop iteration.</li>
+									<li>The array access <code>matrix[i][j][k]</code> takes \(1\) unit of time, repeated \(n\) times for each middle loop iteration.</li> 
+									<li>The addition and assignment <code>sum += matrix[i][j][k]</code> take \(2\) units of time (\(1\) for addition, \(1\) for assignment), repeated \(n\) times for each middle loop iteration.</li>
+								</ul>
                             </li>
                         </ul>
                     </li>
@@ -351,7 +353,7 @@ int sum(int a, int b)
 						</ul>
 					</li>
 					<li>For \(n = 6\), the recursion tree looks like this:<br>
-						<pre><code class="language-bash hljs">					 F(5)                   
+						<pre><code class="language-bash hljs">F(5)                   
                    /     \
                F(4)       F(3)
               /   \       /   \
@@ -472,14 +474,14 @@ int main() {
         <p>Breakdown of Recursive Division:</p>
 
         <ul>
-            <li>Level 0 (Initial Input of Size \(n\)):<br>
+            <li>Level \(0\) (Initial Input of Size \(n\)):<br>
                 <ul>
                     <li>This is the first level, where the input array of size \(n\) is processed.</li>
                     <li>The array is split into two subarrays, each of size \(\frac{n}{2}\).</li>
                     <li>The total work done at this level is to process all \(n\) elements (dividing them into even and odd parts), but no recursive calls have been made yet.</li>
                 </ul>   
             </li>
-            <li>Level 1 (Subarrays of Size \(\frac{n}{2}\)):<br>
+            <li>Level \(1\) (Subarrays of Size \(\frac{n}{2}\)):<br>
                 <ul>
                     <li>After splitting the array into two subarrays, each of size \(\frac{n}{2}\), we recursively process both subarrays.</li>
                     <li>There are two subarrays, each with \(\frac{n}{2}\) elements.</li>
@@ -489,27 +491,27 @@ int main() {
                     <li>Even though each subarray is smaller, we still process a total of \(n\) elements.</li>
                 </ul>   
             </li>
-            <li>Level 2 (Subarrays of Size \(\frac{n}{4}\)):<br>
+            <li>Level \(2\) (Subarrays of Size \(\frac{n}{4}\)):<br>
                 <ul>
-                    <li>Each of the \frac{n}{2}-sized subarrays is split further into two subarrays of size \frac{n}{4}, making a total of four subarrays.</li>
-                    <li>Each subarray has \frac{n}{4} elements.</li>
+                    <li>Each of the \(\frac{n}{2}\)-sized subarrays is split further into two subarrays of size \(\frac{n}{4}\), making a total of four subarrays.</li>
+                    <li>Each subarray has \(\frac{n}{4}\) elements.</li>
                     <li>The total work done at this level is:<br>
                         \[ \frac{n}{4} + \frac{n}{4} + \frac{n}{4} + \frac{n}{4} = n \]
                     </li>   
                     <li>Again, we process \(n\) elements in total.</li>
                 </ul>
             </li>
-            <li>Level 3 (Subarrays of Size \(\frac{n}{8}\)):<br>
+            <li>Level \(3\) (Subarrays of Size \(\frac{n}{8}\)):<br>
                 <ul>
-                    <li>Each of the \frac{n}{4}-sized subarrays is split further into two subarrays of size \frac{n}{8}, making a total of eight subarrays.</li>
-                    <li>Each subarray has \frac{n}{8} elements.</li>
+                    <li>Each of the \(\frac{n}{4}\)-sized subarrays is split further into two subarrays of size \(\frac{n}{8}\), making a total of eight subarrays.</li>
+                    <li>Each subarray has \(\frac{n}{8}\) elements.</li>
                     <li>The total work done at this level is:<br>
                         \[ \frac{n}{8} + \frac{n}{8} + \frac{n}{8} + \frac{n}{8} + ... + \frac{n}{8} = n \]
                     </li>   
                     <li>The total work at this level is still \(n\).</li>
                 </ul>
             </li>
-            <li>Level k:<br>
+            <li>Level \(k\) (Subarrays of Size \(\frac{n}{2^{k}}\)):<br>
                 <ul>
                     <li>At each level, the array is split into more subarrays, but the total number of elements processed at that level always remains \(n\).</li>
                     <li>At level \(k\), there are \(2^k\) subarrays, each of size \(\frac{n}{2^k}\).</li>
@@ -605,7 +607,7 @@ int main() {
                 </ul>
             </li>
 
-            <li>Level 1 (There are \(2\) recursive calls with size \(\frac{n}{2}\)):<br>
+            <li>Level \(1\) (There are \(2\) recursive calls with size \(\frac{n}{2}\)):<br>
                 <ul>
                     <li>In each of recursive calls, the comparison <code>n &lt;= 1</code> takes \(1\) unit of time</li>
                     <li>In each of recursive calls, the initialization <code>int i = 0</code> in the for loop takes \(1\) unit of time</li>
@@ -958,67 +960,85 @@ int main() {
 					<li><code>start = 1</code> and the current permutation is not stored since <code>start != n - 1</code></li>
 					<li>The loop runs from <code>i = 1</code> to <code>i = 4</code>.</li>
 					<li>For <code>i = 1</code>:<br>
-						<li>There is no swap since <code>i == start</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
+						<ul>
 							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{0, 1, 2, 3}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{0, 1, 2, 3}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 3, 2}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{0, 1, 3, 2}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+								</ul>
+							</li>
 							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 3, 2}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{0, 1, 3, 2}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
-						</li>
-						<li>There is no swap since <code>i == start</code></li>
+						</ul>
 					</li>
 					<li>For <code>i = 2</code>:<br>
-						<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {0, 2, 1, 3}</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
-							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{0, 2, 1, 3}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 3, 2}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{0, 1, 3, 2}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
-						</li>
-						<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+						<ul>
+							<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {0, 2, 1, 3}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{0, 2, 1, 3}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 3, 2}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{0, 1, 3, 2}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+								</ul>
+							</li>
+							<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+						</ul>
 					</li>
 					<li>For <code>i = 3</code>:<br>
-						<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 3, 2, 1}</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
-							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{0, 3, 2, 1}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 3, 1, 2}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{0, 3, 1, 2}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 3, 2, 1}</code></li>
-						</li>
-						<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+						<ul>
+							<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 3, 2, 1}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{0, 3, 2, 1}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 3, 1, 2}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{0, 3, 1, 2}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 3, 2, 1}</code></li>
+								</ul>
+							</li>
+							<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
+						</ul>
 					</li>
 					<li>There is no swap since <code>i == start</code></li>
 				</ul>
@@ -1030,67 +1050,85 @@ int main() {
 					<li><code>start = 1</code> and the current permutation is not stored since <code>start != n - 1</code></li>
 					<li>The loop runs from <code>i = 1</code> to <code>i = 4</code>.</li>
 					<li>For <code>i = 1</code>:<br>
-						<li>There is no swap since <code>i == start</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
+						<ul>
 							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{1, 0, 2, 3}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{1, 0, 2, 3}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 0, 3, 2}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{1, 0, 3, 2}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 0, 2, 3}</code></li>
+								</ul>
+							</li>
 							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 0, 3, 2}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{1, 0, 3, 2}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 0, 2, 3}</code></li>
-						</li>
-						<li>There is no swap since <code>i == start</code></li>
+						</ul>
 					</li>
 					<li>For <code>i = 2</code>:<br>
-						<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {1, 2, 0, 3}</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
-							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{1, 2, 0, 3}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 2, 3, 0}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{1, 2, 3, 0}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 2, 0, 3}</code></li>
-						</li>
-						<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {1, 0, 2, 3}</code></li>
+						<ul>
+							<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {1, 2, 0, 3}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{1, 2, 0, 3}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>	
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 2, 3, 0}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{1, 2, 3, 0}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 2, 0, 3}</code></li>
+								</ul>
+							</li>
+							<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {1, 0, 2, 3}</code></li>
+						</ul>
 					</li>
 					<li>For <code>i = 3</code>:<br>
-						<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 3, 2, 0}</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
-							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{1, 3, 2, 0}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 3, 0, 2}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{1, 3, 0, 2}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 3, 2, 0}</code></li>
-						</li>
-						<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 0, 2, 3}</code></li>
+						<ul>
+							<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 3, 2, 0}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{1, 3, 2, 0}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 3, 0, 2}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{1, 3, 0, 2}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 3, 2, 0}</code></li>
+								</ul>
+							</li>
+							<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {1, 0, 2, 3}</code></li>
+						</ul>
 					</li>
 					<li>There is no swap since <code>i == start</code></li>
 				</ul>
@@ -1103,72 +1141,89 @@ int main() {
 					<li><code>start = 1</code> and the current permutation is not stored since <code>start != n - 1</code></li>
 					<li>The loop runs from <code>i = 1</code> to <code>i = 4</code>.</li>
 					<li>For <code>i = 1</code>:<br>
-						<li>There is no swap since <code>i == start</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
+						<ul>
 							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{2, 1, 0, 3}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{2, 1, 0, 3}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 1, 3, 0}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{2, 1, 3, 0}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 1, 0, 3}</code></li>
+								</ul>
+							</li>
 							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 1, 3, 0}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{2, 1, 3, 0}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 1, 0, 3}</code></li>
-						</li>
-						<li>There is no swap since <code>i == start</code></li>
+						</ul>
 					</li>
 					<li>For <code>i = 2</code>:<br>
-						<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {2, 0, 1, 3}</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
-							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{2, 0, 1, 3}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 0, 3, 1}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{2, 0, 3, 1}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 0, 1, 3}</code></li>
-						</li>
-						<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {2, 1, 0, 3}</code></li>
+						<ul>
+							<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {2, 0, 1, 3}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{2, 0, 1, 3}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 0, 3, 1}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{2, 0, 3, 1}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 0, 1, 3}</code></li>
+								</ul>
+							</li>
+							<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {2, 1, 0, 3}</code></li>
+						</ul>
 					</li>
 					<li>For <code>i = 3</code>:<br>
-						<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 3, 0, 1}</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
-							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{2, 3, 0, 1}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 3, 1, 0}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{2, 3, 1, 0}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 3, 0, 1}</code></li>
-						</li>
-						<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 1, 0, 3}</code></li>
+						<ul>
+							<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 3, 0, 1}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{2, 3, 0, 1}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 3, 1, 0}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{2, 3, 1, 0}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 3, 0, 1}</code></li>
+								</ul>
+							</li>
+							<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {2, 1, 0, 3}</code></li>
+						</ul>
 					</li>
 					<li>Swap back <code>digits[0]</code> with <code>digits[2]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
 				</ul>
-			</li>
-			
+			</li>			
 			<li>For <code>i = 3</code>:<br>
 				<ul>
 					<li>Swap <code>digits[0]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 1, 2, 0}</code></li>
@@ -1176,67 +1231,85 @@ int main() {
 					<li><code>start = 1</code> and the current permutation is not stored since <code>start != n - 1</code></li>
 					<li>The loop runs from <code>i = 1</code> to <code>i = 4</code>.</li>
 					<li>For <code>i = 1</code>:<br>
-						<li>There is no swap since <code>i == start</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
+						<ul>
 							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{3, 1, 2, 0}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{3, 1, 2, 0}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 1, 0, 2}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{3, 1, 0, 2}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 1, 2, 0}</code></li>
+								</ul>
+							</li>
 							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 1, 0, 2}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{3, 1, 0, 2}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 1, 2, 0}</code></li>
-						</li>
-						<li>There is no swap since <code>i == start</code></li>
+						</ul>
 					</li>
 					<li>For <code>i = 2</code>:<br>
-						<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {3, 2, 1, 0}</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
-							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{3, 2, 1, 0}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 2, 0, 1}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{3, 2, 0, 1}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 2, 1, 0}/code></li>
-						</li>
-						<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {3, 1, 2, 0}</code></li>
+						<ul>
+							<li>Swap <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {3, 2, 1, 0}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{3, 2, 1, 0}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 2, 0, 1}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{3, 2, 0, 1}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 2, 1, 0}</code></li>
+								</ul>
+							</li>
+							<li>Swap back <code>digits[1]</code> with <code>digits[2]</code>, thus <code>digits[] = {3, 1, 2, 0}</code></li>
+						</ul>
 					</li>
 					<li>For <code>i = 3</code>:<br>
-						<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 0, 2, 1}</code></li>
-						<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
-						<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
-						<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
-						<li>For <code>i = 2</code>:<br>
-							<li>There is no swap since <code>i == start</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{3, 0, 2, 1}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>There is no swap since <code>i == start</code></li>
-						</li>
-						<li>For <code>i = 3</code>:<br>
-							<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 0, 1, 2}</code></li>
-							<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
-							<li><code>start = 3</code> and the current permutation <code>{3, 0, 1, 2}</code> is stored since <code>start == n - 1</code></li>
-							<li>Increment index and return to the previous call.</li>
-							<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 0, 2, 1}</code></li>
-						</li>
-						<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 1, 2, 0}</code></li>
+						<ul>
+							<li>Swap <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 0, 2, 1}</code></li>
+							<li>Recursively call <code>generatePermutations(digits, 2, 4, permutations, index)</code></li>
+							<li><code>start = 2</code> and the current permutation is not stored since <code>start != n - 1</code></li>
+							<li>The loop runs from <code>i = 2</code> to <code>i = 4</code>.</li>
+							<li>For <code>i = 2</code>:<br>
+								<ul>
+									<li>There is no swap since <code>i == start</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{3, 0, 2, 1}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>There is no swap since <code>i == start</code></li>
+								</ul>
+							</li>
+							<li>For <code>i = 3</code>:<br>
+								<ul>
+									<li>Swap <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 0, 1, 2}</code></li>
+									<li>Recursively call <code>generatePermutations(digits, 3, 4, permutations, index)</code></li>
+									<li><code>start = 3</code> and the current permutation <code>{3, 0, 1, 2}</code> is stored since <code>start == n - 1</code></li>
+									<li>Increment index and return to the previous call.</li>
+									<li>Swap back <code>digits[2]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 0, 2, 1}</code></li>
+								</ul>
+							</li>
+							<li>Swap back <code>digits[1]</code> with <code>digits[3]</code>, thus <code>digits[] = {3, 1, 2, 0}</code></li>
+						</ul>
 					</li>
 					<li>Swap back <code>digits[0]</code> with <code>digits[3]</code>, thus <code>digits[] = {0, 1, 2, 3}</code></li>
 				</ul>
@@ -1253,7 +1326,7 @@ int main() {
                     <li>The initialization <code>int i = 0</code> in the second for loop takes \(1\) unit of time</li>
                     <li>The for loop runs \(n\) times, and each iteration involves:<br> 
                         <ul>
-							<li>The comparison <code>i < n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(i = n\)).</li>
+							<li>The comparison <code>i &lt; n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(i = n\)).</li>
                             <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n\) times.</li>
                             <li>The swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n\) times</li>
                             <li>The second swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n\) times</li>
@@ -1268,7 +1341,7 @@ int main() {
                     <li>The initialization <code>int i = 0</code> in the second for loop takes \(1\) unit of time</li>
                     <li>The for loop runs \(n-1\) times, and each iteration involves:<br> 
                         <ul>
-                            <li>The comparison <code>i < n</code> takes \(1\) unit of time, repeated \(n - 1 + 1\) times (including the last comparison when \(i = n-1\)).</li>
+                            <li>The comparison <code>i &lt; n</code> takes \(1\) unit of time, repeated \(n - 1 + 1\) times (including the last comparison when \(i = n-1\)).</li>
                             <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n - 1\) times.</li>
                             <li>The swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - 1\) times</li>
                             <li>The second swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - 1\) times</li>
@@ -1283,7 +1356,7 @@ int main() {
                     <li>The initialization <code>int i = 0</code> in the second for loop takes \(1\) unit of time</li>
                     <li>The for loop runs \(n-2\) times, and each iteration involves:<br> 
                         <ul>
-                            <li>The comparison <code>i < n</code> takes \(1\) unit of time, repeated \(n - 2 + 1\) times (including the last comparison when \(i = n-2\)).</li>
+                            <li>The comparison <code>i &lt; n</code> takes \(1\) unit of time, repeated \(n - 2 + 1\) times (including the last comparison when \(i = n-2\)).</li>
                             <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n - 2\) times.</li>
                             <li>The swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - 2\) times</li>
                             <li>The second swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - 2\) times</li>
@@ -1298,7 +1371,7 @@ int main() {
                     <li>The initialization <code>int i = 0</code> in the second for loop takes \(1\) unit of time</li>
                     <li>The for loop runs \(n-k\) times, and each iteration involves:<br> 
                         <ul>
-							<li>The comparison <code>i < n</code> takes \(1\) unit of time, repeated \(n - k + 1\) times (including the last comparison when \(i = n-k\)).</li>
+							<li>The comparison <code>i &lt; n</code> takes \(1\) unit of time, repeated \(n - k + 1\) times (including the last comparison when \(i = n-k\)).</li>
                             <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n - k\) times.</li>
                             <li>The swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - k\) times.</li>
                             <li>The second swap function <code>swap(&digits[start], &digits[i])</code> takes \(5\) unit of time, repeated \(n - k\) times.</li>
@@ -1313,7 +1386,7 @@ int main() {
                     <li>The initialization <code>int i = 0</code> in the first for loop takes \(1\) unit of time</li>
                     <li>The for loop runs \(n\) times, and each iteration involves:<br> 
                         <ul>
-							<li>The comparison <code>k < n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(i = n\)).</li>
+							<li>The comparison <code>k &lt; n</code> takes \(1\) unit of time, repeated \(n + 1\) times (including the last comparison when \(i = n\)).</li>
                             <li>The increment <code>i++</code> takes \(1\) unit of time, repeated \(n\) times.</li>
 							<li>The array access <code>digits[i]</code> takes \(1\) unit of time, repeated \(n\) times.</li>
                             <li>The assignment function <code>permutations[*index][i] = digits[i]</code> takes \(1\) unit of time, repeated \(n\) times.</li>
@@ -1345,9 +1418,9 @@ int main() {
         <p>When a program is executing, it utilizes memory primarily for these three reasons:</p>
 
         <ol>
-            <li>Instruction Space: To store the compiled code of the program, which includes all the instructions the CPU will execute.</li>
-            <li>Environmental Stack: To manage function calls and local variables. This includes information about active functions, their parameters, and where to return after a function execution.</li>
-            <li>Data Space: To hold all the variables, constants, and data structures that the program uses during its execution.</li>
+            <li><b>Instruction Space</b>: To store the compiled code of the program, which includes all the instructions the CPU will execute.</li>
+            <li><b>Environmental Stack</b>: To manage function calls and local variables. This includes information about active functions, their parameters, and where to return after a function execution.</li>
+            <li><b>Data Space</b>: To hold all the variables, constants, and data structures that the program uses during its execution.</li>
         </ol>
 
         <p>When analyzing an algorithm's space complexity, we typically focus on the data space, which includes the memory required for variables, constants, data structures, and any additional memory needed during the execution of the algorithm. Instruction space (the code itself) and environmental stack (such as function call stacks) are generally not included in this analysis. This helps in understanding how much memory an algorithm will require as the input size increases.</p>
@@ -1357,13 +1430,13 @@ int main() {
         <p>In C, the memory required for different data types can vary based on the compiler and the architecture, but here are some common sizes:</p>
 
         <ol>
-            <li>char: Typically 1 byte (8 bits).</li>
-            <li>int: Usually 4 bytes (32 bits) on most platforms, but can be 2 bytes (16 bits) on older systems.</li>
-            <li>float: Generally 4 bytes (32 bits).</li>
-            <li>double: Usually 8 bytes (64 bits).</li>
-            <li>long: Typically 4 bytes (32 bits) on 32-bit systems and 8 bytes (64 bits) on 64-bit systems.</li>
-            <li>long long: Generally 8 bytes (64 bits).</li>
-			<li>memory address: Generally 8 bytes (64 bits) for a 64-bit computer machine or 4 bytes for 32-bit computer machine.</li>
+            <li><code>char</code>: Typically \(1\) byte (8 bits).</li>
+            <li><code>int</code>: Usually \(4\) bytes (32 bits) on most platforms, but can be 2 bytes (16 bits) on older systems.</li>
+            <li><code>float</code>: Generally \(4\) bytes (32 bits).</li>
+            <li><code>double</code>: Usually \(8\) bytes (64 bits).</li>
+            <li><code>long</code>: Typically \(4\) bytes (32 bits) on 32-bit systems and \(8\) bytes (64 bits) on 64-bit systems.</li>
+            <li><code>long long</code>: Generally \(8\) bytes (64 bits).</li>
+			<li>memory address: Generally \(8\) bytes (64 bits) for a 64-bit computer machine or \(4\) bytes for 32-bit computer machine.</li>
         </ol>
 
         <h5 class="post-subtitle">Constant Space Complexity</h5>
@@ -1397,7 +1470,7 @@ int main() {
         <pre><code class="language-c hljs">int sum(int arr[], int n)
 {
     int sum = 0;
-    for(int i = 0; i < n; i++)
+    for(int i = 0; i &lt; n; i++)
         sum = sum + arr[i];
     return sum;
 }</code></pre>
