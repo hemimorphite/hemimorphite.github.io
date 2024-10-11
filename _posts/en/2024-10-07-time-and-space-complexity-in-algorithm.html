@@ -5,7 +5,7 @@ locale: en
 title: "Time and Space Complexity in Algorithm"
 thumb: "complexity.jpg"
 eyebrow: "Tutorial"
-description: "Delve into the world of time and space complexity in algorithms with practical examples and clear explanations. Understand how different tasks, such as calculating powers (exponential time) or iterating through data structures (linear time), impact performance. Explore how algorithms use memory and processing power, from simple loops (constant space) to more complex recursive functions like computing factorials (factorial space complexity)."
+description: "Time and Space Complexity in Algorithm explores the foundational concepts of time and space complexity in algorithms, providing insight into various complexity classes. This page covers key topics such as constant, logarithmic, linear, linearithmic, quadratic, cubic, exponential, and factorial time complexities, alongside their corresponding space complexities."
 date: 2024-10-07 13:21:00 +0700
 author: Samuel Yang
 categories: ["Tutorial", "year-2024", "month-10", "day-07"]
@@ -1705,7 +1705,7 @@ int main() {
 			<li>The local variable <code>double tIm</code> requires \(8\) bytes.</li>
         </ul>
 		
-		<p>So, each recursive call adds \(8\frac{n}{2^{k}} + 8 + 8\frac{n}{2^{k}} + 8 + 4\frac{n}{2^{k}} + 8 + 4\frac{n}{2^{k}} + 8 + 4\frac{n}{2^{k}} + 8 + 4\frac{n}{2^{k}} + 8 + 8 + 8 + 8 + 8 = 32\frac{n}{2^{k}} + 56\) bytes. The total number of recursive calls is \(2^{0} + 2^{1} + 2^{2} + ... + 2^{\log_{2}(n)} = 2^{\log_{2}(n) + 1} - 1\). Therefore, the total space complexity is \(2^{0} \times (32\frac{n}{2^{0}} + 56) + 2^{1} \times (32\frac{n}{2^{1}} + 56) + 2^{2} \times (32\frac{n}{2^{2}} + 56) + ... + 2^{\log_{2}(n)} \times (32\frac{n}{2^{\log_{2}(n)}} + 56) = 32n \log(n) + 108n - 56\).</p>
+		<p>So, each recursive call adds \(8 \times \frac{n}{2^{k}} + 8 + 8 \times \frac{n}{2^{k}} + 8 + 4 \times \frac{n}{2^{k}} + 8 + 4 \times \frac{n}{2^{k}} + 8 + 4 \times \frac{n}{2^{k}} + 8 + 4 \times \frac{n}{2^{k}} + 8 + 8 + 8 + 8 + 8 = \frac{32n}{2^{k}} + 56\) bytes. The total number of recursive calls is \(2^{0} + 2^{1} + 2^{2} + ... + 2^{\log_{2}(n)} = 2^{\log_{2}(n) + 1} - 1\). Therefore, the total space complexity is \(2^{0} \times (\frac{32n}{2^{0}} + 56) + 2^{1} \times (\frac{32n}{2^{1}} + 56) + 2^{2} \times (\frac{32n}{2^{2}} + 56) + ... + 2^{\log_{2}(n)} \times (\frac{32n}{2^{\log_{2}(n)}} + 56) = 32n \log(n) + 108n - 56\).</p>
 		
 		<p>Totally it requires \(32n \log(n) + 108n - 56\) bytes of memory to complete its execution and it is linearithmic space complexity. It changes based on the \(n\) value. If we increase the \(n\) value then the memory required also increases linearithmically.</p>
 

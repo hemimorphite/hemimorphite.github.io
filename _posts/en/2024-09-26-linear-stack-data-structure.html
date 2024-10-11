@@ -27,21 +27,8 @@ tags: ["data structure", "stack", "linear stack", "fixed sized linear stack", "d
         <p>There are two types of Linear Stack Data Structure:</p>
 
         <ul>
-            <li><b>Fixed Size Linear Stack</b> : A fixed size linear stack has a fixed size and cannot grow or shrink dynamically. If the stack is full and an attempt is made to add an element to it, an overflow error occurs. If the stack is empty and an attempt is made to remove an element from it, an underflow error occurs. This type of stack is implemented using an array. The array size is fixed, so elements are added sequentially in the array.</li>
-            <li><b>Dynamic Size Linear Stack</b> : A dynamic size linear stack can grow or shrink dynamically. When the stack is full, it automatically increases its size to accommodate the new element, and when the stack is empty, it decreases its size. This type of stack is implemented using a linked list, as it allows for easy resizing of the stack.</li>
-        </ul>
-
-        <p>The following are some common operations implemented on the stack:</p>
-
-        <ul>
-            <li><code>push()</code>: Adds an element to the top of the stack. If the stack is full then the overflow condition occurs.</li>
-            <li><code>pop()</code>: Removes the element from the top of the stack and returns it. If the stack is empty means that no element exists in the stack, this state is known as an underflow state.</li>
-            <li><code>isEmpty()</code>: Checks whether the stack is empty.</li>
-            <li><code>isFull()</code>: Checks if the stack has reached its maximum capacity.</li>
-            <li><code>peek()</code>: Returns the element at the top of the stack without removing it.</li>
-            <li><code>size()</code>: Returns the number of elements currently in the stack.</li>
-            <li><code>clear()</code>: Resets the stack to its initial empty state.</li>
-            <li><code>display()</code>: Prints all the elements available in the stack.</li>
+            <li><b>Fixed Size Linear Stack</b>: A fixed size linear stack has a fixed size and cannot grow or shrink dynamically. If the stack is full and an attempt is made to add an element to it, an overflow error occurs. If the stack is empty and an attempt is made to remove an element from it, an underflow error occurs. This type of stack is implemented using an array. The array size is fixed, so elements are added sequentially in the array.</li>
+            <li><b>Dynamic Size Linear Stack</b>: A dynamic size linear stack can grow or shrink dynamically. When the stack is full, it automatically increases its size to accommodate the new element, and when the stack is empty, it decreases its size. This type of stack is implemented using a linked list, as it allows for easy resizing of the stack.</li>
         </ul>
 
         <p>A stack is a data structure with several key characteristics that make it unique and useful in various computational scenarios. Here are its main characteristics:</p>
@@ -54,9 +41,70 @@ tags: ["data structure", "stack", "linear stack", "fixed sized linear stack", "d
         </ul>
 
         <p>In an array-based stack implementation, the push operation is implemented by incrementing the index of the top element and storing the new element at that index. The pop operation is implemented by returning the value stored at the top index and then decrementing the index of the top element.</p>
+		
+		<p>The following are some common operations implemented on the simple stack using an array:</p>
 
+        <ul>
+            <li><code>push()</code>:<br> 
+				<ul>
+					<li><b>Description</b>: Adds an element to the top of the stack. If the stack is full then the overflow condition occurs.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply adds an element to the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>pop()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes the element from the top of the stack and returns it. If the stack is empty means that no element exists in the stack, this state is known as an underflow state.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply remove an element from the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>isEmpty()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Checks whether the stack is empty.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply checks the index of the top pointer is empty.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>isFull()</code>:<br> 
+				<ul>
+					<li><b>Description</b>: Checks if the stack has reached its maximum capacity.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply checks the index of the top pointer is at the maximum capacity of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>peek()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Returns the element at the top of the stack without removing it.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply accesses the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>size()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Returns the number of elements currently in the stack.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply gets the number of elements in the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>clear()</code>:<br> 
+				<ul>
+					<li><b>Description</b>: Resets the stack to its initial empty state.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply decrements the top pointer of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>display()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Prints all the elements available in the stack.</li>
+					<li><b>Time complexity</b>: linear time i.e. \(O(n)\), it performs loop through the elements in the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+        </ul>
+		
         <p>C array-based simple stack implementation:</p>
-        
+  
         <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
@@ -365,6 +413,67 @@ class Stack {
     }
 }</code></pre>
         
+		<p>The following are some common operations implemented on the generic stack using an array:</p>
+
+        <ul>
+            <li><code>push()</code>:<br> 
+				<ul>
+					<li><b>Description</b>: Adds an element to the top of the stack. If the stack is full then the overflow condition occurs.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply adds an element to the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>pop()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes the element from the top of the stack and returns it. If the stack is empty means that no element exists in the stack, this state is known as an underflow state.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply remove an element from the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>isEmpty()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Checks whether the stack is empty.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply checks the index of the top pointer is empty.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>isFull()</code>:<br> 
+				<ul>
+					<li><b>Description</b>: Checks if the stack has reached its maximum capacity.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply checks the index of the top pointer is at the maximum capacity of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>peek()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Returns the element at the top of the stack without removing it.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply accesses the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>size()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Returns the number of elements currently in the stack.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply gets the number of elements in the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>clear()</code>:<br> 
+				<ul>
+					<li><b>Description</b>: Resets the stack to its initial empty state.</li>
+					<li><b>Time complexity</b>: linear time i.e. \(O(n)\), it performs loop through the elements in the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>display()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Prints all the elements available in the stack.</li>
+					<li><b>Time complexity</b>: linear time i.e. \(O(n)\), it performs loop through the elements in the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+        </ul>
+		
         <p>To implement a generic stack in C requires using <code>void*</code> pointers and function pointers to manage various data types since C does not support generics directly (like in C++ or Java). C array-based generic stack implementation:</p>
 
         <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
@@ -408,6 +517,10 @@ struct StackElement pop(struct Stack* s) {
         return emptyElement;
     }
     printf("Popped %s from stack\n", (char*)s-&gt;stack[s-&gt;top].toString);
+	free(s->stack[s->top].toString);
+	if (s->stack[s->top].data != NULL) {
+        free(s->stack[s->top].data);
+    }
     return s-&gt;stack[(s-&gt;top)--];
 }
 
@@ -436,6 +549,16 @@ int size(struct Stack* s) {
 }
 
 void clear(struct Stack* s) {
+	// Free memory for each element in the stack
+    for (int i = 0; i <= s->top; i++) {
+        // Free the memory allocated for the `toString` field
+        free(s->stack[i].toString);
+
+        // Free the memory allocated for the `data` field, if it was dynamically allocated
+        if (s->stack[i].data != NULL) {
+            free(s->stack[i].data);
+        }
+    }
     s-&gt;top = -1;
     printf("Stack is cleared!\n");
 }
@@ -812,7 +935,61 @@ class Program {
 }</code></pre>
 
         <p>In a linked list-based implementation, the push operation is implemented by creating a new node with the new element and setting the next pointer of the current top node to the new node. The pop operation is implemented by setting the next pointer of the current top node to the next node and returning the value of the current top node.</p>
+		
+		<p>The following are some common operations implemented on the simple stack using a linked list:</p>
 
+        <ul>
+            <li><code>push()</code>:<br> 
+				<ul>
+					<li><b>Description</b>: Adds an element to the top of the stack. If the stack is full then the overflow condition occurs.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply adds an element to the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>pop()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes the element from the top of the stack and returns it. If the stack is empty means that no element exists in the stack, this state is known as an underflow state.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply remove an element from the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>isEmpty()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Checks whether the stack is empty.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply checks the index of the top pointer is empty.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>peek()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Returns the element at the top of the stack without removing it.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply accesses the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>size()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Returns the number of elements currently in the stack.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply gets the number of elements in the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>clear()</code>:<br> 
+				<ul>
+					<li><b>Description</b>: Resets the stack to its initial empty state.</li>
+					<li><b>Time complexity</b>: linear time i.e. \(O(n)\), it performs loop through the elements in the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>display()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Prints all the elements available in the stack.</li>
+					<li><b>Time complexity</b>: linear time i.e. \(O(n)\), it performs loop through the elements in the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+        </ul>
+		
         <p>C Linked List-based Simple Stack Implementation:</p>
 
         <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
@@ -1240,8 +1417,61 @@ public class Stack {
     }
 }</code></pre>
         
+		<p>The following are some common operations implemented on the generic stack using a linked list:</p>
 
-        <p>To implement a generic stack in C requires using void* pointers and function pointers to manage various data types since C does not support generics directly (like in C++ or Java). C Linked List-based generic stack implementation:</p>
+        <ul>
+            <li><code>push()</code>:<br> 
+				<ul>
+					<li><b>Description</b>: Adds an element to the top of the stack. If the stack is full then the overflow condition occurs.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply adds an element to the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>pop()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes the element from the top of the stack and returns it. If the stack is empty means that no element exists in the stack, this state is known as an underflow state.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply remove an element from the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>isEmpty()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Checks whether the stack is empty.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply checks the index of the top pointer is empty.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>peek()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Returns the element at the top of the stack without removing it.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply accesses the top of the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>size()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Returns the number of elements currently in the stack.</li>
+					<li><b>Time complexity</b>: constant time i.e. \(O(1)\), it simply gets the number of elements in the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>clear()</code>:<br> 
+				<ul>
+					<li><b>Description</b>: Resets the stack to its initial empty state.</li>
+					<li><b>Time complexity</b>: linear time i.e. \(O(n)\), it performs loop through the elements in the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+            <li><code>display()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Prints all the elements available in the stack.</li>
+					<li><b>Time complexity</b>: linear time i.e. \(O(n)\), it performs loop through the elements in the stack.</li>
+					<li><b>Space complexity</b>: constant space i.e. \(O(1)\), no extra space is required.</li>
+				</ul>
+			</li>
+        </ul>
+		
+        <p>To implement a generic stack in C requires using <code>void*</code> pointers and function pointers to manage various data types since C does not support generics directly (like in C++ or Java). C Linked List-based generic stack implementation:</p>
 
         <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
