@@ -26,7 +26,7 @@ tags: ["data structure", "array", "dynamic array"]
 			<li><b>Flexible Size</b>: Unlike fixed-size arrays, which have a predetermined capacity, a dynamic array can grow or shrink based on the number of elements it holds.</li>
 			<li><b>Amortized Constant-Time Append</b>: Adding an element at the end of a dynamic array is efficient and usually takes \(O(1)\) time. When the array reaches its capacity, the array is resized (which takes \(O(n)\) time for the copy operation), but this happens infrequently. Therefore, the average time complexity for appending an element is amortized \(O(1)\).</li>
 			<li><b>Efficient Memory Management</b>: Dynamic arrays allocate memory only when needed. Although resizing (doubling the size of the array) may lead to some temporarily unused memory (as the array can grow to be larger than the number of elements), this approach minimizes memory reallocations and ensures that elements are stored contiguously in memory.</li>
-			<li><b>Index-Based Insertions and Deletions</b>: Inserting or deleting elements at specific indices can be done in a dynamic array, but these operations require shifting elements, making them \(O(n)\) in the worst case. Inserting at the end (append) is faster, while inserting or deleting in the middle requires moving elements to maintain the order.<li>
+			<li><b>Index-Based Insertions and Deletions</b>: Inserting or deleting elements at specific indices can be done in a dynamic array, but these operations require shifting elements, making them \(O(n)\) in the worst case. Inserting at the end (append) is faster, while inserting or deleting in the middle requires moving elements to maintain the order.</li>
 			<li><b>Contiguous Memory Allocation</b>: Like regular arrays, elements in a dynamic array are stored in a contiguous block of memory. This provides cache-friendly access to data, improving performance when iterating over the elements.</li>
 		</ul>
 
@@ -57,7 +57,7 @@ tags: ["data structure", "array", "dynamic array"]
 					<li><b>Space complexity</b>: Accessing an element does not require any additional space apart from the memory already allocated for the array itself. Therefore this operation takes constant space i.e. \(O(1)\).</li>
 				</ul>
 			</li>
-            <li><code>set()</code>:<br>add,get,set,
+            <li><code>set()</code>:<br>
 				<ul>
 					<li><b>Description</b>: Adds an element to the end of the array. If the current size equals the capacity, the array is resized (usually doubled), and the element is added.</li>
 					<li><b>Time complexity</b>: Setting an element at any index is a constant-time operation i.e. \(O(1)\) because it directly changes the value at the memory location corresponding to the index.</li>
