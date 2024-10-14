@@ -1,0 +1,5974 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="Discover the essential concepts of singly linked list data structures in this detailed tutorial designed for both beginners and experienced learners. This guide offers a thorough exploration of the implementation process, complete with illustrative examples that demonstrate key operations such as node creation, insertion, deletion, sorting, searching, and traversal.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/2024/10/14/singly-linked-list-data-structure/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Singly Linked List Data Structure">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/2024/10/14/singly-linked-list-data-structure/">
+		<meta property="og:description" content="Discover the essential concepts of singly linked list data structures in this detailed tutorial designed for both beginners and experienced learners. This guide offers a thorough exploration of the implementation process, complete with illustrative examples that demonstrate key operations such as node creation, insertion, deletion, sorting, searching, and traversal.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/singlylinked.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Singly Linked List Data Structure">
+		<meta name="twitter:description" content="Discover the essential concepts of singly linked list data structures in this detailed tutorial designed for both beginners and experienced learners. This guide offers a thorough exploration of the implementation process, complete with illustrative examples that demonstrate key operations such as node creation, insertion, deletion, sorting, searching, and traversal.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/singlylinked.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Singly Linked List Data Structure</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <!-- Additional CSS Files -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <!--<div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>-->  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '9cf40e8a46ab80f525196d3376630858',
+								'format' : 'iframe',
+								'height' : 90,
+								'width' : 728,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<script type="text/javascript">
+					atOptions = {
+						'key' : '9cf40e8a46ab80f525196d3376630858',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+			</div>
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">Singly Linked List Data Structure</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published October 14, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/singlylinked.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>A Singly Linked List is a type of linked list in which each element, called a node, contains two fields:</p>
+
+        <ul>
+			<li><b>Data</b>: The value or information stored in the node.</li>
+			<li><b>Pointer (Next)</b>: A reference (or pointer) to the next node in the sequence.</li>
+		</ul>
+
+        <p>The singly linked list forms a linear collection of elements where each node points to its successor, and the last node points to <code>NULL</code>, indicating the end of the list. It is a dynamic data structure, meaning it can grow or shrink in size during runtime, as nodes can be added or removed without requiring memory to be reallocated.</p>
+		
+		<p>The head is the first node in the list, and it serves as the entry point for traversing the list. If the list is empty, the head points to <code>NULL</code>.</p>
+		
+		<p>Unlike arrays that have a fixed size, a singly linked list dynamically allocates memory for each node when it is created. This means the size of the list can grow or shrink as nodes are added or removed at runtime.</p>
+		
+		<p>Insertions and deletions of nodes, particularly at the beginning or middle of the list, are more efficient compared to arrays since you do not need to shift elements.</p>
+		
+		<p>Singly linked lists can only be traversed in one direction, from the head to the tail. There is no way to traverse backward from the tail to the head, which can be a limitation in some use cases.</p>
+		
+		<p>The nodes in a singly linked list do not need to be stored in contiguous memory locations, unlike arrays. Each node is linked to the next through pointers, and they can be located anywhere in memory.</p>
+		
+		<p>The size of the linked list is not fixed, and it is determined by the number of nodes present in the list at any given time. This makes it more flexible for applications where the number of elements is unknown or changes frequently.</p>
+		
+		<p>Each node in a singly linked list requires extra memory for the pointer (next reference), which slightly increases memory usage compared to arrays.</p>
+		
+		<p>The last node in a singly linked list is called the tail. Its next pointer is set to <code>NULL</code>, indicating that it is the end of the list.</p>
+		
+		<p>Here's a visual representation of a singly linked list:</p>
+		
+		<pre><code class="language-bash hljs">Head -> [Data | Next] -> [Data | Next] -> [Data | Next] -> NULL</code></pre>
+		
+		<p>A simple singly linked list with three nodes could look like this:</p>
+		
+		<pre><code class="language-bash hljs">Head -> [10 | Next] -> [20 | Next] -> [30 | NULL]</code></pre>
+		
+		<p>In the above example:</p>
+		
+		<ul>
+			<li>The head points to the first node containing the data <code>10</code>.</li>
+			<li>The second node contains the data <code>20</code> and points to the third node.</li>
+			<li>The third node contains the data <code>30</code> and points to <code>NULL</code>, indicating the end of the list.</li>
+		</ul>
+		
+		<p>The following are some common operations implemented on the singly linked list:</p>
+		
+        <ul>
+            <li><code>insertAtBeginning()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Inserts a new node at the start (or head) of a singly linked list.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+							<li>You want to insert the value <code>5</code> at the beginning of the list. After calling <code>insertAtBeginning()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of inserting a node at the beginning of a singly linked list is \(O(1)\) (constant time). This operation is independent of the size of the linked list. Therefore, regardless of whether the list has \(1\) node, \(100\) nodes, or is empty, the time it takes to insert a new node at the beginning is always constant.</li>
+					<li><b>Space complexity</b>: The space complexity of inserting a node at the beginning of a singly linked list is \(O(1)\) (constant space). The function only requires a fixed amount of extra memory to store the pointer to the new node. It doesn't depend on the size of the list. The new node's space is part of the memory needed for the linked list and is not considered part of the space complexity of the function itself. If we consider the space of the new node, it requires \(O(1)\) additional memory.</li>
+				</ul>
+			</li>
+            <li><code>insertAtEnd()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Inserts a new node at the end (or tail) of a singly linked list.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+							<li>You want to insert the value <code>40</code> at the end of the list. After calling <code>insertAtEnd()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of inserting a node at the end of a singly linked list is \(O(n)\) (linear time). This operation has to traverse the entire list to reach the last node (since each node only points to the next one), which takes \(O(n)\), where \(n\) is the number of nodes in the list.</li>
+					<li><b>Space complexity</b>: The space complexity of inserting a node at the end of a singly linked list is \(O(1)\) (constant space). The function only needs a constant amount of extra memory to store the pointer to the new node. This is independent of the size of the list. Allocating space for the new node takes \(O(1)\) (constant space), as only a single node's memory is allocated.</li>
+				</ul>
+			</li>
+            <li><code>insertAfterNode()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Inserts a new node in a singly linked list immediately after a given node. If the target node doesn't exist, you may opt to do nothing and just return control to the caller without modifying the list.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+							<li>You want to insert the value <code>25</code> after the node containing <code>20</code>. After calling <code>insertAfterNode()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 25 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of inserting a node after a node in a singly linked list is \(O(n)\) (linear time). This operation has to traverse the list to find the node after which the new node will be inserted. In the worst case, it might have to traverse the entire list to find this node, which takes \(O(n)\), where \(n\) is the number of nodes in the list.</li>
+					<li><b>Space complexity</b>: The space complexity of inserting a node after a node in a singly linked list is \(O(1)\) (constant time). The function only needs a constant amount of extra memory for a few local variables. This is independent of the size of the list. Allocating space for the new node takes \(O(1)\) (constant space), as only a single node's memory is allocated.</li>
+				</ul>
+			</li>
+            <li><code>insertBeforeNode()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Inserts a new node in a singly linked list immediately before a given node. If the target node doesn't exist, you may opt to do nothing and just return control to the caller without modifying the list.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+							<li>You want to insert the value <code>25</code> before the node containing <code>20</code>. After calling <code>insertBeforeNode()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10  -&gt; 25 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of inserting a node before a node in a singly linked list is \(O(n)\) (linear time). This operation has to traverse the list to find the node before which the new node will be inserted. In the worst case, it might have to traverse the entire list to find this node, which takes \(O(n)\), where \(n\) is the number of nodes in the list.</li>
+					<li><b>Space complexity</b>: The space complexity of inserting a node before a node in a singly linked list is \(O(1)\) (constant time). The function only needs a constant amount of extra memory for a few local variables. Allocating space for the new node takes \(O(1)\) (constant space), as only a single node's memory is allocated.</li>
+				</ul>
+			</li>
+            <li><code>insertAtPosition()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Inserts a new node at a specified position in a linked list. Positions are usually indexed starting from 0 or 1. If the position is 1 (or 0, based on indexing), this implies insertion at the beginning of the list. In this case, the new node's next pointer is assigned to point to the current head, and the head is updated to be the new node. For positions other than the head, the function must traverse the list until it reaches the node before the desired position. This traversal ensures that we place the new node between the current node and the next node at the target position. If the position is greater than the size of the list or less than 1, the function may return an error or take no action since the insertion would be out of range.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+							<li>You want to insert a new node with value <code>35</code> at position <code>3</code>. After calling <code>insertAtPosition()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 35 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of inserting a new node at a specified position in a linked list is \(O(n)\) (linear time). This operation has to traverse the list to locate the position which the new node will be inserted. In the worst case, it might have to traverse the entire list to locate the position, which takes \(O(n)\), where \(n\) is the number of nodes in the list.</li>
+					<li><b>Space complexity</b>: The space complexity of inserting a new node at a specified position in a linked list is \(O(1)\) (constant space). The function only needs a constant amount of extra memory for a few local variables. Allocating space for the new node takes \(O(1)\) (constant space), as only a single node's memory is allocated.</li>
+				</ul>
+			</li>
+            <li><code>deleteAtBeginning()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes a node at the start (or head) of a singly linked list. If the list is empty, it prints a message "List is empty, nothing to delete" and returns, since there is no node to delete.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+							<li>You want to delete the value <code>5</code> at the beginning of the list. After calling <code>deleteAtBeginning()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of removing a node at the beginning of a singly linked list is \(O(1)\) (constant time). This operation is independent of the size of the linked list. Therefore, regardless of whether the list has \(1\) node, \(100\) nodes, or is empty, the time it takes to remove a new node at the beginning is always constant.</li>
+					<li><b>Space complexity</b>: The space complexity of removing a node at the beginning of a singly linked list is \(O(1)\) (constant space). The function only requires a fixed amount of extra memory to store references to the head node and potentially the node to be deleted. It doesn't depend on the size of the list.</li>
+				</ul>
+			</li>
+            <li><code>deleteAtEnd()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes a node at the end (or tail) of a singly linked list.  If the list is empty, and there are no nodes to delete. In this case, the function will typically print a message indicating that the list is empty and return without making any changes.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+							<li>You want to remove the value <code>40</code> at the end of the list. After calling <code>deleteAtEnd()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of removing a node at the end of a singly linked list is \(O(n)\) (linear time). This operation has to traverse the entire list to reach the last node (since each node only points to the next one), which takes \(O(n)\), where \(n\) is the number of nodes in the list.</li>
+					<li><b>Space complexity</b>: The space complexity of removing a node at the end of a singly linked list is \(O(1)\) (constant space). The function only uses a fixed amount of extra space regardless of the size of the linked list.</li>
+				</ul>
+			</li>
+			<li><code>deleteAtPosition()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes a node at a specified position in a linked list. Positions are usually indexed starting from 0 or 1. If the position to delete is 0, it means the head node should be removed. The function updates the head pointer to point to the next node and frees the memory of the old head node. For positions other than the head, the function must traverse the list until it reaches the node before the desired position.  If the specified position is out of bounds, and a message is printed.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+							<li>You want to remove a node at position <code>3</code>. After calling <code>deleteAtPosition()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 35 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of removing a node at a specified position in a linked list is \(O(n)\) (linear time). This operation has to traverse the list to locate the position which the node will be removed. In the worst case, it might have to traverse the entire list to locate the position, which takes \(O(n)\), where \(n\) is the number of nodes in the list.</li>
+					<li><b>Space complexity</b>: The space complexity of removing a node at a specified position in a linked list is \(O(1)\) (constant space). The function uses a constant amount of space for variables regardless of the size of the linked list.</li>
+				</ul>
+			</li>
+			<li><code>traverse()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Visits each node in a singly linked list and perform an action, such as printing the node's value.</li>
+					<li><b>Time complexity</b>: The time complexity of traverse function in a linked list is \(O(n)\) (linear time). The function iterates through each node in the linked list exactly once, from the head to the end (NULL). Thus, the number of operations performed is directly proportional to the number of nodes.</li>
+					<li><b>Space complexity</b>: The space complexity of traverse function in a linked list is \(O(1)\) (constant space). The function uses a constant amount of space for variables regardless of the size of the linked list.</li>
+				</ul>
+			</li>
+			<li><code>reverse()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Reverses the order of nodes in a singly linked list.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL</code></pre>
+							</li>
+							<li>After calling <code>reverse()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; 30 -&gt; 20 -&gt; 10 -&gt; NULL</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of reverse function in a linked list is \(O(n)\) (linear time). The function traverses each node of the linked list exactly once. Thus, the number of operations performed is directly proportional to the number of nodes.</li>
+					<li><b>Space complexity</b>: The space complexity of reverse function in a linked list is \(O(1)\) (constant space). The function uses a constant amount of space for variables regardless of the size of the linked list.</li>
+				</ul>
+			</li>
+			<li><code>search()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Finds whether a specific element (or key) exists in a singly linked list.</li>
+					<li><b>Time complexity</b>: The time complexity of search function in a linked list is \(O(n)\) (linear time).The search function traverses the linked list node by node. In the worst case, it may need to look at every node in the list to find the key (or determine that it is not present).</li>
+					<li><b>Space complexity</b>: The space complexity of search function in a linked list is \(O(1)\) (constant space). The function uses a constant amount of space for variables regardless of the size of the linked list.</li>
+				</ul>
+			</li>
+			<li><code>size()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Calculates and returns the number of nodes in a singly linked list.</li>
+					<li><b>Time complexity</b>: The time complexity of size function in a linked list is \(O(n)\) (linear time). The function traverses the entire linked list to count the number of nodes, where \(n\) is the number of nodes in the list.</li>
+					<li><b>Space complexity</b>: The space complexity of size function in a linked list is \(O(1)\) (constant space). The function uses a constant amount of space for variables regardless of the size of the linked list.</li>
+				</ul>
+			</li>
+			<li><code>get()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Retrieves the value of a node in a singly linked list at a specified index. If the end of the list is reached before finding the specified index, a message is printed indicating that the index is out of range.</li>
+					<li><b>Time complexity</b>: The time complexity of get function in a linked list is \(O(n)\) (linear time). The function traverses the linked list until it reaches the specified index. In the worst case, it might have to go through all the nodes if the index is at the end of the list or if the list is very long.</li>
+					<li><b>Space complexity</b>: The space complexity of get function in a linked list is \(O(1)\) (constant space). The function uses a constant amount of space for variables regardless of the size of the linked list.</li>
+				</ul>
+			</li>
+			<li><code>set()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Updates the value of a node at a specified index in a singly linked list. If the end of the list is reached before finding the specified index, a message is printed indicating that the index is out of range.</li>
+					<li><b>Time complexity</b>: The time complexity of set function in a linked list is \(O(n)\) (linear time). The function traverses the linked list until it reaches the specified index. In the worst case, it might have to go through all the nodes if the index is at the end of the list or if the list is very long.</li>
+					<li><b>Space complexity</b>: The space complexity of set function in a linked list is \(O(1)\) (constant space). The function uses a constant amount of space for variables regardless of the size of the linked list.</li>
+				</ul>
+			</li>
+			<li><code>isEmpty()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Checks whether a singly linked list is empty.</li>
+					<li><b>Time complexity</b>: The time complexity of isEmpty function in a linked list is \(O(1)\) (constant time). The <code>isEmpty</code> function checks whether the head pointer of the linked list is <code>NULL</code>. This operation is performed in constant time since it only involves a simple comparison, regardless of the size of the linked list.</li>
+					<li><b>Space complexity</b>: The space complexity of isEmpty function in a linked list is \(O(1)\) (constant space). It only utilizes a fixed amount of space to store the return value.</li>
+				</ul>
+			</li>
+			<li><code>merge()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Combines two sorted linked lists into a single sorted linked list. </li>
+					<li><b>Time complexity</b>: The time complexity of merge function in a linked list is \(O(n + m)\) (linear time). The reason for this complexity is that each node from both lists is visited exactly once. In the worst case, the function will traverse both lists entirely, performing comparisons and linking nodes. Where \(n\) is the number of nodes in the first linked list and \(m\) is the number of nodes in the second linked list.</li>
+					<li><b>Space complexity</b>: The space complexity of merge function in a linked list is \(O(n + m)\) (linear space). In the worst case, the maximum depth of recursion will be equal to the total number of nodes in both lists combined, leading to \(n + m\) recursive calls.</li>
+				</ul>
+			</li>
+			<li><code>sort()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Arranges the elements of a singly linked list, in a specific order (typically ascending or descending).</li>
+					<li><b>Time complexity</b>: The time complexity of merge function in a linked list is \(O(n \log n)\) (linearithmic time) because the algorithm consistently divides the list into halves and requires a linear amount of time \(O(n)\) to merge those halves back together. The logarithmic factor \(\log n\) comes from the number of times the list can be divided in half (depth of recursion).</li>
+					<li><b>Space complexity</b>: The space complexity of merge function in a linked list is \(O(n)\) (linear space) because it requires additional space for the temporary arrays or linked lists used during the merge process. When merging two halves, the algorithm needs space to hold the merged elements before copying them back to the original array or linked list.</li>
+				</ul>
+			</li>
+			<li><code>clear()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes all nodes from the list and free up the memory they occupy, effectively making the list empty.</li>
+					<li><b>Time complexity</b>: The time complexity of merge function in a linked list is \(O(n)\) (linear time). The function iterates through each node exactly once, freeing its memory. Since it processes all nodes in the list, the time complexity is proportional to the number of nodes.</li>
+					<li><b>Space complexity</b>: The space complexity of merge function in a linked list is \(O(1)\) (constant space). The function uses only a small, fixed amount of extra memory, regardless of the size of the linked list.</li>
+				</ul>
+			</li>
+        </ul>
+		
+		<p>Here's an implementation of a simple singly linked list in C:</p>
+        
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+// Node structure for singly linked list
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+// Function to create a new node
+Node* createNode(int data) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode-&gt;data = data;
+    newNode-&gt;next = NULL;
+    return newNode;
+}
+
+// Function to insert a node at the beginning of the list
+void insertAtBeginning(Node** head, int data) {
+    Node* newNode = createNode(data);
+    newNode-&gt;next = *head;
+    *head = newNode;
+}
+
+// Function to insert a node at the end of the list
+void insertAtEnd(Node** head, int data) {
+    Node* newNode = createNode(data);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    Node* temp = *head;
+    while (temp-&gt;next != NULL) {
+        temp = temp-&gt;next;
+    }
+    temp-&gt;next = newNode;
+}
+
+// Function to insert a new node after a given previous node
+void insertAfterNode(Node** head, Node* prevNode, int data) {
+    // Check if the head is NULL (list is empty)
+    if (*head == NULL) {
+        printf("The list cannot be empty\n");
+        return;
+    }
+
+    // Check if the previous node is NULL
+    if (prevNode == NULL) {
+        printf("The given previous node cannot be NULL\n");
+        return;
+    }
+
+    // Create the new node with the given data
+    Node* newNode = createNode(data);
+
+    // Check if prevNode is the head node
+    if (*head == prevNode) {
+        // Insert the new node after the head
+        newNode-&gt;next = (*head)-&gt;next;
+        (*head)-&gt;next = newNode;
+        return;
+    }
+
+    // Traverse the list to find prevNode if it's not the head
+    Node* temp = *head;
+    while (temp != NULL && temp != prevNode) {
+        temp = temp-&gt;next;
+    }
+
+    // If prevNode is not found in the list, return an error
+    if (temp == NULL) {
+        printf("The given previous node is not found in the list\n");
+        free(newNode);
+        return;
+    }
+
+    // Insert the new node after prevNode
+    newNode-&gt;next = prevNode-&gt;next;
+    prevNode-&gt;next = newNode;
+}
+
+// Function to insert a node before a given node
+void insertBeforeNode(Node** head, Node* nextNode, int data) {
+    if (*head == NULL) {
+        printf("The list cannot be empty\n");
+        return;
+    }
+    
+	if (nextNode == NULL) {
+        printf("The given next node cannot be NULL\n");
+        return;
+    }
+	
+    Node* newNode = createNode(data);
+    
+    // If the nextNode is the head node, handle the insertion at beginning
+    if (*head == nextNode) {
+        newNode-&gt;next = *head;
+        *head = newNode;
+        return;
+    }
+    
+    Node* temp = *head;
+    while (temp != NULL && temp-&gt;next != nextNode) {
+        temp = temp-&gt;next;
+    }
+
+    if (temp == NULL) {
+        printf("The given next node is not found in the list\n");
+        free(newNode);
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Function to insert a node at a specific position (0-based index)
+void insertAtPosition(Node** head, int data, int position) {
+    Node* newNode = createNode(data);
+    
+    // If position is at the beginning
+    if (position == 0) {
+        newNode-&gt;next = *head;
+        *head = newNode;
+        return;
+    }
+
+    Node* temp = *head;
+    for (int i = 0; i &lt; position - 1 && temp != NULL; i++) {
+        temp = temp-&gt;next;
+    }
+
+    // If position is greater than the number of nodes
+    if (temp == NULL) {
+        printf("Position out of bounds\n");
+        free(newNode);
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Function to delete a node at the beginning of the list
+void deleteAtBeginning(Node** head) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    Node* temp = *head;
+    *head = (*head)-&gt;next;
+    free(temp);
+}
+
+// Function to delete a node at the end of the list
+void deleteAtEnd(Node** head) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    Node* temp = *head;
+    
+    // If there's only one node in the list
+    if (temp-&gt;next == NULL) {
+        free(temp);
+        *head = NULL;
+        return;
+    }
+
+    // Traverse to the second last node
+    while (temp-&gt;next-&gt;next != NULL) {
+        temp = temp-&gt;next;
+    }
+
+    // Free the last node
+    free(temp-&gt;next);
+    temp-&gt;next = NULL;
+}
+
+// Function to delete a node at a specific position (0-based index)
+void deleteAtPosition(Node** head, int position) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    Node* temp = *head;
+
+    // If head needs to be removed
+    if (position == 0) {
+        *head = temp-&gt;next; // Change head
+        free(temp); // Free old head
+        return;
+    }
+
+    // Find previous node of the node to be deleted
+    for (int i = 0; temp != NULL && i &lt; position - 1; i++) {
+        temp = temp-&gt;next;
+    }
+
+    // If position is more than number of nodes
+    if (temp == NULL || temp-&gt;next == NULL) {
+        printf("Position out of bounds\n");
+        return;
+    }
+
+    // Node temp-&gt;next is the node to be deleted
+    Node* nextNode = temp-&gt;next-&gt;next;
+    free(temp-&gt;next); // Free memory
+    temp-&gt;next = nextNode; // Unlink the deleted node from the list
+}
+
+// Function to traverse the list and print all elements
+void traverse(Node* head) {
+    Node* temp = head;
+    while (temp != NULL) {
+        printf("%d -&gt; ", temp-&gt;data);
+        temp = temp-&gt;next;
+    }
+    printf("NULL\n");
+}
+
+// Function to search for an element in the list
+int search(Node* head, int key) {
+    Node* temp = head;
+    while (temp != NULL) {
+        if (temp-&gt;data == key)
+            return 1; // Key found
+        temp = temp-&gt;next;
+    }
+    return 0; // Key not found
+}
+
+// Function to reverse the linked list
+void reverse(Node** head) {
+    Node *prev = NULL, *current = *head, *next = NULL;
+    while (current != NULL) {
+        next = current-&gt;next; // Store next
+        current-&gt;next = prev; // Reverse current node's pointer
+        prev = current;       // Move pointers one position ahead
+        current = next;
+    }
+    *head = prev;
+}
+
+// Function to get the size of the linked list
+int size(Node* head) {
+    int size = 0;
+    Node* temp = head;
+    while (temp != NULL) {
+        size++;
+        temp = temp-&gt;next;
+    }
+    return size;
+}
+
+// Function to check if the list is empty
+int isEmpty(Node* head) {
+    return head == NULL;
+}
+
+// Function to access an element at a specific index (0-based)
+int get(Node* head, int index) {
+    int count = 0;
+    Node* temp = head;
+    while (temp != NULL) {
+        if (count == index)
+            return temp-&gt;data;
+        count++;
+        temp = temp-&gt;next;
+    }
+    return -1; // Index out of range
+}
+
+// Function to set an element at a specific index (0-based)
+void set(Node* head, int index, int newValue) {
+    Node* current = head;
+    int count = 0;
+
+    // Traverse the list until the specified index
+    while (current != NULL) {
+        if (count == index) {
+            current-&gt;data = newValue;  // Update the node's value
+            return;                    // Exit the function after the update
+        }
+        count++;
+        current = current-&gt;next;      // Move to the next node
+    }
+    
+    printf("Index out of range\n"); // Handle case where index exceeds list length
+}
+
+// Function to merge two lists
+Node* merge(Node* head1, Node* head2) {
+    if (head1 == NULL) return head2;
+    if (head2 == NULL) return head1;
+
+    Node* mergedHead = NULL;
+    if (head1-&gt;data &lt;= head2-&gt;data) {
+        mergedHead = head1;
+        mergedHead-&gt;next = merge(head1-&gt;next, head2);
+    } else {
+        mergedHead = head2;
+        mergedHead-&gt;next = merge(head1, head2-&gt;next);
+    }
+    return mergedHead;
+}
+
+// Function to get the middle of the linked list
+Node* middle(Node* head) {
+    if (head == NULL) return head;
+    Node* slow = head;
+    Node* fast = head-&gt;next;
+    while (fast != NULL) {
+        fast = fast-&gt;next;
+        if (fast != NULL) {
+            slow = slow-&gt;next;
+            fast = fast-&gt;next;
+        }
+    }
+    return slow;
+}
+
+// Function to sort the linked list (using Merge Sort)
+Node* sort(Node* head) {
+    if (head == NULL || head-&gt;next == NULL)
+        return head;
+
+    Node* mid = middle(head);
+    Node* nextToMid = mid-&gt;next;
+    mid-&gt;next = NULL;
+
+    Node* left = sort(head);
+    Node* right = sort(nextToMid);
+
+    return merge(left, right);
+}
+
+// Function to clear the entire linked list and free memory
+void clear(Node** head) {
+    Node* current = *head;
+    Node* next;
+    
+    while (current != NULL) {
+        next = current-&gt;next;
+        free(current);
+        current = next;
+    }
+    
+    *head = NULL;
+}
+
+// Main function to test the linked list operations
+int main() {
+    Node* head = NULL;
+    
+    // Insert at beginning
+    insertAtBeginning(&head, 10);
+    insertAtBeginning(&head, 20);
+    insertAtBeginning(&head, 30);
+    printf("After inserting at the beginning: ");
+    traverse(head);  // Output: 30 -&gt; 20 -&gt; 10 -&gt; NULL
+
+    // Insert at end
+    insertAtEnd(&head, 40);
+    printf("After inserting at the end: ");
+    traverse(head);  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Insert at position
+    insertAtPosition(&head, 25, 2);  // Insert 25 at position 2
+    printf("After inserting at position 2: ");
+    traverse(head);  // Output: 30 -&gt; 20 -&gt; 25 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Delete at position
+    deleteAtPosition(&head, 2);  // Delete node at position 2
+    printf("After deleting at position 2: ");
+    traverse(head);  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Reverse the list
+    reverse(&head);
+    printf("After reversing the list: ");
+    traverse(head);  // Output: 40 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+    // Search for a value
+    int found = search(head, 20);
+    printf("Is 20 in the list? %s\n", found ? "Yes" : "No");  // Output: Yes
+
+    // Get size of the list
+    printf("Size of the list: %d\n", size(head));  // Output: 4
+
+    // Sort the list
+    head = sort(head);
+    printf("After sorting the list: ");
+    traverse(head);  // Output: 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+    // Clear the list
+    clear(&head);
+    printf("After clearing the list: ");
+    traverse(head);  // Output: NULL
+
+    return 0;
+}#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+// Node structure for singly linked list
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+// Function to create a new node
+Node* createNode(int data) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode-&gt;data = data;
+    newNode-&gt;next = NULL;
+    return newNode;
+}
+
+// Function to insert a node at the beginning of the list
+void insertAtBeginning(Node** head, int data) {
+    Node* newNode = createNode(data);
+    newNode-&gt;next = *head;
+    *head = newNode;
+}
+
+// Function to insert a node at the end of the list
+void insertAtEnd(Node** head, int data) {
+    Node* newNode = createNode(data);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    Node* temp = *head;
+    while (temp-&gt;next != NULL) {
+        temp = temp-&gt;next;
+    }
+    temp-&gt;next = newNode;
+}
+
+// Function to insert a new node after a given previous node
+void insertAfterNode(Node** head, Node* prevNode, int data) {
+    // Check if the head is NULL (list is empty)
+    if (*head == NULL) {
+        printf("The list cannot be empty\n");
+        return;
+    }
+
+    // Check if the previous node is NULL
+    if (prevNode == NULL) {
+        printf("The given previous node cannot be NULL\n");
+        return;
+    }
+
+    // Create the new node with the given data
+    Node* newNode = createNode(data);
+
+    // Check if prevNode is the head node
+    if (*head == prevNode) {
+        // Insert the new node after the head
+        newNode-&gt;next = (*head)-&gt;next;
+        (*head)-&gt;next = newNode;
+        return;
+    }
+
+    // Traverse the list to find prevNode if it's not the head
+    Node* temp = *head;
+    while (temp != NULL && temp != prevNode) {
+        temp = temp-&gt;next;
+    }
+
+    // If prevNode is not found in the list, return an error
+    if (temp == NULL) {
+        printf("The given previous node is not found in the list\n");
+        free(newNode);
+        return;
+    }
+
+    // Insert the new node after prevNode
+    newNode-&gt;next = prevNode-&gt;next;
+    prevNode-&gt;next = newNode;
+}
+
+// Function to insert a node before a given node
+void insertBeforeNode(Node** head, Node* nextNode, int data) {
+    if (*head == NULL) {
+        printf("The list cannot be empty\n");
+        return;
+    }
+    
+	if (nextNode == NULL) {
+        printf("The given next node cannot be NULL\n");
+        return;
+    }
+	
+    Node* newNode = createNode(data);
+    
+    // If the nextNode is the head node, handle the insertion at beginning
+    if (*head == nextNode) {
+        newNode-&gt;next = *head;
+        *head = newNode;
+        return;
+    }
+    
+    Node* temp = *head;
+    while (temp != NULL && temp-&gt;next != nextNode) {
+        temp = temp-&gt;next;
+    }
+
+    if (temp == NULL) {
+        printf("The given next node is not found in the list\n");
+        free(newNode);
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Function to insert a node at a specific position (0-based index)
+void insertAtPosition(Node** head, int data, int position) {
+    Node* newNode = createNode(data);
+    
+    // If position is at the beginning
+    if (position == 0) {
+        newNode-&gt;next = *head;
+        *head = newNode;
+        return;
+    }
+
+    Node* temp = *head;
+    for (int i = 0; i &lt; position - 1 && temp != NULL; i++) {
+        temp = temp-&gt;next;
+    }
+
+    // If position is greater than the number of nodes
+    if (temp == NULL) {
+        printf("Position out of bounds\n");
+        free(newNode);
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Function to delete a node at the beginning of the list
+void deleteAtBeginning(Node** head) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    Node* temp = *head;
+    *head = (*head)-&gt;next;
+    free(temp);
+}
+
+// Function to delete a node at the end of the list
+void deleteAtEnd(Node** head) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    Node* temp = *head;
+    
+    // If there's only one node in the list
+    if (temp-&gt;next == NULL) {
+        free(temp);
+        *head = NULL;
+        return;
+    }
+
+    // Traverse to the second last node
+    while (temp-&gt;next-&gt;next != NULL) {
+        temp = temp-&gt;next;
+    }
+
+    // Free the last node
+    free(temp-&gt;next);
+    temp-&gt;next = NULL;
+}
+
+// Function to delete a node at a specific position (0-based index)
+void deleteAtPosition(Node** head, int position) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    Node* temp = *head;
+
+    // If head needs to be removed
+    if (position == 0) {
+        *head = temp-&gt;next; // Change head
+        free(temp); // Free old head
+        return;
+    }
+
+    // Find previous node of the node to be deleted
+    for (int i = 0; temp != NULL && i &lt; position - 1; i++) {
+        temp = temp-&gt;next;
+    }
+
+    // If position is more than number of nodes
+    if (temp == NULL || temp-&gt;next == NULL) {
+        printf("Position out of bounds\n");
+        return;
+    }
+
+    // Node temp-&gt;next is the node to be deleted
+    Node* nextNode = temp-&gt;next-&gt;next;
+    free(temp-&gt;next); // Free memory
+    temp-&gt;next = nextNode; // Unlink the deleted node from the list
+}
+
+// Function to traverse the list and print all elements
+void traverse(Node* head) {
+    Node* temp = head;
+    while (temp != NULL) {
+        printf("%d -&gt; ", temp-&gt;data);
+        temp = temp-&gt;next;
+    }
+    printf("NULL\n");
+}
+
+// Function to search for an element in the list
+int search(Node* head, int key) {
+    Node* temp = head;
+    while (temp != NULL) {
+        if (temp-&gt;data == key)
+            return 1; // Key found
+        temp = temp-&gt;next;
+    }
+    return 0; // Key not found
+}
+
+// Function to reverse the linked list
+void reverse(Node** head) {
+    Node *prev = NULL, *current = *head, *next = NULL;
+    while (current != NULL) {
+        next = current-&gt;next; // Store next
+        current-&gt;next = prev; // Reverse current node's pointer
+        prev = current;       // Move pointers one position ahead
+        current = next;
+    }
+    *head = prev;
+}
+
+// Function to get the size of the linked list
+int size(Node* head) {
+    int size = 0;
+    Node* temp = head;
+    while (temp != NULL) {
+        size++;
+        temp = temp-&gt;next;
+    }
+    return size;
+}
+
+// Function to check if the list is empty
+int isEmpty(Node* head) {
+    return head == NULL;
+}
+
+// Function to access an element at a specific index (0-based)
+int get(Node* head, int index) {
+    int count = 0;
+    Node* temp = head;
+    while (temp != NULL) {
+        if (count == index)
+            return temp-&gt;data;
+        count++;
+        temp = temp-&gt;next;
+    }
+    return -1; // Index out of range
+}
+
+// Function to set an element at a specific index (0-based)
+void set(Node* head, int index, int newValue) {
+    Node* current = head;
+    int count = 0;
+
+    // Traverse the list until the specified index
+    while (current != NULL) {
+        if (count == index) {
+            current-&gt;data = newValue;  // Update the node's value
+            return;                    // Exit the function after the update
+        }
+        count++;
+        current = current-&gt;next;      // Move to the next node
+    }
+    
+    printf("Index out of range\n"); // Handle case where index exceeds list length
+}
+
+// Function to merge two lists
+Node* merge(Node* head1, Node* head2) {
+    if (head1 == NULL) return head2;
+    if (head2 == NULL) return head1;
+
+    Node* mergedHead = NULL;
+    if (head1-&gt;data &lt;= head2-&gt;data) {
+        mergedHead = head1;
+        mergedHead-&gt;next = merge(head1-&gt;next, head2);
+    } else {
+        mergedHead = head2;
+        mergedHead-&gt;next = merge(head1, head2-&gt;next);
+    }
+    return mergedHead;
+}
+
+// Function to get the middle of the linked list
+Node* middle(Node* head) {
+    if (head == NULL) return head;
+    Node* slow = head;
+    Node* fast = head-&gt;next;
+    while (fast != NULL) {
+        fast = fast-&gt;next;
+        if (fast != NULL) {
+            slow = slow-&gt;next;
+            fast = fast-&gt;next;
+        }
+    }
+    return slow;
+}
+
+// Function to sort the linked list (using Merge Sort)
+Node* sort(Node* head) {
+    if (head == NULL || head-&gt;next == NULL)
+        return head;
+
+    Node* mid = middle(head);
+    Node* nextToMid = mid-&gt;next;
+    mid-&gt;next = NULL;
+
+    Node* left = sort(head);
+    Node* right = sort(nextToMid);
+
+    return merge(left, right);
+}
+
+// Function to clear the entire linked list and free memory
+void clear(Node** head) {
+    Node* current = *head;
+    Node* next;
+    
+    while (current != NULL) {
+        next = current-&gt;next;
+        free(current);
+        current = next;
+    }
+    
+    *head = NULL;
+}
+
+// Main function to test the linked list operations
+int main() {
+    Node* head = NULL;
+    
+    // Insert at beginning
+    insertAtBeginning(&head, 10);
+    insertAtBeginning(&head, 20);
+    insertAtBeginning(&head, 30);
+    printf("After inserting at the beginning: ");
+    traverse(head);  // Output: 30 -&gt; 20 -&gt; 10 -&gt; NULL
+
+    // Insert at end
+    insertAtEnd(&head, 40);
+    printf("After inserting at the end: ");
+    traverse(head);  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Insert at position
+    insertAtPosition(&head, 25, 2);  // Insert 25 at position 2
+    printf("After inserting at position 2: ");
+    traverse(head);  // Output: 30 -&gt; 20 -&gt; 25 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Delete at position
+    deleteAtPosition(&head, 2);  // Delete node at position 2
+    printf("After deleting at position 2: ");
+    traverse(head);  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Reverse the list
+    reverse(&head);
+    printf("After reversing the list: ");
+    traverse(head);  // Output: 40 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+    // Search for a value
+    int found = search(head, 20);
+    printf("Is 20 in the list? %s\n", found ? "Yes" : "No");  // Output: Yes
+
+    // Get size of the list
+    printf("Size of the list: %d\n", size(head));  // Output: 4
+
+    // Sort the list
+    head = sort(head);
+    printf("After sorting the list: ");
+    traverse(head);  // Output: 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+    // Clear the list
+    clear(&head);
+    printf("After clearing the list: ");
+    traverse(head);  // Output: NULL
+
+    return 0;
+}</code></pre>
+
+        <p>Here's an implementation of a generic Singly Linked List in C:</p>
+        
+        <pre><code class="language-cpp hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+// StackElement structure to hold data and a toString function pointer
+typedef struct {
+    void* data;           // Pointer to hold the actual data
+    char* toString;       // This will be modified to hold the string representation
+} StackElement;
+
+// Node structure for singly linked list
+typedef struct Node {
+    StackElement element;
+    struct Node* next;     // Pointer to the next node
+} Node;
+
+// Function to create a new node
+Node* createNode(StackElement element) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode-&gt;element = element;
+    newNode-&gt;next = NULL;
+    return newNode;
+}
+
+// Function to insert a node at the beginning of the list
+void insertAtBeginning(Node** head, StackElement element) {
+    Node* newNode = createNode(element);
+    newNode-&gt;next = *head;
+    *head = newNode;
+}
+
+// Function to insert a node at the end of the list (generic)
+void insertAtEnd(Node** head, StackElement element) {
+    Node* newNode = createNode(element);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    Node* temp = *head;
+    while (temp-&gt;next != NULL) {
+        temp = temp-&gt;next;
+    }
+    temp-&gt;next = newNode;
+}
+
+// Function to insert a node after a given previous node
+void insertAfterNode(Node** head, Node* prevNode, StackElement element) {
+    // Check if the head is NULL (list is empty)
+    if (*head == NULL) {
+        printf("The list cannot be empty\n");
+        return;
+    }
+
+    // Check if the previous node is NULL
+    if (prevNode == NULL) {
+        printf("The given previous node cannot be NULL\n");
+        return;
+    }
+
+    // Create the new node with the given StackElement
+    Node* newNode = createNode(element);
+
+    // Check if prevNode is the head node
+    if (*head == prevNode) {
+        // Insert the new node after the head
+        newNode-&gt;next = (*head)-&gt;next;
+        (*head)-&gt;next = newNode;
+        return;
+    }
+
+    // Traverse the list to find prevNode if it's not the head
+    Node* temp = *head;
+    while (temp != NULL && temp != prevNode) {
+        temp = temp-&gt;next;
+    }
+
+    // If prevNode is not found in the list, return an error
+    if (temp == NULL) {
+        printf("The given previous node is not found in the list\n");
+        free(newNode);
+        return;
+    }
+
+    // Insert the new node after prevNode
+    newNode-&gt;next = prevNode-&gt;next;
+    prevNode-&gt;next = newNode;
+}
+
+// Function to insert a node before a given next node
+void insertBeforeNode(Node** head, Node* nextNode, StackElement element) {
+    // Check if the head is NULL (list is empty)
+    if (*head == NULL) {
+        printf("The list cannot be empty\n");
+        return;
+    }
+
+    // Check if the nextNode is NULL
+    if (nextNode == NULL) {
+        printf("The given next node cannot be NULL\n");
+        return;
+    }
+
+    // Create the new node with the given StackElement
+    Node* newNode = createNode(element);
+
+    // If the nextNode is the head node, handle the insertion at beginning
+    if (*head == nextNode) {
+        newNode-&gt;next = *head;
+        *head = newNode;
+        return;
+    }
+
+    Node* temp = *head;
+    while (temp != NULL && temp-&gt;next != nextNode) {
+        temp = temp-&gt;next;
+    }
+
+    // If temp is NULL, then nextNode is not found in the list
+    if (temp == NULL) {
+        printf("The given next node is not found in the list\n");
+        free(newNode);
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Function to insert a node at a specific position
+void insertAtPosition(Node** head, StackElement element, int position) {
+    Node* newNode = createNode(element);
+    
+    // If position is at the beginning
+    if (position == 0) {
+        newNode-&gt;next = *head;
+        *head = newNode;
+        return;
+    }
+
+    Node* temp = *head;
+    for (int i = 0; i &lt; position - 1 && temp != NULL; i++) {
+        temp = temp-&gt;next;
+    }
+
+    // If position is greater than the number of nodes
+    if (temp == NULL) {
+        printf("Position out of bounds\n");
+        free(newNode);
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Function to delete a node at the beginning of the list
+void deleteAtBeginning(Node** head) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    
+    Node* temp = *head;           // Temporary pointer to the head node
+    *head = (*head)-&gt;next;        // Move the head to the next node
+    
+    free(temp);                   // Free the node
+}
+
+/// Function to delete a node at the end of the list
+void deleteAtEnd(Node** head) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    Node* temp = *head;
+
+    // If there's only one node in the list
+    if (temp-&gt;next == NULL) {
+        free(temp);                 // Free the node
+        *head = NULL;
+        return;
+    }
+
+    // Traverse to the second last node
+    while (temp-&gt;next-&gt;next != NULL) {
+        temp = temp-&gt;next;
+    }
+
+    free(temp-&gt;next);                 // Free the last node
+    temp-&gt;next = NULL;                // Set the second last node's next to NULL
+}
+
+// Function to delete a node at a given position
+void deleteAtPosition(Node** head, int position) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    Node* temp = *head;
+
+    // If head needs to be removed
+    if (position == 0) {
+        *head = temp-&gt;next; // Change head
+        free(temp); // Free old head
+        return;
+    }
+
+    // Find previous node of the node to be deleted
+    for (int i = 0; temp != NULL && i &lt; position - 1; i++) {
+        temp = temp-&gt;next;
+    }
+
+    // If position is more than number of nodes
+    if (temp == NULL || temp-&gt;next == NULL) {
+        printf("Position out of bounds\n");
+        return;
+    }
+
+    // Node temp-&gt;next is the node to be deleted
+    Node* nextNode = temp-&gt;next-&gt;next;
+
+    free(temp-&gt;next);                 // Free the node
+    temp-&gt;next = nextNode;            // Unlink the deleted node from the list
+}
+
+// Function to traverse the list and print all elements
+void traverse(Node* head) {
+    Node* temp = head;
+    while (temp != NULL) {
+        char* str = temp-&gt;element.toString;
+        printf("%s -&gt; ", str);
+        temp = temp-&gt;next;
+    }
+    printf("NULL\n");
+}
+
+// Function to search for an element in the list
+int search(Node* head, StackElement keyElement) {
+    Node* temp = head;
+
+    while (temp != NULL) {
+        // Call toString to get the string representation of the data in the current node
+        char* currentStr = temp-&gt;element.toString;
+        char* keyStr = keyElement.toString;
+
+        // Compare the string representations of the current node's data and the key element's data
+        if (strcmp(currentStr, keyStr) == 0) {
+            return 1; // Key found
+        }
+		
+        temp = temp-&gt;next;
+    }
+
+    return 0; // Key not found
+}
+
+// Function to reverse the linked list
+void reverse(Node** head) {
+    Node *prev = NULL, *current = *head, *next = NULL;
+    while (current != NULL) {
+        next = current-&gt;next; // Store next
+        current-&gt;next = prev; // Reverse current node's pointer
+        prev = current;       // Move pointers one position ahead
+        current = next;
+    }
+    *head = prev;
+}
+
+// Function to get the size of the linked list
+int size(Node* head) {
+    int size = 0;
+    Node* temp = head;
+    while (temp != NULL) {
+        size++;
+        temp = temp-&gt;next;
+    }
+    return size;
+}
+
+// Function to check if the list is empty
+int isEmpty(Node* head) {
+    return head == NULL;
+}
+
+// Function to access an element at a specific index (0-based)
+StackElement get(Node* head, int index) {
+    int count = 0;
+    Node* temp = head;
+    while (temp != NULL) {
+        if (count == index)
+            return temp-&gt;element;
+        count++;
+        temp = temp-&gt;next;
+    }
+    StackElement emptyElement = {NULL, ""};
+    return emptyElement; // Index out of range
+}
+
+// Function to set an element at a specific index (0-based)
+void set(Node* head, int index, StackElement element) {
+    Node* current = head;
+    int count = 0;
+
+    // Traverse the list until the specified index
+    while (current != NULL) {
+        if (count == index) {
+            current-&gt;element = element;  // Update the node's value
+            return;                    // Exit the function after the update
+        }
+        count++;
+        current = current-&gt;next;      // Move to the next node
+    }
+    
+    printf("Index out of range\n"); // Handle case where index exceeds list length
+}
+
+// Comparison function
+int compare(const void *arg1, const void *arg2) {
+    StackElement *elem1 = (StackElement *)arg1;
+    StackElement *elem2 = (StackElement *)arg2;
+    return strcasecmp(elem1-&gt;toString, elem2-&gt;toString);
+}
+
+StackElement* linkedListToArray(Node* head, int* length) {
+    int count = 0;
+    Node* temp = head;
+
+    // Count number of nodes in the list
+    while (temp != NULL) {
+        count++;
+        temp = temp-&gt;next;
+    }
+
+    // Create an array of StackElements
+    StackElement* array = (StackElement*)malloc(count * sizeof(StackElement));
+    temp = head;
+    for (int i = 0; i &lt; count; i++) {
+        array[i] = temp-&gt;element;
+        temp = temp-&gt;next;
+    }
+
+    *length = count;
+    return array;
+}
+
+void arrayToLinkedList(StackElement* array, int length, Node** head) {
+    *head = NULL;
+    for (int i = 0; i &lt; length; i++) {
+        Node* newNode = createNode(array[i]); // Create a new node
+
+        if (*head == NULL) {
+            // If the list is empty, make the new node the head
+            *head = newNode;
+        } else {
+            // Traverse to the end of the list and append the new node
+            Node* temp = *head;
+            while (temp-&gt;next != NULL) {
+                temp = temp-&gt;next;
+            }
+            temp-&gt;next = newNode; // Link the new node
+        }
+    }
+}
+
+
+// Function to sort the linked list
+Node* sortLinkedList(Node* head) {
+    if (head == NULL) {
+        return NULL;  // If the list is empty, return NULL
+    }
+
+    int length = 0;
+    StackElement* array = linkedListToArray(head, &length);
+    
+    // Sort the array using qsort and the comparison function
+    qsort(array, length, sizeof(StackElement), compare);
+    
+    // Convert the sorted array back to a linked list
+    Node* sortedHead = NULL;
+    arrayToLinkedList(array, length, &sortedHead);
+    
+    // Free the array as it's no longer needed
+    free(array);
+
+    // Return the new sorted head of the list
+    return sortedHead;
+}
+
+// Function to merge two lists
+Node* merge(Node* a, Node* b) {
+    // Combine the two linked lists into one list by linking them
+    if (a == NULL) return b;
+    if (b == NULL) return a;
+
+    Node* merged = NULL;
+
+    // Merge both lists
+    while (a != NULL) {
+        insertAtEnd(&merged, a-&gt;element);
+        a = a-&gt;next;
+    }
+
+    while (b != NULL) {
+        insertAtEnd(&merged, b-&gt;element);
+        b = b-&gt;next;
+    }
+
+    return sortLinkedList(merged);
+}
+
+// Function to clear the entire linked list and free memory
+void clear(Node** head) {
+    Node* current = *head;
+    Node* next;
+    
+    while (current != NULL) {
+        next = current-&gt;next;
+        free(current);
+        current = next;
+    }
+    
+    *head = NULL;
+}
+struct Car {
+    char model[20];
+    int year;
+};
+
+struct Person {
+    char name[20];
+    int age;
+};
+// Main function to test the linked list operations
+int main() {
+    // Create Cars
+    struct Car tesla = {"Tesla", 2020};
+    struct Car toyota = {"Toyota", 2019};
+    struct Car honda = {"Honda", 2020};
+    
+    // Create StackElement for cars
+    StackElement carElement1, carElement2, carElement3;
+    carElement1.data = &tesla;
+    carElement1.toString = "Car{model:\"Tesla\", year:2020}";
+    
+    carElement2.data = &toyota;
+    carElement2.toString = "Car{model:\"Toyota\", year:2019}";
+    
+    carElement3.data = &honda;
+    carElement3.toString = "Car{model:\"Honda\", year:2020}";
+    
+    // Create People
+    struct Person alice = {"Alice", 30};
+    struct Person john = {"John", 19};
+    struct Person albert = {"Albert", 28};
+    struct Person robert = {"Robert", 20};
+    
+    // Create StackElement for people
+    StackElement personElement1, personElement2, personElement3, personElement4;
+    personElement1.data = &alice;
+    personElement1.toString = "Person{name:\"Alice\", age:30}";
+    
+    personElement2.data = &john;
+    personElement2.toString = "Person{name:\"John\", age:19}";
+    
+    personElement3.data = &albert;
+    personElement3.toString = "Person{name:\"Albert\", age:28}";
+    
+    personElement4.data = &robert;
+    personElement4.toString = "Person{name:\"Robert\", age:20}";
+
+    // Initialize linked lists for cars and people
+    Node* carList = NULL;
+    Node* personList = NULL;
+
+    // Insert cars into the car linked list
+    insertAtEnd(&carList, carElement1);
+    insertAtEnd(&carList, carElement2);
+    insertAtEnd(&carList, carElement3);
+
+    // Insert people into the person linked list
+    insertAtEnd(&personList, personElement1);
+    insertAtEnd(&personList, personElement2);
+    insertAtEnd(&personList, personElement3);
+    insertAtEnd(&personList, personElement4);
+
+    // Print the original car list
+    printf("Original Car List:\n");
+    traverse(carList);
+
+    // Print the original person list
+    printf("\nOriginal Person List:\n");
+    traverse(personList);
+
+    // Merge the two lists and sort the combined list
+    Node* mergedList = merge(personList, carList);
+
+    // Print the merged and sorted list
+    printf("\nMerged and Sorted List:\n");
+    traverse(mergedList);
+
+    // Clean up and free the memory
+    clear(&carList);
+    clear(&personList);
+    clear(&mergedList);
+
+    return 0;
+}</code></pre>
+		
+		<p>Here is an implementation of a simple singly linked list in C++:</p>
+
+        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+
+using namespace std;
+
+// Node structure for singly linked list
+struct Node {
+    int data;
+    Node* next;
+
+    // Constructor to create a new node
+    Node(int data) {
+        this-&gt;data = data;
+        this-&gt;next = nullptr;
+    }
+};
+
+// Class to manage linked list operations
+class LinkedList {
+private:
+    Node* head;
+
+public:
+    // Constructor to initialize the linked list
+    LinkedList() : head(nullptr) {}
+
+    // Function to insert a node at the beginning of the list
+    void insertAtBeginning(int data) {
+        Node* newNode = new Node(data);
+        newNode-&gt;next = head;
+        head = newNode;
+    }
+
+    // Function to insert a node at the end of the list
+    void insertAtEnd(int data) {
+        Node* newNode = new Node(data);
+        if (head == nullptr) {
+            head = newNode;
+            return;
+        }
+        Node* temp = head;
+        while (temp-&gt;next != nullptr) {
+            temp = temp-&gt;next;
+        }
+        temp-&gt;next = newNode;
+    }
+
+    // Function to insert a new node after a given previous node
+    void insertAfterNode(Node* prevNode, int data) {
+        if (head == nullptr) {
+            cout &lt;&lt; "The list cannot be empty\n";
+            return;
+        }
+
+        if (prevNode == nullptr) {
+            cout &lt;&lt; "The given previous node cannot be NULL\n";
+            return;
+        }
+
+        Node* newNode = new Node(data);
+        newNode-&gt;next = prevNode-&gt;next;
+        prevNode-&gt;next = newNode;
+    }
+
+    // Function to insert a node before a given node
+    void insertBeforeNode(Node* nextNode, int data) {
+        if (head == nullptr) {
+            cout &lt;&lt; "The list cannot be empty\n";
+            return;
+        }
+
+        if (nextNode == nullptr) {
+            cout &lt;&lt; "The given next node cannot be NULL\n";
+            return;
+        }
+
+        Node* newNode = new Node(data);
+        if (head == nextNode) {
+            newNode-&gt;next = head;
+            head = newNode;
+            return;
+        }
+
+        Node* temp = head;
+        while (temp != nullptr && temp-&gt;next != nextNode) {
+            temp = temp-&gt;next;
+        }
+
+        if (temp == nullptr) {
+            cout &lt;&lt; "The given next node is not found in the list\n";
+            delete newNode;
+            return;
+        }
+
+        newNode-&gt;next = temp-&gt;next;
+        temp-&gt;next = newNode;
+    }
+
+    // Function to insert a node at a specific position (0-based index)
+    void insertAtPosition(int data, int position) {
+        Node* newNode = new Node(data);
+
+        if (position == 0) {
+            newNode-&gt;next = head;
+            head = newNode;
+            return;
+        }
+
+        Node* temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != nullptr; i++) {
+            temp = temp-&gt;next;
+        }
+
+        if (temp == nullptr) {
+            cout &lt;&lt; "Position out of bounds\n";
+            delete newNode;
+            return;
+        }
+
+        newNode-&gt;next = temp-&gt;next;
+        temp-&gt;next = newNode;
+    }
+
+    // Function to delete a node at the beginning of the list
+    void deleteAtBeginning() {
+        if (head == nullptr) {
+            cout &lt;&lt; "List is empty\n";
+            return;
+        }
+        Node* temp = head;
+        head = head-&gt;next;
+        delete temp;
+    }
+
+    // Function to delete a node at the end of the list
+    void deleteAtEnd() {
+        if (head == nullptr) {
+            cout &lt;&lt; "List is empty\n";
+            return;
+        }
+
+        Node* temp = head;
+
+        // If there's only one node in the list
+        if (temp-&gt;next == nullptr) {
+            delete temp;
+            head = nullptr;
+            return;
+        }
+
+        // Traverse to the second last node
+        while (temp-&gt;next-&gt;next != nullptr) {
+            temp = temp-&gt;next;
+        }
+
+        // Free the last node
+        delete temp-&gt;next;
+        temp-&gt;next = nullptr;
+    }
+
+    // Function to delete a node at a specific position (0-based index)
+    void deleteAtPosition(int position) {
+        if (head == nullptr) {
+            cout &lt;&lt; "List is empty\n";
+            return;
+        }
+
+        Node* temp = head;
+
+        // If head needs to be removed
+        if (position == 0) {
+            head = temp-&gt;next; // Change head
+            delete temp; // Free old head
+            return;
+        }
+
+        // Find previous node of the node to be deleted
+        for (int i = 0; temp != nullptr && i &lt; position - 1; i++) {
+            temp = temp-&gt;next;
+        }
+
+        // If position is more than the number of nodes
+        if (temp == nullptr || temp-&gt;next == nullptr) {
+            cout &lt;&lt; "Position out of bounds\n";
+            return;
+        }
+
+        // Node temp-&gt;next is the node to be deleted
+        Node* nextNode = temp-&gt;next-&gt;next;
+        delete temp-&gt;next; // Free memory
+        temp-&gt;next = nextNode; // Unlink the deleted node from the list
+    }
+
+    // Function to traverse the list and print all elements
+    void traverse() {
+        Node* temp = head;
+        while (temp != nullptr) {
+            cout &lt;&lt; temp-&gt;data &lt;&lt; " -&gt; ";
+            temp = temp-&gt;next;
+        }
+        cout &lt;&lt; "NULL\n";
+    }
+
+    // Function to search for an element in the list
+    bool search(int key) {
+        Node* temp = head;
+        while (temp != nullptr) {
+            if (temp-&gt;data == key)
+                return true; // Key found
+            temp = temp-&gt;next;
+        }
+        return false; // Key not found
+    }
+
+    // Function to reverse the linked list
+    void reverse() {
+        Node *prev = nullptr, *current = head, *next = nullptr;
+        while (current != nullptr) {
+            next = current-&gt;next; // Store next
+            current-&gt;next = prev; // Reverse current node's pointer
+            prev = current;       // Move pointers one position ahead
+            current = next;
+        }
+        head = prev;
+    }
+
+    // Function to get the size of the linked list
+    int size() {
+        int size = 0;
+        Node* temp = head;
+        while (temp != nullptr) {
+            size++;
+            temp = temp-&gt;next;
+        }
+        return size;
+    }
+
+    // Function to check if the list is empty
+    bool isEmpty() {
+        return head == nullptr;
+    }
+
+    // Function to access an element at a specific index (0-based)
+    int get(int index) {
+        int count = 0;
+        Node* temp = head;
+        while (temp != nullptr) {
+            if (count == index)
+                return temp-&gt;data;
+            count++;
+            temp = temp-&gt;next;
+        }
+        return -1; // Index out of range
+    }
+
+    // Function to set an element at a specific index (0-based)
+    void set(int index, int newValue) {
+        Node* current = head;
+        int count = 0;
+
+        // Traverse the list until the specified index
+        while (current != nullptr) {
+            if (count == index) {
+                current-&gt;data = newValue;  // Update the node's value
+                return;                    // Exit the function after the update
+            }
+            count++;
+            current = current-&gt;next;      // Move to the next node
+        }
+
+        cout &lt;&lt; "Index out of range\n"; // Handle case where index exceeds list length
+    }
+
+    // Function to merge two lists
+    Node* merge(Node* head1, Node* head2) {
+        if (head1 == nullptr) return head2;
+        if (head2 == nullptr) return head1;
+
+        Node* mergedHead = nullptr;
+        if (head1-&gt;data &lt;= head2-&gt;data) {
+            mergedHead = head1;
+            mergedHead-&gt;next = merge(head1-&gt;next, head2);
+        } else {
+            mergedHead = head2;
+            mergedHead-&gt;next = merge(head1, head2-&gt;next);
+        }
+        return mergedHead;
+    }
+
+    // Function to get the middle of the linked list
+    Node* middle(Node* head) {
+        if (head == nullptr) return head;
+        Node* slow = head;
+        Node* fast = head-&gt;next;
+        while (fast != nullptr) {
+            fast = fast-&gt;next;
+            if (fast != nullptr) {
+                slow = slow-&gt;next;
+                fast = fast-&gt;next;
+            }
+        }
+        return slow;
+    }
+
+    // Function to sort the linked list (using Merge Sort)
+    Node* sort(Node* head) {
+        if (head == nullptr || head-&gt;next == nullptr)
+            return head;
+
+        Node* mid = middle(head);
+        Node* nextToMid = mid-&gt;next;
+        mid-&gt;next = nullptr;
+
+        Node* left = sort(head);
+        Node* right = sort(nextToMid);
+
+        return merge(left, right);
+    }
+
+    // Function to clear the entire linked list and free memory
+    void clear() {
+        Node* current = head;
+        Node* next;
+
+        while (current != nullptr) {
+            next = current-&gt;next;
+            delete current;
+            current = next;
+        }
+
+        head = nullptr;
+    }
+
+    // Destructor to free the memory when the linked list is destroyed
+    ~LinkedList() {
+        clear();
+    }
+};
+
+// Main function to test the linked list operations
+int main() {
+    LinkedList list;
+
+    // Insert at beginning
+    list.insertAtBeginning(10);
+    list.insertAtBeginning(20);
+    list.insertAtBeginning(30);
+    cout &lt;&lt; "After inserting at the beginning: ";
+    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; NULL
+
+    // Insert at end
+    list.insertAtEnd(40);
+    cout &lt;&lt; "After inserting at the end: ";
+    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Insert at position
+    list.insertAtPosition(25, 2);  // Insert 25 at position 2
+    cout &lt;&lt; "After inserting at position 2: ";
+    list.traverse();  // Output: 30 -&gt; 20 -&gt; 25 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Delete at position
+    list.deleteAtPosition(2);  // Delete node at position 2
+    cout &lt;&lt; "After deleting at position 2: ";
+    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Reverse the list
+    list.reverse();
+    cout &lt;&lt; "After reversing the list: ";
+    list.traverse();  // Output: 40 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+    // Search for a value
+    bool found = list.search(20);
+    cout &lt;&lt; "Is 20 in the list? " &lt;&lt; (found ? "Yes" : "No") &lt;&lt; endl;  // Output: Yes
+
+    // Get size of the list
+    cout &lt;&lt; "Size of the list: " &lt;&lt; list.size() &lt;&lt; endl;  // Output: 4
+
+    // Sort the list
+    Node* sortedHead = list.sort(list.head);
+    list.clear(); // Clear the current list before assigning sorted list
+    list.head = sortedHead; // Set the head to the sorted list
+    cout &lt;&lt; "After sorting the list: ";
+    list.traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+    // Clear the list
+    list.clear();
+    cout &lt;&lt; "After clearing the list: ";
+    list.traverse();  // Output: NULL
+
+    return 0;
+}</code></pre>
+
+		<p>Here is an implementation of a generic singly linked list in C++:</p>
+
+        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+
+using namespace std;
+
+// Node structure for singly linked list
+template &lt;typename T&gt;
+struct Node {
+    T data;
+    Node* next;
+
+    // Constructor to create a new node
+    Node(T data) {
+        this-&gt;data = data;
+        this-&gt;next = nullptr;
+    }
+};
+
+// Class to manage linked list operations
+template &lt;typename T&gt;
+class LinkedList {
+private:
+    Node&lt;T&gt;* head;
+
+public:
+    // Constructor to initialize the linked list
+    LinkedList() : head(nullptr) {}
+
+    // Function to insert a node at the beginning of the list
+    void insertAtBeginning(T data) {
+        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+        newNode-&gt;next = head;
+        head = newNode;
+    }
+
+    // Function to insert a node at the end of the list
+    void insertAtEnd(T data) {
+        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+        if (head == nullptr) {
+            head = newNode;
+            return;
+        }
+        Node&lt;T&gt;* temp = head;
+        while (temp-&gt;next != nullptr) {
+            temp = temp-&gt;next;
+        }
+        temp-&gt;next = newNode;
+    }
+
+    // Function to insert a new node after a given previous node
+    void insertAfterNode(Node&lt;T&gt;* prevNode, T data) {
+        if (head == nullptr) {
+            cout &lt;&lt; "The list cannot be empty\n";
+            return;
+        }
+
+        if (prevNode == nullptr) {
+            cout &lt;&lt; "The given previous node cannot be NULL\n";
+            return;
+        }
+
+        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+        newNode-&gt;next = prevNode-&gt;next;
+        prevNode-&gt;next = newNode;
+    }
+
+    // Function to insert a node before a given node
+    void insertBeforeNode(Node&lt;T&gt;* nextNode, T data) {
+        if (head == nullptr) {
+            cout &lt;&lt; "The list cannot be empty\n";
+            return;
+        }
+
+        if (nextNode == nullptr) {
+            cout &lt;&lt; "The given next node cannot be NULL\n";
+            return;
+        }
+
+        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+        if (head == nextNode) {
+            newNode-&gt;next = head;
+            head = newNode;
+            return;
+        }
+
+        Node&lt;T&gt;* temp = head;
+        while (temp != nullptr && temp-&gt;next != nextNode) {
+            temp = temp-&gt;next;
+        }
+
+        if (temp == nullptr) {
+            cout &lt;&lt; "The given next node is not found in the list\n";
+            delete newNode;
+            return;
+        }
+
+        newNode-&gt;next = temp-&gt;next;
+        temp-&gt;next = newNode;
+    }
+
+    // Function to insert a node at a specific position (0-based index)
+    void insertAtPosition(T data, int position) {
+        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+
+        if (position == 0) {
+            newNode-&gt;next = head;
+            head = newNode;
+            return;
+        }
+
+        Node&lt;T&gt;* temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != nullptr; i++) {
+            temp = temp-&gt;next;
+        }
+
+        if (temp == nullptr) {
+            cout &lt;&lt; "Position out of bounds\n";
+            delete newNode;
+            return;
+        }
+
+        newNode-&gt;next = temp-&gt;next;
+        temp-&gt;next = newNode;
+    }
+
+    // Function to delete a node at the beginning of the list
+    void deleteAtBeginning() {
+        if (head == nullptr) {
+            cout &lt;&lt; "List is empty\n";
+            return;
+        }
+        Node&lt;T&gt;* temp = head;
+        head = head-&gt;next;
+        delete temp;
+    }
+
+    // Function to delete a node at the end of the list
+    void deleteAtEnd() {
+        if (head == nullptr) {
+            cout &lt;&lt; "List is empty\n";
+            return;
+        }
+
+        Node&lt;T&gt;* temp = head;
+
+        // If there's only one node in the list
+        if (temp-&gt;next == nullptr) {
+            delete temp;
+            head = nullptr;
+            return;
+        }
+
+        // Traverse to the second last node
+        while (temp-&gt;next-&gt;next != nullptr) {
+            temp = temp-&gt;next;
+        }
+
+        // Free the last node
+        delete temp-&gt;next;
+        temp-&gt;next = nullptr;
+    }
+
+    // Function to delete a node at a specific position (0-based index)
+    void deleteAtPosition(int position) {
+        if (head == nullptr) {
+            cout &lt;&lt; "List is empty\n";
+            return;
+        }
+
+        Node&lt;T&gt;* temp = head;
+
+        // If head needs to be removed
+        if (position == 0) {
+            head = temp-&gt;next; // Change head
+            delete temp; // Free old head
+            return;
+        }
+
+        // Find previous node of the node to be deleted
+        for (int i = 0; temp != nullptr && i &lt; position - 1; i++) {
+            temp = temp-&gt;next;
+        }
+
+        // If position is more than the number of nodes
+        if (temp == nullptr || temp-&gt;next == nullptr) {
+            cout &lt;&lt; "Position out of bounds\n";
+            return;
+        }
+
+        // Node temp-&gt;next is the node to be deleted
+        Node&lt;T&gt;* nextNode = temp-&gt;next-&gt;next;
+        delete temp-&gt;next; // Free memory
+        temp-&gt;next = nextNode; // Unlink the deleted node from the list
+    }
+
+    // Function to traverse the list and print all elements
+    void traverse() {
+        Node&lt;T&gt;* temp = head;
+        while (temp != nullptr) {
+            cout &lt;&lt; temp-&gt;data &lt;&lt; " -&gt; ";
+            temp = temp-&gt;next;
+        }
+        cout &lt;&lt; "NULL\n";
+    }
+
+    // Function to search for an element in the list
+    bool search(T key) {
+        Node&lt;T&gt;* temp = head;
+        while (temp != nullptr) {
+            if (temp-&gt;data == key)
+                return true; // Key found
+            temp = temp-&gt;next;
+        }
+        return false; // Key not found
+    }
+
+    // Function to reverse the linked list
+    void reverse() {
+        Node&lt;T&gt;* prev = nullptr;
+        Node&lt;T&gt;* current = head;
+        Node&lt;T&gt;* next = nullptr;
+        while (current != nullptr) {
+            next = current-&gt;next; // Store next
+            current-&gt;next = prev; // Reverse current node's pointer
+            prev = current;       // Move pointers one position ahead
+            current = next;
+        }
+        head = prev;
+    }
+
+    // Function to get the size of the linked list
+    int size() {
+        int size = 0;
+        Node&lt;T&gt;* temp = head;
+        while (temp != nullptr) {
+            size++;
+            temp = temp-&gt;next;
+        }
+        return size;
+    }
+
+    // Function to check if the list is empty
+    bool isEmpty() {
+        return head == nullptr;
+    }
+
+    // Function to access an element at a specific index (0-based)
+    T get(int index) {
+        int count = 0;
+        Node&lt;T&gt;* temp = head;
+        while (temp != nullptr) {
+            if (count == index)
+                return temp-&gt;data;
+            count++;
+            temp = temp-&gt;next;
+        }
+        throw out_of_range("Index out of range"); // Using exception handling
+    }
+
+    // Function to set an element at a specific index (0-based)
+    void set(int index, T newValue) {
+        Node&lt;T&gt;* current = head;
+        int count = 0;
+
+        // Traverse the list until the specified index
+        while (current != nullptr) {
+            if (count == index) {
+                current-&gt;data = newValue;  // Update the node's value
+                return;                    // Exit the function after the update
+            }
+            count++;
+            current = current-&gt;next;      // Move to the next node
+        }
+
+        cout &lt;&lt; "Index out of range\n"; // Handle case where index exceeds list length
+    }
+
+    // Function to merge two lists
+    Node&lt;T&gt;* merge(Node&lt;T&gt;* head1, Node&lt;T&gt;* head2) {
+        if (head1 == nullptr) return head2;
+        if (head2 == nullptr) return head1;
+
+        Node&lt;T&gt;* mergedHead = nullptr;
+        if (head1-&gt;data &lt;= head2-&gt;data) {
+            mergedHead = head1;
+            mergedHead-&gt;next = merge(head1-&gt;next, head2);
+        } else {
+            mergedHead = head2;
+            mergedHead-&gt;next = merge(head1, head2-&gt;next);
+        }
+        return mergedHead;
+    }
+
+    // Function to get the middle of the linked list
+    Node&lt;T&gt;* middle(Node&lt;T&gt;* head) {
+        if (head == nullptr) return head;
+        Node&lt;T&gt;* slow = head;
+        Node&lt;T&gt;* fast = head-&gt;next;
+        while (fast != nullptr) {
+            fast = fast-&gt;next;
+            if (fast != nullptr) {
+                slow = slow-&gt;next;
+                fast = fast-&gt;next;
+            }
+        }
+        return slow;
+    }
+
+    // Function to sort the linked list (using Merge Sort)
+    Node&lt;T&gt;* sort(Node&lt;T&gt;* head) {
+        if (head == nullptr || head-&gt;next == nullptr)
+            return head;
+
+        Node&lt;T&gt;* mid = middle(head);
+        Node&lt;T&gt;* nextToMid = mid-&gt;next;
+        mid-&gt;next = nullptr;
+
+        Node&lt;T&gt;* left = sort(head);
+        Node&lt;T&gt;* right = sort(nextToMid);
+
+        return merge(left, right);
+    }
+
+    // Function to clear the entire linked list and free memory
+    void clear() {
+        Node&lt;T&gt;* current = head;
+        Node&lt;T&gt;* next;
+
+        while (current != nullptr) {
+            next = current-&gt;next;
+            delete current;
+            current = next;
+        }
+
+        head = nullptr;
+    }
+
+    // Destructor to free the memory when the linked list is destroyed
+    ~LinkedList() {
+        clear();
+    }
+};
+
+// Main function to test the linked list operations
+int main() {
+    LinkedList&lt;int&gt; list;
+
+    // Insert at beginning
+    list.insertAtBeginning(10);
+    list.insertAtBeginning(20);
+    list.insertAtBeginning(30);
+    cout &lt;&lt; "After inserting at the beginning: ";
+    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; NULL
+
+    // Insert at end
+    list.insertAtEnd(40);
+    cout &lt;&lt; "After inserting at the end: ";
+    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Insert at position
+    list.insertAtPosition(25, 2);  // Insert 25 at position 2
+    cout &lt;&lt; "After inserting at position 2: ";
+    list.traverse();  // Output: 30 -&gt; 20 -&gt; 25 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Delete at position
+    list.deleteAtPosition(2);  // Delete node at position 2
+    cout &lt;&lt; "After deleting at position 2: ";
+    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
+
+    // Reverse the list
+    list.reverse();
+    cout &lt;&lt; "After reversing the list: ";
+    list.traverse();  // Output: 40 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+    // Search for a value
+    bool found = list.search(20);
+    cout &lt;&lt; "Is 20 in the list? " &lt;&lt; (found ? "Yes" : "No") &lt;&lt; endl;  // Output: Yes
+
+    // Get size of the list
+    cout &lt;&lt; "Size of the list: " &lt;&lt; list.size() &lt;&lt; endl;  // Output: 4
+
+    // Sort the list
+    Node&lt;int&gt;* sortedHead = list.sort(list.head);
+    list.clear(); // Clear the current list before assigning sorted list
+    list.head = sortedHead; // Set the head to the sorted list
+    cout &lt;&lt; "After sorting the list: ";
+    list.traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+    // Clear the list
+    list.clear();
+    cout &lt;&lt; "After clearing the list: ";
+    list.traverse();  // Output: NULL
+	
+	LinkedList&lt;string&gt; list;
+
+    // Insert at beginning
+    list.insertAtBeginning("World");
+    list.insertAtBeginning("Hello");
+    cout &lt;&lt; "After inserting at the beginning: ";
+    list.traverse();  // Output: Hello -&gt; World -&gt; NULL
+
+    // Insert at end
+    list.insertAtEnd("!");
+    cout &lt;&lt; "After inserting at the end: ";
+    list.traverse();  // Output: Hello -&gt; World -&gt; ! -&gt; NULL
+
+    // Delete at beginning
+    list.deleteAtBeginning();
+    cout &lt;&lt; "After deleting at the beginning: ";
+    list.traverse();  // Output: World -&gt; ! -&gt; NULL
+
+    // Clear the list
+    list.clear();
+    cout &lt;&lt; "After clearing the list: ";
+    list.traverse();  // Output: NULL
+	
+    return 0;
+}</code></pre>
+		
+		<p>Here is an implementation of a simple singly linked list in Java:</p>
+
+        <pre><code class="language-java hljs">class Node {
+    int data;
+    Node next;
+
+    // Constructor to create a new node
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+// Class to manage linked list operations
+class LinkedList {
+    private Node head;
+
+    // Constructor to initialize the linked list
+    public LinkedList() {
+        head = null;
+    }
+
+    // Function to insert a node at the beginning of the list
+    public void insertAtBeginning(int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
+    // Function to insert a node at the end of the list
+    public void insertAtEnd(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+    }
+
+    // Function to insert a new node after a given previous node
+    public void insertAfterNode(Node prevNode, int data) {
+        if (head == null) {
+            System.out.println("The list cannot be empty");
+            return;
+        }
+
+        if (prevNode == null) {
+            System.out.println("The given previous node cannot be null");
+            return;
+        }
+
+        Node newNode = new Node(data);
+        newNode.next = prevNode.next;
+        prevNode.next = newNode;
+    }
+
+    // Function to insert a node before a given node
+    public void insertBeforeNode(Node nextNode, int data) {
+        if (head == null) {
+            System.out.println("The list cannot be empty");
+            return;
+        }
+
+        if (nextNode == null) {
+            System.out.println("The given next node cannot be null");
+            return;
+        }
+
+        Node newNode = new Node(data);
+        if (head == nextNode) {
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+
+        Node temp = head;
+        while (temp != null && temp.next != nextNode) {
+            temp = temp.next;
+        }
+
+        if (temp == null) {
+            System.out.println("The given next node is not found in the list");
+            return;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
+    // Function to insert a node at a specific position (0-based index)
+    public void insertAtPosition(int data, int position) {
+        Node newNode = new Node(data);
+
+        if (position == 0) {
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+
+        Node temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != null; i++) {
+            temp = temp.next;
+        }
+
+        if (temp == null) {
+            System.out.println("Position out of bounds");
+            return;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
+    // Function to delete a node at the beginning of the list
+    public void deleteAtBeginning() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        Node temp = head;
+        head = head.next;
+        temp = null; // Helps with garbage collection
+    }
+
+    // Function to delete a node at the end of the list
+    public void deleteAtEnd() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node temp = head;
+
+        // If there's only one node in the list
+        if (temp.next == null) {
+            head = null;
+            return;
+        }
+
+        // Traverse to the second last node
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+
+        // Free the last node
+        temp.next = null;
+    }
+
+    // Function to delete a node at a specific position (0-based index)
+    public void deleteAtPosition(int position) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node temp = head;
+
+        // If head needs to be removed
+        if (position == 0) {
+            head = temp.next; // Change head
+            temp = null; // Helps with garbage collection
+            return;
+        }
+
+        // Find previous node of the node to be deleted
+        for (int i = 0; temp != null && i &lt; position - 1; i++) {
+            temp = temp.next;
+        }
+
+        // If position is more than the number of nodes
+        if (temp == null || temp.next == null) {
+            System.out.println("Position out of bounds");
+            return;
+        }
+
+        // Node temp.next is the node to be deleted
+        Node nextNode = temp.next.next;
+        temp.next = nextNode; // Unlink the deleted node from the list
+    }
+
+    // Function to traverse the list and print all elements
+    public void traverse() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -&gt; ");
+            temp = temp.next;
+        }
+        System.out.println("NULL");
+    }
+
+    // Function to search for an element in the list
+    public boolean search(int key) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.data == key)
+                return true; // Key found
+            temp = temp.next;
+        }
+        return false; // Key not found
+    }
+
+    // Function to reverse the linked list
+    public void reverse() {
+        Node prev = null, current = head, next = null;
+        while (current != null) {
+            next = current.next; // Store next
+            current.next = prev; // Reverse current node's pointer
+            prev = current;       // Move pointers one position ahead
+            current = next;
+        }
+        head = prev;
+    }
+
+    // Function to get the size of the linked list
+    public int size() {
+        int size = 0;
+        Node temp = head;
+        while (temp != null) {
+            size++;
+            temp = temp.next;
+        }
+        return size;
+    }
+
+    // Function to check if the list is empty
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    // Function to access an element at a specific index (0-based)
+    public int get(int index) {
+        int count = 0;
+        Node temp = head;
+        while (temp != null) {
+            if (count == index)
+                return temp.data;
+            count++;
+            temp = temp.next;
+        }
+        return -1; // Index out of range
+    }
+
+    // Function to set an element at a specific index (0-based)
+    public void set(int index, int newValue) {
+        Node current = head;
+        int count = 0;
+
+        // Traverse the list until the specified index
+        while (current != null) {
+            if (count == index) {
+                current.data = newValue;  // Update the node's value
+                return;                    // Exit the function after the update
+            }
+            count++;
+            current = current.next;      // Move to the next node
+        }
+
+        System.out.println("Index out of range"); // Handle case where index exceeds list length
+    }
+
+    // Function to merge two lists
+    private Node merge(Node head1, Node head2) {
+        if (head1 == null) return head2;
+        if (head2 == null) return head1;
+
+        Node mergedHead;
+        if (head1.data &lt;= head2.data) {
+            mergedHead = head1;
+            mergedHead.next = merge(head1.next, head2);
+        } else {
+            mergedHead = head2;
+            mergedHead.next = merge(head1, head2.next);
+        }
+        return mergedHead;
+    }
+
+    // Function to get the middle of the linked list
+    private Node middle(Node head) {
+        if (head == null) return head;
+        Node slow = head;
+        Node fast = head.next;
+        while (fast != null) {
+            fast = fast.next;
+            if (fast != null) {
+                slow = slow.next;
+                fast = fast.next;
+            }
+        }
+        return slow;
+    }
+
+    // Function to sort the linked list (using Merge Sort)
+    public Node sort(Node head) {
+        if (head == null || head.next == null)
+            return head;
+
+        Node mid = middle(head);
+        Node nextToMid = mid.next;
+        mid.next = null;
+
+        Node left = sort(head);
+        Node right = sort(nextToMid);
+
+        return merge(left, right);
+    }
+
+    // Function to clear the entire linked list and free memory
+    public void clear() {
+        head = null; // Helps with garbage collection
+    }
+
+    // Main method to test the linked list operations
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        // Insert elements
+        list.insertAtEnd(10);
+        list.insertAtEnd(20);
+        list.insertAtEnd(30);
+        System.out.print("After inserting at the end: ");
+        list.traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+        // Insert at the beginning
+        list.insertAtBeginning(5);
+        System.out.print("After inserting at the beginning: ");
+        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+        // Insert at the end
+        list.insertAtEnd(40);
+        System.out.print("After inserting at the end: ");
+        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Insert at position
+        list.insertAtPosition(25, 3);  // Insert 25 at position 3
+        System.out.print("After inserting at position 3: ");
+        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 25 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Delete at position
+        list.deleteAtPosition(3);  // Delete node at position 3
+        System.out.print("After deleting at position 3: ");
+        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Reverse the list
+        list.reverse();
+        System.out.print("After reversing the list: ");
+        list.traverse();  // Output: 40 -&gt; 30 -&gt; 20 -&gt; 10 -&gt; 5 -&gt; NULL
+
+        // Search for a value
+        boolean found = list.search(20);
+        System.out.println("Is 20 in the list? " + (found ? "Yes" : "No"));  // Output: Yes
+
+        // Get size of the list
+        System.out.println("Size of the list: " + list.size());  // Output: 5
+
+        // Sort the list
+        Node sortedHead = list.sort(list.head);
+        list.clear(); // Clear the current list before assigning sorted list
+        list.head = sortedHead; // Set the head to the sorted list
+        System.out.print("After sorting the list: ");
+        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Clear the list
+        list.clear();
+        System.out.print("After clearing the list: ");
+        list.traverse();  // Output: NULL
+    }
+}</code></pre>
+
+        <p>Here is an implementation of a generic singly linked list in Java:</p>
+
+        <pre><code class="language-java hljs">class Node&lt;T&gt; {
+    T data;
+    Node&lt;T&gt; next;
+
+    // Constructor to create a new node
+    Node(T data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+// Class to manage linked list operations
+class LinkedList&lt;T&gt; {
+    private Node&lt;T&gt; head;
+
+    // Constructor to initialize the linked list
+    public LinkedList() {
+        head = null;
+    }
+
+    // Function to insert a node at the beginning of the list
+    public void insertAtBeginning(T data) {
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
+    // Function to insert a node at the end of the list
+    public void insertAtEnd(T data) {
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node&lt;T&gt; temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+    }
+
+    // Function to insert a new node after a given previous node
+    public void insertAfterNode(Node&lt;T&gt; prevNode, T data) {
+        if (head == null) {
+            System.out.println("The list cannot be empty");
+            return;
+        }
+
+        if (prevNode == null) {
+            System.out.println("The given previous node cannot be null");
+            return;
+        }
+
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+        newNode.next = prevNode.next;
+        prevNode.next = newNode;
+    }
+
+    // Function to insert a node before a given node
+    public void insertBeforeNode(Node&lt;T&gt; nextNode, T data) {
+        if (head == null) {
+            System.out.println("The list cannot be empty");
+            return;
+        }
+
+        if (nextNode == null) {
+            System.out.println("The given next node cannot be null");
+            return;
+        }
+
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+        if (head == nextNode) {
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+
+        Node&lt;T&gt; temp = head;
+        while (temp != null && temp.next != nextNode) {
+            temp = temp.next;
+        }
+
+        if (temp == null) {
+            System.out.println("The given next node is not found in the list");
+            return;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
+    // Function to insert a node at a specific position (0-based index)
+    public void insertAtPosition(T data, int position) {
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+
+        if (position == 0) {
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+
+        Node&lt;T&gt; temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != null; i++) {
+            temp = temp.next;
+        }
+
+        if (temp == null) {
+            System.out.println("Position out of bounds");
+            return;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
+    // Function to delete a node at the beginning of the list
+    public void deleteAtBeginning() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        Node&lt;T&gt; temp = head;
+        head = head.next;
+        temp = null; // Helps with garbage collection
+    }
+
+    // Function to delete a node at the end of the list
+    public void deleteAtEnd() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node&lt;T&gt; temp = head;
+
+        // If there's only one node in the list
+        if (temp.next == null) {
+            head = null;
+            return;
+        }
+
+        // Traverse to the second last node
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+
+        // Free the last node
+        temp.next = null;
+    }
+
+    // Function to delete a node at a specific position (0-based index)
+    public void deleteAtPosition(int position) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node&lt;T&gt; temp = head;
+
+        // If head needs to be removed
+        if (position == 0) {
+            head = temp.next; // Change head
+            temp = null; // Helps with garbage collection
+            return;
+        }
+
+        // Find previous node of the node to be deleted
+        for (int i = 0; temp != null && i &lt; position - 1; i++) {
+            temp = temp.next;
+        }
+
+        // If position is more than the number of nodes
+        if (temp == null || temp.next == null) {
+            System.out.println("Position out of bounds");
+            return;
+        }
+
+        // Node temp.next is the node to be deleted
+        Node&lt;T&gt; nextNode = temp.next.next;
+        temp.next = nextNode; // Unlink the deleted node from the list
+    }
+
+    // Function to traverse the list and print all elements
+    public void traverse() {
+        Node&lt;T&gt; temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -&gt; ");
+            temp = temp.next;
+        }
+        System.out.println("NULL");
+    }
+
+    // Function to search for an element in the list
+    public boolean search(T key) {
+        Node&lt;T&gt; temp = head;
+        while (temp != null) {
+            if (temp.data.equals(key)) // Use equals for object comparison
+                return true; // Key found
+            temp = temp.next;
+        }
+        return false; // Key not found
+    }
+
+    // Function to reverse the linked list
+    public void reverse() {
+        Node&lt;T&gt; prev = null, current = head, next = null;
+        while (current != null) {
+            next = current.next; // Store next
+            current.next = prev; // Reverse current node's pointer
+            prev = current;       // Move pointers one position ahead
+            current = next;
+        }
+        head = prev;
+    }
+
+    // Function to get the size of the linked list
+    public int size() {
+        int size = 0;
+        Node&lt;T&gt; temp = head;
+        while (temp != null) {
+            size++;
+            temp = temp.next;
+        }
+        return size;
+    }
+
+    // Function to check if the list is empty
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    // Function to access an element at a specific index (0-based)
+    public T get(int index) {
+        int count = 0;
+        Node&lt;T&gt; temp = head;
+        while (temp != null) {
+            if (count == index)
+                return temp.data;
+            count++;
+            temp = temp.next;
+        }
+        return null; // Index out of range
+    }
+
+    // Function to set an element at a specific index (0-based)
+    public void set(int index, T newValue) {
+        Node&lt;T&gt; current = head;
+        int count = 0;
+
+        // Traverse the list until the specified index
+        while (current != null) {
+            if (count == index) {
+                current.data = newValue;  // Update the node's value
+                return;                    // Exit the function after the update
+            }
+            count++;
+            current = current.next;      // Move to the next node
+        }
+
+        System.out.println("Index out of range"); // Handle case where index exceeds list length
+    }
+
+    // Function to merge two lists
+    private Node&lt;T&gt; merge(Node&lt;T&gt; head1, Node&lt;T&gt; head2) {
+        if (head1 == null) return head2;
+        if (head2 == null) return head1;
+
+        Node&lt;T&gt; mergedHead;
+        if (((Comparable&lt;T&gt;) head1.data).compareTo(head2.data) &lt;= 0) {
+            mergedHead = head1;
+            mergedHead.next = merge(head1.next, head2);
+        } else {
+            mergedHead = head2;
+            mergedHead.next = merge(head1, head2.next);
+        }
+        return mergedHead;
+    }
+
+    // Function to get the middle of the linked list
+    private Node&lt;T&gt; middle(Node&lt;T&gt; head) {
+        if (head == null) return head;
+        Node&lt;T&gt; slow = head;
+        Node&lt;T&gt; fast = head.next;
+        while (fast != null) {
+            fast = fast.next;
+            if (fast != null) {
+                slow = slow.next;
+                fast = fast.next;
+            }
+        }
+        return slow;
+    }
+
+    // Function to sort the linked list (using Merge Sort)
+    public Node&lt;T&gt; sort(Node&lt;T&gt; head) {
+        if (head == null || head.next == null)
+            return head;
+
+        Node&lt;T&gt; mid = middle(head);
+        Node&lt;T&gt; nextToMid = mid.next;
+        mid.next = null;
+
+        Node&lt;T&gt; left = sort(head);
+        Node&lt;T&gt; right = sort(nextToMid);
+
+        return merge(left, right);
+    }
+
+    // Function to clear the entire linked list and free memory
+    public void clear() {
+        head = null; // Helps with garbage collection
+    }
+
+    // Main method to test the linked list operations
+    public static void main(String[] args) {
+        LinkedList&lt;Integer&gt; list = new LinkedList&lt;&gt;();
+
+        // Insert elements
+        list.insertAtEnd(10);
+        list.insertAtEnd(20);
+        list.insertAtEnd(30);
+        System.out.print("After inserting at the end: ");
+        list.traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+        // Insert at the beginning
+        list.insertAtBeginning(5);
+        System.out.print("After inserting at the beginning: ");
+        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+        // Insert at the end
+        list.insertAtEnd(40);
+        System.out.print("After inserting at the end: ");
+        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Insert at position
+        list.insertAtPosition(25, 3);  // Insert 25 at position 3
+        System.out.print("After inserting at position 3: ");
+        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 25 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Delete at position
+        list.deleteAtPosition(3);  // Delete node at position 3
+        System.out.print("After deleting at position 3: ");
+        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Reverse the list
+        list.reverse();
+        System.out.print("After reversing the list: ");
+        list.traverse();  // Output: 40 -&gt; 30 -&gt; 20 -&gt; 10 -&gt; 5 -&gt; NULL
+
+        // Search for a value
+        boolean found = list.search(20);
+        System.out.println("Is 20 in the list? " + (found ? "Yes" : "No"));  // Output: Yes
+
+        // Get size of the list
+        System.out.println("Size of the list: " + list.size());  // Output: 5
+
+        // Sort the list
+        Node&lt;Integer&gt; sortedHead = list.sort(list.head);
+        list.clear(); // Clear the current list before assigning sorted list
+        list.head = sortedHead; // Set the head to the sorted list
+        System.out.print("After sorting the list: ");
+        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Clear the list
+        list.clear();
+        System.out.print("After clearing the list: ");
+        list.traverse();  // Output: NULL
+    }
+}</code></pre>
+
+        <p>Here is an implementation of a simple singly linked list in C#:</p>
+
+        <pre><code class="language-java hljs">using System;
+
+class Node
+{
+    public int Data;
+    public Node Next;
+
+    // Constructor to create a new node
+    public Node(int data)
+    {
+        Data = data;
+        Next = null;
+    }
+}
+
+// Class to manage linked list operations
+class LinkedList
+{
+    private Node head;
+
+    // Constructor to initialize the linked list
+    public LinkedList()
+    {
+        head = null;
+    }
+
+    // Function to insert a node at the beginning of the list
+    public void InsertAtBeginning(int data)
+    {
+        Node newNode = new Node(data)
+        {
+            Next = head
+        };
+        head = newNode;
+    }
+
+    // Function to insert a node at the end of the list
+    public void InsertAtEnd(int data)
+    {
+        Node newNode = new Node(data);
+        if (head == null)
+        {
+            head = newNode;
+            return;
+        }
+        Node temp = head;
+        while (temp.Next != null)
+        {
+            temp = temp.Next;
+        }
+        temp.Next = newNode;
+    }
+
+    // Function to insert a new node after a given previous node
+    public void InsertAfterNode(Node prevNode, int data)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("The list cannot be empty");
+            return;
+        }
+
+        if (prevNode == null)
+        {
+            Console.WriteLine("The given previous node cannot be null");
+            return;
+        }
+
+        Node newNode = new Node(data)
+        {
+            Next = prevNode.Next
+        };
+        prevNode.Next = newNode;
+    }
+
+    // Function to insert a node before a given node
+    public void InsertBeforeNode(Node nextNode, int data)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("The list cannot be empty");
+            return;
+        }
+
+        if (nextNode == null)
+        {
+            Console.WriteLine("The given next node cannot be null");
+            return;
+        }
+
+        Node newNode = new Node(data);
+        if (head == nextNode)
+        {
+            newNode.Next = head;
+            head = newNode;
+            return;
+        }
+
+        Node temp = head;
+        while (temp != null && temp.Next != nextNode)
+        {
+            temp = temp.Next;
+        }
+
+        if (temp == null)
+        {
+            Console.WriteLine("The given next node is not found in the list");
+            return;
+        }
+
+        newNode.Next = temp.Next;
+        temp.Next = newNode;
+    }
+
+    // Function to insert a node at a specific position (0-based index)
+    public void InsertAtPosition(int data, int position)
+    {
+        Node newNode = new Node(data);
+
+        if (position == 0)
+        {
+            newNode.Next = head;
+            head = newNode;
+            return;
+        }
+
+        Node temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != null; i++)
+        {
+            temp = temp.Next;
+        }
+
+        if (temp == null)
+        {
+            Console.WriteLine("Position out of bounds");
+            return;
+        }
+
+        newNode.Next = temp.Next;
+        temp.Next = newNode;
+    }
+
+    // Function to delete a node at the beginning of the list
+    public void DeleteAtBeginning()
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return;
+        }
+        Node temp = head;
+        head = head.Next;
+        temp = null; // Helps with garbage collection
+    }
+
+    // Function to delete a node at the end of the list
+    public void DeleteAtEnd()
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return;
+        }
+
+        Node temp = head;
+
+        // If there's only one node in the list
+        if (temp.Next == null)
+        {
+            head = null;
+            return;
+        }
+
+        // Traverse to the second last node
+        while (temp.Next.Next != null)
+        {
+            temp = temp.Next;
+        }
+
+        // Free the last node
+        temp.Next = null;
+    }
+
+    // Function to delete a node at a specific position (0-based index)
+    public void DeleteAtPosition(int position)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return;
+        }
+
+        Node temp = head;
+
+        // If head needs to be removed
+        if (position == 0)
+        {
+            head = temp.Next; // Change head
+            temp = null; // Helps with garbage collection
+            return;
+        }
+
+        // Find previous node of the node to be deleted
+        for (int i = 0; temp != null && i &lt; position - 1; i++)
+        {
+            temp = temp.Next;
+        }
+
+        // If position is more than the number of nodes
+        if (temp == null || temp.Next == null)
+        {
+            Console.WriteLine("Position out of bounds");
+            return;
+        }
+
+        // Node temp.Next is the node to be deleted
+        Node nextNode = temp.Next.Next;
+        temp.Next = nextNode; // Unlink the deleted node from the list
+    }
+
+    // Function to traverse the list and print all elements
+    public void Traverse()
+    {
+        Node temp = head;
+        while (temp != null)
+        {
+            Console.Write(temp.Data + " -&gt; ");
+            temp = temp.Next;
+        }
+        Console.WriteLine("NULL");
+    }
+
+    // Function to search for an element in the list
+    public bool Search(int key)
+    {
+        Node temp = head;
+        while (temp != null)
+        {
+            if (temp.Data == key)
+                return true; // Key found
+            temp = temp.Next;
+        }
+        return false; // Key not found
+    }
+
+    // Function to reverse the linked list
+    public void Reverse()
+    {
+        Node prev = null, current = head, next = null;
+        while (current != null)
+        {
+            next = current.Next; // Store next
+            current.Next = prev; // Reverse current node's pointer
+            prev = current;       // Move pointers one position ahead
+            current = next;
+        }
+        head = prev;
+    }
+
+    // Function to get the size of the linked list
+    public int Size()
+    {
+        int size = 0;
+        Node temp = head;
+        while (temp != null)
+        {
+            size++;
+            temp = temp.Next;
+        }
+        return size;
+    }
+
+    // Function to check if the list is empty
+    public bool IsEmpty()
+    {
+        return head == null;
+    }
+
+    // Function to access an element at a specific index (0-based)
+    public int Get(int index)
+    {
+        int count = 0;
+        Node temp = head;
+        while (temp != null)
+        {
+            if (count == index)
+                return temp.Data;
+            count++;
+            temp = temp.Next;
+        }
+        return -1; // Index out of range
+    }
+
+    // Function to set an element at a specific index (0-based)
+    public void Set(int index, int newValue)
+    {
+        Node current = head;
+        int count = 0;
+
+        // Traverse the list until the specified index
+        while (current != null)
+        {
+            if (count == index)
+            {
+                current.Data = newValue;  // Update the node's value
+                return;                    // Exit the function after the update
+            }
+            count++;
+            current = current.Next;      // Move to the next node
+        }
+
+        Console.WriteLine("Index out of range"); // Handle case where index exceeds list length
+    }
+
+    // Function to merge two lists
+    private Node Merge(Node head1, Node head2)
+    {
+        if (head1 == null) return head2;
+        if (head2 == null) return head1;
+
+        Node mergedHead;
+        if (head1.Data &lt;= head2.Data)
+        {
+            mergedHead = head1;
+            mergedHead.Next = Merge(head1.Next, head2);
+        }
+        else
+        {
+            mergedHead = head2;
+            mergedHead.Next = Merge(head1, head2.Next);
+        }
+        return mergedHead;
+    }
+
+    // Function to get the middle of the linked list
+    private Node Middle(Node head)
+    {
+        if (head == null) return head;
+        Node slow = head;
+        Node fast = head.Next;
+        while (fast != null)
+        {
+            fast = fast.Next;
+            if (fast != null)
+            {
+                slow = slow.Next;
+                fast = fast.Next;
+            }
+        }
+        return slow;
+    }
+
+    // Function to sort the linked list (using Merge Sort)
+    public Node Sort(Node head)
+    {
+        if (head == null || head.Next == null)
+            return head;
+
+        Node mid = Middle(head);
+        Node nextToMid = mid.Next;
+        mid.Next = null;
+
+        Node left = Sort(head);
+        Node right = Sort(nextToMid);
+
+        return Merge(left, right);
+    }
+
+    // Function to clear the entire linked list and free memory
+    public void Clear()
+    {
+        head = null; // Helps with garbage collection
+    }
+
+    // Main method to test the linked list operations
+    public static void Main(string[] args)
+    {
+        LinkedList list = new LinkedList();
+
+        // Insert elements
+        list.InsertAtEnd(10);
+        list.InsertAtEnd(20);
+        list.InsertAtEnd(30);
+        Console.Write("After inserting at the end: ");
+        list.Traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+        // Insert at the beginning
+        list.InsertAtBeginning(5);
+        Console.Write("After inserting at the beginning: ");
+        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+        // Insert at the end
+        list.InsertAtEnd(40);
+        Console.Write("After inserting at the end: ");
+        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Insert at position
+        list.InsertAtPosition(25, 3);  // Insert 25 at position 3
+        Console.Write("After inserting at position 3: ");
+        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 25 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Delete at position
+        list.DeleteAtPosition(3);  // Delete node at position 3
+        Console.Write("After deleting at position 3: ");
+        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Reverse the list
+        list.Reverse();
+        Console.Write("After reversing the list: ");
+        list.Traverse();  // Output: 40 -&gt; 30 -&gt; 20 -&gt; 10 -&gt; 5 -&gt; NULL
+
+        // Search for a value
+        bool found = list.Search(20);
+        Console.WriteLine("Is 20 in the list? " + (found ? "Yes" : "No"));  // Output: Yes
+
+        // Get size of the list
+        Console.WriteLine("Size of the list: " + list.Size());  // Output: 5
+
+        // Sort the list
+        Node sortedHead = list.Sort(list.head);
+        list.Clear(); // Clear the current list before assigning sorted list
+        list.head = sortedHead; // Set the head to the sorted list
+        Console.Write("After sorting the list: ");
+        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Clear the list
+        list.Clear();
+        Console.Write("After clearing the list: ");
+        list.Traverse();  // Output: NULL
+    }
+}</code></pre>
+
+        <p>Here is an implementation of a generic singly linked list in C#:</p>
+
+        <pre><code class="language-csharp hljs">using System;
+
+// Generic Node class
+class Node&lt;T&gt;
+{
+    public T Data;
+    public Node&lt;T&gt; Next;
+
+    // Constructor to create a new node
+    public Node(T data)
+    {
+        Data = data;
+        Next = null;
+    }
+}
+
+// Generic LinkedList class
+class LinkedList&lt;T&gt;
+{
+    private Node&lt;T&gt; head;
+
+    // Constructor to initialize the linked list
+    public LinkedList()
+    {
+        head = null;
+    }
+
+    // Function to insert a node at the beginning of the list
+    public void InsertAtBeginning(T data)
+    {
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data)
+        {
+            Next = head
+        };
+        head = newNode;
+    }
+
+    // Function to insert a node at the end of the list
+    public void InsertAtEnd(T data)
+    {
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
+        if (head == null)
+        {
+            head = newNode;
+            return;
+        }
+        Node&lt;T&gt; temp = head;
+        while (temp.Next != null)
+        {
+            temp = temp.Next;
+        }
+        temp.Next = newNode;
+    }
+
+    // Function to insert a new node after a given previous node
+    public void InsertAfterNode(Node&lt;T&gt; prevNode, T data)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("The list cannot be empty");
+            return;
+        }
+
+        if (prevNode == null)
+        {
+            Console.WriteLine("The given previous node cannot be null");
+            return;
+        }
+
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data)
+        {
+            Next = prevNode.Next
+        };
+        prevNode.Next = newNode;
+    }
+
+    // Function to insert a node before a given node
+    public void InsertBeforeNode(Node&lt;T&gt; nextNode, T data)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("The list cannot be empty");
+            return;
+        }
+
+        if (nextNode == null)
+        {
+            Console.WriteLine("The given next node cannot be null");
+            return;
+        }
+
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
+        if (head == nextNode)
+        {
+            newNode.Next = head;
+            head = newNode;
+            return;
+        }
+
+        Node&lt;T&gt; temp = head;
+        while (temp != null && temp.Next != nextNode)
+        {
+            temp = temp.Next;
+        }
+
+        if (temp == null)
+        {
+            Console.WriteLine("The given next node is not found in the list");
+            return;
+        }
+
+        newNode.Next = temp.Next;
+        temp.Next = newNode;
+    }
+
+    // Function to insert a node at a specific position (0-based index)
+    public void InsertAtPosition(T data, int position)
+    {
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
+
+        if (position == 0)
+        {
+            newNode.Next = head;
+            head = newNode;
+            return;
+        }
+
+        Node&lt;T&gt; temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != null; i++)
+        {
+            temp = temp.Next;
+        }
+
+        if (temp == null)
+        {
+            Console.WriteLine("Position out of bounds");
+            return;
+        }
+
+        newNode.Next = temp.Next;
+        temp.Next = newNode;
+    }
+
+    // Function to delete a node at the beginning of the list
+    public void DeleteAtBeginning()
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return;
+        }
+        Node&lt;T&gt; temp = head;
+        head = head.Next;
+        temp = null; // Helps with garbage collection
+    }
+
+    // Function to delete a node at the end of the list
+    public void DeleteAtEnd()
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return;
+        }
+
+        Node&lt;T&gt; temp = head;
+
+        // If there's only one node in the list
+        if (temp.Next == null)
+        {
+            head = null;
+            return;
+        }
+
+        // Traverse to the second last node
+        while (temp.Next.Next != null)
+        {
+            temp = temp.Next;
+        }
+
+        // Free the last node
+        temp.Next = null;
+    }
+
+    // Function to delete a node at a specific position (0-based index)
+    public void DeleteAtPosition(int position)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return;
+        }
+
+        Node&lt;T&gt; temp = head;
+
+        // If head needs to be removed
+        if (position == 0)
+        {
+            head = temp.Next; // Change head
+            temp = null; // Helps with garbage collection
+            return;
+        }
+
+        // Find previous node of the node to be deleted
+        for (int i = 0; temp != null && i &lt; position - 1; i++)
+        {
+            temp = temp.Next;
+        }
+
+        // If position is more than the number of nodes
+        if (temp == null || temp.Next == null)
+        {
+            Console.WriteLine("Position out of bounds");
+            return;
+        }
+
+        // Node temp.Next is the node to be deleted
+        Node&lt;T&gt; nextNode = temp.Next.Next;
+        temp.Next = nextNode; // Unlink the deleted node from the list
+    }
+
+    // Function to traverse the list and print all elements
+    public void Traverse()
+    {
+        Node&lt;T&gt; temp = head;
+        while (temp != null)
+        {
+            Console.Write(temp.Data + " -&gt; ");
+            temp = temp.Next;
+        }
+        Console.WriteLine("NULL");
+    }
+
+    // Function to search for an element in the list
+    public bool Search(T key)
+    {
+        Node&lt;T&gt; temp = head;
+        while (temp != null)
+        {
+            if (temp.Data.Equals(key))
+                return true; // Key found
+            temp = temp.Next;
+        }
+        return false; // Key not found
+    }
+
+    // Function to reverse the linked list
+    public void Reverse()
+    {
+        Node&lt;T&gt; prev = null, current = head, next = null;
+        while (current != null)
+        {
+            next = current.Next; // Store next
+            current.Next = prev; // Reverse current node's pointer
+            prev = current;       // Move pointers one position ahead
+            current = next;
+        }
+        head = prev;
+    }
+
+    // Function to get the size of the linked list
+    public int Size()
+    {
+        int size = 0;
+        Node&lt;T&gt; temp = head;
+        while (temp != null)
+        {
+            size++;
+            temp = temp.Next;
+        }
+        return size;
+    }
+
+    // Function to check if the list is empty
+    public bool IsEmpty()
+    {
+        return head == null;
+    }
+
+    // Function to access an element at a specific index (0-based)
+    public T Get(int index)
+    {
+        int count = 0;
+        Node&lt;T&gt; temp = head;
+        while (temp != null)
+        {
+            if (count == index)
+                return temp.Data;
+            count++;
+            temp = temp.Next;
+        }
+        throw new IndexOutOfRangeException("Index out of range");
+    }
+
+    // Function to set an element at a specific index (0-based)
+    public void Set(int index, T newValue)
+    {
+        Node&lt;T&gt; current = head;
+        int count = 0;
+
+        // Traverse the list until the specified index
+        while (current != null)
+        {
+            if (count == index)
+            {
+                current.Data = newValue;  // Update the node's value
+                return;                    // Exit the function after the update
+            }
+            count++;
+            current = current.Next;      // Move to the next node
+        }
+
+        Console.WriteLine("Index out of range"); // Handle case where index exceeds list length
+    }
+
+    // Function to merge two lists
+    private Node&lt;T&gt; Merge(Node&lt;T&gt; head1, Node&lt;T&gt; head2)
+    {
+        if (head1 == null) return head2;
+        if (head2 == null) return head1;
+
+        Node&lt;T&gt; mergedHead;
+        if (Comparer&lt;T&gt;.Default.Compare(head1.Data, head2.Data) &lt;= 0)
+        {
+            mergedHead = head1;
+            mergedHead.Next = Merge(head1.Next, head2);
+        }
+        else
+        {
+            mergedHead = head2;
+            mergedHead.Next = Merge(head1, head2.Next);
+        }
+        return mergedHead;
+    }
+
+    // Function to get the middle of the linked list
+    private Node&lt;T&gt; Middle(Node&lt;T&gt; head)
+    {
+        if (head == null) return head;
+        Node&lt;T&gt; slow = head;
+        Node&lt;T&gt; fast = head.Next;
+        while (fast != null)
+        {
+            fast = fast.Next;
+            if (fast != null)
+            {
+                slow = slow.Next;
+                fast = fast.Next;
+            }
+        }
+        return slow;
+    }
+
+    // Function to sort the linked list (using Merge Sort)
+    public Node&lt;T&gt; Sort(Node&lt;T&gt; head)
+    {
+        if (head == null || head.Next == null)
+            return head;
+
+        Node&lt;T&gt; mid = Middle(head);
+        Node&lt;T&gt; nextToMid = mid.Next;
+        mid.Next = null;
+
+        Node&lt;T&gt; left = Sort(head);
+        Node&lt;T&gt; right = Sort(nextToMid);
+
+        return Merge(left, right);
+    }
+
+    // Function to clear the entire linked list and free memory
+    public void Clear()
+    {
+        head = null; // Helps with garbage collection
+    }
+
+    // Main method to test the linked list operations
+    public static void Main(string[] args)
+    {
+        LinkedList&lt;int&gt; list = new LinkedList&lt;int&gt;();
+
+        // Insert elements
+        list.InsertAtEnd(10);
+        list.InsertAtEnd(20);
+        list.InsertAtEnd(30);
+        Console.Write("After inserting at the end: ");
+        list.Traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+        // Insert at the beginning
+        list.InsertAtBeginning(5);
+        Console.Write("After inserting at the beginning: ");
+        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
+
+        // Insert at the end
+        list.InsertAtEnd(40);
+        Console.Write("After inserting at the end: ");
+        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Insert at position
+        list.InsertAtPosition(25, 3);  // Insert 25 at position 3
+        Console.Write("After inserting at position 3: ");
+        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 25 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Delete at position
+        list.DeleteAtPosition(3);  // Delete node at position 3
+        Console.Write("After deleting at position 3: ");
+        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Reverse the list
+        list.Reverse();
+        Console.Write("After reversing the list: ");
+        list.Traverse();  // Output: 40 -&gt; 30 -&gt; 20 -&gt; 10 -&gt; 5 -&gt; NULL
+
+        // Search for a value
+        bool found = list.Search(20);
+        Console.WriteLine("Is 20 in the list? " + (found ? "Yes" : "No"));  // Output: Yes
+
+        // Get size of the list
+        Console.WriteLine("Size of the list: " + list.Size());  // Output: 5
+
+        // Sort the list
+        Node&lt;int&gt; sortedHead = list.Sort(list.head);
+        list.Clear(); // Clear the current list before assigning sorted list
+        list.head = sortedHead; // Set the head to the sorted list
+        Console.Write("After sorting the list: ");
+        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+
+        // Clear the list
+        list.Clear();
+        Console.Write("After clearing the list: ");
+        list.Traverse();  // Output: NULL
+    }
+}</code></pre>
+
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/data-structure" class="tag">data structure</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/linked-list" class="tag">linked list</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/singly-linked-list" class="tag">singly linked list</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+	
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2024/10/14/singly-linked-list-data-structure/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2024/10/14/singly-linked-list-data-structure/" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2024/10/14/singly-linked-list-data-structure/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+					</div>
+				</div>
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/10/11/dynamic-array-data-structure/"><img src="https://hemimorphite.github.io/assets/images/dynamicarray.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/10/11/dynamic-array-data-structure/">Dynamic Array Data Structure</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/2024/09/26/linear-stack-data-structure/"><img src="https://hemimorphite.github.io/assets/images/linearstack.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/09/26/linear-stack-data-structure/">Linear Stack Data Structure</a></h4>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<script async="async" data-cfasync="false" src="//pl23622823.highrevenuenetwork.com/82849ac901fcdf553b99a113d233ce38/invoke.js"></script>
+						<div id="container-82849ac901fcdf553b99a113d233ce38"></div>
+					</div>
+					<div class="col-md-6">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '08760f2487e830ed5039902de4007bec',
+								'format' : 'iframe',
+								'height' : 250,
+								'width' : 300,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/2024/10/14/singly-linked-list-data-structure/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/2024/10/14/singly-linked-list-data-structure/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+		
+  	</body>
+</html>
