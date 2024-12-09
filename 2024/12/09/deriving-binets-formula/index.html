@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="Explore the fascinating derivation of Binet's Formula, a closed-form expression for Fibonacci numbers, using mathematical tools like recurrence relations, generating functions, and properties of the golden ratio.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/2024/12/09/deriving-binets-formula/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Deriving Binet's Formula">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/2024/12/09/deriving-binets-formula/">
+		<meta property="og:description" content="Explore the fascinating derivation of Binet's Formula, a closed-form expression for Fibonacci numbers, using mathematical tools like recurrence relations, generating functions, and properties of the golden ratio.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/binetformula.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Deriving Binet's Formula">
+		<meta name="twitter:description" content="Explore the fascinating derivation of Binet's Formula, a closed-form expression for Fibonacci numbers, using mathematical tools like recurrence relations, generating functions, and properties of the golden ratio.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/binetformula.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Deriving Binet's Formula</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <!-- Additional CSS Files -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <!--<div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>-->  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '9cf40e8a46ab80f525196d3376630858',
+								'format' : 'iframe',
+								'height' : 90,
+								'width' : 728,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<script type="text/javascript">
+					atOptions = {
+						'key' : '9cf40e8a46ab80f525196d3376630858',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+			</div>
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">Deriving Binet's Formula</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published December 09, 2024</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/binetformula.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+		
+        <p>The Fibonacci sequence, one of the most renowned number sequences in mathematics, is named after Leonardo of Pisa, a prominent mathematician of the European Middle Ages. Born in 1170 into the Bonacci family, Leonardo later became known as Fibonacci — a name derived from the Latin phrase Filius Bonacci, meaning "son of Bonacci."</p>
+
+        <p>In his book Liber Abaci (1202), he introduced the now-famous Fibonacci sequence:</p>
+		
+		\[ 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ... \]
+		
+		<p>This sequence arose from an arithmetic problem about counting rabbit pairs, where each term represents the total number of rabbit pairs in a given month. The pattern is that each term is the sum of the two preceding terms. This means the Fibonacci sequence can be defined recursively as follows:</p>
+		
+		\[ F_{0} = 1, F_{1} = 1, F_{n} = F_{n-1} + F_{n-2} \text{ for } n \geq 2 \]
+		
+		<p>It turns out that the Fibonacci sequence also has a closed-form expression, known as Binet's formula. It is given by:</p>
+		
+		\[ F_{n} = \frac{\phi^{n} - \psi^{n}}{\sqrt{5}}, \]
+		
+		<p>where:</p>
+		
+		\[ \phi = \frac{1 + \sqrt{5}}{2}, \quad \psi = \frac{1 - \sqrt{5}}{2}. \]
+		
+		<p>Here, \(\phi\) and \(\psi\) are the roots of the characteristic equation associated with the Fibonacci recurrence relation. Binet's formula provides an exact value for \(F_{n}\) without requiring recursive computation, beautifully connecting the Fibonacci sequence to algebra and the golden ratio.</p>
+		
+		<p>For any sequence of numbers, there exists an associated generating function that encodes the sequence into a formal power series. Given a sequence \(\{a_n\}_{n=0}^{\infty}\), the generating function \(G(x)\) is defined as:</p>
+		
+		\[ G(x) = \sum_{n=0}^{\infty} a_n x^{n}  \]
+		
+		<p>If we change the sequence by adding \(k\) zeros to the left \(\{0, 0, ..., 0, a_{0}, a_{1}, a_{2}, ... \}\), then the new generating function is \(x^{k}G(x) = a_{0} x^{k} + a_{1} x^{k+1} + a_{2} x^{k+2} + ...\).</p>
+		
+		<p>Recall that the Fibonacci sequence are defined by the recurrence relation</p>
+		
+		\[ F_{0} = 1, F_{1} = 1, F_{n} = F_{n-1} + F_{n-2} \text{ for } n \geq 2 \]
+		
+		<p>We begin by defining the generating function for the Fibonacci sequence as the formal power series whose coefficients are the Fibonacci sequence themselves,</p>
+		
+		\[ F(x) = \sum_{n=0}^{\infty} F_{n} x^{n} \]
+		
+		<p>When dealing with a recurrence relation like the Fibonacci sequence, where the recurrence starts with two defined initial terms (\(F_{0}\) and \(F_{1}\)), shifting the generating function twice to the right is necessary to properly represent the recurrence algebraically.</p>
+		
+		<p>We multiply the generating function for the Fibonacci sequence with \(x\) and \(x^{2}\) to shift the terms:</p>
+		
+		\[
+		\begin{aligned}
+		F(x)  &= F_{0} + F_{1} x + F_{2} x^{2} + F_{3} x^{3} + F_{4} x^{4} + F_{5} x^{5} + F_{6} x^{6} + \dots \\
+		xF(x) &= \phantom{F_{0} x +} F_{1} x^{2} + F_{2} x^{3} + F_{3} x^{4} + F_{4} x^{5} + F_{5} x^{6} + \dots \\
+		x^{2}F(x) &= \phantom{F_{0} x^{2} +} F_{1} x^{3} + F_{2} x^{4} + F_{3} x^{5} + F_{4} x^{6} + \dots
+		\end{aligned}
+		\]
+
+		<p>When we multiply \(F(x)\) by \(x\), it shifts all terms of the sequence to the right by one position:</p>
+		
+		\[ xF(x) = x\sum_{n=0}^{\infty} F_{n} x^{n} = \sum_{n=0}^{\infty} F_{n} x^{n+1} = \sum_{n=1}^{\infty} F_{n-1} x^{n} \]
+		
+		<p>When we multiply \(F(x)\) by \(x^{2}\), it shifts all terms of the sequence to the right by two positions:</p>
+		
+		\[ x^{2}F(x) = x^{2}\sum_{n=0}^{\infty} F_{n} x^{n} = \sum_{n=0}^{\infty} F_{n} x^{n+2} = \sum_{n=2}^{\infty} F_{n-2} x^{n} \]
+		
+		<p>The initial terms \(F_{0}\) and \(F_{1}\) need to be added explicitly because they are not part of the recurrence relation and subsitute the recurrence relation for \(F_{n}\) into the coefficients of the sum.</p>
+		
+		\[
+		\begin{aligned}
+		F(x) &= F_{0} x^{0} + F_{1} x^{1} + \sum_{n=2}^{\infty} F_{n} x^{n} \\
+		&= F_{0} + F_{1} x + \sum_{n=2}^{\infty} (F_{n-1} + F_{n-2}) x^{n} \\
+		&= F_{0} + F_{1} x + \sum_{n=2}^{\infty} F_{n-1} x^{n} + \sum_{n=2}^{\infty} F_{n-2} x^{n} \\
+		&= F_{0} + F_{1} x + x\sum_{n=2}^{\infty} F_{n-1} x^{n-1} + x^{2}\sum_{n=2}^{\infty} F_{n-2} x^{n-2} \\
+		&= F_{0} + F_{1} x + x(\sum_{n=0}^{\infty} F_{n} x^{n} - F_{0}) + x^{2}\sum_{n=0}^{\infty} F_{n} x^{n} \\
+		&= F_{0} + F_{1} x + x(F(x) - F_{0}) + x^{2} F(x) \\
+		&= F_{0} + F_{1} x + x F(x) - F_{0} x + x^{2} F(x)
+		\end{aligned}
+		\]
+		
+		<p>From the initial conditions \(F_{0} = 0\) and \(F_{1} = 1\), the equation simplifies to:</p>
+		
+		\[ F(x) = x + x F(x) + x^{2} F(x) \]
+		
+		<p>Sovling for the generating function, we get:</p>
+		
+		\[ F(x) = \frac{x}{1 - x - x^{2}} \]
+		
+		<p>Now that we have found a closed form for the generating function, all that remains is to express this function as a power series. After doing so, we may match its coefficients term-by-term with the corresponding Fibonacci numbers. The roots of the polynomial \(1 − x − x^{2}\) are \(-\phi\) and \(-\psi\), where</p>
+		
+		\[ \phi = \frac{1 + \sqrt{5}}{2} \]
+		
+		<p>and</p>
+		
+		\[ \psi = \frac{1 - \sqrt{5}}{2}, \]
+		
+		<p>so the polynomial factors as \(1-x-x^{2}=-(x+\phi)(x+\psi)\).</p>
+		
+		<p>In order to express the generating function as a power series, we will use the partial fraction decomposition to express it in the form</p>
+		
+		\[ F(x) = -\frac{x}{(x+\phi)(x+\psi)} = \frac{A}{x+\phi} + \frac{B}{x+\psi}, \]
+		
+		<p>which is equivalent to</p>
+		
+		\[ -x = A(x+\psi) + B(x+\phi). \]
+		
+		<p>Letting \(x=-\phi\):</p>
+		
+		\[
+		\begin{aligned}
+		-x &= A(x+\psi) + B(x+\phi) \\
+		-(-\phi) &= A(-\phi+\psi) + B(-\phi+\phi) \\
+		\phi &= A(-\phi+\psi) \\
+		A &= \frac{\phi}{\psi-\phi}
+		\end{aligned}
+		\]
+		
+		<p>Using the fact that \(\psi-\phi=-\sqrt{5}\), we get:</p>
+		
+		\[ A &= -\frac{\phi}{\sqrt{5}}. \]
+		
+		<p>Letting \(x=-\psi\):</p>
+		
+		\[
+		\begin{aligned}
+		-x &= A(x+\psi) + B(x+\phi) \\
+		-(-\psi) &= A(-\psi+\psi) + B(-\psi+\phi) \\
+		\psi &= B(-\psi+\phi) \\
+		B &= \frac{\psi}{\phi-\psi}
+		\end{aligned}
+		\]
+		
+		<p>Using the fact that \(\phi-\psi=\sqrt{5}\), we get:</p>
+		
+		\[ B &= \frac{\psi}{\sqrt{5}}. \]
+		
+		<p>Now substitute these values of \(A\) and \(B\) into the partial fraction decomposition and we get:</p>
+		
+		\[ F(x) = \frac{1}{\sqrt{5}}(\frac{\psi}{x+\psi} - \frac{\phi}{x+\phi}). \]
+		
+		<p>Recall that the sum of a geometric series is given by</p>
+		
+		\[ \frac{1}{1-x} = \sum_{n=0}^{\infty} x^{n}, \]
+		
+		<p>assuming \(|x| \lt 1\) for convergence.</p>
+		
+		<p>The roots \(\phi\) and \(\psi\) are conjugates of each other, and they satisfy the product of the roots relationships:</p>
+		
+		\[ \phi \cdot \psi = -1. \]
+		
+		<p>Using the fact that \(\phi=-\frac{1}{\psi}\), we can rewrite the first term of the generating function as</p>
+		
+		\[
+		\begin{aligned}
+		\frac{\psi}{x+\psi} &= \frac{1}{1+\frac{x}{\psi}} \\
+		&= \frac{1}{1-\psix} \\
+		&= \sum_{n=0}^{\infty} \psi^{n} x^{n}.
+		\end{aligned}
+		\]
+		
+		<p>Similarly,</p>
+		
+		\[
+		\begin{aligned}
+		\frac{\phi}{x+\phi} &= \frac{1}{1+\frac{x}{\phi}} \\
+		&= \frac{1}{1-\phix} \\
+		&= \sum_{n=0}^{\infty} \phi^{n} x^{n}.
+		\end{aligned}
+		\]
+		
+		<p>so</p>
+		
+		\[
+		\begin{aligned}
+		F(x) = \frac{1}{\sqrt{5}}(\frac{\psi}{x+\psi} - \frac{\phi}{x+\phi}) \\
+		&= \frac{1}{\sqrt{5}}(\sum_{n=0}^{\infty} \phi^{n} x^{n} - \sum_{n=0}^{\infty} \psi^{n} x^{n}) \\
+		&= \sum_{n=0}^{\infty} \frac{1}{\sqrt{5}} (\phi^{n} - \psi^{n}) x^{n}.
+		\end{aligned}
+		\]
+		
+		<p>Since the definition of \(F(x)\) was</p>
+		
+		\[ F(x) = \sum_{n=0}^{\infty} F_{n} x^{n}, \]
+		
+		<p>we match the coefficients on corresponding powers of \(x\) in these two expressions for \(F(x)\) to finally arrive at the desired closed form for the n-th Fibonacci number,</p>
+		
+		\[ F_{n} = \frac{1}{\sqrt{5}} (\phi^{n} - \psi^{n}). \]
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/tag/math" class="tag">math</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/fibonacci" class="tag">fibonacci</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/recurrence-relation" class="tag">recurrence relation</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/generating-function" class="tag">generating function</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/tag/binet-formula" class="tag">binet formula</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+	
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/2024/12/09/deriving-binets-formula/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/2024/12/09/deriving-binets-formula/" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/2024/12/09/deriving-binets-formula/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+					</div>
+				</div>
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<script async="async" data-cfasync="false" src="//pl23622823.highrevenuenetwork.com/82849ac901fcdf553b99a113d233ce38/invoke.js"></script>
+						<div id="container-82849ac901fcdf553b99a113d233ce38"></div>
+					</div>
+					<div class="col-md-6">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '08760f2487e830ed5039902de4007bec',
+								'format' : 'iframe',
+								'height' : 250,
+								'width' : 300,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/2024/12/09/deriving-binets-formula/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/2024/12/09/deriving-binets-formula/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+		
+  	</body>
+</html>
