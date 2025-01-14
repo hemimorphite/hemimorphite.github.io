@@ -1763,29 +1763,87 @@
 </figure>
 
     <article class="post-content">
-        <p>GB 18030 is a comprehensive character encoding standard used primarily in China to represent a wide range of characters, including Chinese characters, ASCII, and Unicode. Its encoding structure is variable-length, using 1, 2, or 4 bytes to encode characters.</p>
+        <p>CNS11643, also known as the "Chinese National Standard (CNS) 11643," is a standard for Chinese character encoding. It was developed by the Ministry of Education of Taiwan (Republic of China) to provide a comprehensive system for encoding traditional Chinese characters. The standard was first published in 1986 and has been updated several times since then to expand its character set and improve encoding methods.</p>
 
-        <p>GB 18030 uses different byte sequences to represent different types of characters:</p>
+        <p>CNS11643 encodes traditional Chinese characters across several planes, each containing a different range of characters. These planes are organized into 94 rows, with each row containing 94 characters. The character encoding is specified by a combination of the plane number, row number, and column number.</p>
+
+        <p>However, only the first 7 planes are commonly used and well-documented.</p>
 
         <ul>
-            <li>ASCII Characters (1 byte): Standard Latin characters, digits, punctuation, and control characters (0x00 to 0x7F).</li>
-            <li>Extended GBK Characters (2 bytes): A character set for simplified and traditional Chinese characters as well as additional symbols and special characters, encoded in two-byte sequences where the first byte in range 0x81 to 0xFE and the second byte in 0x40 to 0x7E or 0x80 to 0xFE.</li>
-            <li>Additional Unicode Characters (4 bytes): A character set to encode the vast number of characters introduced in Unicode versions beyond those covered by GBK, encoded in four-byte sequences where the first byte in range 0x81 to 0xFE, the second byte in range 0x30 to 0x39, the third byte in range 0x81 to 0xFE and the four byte in range 0x30 to 0x39.</li>
+            <li><strong>Plane 1 (Primary Plane):</strong>
+                <ul>
+                    <li>Characters: Commonly used traditional Chinese characters.</li>
+                    <li>Total Characters: 3,755 characters.</li>
+                    <li>Usage: Standard traditional Chinese characters for general use.</li>
+                </ul>
+            </li>
+            <li><strong>Plane 2:</strong>
+                <ul>
+                    <li>Characters: Less commonly used traditional Chinese characters.</li>
+                    <li>Total Characters: 6,427 characters.</li>
+                    <li>Usage: Additional characters not included in Plane 1.</li>
+                </ul>
+            </li>
+            <li><strong>Plane 3:</strong>
+                <ul>
+                    <li>Characters: Rare characters, variant forms, and historical characters.</li>
+                    <li>Total Characters: 8,048 characters.</li>
+                    <li>Usage: Characters needed for specific academic, historical, and research purposes.</li>
+                </ul>
+            </li>
+            <li><strong>Plane 4:</strong>
+                <ul>
+                    <li>Characters: Rare characters, often used in dialects or specific fields.</li>
+                    <li>Total Characters: 8,048 characters.</li>
+                    <li>Usage: Special-purpose characters including those for Taiwanese dialects.</li>
+                </ul>
+            </li>
+            <li><strong>Plane 5:</strong>
+                <ul>
+                    <li>Characters: Rare and specialized characters.</li>
+                    <li>Total Characters: 8,048 characters.</li>
+                    <li>Usage: Continuation of characters for specialized purposes.</li>
+                </ul>
+            </li>
+            <li><strong>Plane 6:</strong>
+                <ul>
+                    <li>Characters: Rare and specialized characters.</li>
+                    <li>Total Characters: 8,048 characters.</li>
+                    <li>Usage: Similar to Plane 5, including additional rare characters.</li>
+                </ul>
+            </li>
+            <li><strong>Plane 7:</strong>
+                <ul>
+                    <li>Characters: Rare and specialized characters.</li>
+                    <li>Total Characters: 8,048 characters.</li>
+                    <li>Usage: Continuation of characters needed for specialized applications.</li>
+                </ul>
+            </li>
         </ul>
 
-        <p>This post is the first part in GB18030 Encoding and Decoding tutorial series. If you're interested in this topic, you can continue reading the next part by using the following hyperlinks:</p>
+
+        <p>This post is part of CNS11643 Encoding and Decoding tutorial series. If you're interested in this topic, you can continue reading the next part by using the following hyperlinks:</p>
 
         <ol>
-            <li><a href="https://hemimorphite.github.io/2024/08/05/gb-18030-encoding-and-decoding-part-1/">GB18030 Encoding and Decoding Part 1</a></li>
-            <li><a href="https://hemimorphite.github.io/2024/08/05/gb-18030-encoding-and-decoding-part-2/">GB18030 Encoding and Decoding Part 2</a></li>
-            <li><a href="https://hemimorphite.github.io/2024/08/05/gb-18030-encoding-and-decoding-part-3/">GB18030 Encoding and Decoding Part 3</a></li>
-            <li><a href="https://hemimorphite.github.io/2024/08/05/gb-18030-encoding-and-decoding-part-4/">GB18030 Encoding and Decoding Part 4</a></li>
-            <li><a href="https://hemimorphite.github.io/2024/08/05/gb-18030-encoding-and-decoding-part-5/">GB18030 Encoding and Decoding Part 5</a></li>
-            <li><a href="https://hemimorphite.github.io/2024/08/05/gb-18030-encoding-and-decoding-part-6/">GB18030 Encoding and Decoding Part 6</a></li>
-            <li><a href="https://hemimorphite.github.io/2024/08/05/gb-18030-encoding-and-decoding-part-7/">GB18030 Encoding and Decoding Part 7</a></li>
-            <li><a href="https://hemimorphite.github.io/2024/08/05/gb-18030-encoding-and-decoding-part-8/">GB18030 Encoding and Decoding Part 8</a></li>
-            <li><a href="https://hemimorphite.github.io/2024/08/05/gb-18030-encoding-and-decoding-part-9/">GB18030 Encoding and Decoding Part 9</a></li>
-            <li><a href="https://hemimorphite.github.io/2024/08/05/gb-18030-encoding-and-decoding-part-10/">GB18030 Encoding and Decoding Part 10</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-1-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 1</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-2-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 2</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-3-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 3</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-4-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 4</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-5-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 5</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-6-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 6</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-7-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 7</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-8-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 8</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-9-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 9</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-10-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 10</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-11-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 11</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-12-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 12</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-13-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 13</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-14-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 14</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-15-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 15</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-16-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 16</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-17-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 17</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-19-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 19</a></li>
+            <li><a href="https://hemimorphite.github.io/2024/08/21/cns-11643-plane-24-encoding-and-decoding/">CNS11643 Encoding and Decoding Plane 24</a></li>
         </ol>
 
 <table class="table table-bordered table-responsive">
@@ -10728,7 +10786,7 @@
 						<div class="col-md-6 col-lg-4">
 							<div class="blog-post">
 								<div class="blog-thumb">
-									<a href="https://hemimorphite.github.io/2024/08/05/cns-11643-plane-5-encoding-and-decoding/"><img src="https://hemimorphite.github.io/assets/images/gb18030.jpg" alt=""></a>
+									<a href="https://hemimorphite.github.io/2024/08/05/cns-11643-plane-5-encoding-and-decoding/"><img src="https://hemimorphite.github.io/assets/images/cns116435.jpg" alt=""></a>
 								</div>
 								<div class="blog-eyebrow">Complete Reference</div>
 								<h4 class="blog-title"><a href="https://hemimorphite.github.io/2024/08/05/cns-11643-plane-5-encoding-and-decoding/">CNS11643 Plane 5 Encoding and Decoding</a></h4>
@@ -10837,7 +10895,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="copyright-text">
-						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						<p>&copy; 2025 Copyright hemimorphite. All Rights Reserved</p>
 						</div>
 					</div>
 				</div>

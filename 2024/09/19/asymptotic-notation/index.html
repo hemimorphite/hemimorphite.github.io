@@ -2222,7 +2222,7 @@
                 \[ (1 - log(3))n^{1.1} \gt 10^{80} \]
                 </div>
 
-                <p>Divide both sides by \(1−log⁡(3)\):</p>
+                <p>Divide both sides by \(1−\log(3)\):</p>
 
                 <div class="equation-container">
                 \[ n^{1.1} \gt \frac{10^{80}}{1 - log(3)} \approx 10^{80} \]
@@ -2260,42 +2260,42 @@
                 <p>Prove that running time \(f(n) = \binom{n}{\frac{n}{2}}\) is \(O(\frac{2^{n}}{\sqrt{n}})\).</p>
 
                 <p>Solution</p>
+				
+				<p>The binomial coefficient can be written as:</p>
 
-                <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
+                <div class="equation-container">
+                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{\left(\frac{n}{2}\right)!\left(\frac{n}{2}\right)!} \]
+                </div>
+				
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <p>The binomial coefficient can be expressed as:</p>
-
-                <div class="equation-container">
-                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
-                </div>
-
-                <p>Applying Stirling's approximation:</p>
+                <p>Substituting Stirling's approximation for both \(n!\) and \(\left(\frac{n}{2}\right)!\), we get</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <div class="equation-container">
-                \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
+                \[ \left(\frac{n}{2}\right)! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
-                <p>Thus:</p>
+                <p>Substituting these approximations into the expression for \(\binom{n}{\frac{n}{2}}\), we obtain:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
-                <p>Simplify the expression:</p>
+                <p>Simplifying the expression:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
-                <p>Simplify further:</p>
+                <p>Simplifying further:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
@@ -2536,7 +2536,7 @@
 
                 <p>Solution</p>
 
-                <p>The factorial function can be approximated using Stirling's approximation. Stirling's approximation states:</p>
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
@@ -2548,13 +2548,13 @@
                 \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
-                <p>Using the properties of logarithms, we can expand the expression:</p>
+                <p>Using the properties of logarithms, we can simplify the expression:</p>
 
                 <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n}) + n \log (\frac{n}{e}) \]
                 </div>
 
-                <p>Simplify each term:</p>
+                <p>Simplify further:</p>
 
                 <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
@@ -2947,41 +2947,41 @@
 
                 <p>Solution 1</p>
                 
-                <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
+                <p>The binomial coefficient can be written as:</p>
+
+                <div class="equation-container">
+                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{\left(\frac{n}{2}\right)!\left(\frac{n}{2}\right)!} \]
+                </div>
+				
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <p>The binomial coefficient can be expressed as:</p>
-
-                <div class="equation-container">
-                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
-                </div>
-
-                <p>Applying Stirling's approximation:</p>
+                <p>Substituting Stirling's approximation for both \(n!\) and \(\left(\frac{n}{2}\right)!\), we get</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <div class="equation-container">
-                \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
+                \[ \left(\frac{n}{2}\right)! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
-                <p>Thus:</p>
+                <p>Substituting these approximations into the expression for \(\binom{n}{\frac{n}{2}}\), we obtain:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
-                <p>Simplifying this expression:</p>
+                <p>Simplifying the expression:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
-                <p>Simplify further:</p>
+                <p>Simplifying further:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
@@ -2993,13 +2993,13 @@
                 \[ f(n) \lt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
-                <p>Substituting the given functions:</p>
+                <p>Substitute the given functions:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \lt c \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
-                <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation:</p>
+                <p>Substitute the approximation above into the expression for \(\binom{n}{\frac{n}{2}}\):</p>
 
                 <div class="equation-container">
                 \[ \sqrt{\frac{2}{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \lt c \cdot \frac{2^{n}}{\sqrt{n}} \]
@@ -3019,41 +3019,41 @@
 
                 <p>Solution 2</p>
                 
-                <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
+                <p>The binomial coefficient can be written as:</p>
+
+                <div class="equation-container">
+                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{\left(\frac{n}{2}\right)!\left(\frac{n}{2}\right)!} \]
+                </div>
+				
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <p>The binomial coefficient can be expressed as:</p>
-
-                <div class="equation-container">
-                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
-                </div>
-
-                <p>Applying Stirling's approximation:</p>
+                <p>Substituting Stirling's approximation for both \(n!\) and \(\left(\frac{n}{2}\right)!\), we get</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <div class="equation-container">
-                \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
+                \[ \left(\frac{n}{2}\right)! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
-                <p>Thus:</p>
+                <p>Substituting these approximations into the expression for \(\binom{n}{\frac{n}{2}}\), we obtain:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
-                <p>Simplifying this expression:</p>
+                <p>Simplifying the expression:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
-                <p>Simplify further:</p>
+                <p>Simplifying further:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
@@ -3073,7 +3073,7 @@
                 \[ \lim_{n \to \infty} \frac{\binom{n}{\frac{n}{2}}}{\frac{2^{n}}{\sqrt{n}}} \]
                 </div>
 
-                <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation and be simplified to:</p>
+                <p>Substitute the approximation above into the expression for \(\binom{n}{\frac{n}{2}}\):</p>
 
                 <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\binom{n}{\frac{n}{2}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \frac{\sqrt{\frac{2}{\pi}} \cdot \frac{2^{n}}{\sqrt{n}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \sqrt{\frac{2}{\pi}} = \sqrt{\frac{2}{\pi}} \]
@@ -3091,7 +3091,7 @@
 
                 <p>Solution 1</p>
 
-                <p>The factorial function can be approximated using Stirling's approximation. Stirling's approximation states:</p>
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
@@ -3103,13 +3103,13 @@
                 \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
-                <p>Using the properties of logarithms, we can expand the expression:</p>
+                <p>Using the properties of logarithms, we can simplify the expression:</p>
 
                 <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n}) + n \log (\frac{n}{e}) \]
                 </div>
 
-                <p>Simplify each term:</p>
+                <p>Simplify further:</p>
 
                 <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
@@ -3121,14 +3121,14 @@
                 \[ f(n) \lt c \cdot g(n) \quad \text{for all} \quad \quad n \geq n_0 \]
                 </div>
 
-                <p>Substituting the given functions:</p>
+                <p>Substitute the given functions:</p>
 
                 <div class="equation-container">
                 \[ \log(n!) \lt c \cdot n \log(n) \]
                 </div>
 
-                <p>The factorial \(n!\) can be approximated using Stirling's approximation and be simplified to:</p>
-
+				<p>Substitute the approximation above into the expression for \(\log(n!)\):</p>
+				
                 <div class="equation-container">
                 \[ \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \lt c \cdot n \log(n) \]
                 </div>
@@ -3153,7 +3153,7 @@
 
                 <p>Solution 2</p>
 
-                <p>The factorial function can be approximated using Stirling's approximation. Stirling's approximation states:</p>
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
@@ -3165,13 +3165,13 @@
                 \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
-                <p>Using the properties of logarithms, we can expand the expression:</p>
+                <p>Using the properties of logarithms, we can simplify the expression:</p>
 
                 <div class="equation-container">
                 \[ \log(n!) \approx \log (\sqrt{2\pi n}) + n \log (\frac{n}{e}) \]
                 </div>
 
-                <p>Simplify each term:</p>
+                <p>Simplify further:</p>
 
                 <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
@@ -3191,13 +3191,13 @@
                 \[ \lim_{n \to \infty} \frac{\log(n!)}{n \log(n)} \]
                 </div>
 
-                <p>The factorial \(n!\) can be approximated using Stirling's approximation and be simplified to:</p>
+                <p>Substitute the approximation above into the expression for \(\log(n!)\):</p>
 
                 <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e)}{n \log(n)} = \lim_{n \to \infty} (\frac{\log(2\pi)}{2n \log(n)} + \frac{1}{2n} + 1 - \frac{\log(e)}{\log(n)}) \]
                 </div>
 
-                <p>As n approaches infinity, the term \(\frac{\log(2\pi)}{2n \log(n)}\), \(\frac{1}{2n}\) and \(\frac{\log(e)}{\log(n)}\) approach \(0\). Thus, the limit becomes:</p>
+                <p>As \(n\) approaches infinity, the term \(\frac{\log(2\pi)}{2n \log(n)}\), \(\frac{1}{2n}\) and \(\frac{\log(e)}{\log(n)}\) approach \(0\). Thus, the limit becomes:</p>
 
                 <div class="equation-container">
                 \[ \lim_{n \to \infty} (\frac{\log(2\pi)}{2n \log(n)} + \frac{1}{2n} + 1 - \frac{\log(e)}{\log(n)}) = 0 + 0 + 1 - 0 = 1 \]
@@ -3645,41 +3645,41 @@
 
                 <p>Solution</p>
 
-                <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
+                <p>The binomial coefficient can be written as:</p>
+
+                <div class="equation-container">
+                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{\left(\frac{n}{2}\right)!\left(\frac{n}{2}\right)!} \]
+                </div>
+				
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <p>The binomial coefficient can be expressed as:</p>
-
-                <div class="equation-container">
-                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
-                </div>
-
-                <p>Applying Stirling's approximation:</p>
+                <p>Substituting Stirling's approximation for both \(n!\) and \(\left(\frac{n}{2}\right)!\), we get</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <div class="equation-container">
-                \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
+                \[ \left(\frac{n}{2}\right)! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
-                <p>Thus:</p>
+                <p>Substituting these approximations into the expression for \(\binom{n}{\frac{n}{2}}\), we obtain:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
-                <p>Simplifying this expression:</p>
+                <p>Simplifying the expression:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
-                <p>Simplify further:</p>
+                <p>Simplifying further:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
@@ -3697,7 +3697,7 @@
                 \[ \binom{n}{\frac{n}{2}} \geq c \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
-                <p>From the simplified form of \(f(n)\):</p>
+                <p>Substitute the approximation above into the expression for \(\binom{n}{\frac{n}{2}}\):</p>
 
                 <div class="equation-container">
                 \[ \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \geq c \cdot \frac{2^{n}}{\sqrt{n}} \]
@@ -3903,7 +3903,7 @@
 
                 <p>Solution</p>
 
-                <p>Stirling's approximation for \(n!\) is given by:</p>
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
@@ -3915,16 +3915,16 @@
                 \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
-                <p>Using the properties of logarithms, we can expand the expression:</p>
+                <p>Using the properties of logarithms, we can simplify the expression:</p>
 
                 <div class="equation-container">
-                \[ \log(n!) \approx \log (\sqrt{2\pi n}) + \log (\frac{n^{n}}{e^{n}}) \]
+                \[ \log(n!) \approx \log (\sqrt{2\pi n}) + n \log (\frac{n}{e}) \]
                 </div>
 
-                <p>Simplify each term:</p>
+                <p>Simplify further:</p>
 
                 <div class="equation-container">
-                \[ \log(n!) \approx \frac{1}{2} \log (2\pi) + \frac{1}{2} \log (n) + n \log (n) - n log (e) \]
+                \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log(n!)\) belongs to \(\Omega(g(n))\) where \(g(n) = n \log(n)\), we need to check if \(f(n)\) grows at least as fast as \(g(n)\) asymptotically. A function \(f(n)\) is in \(\Omega(g(n))\) if there exist a real constant \(c \gt 0\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
@@ -3939,7 +3939,7 @@
                 \[ \log(n!) \geq c \cdot n \log(n) \]
                 </div>
 
-                <p>From the simplified form of \(f(n)\):</p>
+                <p>Substitute the approximation above into the expression for \(\log(n!)\):</p>
 
                 <div class="equation-container">
                 \[ \frac{1}{2} \log (2\pi) + \frac{1}{2} \log (n) + n \log (n) - n log (e) \geq c \cdot n \log(n) \]
@@ -4312,41 +4312,41 @@
 
                 <p>Solution 1</p>
                 
-                <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
+                <p>The binomial coefficient can be written as:</p>
+
+                <div class="equation-container">
+                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{\left(\frac{n}{2}\right)!\left(\frac{n}{2}\right)!} \]
+                </div>
+				
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <p>The binomial coefficient can be expressed as:</p>
-
-                <div class="equation-container">
-                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
-                </div>
-
-                <p>Applying Stirling's approximation:</p>
+                <p>Substituting Stirling's approximation for both \(n!\) and \(\left(\frac{n}{2}\right)!\), we get</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <div class="equation-container">
-                \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
+                \[ \left(\frac{n}{2}\right)! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
-                <p>Thus:</p>
+                <p>Substituting these approximations into the expression for \(\binom{n}{\frac{n}{2}}\), we obtain:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
-                <p>Simplifying this expression:</p>
+                <p>Simplifying the expression:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
-                <p>Simplify further:</p>
+                <p>Simplifying further:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
@@ -4364,7 +4364,7 @@
                 \[ \binom{n}{\frac{n}{2}} \gt c \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
-                <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation:</p>
+                <p>Substitute the approximation above into the expression for \(\binom{n}{\frac{n}{2}}\):</p>
 
                 <div class="equation-container">
                 \[ \sqrt{\frac{2}{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \gt c \cdot \frac{2^{n}}{\sqrt{n}} \]
@@ -4384,41 +4384,41 @@
 
                 <p>Solution 2</p>
                 
-                <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation for factorials. Stirling's approximation states:</p>
+                <p>The binomial coefficient can be written as:</p>
+
+                <div class="equation-container">
+                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{\left(\frac{n}{2}\right)!\left(\frac{n}{2}\right)!} \]
+                </div>
+				
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <p>The binomial coefficient can be expressed as:</p>
-
-                <div class="equation-container">
-                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
-                </div>
-
-                <p>Applying Stirling's approximation:</p>
+                <p>Substituting Stirling's approximation for both \(n!\) and \(\left(\frac{n}{2}\right)!\), we get</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <div class="equation-container">
-                \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
+                \[ \left(\frac{n}{2}\right)! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
-                <p>Thus:</p>
+                <p>Substituting these approximations into the expression for \(\binom{n}{\frac{n}{2}}\), we obtain:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
-                <p>Simplifying this expression:</p>
+                <p>Simplifying the expression:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
-                <p>Simplify further:</p>
+                <p>Simplifying further:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
@@ -4438,7 +4438,7 @@
                 \[ \lim_{n \to \infty} \frac{\binom{n}{\frac{n}{2}}}{\frac{2^{n}}{\sqrt{n}}} \]
                 </div>
 
-                <p>The binomial coefficient \(\binom{n}{\frac{n}{2}}\) can be approximated using Stirling's approximation and be simplified to:</p>
+                <p>Substitute the approximation above into the expression for \(\binom{n}{\frac{n}{2}}\):</p>
 
                 <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\binom{n}{\frac{n}{2}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \frac{\sqrt{\frac{2}{\pi}} \cdot \frac{2^{n}}{\sqrt{n}}}{\frac{2^{n}}{\sqrt{n}}} = \lim_{n \to \infty} \sqrt{\frac{2}{\pi}} = \sqrt{\frac{2}{\pi}} \]
@@ -4456,7 +4456,7 @@
 
                 <p>Solution 1</p>
 
-                <p>Stirling's approximation for \(n!\) is given by:</p>
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
@@ -4468,16 +4468,16 @@
                 \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
-                <p>Using the properties of logarithms, we can expand the expression:</p>
+                <p>Using the properties of logarithms, we can simplify the expression:</p>
 
                 <div class="equation-container">
-                \[ \log(n!) \approx \log (\sqrt{2\pi n}) + \log (\frac{n^{n}}{e^{n}}) \]
+                \[ \log(n!) \approx \log (\sqrt{2\pi n}) + n \log (\frac{n}{e}) \]
                 </div>
 
-                <p>Simplify each term:</p>
+                <p>Simplify further:</p>
 
                 <div class="equation-container">
-                \[ \log(n!) \approx \frac{1}{2} \log (2\pi) + \frac{1}{2} \log (n) + n \log (n) - n log (e) \]
+                \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
                 </div>
 
                 <p>To determine whether \(f(n) = \log(n!)\) belongs to \(\omega(g(n))\) where \(g(n) = n \log(n)\), we need to check if \(f(n)\) grows strictly faster than \(g(n)\) asymptotically. A function \(f(n)\) is in \(\omega(g(n))\) if for any given positive constant \(c\) and there exists an integer constant \(n_0 \geq 1\) such that:</p>
@@ -4487,13 +4487,13 @@
                 \[ f(n) \gt c \cdot g(n) \quad \text{for all} \quad n \geq n_0 \]
                 </div>
 
-                <p>Substituting the given functions:</p>
+                <p>Substite the given functions:</p>
 
                 <div class="equation-container">
                 \[ \log(n!) \gt c \cdot n \log(n) \]
                 </div>
 
-                <p>The factorial \(n!\) can be approximated using Stirling's approximation and be simplified to:</p>
+                <p>Substitute the approximation above into the expression for \(\log(n!)\):</p>
 
                 <div class="equation-container">
                 \[ \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n log (e) \gt c \cdot n \log(n) \]
@@ -4519,7 +4519,7 @@
 
                 <p>Solution 2</p>
 
-                <p>Stirling's approximation for \(n!\) is given by:</p>
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
@@ -4528,16 +4528,16 @@
                 <p>Taking the logarithm of both sides:</p>
 
                 <div class="equation-container">
-                \[ \log(n!) \approx \log(\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
+                \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
-                <p>Using the properties of logarithms, we can expand the expression:</p>
+                <p>Using the properties of logarithms, we can simplify the expression:</p>
 
                 <div class="equation-container">
-                \[ \log(n!) \approx \log(\sqrt{2\pi n}) + \log (\frac{n^{n}}{e^{n}}) \]
+                \[ \log(n!) \approx \log (\sqrt{2\pi n}) + n \log (\frac{n}{e}) \]
                 </div>
 
-                <p>Simplify each term:</p>
+                <p>Simplify further:</p>
 
                 <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
@@ -4557,7 +4557,7 @@
                 \[ \lim_{n \to \infty} \frac{\log(n!)}{n \log(n)} \]
                 </div>
 
-                <p>The factorial \(n!\) can be approximated using Stirling's approximation and be simplified to:</p>
+                <p>Substitute the approximation above into the expression for \(\log(n!)\):</p>
 
                 <div class="equation-container">
                 \[ \lim_{n \to \infty} \frac{\frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e)}{n \log(n)} = \lim_{n \to \infty} (\frac{\log (2\pi)}{2n \log(n)} + \frac{1}{2n} + 1 - \frac{log(e)}{log(n)}) \]
@@ -5177,41 +5177,41 @@
 
                 <p>Solution</p>
 
-                <p>Stirling's approximation states:</p>
+                <p>The binomial coefficient can be written as:</p>
+
+                <div class="equation-container">
+                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{\left(\frac{n}{2}\right)!\left(\frac{n}{2}\right)!} \]
+                </div>
+				
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
-                <p>The binomial coefficient can be expressed as:</p>
-
-                <div class="equation-container">
-                \[ \binom{n}{\frac{n}{2}} = \frac{n!}{(\frac{n}{2})!(\frac{n}{2})!} \]
-                </div>
-
-                <p>Applying Stirling's approximation:</p>
+                <p>Substituting Stirling's approximation for both \(n!\) and \(\left(\frac{n}{2}\right)!\), we get</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
                 </div>
 
                 <div class="equation-container">
-                \[ \frac{n}{2}! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
+                \[ \left(\frac{n}{2}\right)! \approx \sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}} \]
                 </div>
 
-                <p>Thus:</p>
+                <p>Substituting these approximations into the expression for \(\binom{n}{\frac{n}{2}}\), we obtain:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{(\sqrt{\pi n} (\frac{\frac{n}{2}}{e})^{\frac{n}{2}})^{2}} \]
                 </div>
 
-                <p>Simplifying this expression:</p>
+                <p>Simplifying the expression:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2\pi n} (\frac{n}{e})^{n}}{\pi n (\frac{\frac{n}{2}}{e})^{n}} \]
                 </div>
 
-                <p>Simplify further:</p>
+                <p>Simplifying further:</p>
 
                 <div class="equation-container">
                 \[ \binom{n}{\frac{n}{2}} \approx \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \]
@@ -5257,7 +5257,7 @@
                 \[ \binom{n}{\frac{n}{2}} \geq c_1 \cdot \frac{2^{n}}{\sqrt{n}} \]
                 </div>
 
-                <p>Simplify the expression \(\binom{n}{\frac{n}{2}}\) using Stirling's approximation:</p>
+                <p>Substitute the approximation above into the expression for \(\binom{n}{\frac{n}{2}}\):</p>
 
                 <div class="equation-container">
                 \[ \frac{\sqrt{2}}{\sqrt{\pi}} \cdot \frac{2^{n}}{\sqrt{n}} \geq c_1 \cdot \frac{2^{n}}{\sqrt{n}} \]
@@ -5666,7 +5666,7 @@
 
                 <p>Solution</p>
 
-                <p>Stirling's approximation for \(n!\) is given by:</p>
+                <p>The factorials can be approximated using Stirling's approximation. Stirling's approximation states:</p>
 
                 <div class="equation-container">
                 \[ n! \approx \sqrt{2\pi n} (\frac{n}{e})^{n} \]
@@ -5675,16 +5675,16 @@
                 <p>Taking the logarithm of both sides:</p>
 
                 <div class="equation-container">
-                \[ \log(n!) \approx \log(\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
+                \[ \log(n!) \approx \log (\sqrt{2\pi n} (\frac{n}{e})^{n}) \]
                 </div>
 
-                <p>Using the properties of logarithms, we can expand the expression:</p>
+                <p>Using the properties of logarithms, we can simplify the expression:</p>
 
                 <div class="equation-container">
-                \[ \log(n!) \approx \log(\sqrt{2\pi n}) + \log(\frac{n^{n}}{e^{n}}) \]
+                \[ \log(n!) \approx \log (\sqrt{2\pi n}) + n \log (\frac{n}{e}) \]
                 </div>
 
-                <p>Simplify each term:</p>
+                <p>Simplify further:</p>
 
                 <div class="equation-container">
                 \[ \log(n!) \approx \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \]
@@ -5708,7 +5708,7 @@
                 \[ \log(n!) \leq c_2 \cdot n \log(n) \]
                 </div>
 
-                <p>Simplify the expression \(\log(n!)\) using Stirling's approximation:</p>
+                <p>Substitute the approximation above into the expression for \(\log(n!)\):</p>
 
                 <div class="equation-container">
                 \[ \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \leq c_2 \cdot n \log(n) \]
@@ -5761,7 +5761,7 @@
                 \[ \log(n!) \geq c_1 \cdot n \log(n) \]
                 </div>
 
-                <p>Simplify the expression \(\log(n!)\) using Stirling's approximation:</p>
+                <p>Substitute the approximation above into the expression for \(\log(n!)\):</p>
 
                 <div class="equation-container">
                 \[ \frac{1}{2} \log(2\pi) + \frac{1}{2} \log(n) + n \log(n) - n \log(e) \geq c_1 \cdot n \log(n) \]
@@ -5999,7 +5999,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="copyright-text">
-						<p>&copy; 2024 Copyright hemimorphite. All Rights Reserved</p>
+						<p>&copy; 2025 Copyright hemimorphite. All Rights Reserved</p>
 						</div>
 					</div>
 				</div>
