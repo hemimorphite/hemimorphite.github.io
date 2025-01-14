@@ -1,0 +1,197 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Recurrence Relations"
+thumb: "recurrencerelation.jpg"
+eyebrow: "Tutorial"
+description: "Explore the fundamentals of recurrence relations, a key concept in mathematics and algorithm design. This guide introduces different types of recurrence relations, including linear, divide-and-conquer, and homogeneous recurrences."
+date: 2024-10-14 17:20:00 +0700
+author: Samuel Yang
+categories: ["Tutorial", "year-2024", "month-10", "day-14"]
+tags: ["math", "recurrence relation", "recursion"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+		<h3>Recurrence Relation Definition</h3>
+		
+        <p>Recurrences, or recurrence relations, are equations that define sequences of values using recursion and initial values. Recurrences can be linear or non-linear, homogeneous or non-homogeneous, and first order or higher order.</p>
+
+        <p>For example,</p>
+		
+		\[ 3, 6, 9, 12, 15, ...\]
+		
+		<p>For this sequence, the rule is add three.</p>
+		
+		<p>Each number in a sequence is called a term and is identified by its position within the sequence. We write them as follows:</p>
+		
+		<ul>
+			<li>The first term \(T(1) = 3\)</li>
+			<li>The second term \(T(2) = 6\)</li>
+			<li>The third term \(T(3) = 9\)</li>
+			<li>The fourth term \(T(4) = 12\)</li>
+			<li>The nth term \(T(n)\)</li>
+		</ul>
+		
+		<p>To generate this sequence we can use the nnth term formula for the sequence. For this sequence, the \(n\)th term would be \(T(n) = 3n\).</p>
+		
+		<p>When \(n = 1\), \(T(1) = 3(1) = 3\).</p>
+		
+		<p>When \(n = 2\), \(T(2) = 3(2) = 6\), and so on.</p>
+		
+		<p>Another way of generating this sequence would be to use the recurrence relation, where each term is generated using the previous value. These recurrence relations are algorithms and can generate any term in the sequence.</p>
+		
+		<p>When \(n = 1\), \(T(1) = 3\).</p>
+		
+		<p>When \(n = 2\), \(T(2) = 3 + 3 = 6\).</p>
+		
+		<p>When \(n = 3\), \(T(3) = 6 + 3 = 9\), and so on.</p>
+		
+		<p>Hence, the recurrence equation can be written as the formula:</p>
+		
+		\[ T(n+1) = T(n) + 3 \]
+		
+		<p>The initial value, \(T(1)\), would need to be provided. The initial value could also be \(T(0)\).</p>
+		
+		<p>A recurrence relation for a sequence \(T(1), T(2), ..., T(n)\) is a formula that calculates each term \(T(k)\) in terms of \(T(k-1), T(k-2), ..., T(k-i)\) for some integer \(i\). The initial conditions for a recurrence relation specify values for \(T(1), T(2), ..., T(k-1)\).</p>
+		
+		<h3>Classifying Recurrence Relations</h3>
+		
+		<p>Recurrence relations are often classified based on how the terms are combined, the nature of their coefficients, and the number and nature of the previous terms involved. Below is a breakdown of the key classifications for recurrence relations:</p>
+		
+		<h4>1. By the Number of Previous Terms Used</h4>
+		
+		<h5>1.1. First-Order Recurrence Relations</h5>
+		
+		<p>In first-order recurrence relations, only the immediately previous term is used to compute the next term. These relations are the simplest type and are often easy to solve.</p>
+		
+		<h6>Example 1: First-Order Constant-Coefficient Linear Homogeneous Recurrence</h6>
+		
+		\[ T(n) = 2T(n-1) \]
+		
+		<p>In this example, the next term is twice the previous term.</p>
+		
+		<h6>Example 2: First-Order Constant-Coefficient Linear Non-Homogeneous Recurrence</h6>
+		
+		\[ T(n) = T(n-1) + n \]
+		
+		<p>In this example, the next term depends on the previous term plus an additional term \(n\).</p>
+		
+		<h5>1.2. Second-Order Recurrence Relations</h5>
+		
+		<p>In second-order recurrence relations, the next term depends on the two previous terms. These relations are more complex than first-order ones, and the solution method is different (e.g., using the characteristic equation).</p>
+		
+		<h6>Example 1: Second-Order Constant-Coefficient Linear Homogeneous Recurrence</h6>
+		
+		\[ T(n) = 2T(n-1) + 3T(n-2) \]
+		
+		<p>In this example, the next term is calculated based on a linear combination of the two previous terms.</p>
+		
+		<h6>Example 2: Second-Order Constant-Coefficient Linear Non-Homogeneous Recurrence</h6>
+		
+		\[ T(n) = T(n−1) + T(n−2) + 1 \]
+		
+		<p>In this example, the next term is calculated based on a linear combination of the two previous terms plus an additional term (a constant value).</p>
+		
+		<h5>1.3. Higher-Order Recurrence Relations</h5>
+		
+		<p>In higher-order recurrence relations, the next term depends on three or more previous terms. These relations are even more complex and often require advanced techniques (such as matrix methods or generating functions) for solving.</p>
+		
+		<h6>Example 1: Higher-Order Constant-Coefficient Linear Homogeneous Recurrence</h6>
+		
+		\[ T(n) = T(n-1) + T(n-2) + T(n-3) \]
+		
+		<p>In this example, the next term is calculated based on a linear combination of the three previous terms.</p>
+		
+		<h6>Example 2: Higher-Order Constant-Coefficient Linear Non-Homogeneous Recurrence</h6>
+		
+		\[ T(n) = 2T(n-1) + 3T(n−2) + T(n−3) + n^{2} \]
+		
+		<p>In this example, the next term depends on a combination of the previous three terms and a quadratic function of \(n\).</p>
+		
+		<h4>2. By the Nature of the Coefficients</h4>
+		
+		<h5>2.1. Constant-Coefficient Recurrence Relations</h5>
+		
+		<p>In Constant-Coefficient Recurrence Relations, the coefficients multiplying the previous terms are constant (i.e., they do not depend on nn). This is the most common type of recurrence relation and is often easier to solve.</p>
+		
+		<h6>Example 1: First-Order Constant-Coefficient Linear Homogeneous Recurrence</h6>
+		
+		\[ T(n) = 3T(n-1) \]
+		
+		<p>In this example, the next term depends on a linear combination of the previous term with constant coefficients.</p>
+		
+		<h6>Example 2: Second-Order Constant-Coefficient Linear Non-Homogeneous Recurrence</h6>
+		
+		\[ T(n) = 2T(n−1) + 3T(n−2) + 1 \]
+		
+		<p>In this example, the next term depends on a linear combination of the previous terms with constant coefficients, and an additional unit (such as a constant value) is added at each step.</p>
+		
+		<h5>2.2. Variable-Coefficient Recurrence Relations</h5>
+		
+		<p>In Variable-Coefficient Recurrence Relations, the coefficients multiplying the previous terms are functions of \(n\) (i.e., they change as \(n\) increases). These are generally more complex than constant-coefficient recurrences.</p>
+		
+		<h6>Example 1: First-Order Variable-Coefficient Linear Homogeneous Recurrence</h6>
+		
+		\[ T(n) = nT(n-1) \]
+		
+		<p>In this example, the next term depends on the previous term with variable coefficient.</p>
+		
+		<h6>Example 2: Second-Order Variable-Coefficient Linear Non-Homogeneous Recurrence</h6>
+		
+		\[ T(n) = (n-1)T(n−1) + nT(n−2) + 1 \]
+		
+		<p>In this example, the next term depends on the previous terms with variable coefficients, and an additional unit (such as a constant value) is added at each step.</p>
+		
+		<h4>3. By the Combination of Terms</h4>
+		
+		<h5>3.1. Linear Recurrence Relations</h5>
+		
+		<p>In linear recurrence relations, a sequence is defined using linear combinations of its previous terms.</p>
+		
+		<h6>Example 1: First-Order Constant-Coefficient Linear Homogeneous Recurrence</h6>
+		
+		\[ T(n) = 3T(n-1) + 2T(n-2) \]
+		
+		<p>In this example, the next term depends on a linear combination of the two previous terms with constant coefficients.</p>
+		
+		<h5>3.1. Nonlinear Recurrence Relations</h5>
+		
+		<p>In nonlinear recurrence relations, a sequence is defined based on one or more previous terms, using a nonlinear operations (e.g., squaring, multiplying, taking powers, etc.).</p>
+		
+		<h6>Example 1: First-Order Constant-Coefficient Nonlinear Non-Homogeneous Recurrence</h6>
+		
+		\[ T(n) = T(n-1)^{2} + n \]
+		
+		<p>In this example, the next term depends on the non-linear previous term which is squared and a additional term.</p>
+		
+		<h4>4. By the Presence of additional terms</h4>
+		
+		<h5>4.1. Homogeneous Recurrence Relations</h5>
+		
+		<p>In homogeneous recurrence relations, a sequence is defined based on its previous terms, and it relies solely on the values of those terms without any additional independent term.</p>
+		
+		<h6>Example 1: First-Order Constant-Coefficient Linear Homogeneous Recurrence</h6>
+		
+		\[ T(n) = 3T(n-1) + 2T(n-2) \]
+		
+		<p>In this example, the next term depends on a linear combination of the two previous terms with constant coefficients and there are no additional independent terms.</p>
+		
+		<h5>4.2. Non-Homogeneous Recurrence Relations</h5>
+		
+		<p>In non-homogeneous recurrence relations, a sequence is defined based on its previous terms, and it includes additional independent terms.</p>
+		
+		<h6>Example 1: First-Order Constant-Coefficient Linear Non-Homogeneous Recurrence</h6>
+		
+		\[ T(n) = 3T(n-1) + 2T(n-2) + n \]
+		
+		<p>In this example, the next term depends on a linear combination of the two previous terms with constant coefficients plus the additional independent term.</p>
+    </article>
+
+    {% include post-tags.html %}
+
+    {% include post-share.html %}
+</div>
