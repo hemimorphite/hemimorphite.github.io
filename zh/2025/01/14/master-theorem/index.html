@@ -1774,7 +1774,7 @@
 		<p>where:</p>
 		
 		<ul>
-			<li>\(T(n)\) represents the total time complexity for solving a problem of size \(n\).<li>
+			<li>\(T(n)\) represents the total time complexity for solving a problem of size \(n\).</li>
 			<li>\(a\) represents number of subproblems the problem is divided into.</li>
 			<li>\(\frac{n}{b}\) represents the size of each subproblem.</li>
 			<li>\(f(n)\) represents the cost of dividing the problem into subproblems and combining their solutions. This is the work done outside of the recursive calls.</li>
@@ -1793,13 +1793,13 @@
 			<p>Let \(r\) be a positive constant. Then,</p>
 			
 			<div class="equation-container">
-                \[ \sum_{i=0}^{n} r^{i} = 
-				\begin{cases} 
-				\Theta(r^{n}), & \text{if } r \gt 1 \\
-				\Theta(n), & \text{if } r = 1 \\
-				\Theta(1), & \text{if } r \lt 1 
-				\end{cases}, \]
-                </div>
+			\[ \sum_{i=0}^{n} r^{i} = 
+			\begin{cases} 
+			\Theta(r^{n}), & \text{if } r \gt 1 \\
+			\Theta(n), & \text{if } r = 1 \\
+			\Theta(1), & \text{if } r \lt 1 
+			\end{cases}, \]
+			</div>
 			
 			<p>That is, if geometric progression is increasing, then the series grows as its last (and largest) term. If it is constant, then it grows as the number of terms. Finally, if it is decreasing, it is bounded by a constant.</p>
 		</div>
@@ -1808,8 +1808,8 @@
 			<p>The sum of the first \(n+1\) terms of a geometric sequence is given by the formula:</p>
 			
 			<div class="equation-container">
-                \[ S(n) = \frac{r^{n+1} - 1}{r - 1} \]
-                </div>
+			\[ S(n) = \frac{r^{n+1} - 1}{r - 1} \]
+			</div>
 			
 			<p>where the first term is \(1\), and the common ratio is \(r\).</p>
 			
@@ -1820,42 +1820,42 @@
 			<p>Each term in the geometric series grows exponentially, starting from \(r^{0}\) (i.e., \(1\)) and ending with \(r^{n}\). As the series progresses, the terms increase rapidly, with the last term dominating the others. As a result, the sum is always greater \(r^{n}\) for \(n \gt 0\). This implies that the sum is bounded below by \(r^{n}\).</p>
 			
 			<div class="equation-container">
-                \[ \frac{r^{n+1} - 1}{r - 1} \gt r^{n} \]
-                </div>
+			\[ \frac{r^{n+1} - 1}{r - 1} \gt r^{n} \]
+			</div>
 			
 			<p>As \(n\) becomes large, the term \(r^{n+1}\) in the numerator of the geometric series formula dominates the constant \(1\), and the sum of the geometric series can be approximately expressed as \(\frac{r^{n+1}}{r - 1}\).</p>
 			
 			<p>Thus, the upper bound of the geometric series sum is:</p>
 			
 			<div class="equation-container">
-                \[ \frac{r^{n+1} - 1}{r - 1} \lt \frac{r}{r - 1}r^{n} \]
-                </div>
+			\[ \frac{r^{n+1} - 1}{r - 1} \lt \frac{r}{r - 1}r^{n} \]
+			</div>
 			
 			<p>We have found both the lower bound and the upper bound for the sum of the geometric series. Thus, we have:</p>
 			
 			<div class="equation-container">
-                \[ r^{n} \lt \frac{r^{n+1} - 1}{r - 1} \lt \frac{r}{r - 1}r^{n} \]
-                </div>
+			\[ r^{n} \lt \frac{r^{n+1} - 1}{r - 1} \lt \frac{r}{r - 1}r^{n} \]
+			</div>
 			
 			<p>Therefore, the asymptotic behavior of \(S(n)\) is:</p>
 			
 			<div class="equation-container">
-                \[ S(n) = \Theta(r^{n}) \]
-                </div>
+			\[ S(n) = \Theta(r^{n}) \]
+			</div>
 			
 			<p><b>Case \(r = 1\):</b></p>
 			
 			<p>For \(r=1\), the sum of the series is simply the number of terms. The sum grows linearly with \(n\), and we can express the sum as:</p>
 			
 			<div class="equation-container">
-                \[ S(n) = n + 1. \]
-                </div>
+			\[ S(n) = n + 1. \]
+			</div>
 			
 			<p>Therefore, the asymptotic behavior of \(S(n)\) is:</p>
 			
 			<div class="equation-container">
-                \[ S(n) = \Theta(n) \]
-                </div>
+			\[ S(n) = \Theta(n) \]
+			</div>
 			
 			
 			<p><b>Case \(r \lt 1\):</b></p>
@@ -1863,28 +1863,28 @@
 			<p>Each term in the geometric series decays exponentially, starting from \(r^{0}\) (i.e., \(1\)) and ending with \(r^{n}\). As the series progresses, the terms decrease rapidly, with the first term dominating the others. As a result, the sum is always greater \(1\) for \(n \gt 0\). This implies that the sum is bounded above by \(1\).</p>
 			
 			<div class="equation-container">
-                \[ \frac{r^{n+1} - 1}{r - 1} \gt 1 \]
-                </div>
+			\[ \frac{r^{n+1} - 1}{r - 1} \gt 1 \]
+			</div>
 			
 			<p>As \(n\) becomes large, the term \(r^{n+1}\) in the numerator of the geometric series formula approaches \(0\), and the sum of the geometric series can be approximately expressed as \(\frac{1}{1-r}\).</p>
 			
 			<p>Thus, the upper bound of the geometric series sum is:</p>
 			
 			<div class="equation-container">
-                \[ \frac{r^{n+1} - 1}{r - 1} \lt \frac{1}{1-r} \]
-                </div>
+			\[ \frac{r^{n+1} - 1}{r - 1} \lt \frac{1}{1-r} \]
+			</div>
 			
 			<p>We have found both the lower bound and the upper bound for the sum of the geometric series. Thus, we have:</p>
 			
 			<div class="equation-container">
-                \[ 1 \lt \frac{r^{n+1} - 1}{r - 1} \lt \frac{1}{1-r} \]
-                </div>
+			\[ 1 \lt \frac{r^{n+1} - 1}{r - 1} \lt \frac{1}{1-r} \]
+			</div>
 			
 			<p>Therefore, the asymptotic behavior of \(S(n)\) is:</p>
 			
 			<div class="equation-container">
-                \[ S(n) = \Theta(1) \]
-                </div>
+			\[ S(n) = \Theta(1) \]
+			</div>
 		</div>
 		
 		<h4>Simplified Version of Master Theorem</h4>
@@ -1895,7 +1895,7 @@
 		\[ T(n) = aT(\frac{n}{b}) + cn^{k}, \]
 		</div>
 		
-		<p>where \(a \geq 1\) and \(b \geq 2\) are integer constants, \(c \geq 0\), and \(k \geq 0\) are real constants. \(a\), \(b\), \(c\) and \(d\) do not depend on \(n\). The first term, \(a \cdot T(\frac{n}{b})\), represents the time required for the a recursive calls, each to an input of size \(\frac{n}{b}\); and the second term, \(c \codt n^{k}\), represents the time required to divide up the input into a pieces of size \(\frac{n}{b}\) each and to combine the results of the recursive calls into the result of the main call.</p>
+		<p>where \(a \geq 1\) and \(b \geq 2\) are integer constants, \(c \geq 0\), and \(k \geq 0\) are real constants. \(a\), \(b\), \(c\) and \(d\) do not depend on \(n\). The first term, \(a \cdot T(\frac{n}{b})\), represents the time required for the a recursive calls, each to an input of size \(\frac{n}{b}\); and the second term, \(c \cdot n^{k}\), represents the time required to divide up the input into a pieces of size \(\frac{n}{b}\) each and to combine the results of the recursive calls into the result of the main call.</p>
 		
 		<div class="theorem">
 			<p>Let \(a \geq 1\) and \(b \gt 1\) be integer constants. Suppose \(T(n)\) is defined for the positive real to satisfy the recurrence</p>
@@ -1936,13 +1936,17 @@
 			<p>Thus, the total time required for all the calls at all levels is:</p>
 			
 			<div class="equation-container">
-            \[ T(n) &= cn^{k} + aT(\frac{n}{b}) \\
+            \[
+			\begin{aligned} 
+			T(n) &= cn^{k} + aT(\frac{n}{b}) \\
 			&= cn^{k} + a(c\left(\frac{n}{b}\right)^{k} + aT(\frac{n}{b^2})) = cn^{k} + ca\left(\frac{n}{b}\right)^{k} + a^{2}T(\frac{n}{b^2}) \\
 			\vdots \\
 			&= cn^{k} + ca\left(\frac{n}{b}\right)^{k} + ca^{2}\left(\frac{n}{b^{2}}\right)^{k} + \dots + a^{\log_{b}(n)}T(1) \\
 			&= cn^{k} + ca\left(\frac{n}{b}\right)^{k} + ca^{2}\left(\frac{n}{b^{2}}\right)^{k} + \dots + n^{\log_{b}(a)}T(1) \\
 			&= \sum_{i=0}^{\log_{b}(n)-1} ca^{i}\left(\frac{n}{b^{i}}\right)^{k} + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} + \Theta\left(n^{\log_{b}(a)}\right). \]
+			&= cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} + \Theta\left(n^{\log_{b}(a)}\right). 
+			\end{aligned}
+			\]
             </div>
 			
 			<p>Let</p>
@@ -1958,115 +1962,148 @@
 			<p>\(\sum_{i=0}^{\log_{b}(n)-1} r^{i}\) is a geometric series with the common ratio \(r=\frac{a}{b^{k}} \gt 1\) which grows exponentially, and can be bounded both below and above as follows:</p>
 			
 			<div class="equation-container">
-            \[ r^{\log_{b}(n)-1} &\leq \sum_{i=0}^{\log_{b}(n)-1} r^{i} &\lt \frac{r^{\log_{b}(n)}}{r-1} \\
+            \[
+			\begin{aligned}  
+			r^{\log_{b}(n)-1} &\leq \sum_{i=0}^{\log_{b}(n)-1} r^{i} &\lt \frac{r^{\log_{b}(n)}}{r-1} \\
 			\left(\frac{a}{b^{k}}\right)^{\log_{b}(n)-1} &\leq \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt \frac{\left(\frac{a}{b^{k}}\right)^{\log_{b}(n)}}{\frac{a}{b^{k}}-1} \\
 			\frac{a^{\log_{b}(n)-1}}{\left(b^{\log_{b}(n)-1}\right)^{k}} &\leq \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt \frac{\frac{a^{\log_{b}(n)}}{\left(b^{\log_{b}(n)}\right)^{k}}}{\frac{a}{b^{k}}-1} \\
-			\frac{n^{\log_{b}(a)}}{n^{k}}\frac{b^{k}}{a} &\leq \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt \frac{n^{\log_{b}(a)}}{n^{k}}\frac{1}{\frac{a}{b^{k}}-1}. \]
+			\frac{n^{\log_{b}(a)}}{n^{k}}\frac{b^{k}}{a} &\leq \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt \frac{n^{\log_{b}(a)}}{n^{k}}\frac{1}{\frac{a}{b^{k}}-1}. 
+			\end{aligned}
+			\]
             </div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-            \[ cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\leq g(n) &\leq cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \\
+            \[ 
+			\begin{aligned}  
+			cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\leq g(n) &\leq cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \\
 			cn^{k}\frac{n^{\log_{b}(a)}}{n^{k}}\frac{b^{k}}{a} &\leq g(n) &\lt cn^{k}\frac{n^{\log_{b}(a)}}{n^{k}}\frac{1}{\frac{a}{b^{k}}-1} \\
-			c\frac{b^{k}}{a}n^{\log_{b}(a)} &\leq g(n) &\lt c\frac{1}{\frac{a}{b^{k}}-1}n^{\log_{b}(a)}. \]
+			c\frac{b^{k}}{a}n^{\log_{b}(a)} &\leq g(n) &\lt c\frac{1}{\frac{a}{b^{k}}-1}n^{\log_{b}(a)}. 
+			\end{aligned}
+			\]
             </div>
 			
 			<p>Since \(g(n)\) is bounded both below and above by constant multiples of \(n^{\log_{b}(a)}\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= O\left(n^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ 
+			\begin{aligned}  
+			T(n) &= O\left(n^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{\log_{b}(a)}\right). 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ T(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
+			</div>
 			
 			<p><b>Case 2: \(a = b^{k}\)</b>. Given the condition \(a = b^{k}\), which implies that the ratio \(r=1\).</p>
 			
 			<p>\(\sum_{i=0}^{\log_{b}(n)-1} 1\) is an arithmetic series where every term in the series is constant. The sum is simply the constant value multiplied by the number of terms.</p>
 			
 			<div class="equation-container">
-                \[ \sum_{i=0}^{\log_{b}(n)-1} 1 = \log_{b}(n). \]
-                </div>
+			\[ \sum_{i=0}^{\log_{b}(n)-1} 1 = \log_{b}(n). \]
+			</div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ cn^{k}\sum_{i=0}^{\log_{b}(n)-1} 1 &\leq g(n) &\leq cn^{k}\sum_{i=0}^{\log_{b}(n)-1} 1 \\
-			cn^{k}\log_{b}(n) &\leq g(n) &\leq cn^{k}\log_{b}(n). \]
-                </div>
+			\[ 
+			\begin{aligned} 
+			cn^{k}\sum_{i=0}^{\log_{b}(n)-1} 1 &\leq g(n) &\leq cn^{k}\sum_{i=0}^{\log_{b}(n)-1} 1 \\
+			cn^{k}\log_{b}(n) &\leq g(n) &\leq cn^{k}\log_{b}(n). 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Since \(g(n)\) is bounded both below and above by constant multiples of \(n^{k}\log_{b}(n)\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Theta\left(n^{k}\log_{b}(n)\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{k}\log_{b}(n)\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= O\left(n^{k}\log_{b}(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{k}\log_{b}(n)\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			T(n) &= O\left(n^{k}\log_{b}(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{k}\log_{b}(n)\right). 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{k}\log_{b}(n)\right). \]
-                </div>
+			\[ T(n) = \Theta\left(n^{k}\log_{b}(n)\right). \]
+			</div>
 			
 			<p><b>Case 3: \(a \lt b^{k}\)</b>. Given the condition \(a \lt b^{k}\), which implies that the ratio \(r=\frac{b^{k}}{a} \lt 1\).</p>
 			
 			<p>\(\sum_{i=0}^{\log_{b}(n)-1} r^{i}\) is a geometric series with the common ratio \(r=\frac{a}{b^{k}} \lt 1\) which grows exponentially, and can be bounded both below and above as follows:</p>
 			
 			<div class="equation-container">
-                \[ 1 &\leq \sum_{i=0}^{\log_{b}(n)-1} r^{i} &\lt \frac{1}{1-r} \\
-			1 &\leq \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt \frac{1}{1-\frac{a}{b^{k}}}. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			1 &\leq \sum_{i=0}^{\log_{b}(n)-1} r^{i} &\lt \frac{1}{1-r} \\
+			1 &\leq \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt \frac{1}{1-\frac{a}{b^{k}}}. 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ cn^{k} &\leq g(n) &\leq cn^{k}\frac{1}{1-\frac{a}{b^{k}}} \\
-			cn^{k} &\leq g(n) &\leq c\frac{1}{1-\frac{a}{b^{k}}}n^{k}. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			cn^{k} &\leq g(n) &\leq cn^{k}\frac{1}{1-\frac{a}{b^{k}}} \\
+			cn^{k} &\leq g(n) &\leq c\frac{1}{1-\frac{a}{b^{k}}}n^{k}. 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Since \(g(n)\) is bounded both below and above by constant multiples of \(n^{k}\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Theta\left(n^{k}\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{k}\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= O\left(n^{k}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{k}\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			T(n) &= O\left(n^{k}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{k}\right). 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{k}\right). \]
-                </div>
-		
+			\[ T(n) = \Theta\left(n^{k}\right). \]
+			</div>
+		</div>
+
 		<h4>Simplified Version of Master Theorem with Log Factors<h4>
 		
 		<p>A recurrence such as</p>
 		
 		<div class="equation-container">
-                \[ T(n) = 2T(\frac{n}{2}) + n \log_{2}(n) \]
-                </div>
+		\[ T(n) = 2T(\frac{n}{2}) + n \log_{2}(n) \]
+		</div>
 		
 		<p>does not exactly fit the form of the master theorem above, since the additive term \(n \log_{2}(n)\) does not look like \(n^{k}\) for some constant \(k\). Such a recurrence can be handled by a more general form of the theorem, as follows.</p>
 		
@@ -2074,26 +2111,28 @@
 			<p>Let \(a \geq 1\) and \(b \gt 1\) be integer constants. Suppose \(T(n)\) is defined for the positive real to satisfy the recurrence</p>
 			
 			<div class="equation-container">
-                \[ T(n) = 
-				\begin{cases} 
-				\Theta(1), & \text{if } n = 1 \\
-				aT(\frac{n}{b}) + cn^{k} \log_{b}^{p}(n), & \text{if } n \gt 1
-				\end{cases}, \]
-                </div>
+			\[ 
+			T(n) = 
+			\begin{cases} 
+			\Theta(1), & \text{if } n = 1 \\
+			aT(\frac{n}{b}) + cn^{k} \log_{b}^{p}(n), & \text{if } n \gt 1.
+			\end{cases}
+			\]
+			</div>
 				
 			<p>Then the growth of \(T(n)\) can be asymptotically determined under the following assumptions</p>
 			
 			<div class="equation-container">
-                \[ T(n) =
+            \[ T(n) =
 			\begin{cases}
 			\Theta(n^{\log_{b}(a)}), & \text{if } \log_{b}(a) \gt k \\
 			\Theta(n^{k} \log_{b}^{p+1}(n)), & \text{if } \log_{b}(a) = k \text{ and } p \gt -1 \\
 			\Theta(n^{k} \log_{b}(\log_{b}(n))), & \text{if } \log_{b}(a) = k \text{ and } p = -1 \\
 			\Theta(n^{k}), & \text{if } \log_{b}(a) = k \text{ and } p \lt -1 \\
 			\Theta(n^{k} \log_{b}^{p}(n)), & \text{if } \log_{b}(a) \lt k \text{ and } p \gt 0 \\
-			\Theta(n^{k}), & \text{if } \log_{b}(a) \lt k \text{ and } p \leq 0
-			\end{cases}. \]
-                </div>
+			\Theta(n^{k}), & \text{if } \log_{b}(a) \lt k \text{ and } p \leq 0.
+			\end{cases} \]
+            </div>
 			
 			<p>Analogus results hold for the \(O\) and \(\Omega\) notations.</p>
 		</div>
@@ -2112,37 +2151,49 @@
 			<p>Thus, the total time required for all the calls at all levels is:</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= cn^{k} \log_{b}^{p}(n) + aT(\frac{n}{b}) \\
+            \[ 
+			\begin{aligned}
+			T(n) &= cn^{k} \log_{b}^{p}(n) + aT(\frac{n}{b}) \\
 			&= cn^{k} \log_{b}^{p}(n) + a(c\left(\frac{n}{b}\right)^{k} \log_{b}^{p}\left(\frac{n}{b}\right) + aT(\frac{n}{b^2})) = cn^{k} \log_{b}^{p}(n) + ca\left(\frac{n}{b}\right)^{k} \log_{b}^{p}\left(\frac{n}{b}\right) + a^{2}T(\frac{n}{b^2}) \\
 			\vdots \\
 			&= cn^{k} \log_{b}^{p}(n) + ca\left(\frac{n}{b}\right)^{k} \log_{b}^{p}\left(\frac{n}{b}\right) + ca^{2}\left(\frac{n}{b^{2}}\right)^{k} \log_{b}^{p}\left(\frac{n}{b^{2}}\right) + \dots + a^{\log_{b}(n)}\Theta(1) \\
 			&= cn^{k} \log_{b}^{p}(n) + ca\left(\frac{n}{b}\right)^{k} \log_{b}^{p}\left(\frac{n}{b}\right) + ca^{2}\left(\frac{n}{b^{2}}\right)^{k} \log_{b}^{p}\left(\frac{n}{b^{2}}\right) + \dots + n^{\log_{b}(a)}\Theta(1) \\
 			&= \sum_{i=0}^{\log_{b}(n)-1} ca^{i}\left(\frac{n}{b^{i}}\right)^{k} \log_{b}^{p}\left(\frac{n}{b^{i}}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
 			&= cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \log_{b}^{p}\left(\frac{n}{b^{i}}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \left(\log_{b}(n)-i\right)^{p} + \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			&= cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \left(\log_{b}(n)-i\right)^{p} + \Theta\left(n^{\log_{b}(a)}\right). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Let</p>
 			
 			<div class="equation-container">
-                \[ g(n) = cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \left(\log_{b}(n)-i\right)^{p}. \]
-                </div>
+			\[ g(n) = cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \left(\log_{b}(n)-i\right)^{p}. \]
+			</div>
 			
 			<p>The series \(\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \left(\log_{b}(n)-i\right)^{p}\) can be simplified by reindexing the terms to make the summation easier to analyze. Define \(j=\log_{b}(n)−i\), which implies \(i=\log_{b}(n)−j\). When \(i=0\), \(j=\log_{b}(n)\), and when \(i=\log_{b}(n)-1\), \(j=1\). Rewriting the summation in terms of \(j\), we have:</p>
 			
 			<div class="equation-container">
-                \[ \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \left(\log_{b}(n)-i\right)^{p} &= \sum_{j=1}^{\log_{b}(n)} \left(\frac{a}{b^{k}}\right)^{\log_{b}(n)-j} j^{p} \\
+			\[ 
+			\begin{aligned}
+			\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \left(\log_{b}(n)-i\right)^{p} &= \sum_{j=1}^{\log_{b}(n)} \left(\frac{a}{b^{k}}\right)^{\log_{b}(n)-j} j^{p} \\
 			&= \sum_{j=1}^{\log_{b}(n)} \frac{a^{\log_{b}(n)}}{\left(b^{\log_{b}(n)}\right)^{k}}\left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
 			&= \sum_{j=1}^{\log_{b}(n)} \frac{n^{\log_{b}(a)}}{n^{k}}\left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
-			&= \frac{n^{\log_{b}(a)}}{n^{k}}\sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p}. \]
-                </div>
+			&= \frac{n^{\log_{b}(a)}}{n^{k}}\sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= cn^{k}\frac{n^{\log_{b}(a)}}{n^{k}}\sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
-			&= cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p}. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			g(n) &= cn^{k}\frac{n^{\log_{b}(a)}}{n^{k}}\sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
+			&= cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p}. 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>The series is classified as a polynomial-geometric series because the terms involve both a geometric factor \(\left(\frac{b^{k}}{a}\right)^{j}\) and a polynomial factor \(j^{p}\). Its growth rate depends on whether \(a\) is smaller, equal, or larger than \(b^{k}\). Consider these cases.</p>
 		
@@ -2151,261 +2202,315 @@
 			<p>Since \(\sum_{j=1}^{\log_{b}(n)} r^{j} j^{p}\) is a partial sum of \(\sum_{j=1}^{\infty}r^{j} j^{p}\) which converges to a constant , it follows that</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{\log_{b}(n)} r^{j} j^{p} \lt \sum_{j=1}^{\infty}r^{j} j^{p}. \]
-                </div>
+			\[ \sum_{j=1}^{\log_{b}(n)} r^{j} j^{p} \lt \sum_{j=1}^{\infty}r^{j} j^{p}. \]
+			</div>
 			
 			<p>To prove that the series \(\sum_{j=1}^{\log_{b}(n)} r^{j} j^{p}\) for \(r \lt 1\) converges to a constant, we will use techniques from calculus, especially the concept of generating functions and differentiation.</p>
 			
 			<p>We begin with the basic geometric series:</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{\infty} r^{j} = \frac{r}{1-r}. \]
-                </div>
+			\[ \sum_{j=1}^{\infty} r^{j} = \frac{r}{1-r}. \]
+			</div>
 			
 			<p>The series converges to a constant for \(|x| \lt 1\).</p>
 			
 			<p>To find \(\sum_{j=1}^{\infty} jr^{j}\), we differentiate \(\sum_{j=1}^{\infty} r^{j}\) with respect to \(r\):</p>
 
 			<div class="equation-container">
-                \[ \frac{d}{dr}\left(\sum_{j=1}^{\infty} r^{j}\right) &= \frac{d}{dr}\left(\frac{r}{1-r}\right) \\
-			\sum_{j=1}^{\infty} jr^{j-1} &= \frac{1}{(1-r)^{2}}. \]
-                </div>
+            \[ 
+			\begin{aligned}
+			\frac{d}{dr}\left(\sum_{j=1}^{\infty} r^{j}\right) &= \frac{d}{dr}\left(\frac{r}{1-r}\right) \\
+			\sum_{j=1}^{\infty} jr^{j-1} &= \frac{1}{(1-r)^{2}}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Now, multiply both sides by \(r\)</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{\infty} jr^{j} &= \frac{r}{(1-r)^{2}}. \]
-                </div>
+			\[ \sum_{j=1}^{\infty} jr^{j} = \frac{r}{(1-r)^{2}}. \]
+			</div>
 			
 			<p>This confirms that for \(p=1\), the series \(\sum_{j=1}^{\infty} jr^{j}\) converges to a constant, and it does not depend on \(n\).</p>
 			
 			<p>To find \(\sum_{j=1}^{\infty} j^{2}r^{j}\), we differentiate \(\sum_{j=1}^{\infty} jr^{j}\) with respect to \(r\):</p>
 
 			<div class="equation-container">
-                \[ \frac{d}{dr}\left(\sum_{j=1}^{\infty} jr^{j}\right) &= \frac{d}{dr}\left(\frac{r}{(r-1)^{2}}\right) \\
-			\sum_{j=1}^{\infty} j^{2}r^{j-1} &= \frac{r+1}{(1-r)^{3}}. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			\frac{d}{dr}\left(\sum_{j=1}^{\infty} jr^{j}\right) &= \frac{d}{dr}\left(\frac{r}{(r-1)^{2}}\right) \\
+			\sum_{j=1}^{\infty} j^{2}r^{j-1} &= \frac{r+1}{(1-r)^{3}}.
+			\end{aligned} 
+			\]
+			</div>
 			
 			<p>Now, multiply both sides by \(r\)</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{\infty} j^{2}r^{j} &= \frac{r(r+1)}{(1-r)^{3}}. \]
-                </div>
+			\[ \sum_{j=1}^{\infty} j^{2}r^{j} = \frac{r(r+1)}{(1-r)^{3}}. \]
+			</div>
 			
 			<p>This confirms that for \(p=2\), the series \(\sum_{j=1}^{\infty} j^{2}r^{j}\) converges to a constant, and it does not depend on \(n\).</p>
 			
 			<p>For a general \(p\), we can continue this differentiation process \(p\) times.</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{\infty} j^{p}r^{j} &= \frac{d^{p}}{dr^{p}}\left(\frac{r}{1-r}\right). \]
-                </div>
+			\[ \sum_{j=1}^{\infty} j^{p}r^{j} = \frac{d^{p}}{dr^{p}}\left(\frac{r}{1-r}\right). \]
+			</div>
 			
 			<p>Therefore, based on the previous conclusion, the series \(\sum_{j=1}^{\infty} j^{2}r^{j}\) converges to a constant, and it does not depend on \(n\).</p>
 			
 			<p>Since each term in the series \(\sum_{j=1}^{\log_{b}(n)} r^{j} j^{p}\) is smaller than or equal to the first term,  it can serve as a good lower bound for the series.</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{\log_{b}(n)} r^{j} j^{p} \geq r. \]
-                </div>
+			\[ \sum_{j=1}^{\log_{b}(n)} r^{j} j^{p} \geq r. \]
+			</div>
 			
 			<p>Thus, \(\sum_{j=1}^{\log_{b}(n)} r^{j} j^{p}\) can be bounded both below and above as follows:</p>
 			
 			<div class="equation-container">
-                \[ r \leq \sum_{j=1}^{\log_{b}(n)} r^{j} j^{p} \lt \sum_{j=1}^{\infty} j^{p}r^{j} = \frac{d^{p}}{dr^{p}}\left(\frac{r}{1-r}\right). \]
-                </div>
+			\[ r \leq \sum_{j=1}^{\log_{b}(n)} r^{j} j^{p} \lt \sum_{j=1}^{\infty} j^{p}r^{j} = \frac{d^{p}}{dr^{p}}\left(\frac{r}{1-r}\right). \]
+			</div>
 			
 			<p>Subtituting into \(g(n)\), where \(r=\frac{b^{k}}{a}\), yields</p>
 			
 			<div class="equation-container">
-                \[ cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
+			\[ 
+			\begin{aligned}
+			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
 			cn^{\log_{b}(a)}r &\leq g(n) &\leq cn^{\log_{b}(a)} \frac{d^{p}}{dr^{p}}\left(\frac{r}{1-r}\right) \\
-			crn^{\log_{b}(a)} &\leq g(n) &\leq c\frac{d^{p}}{dr^{p}}\left(\frac{r}{1-r}\right)n^{\log_{b}(a)}. \]
-                </div>
+			crn^{\log_{b}(a)} &\leq g(n) &\leq c\frac{d^{p}}{dr^{p}}\left(\frac{r}{1-r}\right)n^{\log_{b}(a)}. 
+			\end{aligned} 
+			\]
+			</div>
 			
 			<p>Since \(g(n)\) is bounded both above and below by constant multiples of \(n^{\log_{b}(a)}\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= \Theta\left(n^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			T(n) &= \Theta\left(n^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{\log_{b}(a)}\right). 
+			\end{aligned} 
+			\]
+			</div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ T(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
+			</div>
 			
 			<p><b>Case 2: \(a = b^{k}\) and \(p \gt -1\)</b>. Given the condition \(a = b^{k}\), which implies that the ratio \(r=\frac{b^{k}}{a}=1\). Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p}. \]
-                </div>
+			\[ g(n) = cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p}. \]
+			</div>
 			
 			<p>\(\sum_{j=1}^{\log_{b}(n)} j^{p}\) is a sum of powers of integers, and can be bounded both below and above using integral approximation:</p>
 			
 			<div class="equation-container">
-                \[ 
+            \[ 
+			\begin{aligned}
 			\int_{j=0}^{\log_{b}(n)} j^{p} \, dj \leq \sum_{j=1}^{\log_{b}(n)} j^{p} \leq \int_{j=1}^{\log_{b}(n)+1} j^{p} \, dj \\
 			\frac{\log_{b}^{p+1}(n)}{p+1} \leq \sum_{j=1}^{\log_{b}(n)} j^{p} \leq \frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}.
+			\end{aligned} 
 			\]
-                </div>
+            </div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} \\
-			cn^{\log_{b}(a)} \frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq cn^{\log_{b}(a)} \frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}. \]
-                </div>
+            \[ 
+			\begin{aligned}
+			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} \\
+			cn^{\log_{b}(a)} \frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq cn^{\log_{b}(a)} \frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}. 
+			\end{aligned} 
+			\]
+            </div>
 			
 			<p>To factor out \(\log_{b}^{p+1}(n)\) from \(\left(\log_{b}(n)+1\right)^{p+1}\), we use the binomial expansion.</p>
 			
 			<div class="equation-container">
-                \[ \left(\log_{b}(n)+1\right)^{p+1} &= \sum_{k=0}^{p+1}\binom{p+1}{k} \log_{b}^{p+1-k}(n) \\
+			\[ 
+			\begin{aligned}
+			\left(\log_{b}(n)+1\right)^{p+1} &= \sum_{k=0}^{p+1}\binom{p+1}{k} \log_{b}^{p+1-k}(n) \\
 			&= \log_{b}^{p+1}(n) + (p+1)\log_{b}^{p}(n) + \frac{(p+1)p}{2}\log_{b}^{p-1}(n) + \cdots + 1 \\
 			&= \log_{b}^{p+1}(n) \left(1 + (p+1)\frac{1}{\log_{b}(n)} + \frac{(p+1)p}{2}\frac{1}{\log_{b}^{2}(n)} + \cdots + \frac{1}{\log_{b}^{p+1}(n)}\right) \\
-			&= \log_{b}^{p+1}(n)\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}. \]
-                </div>
+			&= \log_{b}^{p+1}(n)\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}. 
+			\end{aligned} 
+			\]
+			</div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ cn^{\log_{b}(a)} \frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq cn^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1}\sum_{k=0}^{p+1}\binom{p+1}{k}\frac{1}{\log_{b}^{k}(n)} \\
-			c\frac{1}{p+1}n^{\log_{b}(a)}\log_{b}^{p+1}(n) &\leq g(n) &\leq c\frac{1}{p+1}\left(\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}\right)n^{\log_{b}(a)}\log_{b}^{p+1}(n). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			cn^{\log_{b}(a)} \frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq cn^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1}\sum_{k=0}^{p+1}\binom{p+1}{k}\frac{1}{\log_{b}^{k}(n)} \\
+			c\frac{1}{p+1}n^{\log_{b}(a)}\log_{b}^{p+1}(n) &\leq g(n) &\leq c\frac{1}{p+1}\left(\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}\right)n^{\log_{b}(a)}\log_{b}^{p+1}(n). 
+			\end{aligned} 
+			\]
+			</div>
 			
 			<p>Since \(g(n)\) is bounded both above and below by constant multiples of \(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			T(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right).
+			\end{aligned} 
+			\]
+			</div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right). \]
-                </div>
+			\[ T(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right). \]
+			</div>
 			
 			
 			<p><b>Case 3: \(a = b^{k}\) and \(p = -1\)</b>. Given the condition \(a = b^{k}\), which implies that the ratio \(r=\frac{b^{k}}{a}=1\). Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{1}{j}. \]
-                </div>
+			\[ g(n) = cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{1}{j}. \]
+			</div>
 			
 			<p>The expression \(\sum_{j=1}^{\log_{b}(n)} \frac{1}{j}\), representing a partial sum of the harmonic series.</p>
 			
 			<p>The harmonic series, represented by \(H_{n}=\sum_{k=1}^{n} \frac{1}{j}\), can be bounded both below and above as follows:</p> 
 			
 			<div class="equation-container">
-                \[ 
+            \[ 
+			\begin{aligned}
 			\log_{2}(n+1) \leq H_{n} \leq \log_{2}(n) + 1 \\
 			\log_{2}(n) + \log_{2}\left(1+\frac{1}{n}\right) \leq H_{n} \leq \log_{2}(n) + 1.
+			\end{aligned} 
 			\]
-                </div>
+            </div>
 			
 			<p>where \(H_{n}\) is the \(n\)-th harmonic number.</p>
 			
 			<p>As a result, the partial sum of \(\sum_{j=1}^{\log_{b}(n)} \frac{1}{j}\) satisfies the inequality:</p>
 			
 			<div class="equation-container">
-                \[ \log_{2}(\log_{b}(n)) + \log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) \leq \sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \leq \log_{2}(\log_{b}(n)) + 1. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			\log_{2}(\log_{b}(n)) + \log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) \leq \sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \leq \log_{2}(\log_{b}(n)) + 1. 
+			\end{aligned} 
+			\]
+			</div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ 
+            \[ 
+			\begin{aligned}
 			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{1}{j} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \\
 			cn^{\log_{b}(a)} \left(\log_{2}(\log_{b}(n)) + \log_{2}\left(1+\frac{1}{\log_{b}(n)}\right)\right) &\leq g(n) &\leq cn^{\log_{b}(a)} \left(\log_{2}(\log_{b}(n)) + 1\right) \\
 			cn^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + cn^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) &\leq g(n) &\leq cn^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + cn^{\log_{b}(a)} \\
 			cn^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{2}(n)} + cn^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) &\leq g(n) &\leq cn^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{2}(n)} + cn^{\log_{b}(a)} \\
 			c\frac{1}{\log_{2}(n)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + cn^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) &\leq g(n) &\leq c\frac{1}{\log_{2}(n)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + cn^{\log_{b}(a)}.
+			\end{aligned} 
 			\]
-                </div>
+            </div>
 			
 			<p>Since \(g(n)\) is bounded both above and below by constant multiples of \(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			T(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). 
+			\end{aligned} 
+			\]
+			</div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). \]
-                </div>
+			\[ T(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). \]
+			</div>
 			
 			<p><b>Case 4: \(a = b^{k}\) and \(p \lt -1\)</b>. Given the condition \(a = b^{k}\), which implies that the ratio \(r=\frac{b^{k}}{a}=1\). Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p}. \]
-                </div>
+			\[ g(n) = cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p}. \]
+			</div>
 			
 			<p>Let \(p=-s\), which simplifies the \(g(n)\) to</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{1}{j^{s}}. \]
-                </div>
+			\[ g(n) = cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{1}{j^{s}}. \]
+			</div>
 			
 			<p>The series \(\sum_{j=1}^{\log_{b}(n)} \frac{1}{j^{s}}\) is a partial sum of the p-series.</p>
 			
 			<p>For \(s \gt 1\), the series \(\sum_{k=1}^{n} \frac{1}{k^{s}}\) converges and can be bounded above and below using integral approximation:</p> 
 			
 			<div class="equation-container">
-                \[ 
+            \[ 
+			\begin{aligned}
 			\int_{1}^{\infty} \frac{1}{x^{s}} \, dx \leq \sum_{k=1}^{n} \frac{1}{k^{s}} \leq 1 + \int_{1}^{\infty} \frac{1}{x^{s}} \, dx \\
 			\frac{1}{s-1} \leq \sum_{k=1}^{n} \frac{1}{k^{s}} \leq 1 + \frac{1}{s-1}.
+			\end{aligned} 
 			\]
-                </div>
+            </div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ 
+            \[ 
+			\begin{aligned}
 			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} \\
 			cn^{\log_{b}(a)}\frac{1}{s-1} &\leq g(n) &\leq cn^{\log_{b}(a)} \left(1 + \frac{1}{s-1}\right) \\
-			c\frac{1}{s-1}n^{\log_{b}(a)} &\leq g(n) &\leq c\left(1 + \frac{1}{s-1}\right)n^{\log_{b}(a)} \\.
+			c\frac{1}{s-1}n^{\log_{b}(a)} &\leq g(n) &\leq c\left(1 + \frac{1}{s-1}\right)n^{\log_{b}(a)}.
+			\end{aligned}
 			\]
-                </div>
+            </div>
 			
 			<p>Since \(g(n)\) is bounded both above and below by constant multiples of \(n^{\log_{b}(a)}\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= \Theta\left(n^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			T(n) &= \Theta\left(n^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{\log_{b}(a)}\right).
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ T(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
+			</div>
 			
 			<p><b>Case 5: \(a \lt b^{k}\) and \(p \gt 0\)</b>. Given the condition \(a \lt b^{k}\), which implies that the ratio \(r=\frac{b^{k}}{a} \gt 1\).</p>
 			
@@ -2414,214 +2519,252 @@
 			<p>We begin with the basic geometric series:</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{t} r^{j} = \frac{r\left(r^{t}-1\right)}{r-1}. \]
-                </div>
+			\[ \sum_{j=1}^{t} r^{j} = \frac{r\left(r^{t}-1\right)}{r-1}. \]
+			</div>
 			
 			<p>For large \(t\), the sum of the geometric series can be approximated as follows</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{t} r^{j} = \frac{r\left(r^{t}-1\right)}{r-1} \lt \frac{r}{r-1}r^{t}. \]
-                </div>
+			\[ \sum_{j=1}^{t} r^{j} = \frac{r\left(r^{t}-1\right)}{r-1} \lt \frac{r}{r-1}r^{t}. \]
+			</div>
 			
 			<p>To find \(\sum_{j=1}^{t} jr^{j}\), we differentiate \(\sum_{j=1}^{t} r^{j}\) with respect to \(r\):</p>
 
 			<div class="equation-container">
-                \[ \frac{d}{dr}\left(\sum_{j=1}^{t} r^{j}\right) &\lt \frac{d}{dr}\left(\frac{r}{r-1}r^{t}\right) \\
-			\sum_{j=1}^{t} jr^{j-1} &\lt \left(\frac{1}{r-1}-\frac{1}{t(r-1)^{2}}\right)tr^{t}. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			\frac{d}{dr}\left(\sum_{j=1}^{t} r^{j}\right) &\lt \frac{d}{dr}\left(\frac{r}{r-1}r^{t}\right) \\
+			\sum_{j=1}^{t} jr^{j-1} &\lt \left(\frac{1}{r-1}-\frac{1}{t(r-1)^{2}}\right)tr^{t}. 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Now, multiply both sides by \(r\)</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{t} jr^{j} &\lt \left(\frac{r}{r-1}-\frac{r}{t(r-1)^{2}}\right)tr^{t}. \]
-                </div>
+			\[ \sum_{j=1}^{t} jr^{j} \lt \left(\frac{r}{r-1}-\frac{r}{t(r-1)^{2}}\right)tr^{t}. \]
+			</div>
 			
 			<p>To find \(\sum_{j=1}^{t} j^{2}r^{j}\), we differentiate \(\sum_{j=1}^{t} jr^{j}\) with respect to \(r\):</p>
 
 			<div class="equation-container">
-                \[ \frac{d}{dr}\left(\sum_{j=1}^{t} jr^{j}\right) &\lt \frac{d}{dr}\left(\left(\frac{r}{r-1}-\frac{r}{t(r-1)^{2}}\right)tr^{t}\right) \\
-			\sum_{j=1}^{t} j^{2}r^{j-1} &\lt \left(\frac{1}{r-1}-\frac{2}{t(r-1)^{2}}+\frac{r+1}{t^{2}(r-1)^{3}}\right)t^{2}r^{t}. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			\frac{d}{dr}\left(\sum_{j=1}^{t} jr^{j}\right) &\lt \frac{d}{dr}\left(\left(\frac{r}{r-1}-\frac{r}{t(r-1)^{2}}\right)tr^{t}\right) \\
+			\sum_{j=1}^{t} j^{2}r^{j-1} &\lt \left(\frac{1}{r-1}-\frac{2}{t(r-1)^{2}}+\frac{r+1}{t^{2}(r-1)^{3}}\right)t^{2}r^{t}. 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Now, multiply both sides by \(r\)</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{t} j^{2}r^{j} &\lt \left(\frac{r}{r-1}-\frac{2r}{t(r-1)^{2}}+\frac{r(r+1)}t^{2}{(r-1)^{3}}\right)t^{2}r^{t}. \]
-                </div>
+			\[ \sum_{j=1}^{t} j^{2}r^{j} \lt \left(\frac{r}{r-1}-\frac{2r}{t(r-1)^{2}}+\frac{r(r+1)}t^{2}{(r-1)^{3}}\right)t^{2}r^{t}. \]
+			</div>
 			
 			<p>To find \(\sum_{j=1}^{t} j^{3}r^{j}\), we differentiate \(\sum_{j=1}^{t} jr^{j}\) with respect to \(r\):</p>
 
 			<div class="equation-container">
-                \[ \frac{d}{dr}\left(\sum_{j=1}^{t} j^{2}r^{j}\right) &\lt \frac{d}{dr}\left(\left(\frac{r}{r-1}-\frac{2r}{t(r-1)^{2}}+\frac{r(r+1)}t^{2}{(r-1)^{3}}\right)t^{2}r^{t}\right) \\
-			\sum_{j=1}^{t} j^{2}r^{j-1} &\lt \left(\frac{1}{r-1}-\frac{3}{t(r-1)^{2}}+\frac{3r(r+1)}{t^{2}(r-1)^{3}}-\frac{r^{2}+4r+1}{t^{3}(r-1)^{4}}\right)t^{3}r^{t}. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			\frac{d}{dr}\left(\sum_{j=1}^{t} j^{2}r^{j}\right) &\lt \frac{d}{dr}\left(\left(\frac{r}{r-1}-\frac{2r}{t(r-1)^{2}}+\frac{r(r+1)}t^{2}{(r-1)^{3}}\right)t^{2}r^{t}\right) \\
+			\sum_{j=1}^{t} j^{2}r^{j-1} &\lt \left(\frac{1}{r-1}-\frac{3}{t(r-1)^{2}}+\frac{3r(r+1)}{t^{2}(r-1)^{3}}-\frac{r^{2}+4r+1}{t^{3}(r-1)^{4}}\right)t^{3}r^{t}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Now, multiply both sides by \(r\)</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{t} j^{2}r^{j} &\lt \left(\frac{r}{r-1}-\frac{3r}{t(r-1)^{2}}+\frac{3r^{2}(r+1)}{t^{2}(r-1)^{3}}-\frac{r(r^{2}+4r+1)}{t^{3}(r-1)^{4}}\right)t^{3}r^{t}. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			\sum_{j=1}^{t} j^{2}r^{j} &\lt \left(\frac{r}{r-1}-\frac{3r}{t(r-1)^{2}}+\frac{3r^{2}(r+1)}{t^{2}(r-1)^{3}}-\frac{r(r^{2}+4r+1)}{t^{3}(r-1)^{4}}\right)t^{3}r^{t}. 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>For a general \(p\), we can continue this differentiation process \(p\) times.</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{t} j^{p}r^{j} &\lt \frac{d^{p}}{dr^{p}}\left(\frac{r}{r-1}r^{k}\right)
-			&= t^{p}r^{t}L(r), \]
-                </div>
+			\[ 
+			\begin{aligned}
+			\sum_{j=1}^{t} j^{p}r^{j} &\lt \frac{d^{p}}{dr^{p}}\left(\frac{r}{r-1}r^{k}\right)
+			&= t^{p}r^{t}L(r), 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>where \(L(r)\) is a rational function.</p>
 			
 			<p>The function \(L(r)\) has the form</p>
 			
 			<div class="equation-container">
-                \[ L(r) = \frac{N(r)}{t^{p}(r-1)^{p+1}}. \]
-                </div>
+			\[ L(r) = \frac{N(r)}{t^{p}(r-1)^{p+1}}. \]
+			</div>
 			
 			<p>where N(r) is a polynomial function.</p>
 			
 			<p>Therefore, let \(t=\log_{b}(n)\), which gives the upper bound:</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{\log_{b}(n)} j^{p}r^{j} &\lt t^{p}r^{\log_{b}(n)}L(r). \]
-                </div>
+			\[ \sum_{j=1}^{\log_{b}(n)} j^{p}r^{j} \lt t^{p}r^{\log_{b}(n)}L(r). \]
+			</div>
 			
 			<p>Since each term in the sum \(\sum_{j=1}^{\log_{b}(n)} r^{j} j^{p}\) is smaller than or equal to the last term, it can serve as a good lower bound for the series.</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{\log_{b}(n)} r^{j} j^{p} \geq r^{\log_{b}(n)} \log_{b}^{p}(n). \]
-                </div>
+			\[ \sum_{j=1}^{\log_{b}(n)} r^{j} j^{p} \geq r^{\log_{b}(n)} \log_{b}^{p}(n). \]
+			</div>
 			
 			<p>Thus, \(\sum_{j=1}^{\log_{b}(n)} r^{j} j^{p}\) can be bounded both below and above as follows:</p>
 			
 			<div class="equation-container">
-                \[ r^{\log_{b}(n)} \log_{b}^{p}(n) \leq \sum_{j=1}^{\log_{b}(n)} r^{j} j^{p} \lt \log_{b}^{p}(n)r^{\log_{b}(n)}L(r). \]
-                </div>
+			\[ r^{\log_{b}(n)} \log_{b}^{p}(n) \leq \sum_{j=1}^{\log_{b}(n)} r^{j} j^{p} \lt \log_{b}^{p}(n)r^{\log_{b}(n)}L(r). \]
+			</div>
 			
 			<p>Subtituting into \(g(n)\), where \(r=\frac{b^{k}}{a}\), yields</p>
 			
 			<div class="equation-container">
-                \[ cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} &\leq g(n) &\lt cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
-			
+			\[ 
+			\begin{aligned}
+			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} &\leq g(n) &\lt cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
 			cn^{\log_{b}(a)} \left(\frac{b^{k}}{a}\right)^{\log_{b}(n)} \log_{b}^{p}(n) &\leq g(n) &\lt cn^{\log_{b}(a)} \log_{b}^{p}(n)\left(\frac{b^{k}}{a}\right)^{\log_{b}(n)}L(r) \\
-			cn^{\log_{b}(a)} \frac{\left(b^{\log_{b}(n)\right)^{k}}{a^{\log_{b}(n)}} \log_{b}^{p}(n) &\leq g(n) &\lt cn^{\log_{b}(a)} \log_{b}^{p}(n)\frac{\left(b^{\log_{b}(n)\right)^{k}}{a^{\log_{b}(n)}}L\left(\frac{b^{k}}{a}\right) \\
+			cn^{\log_{b}(a)} \frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}} \log_{b}^{p}(n) &\leq g(n) &\lt cn^{\log_{b}(a)} \log_{b}^{p}(n)\frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}}L\left(\frac{b^{k}}{a}\right) \\
 			cn^{\log_{b}(a)} \frac{n^{k}}{n^{\log_{b}(a)}} \log_{b}^{p}(n) &\lt g(n) &\leq cn^{\log_{b}(a)} \frac{n^{k}}{n^{\log_{b}(a)}}\log_{b}^{p}(n)L\left(\frac{b^{k}}{a}\right) \\
-			cn^{k}\log_{b}^{p}(n) &\leq g(n) &\lt cL\left(\frac{b^{k}}{a}\right)n^{k}\log_{b}^{p}(n). \]
-                </div>
+			cn^{k}\log_{b}^{p}(n) &\leq g(n) &\lt cL\left(\frac{b^{k}}{a}\right)n^{k}\log_{b}^{p}(n). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Since \(g(n)\) is bounded both above and below by constant multiples of \(n^{k}\log_{b}^{p}(n)\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) = \Theta\left(n^{k}\log_{b}^{p}(n)\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{k}\log_{b}^{p}(n)\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= \Theta\left(n^{k}\log_{b}^{p}(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{k}\log_{b}^{p}(n)\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			T(n) &= \Theta\left(n^{k}\log_{b}^{p}(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{k}\log_{b}^{p}(n)\right). 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{k}\log_{b}^{p}(n)\right). \]
-                </div>
+			\[ T(n) = \Theta\left(n^{k}\log_{b}^{p}(n)\right). \]
+			</div>
 			
 			<p><b>Case 6: \(a \lt b^{k}\) and \(p \lt 0\)</b>. Given the condition \(a \lt b^{k}\), which implies that the ratio \(r=\frac{b^{k}}{a} \gt 1\).</p>
 			
 			<p>Let \(s=-p\). Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{r^{j}}{j^{s}}. \]
-                </div>
+			\[ g(n) = cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{r^{j}}{j^{s}}. \]
+			</div>
 			
 			<p>Since \(\frac{r^{j}}{j^{s}} \leq r^{j}\), the series can be bounded above by a geometric series.</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{\log_{b}(n)} \frac{r^{j}}{j^{s}} &\leq \sum_{j=1}^{\log_{b}(n)} r^{j}
-			&\lt \frac{r^{\log_{b}(n)+1}}{r-1}. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			\sum_{j=1}^{\log_{b}(n)} \frac{r^{j}}{j^{s}} &\leq \sum_{j=1}^{\log_{b}(n)} r^{j}
+			&\lt \frac{r^{\log_{b}(n)+1}}{r-1}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Since each term in the series \(\sum_{j=1}^{\log_{b}(n)} \frac{r^{j}}{j^{s}}\) is smaller than or equal to the last term,  it can serve as a good lower bound for the sum.</p>
 			
 			<div class="equation-container">
-                \[ \sum_{j=1}^{\log_{b}(n)} \frac{r^{j}}{j^{s}} \geq \frac{r^{\log_{b}(n)}}{\log_{b}^{s}(n)}. \]
-                </div>
+			\[ \sum_{j=1}^{\log_{b}(n)} \frac{r^{j}}{j^{s}} \geq \frac{r^{\log_{b}(n)}}{\log_{b}^{s}(n)}. \]
+			</div>
 			
 			<p>Thus, \(\sum_{j=1}^{\log_{b}(n)} \frac{r^{j}}{j^{s}}\) can be bounded both below and above as follows:</p>
 			
 			<div class="equation-container">
-                \[ \frac{r^{\log_{b}(n)}}{\log_{b}^{s}(n)} \leq \sum_{j=1}^{\log_{b}(n)} \frac{r^{j}}{j^{s}} \lt \frac{r^{\log_{b}(n)+1}}{r-1}. \]
-                </div>
+			\[ \frac{r^{\log_{b}(n)}}{\log_{b}^{s}(n)} \leq \sum_{j=1}^{\log_{b}(n)} \frac{r^{j}}{j^{s}} \lt \frac{r^{\log_{b}(n)+1}}{r-1}. \]
+			</div>
 			
 			<p>Subtituting into \(g(n)\), where \(r=\frac{b^{k}}{a}\), yields</p>
 			
 			<div class="equation-container">
-                \[ cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j}\frac{1}{j^{s}} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j}\frac{1}{j^{s}} \\
+			\[ 
+			\begin{aligned}
+			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j}\frac{1}{j^{s}} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j}\frac{1}{j^{s}} \\
 			cn^{\log_{b}(a)} \left(\frac{b^{k}}{a}\right)^{\log_{b}(n)}\frac{1}{\log_{b}^{s}(n)} &\leq g(n) &\lt cn^{\log_{b}(a)} \frac{\frac{b^{k}}{a}}{\frac{b^{k}}{a}-1}\left(\frac{b^{k}}{a}\right)^{\log_{b}(n)} \\
-			
 			cn^{\log_{b}(a)} \frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}}\frac{1}{\log_{b}^{s}(n)} &\leq g(n) &\lt cn^{\log_{b}(a)} \frac{\frac{b^{k}}{a}}{\frac{b^{k}}{a}-1}\frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}} \\
-			
 			cn^{\log_{b}(a)} \frac{n^{k}}{n^{\log_{b}(a)}}\frac{1}{\log_{b}^{s}(n)} &\leq g(n) &\lt cn^{\log_{b}(a)} \frac{\frac{b^{k}}{a}}{\frac{b^{k}}{a}-1}\frac{n^{k}}{n^{\log_{b}(a)}} \\
-			
-			cn^{k}\frac{1}{\log_{b}^{s}(n)} &\leq g(n) &\lt c\frac{b^{k}}{b^{k}-a}n^{k}. \]
-                </div>
+			cn^{k}\frac{1}{\log_{b}^{s}(n)} &\leq g(n) &\lt c\frac{b^{k}}{b^{k}-a}n^{k}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Since \(g(n)\) is bounded both above and below by constant multiples of \(n^{k}\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) = \Theta\left(n^{k}\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{k}\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= \Theta\left(n^{k}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{k}\right). \]
-                </div>
+            \[ 
+			\begin{aligned}
+			T(n) &= \Theta\left(n^{k}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{k}\right). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{k}\right). \]
-                </div>
-		
+			\[ T(n) = \Theta\left(n^{k}\right). \]
+			</div>
+		</div>
+
 		<h4>General Version of Master Theorem</h4>
 		
 		<p>The general version of master theorem is a formula for analyzing the time complexity of divide-and-conquer recurrences of the form:</p>
 		
 		<div class="equation-container">
-                \[ T(n) = aT(\frac{n}{b}) + f(n), \]
-                </div>
+		\[ T(n) = aT(\frac{n}{b}) + f(n), \]
+		</div>
 		
 		<p>where \(a \geq 1\) and \(b \geq 2\) with \(f\) asymptotically positive (Asymptotically positive mean that the function is positive for all sufficiently large \(n\)).</p>
 		
 		<p>This recurrence describes an algorithm that divides a problem of size \(n\) into a subproblems, each of size \(\frac{n}{b}\), and solves them recursively. Note that \(\frac{n}{b}\) might not be an integer, but replacing \(T\lceil(\frac{n}{b}\rceil)\) with \(T\lceil(\frac{n}{b}\rceil)\) or \(T\lceil(\lfloor\frac{n}{b}\rfloor\rceil)\) does not affect the asymptotic behavior of the recurrence. So we will just ignore floors and ceilings.</p>
 		
-		<p>The master theorem compares the function \(n^{\log_{b}(a)\) to the function \(f(n)\). Intuitively, if \(n^{\log_{b}(a)\) is larger (by a polynomial factor), then the solution is \(T(n) = \Theta(n^{\log_{b}(a))\). If \(f(n)\) is larger (by a polynomial factor), then the solution is \(T(n) = \Theta(f(n))\). If they are the same size, then we multiply by a logarithmic factor.</p>
+		<p>The master theorem compares the function \(n^{\log_{b}(a)}\) to the function \(f(n)\). Intuitively, if \(n^{\log_{b}(a)}\) is larger (by a polynomial factor), then the solution is \(T(n) = \Theta(n^{\log_{b}(a)})\). If \(f(n)\) is larger (by a polynomial factor), then the solution is \(T(n) = \Theta(f(n))\). If they are the same size, then we multiply by a logarithmic factor.</p>
 		
 		<div class="theorem">
 			<p>Let \(a \geq 1\) and \(b \gt 1\) be integer constants, and let \(f(n)\) be an asymptotically positive function. Suppose \(T(n)\) is defined for the positive real to satisfy the recurrence</p>
 			
 			<div class="equation-container">
-                \[ T(n) = 
-				\begin{cases} 
-				\Theta(1), & \text{if } n = 1 \\
-				aT\left(\frac{n}{b}\right) + f(n), & \text{if } n \gt 1
-				\end{cases}, \]
-                </div>
+			\[ T(n) = 
+			\begin{cases} 
+			\Theta(1), & \text{if } n = 1 \\
+			aT\left(\frac{n}{b}\right) + f(n), & \text{if } n \gt 1
+			\end{cases}, \]
+			</div>
 				
 			<p>Then the growth of \(T(n)\) can be asymptotically determined under the following assumptions</p>
 			
 			<div class="equation-container">
-                \[ T(n) =
+            \[ T(n) =
 			\begin{cases}
 			\Theta\left(n^{\log_{b}(a)}\right), & \text{if } f(n) = O\left(n^{\log_{b}(a)-\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \\
 			\Theta\left(n^{\log_{b}(a)} \log_{b}(n)\right), & \text{if } f(n) = \Theta\left(n^{\log_{b}(a)}\right) \\
 			\Theta(f(n)), & \text{if } f(n) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\frac{n}{b}\right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n
 			\end{cases}. \]
-                </div>
-		
+            </div>
+		</div>
+
 		<div class="proof">
 			<p>Consider the tree of recursive calls made by the algorithm:</p>
 			<ul>
@@ -2636,228 +2779,287 @@
 			<p>Thus, the total time required for all the calls at all levels is:</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= f(n) + aT(\frac{n}{b}) \\
+            \[ 
+			\begin{aligned}
+			T(n) &= f(n) + aT(\frac{n}{b}) \\
 			&= f(n) + a(f\left(\frac{n}{b}\right) + aT(\frac{n}{b^2})) = f(n) + af\left(\frac{n}{b}\right) + a^{2}T(\frac{n}{b^2}) \\
 			\vdots \\
 			&= f(n) + af\left(\frac{n}{b}\right) + a^{2}f\left(\frac{n}{b^{2}}\right) + \dots + a^{\log_{b}(n)}T(1)  \\
 			&= f(n) + af\left(\frac{n}{b}\right) + a^{2}f\left(\frac{n}{b^{2}}\right) + \dots + n^{\log_{b}(a)}\Theta(1)  \\
-			&= \sum_{i=0}^{\log_{b}(n)-1} a^{i}f\left(\frac{n}{b^{i}}\right) + \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			&= \sum_{i=0}^{\log_{b}(n)-1} a^{i}f\left(\frac{n}{b^{i}}\right) + \Theta\left(n^{\log_{b}(a)}\right). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Let</p>
 			
 			<div class="equation-container">
-                \[ g(n) = \sum_{i=0}^{\log_{b}(n)-1} a^{i}f\left(\frac{n}{b^{i}}\right). \]
-                </div>
+			\[ g(n) = \sum_{i=0}^{\log_{b}(n)-1} a^{i}f\left(\frac{n}{b^{i}}\right). \]
+			</div>
 			
 			<p><b>Case 1: \(f(n) = O\left(n^{\log_{b}(a)-\epsilon}\right)\)</b>. Since we have \(f(n) = O\left(n^{\log_{b}(a)-\epsilon}\right)\), which implies that \(f\left(\frac{n}{b^{i}}\right) = O\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)-\epsilon}\right)\). Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \sum_{i=0}^{\log_{b}(n)-1} a^{i}O\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)-\epsilon}\right). \]
-                </div>
+			\[ g(n) = \sum_{i=0}^{\log_{b}(n)-1} a^{i}O\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)-\epsilon}\right). \]
+			</div>
 			
 			<p>Using the meaning of the \(O\)-notation, there exist constants \(c \gt 0\) and \(n_{0} \gt 0\) such that for all \(n \geq n_{0}\):</p>
 			
 			<div class="equation-container">
-                \[ g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)-\epsilon} \\
+            \[ 
+			\begin{aligned}
+			g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)-\epsilon} \\
 			&= cn^{\log_{b}(a)-\epsilon} \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{\log_{b}(a)-\epsilon}}\right)^{i} \\
 			&= cn^{\log_{b}(a)-\epsilon} \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{ab^{\epsilon}}{b^{\log_{b}(a)}}\right)^{i} \\
-			&= cn^{\log_{b}(a)-\epsilon} \sum_{i=0}^{\log_{b}(n)-1} \left(b^{\epsilon}\right)^{i}. \]
-                </div>
+			&= cn^{\log_{b}(a)-\epsilon} \sum_{i=0}^{\log_{b}(n)-1} \left(b^{\epsilon}\right)^{i}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>\(\sum_{i=0}^{\log_{b}(n)-1} \left(b^{\epsilon}\right)^{i}\) is a geometric series with the common ratio \(b^{\epsilon}\) which grows exponentially, and can be bounded above as follows:</p>
 			
 			<div class="equation-container">
-                \[ \sum_{i=0}^{\log_{b}(n)-1} \left(b^{\epsilon}\right)^{i} &\leq \frac{\left(b^{\epsilon}\right)^{\log_{b}(n)}}{b^{\epsilon}-1} \\
-			&= \frac{n^{\epsilon}}{b^{\epsilon}-1}. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			\sum_{i=0}^{\log_{b}(n)-1} \left(b^{\epsilon}\right)^{i} &\leq \frac{\left(b^{\epsilon}\right)^{\log_{b}(n)}}{b^{\epsilon}-1} \\
+			&= \frac{n^{\epsilon}}{b^{\epsilon}-1}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &\leq cn^{\log_{b}(a)-\epsilon}\frac{n^{\epsilon}}{b^{\epsilon}-1} \\
-			&= c\frac{1}{b^{\epsilon}-1}n^{\log_{b}(a)}. \]
-                </div>
+			\[ 
+			\begin{aligned}
+			g(n) &\leq cn^{\log_{b}(a)-\epsilon}\frac{n^{\epsilon}}{b^{\epsilon}-1} \\
+			&= c\frac{1}{b^{\epsilon}-1}n^{\log_{b}(a)}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Since \(g(n)\) is bounded above by constant multiples of \(n^{\log_{b}(a)}\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= O\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ g(n) = O\left(n^{\log_{b}(a)}\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= O\left(n^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			T(n) &= O\left(n^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{\log_{b}(a)}\right). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ T(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
+			</div>
 			
 			<p><b>Case 2: \(f(n) = \Theta\left(n^{\log_{b}(a)}\right)\)</b>. Since we have \(f(n) = \Theta\left(n^{\log_{b}(a)}\right)\), which implies that \(f\left(\frac{n}{b^{i}}\right) = \Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)}\right)\). Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \sum_{i=0}^{\log_{b}(n)-1} a^{i}\Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			g(n) &= \sum_{i=0}^{\log_{b}(n)-1} a^{i}\Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right). 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Using the meaning of the \(\Theta\)-notation, there exist constants \(c_{1} \gt 0\), \(c_{2} \gt 0\) and \(n_{0} \gt 0\) such that for all \(n \geq n_{0}\):</p>
 			
 			<div class="equation-container">
-                \[ 
+            \[
+			\begin{aligned} 
 			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \\
 			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} \\
 			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} \\
 			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} 1 &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} 1 \\
 			c_{1}n^{\log_{b}(a)}\log_{b}(n) &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\log_{b}(n).
+			\end{aligned}
 			\]
-                </div>
+            </div>
 			
 			<p>Since \(g(n)\) is bounded both above and below by constant multiples of \(n^{\log_{b}(a)}\log_{b}\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}(n)\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}(n)\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{\log_{b}(a)}\log_{b}(n)\right). \]
-                </div>
+            \[ 
+			\begin{aligned}
+			T(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{\log_{b}(a)}\log_{b}(n)\right). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}(n)\right). \]
-                </div>
+			\[ T(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}(n)\right). \]
+			</div>
 			
 			
 			<p><b>Case 3: \(f(n) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right)\)</b>. Since we have \(f(n) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right)\), which implies that \(f\left(\frac{n}{b^{i}}\right) = \Omega\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)+\epsilon}\right)\). Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \sum_{i=0}^{\log_{b}(n)-1} a^{i}\Omega\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)+\epsilon}\right). \]
-                </div>
+			\[ g(n) = \sum_{i=0}^{\log_{b}(n)-1} a^{i}\Omega\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)+\epsilon}\right). \]
+			</div>
 			
 			<p>Using the meaning of the \(\Omega\)-notation, there exist constants \(c \gt 0\) and \(n_{0} \gt 0\) such that for all \(n \geq n_{0}\):</p>
 			
 			<div class="equation-container">
-                \[ g(n) &\geq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)+\epsilon} \\
+            \[ 
+			\begin{aligned}
+			g(n) &\geq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)+\epsilon} \\
 			&= cn^{\log_{b}(a)+\epsilon} \sum_{i=0}^{\log_{b}(n)-1} a^{i}\left(\frac{1}{b^{\log_{b}(a)+\epsilon}}\right)^{i} \\
-			&= cn^{\log_{b}(a)+\epsilon} \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{1}{b^{\epsilon}}\right)^{i}. \]
-                </div>
+			&= cn^{\log_{b}(a)+\epsilon} \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{1}{b^{\epsilon}}\right)^{i}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>\(\sum_{i=0}^{\lfloor\log_{b}(n)\rfloor-1} \left(\frac{1}{b^{\epsilon}}\right)^{i}\) is a geometric series with the common ratio \(\frac{1}{b^{\epsilon}}\) which decays exponentially, and can be bounded below as follows:</p>
 			
 			<div class="equation-container">
-                \[ \sum_{i=0}^{\lfloor\log_{b}(n)\rfloor-1} \left(\frac{1}{b^{\epsilon}}\right)^{i} &\geq 1. \]
-                </div>
+			\[ \sum_{i=0}^{\lfloor\log_{b}(n)\rfloor-1} \left(\frac{1}{b^{\epsilon}}\right)^{i} \geq 1. \]
+			</div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &\geq cn^{\log_{b}(a)+\epsilon} \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{1}{b^{\epsilon}}\right)^{i} \\
-			&= cn^{\log_{b}(a)+\epsilon}. \]
-                </div>
+            \[ 
+			\begin{aligned}
+			g(n) &\geq cn^{\log_{b}(a)+\epsilon} \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{1}{b^{\epsilon}}\right)^{i} \\
+			&= cn^{\log_{b}(a)+\epsilon}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Since \(g(n)\) is bounded below by constant multiples of \(f(n)=n^{\log_{b}(a)+\epsilon}\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Omega\left(f(n)\right). \]
-                </div>
+			\[ g(n) = \Omega\left(f(n)\right). \]
+			</div>
 			
 			<p>Since \(af\left(\frac{n}{b}\right) \leq cf(n)\), it follows that \(f\left(\frac{n}{b}\right) \leq \frac{c}{a}f(n)\).</p>
 			
 			<p>Now, iterate the recurrence</p>
 			
 			<div class="equation-container">
-                \[ f\left(\frac{n}{b^{2}}\right) &\leq \frac{c}{a}f\left(\frac{n}{b}\right) \\
+            \[ 
+			\begin{aligned}
+			f\left(\frac{n}{b^{2}}\right) &\leq \frac{c}{a}f\left(\frac{n}{b}\right) \\
 			&\leq \frac{c}{a}\cdot\frac{c}{a}f(n) \\
-			&= \left(\frac{c}{a}\right)^{2}f(n). \]
-                </div>
+			&= \left(\frac{c}{a}\right)^{2}f(n). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Iterate the recurrence once more</p>
 			
 			<div class="equation-container">
-                \[ f\left(\frac{n}{b^{3}}\right) &\leq \frac{c}{a}f\left(\frac{n}{b^{2}}\right) \\
+            \[ 
+			\begin{aligned}
+			f\left(\frac{n}{b^{3}}\right) &\leq \frac{c}{a}f\left(\frac{n}{b^{2}}\right) \\
 			&\leq \frac{c}{a}\cdot\left(\frac{c}{a}\right)^{2}f(n) \\
-			&= \left(\frac{c}{a}\right)^{3}f(n). \]
-                </div>
+			&= \left(\frac{c}{a}\right)^{3}f(n). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>By continuing this process, after \(i\) iterations, we have:</p>
 			
 			<div class="equation-container">
-                \[ f\left(\frac{n}{b^{i}}\right) &\leq \left(\frac{c}{a}\right)^{i}f(n). \]
-                </div>
+			\[ f\left(\frac{n}{b^{i}}\right) \leq \left(\frac{c}{a}\right)^{i}f(n). \]
+			</div>
 			
 			<p>Thus, we have:</p>
 			
 			<div class="equation-container">
-                \[ a^{i}f\left(\frac{n}{b^{i}}\right) &\leq c^{i}f(n). \]
-                </div>
+			\[ a^{i}f\left(\frac{n}{b^{i}}\right) \leq c^{i}f(n). \]
+			</div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \sum_{i=0}^{\log_{b}(n)-1} a^{i}f\left(\frac{n}{b^{i}}\right) \\
+            \[ 
+			\begin{aligned}
+			g(n) &= \sum_{i=0}^{\log_{b}(n)-1} a^{i}f\left(\frac{n}{b^{i}}\right) \\
 			&\leq \sum_{i=0}^{\log_{b}(n)-1} c^{i}f(n) \\
-			&= f(n)\sum_{i=0}^{\log_{b}(n)-1} c^{i}. \]
-                </div>
+			&= f(n)\sum_{i=0}^{\log_{b}(n)-1} c^{i}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>\(\sum_{i=0}^{\lfloor\log_{b}(n)\rfloor-1} c^{i}\) is a geometric series with the common ratio \(b^{\epsilon}\) which decays exponentially because \(c \lt 1\), and can be bounded above as follows:</p>
 			
 			<div class="equation-container">
-                \[ f(n)\sum_{i=0}^{\log_{b}(n)-1} c^{i} &\leq f(n)\frac{1}{1-c}}. \]
-                </div>
+			\[ f(n)\sum_{i=0}^{\log_{b}(n)-1} c^{i} \leq f(n)\frac{1}{1-c}}. \]
+			</div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &\leq f(n)\frac{1}{1-c}} \\
-			&= \frac{1}{1-c}}f(n). \]
-                </div>
+            \[ 
+			\begin{aligned}
+			g(n) &\leq f(n)\frac{1}{1-c}} \\
+			&= \frac{1}{1-c}}f(n). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Since \(g(n)\) is bounded both above by constant multiples of \(f(n)\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= O\left(f(n)\right). \]
-                </div>
+			\[ g(n) = O\left(f(n)\right). \]
+			</div>
 			
 			<p>We have \(g(n) = \Omega\left(f(n)\right)\) and \(g(n) = O\left(f(n)\right)\), which implies that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Theta\left(f(n)\right). \]
-                </div>
+			\[ g(n) = \Theta\left(f(n)\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= \Theta\left(f(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(f(n)\right). \]
-                </div>
+            \[ 
+			\begin{aligned}
+			T(n) &= \Theta\left(f(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(f(n)\right). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(f(n)\right). \]
-                </div>
-		
+			\[ T(n) = \Theta\left(f(n)\right). \]
+			</div>
+		</div>
+
 		<p>In the Master Theorem, as given above, there is a gap between cases 1 and 2, and a gap between cases 2 and 3.</p>
 		
 		<p>The recurrence</p>
 		
 		<div class="equation-container">
-                \[ T(n) = 2T(\frac{n}{2}) + n\log_{2}(n), \]
-                </div>
+			\[ T(n) = 2T(\frac{n}{2}) + n\log_{2}(n), \]
+			</div>
 		
 		<p>and</p>
 		
 		<div class="equation-container">
-                \[ T(n) = 2T(\frac{n}{2}) + \frac{n}{\log_{2}(n)} \]
-                </div>
+		\[ T(n) = 2T(\frac{n}{2}) + \frac{n}{\log_{2}(n)} \]
+		</div>
 		
 		<p>does not exactly fit the form of the master theorem above.</p>
 		
@@ -2869,24 +3071,25 @@
 			<p>Let \(a \geq 1\) and \(b \gt 1\) be integer constants, and let \(f(n)\) be an asymptotically positive function. Suppose \(T(n)\) is defined for the positive real to satisfy the recurrence</p>
 			
 			<div class="equation-container">
-                \[ T(n) = 
-				\begin{cases} 
-				\Theta(1), & \text{if } n = 1 \\
-				aT\left(\frac{n}{b}\right) + f(n), & \text{if } n \gt 1
-				\end{cases}. \]
-                </div>
+			\[ T(n) = 
+			\begin{cases} 
+			\Theta(1), & \text{if } n = 1 \\
+			aT\left(\frac{n}{b}\right) + f(n), & \text{if } n \gt 1
+			\end{cases}. \]
+			</div>
 				
 			<p>Then the growth of \(T(n)\) can be asymptotically determined under the following assumptions</p>
 			
 			<div class="equation-container">
-                \[ T(n) =
+            \[ T(n) =
 			\begin{cases}
 			\Theta\left(n^{\log_{b}(a)} \log_{b}^{k+1}(n)\right), & \text{if } f(n) = \Theta\left(n^{\log_{b}(a)} \log_{b}^{k}(n)\right) \text{ and } k \gt -1 \\
 			\Theta(n^{\log_{b}(a)} \log_{b}(\log_{b}(n))), & \text{if } f(n) = \Theta(n^{\log_{b}(a)} \log_{b}^{k}(n)) \text{ and } k = -1 \\
 			\Theta(n^{\log_{b}(a)}), & \text{if } f(n) = \Theta(n^{\log_{b}(a)} \log_{b}^{k}(n)) \text{ and } k \lt -1
 			\end{cases}. \]
-                </div>
-		
+            </div>
+		</div>
+
 		<div class="proof">
 			<p>Consider the tree of recursive calls made by the algorithm:</p>
 			<ul>
@@ -2900,296 +3103,353 @@
 			<p>Thus, the total time required for all the calls at all levels is:</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= f(n) + aT(\frac{n}{b}) \\
+            \[ 
+			\begin{aligned}
+			T(n) &= f(n) + aT(\frac{n}{b}) \\
 			&= f(n) + a(f\left(\frac{n}{b}\right) + aT(\frac{n}{b^2})) = f(n) + af\left(\frac{n}{b}\right) + a^{2}T(\frac{n}{b^2}) \\
 			\vdots \\
 			&= f(n) + af\left(\frac{n}{b}\right) + a^{2}f\left(\frac{n}{b^{2}}\right) + \dots + a^{\log_{b}(n)}T(1) \\
 			&= f(n) + af\left(\frac{n}{b}\right) + a^{2}f\left(\frac{n}{b^{2}}\right) + \dots + n^{\log_{b}(a)}\Theta(1)  \\
-			&= \sum_{i=0}^{\log_{b}(n)-1} a^{i}f\left(\frac{n}{b^{i}}\right) + \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			&= \sum_{i=0}^{\log_{b}(n)-1} a^{i}f\left(\frac{n}{b^{i}}\right) + \Theta\left(n^{\log_{b}(a)}\right). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Let</p>
 			
 			<div class="equation-container">
-                \[ g(n) = \sum_{i=0}^{\log_{b}(n)-1} a^{i}f\left(\frac{n}{b^{i}}\right). \]
-                </div>
+			\[ g(n) = \sum_{i=0}^{\log_{b}(n)-1} a^{i}f\left(\frac{n}{b^{i}}\right). \]
+			</div>
 			
 			<p><b>Case 2a: \(f(n) = \Theta\left(n^{\log_{b}(a)} \log_{b}^{k}(n)\right)\) and \(k \gt -1\)</b>. Since we have \(f(n) = \Theta\left(n^{\log_{b}(a)} \log_{b}^{k}(n)\right)\), which implies that \(f\left(\frac{n}{b^{i}}\right) = \Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right)\right)\). Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \sum_{i=0}^{\log_{b}(n)-1} a^{i}\Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right)\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			g(n) &= \sum_{i=0}^{\log_{b}(n)-1} a^{i}\Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right)\right). 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Using the meaning of the \(\Theta\)-notation, there exist constants \(c_{1} \gt 0\), \(c_{2} \gt 0\) and \(n_{0} \gt 0\) such that for all \(n \geq n_{0}\):</p>
 			
 			<div class="equation-container">
-                \[ 
+            \[
+			\begin{aligned} 
 			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) \\
 			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} \left(\log_{b}(n)-i\right)^{k} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} \left(\log_{b}(n)-i\right)^{k} \\
 			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} \left(\log_{b}(n)-i\right)^{k} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} \left(\log_{b}(n)-i\right)^{k} \\
 			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \left(\log_{b}(n)-i\right)^{k} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \left(\log_{b}(n)-i\right)^{k}.
+			\end{aligned}
 			\]
-                </div>
+            </div>
 			
 			<p>The expression \(\sum_{i=0}^{\log_{b}(n)-1} \left(\log_{b}(n)-i\right)^{k}\) can be simplified by reindexing the terms to make the summation easier to analyze. Define \(j=\log_{b}(n)−i\), which implies \(i=\log_{b}(n)−j\). When \(i=0\), \(j=\log_{b}(n)\), and when \(i=\log_{b}(n)-1\), \(j=1\). Rewriting the summation in terms of \(j\), we have:</p>
 			
 			<div class="equation-container">
-                \[ \sum_{i=0}^{\log_{b}(n)-1} \left(\log_{b}(n)-i\right)^{k} = \sum_{j=1}^{\log_{b}(n)} j^{p}. \]
-                </div>
+			\[ \sum_{i=0}^{\log_{b}(n)-1} \left(\log_{b}(n)-i\right)^{k} = \sum_{j=1}^{\log_{b}(n)} j^{p}. \]
+			</div>
 			
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ 
-			c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p}.
+            \[ 
+			c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p} \leq g(n) \leq c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p}.
 			\]
-                </div>
+            </div>
 			
 			<p>\(\sum_{j=1}^{\log_{b}(n)} j^{p}\) is a sum of powers of integers, and can be bounded both below and above using integral approximation:</p>
 			
 			<div class="equation-container">
-                \[ 
+            \[
+			\begin{aligned} 
 			\int_{j=0}^{\log_{b}(n)} j^{p} \, dj \leq \sum_{j=1}^{\log_{b}(n)} j^{p} \leq \int_{j=1}^{\log_{b}(n)+1} j^{p} \, dj \\
 			\frac{\log_{b}^{p+1}(n)}{p+1} \leq \sum_{j=1}^{\log_{b}(n)} j^{p} \leq \frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}.
+			\end{aligned}
 			\]
-                </div>
+            </div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p} \\
-			c_{1}n^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}. \]
-                </div>
+            \[ 
+			\begin{aligned}
+			c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p} \\
+			c_{1}n^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>To factor out \(\log_{b}^{p+1}(n)\) from \(\left(\log_{b}(n)+1\right)^{p+1}\), we use the binomial expansion.</p>
 			
 			<div class="equation-container">
-                \[ \left(\log_{b}(n)+1\right)^{p+1} &= \sum_{k=0}^{p+1}\binom{p+1}{k} \log_{b}^{p+1-k}(n) \\
+        	\[ 
+			\begin{aligned}
+			\left(\log_{b}(n)+1\right)^{p+1} &= \sum_{k=0}^{p+1}\binom{p+1}{k} \log_{b}^{p+1-k}(n) \\
 			&= \log_{b}^{p+1}(n) + (p+1)\log_{b}^{p}(n) + \frac{(p+1)p}{2}\log_{b}^{p-1}(n) + \cdots + 1 \\
 			&= \log_{b}^{p+1}(n) \left(1 + (p+1)\frac{1}{\log_{b}(n)} + \frac{(p+1)p}{2}\frac{1}{\log_{b}^{2}(n)} + \cdots + \frac{1}{\log_{b}^{p+1}(n)}\right) \\
-			&= \log_{b}^{p+1}(n)\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}. \]
-                </div>
+			&= \log_{b}^{p+1}(n)\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}. 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ c_{1}n^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1} \\
+            \[ 
+			\begin{aligned}
+			c_{1}n^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1} \\
 			c_{1}n^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\log_{b}^{p+1}(n)\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)} \\
-			c_{1}\frac{1}{p+1}n^{\log_{b}(a)}\log_{b}^{p+1}(n) &\leq g(n) &\leq c_{2}\left(\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}\right)n^{\log_{b}(a)}\log_{b}^{p+1}(n). \]
-                </div>
+			c_{1}\frac{1}{p+1}n^{\log_{b}(a)}\log_{b}^{p+1}(n) &\leq g(n) &\leq c_{2}\left(\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}\right)n^{\log_{b}(a)}\log_{b}^{p+1}(n). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Since \(g(n)\) is bounded both above and below by constant multiples of \(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			T(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right). 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right). \]
-                </div>
+			\[ T(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}^{p+1}(n)\right). \]
+			</div>
 			
 			<p><b>Case 2b: \(f(n) = \Theta\left(n^{\log_{b}(a)} \log_{b}^{k}(n)\right)\) and \(k=-1\)</b>. Since we have \(f(n) = \Theta\left(n^{\log_{b}(a)} \log_{b}^{k}(n)\right)\), which implies that \(f\left(\frac{n}{b^{i}}\right) = \Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right)\right)\). Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \sum_{i=0}^{\log_{b}(n)-1} a^{i}\Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right)\right). \]
-                </div>
+			\[ g(n) = \sum_{i=0}^{\log_{b}(n)-1} a^{i}\Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right)\right). \]
+			</div>
 			
 			<p>Using the meaning of the \(\Theta\)-notation, there exist constants \(c_{1} \gt 0\), \(c_{2} \gt 0\) and \(n_{0} \gt 0\) such that for all \(n \geq n_{0}\):</p>
 			
 			<div class="equation-container">
-                \[ 
+            \[
+			\begin{aligned} 
 			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) \\
 			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \frac{1}{\log_{b}(n)-i} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \frac{1}{\log_{b}(n)-i} \\
 			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}(n)-i} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}(n)-i} \\
 			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\log_{b}(n)-i} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\log_{b}(n)-i}.
+			\end{aligned}
 			\]
-                </div>
+            </div>
 			
 			<p>The series \(\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\log_{b}(n)-i}\) can be simplified by reindexing the terms to make the summation easier to analyze. Define \(j=\log_{b}(n)−i\), which implies \(i=\log_{b}(n)−j\). When \(i=0\), \(j=\log_{b}(n)\), and when \(i=\log_{b}(n)-1\), \(j=1\). Rewriting the summation in terms of \(j\), we have:</p>
 			
 			<div class="equation-container">
-                \[
+            \[
 			\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\log_{b}(n)-i} = \sum_{j=1}^{\log_{b}(n)} \frac{1}{j}.
 			\]
-                </div>
+            </div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ 
-			c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j}.
+            \[ 
+			c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \leq g(n) \leq c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j}.
 			\]
-                </div>
+            </div>
 			
 			<p>The series \(\sum_{j=1}^{\log_{b}(n)} \frac{1}{j}\) is a partial sum of the harmonic series.</p>
 			
 			<p>The harmonic series, represented by \(H_{n}=\sum_{j=1}^{n} \frac{1}{j}\), can be bounded as follows:</p> 
 			
 			<div class="equation-container">
-                \[ 
+            \[
+			\begin{aligned} 
 			\log_{2}(n+1) \leq H_{n} \leq \log_{2}(n) + 1 \\
 			\log_{2}(n) + \log_{2}\left(1+\frac{1}{n}\right) \leq H_{n} \leq \log_{2}(n) + 1.
+			\end{aligned}
 			\]
-                </div>
+            </div>
 			
 			<p>where \(H_{n}\) is the \(n\)-th harmonic number.</p>
 			
 			<p>As a result, the partial sum of \(\sum_{j=1}^{\log_{b}(n)} \frac{1}{j}\) satisfies the inequality:</p>
 			
 			<div class="equation-container">
-                \[ \log_{2}(\log_{b}(n)) + \log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) \leq \sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \leq \log_{2}(\log_{b}(n)) + 1. \]
-                </div>
+			\[
+			\log_{2}(\log_{b}(n)) + \log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) \leq \sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \leq \log_{2}(\log_{b}(n)) + 1. 
+			\]
+			</div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \\ 
+            \[ 
+			\begin{aligned}
+			c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \\ 
 			c_{1}n^{\log_{b}(a)}\left(\log_{2}(\log_{b}(n)) + \log_{2}\left(1+\frac{1}{\log_{b}(n)}\right)\right) &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\left(\log_{2}(\log_{b}(n)) + 1\right) \\
 			c_{1}n^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + c_{1}n^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(\log_{b}(n))}\right) &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + c_{2}n^{\log_{b}(a)} \\
 			c_{1}n^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{b}(2)} + c_{1}n^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{2}(\log_{b}(n))}\right) &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{b}(2)} + c_{2}n^{\log_{b}(a)} \\
 			c_{1}\frac{1}{\log_{b}(2)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + c_{1}n^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{2}(\log_{b}(n))}\right) &\leq g(n) &\leq c_{2}\frac{1}{\log_{b}(2)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + c_{2}n^{\log_{b}(a)}.
+			\end{aligned}
 			\]
-                </div>
+            </div>
 			
 			<p>Since \(g(n)\) is bounded both above and below by constant multiples of \(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). \]
-                </div>
+            \[ 
+			\begin{aligned}
+			T(n) &= \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). \]
-                </div>
+			\[ T(n) = \Theta\left(n^{\log_{b}(a)}\log_{b}(\log_{b}(n))\right). \]
+			</div>
 			
 			<p><b>Case 2c: \(f(n) = \Theta\left(n^{\log_{b}(a)} \log_{b}^{k}(n)\right)\) and \(k \lt -1\)</b>. Since we have \(f(n) = \Theta\left(n^{\log_{b}(a)} \log_{b}^{k}(n)\right)\), which implies that \(f\left(\frac{n}{b^{i}}\right) = \Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right)\right)\). Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \sum_{i=0}^{\log_{b}(n)-1} a^{i}\Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right)\right). \]
-                </div>
+			\[ 
+			\begin{aligned}
+			g(n) &= \sum_{i=0}^{\log_{b}(n)-1} a^{i}\Theta\left(\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right)\right). 
+			\end{aligned}
+			\]
+			</div>
 			
 			<p>Using the meaning of the \(\Theta\)-notation, there exist constants \(c_{1} \gt 0\), \(c_{2} \gt 0\) and \(n_{0} \gt 0\) such that for all \(n \geq n_{0}\):</p>
 			
 			<div class="equation-container">
-                \[ 
+            \[
+			\begin{aligned} 
 			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right).
+			\end{aligned}
 			\]
-                </div>
+            </div>
 			
 			<p>Let \(k=-r\), which simplifies the \(g(n)\) to</p>
 			
 			<div class="equation-container">
-                \[ 
+            \[
+			\begin{aligned} 
 			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \log_{b}^{-r}\left(\frac{n}{b^{i}}\right) &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \log_{b}^{-r}\left(\frac{n}{b^{i}}\right) \\
 			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}^{r}\left(\frac{n}{b^{i}}\right)} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}^{r}\left(\frac{n}{b^{i}}\right)} \\
 			c_{1}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}} &\leq g(n) &\leq  c_{2}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}} \\
 			c_{1}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}} &\leq g(n) &\leq  c_{2}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}}.
+			\end{aligned}
 			\]
-                </div>
+            </div>
 			
 			<p>The expression \(\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i}\right)^{r}\) can be simplified by reindexing the terms to make the summation easier to analyze. Define \(k=\log_{b}(n)−i\), which implies \(i=\log_{b}(n)−k\). When \(i=0\), \(k=\log_{b}(n)\), and when \(i=\log_{b}(n)-1\), \(k=1\). Rewriting the summation in terms of \(k\), we have:</p>
 			
 			<div class="equation-container">
-                \[
+            \[
 			\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}} = \sum_{k=1}^{\log_{b}(n)} \frac{1}{k^{r}}.
 			\]
-                </div>
+            </div>
 			
 			<p>The series \(\sum_{k=1}^{\log_{b}(n)} \frac{1}{k^{r}}\) is a partial sum of the p-series.</p>
 			
 			<p>For \(r \gt 1\), the p-series, represented by \(\sum_{k=1}^{n} \frac{1}{k^{r}}\), converges and can be bounded above and below using integral approximation:</p> 
 			
 			<div class="equation-container">
-                \[ 
+            \[ 
 			\int_{k=1}^{\infty} \frac{1}{k^r} \, dk \leq \sum_{k=1}^{n} \frac{1}{k^{r}} \leq 1 + \int_{k=1}^{\infty} \frac{1}{k^{r}} \, dk \\
 			\frac{1}{r-1} \leq \sum_{k=1}^{n} \frac{1}{k^{r}} \leq 1 + \frac{1}{r-1}.
 			\]
-                </div>
+            </div>
 			
 			<p>As a result, the partial sum of \(\sum_{k=1}^{\log_{b}(n)} \frac{1}{k^{r}}\) satisfies the inequality:</p>
 			
 			<div class="equation-container">
-                \[ \frac{1}{r-1} \leq \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i}\right)^{r} \leq 1 + \frac{1}{r-1}. \]
-                </div>
+            \[ \frac{1}{r-1} \leq \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i}\right)^{r} \leq 1 + \frac{1}{r-1}. \]
+            </div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ c_{1}n^{\log_{b}(a)} \frac{1}{r-1} &\leq g(n) &\leq  c_{2}n^{\log_{b}(a)} \left(1 + \frac{1}{r-1}\right) \\
+            \[ 
+			\begin{aligned}
+			c_{1}n^{\log_{b}(a)} \frac{1}{r-1} &\leq g(n) &\leq  c_{2}n^{\log_{b}(a)} \left(1 + \frac{1}{r-1}\right) \\
 			c_{1}\frac{1}{r-1} n^{\log_{b}(a)} &\leq g(n) &\leq c_{2}\left(1 + \frac{1}{r-1}\right)n^{\log_{b}(a)}.
+			\end{aligned}
 			\]
-                </div>
+            </div>
 			
 			<p>Since \(g(n)\) is bounded both above and below by constant multiples of \(n^{\log_{b}(a)}\), we can conclude that</p>
 			
 			<div class="equation-container">
-                \[ g(n) &= \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+			\[ g(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
+			</div>
 			
 			<p>Subtituting into \(T(n)\) yields</p>
 			
 			<div class="equation-container">
-                \[ T(n) &= \Theta\left(n^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
-			&= \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
+            \[ 
+			\begin{aligned}
+			T(n) &= \Theta\left(n^{\log_{b}(a)}\right) + \Theta\left(n^{\log_{b}(a)}\right) \\
+			&= \Theta\left(n^{\log_{b}(a)}\right). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Thus, the asymptotic growth of \(T(n)\) is</p>
 			
 			<div class="equation-container">
-                \[ T(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
-                </div>
-		
+			\[ T(n) = \Theta\left(n^{\log_{b}(a)}\right). \]
+			</div>
+		</div>
+
 		<p>In the preceding analysis we assumed that the input size \(n\) is a positive integer that is a power of \(b \gt 1\), and therefore that \(b\) is also an integer. It turns out that, essentially, the Master Theorem holds even if \(n\) is not necessarily a power of \(b\) and \(b \gt 1\) is a real number, not necessarily an integer. If \(n\) is not a power of \(b\), however, the previous recurrence expression is not a legitimate recurrence: sooner or later as we keep dividing the input size by \(b\) we will end up with a non-natural number and then the recurrence is not defined.</p>
 		
 		<p>In general, a divide-and-conquer algorithm breaks a problem of size \(n\) into a subproblems, \(a_{1}\) of which have size \(\lceil \frac{n}{b} \rceil\) and \(a_{2}\) have size \(\lfloor \frac{n}{b} \rfloor\), for some non-negative integers \(a_{1}\) and \(a_{2}\) such that \(a_{1} + a_{2} = a\). Thus, the following recurrence describes the running time of such an algorithm, when \(n\) is not necessarily a power of \(b\), and \(b \gt 1\) is not necessarily an integer.</p>
 		
 		<div class="equation-container">
-                \[ T(n) = 
+            \[ T(n) = 
 			\begin{cases} 
 			\Theta(1), & \text{if } n = 1 \\
-			a_{1}T\left(\lceil \frac{n}{b} \rceil\right) + a_{2}T\left(\lfloor \frac{n}{b} \rfloor\right) + f(n), & \text{if } n \gt 1
-			\end{cases}, \]
-                </div>
+			a_{1}T\left(\lceil \frac{n}{b} \rceil\right) + a_{2}T\left(\lfloor \frac{n}{b} \rfloor\right) + f(n), & \text{if } n \gt 1,
+			\end{cases} \]
+        </div>
 		
 		<p>where \(a_{1}\), \(a_{2}\) are non-negative integers such that \(a_{1} + a_{2} = a\).</p>
 		
 		<p>or</p>
 		
 		<div class="equation-container">
-                \[ T(n) = 
+            \[ T(n) = 
 			\begin{cases} 
 			\Theta(1), & \text{if } 1 \leq n \leq \frac{b}{b-1} \\
-			aT\left(\lceil \frac{n}{b} \rceil\right) + f(n), & \text{if } n \geq \frac{b}{b-1}
-			\end{cases}, \]
-                </div>
+			aT\left(\lceil \frac{n}{b} \rceil\right) + f(n), & \text{if } n \geq \frac{b}{b-1},
+			\end{cases} \]
+        </div>
 		
 		<p>or</p>
 		
 		<div class="equation-container">
-                \[ T(n) = 
+            \[ T(n) = 
 			\begin{cases} 
 			\Theta(1), & \text{if } 1 \leq n \leq \frac{b}{b-1} \\
-			aT\left(\lfloor \frac{n}{b} \rfloor\right) + f(n), & \text{if } n \geq \frac{b}{b-1}
-			\end{cases}. \]
-                </div>
+			aT\left(\lfloor \frac{n}{b} \rfloor\right) + f(n), & \text{if } n \geq \frac{b}{b-1}.
+			\end{cases} \]
+        </div>
 			
 		<p>We need to extend our analysis to allow situations in which floors and ceilings appear in the master recurrence.</p>
 		
@@ -3197,30 +3457,31 @@
 			<p>Let \(a_{1} + a_{2} = a \geq 1\) and \(b \gt 1\) be real constants, and let \(f(n)\) be an asymptotically positive function. Suppose \(T(n)\) is defined for the positive real to satisfy the recurrence</p>
 			
 			<div class="equation-container">
-                \[ T(n) = 
+            \[ T(n) = 
 			\begin{cases} 
 			\Theta(1), & \text{if } n = 1 \\
-			a_{1}T\left(\lceil \frac{n}{b} \rceil\right) + a_{2}T\left(\lfloor \frac{n}{b} \rfloor\right) + f(n), & \text{if } n \gt 1
-			\end{cases}. \]
-                </div>
+			a_{1}T\left(\lceil \frac{n}{b} \rceil\right) + a_{2}T\left(\lfloor \frac{n}{b} \rfloor\right) + f(n), & \text{if } n \gt 1.
+			\end{cases} \]
+            </div>
 				
 			<p>Then the growth of \(T(n)\) can be asymptotically determined under the following assumptions</p>
 			
 			<div class="equation-container">
-                \[ T(n) =
+            \[ T(n) =
 			\begin{cases}
 			\Theta\left(n^{\log_{b}(a)}\right), & \text{if } f(n) = O\left(n^{\log_{b}(a)-\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \\
 			\Theta\left(n^{\log_{b}(a)} \log_{b}(n)\right), & \text{if } f(n) = \Theta\left(n^{\log_{b}(a)}\right) \\
 			\Theta(f(n)), & \text{if } f(n) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\lceil \frac{n}{b} \rceil\right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n
 			\end{cases}. \]
-                </div>
-		
+            </div>
+		</div>
+
 		<div class="proof">
 			<p>The monotonicity property allows us to apply techniques like induction to prove bounds for \(T(n)\).</p>
 			
 			<div class="equation-container">
-                \[ T(a) \leq T(b) \text{ for any } a \leq b \]
-                </div>
+			\[ T(a) \leq T(b) \text{ for any } a \leq b \]
+			</div>
 			
 			<p>The running time \(T(a)\) represents the worst-case running time for a problem of size \(a\) and \(T(b)\) represents the worst-case running time for a problem of size \(b\).</p>
 			
@@ -3233,213 +3494,229 @@
 			<p>Since \(\lfloor\frac{n}{b}\rfloor \leq \lceil\frac{n}{b}\rceil \lt \frac{n}{b} + 1\), we replace \(\lfloor\frac{n}{b}\rfloor\) with \(\lceil\frac{n}{b}\rceil\) in the recurrence relation because \(\lceil\frac{n}{b}\rceil\) is larger, ensuring an upper bound on the running time. Furthermore, the size of \(\lceil\frac{n}{b}\rceil\) can be bounded by \(\frac{n}{b} + 1\). This simplification helps establish a tighter upper bound for analyzing the recurrence.</p>
 			
 			<div class="equation-container">
-                \[ T(n) \leq (a_{1} + a_{2})T(\lceil\frac{n}{b}\rceil) + f(n) \lt (a_{1} + a_{2})T(\frac{n}{b} + 1) + f(n). \]
-                </div>
+			\[ T(n) \leq (a_{1} + a_{2})T(\lceil\frac{n}{b}\rceil) + f(n) \lt (a_{1} + a_{2})T(\frac{n}{b} + 1) + f(n). \]
+			</div>
 			
 			<p>To simplify the recurrence and analyze it more effectively, we apply the change-of-function trick by defining a new function:</p>
 			
 			<div class="equation-container">
-                \[ S(n) = T(n+l). \]
-                </div>
+			\[ S(n) = T(n+l). \]
+			</div>
 			
 			<p>This simplifies the recurrence:</p>
 			
 			<div class="equation-container">
-                \[ S(n) &= T(n+l) \\
+            \[ 
+			\begin{aligned}
+			S(n) &= T(n+l) \\
 			&\leq (a_{1} + a_{2})T(\frac{n+b}{b} + 1) + f(n) \\
 			&= (a_{1} + a_{2})T(\frac{n}{b} + 2) + f(n) \\
 			&= (a_{1} + a_{2})S(\frac{n}{b}) + f(n) \\
-			&= aS(\frac{n}{b}) + f(n). \]
-                </div>
+			&= aS(\frac{n}{b}) + f(n). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Summarizing the above inequalities we have</p>
 			
 			<div class="equation-container">
-                \[ S(n) &\leq aS(\frac{n}{b}) + f(n). \]
-                </div>
+			\[ S(n) \leq aS(\frac{n}{b}) + f(n). \]
+			</div>
 			
 			<p>Applying this inequality repeatedly, and using the geometric series formulas as in the proof of previous theorem we get that</p>
 			
 			<div class="equation-container">
-                \[ S(n) =
+            \[ S(n) =
 			\begin{cases}
 			\Theta\left(n^{\log_{b}(a)}\right), & \text{if } f(n) = O\left(n^{\log_{b}(a)-\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \\
 			\Theta\left(n^{\log_{b}(a)} \log_{b}(n)\right), & \text{if } f(n) = \Theta\left(n^{\log_{b}(a)}\right) \\
-			\Theta(f(n)), & \text{if } f(n) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\lceil \frac{n}{b} \rceil \right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n
-			\end{cases}. \]
-                </div>
+			\Theta(f(n)), & \text{if } f(n) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\lceil \frac{n}{b} \rceil \right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n.
+			\end{cases} \]
+            </div>
 			
 			<p>By definition of \(S\), \( T(n) = S(n-l) \). Therefore </p>
 			
 			<div class="equation-container">
-                \[ T(n) =
+            \[ T(n) =
 			\begin{cases}
 			\Theta\left(\left(n-l\right)^{\log_{b}(a)}\right) = \Theta\left(n^{\log_{b}(a)}\right), & \text{if } f(n) = O\left(\left(n-l\right)^{\log_{b}(a)-\epsilon}\right) = O\left(n^{\log_{b}(a)-\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \\
 			\Theta\left(\left(n-l\right)^{\log_{b}(a)} \log_{b}\left(n-l\right)\right) = \Theta\left(n^{\log_{b}(a)} \log_{b}(n)\right), & \text{if } f(n) = \Theta\left(\left(n-l\right)^{\log_{b}(a)}\right) = \Theta\left(n^{\log_{b}(a)}\right) \\
 			\Theta(f(n-l)) = \Theta(f(n)), & \text{if } f(n) = \Omega\left(\left(n-l\right)^{\log_{b}(a)+\epsilon}\right) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\lceil \frac{n}{b} \rceil \right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n
 			\end{cases}. \]
-                </div>
-		
+            </div>
+		</div>
+
 		<div class="theorem">
 			<p>Let \(a \geq 1\) and \(b \gt 1\) be real constants, and let \(f(n)\) be an asymptotically positive function. Suppose \(T(n)\) is defined for the positive real to satisfy the recurrence.</p>
 			
 			<div class="equation-container">
-                \[ T(n) = 
-				\begin{cases} 
-				\Theta(1), & \text{if } n = 1 \\
-				aT\left(\lceil \frac{n}{b} \rceil\right) + f(n), & \text{if } n \gt 1
-				\end{cases}.
+			\[ T(n) = 
+			\begin{cases} 
+			\Theta(1), & \text{if } n = 1 \\
+			aT\left(\lceil \frac{n}{b} \rceil\right) + f(n), & \text{if } n \gt 1
+			\end{cases}.
 			\]
-                </div>
+            </div>
 				
 			<p>Then the growth of \(T(n)\) can be asymptotically determined under the following assumptions</p>
 			
 			<div class="equation-container">
-                \[ T(n) =
+            \[ T(n) =
 			\begin{cases}
 			\Theta\left(n^{\log_{b}(a)}\right), & \text{if } f(n) = O\left(n^{\log_{b}(a)-\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \\
 			\Theta\left(n^{\log_{b}(a)} \log_{b}(n)\right), & \text{if } f(n) = \Theta\left(n^{\log_{b}(a)}\right) \\
-			\Theta(f(n)), & \text{if } f(n) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\lceil \frac{n}{b} \rceil\right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n
-			\end{cases}. \]
-                </div>
-		
+			\Theta(f(n)), & \text{if } f(n) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\lceil \frac{n}{b} \rceil\right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n.
+			\end{cases} \]
+            </div>
+		</div>
+
 		<div class="proof">
 			<p>The monotonicity property allows us to apply techniques like induction to prove bounds for \(T(n)\).</p>
 			
 			<div class="equation-container">
-                \[ T(a) \leq T(b) \text{ for any } a \leq b \]
-                </div>
+			\[ T(a) \leq T(b) \text{ for any } a \leq b \]
+			</div>
 			
 			<p>Since \(\lceil\frac{n}{b}\rceil \lt \frac{n}{b} + 1\), the size of \(\lceil\frac{n}{b}\rceil\) can be bounded by \(\frac{n}{b} + 1\). This simplification helps establish a tighter upper bound for analyzing the recurrence.</p>
 			
 			<div class="equation-container">
-                \[ T(n) \leq aT(\lceil\frac{n}{b}\rceil) + f(n) \lt aT(\frac{n}{b} + 1) + f(n). \]
-                </div>
+			\[ T(n) \leq aT(\lceil\frac{n}{b}\rceil) + f(n) \lt aT(\frac{n}{b} + 1) + f(n). \]
+			</div>
 			
 			<p>To simplify the recurrence and analyze it more effectively, we apply the change-of-function trick by defining a new function:</p>
 			
 			<div class="equation-container">
-                \[ S(n) = T(n+l). \]
-                </div>
+			\[ S(n) = T(n+l). \]
+			</div>
 			
 			<p>This simplifies the recurrence:</p>
 			
 			<div class="equation-container">
-                \[ S(n) &= T(n+l) \\
+            \[ 
+			\begin{aligned}
+			S(n) &= T(n+l) \\
 			&\leq aT(\frac{n+b}{b} + 1) + f(n) \\
 			&= aT(\frac{n}{b} + 2) + f(n) \\
-			&= aS(\frac{n}{b}) + f(n). \]
-                </div>
+			&= aS(\frac{n}{b}) + f(n). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Summarizing the above inequalities we have</p>
 			
 			<div class="equation-container">
-                \[ S(n) &\leq aS(\frac{n}{b}) + f(n). \]
-                </div>
+            \[ S(n) \leq aS(\frac{n}{b}) + f(n). \]
+            </div>
 			
 			<p>Applying this inequality repeatedly, and using the geometric series formulas as in the proof of previous theorem we get that</p>
 			
 			<div class="equation-container">
-                \[ S(n) =
+            \[ S(n) =
 			\begin{cases}
 			\Theta\left(n^{\log_{b}(a)}\right), & \text{if } f(n) = O\left(n^{\log_{b}(a)-\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \\
 			\Theta\left(n^{\log_{b}(a)} \log_{b}(n)\right), & \text{if } f(n) = \Theta\left(n^{\log_{b}(a)}\right) \\
 			\Theta(f(n)), & \text{if } f(n) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\lceil \frac{n}{b} \rceil \right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n
 			\end{cases}. \]
-                </div>
+            </div>
 			
 			<p>By definition of \(S\), \( T(n) = S(n-l) \). Therefore </p>
 			
 			<div class="equation-container">
-                \[ T(n) =
+            \[ T(n) =
 			\begin{cases}
 			\Theta\left(\left(n-l\right)^{\log_{b}(a)}\right) = \Theta\left(n^{\log_{b}(a)}\right), & \text{if } f(n) = O\left(\left(n-l\right)^{\log_{b}(a)-\epsilon}\right) = O\left(n^{\log_{b}(a)-\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \\
 			\Theta\left(\left(n-l\right)^{\log_{b}(a)} \log_{b}\left(n-l\right)\right) = \Theta\left(n^{\log_{b}(a)} \log_{b}(n)\right), & \text{if } f(n) = \Theta\left(\left(n-l\right)^{\log_{b}(a)}\right) = \Theta\left(n^{\log_{b}(a)}\right) \\
 			\Theta(f(n-l)) = \Theta(f(n)), & \text{if } f(n) = \Omega\left(\left(n-l\right)^{\log_{b}(a)+\epsilon}\right) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\lceil \frac{n}{b} \rceil \right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n
 			\end{cases}. \]
-                </div>
-		
+            </div>
+		</div>
 		
 		
 		<div class="theorem">
 			<p>Let \(a \geq 1\) and \(b \gt 1\) be real constants, and let \(f(n)\) be an asymptotically positive function. Suppose \(T(n)\) is defined for the positive real to satisfy the recurrence</p>
 			
 			<div class="equation-container">
-                \[ T(n) = 
-				\begin{cases} 
-				\Theta(1), & \text{if } n = 1 \\
-				aT\left(\lfloor \frac{n}{b} \rfloor\right) + f(n), & \text{if } n \gt 1
-				\end{cases}.
+			\[ T(n) = 
+			\begin{cases} 
+			\Theta(1), & \text{if } n = 1 \\
+			aT\left(\lfloor \frac{n}{b} \rfloor\right) + f(n), & \text{if } n \gt 1
+			\end{cases}.
 			\]
-                </div>
+            </div>
 				
 			<p>Then the growth of \(T(n)\) can be asymptotically determined under the following assumptions</p>
 			
 			<div class="equation-container">
-                \[ T(n) =
+            \[ T(n) =
 			\begin{cases}
 			\Theta\left(n^{\log_{b}(a)}\right), & \text{if } f(n) = O\left(n^{\log_{b}(a)-\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \\
 			\Theta\left(n^{\log_{b}(a)} \log_{b}(n)\right), & \text{if } f(n) = \Theta\left(n^{\log_{b}(a)}\right) \\
 			\Theta(f(n)), & \text{if } f(n) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\lfloor \frac{n}{b} \rfloor\right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n
 			\end{cases}. \]
-                </div>
-		
+            </div>
+		</div>
+
 		<div class="proof">
 			<p>The monotonicity property allows us to apply techniques like induction to prove bounds for \(T(n)\).</p>
 			
 			<div class="equation-container">
-                \[ T(a) \leq T(b) \text{ for any } a \leq b \]
-                </div>
+			\[ T(a) \leq T(b) \text{ for any } a \leq b \]
+			</div>
 			
 			<p>Since \(\lfloor\frac{n}{b}\rfloor \leq \lceil\frac{n}{b}\rceil \lt \frac{n}{b} + 1\), we replace \(\lfloor\frac{n}{b}\rfloor\) with \(\lceil\frac{n}{b}\rceil\) in the recurrence relation because \(\lceil\frac{n}{b}\rceil\) is larger, ensuring an upper bound on the running time. Furthermore, the size of \(\lceil\frac{n}{b}\rceil\) can be bounded by \(\frac{n}{b} + 1\). This simplification helps establish a tighter upper bound for analyzing the recurrence.</p>
 			
 			<div class="equation-container">
-                \[ T(n) \leq aT(\lceil\frac{n}{b}\rceil) + f(n) \lt aT(\frac{n}{b} + 1) + f(n). \]
-                </div>
+			\[ T(n) \leq aT(\lceil\frac{n}{b}\rceil) + f(n) \lt aT(\frac{n}{b} + 1) + f(n). \]
+			</div>
 			
 			<p>To simplify the recurrence and analyze it more effectively, we apply the change-of-function trick by defining a new function:</p>
 			
 			<div class="equation-container">
-                \[ S(n) = T(n+l). \]
-                </div>
+			\[ S(n) = T(n+l). \]
+			</div>
 			
 			<p>This simplifies the recurrence:</p>
 			
 			<div class="equation-container">
-                \[ S(n) &= T(n+l) \\
+            \[ 
+			\begin{aligned}
+			S(n) &= T(n+l) \\
 			&\leq aT(\frac{n+b}{b} + 1) + f(n) \\
 			&= aT(\frac{n}{b} + 2) + f(n) \\
-			&= aS(\frac{n}{b}) + f(n). \]
-                </div>
+			&= aS(\frac{n}{b}) + f(n). 
+			\end{aligned}
+			\]
+            </div>
 			
 			<p>Summarizing the above inequalities we have</p>
 			
 			<div class="equation-container">
-                \[ S(n) &\leq aS(\frac{n}{b}) + f(n). \]
-                </div>
+			\[ S(n) \leq aS(\frac{n}{b}) + f(n). \]
+			</div>
 			
 			<p>Applying this inequality repeatedly, and using the geometric series formulas as in the proof of previous theorem we get that</p>
 			
 			<div class="equation-container">
-                \[ S(n) =
+            \[ S(n) =
 			\begin{cases}
 			\Theta\left(n^{\log_{b}(a)}\right), & \text{if } f(n) = O\left(n^{\log_{b}(a)-\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \\
 			\Theta\left(n^{\log_{b}(a)} \log_{b}(n)\right), & \text{if } f(n) = \Theta\left(n^{\log_{b}(a)}\right) \\
 			\Theta(f(n)), & \text{if } f(n) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\lceil \frac{n}{b} \rceil \right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n
 			\end{cases}. \]
-                </div>
+            </div>
 			
 			<p>By definition of \(S\), \( T(n) = S(n-l) \). Therefore </p>
 			
 			<div class="equation-container">
-                \[ T(n) =
+            \[ T(n) =
 			\begin{cases}
 			\Theta\left(\left(n-l\right)^{\log_{b}(a)}\right) = \Theta\left(n^{\log_{b}(a)}\right), & \text{if } f(n) = O\left(\left(n-l\right)^{\log_{b}(a)-\epsilon}\right) = O\left(n^{\log_{b}(a)-\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \\
 			\Theta\left(\left(n-l\right)^{\log_{b}(a)} \log_{b}\left(n-l\right)\right) = \Theta\left(n^{\log_{b}(a)} \log_{b}(n)\right), & \text{if } f(n) = \Theta\left(\left(n-l\right)^{\log_{b}(a)}\right) = \Theta\left(n^{\log_{b}(a)}\right) \\
 			\Theta(f(n-l)) = \Theta(f(n)), & \text{if } f(n) = \Omega\left(\left(n-l\right)^{\log_{b}(a)+\epsilon}\right) = \Omega\left(n^{\log_{b}(a)+\epsilon}\right) \text{ for some constant } \epsilon \gt 0 \text{ and } af\left(\lceil \frac{n}{b} \rceil \right) \leq cf(n) \text{ for some constant } c \lt 0 \text{ and sufficiently large } n
 			\end{cases}. \]
-                </div>
-
+            </div>
+		</div>
+		
 		<h4>Limitations of Master Theorem</h4>
 		
 		<p>For master theorem to work:</p>
