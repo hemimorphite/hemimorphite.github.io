@@ -208,7 +208,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			\[ g(n) = cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i}. \]
 			</div>
 			
-			<p>The series is a geometric series with ratio \(r=\frac{a}{b^{k}\). Its growth rate depends on whether \(a\) is smaller, equal, or larger than \(b^{k}\). Consider these three cases.</p>
+			<p>The series is a geometric series with ratio \(r=\frac{a}{b^{k}}\). Its growth rate depends on whether \(a\) is smaller, equal, or larger than \(b^{k}\). Consider these three cases.</p>
 			
 			<p><b>Case 1: \(a \gt b^{k}\)</b>. Given the condition \(a \gt b^{k}\), which implies that the ratio \(r=\frac{a}{b^{k}} \gt 1\).</p>
 			
@@ -217,10 +217,10 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[
 			\begin{aligned}  
-			r^{\log_{b}(n)-1} &\leq \sum_{i=0}^{\log_{b}(n)-1} r^{i} &\lt \frac{r^{\log_{b}(n)}}{r-1} \\
-			\left(\frac{a}{b^{k}}\right)^{\log_{b}(n)-1} &\leq \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt \frac{\left(\frac{a}{b^{k}}\right)^{\log_{b}(n)}}{\frac{a}{b^{k}}-1} \\
-			\frac{a^{\log_{b}(n)-1}}{\left(b^{\log_{b}(n)-1}\right)^{k}} &\leq \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt \frac{\frac{a^{\log_{b}(n)}}{\left(b^{\log_{b}(n)}\right)^{k}}}{\frac{a}{b^{k}}-1} \\
-			\frac{n^{\log_{b}(a)}}{n^{k}}\frac{b^{k}}{a} &\leq \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt \frac{n^{\log_{b}(a)}}{n^{k}}\frac{1}{\frac{a}{b^{k}}-1}. 
+			r^{\log_{b}(n)-1} &\leq& \sum_{i=0}^{\log_{b}(n)-1} r^{i} &\lt& \frac{r^{\log_{b}(n)}}{r-1} \\
+			\left(\frac{a}{b^{k}}\right)^{\log_{b}(n)-1} &\leq& \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt& \frac{\left(\frac{a}{b^{k}}\right)^{\log_{b}(n)}}{\frac{a}{b^{k}}-1} \\
+			\frac{a^{\log_{b}(n)-1}}{\left(b^{\log_{b}(n)-1}\right)^{k}} &\leq& \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt& \frac{\frac{a^{\log_{b}(n)}}{\left(b^{\log_{b}(n)}\right)^{k}}}{\frac{a}{b^{k}}-1} \\
+			\frac{n^{\log_{b}(a)}}{n^{k}}\frac{b^{k}}{a} &\leq& \sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\lt& \frac{n^{\log_{b}(a)}}{n^{k}}\frac{1}{\frac{a}{b^{k}}-1}. 
 			\end{aligned}
 			\]
             </div>
@@ -230,9 +230,9 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}  
-			cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\leq g(n) &\leq cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \\
-			cn^{k}\frac{n^{\log_{b}(a)}}{n^{k}}\frac{b^{k}}{a} &\leq g(n) &\lt cn^{k}\frac{n^{\log_{b}(a)}}{n^{k}}\frac{1}{\frac{a}{b^{k}}-1} \\
-			c\frac{b^{k}}{a}n^{\log_{b}(a)} &\leq g(n) &\lt c\frac{1}{\frac{a}{b^{k}}-1}n^{\log_{b}(a)}. 
+			cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} &\leq& g(n) &\leq& cn^{k}\sum_{i=0}^{\log_{b}(n)-1} \left(\frac{a}{b^{k}}\right)^{i} \\
+			cn^{k}\frac{n^{\log_{b}(a)}}{n^{k}}\frac{b^{k}}{a} &\leq& g(n) &\lt& cn^{k}\frac{n^{\log_{b}(a)}}{n^{k}}\frac{1}{\frac{a}{b^{k}}-1} \\
+			c\frac{b^{k}}{a}n^{\log_{b}(a)} &\leq& g(n) &\lt& c\frac{1}{\frac{a}{b^{k}}-1}n^{\log_{b}(a)}. 
 			\end{aligned}
 			\]
             </div>
@@ -273,8 +273,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
 			\[ 
 			\begin{aligned} 
-			cn^{k}\sum_{i=0}^{\log_{b}(n)-1} 1 &\leq g(n) &\leq cn^{k}\sum_{i=0}^{\log_{b}(n)-1} 1 \\
-			cn^{k}\log_{b}(n) &\leq g(n) &\leq cn^{k}\log_{b}(n). 
+			cn^{k}\sum_{i=0}^{\log_{b}(n)-1} 1 &\leq& g(n) &\leq& cn^{k}\sum_{i=0}^{\log_{b}(n)-1} 1 \\
+			cn^{k}\log_{b}(n) &\leq& g(n) &\leq& cn^{k}\log_{b}(n). 
 			\end{aligned}
 			\]
 			</div>
@@ -320,8 +320,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
 			\[ 
 			\begin{aligned}
-			cn^{k} &\leq g(n) &\leq cn^{k}\frac{1}{1-\frac{a}{b^{k}}} \\
-			cn^{k} &\leq g(n) &\leq c\frac{1}{1-\frac{a}{b^{k}}}n^{k}. 
+			cn^{k} &\leq& g(n) &\leq& cn^{k}\frac{1}{1-\frac{a}{b^{k}}} \\
+			cn^{k} &\leq& g(n) &\leq& c\frac{1}{1-\frac{a}{b^{k}}}n^{k}. 
 			\end{aligned}
 			\]
 			</div>
@@ -350,7 +350,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			</div>
 		</div>
 
-		<h4>Simplified Version of Master Theorem with Log Factors<h4>
+		<h4>Simplified Version of Master Theorem with Log Factors</h4>
 		
 		<p>A recurrence such as</p>
 		
@@ -531,9 +531,9 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
 			\[ 
 			\begin{aligned}
-			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
-			cn^{\log_{b}(a)}r &\leq g(n) &\leq cn^{\log_{b}(a)} \frac{d^{p}}{dr^{p}}\left(\frac{r}{1-r}\right) \\
-			crn^{\log_{b}(a)} &\leq g(n) &\leq c\frac{d^{p}}{dr^{p}}\left(\frac{r}{1-r}\right)n^{\log_{b}(a)}. 
+			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} &\leq& g(n) &\leq& cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
+			cn^{\log_{b}(a)}r &\leq& g(n) &\leq& cn^{\log_{b}(a)} \frac{d^{p}}{dr^{p}}\left(\frac{r}{1-r}\right) \\
+			crn^{\log_{b}(a)} &\leq& g(n) &\leq& c\frac{d^{p}}{dr^{p}}\left(\frac{r}{1-r}\right)n^{\log_{b}(a)}. 
 			\end{aligned} 
 			\]
 			</div>
@@ -572,8 +572,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}
-			\int_{j=0}^{\log_{b}(n)} j^{p} \, dj \leq \sum_{j=1}^{\log_{b}(n)} j^{p} \leq \int_{j=1}^{\log_{b}(n)+1} j^{p} \, dj \\
-			\frac{\log_{b}^{p+1}(n)}{p+1} \leq \sum_{j=1}^{\log_{b}(n)} j^{p} \leq \frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}.
+			\int_{j=0}^{\log_{b}(n)} j^{p} \, dj &\leq& \sum_{j=1}^{\log_{b}(n)} j^{p} &\leq& \int_{j=1}^{\log_{b}(n)+1} j^{p} \, dj \\
+			\frac{\log_{b}^{p+1}(n)}{p+1} &\leq& \sum_{j=1}^{\log_{b}(n)} j^{p} &\leq& \frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}.
 			\end{aligned} 
 			\]
             </div>
@@ -583,8 +583,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}
-			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} \\
-			cn^{\log_{b}(a)} \frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq cn^{\log_{b}(a)} \frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}. 
+			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} &\leq& g(n) &\leq& cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} \\
+			cn^{\log_{b}(a)} \frac{\log_{b}^{p+1}(n)}{p+1} &\leq& g(n) &\leq& cn^{\log_{b}(a)} \frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}. 
 			\end{aligned} 
 			\]
             </div>
@@ -607,8 +607,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
 			\[ 
 			\begin{aligned}
-			cn^{\log_{b}(a)} \frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq cn^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1}\sum_{k=0}^{p+1}\binom{p+1}{k}\frac{1}{\log_{b}^{k}(n)} \\
-			c\frac{1}{p+1}n^{\log_{b}(a)}\log_{b}^{p+1}(n) &\leq g(n) &\leq c\frac{1}{p+1}\left(\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}\right)n^{\log_{b}(a)}\log_{b}^{p+1}(n). 
+			cn^{\log_{b}(a)} \frac{\log_{b}^{p+1}(n)}{p+1} &\leq& g(n) &\leq& cn^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1}\sum_{k=0}^{p+1}\binom{p+1}{k}\frac{1}{\log_{b}^{k}(n)} \\
+			c\frac{1}{p+1}n^{\log_{b}(a)}\log_{b}^{p+1}(n) &\leq& g(n) &\leq& c\frac{1}{p+1}\left(\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}\right)n^{\log_{b}(a)}\log_{b}^{p+1}(n). 
 			\end{aligned} 
 			\]
 			</div>
@@ -650,8 +650,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}
-			\log_{2}(n+1) \leq H_{n} \leq \log_{2}(n) + 1 \\
-			\log_{2}(n) + \log_{2}\left(1+\frac{1}{n}\right) \leq H_{n} \leq \log_{2}(n) + 1.
+			\log_{2}(n+1) &\leq H_{n} \leq \log_{2}(n) + 1 \\
+			\log_{2}(n) + \log_{2}\left(1+\frac{1}{n}\right) &\leq H_{n} \leq \log_{2}(n) + 1.
 			\end{aligned} 
 			\]
             </div>
@@ -673,11 +673,11 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}
-			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{1}{j} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \\
-			cn^{\log_{b}(a)} \left(\log_{2}(\log_{b}(n)) + \log_{2}\left(1+\frac{1}{\log_{b}(n)}\right)\right) &\leq g(n) &\leq cn^{\log_{b}(a)} \left(\log_{2}(\log_{b}(n)) + 1\right) \\
-			cn^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + cn^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) &\leq g(n) &\leq cn^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + cn^{\log_{b}(a)} \\
-			cn^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{2}(n)} + cn^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) &\leq g(n) &\leq cn^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{2}(n)} + cn^{\log_{b}(a)} \\
-			c\frac{1}{\log_{2}(n)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + cn^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) &\leq g(n) &\leq c\frac{1}{\log_{2}(n)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + cn^{\log_{b}(a)}.
+			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{1}{j} &\leq& g(n) &\leq& cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \\
+			cn^{\log_{b}(a)} \left(\log_{2}(\log_{b}(n)) + \log_{2}\left(1+\frac{1}{\log_{b}(n)}\right)\right) &\leq& g(n) &\leq& cn^{\log_{b}(a)} \left(\log_{2}(\log_{b}(n)) + 1\right) \\
+			cn^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + cn^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) &\leq& g(n) &\leq& cn^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + cn^{\log_{b}(a)} \\
+			cn^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{2}(n)} + cn^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) &\leq& g(n) &\leq& cn^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{2}(n)} + cn^{\log_{b}(a)} \\
+			c\frac{1}{\log_{2}(n)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + cn^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(n)}\right) &\leq& g(n) &\leq& c\frac{1}{\log_{2}(n)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + cn^{\log_{b}(a)}.
 			\end{aligned} 
 			\]
             </div>
@@ -724,8 +724,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}
-			\int_{1}^{\infty} \frac{1}{x^{s}} \, dx \leq \sum_{k=1}^{n} \frac{1}{k^{s}} \leq 1 + \int_{1}^{\infty} \frac{1}{x^{s}} \, dx \\
-			\frac{1}{s-1} \leq \sum_{k=1}^{n} \frac{1}{k^{s}} \leq 1 + \frac{1}{s-1}.
+			\int_{1}^{\infty} \frac{1}{x^{s}} \, dx &\leq& \sum_{k=1}^{n} \frac{1}{k^{s}} &\leq& 1 + \int_{1}^{\infty} \frac{1}{x^{s}} \, dx \\
+			\frac{1}{s-1} &\leq& \sum_{k=1}^{n} \frac{1}{k^{s}} &\leq& 1 + \frac{1}{s-1}.
 			\end{aligned} 
 			\]
             </div>
@@ -735,9 +735,9 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}
-			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} \\
-			cn^{\log_{b}(a)}\frac{1}{s-1} &\leq g(n) &\leq cn^{\log_{b}(a)} \left(1 + \frac{1}{s-1}\right) \\
-			c\frac{1}{s-1}n^{\log_{b}(a)} &\leq g(n) &\leq c\left(1 + \frac{1}{s-1}\right)n^{\log_{b}(a)}.
+			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} &\leq& g(n) &\leq& cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} j^{p} \\
+			cn^{\log_{b}(a)}\frac{1}{s-1} &\leq& g(n) &\leq& cn^{\log_{b}(a)} \left(1 + \frac{1}{s-1}\right) \\
+			c\frac{1}{s-1}n^{\log_{b}(a)} &\leq& g(n) &\leq& c\left(1 + \frac{1}{s-1}\right)n^{\log_{b}(a)}.
 			\end{aligned}
 			\]
             </div>
@@ -880,11 +880,11 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
 			\[ 
 			\begin{aligned}
-			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} &\leq g(n) &\lt cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
-			cn^{\log_{b}(a)} \left(\frac{b^{k}}{a}\right)^{\log_{b}(n)} \log_{b}^{p}(n) &\leq g(n) &\lt cn^{\log_{b}(a)} \log_{b}^{p}(n)\left(\frac{b^{k}}{a}\right)^{\log_{b}(n)}L(r) \\
-			cn^{\log_{b}(a)} \frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}} \log_{b}^{p}(n) &\leq g(n) &\lt cn^{\log_{b}(a)} \log_{b}^{p}(n)\frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}}L\left(\frac{b^{k}}{a}\right) \\
-			cn^{\log_{b}(a)} \frac{n^{k}}{n^{\log_{b}(a)}} \log_{b}^{p}(n) &\lt g(n) &\leq cn^{\log_{b}(a)} \frac{n^{k}}{n^{\log_{b}(a)}}\log_{b}^{p}(n)L\left(\frac{b^{k}}{a}\right) \\
-			cn^{k}\log_{b}^{p}(n) &\leq g(n) &\lt cL\left(\frac{b^{k}}{a}\right)n^{k}\log_{b}^{p}(n). 
+			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} &\leq& g(n) &\lt& cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j} j^{p} \\
+			cn^{\log_{b}(a)} \left(\frac{b^{k}}{a}\right)^{\log_{b}(n)} \log_{b}^{p}(n) &\leq& g(n) &\lt& cn^{\log_{b}(a)} \log_{b}^{p}(n)\left(\frac{b^{k}}{a}\right)^{\log_{b}(n)}L(r) \\
+			cn^{\log_{b}(a)} \frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}} \log_{b}^{p}(n) &\leq& g(n) &\lt& cn^{\log_{b}(a)} \log_{b}^{p}(n)\frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}}L\left(\frac{b^{k}}{a}\right) \\
+			cn^{\log_{b}(a)} \frac{n^{k}}{n^{\log_{b}(a)}} \log_{b}^{p}(n) &\lt& g(n) &\leq& cn^{\log_{b}(a)} \frac{n^{k}}{n^{\log_{b}(a)}}\log_{b}^{p}(n)L\left(\frac{b^{k}}{a}\right) \\
+			cn^{k}\log_{b}^{p}(n) &\leq& g(n) &\lt& cL\left(\frac{b^{k}}{a}\right)n^{k}\log_{b}^{p}(n). 
 			\end{aligned}
 			\]
             </div>
@@ -948,11 +948,11 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
 			\[ 
 			\begin{aligned}
-			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j}\frac{1}{j^{s}} &\leq g(n) &\leq cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j}\frac{1}{j^{s}} \\
-			cn^{\log_{b}(a)} \left(\frac{b^{k}}{a}\right)^{\log_{b}(n)}\frac{1}{\log_{b}^{s}(n)} &\leq g(n) &\lt cn^{\log_{b}(a)} \frac{\frac{b^{k}}{a}}{\frac{b^{k}}{a}-1}\left(\frac{b^{k}}{a}\right)^{\log_{b}(n)} \\
-			cn^{\log_{b}(a)} \frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}}\frac{1}{\log_{b}^{s}(n)} &\leq g(n) &\lt cn^{\log_{b}(a)} \frac{\frac{b^{k}}{a}}{\frac{b^{k}}{a}-1}\frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}} \\
-			cn^{\log_{b}(a)} \frac{n^{k}}{n^{\log_{b}(a)}}\frac{1}{\log_{b}^{s}(n)} &\leq g(n) &\lt cn^{\log_{b}(a)} \frac{\frac{b^{k}}{a}}{\frac{b^{k}}{a}-1}\frac{n^{k}}{n^{\log_{b}(a)}} \\
-			cn^{k}\frac{1}{\log_{b}^{s}(n)} &\leq g(n) &\lt c\frac{b^{k}}{b^{k}-a}n^{k}. 
+			cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j}\frac{1}{j^{s}} &\leq& g(n) &\leq& cn^{\log_{b}(a)} \sum_{j=1}^{\log_{b}(n)} \left(\frac{b^{k}}{a}\right)^{j}\frac{1}{j^{s}} \\
+			cn^{\log_{b}(a)} \left(\frac{b^{k}}{a}\right)^{\log_{b}(n)}\frac{1}{\log_{b}^{s}(n)} &\leq& g(n) &\lt& cn^{\log_{b}(a)} \frac{\frac{b^{k}}{a}}{\frac{b^{k}}{a}-1}\left(\frac{b^{k}}{a}\right)^{\log_{b}(n)} \\
+			cn^{\log_{b}(a)} \frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}}\frac{1}{\log_{b}^{s}(n)} &\leq& g(n) &\lt& cn^{\log_{b}(a)} \frac{\frac{b^{k}}{a}}{\frac{b^{k}}{a}-1}\frac{\left(b^{\log_{b}(n)}\right)^{k}}{a^{\log_{b}(n)}} \\
+			cn^{\log_{b}(a)} \frac{n^{k}}{n^{\log_{b}(a)}}\frac{1}{\log_{b}^{s}(n)} &\leq& g(n) &\lt& cn^{\log_{b}(a)} \frac{\frac{b^{k}}{a}}{\frac{b^{k}}{a}-1}\frac{n^{k}}{n^{\log_{b}(a)}} \\
+			cn^{k}\frac{1}{\log_{b}^{s}(n)} &\leq& g(n) &\lt& c\frac{b^{k}}{b^{k}-a}n^{k}. 
 			\end{aligned}
 			\]
             </div>
@@ -1129,11 +1129,11 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[
 			\begin{aligned} 
-			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \\
-			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} \\
-			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} \\
-			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} 1 &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} 1 \\
-			c_{1}n^{\log_{b}(a)}\log_{b}(n) &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\log_{b}(n).
+			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} &\leq& g(n) &\leq& \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \\
+			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} &\leq& g(n) &\leq& \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} \\
+			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} \\
+			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} 1 &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} 1 \\
+			c_{1}n^{\log_{b}(a)}\log_{b}(n) &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\log_{b}(n).
 			\end{aligned}
 			\]
             </div>
@@ -1256,7 +1256,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<p>\(\sum_{i=0}^{\lfloor\log_{b}(n)\rfloor-1} c^{i}\) is a geometric series with the common ratio \(b^{\epsilon}\) which decays exponentially because \(c \lt 1\), and can be bounded above as follows:</p>
 			
 			<div class="equation-container">
-			\[ f(n)\sum_{i=0}^{\log_{b}(n)-1} c^{i} \leq f(n)\frac{1}{1-c}}. \]
+			\[ f(n)\sum_{i=0}^{\log_{b}(n)-1} c^{i} \leq f(n)\frac{1}{1-c}. \]
 			</div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
@@ -1264,8 +1264,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}
-			g(n) &\leq f(n)\frac{1}{1-c}} \\
-			&= \frac{1}{1-c}}f(n). 
+			g(n) &\leq f(n)\frac{1}{1-c} \\
+			&= \frac{1}{1-c}f(n). 
 			\end{aligned}
 			\]
             </div>
@@ -1305,8 +1305,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 		<p>The recurrence</p>
 		
 		<div class="equation-container">
-			\[ T(n) = 2T(\frac{n}{2}) + n\log_{2}(n), \]
-			</div>
+		\[ T(n) = 2T(\frac{n}{2}) + n\log_{2}(n), \]
+		</div>
 		
 		<p>and</p>
 		
@@ -1389,10 +1389,10 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[
 			\begin{aligned} 
-			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) \\
-			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} \left(\log_{b}(n)-i\right)^{k} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} \left(\log_{b}(n)-i\right)^{k} \\
-			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} \left(\log_{b}(n)-i\right)^{k} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} \left(\log_{b}(n)-i\right)^{k} \\
-			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \left(\log_{b}(n)-i\right)^{k} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \left(\log_{b}(n)-i\right)^{k}.
+			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) &\leq& g(n) &\leq& \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) \\
+			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} \left(\log_{b}(n)-i\right)^{k} &\leq& g(n) &\leq& \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{\left(b^{\log_{b}(a)}\right)^{i}} \left(\log_{b}(n)-i\right)^{k} \\
+			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} \left(\log_{b}(n)-i\right)^{k} &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} a^{i}\frac{1}{a^{i}} \left(\log_{b}(n)-i\right)^{k} \\
+			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \left(\log_{b}(n)-i\right)^{k} &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \left(\log_{b}(n)-i\right)^{k}.
 			\end{aligned}
 			\]
             </div>
@@ -1417,8 +1417,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[
 			\begin{aligned} 
-			\int_{j=0}^{\log_{b}(n)} j^{p} \, dj \leq \sum_{j=1}^{\log_{b}(n)} j^{p} \leq \int_{j=1}^{\log_{b}(n)+1} j^{p} \, dj \\
-			\frac{\log_{b}^{p+1}(n)}{p+1} \leq \sum_{j=1}^{\log_{b}(n)} j^{p} \leq \frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}.
+			\int_{j=0}^{\log_{b}(n)} j^{p} \, dj &\leq& \sum_{j=1}^{\log_{b}(n)} j^{p} &\leq& \int_{j=1}^{\log_{b}(n)+1} j^{p} \, dj \\
+			\frac{\log_{b}^{p+1}(n)}{p+1} &\leq& \sum_{j=1}^{\log_{b}(n)} j^{p} &\leq& \frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}.
 			\end{aligned}
 			\]
             </div>
@@ -1428,8 +1428,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}
-			c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p} \\
-			c_{1}n^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}. 
+			c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p} &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} j^{p} \\
+			c_{1}n^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1} &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1}. 
 			\end{aligned}
 			\]
             </div>
@@ -1452,9 +1452,9 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}
-			c_{1}n^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1} \\
-			c_{1}n^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\log_{b}^{p+1}(n)\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)} \\
-			c_{1}\frac{1}{p+1}n^{\log_{b}(a)}\log_{b}^{p+1}(n) &\leq g(n) &\leq c_{2}\left(\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}\right)n^{\log_{b}(a)}\log_{b}^{p+1}(n). 
+			c_{1}n^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1} &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\frac{\left(\log_{b}(n)+1\right)^{p+1}}{p+1} \\
+			c_{1}n^{\log_{b}(a)}\frac{\log_{b}^{p+1}(n)}{p+1} &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\log_{b}^{p+1}(n)\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)} \\
+			c_{1}\frac{1}{p+1}n^{\log_{b}(a)}\log_{b}^{p+1}(n) &\leq& g(n) &\leq& c_{2}\left(\sum_{k=0}^{p+1}\binom{p+1}{k} \frac{1}{\log_{b}^{k}(n)}\right)n^{\log_{b}(a)}\log_{b}^{p+1}(n). 
 			\end{aligned}
 			\]
             </div>
@@ -1493,10 +1493,10 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[
 			\begin{aligned} 
-			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) \\
-			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \frac{1}{\log_{b}(n)-i} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \frac{1}{\log_{b}(n)-i} \\
-			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}(n)-i} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}(n)-i} \\
-			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\log_{b}(n)-i} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\log_{b}(n)-i}.
+			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) &\leq& g(n) &\leq& \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\left(\frac{n}{b^{i}}\right)^{\log_{b}(a)} \log_{b}^{k}\left(\frac{n}{b^{i}}\right) \\
+			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \frac{1}{\log_{b}(n)-i} &\leq& g(n) &\leq& \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \frac{1}{\log_{b}(n)-i} \\
+			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}(n)-i} &\leq& g(n) &\leq& \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}(n)-i} \\
+			c_{1}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\log_{b}(n)-i} &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\log_{b}(n)-i}.
 			\end{aligned}
 			\]
             </div>
@@ -1524,8 +1524,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[
 			\begin{aligned} 
-			\log_{2}(n+1) \leq H_{n} \leq \log_{2}(n) + 1 \\
-			\log_{2}(n) + \log_{2}\left(1+\frac{1}{n}\right) \leq H_{n} \leq \log_{2}(n) + 1.
+			\log_{2}(n+1) &\leq& H_{n} &\leq& \log_{2}(n) + 1 \\
+			\log_{2}(n) + \log_{2}\left(1+\frac{1}{n}\right) &\leq& H_{n} &\leq& \log_{2}(n) + 1.
 			\end{aligned}
 			\]
             </div>
@@ -1545,11 +1545,11 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}
-			c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j} &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \\ 
-			c_{1}n^{\log_{b}(a)}\left(\log_{2}(\log_{b}(n)) + \log_{2}\left(1+\frac{1}{\log_{b}(n)}\right)\right) &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\left(\log_{2}(\log_{b}(n)) + 1\right) \\
-			c_{1}n^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + c_{1}n^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(\log_{b}(n))}\right) &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + c_{2}n^{\log_{b}(a)} \\
-			c_{1}n^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{b}(2)} + c_{1}n^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{2}(\log_{b}(n))}\right) &\leq g(n) &\leq c_{2}n^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{b}(2)} + c_{2}n^{\log_{b}(a)} \\
-			c_{1}\frac{1}{\log_{b}(2)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + c_{1}n^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{2}(\log_{b}(n))}\right) &\leq g(n) &\leq c_{2}\frac{1}{\log_{b}(2)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + c_{2}n^{\log_{b}(a)}.
+			c_{1}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j} &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\sum_{j=1}^{\log_{b}(n)} \frac{1}{j} \\ 
+			c_{1}n^{\log_{b}(a)}\left(\log_{2}(\log_{b}(n)) + \log_{2}\left(1+\frac{1}{\log_{b}(n)}\right)\right) &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\left(\log_{2}(\log_{b}(n)) + 1\right) \\
+			c_{1}n^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + c_{1}n^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{b}(\log_{b}(n))}\right) &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\log_{2}(\log_{b}(n)) + c_{2}n^{\log_{b}(a)} \\
+			c_{1}n^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{b}(2)} + c_{1}n^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{2}(\log_{b}(n))}\right) &\leq& g(n) &\leq& c_{2}n^{\log_{b}(a)}\frac{\log_{b}(\log_{b}(n))}{\log_{b}(2)} + c_{2}n^{\log_{b}(a)} \\
+			c_{1}\frac{1}{\log_{b}(2)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + c_{1}n^{\log_{b}(a)}\log_{2}\left(1+\frac{1}{\log_{2}(\log_{b}(n))}\right) &\leq& g(n) &\leq& c_{2}\frac{1}{\log_{b}(2)}n^{\log_{b}(a)}\log_{b}(\log_{b}(n)) + c_{2}n^{\log_{b}(a)}.
 			\end{aligned}
 			\]
             </div>
@@ -1602,15 +1602,15 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[
 			\begin{aligned} 
-			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \log_{b}^{-r}\left(\frac{n}{b^{i}}\right) &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \log_{b}^{-r}\left(\frac{n}{b^{i}}\right) \\
-			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}^{r}\left(\frac{n}{b^{i}}\right)} &\leq g(n) &\leq \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}^{r}\left(\frac{n}{b^{i}}\right)} \\
-			c_{1}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}} &\leq g(n) &\leq  c_{2}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}} \\
-			c_{1}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}} &\leq g(n) &\leq  c_{2}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}}.
+			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \log_{b}^{-r}\left(\frac{n}{b^{i}}\right) &\leq& g(n) &\leq& \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}\frac{n^{\log_{b}(a)}}{\left(b^{\log_{b}(a)}\right)^{i}} \log_{b}^{-r}\left(\frac{n}{b^{i}}\right) \\
+			\sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{1}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}^{r}\left(\frac{n}{b^{i}}\right)} &\leq& g(n) &\leq& \sum_{i=0}^{\log_{b}(n)-1} a^{i}c_{2}n^{\log_{b}(a)}\frac{1}{a^{i}} \frac{1}{\log_{b}^{r}\left(\frac{n}{b^{i}}\right)} \\
+			c_{1}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}} &\leq& g(n) &\leq&  c_{2}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}} \\
+			c_{1}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}} &\leq& g(n) &\leq&  c_{2}n^{\log_{b}(a)} \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}}.
 			\end{aligned}
 			\]
             </div>
 			
-			<p>The expression \(\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i}\right)^{r}\) can be simplified by reindexing the terms to make the summation easier to analyze. Define \(k=\log_{b}(n)−i\), which implies \(i=\log_{b}(n)−k\). When \(i=0\), \(k=\log_{b}(n)\), and when \(i=\log_{b}(n)-1\), \(k=1\). Rewriting the summation in terms of \(k\), we have:</p>
+			<p>The expression \(\sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}}\) can be simplified by reindexing the terms to make the summation easier to analyze. Define \(k=\log_{b}(n)−i\), which implies \(i=\log_{b}(n)−k\). When \(i=0\), \(k=\log_{b}(n)\), and when \(i=\log_{b}(n)-1\), \(k=1\). Rewriting the summation in terms of \(k\), we have:</p>
 			
 			<div class="equation-container">
             \[
@@ -1624,15 +1624,15 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			
 			<div class="equation-container">
             \[ 
-			\int_{k=1}^{\infty} \frac{1}{k^r} \, dk \leq \sum_{k=1}^{n} \frac{1}{k^{r}} \leq 1 + \int_{k=1}^{\infty} \frac{1}{k^{r}} \, dk \\
-			\frac{1}{r-1} \leq \sum_{k=1}^{n} \frac{1}{k^{r}} \leq 1 + \frac{1}{r-1}.
+			\int_{k=1}^{\infty} \frac{1}{k^r} \, dk &\leq& \sum_{k=1}^{n} \frac{1}{k^{r}} &\leq& 1 + \int_{k=1}^{\infty} \frac{1}{k^{r}} \, dk \\
+			\frac{1}{r-1} &\leq& \sum_{k=1}^{n} \frac{1}{k^{r}} &\leq& 1 + \frac{1}{r-1}.
 			\]
             </div>
 			
 			<p>As a result, the partial sum of \(\sum_{k=1}^{\log_{b}(n)} \frac{1}{k^{r}}\) satisfies the inequality:</p>
 			
 			<div class="equation-container">
-            \[ \frac{1}{r-1} \leq \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i}\right)^{r} \leq 1 + \frac{1}{r-1}. \]
+            \[ \frac{1}{r-1} \leq \sum_{i=0}^{\log_{b}(n)-1} \frac{1}{\left(\log_{b}(n)-i\right)^{r}} \leq 1 + \frac{1}{r-1}. \]
             </div>
 			
 			<p>Subtituting into \(g(n)\) yields</p>
@@ -1640,8 +1640,8 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<div class="equation-container">
             \[ 
 			\begin{aligned}
-			c_{1}n^{\log_{b}(a)} \frac{1}{r-1} &\leq g(n) &\leq  c_{2}n^{\log_{b}(a)} \left(1 + \frac{1}{r-1}\right) \\
-			c_{1}\frac{1}{r-1} n^{\log_{b}(a)} &\leq g(n) &\leq c_{2}\left(1 + \frac{1}{r-1}\right)n^{\log_{b}(a)}.
+			c_{1}n^{\log_{b}(a)} \frac{1}{r-1} &\leq& g(n) &\leq&  c_{2}n^{\log_{b}(a)} \left(1 + \frac{1}{r-1}\right) \\
+			c_{1}\frac{1}{r-1} n^{\log_{b}(a)} &\leq& g(n) &\leq& c_{2}\left(1 + \frac{1}{r-1}\right)n^{\log_{b}(a)}.
 			\end{aligned}
 			\]
             </div>
@@ -1969,7 +1969,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			\end{cases}. \]
             </div>
 		</div>
-		
+
 		<h4>Limitations of Master Theorem</h4>
 		
 		<p>For master theorem to work:</p>
@@ -1977,7 +1977,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 		<ul>
 			<li>The Master Theorem only applies to recurrence relations of the form \(T(n) = aT(\frac{n}{b}) + f(n)\). It cannot be used for other forms of recurrence relations.</li>
 			<li>The parameters \(a\) and \(b\) must be positive and greater than one. The theorem is not applicable if \(a \leq 0\) or \(b \leq 1\).</li>
-			<li>The function \(f(n)\) must be asymptotically positive. If \(f(n)\) is not positive for large \(n\), the theorem cannot be applied.<li>
+			<li>The function \(f(n)\) must be asymptotically positive. If \(f(n)\) is not positive for large \(n\), the theorem cannot be applied.</li>
 			<li>The Master Theorem is less effective for non-polynomial \(f(n)\). If \(f(n)\) does not fit into a polynomial form, the theorem might not provide a straightforward solution.</li>
 			<li>The theorem assumes that the problem size is reduced by a constant factor \(b\). It cannot handle cases where the subdivision factor \(b\) varies with \(n\).</li>
 		</ul>
@@ -2027,6 +2027,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n^{2}). \]
                 </div>
+			</div>
         </div>
 		
 		<div class="textbox">
@@ -2055,6 +2056,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n^{2}\log_{b}(n)). \]
                 </div>
+			</div>
         </div>
 		
 		<div class="textbox">
@@ -2098,6 +2100,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(2^{n}). \]
                 </div>
+			</div>
         </div>
 		
 		<div class="textbox">
@@ -2146,6 +2149,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n^{4}). \]
                 </div>
+			</div>
         </div>
 		
 		<div class="textbox">
@@ -2174,6 +2178,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n\log^{2}(n)). \]
                 </div>
+			</div>
         </div>
 		
 		
@@ -2203,6 +2208,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n\log(\log(n))). \]
                 </div>
+			</div>
         </div>
 		
 		<div class="textbox">
@@ -2247,6 +2253,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n^{0.58}). \]
                 </div>
+			</div>
         </div>
 		
 		
@@ -2307,6 +2314,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n!). \]
                 </div>
+			</div>
         </div>
 		
 		<div class="textbox">
@@ -2335,6 +2343,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n^{\frac{1}{2}}). \]
                 </div>
+			</div>
         </div>
 		
 		<div class="textbox">
@@ -2363,6 +2372,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n^{1.585}). \]
                 </div>
+			</div>
         </div>
 		
 		<div class="textbox">
@@ -2391,6 +2401,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n). \]
                 </div>
+			</div>
         </div>
 		
 		<div class="textbox">
@@ -2435,6 +2446,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n\log(n)). \]
                 </div>
+			</div>
         </div>
 		
 		
@@ -2464,6 +2476,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n\log(n)). \]
                 </div>
+			</div>
         </div>
 		
 		
@@ -2510,6 +2523,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n^{2}\log(n)). \]
                 </div>
+			</div>
         </div>
 		
 		<div class="textbox">
@@ -2538,6 +2552,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n^{2}). \]
                 </div>
+			</div>
         </div>
 		
 		
@@ -2597,6 +2612,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n^{2}). \]
                 </div>
+			</div>
         </div>
 		
 		<div class="textbox">
@@ -2625,6 +2641,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n^{2}). \]
                 </div>
+			</div>
         </div>
 		
 		
@@ -2662,7 +2679,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				\]
                 </div>
 				
-				<p>Consider \(n = \pik\), where \(k \geq 0\) and arbitrarily large. The value of \(\sin(n)\) will always be \(0\) and the value of \(\sin(\frac{n}{2})\) alternates depending on \(k \mod 4\).<p>
+				<p>Consider \(n = \pi k\), where \(k \geq 0\) and arbitrarily large. The value of \(\sin(n)\) will always be \(0\) and the value of \(\sin(\frac{n}{2})\) alternates depending on \(k \mod 4\).<p>
 				
 				<p>If \(k \equiv 0 \pmod{4}\), then \(\sin(\frac{k\pi}{2}) = 0\). The inequality becomes:</p>
 
@@ -2715,6 +2732,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				<div class="equation-container">
                 \[ T(n)=\Theta(n(2-\sin(n))). \]
                 </div>
+			</div>
         </div>
 		
 		
@@ -2752,7 +2770,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 				\]
                 </div>
 				
-				<p>Consider \(n = \pik\), where \(k \geq 0\) and arbitrarily large. The value of \(\cos(n)\) is \((-1)^{k}\) and the value of \(\cos(\frac{n}{2})\) alternates depending on \(k \mod 4\).<p>
+				<p>Consider \(n = \pi k\), where \(k \geq 0\) and arbitrarily large. The value of \(\cos(n)\) is \((-1)^{k}\) and the value of \(\cos(\frac{n}{2})\) alternates depending on \(k \mod 4\).<p>
 				
 				<p>If \(k \equiv 0 \pmod{4}\), then \(\cos(\frac{k\pi}{2}) = 1\) and \(\cos(n) = 1\). The inequality becomes:</p>
 
