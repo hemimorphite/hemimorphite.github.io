@@ -16,7 +16,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
     {% include post-header.html %}
 
     <article class="post-content">
-		<h4>Divide and Conquer Recurrence Relations</h4>
+		<h4 class="post-subtitle">Divide and Conquer Recurrence Relations</h4>
 		
 		<p>Suppose that a recursive algorithm divides a problem of size \(n\) into a subproblems. Assume each subproblem is of size \(\frac{n}{b}\). Suppose \(f(n)\) extra operations are needed in the conquer step. Then \(T(n)\) represents the number of operations to solve a problem of size \(n\) satisfies the following recurrence relation:</p>
 		
@@ -40,7 +40,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<li>At the depth of the recursion tree, which corresponds to the number of times the problem size \(n\) can be divided by \(b\) until reaching the base case.</li>
 		</ul>
 		
-		<h4>The Asymptotic Growth of Geometric Series</h4>
+		<h4 class="post-subtitle">The Asymptotic Growth of Geometric Series</h4>
 		
 		<div class="lemma">
 			<p>Let \(r\) be a positive constant. Then,</p>
@@ -140,7 +140,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			</div>
 		</div>
 		
-		<h4>Simplified Version of Master Theorem</h4>
+		<h4 class="post-subtitle">Simplified Version of Master Theorem</h4>
 		
 		<p>The simplified version of master theorem is a formula for analyzing the asymptotic behavior of divide-and-conquer recurrences of the form:</p>
 		
@@ -350,7 +350,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			</div>
 		</div>
 
-		<h4>Simplified Version of Master Theorem with Log Factors</h4>
+		<h4 class="post-subtitle">Simplified Version of Master Theorem with Log Factors</h4>
 		
 		<p>A recurrence such as</p>
 		
@@ -981,7 +981,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			</div>
 		</div>
 
-		<h4>General Version of Master Theorem</h4>
+		<h4 class="post-subtitle">General Version of Master Theorem</h4>
 		
 		<p>The general version of master theorem is a formula for analyzing the time complexity of divide-and-conquer recurrences of the form:</p>
 		
@@ -1624,8 +1624,10 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			
 			<div class="equation-container">
             \[ 
+			\begin{aligned}
 			\int_{k=1}^{\infty} \frac{1}{k^r} \, dk &\leq& \sum_{k=1}^{n} \frac{1}{k^{r}} &\leq& 1 + \int_{k=1}^{\infty} \frac{1}{k^{r}} \, dk \\
 			\frac{1}{r-1} &\leq& \sum_{k=1}^{n} \frac{1}{k^{r}} &\leq& 1 + \frac{1}{r-1}.
+			\end{aligned}
 			\]
             </div>
 			
@@ -1970,7 +1972,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
             </div>
 		</div>
 
-		<h4>Limitations of Master Theorem</h4>
+		<h4 class="post-subtitle">Limitations of Master Theorem</h4>
 		
 		<p>For master theorem to work:</p>
 		
@@ -1982,7 +1984,7 @@ tags: ["math", "recurrence", "simplified master theorem", "general master theore
 			<li>The theorem assumes that the problem size is reduced by a constant factor \(b\). It cannot handle cases where the subdivision factor \(b\) varies with \(n\).</li>
 		</ul>
 		
-		<h4>Examples</h4>
+		<h4 class="post-subtitle">Examples</h4>
 		
 		<div class="textbox">
             <p class="title">Example</p>
