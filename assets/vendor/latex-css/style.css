@@ -440,6 +440,22 @@ table.borders-custom {
   text-align: right;
 }
 
+/* Format figure captions (based on table captions) */
+figure {
+  counter-increment: figcaption;
+}
+figcaption {
+  text-align: left;
+  font-size: 0.923em;
+  padding: 0.25em 0.25em 0;
+  width: 100%;
+  margin-left: 0;
+}
+figcaption::before {
+  content: 'Figure ' counter(figcaption) '. ';
+  font-weight: bold;
+}
+
 /* Center align the title */
 h1:first-child {
   text-align: center;
@@ -453,7 +469,7 @@ nav ol {
 nav li {
   display: block;
 }
-nav li:before {
+nav li::before {
   content: counters(item, '.') ' ';
   counter-increment: item;
   padding-right: 0.85rem;
@@ -501,7 +517,7 @@ dl dd {
   content: 'Proof. ' attr(title);
   font-style: italic;
 }
-.proof:after {
+.proof::after {
   content: '◾️';
   filter: var(--proof-symbol-filter);
   position: absolute;
