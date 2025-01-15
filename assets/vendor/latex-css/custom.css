@@ -1,0 +1,169 @@
+/*!
+ * LaTeX.css (https://latex.vercel.app/)
+ *
+ * Source: https://github.com/vincentdoerig/latex-css
+ * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
+*/
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-regular.woff2') format('woff2'),
+    url('./fonts/LM-regular.woff') format('woff'),
+    url('./fonts/LM-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-italic.woff2') format('woff2'),
+    url('./fonts/LM-italic.woff') format('woff'),
+    url('./fonts/LM-italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold.woff2') format('woff2'),
+    url('./fonts/LM-bold.woff') format('woff'),
+    url('./fonts/LM-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold-italic.woff2') format('woff2'),
+    url('./fonts/LM-bold-italic.woff') format('woff'),
+    url('./fonts/LM-bold-italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/Libertinus-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/Libertinus-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/Libertinus-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/Libertinus-bold-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/Libertinus-semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Libertinus';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/Libertinus-semibold-italic.woff2') format('woff2');
+}
+
+/* Theorem */
+.theorem {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+.theorem::before {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  content: 'Theorem ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lemma */
+.lemma {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+.lemma::before {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  content: 'Lemma ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Proof */
+.proof {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+  position: relative;
+}
+.proof::before {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  content: 'Proof. ' attr(title);
+  font-style: italic;
+}
+.proof::after {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  content: '◾️';
+  /*filter: var(--proof-symbol-filter);*/
+  position: absolute;
+  right: -12px;
+  bottom: -2px;
+}
+
+/* Definition */
+.definition {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  counter-increment: definition;
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+}
+.definition::before {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  content: 'Definition ' counter(definition) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Center align author name, use small caps and add vertical spacing  */
+.author {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  margin: 0.85rem 0;
+  font-variant-caps: small-caps;
+  text-align: center;
+}
