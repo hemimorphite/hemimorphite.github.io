@@ -16,11 +16,13 @@ tags: ["data structure", "linked list", "singly linked list"]
     {% include post-header.html %}
 
     <article class="post-content">
-        <p>A Singly Linked List is a type of linked list in which each element, called a node, contains two fields:</p>
+		<h3>Singly Linked List</h3>
+		
+        <p>A singly linked list is a linear data structure consisting of a sequence of elements, called nodes, where each node points to the next node in the sequence. Unlike arrays, elements in a linked list are not stored in contiguous memory locations. Each node contains two fields:</p>
 
         <ul>
 			<li><b>Data</b>: The value or information stored in the node.</li>
-			<li><b>Pointer (Next)</b>: A reference (or pointer) to the next node in the sequence.</li>
+			<li><b>Next Pointer</b>: A reference (or pointer) to the next node in the sequence.</li>
 		</ul>
 
         <p>The singly linked list forms a linear collection of elements where each node points to its successor, and the last node points to <code>NULL</code>, indicating the end of the list. It is a dynamic data structure, meaning it can grow or shrink in size during runtime, as nodes can be added or removed without requiring memory to be reallocated.</p>
@@ -45,6 +47,14 @@ tags: ["data structure", "linked list", "singly linked list"]
 		
 		<pre><code class="language-bash hljs">Head -> [Data | Next] -> [Data | Next] -> [Data | Next] -> NULL</code></pre>
 		
+		<p>In the above representation:</p>
+		
+		<ul>
+			<li>The <code>Head</code> points to the first node of the list.</li>
+			<li>Each node contains <code>Data</code> and a <code>Next</code> pointer to the next node.</li>
+			<li>The last node in the list points to <code>NULL<code/>, indicating the end of the list.</li>
+		</ul>
+		
 		<p>A simple singly linked list with three nodes could look like this:</p>
 		
 		<pre><code class="language-bash hljs">Head -> [10 | Next] -> [20 | Next] -> [30 | NULL]</code></pre>
@@ -57,7 +67,7 @@ tags: ["data structure", "linked list", "singly linked list"]
 			<li>The third node contains the data <code>30</code> and points to <code>NULL</code>, indicating the end of the list.</li>
 		</ul>
 		
-		<p>The following are some common operations implemented on the singly linked list:</p>
+		<p>Here's a detailed breakdown of common singly linked list operations:</p>
 		
         <ul>
             <li><code>insertAtBeginning()</code>:<br>
@@ -73,8 +83,8 @@ tags: ["data structure", "linked list", "singly linked list"]
 							</li>
 						</ul>
 					</li>
-					<li><b>Time complexity</b>: The time complexity of inserting a node at the beginning of a singly linked list is \(O(1)\) (constant time). This operation is independent of the size of the linked list. Therefore, regardless of whether the list has \(1\) node, \(100\) nodes, or is empty, the time it takes to insert a new node at the beginning is always constant.</li>
-					<li><b>Space complexity</b>: The space complexity of inserting a node at the beginning of a singly linked list is \(O(1)\) (constant space). The function only requires a fixed amount of extra memory to store the pointer to the new node. It doesn't depend on the size of the list. The new node's space is part of the memory needed for the linked list and is not considered part of the space complexity of the function itself. If we consider the space of the new node, it requires \(O(1)\) additional memory.</li>
+					<li><b>Time complexity</b>: The time complexity of inserting a node at the beginning of a singly linked list is \(O(1)\) (constant time). This is because creating a new node takes constant time and updating a few pointers (the next pointer of the new node, and the head pointer) also takes constant time. Thus, regardless of the number of nodes already in the list, inserting a new node at the beginning always takes the same amount of time.</li>
+					<li><b>Space complexity</b>: The space complexity of inserting a node at the beginning of a singly linked list is \(O(1)\) (constant space). The only additional space used during the operation is the memory required to create the new node, which is constant (one node). No additional data structures or space that scales with the number of nodes in the list are required. Therefore, the space complexity is constant, since the operation does not depend on the size of the list.</li>
 				</ul>
 			</li>
             <li><code>insertAtEnd()</code>:<br>
@@ -90,7 +100,12 @@ tags: ["data structure", "linked list", "singly linked list"]
 							</li>
 						</ul>
 					</li>
-					<li><b>Time complexity</b>: The time complexity of inserting a node at the end of a singly linked list is \(O(n)\) (linear time). This operation has to traverse the entire list to reach the last node (since each node only points to the next one), which takes \(O(n)\), where \(n\) is the number of nodes in the list.</li>
+					<li><b>Time complexity</b>: The time complexity of inserting a node at the end of a doubly linked list is \(O(n)\) (linear time).<br>
+						<ul>
+							<li><b>Best Case (Empty List)</b>: If the list is empty, inserting a new node at the end is the same as inserting at the beginning. This takes constant time.</li>
+							<li><b>Average/Worst Case (Non-Empty List)</b>: If the list is not empty, you have to traverse the entire list to reach the last node. Traversing the list takes linear time, where \(n\) is the number of nodes in the list. After reaching the last node, creating a new node and updating the pointers (the last node's next) takes constant time.</li>
+						</ul>
+					</li>
 					<li><b>Space complexity</b>: The space complexity of inserting a node at the end of a singly linked list is \(O(1)\) (constant space). The function only needs a constant amount of extra memory to store the pointer to the new node. This is independent of the size of the list. Allocating space for the new node takes \(O(1)\) (constant space), as only a single node's memory is allocated.</li>
 				</ul>
 			</li>
@@ -107,7 +122,7 @@ tags: ["data structure", "linked list", "singly linked list"]
 							</li>
 						</ul>
 					</li>
-					<li><b>Time complexity</b>: The time complexity of inserting a node after a node in a singly linked list is \(O(n)\) (linear time). This operation has to traverse the list to find the node after which the new node will be inserted. In the worst case, it might have to traverse the entire list to find this node, which takes \(O(n)\), where \(n\) is the number of nodes in the list.</li>
+					<li><b>Time complexity</b>: The time complexity of inserting a node after a node in a singly linked list is \(O(1)\) (constant time). This operation has to traverse the list to find the node after which the new node will be inserted. In the worst case, it might have to traverse the entire list to find this node, which takes \(O(n)\), where \(n\) is the number of nodes in the list.</li>
 					<li><b>Space complexity</b>: The space complexity of inserting a node after a node in a singly linked list is \(O(1)\) (constant time). The function only needs a constant amount of extra memory for a few local variables. This is independent of the size of the list. Allocating space for the new node takes \(O(1)\) (constant space), as only a single node's memory is allocated.</li>
 				</ul>
 			</li>
@@ -278,12 +293,14 @@ tags: ["data structure", "linked list", "singly linked list"]
 			</li>
         </ul>
 		
-		<p>Here's an implementation of a simple singly linked list in C:</p>
+		<h3>Non-Generic Singly Linked List Implementation</h3>
+		
+		<p>Here is the Non-Generic singly linked list implementation in C:</p>
         
         <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
-// Node structure for singly linked list
+// defines a structure to represent a node in a singly linked list
 typedef struct Node {
     int data;
     struct Node* next;
@@ -298,20 +315,20 @@ Node* createNode(int data) {
 }
 
 // Function to insert a node at the beginning of the list
-void insertAtBeginning(Node** head, int data) {
+void insertAtBeginning(Node** headRef, int data) {
     Node* newNode = createNode(data);
-    newNode-&gt;next = *head;
-    *head = newNode;
+    newNode-&gt;next = *headRef;
+    *headRef = newNode;
 }
 
 // Function to insert a node at the end of the list
-void insertAtEnd(Node** head, int data) {
+void insertAtEnd(Node** headRef, int data) {
     Node* newNode = createNode(data);
-    if (*head == NULL) {
-        *head = newNode;
+    if (*headRef == NULL) {
+        *headRef = newNode;
         return;
     }
-    Node* temp = *head;
+    Node* temp = *headRef;
     while (temp-&gt;next != NULL) {
         temp = temp-&gt;next;
     }
@@ -319,51 +336,23 @@ void insertAtEnd(Node** head, int data) {
 }
 
 // Function to insert a new node after a given previous node
-void insertAfterNode(Node** head, Node* prevNode, int data) {
-    // Check if the head is NULL (list is empty)
-    if (*head == NULL) {
-        printf("The list cannot be empty\n");
-        return;
-    }
-
+void insertAfterNode(Node* prevNode, int data) {
     // Check if the previous node is NULL
     if (prevNode == NULL) {
-        printf("The given previous node cannot be NULL\n");
+        printf("The given previous node cannot be NULL.\n");
         return;
     }
-
-    // Create the new node with the given data
-    Node* newNode = createNode(data);
-
-    // Check if prevNode is the head node
-    if (*head == prevNode) {
-        // Insert the new node after the head
-        newNode-&gt;next = (*head)-&gt;next;
-        (*head)-&gt;next = newNode;
-        return;
-    }
-
-    // Traverse the list to find prevNode if it's not the head
-    Node* temp = *head;
-    while (temp != NULL && temp != prevNode) {
-        temp = temp-&gt;next;
-    }
-
-    // If prevNode is not found in the list, return an error
-    if (temp == NULL) {
-        printf("The given previous node is not found in the list\n");
-        free(newNode);
-        return;
-    }
-
-    // Insert the new node after prevNode
+	
+	Node* newNode = createNode(data);
+	
+    // Insert the new node after the previous node
     newNode-&gt;next = prevNode-&gt;next;
     prevNode-&gt;next = newNode;
 }
 
-// Function to insert a node before a given node
-void insertBeforeNode(Node** head, Node* nextNode, int data) {
-    if (*head == NULL) {
+// Function to insert a new node before a given next node
+void insertBeforeNode(Node** headRef, Node* nextNode, int data) {
+    if (*headRef == NULL) {
         printf("The list cannot be empty\n");
         return;
     }
@@ -373,16 +362,17 @@ void insertBeforeNode(Node** head, Node* nextNode, int data) {
         return;
     }
 	
-    Node* newNode = createNode(data);
-    
+	Node* newNode = createNode(data);
+	
     // If the nextNode is the head node, handle the insertion at beginning
-    if (*head == nextNode) {
-        newNode-&gt;next = *head;
-        *head = newNode;
+    if (*headRef == nextNode) {
+        newNode-&gt;next = *headRef;
+        *headRef = newNode;
         return;
     }
-    
-    Node* temp = *head;
+
+    // Find the node just before the nextNode
+    Node* temp = *headRef;
     while (temp != NULL && temp-&gt;next != nextNode) {
         temp = temp-&gt;next;
     }
@@ -398,17 +388,17 @@ void insertBeforeNode(Node** head, Node* nextNode, int data) {
 }
 
 // Function to insert a node at a specific position (0-based index)
-void insertAtPosition(Node** head, int data, int position) {
+void insertAtPosition(Node** headRef, int data, int position) {
     Node* newNode = createNode(data);
     
     // If position is at the beginning
     if (position == 0) {
-        newNode-&gt;next = *head;
-        *head = newNode;
+        newNode-&gt;next = *headRef;
+        *headRef = newNode;
         return;
     }
 
-    Node* temp = *head;
+    Node* temp = *headRef;
     for (int i = 0; i &lt; position - 1 && temp != NULL; i++) {
         temp = temp-&gt;next;
     }
@@ -425,29 +415,29 @@ void insertAtPosition(Node** head, int data, int position) {
 }
 
 // Function to delete a node at the beginning of the list
-void deleteAtBeginning(Node** head) {
-    if (*head == NULL) {
+void deleteAtBeginning(Node** headRef) {
+    if (*headRef == NULL) {
         printf("List is empty\n");
         return;
     }
-    Node* temp = *head;
-    *head = (*head)-&gt;next;
+    Node* temp = *headRef;
+    *headRef = (*headRef)-&gt;next;
     free(temp);
 }
 
 // Function to delete a node at the end of the list
-void deleteAtEnd(Node** head) {
-    if (*head == NULL) {
+void deleteAtEnd(Node** headRef) {
+    if (*headRef == NULL) {
         printf("List is empty\n");
         return;
     }
 
-    Node* temp = *head;
+    Node* temp = *headRef;
     
     // If there's only one node in the list
     if (temp-&gt;next == NULL) {
         free(temp);
-        *head = NULL;
+        *headRef = NULL;
         return;
     }
 
@@ -462,17 +452,17 @@ void deleteAtEnd(Node** head) {
 }
 
 // Function to delete a node at a specific position (0-based index)
-void deleteAtPosition(Node** head, int position) {
-    if (*head == NULL) {
+void deleteAtPosition(Node** headRef, int position) {
+    if (*headRef == NULL) {
         printf("List is empty\n");
         return;
     }
 
-    Node* temp = *head;
+    Node* temp = *headRef;
 
     // If head needs to be removed
     if (position == 0) {
-        *head = temp-&gt;next; // Change head
+        *headRef = temp-&gt;next; // Change head
         free(temp); // Free old head
         return;
     }
@@ -516,15 +506,15 @@ int search(Node* head, int key) {
 }
 
 // Function to reverse the linked list
-void reverse(Node** head) {
-    Node *prev = NULL, *current = *head, *next = NULL;
+void reverse(Node** headRef) {
+    Node *prev = NULL, *current = *headRef, *next = NULL;
     while (current != NULL) {
         next = current-&gt;next; // Store next
         current-&gt;next = prev; // Reverse current node's pointer
         prev = current;       // Move pointers one position ahead
         current = next;
     }
-    *head = prev;
+    *headRef = prev;
 }
 
 // Function to get the size of the linked list
@@ -575,26 +565,32 @@ void set(Node* head, int index, int newValue) {
 }
 
 // Function to merge two lists
-Node* merge(Node* head1, Node* head2) {
-    if (head1 == NULL) return head2;
-    if (head2 == NULL) return head1;
-
-    Node* mergedHead = NULL;
-    if (head1-&gt;data &lt;= head2-&gt;data) {
-        mergedHead = head1;
-        mergedHead-&gt;next = merge(head1-&gt;next, head2);
-    } else {
-        mergedHead = head2;
-        mergedHead-&gt;next = merge(head1, head2-&gt;next);
+void merge(Node** headRef, Node* head1, Node* head2) {
+    if (head1 == NULL) {
+        *headRef = head2;
+        return;
     }
-    return mergedHead;
+    if (head2 == NULL) {
+        *headRef = head1;
+        return;
+    }
+
+    if (head1-&gt;data &lt;= head2-&gt;data) {
+        *headRef = head1;
+        merge(&((*headRef)-&gt;next), head1-&gt;next, head2);
+    } else {
+        *headRef = head2;
+        merge(&((*headRef)-&gt;next), head1, head2-&gt;next);
+    }
 }
 
 // Function to get the middle of the linked list
-Node* middle(Node* head) {
-    if (head == NULL) return head;
+void middle(Node** mid, Node* head) {
+    if (head == NULL) return;
+    
     Node* slow = head;
     Node* fast = head-&gt;next;
+    
     while (fast != NULL) {
         fast = fast-&gt;next;
         if (fast != NULL) {
@@ -602,27 +598,32 @@ Node* middle(Node* head) {
             fast = fast-&gt;next;
         }
     }
-    return slow;
+    
+    *mid = slow; // Update the pointer to the middle node
 }
 
 // Function to sort the linked list (using Merge Sort)
-Node* sort(Node* head) {
-    if (head == NULL || head-&gt;next == NULL)
-        return head;
+void sort(Node** headRef) {
+    if (*headRef == NULL || (*headRef)-&gt;next == NULL)
+        return;
 
-    Node* mid = middle(head);
+    Node* head = *headRef;
+    Node* mid = NULL;
+    middle(&mid, head);
     Node* nextToMid = mid-&gt;next;
     mid-&gt;next = NULL;
+  
+    // Sort the two halves
+    sort(&head);
+    sort(&nextToMid);
 
-    Node* left = sort(head);
-    Node* right = sort(nextToMid);
-
-    return merge(left, right);
+    // Merge the sorted halves
+    merge(headRef, head, nextToMid);
 }
 
 // Function to clear the entire linked list and free memory
-void clear(Node** head) {
-    Node* current = *head;
+void clear(Node** headRef) {
+    Node* current = *headRef;
     Node* next;
     
     while (current != NULL) {
@@ -631,7 +632,7 @@ void clear(Node** head) {
         current = next;
     }
     
-    *head = NULL;
+    *headRef = NULL;
 }
 
 // Main function to test the linked list operations
@@ -673,7 +674,7 @@ int main() {
     printf("Size of the list: %d\n", size(head));  // Output: 4
 
     // Sort the list
-    head = sort(head);
+    sort(&head);
     printf("After sorting the list: ");
     traverse(head);  // Output: 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
 
@@ -685,7 +686,817 @@ int main() {
     return 0;
 }</code></pre>
 
-        <p>Here's an implementation of a generic Singly Linked List in C:</p>
+		<p>Here is the Non-Generic singly linked list implementation in C++:</p>
+		
+		<pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+
+using namespace std;
+
+// Node structure for singly linked list
+struct Node {
+    int data;
+    Node* next;
+
+    // Constructor to create a new node
+    Node(int data) : data(data), next(nullptr) {}
+};
+
+// Insert at the beginning
+void insertAtBeginning(Node*& head, int data) {
+    Node* newNode = new Node(data);
+    newNode-&gt;next = head;
+    head = newNode;
+}
+
+// Insert at the end
+void insertAtEnd(Node*& head, int data) {
+    Node* newNode = new Node(data);
+    if (head == nullptr) {
+        head = newNode;
+        return;
+    }
+    Node* temp = head;
+    while (temp-&gt;next != nullptr) {
+        temp = temp-&gt;next;
+    }
+    temp-&gt;next = newNode;
+}
+
+// Insert at a specific position
+void insertAtPosition(Node*& head, int data, int position) {
+    Node* newNode = new Node(data);
+    if (position == 0) {
+        newNode-&gt;next = head;
+        head = newNode;
+        return;
+    }
+
+    Node* temp = head;
+    for (int i = 0; i &lt; position - 1 && temp != nullptr; i++) {
+        temp = temp-&gt;next;
+    }
+
+    if (temp == nullptr) {
+        cout &lt;&lt; "Position out of bounds\n";
+        delete newNode;
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+
+// Delete at the beginning
+void deleteAtBeginning(Node*& head) {
+    if (head == nullptr) {
+        cout &lt;&lt; "List is empty\n";
+        return;
+    }
+    Node* temp = head;
+    head = head-&gt;next;
+    delete temp;
+}
+
+
+// Delete at the end
+void deleteAtEnd(Node*& head) {
+    if (head == nullptr) {
+        cout &lt;&lt; "List is empty\n";
+        return;
+    }
+
+    if (head-&gt;next == nullptr) {
+        delete head;
+        head = nullptr;
+        return;
+    }
+
+    Node* temp = head;
+    while (temp-&gt;next-&gt;next != nullptr) {
+        temp = temp-&gt;next;
+    }
+
+    delete temp-&gt;next;
+    temp-&gt;next = nullptr;
+}
+
+
+// Delete at a specific position
+void deleteAtPosition(Node*& head, int position) {
+    if (head == nullptr) {
+        cout &lt;&lt; "List is empty\n";
+        return;
+    }
+
+    if (position == 0) {
+        Node* temp = head;
+        head = head-&gt;next;
+        delete temp;
+        return;
+    }
+
+    Node* temp = head;
+    for (int i = 0; i &lt; position - 1 && temp != nullptr; i++) {
+        temp = temp-&gt;next;
+    }
+
+    if (temp == nullptr || temp-&gt;next == nullptr) {
+        cout &lt;&lt; "Position out of bounds\n";
+        return;
+    }
+
+    Node* nextNode = temp-&gt;next-&gt;next;
+    delete temp-&gt;next;
+    temp-&gt;next = nextNode;
+}
+
+
+// Traverse the list
+void traverse(Node* head) {
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout &lt;&lt; temp-&gt;data &lt;&lt; " -&gt; ";
+        temp = temp-&gt;next;
+    }
+    cout &lt;&lt; "NULL\n";
+}
+
+
+// Search for an element
+bool search(Node* head, int key) {
+    Node* temp = head;
+    while (temp != nullptr) {
+        if (temp-&gt;data == key)
+            return true;
+        temp = temp-&gt;next;
+    }
+    return false;
+}
+
+
+// Reverse the list
+void reverse(Node*& head) {
+    Node* prev = nullptr;
+    Node* current = head;
+    Node* next = nullptr;
+
+    while (current != nullptr) {
+        next = current-&gt;next;
+        current-&gt;next = prev;
+        prev = current;
+        current = next;
+    }
+
+    head = prev;
+}
+
+
+// Get the size of the list
+int size(Node* head) {
+    int count = 0;
+    Node* temp = head;
+    while (temp != nullptr) {
+        count++;
+        temp = temp-&gt;next;
+    }
+    return count;
+}
+
+// Merge two sorted lists
+void merge(Node*& mergedHead, Node* head1, Node* head2) {
+    if (head1 == nullptr && head2 == nullptr) {
+        mergedHead = nullptr;
+        return;
+    }
+
+    if (head1 == nullptr) {
+        mergedHead = new Node(head2-&gt;data);
+        merge(mergedHead-&gt;next, head1, head2-&gt;next);
+    } else if (head2 == nullptr) {
+        mergedHead = new Node(head1-&gt;data);
+        merge(mergedHead-&gt;next, head1-&gt;next, head2);
+    } else if (head1-&gt;data &lt;= head2-&gt;data) {
+        mergedHead = new Node(head1-&gt;data);
+        merge(mergedHead-&gt;next, head1-&gt;next, head2);
+    } else {
+        mergedHead = new Node(head2-&gt;data);
+        merge(mergedHead-&gt;next, head1, head2-&gt;next);
+    }
+}
+
+// Find the middle of the list
+void middle(Node*& mid, Node* head) {
+    if (head == nullptr) {
+        mid = nullptr;
+        return;
+    }
+
+    Node* slow = head;
+    Node* fast = head-&gt;next;
+
+    while (fast != nullptr && fast-&gt;next != nullptr) {
+        slow = slow-&gt;next;
+        fast = fast-&gt;next-&gt;next;
+    }
+
+    mid = slow;
+}
+
+
+// Sort the list using merge sort
+void sort(Node*& head) {
+    if (head == nullptr || head-&gt;next == nullptr)
+        return;
+
+    Node* mid = nullptr;
+    middle(mid, head);
+
+    Node* nextToMid = mid-&gt;next;
+    mid-&gt;next = nullptr;
+
+    Node* left = head;
+    Node* right = nextToMid;
+
+    sort(left);
+    sort(right);
+
+    merge(head, left, right);
+}
+
+
+// Clear the list
+void clear(Node*& head) {
+    Node* current = head;
+    while (current != nullptr) {
+        Node* next = current-&gt;next;
+        delete current;
+        current = next;
+    }
+    head = nullptr;
+}
+
+
+int main() {
+    Node* head = nullptr;
+
+    // Insert elements at the beginning
+    insertAtBeginning(head, 5);
+    insertAtBeginning(head, 10);
+    insertAtBeginning(head, 3);
+
+    cout &lt;&lt; "List after inserting at the beginning: ";
+    traverse(head);
+
+    // Insert element at the end
+    insertAtEnd(head, 7);
+    insertAtEnd(head, 2);
+
+    cout &lt;&lt; "List after inserting at the end: ";
+    traverse(head);
+
+    // Insert at a specific position
+    insertAtPosition(head, 4, 2);
+    cout &lt;&lt; "List after inserting at position 2: ";
+    traverse(head);
+
+    // Delete at the beginning
+    deleteAtBeginning(head);
+    cout &lt;&lt; "List after deleting at the beginning: ";
+    traverse(head);
+
+    // Delete at the end
+    deleteAtEnd(head);
+    cout &lt;&lt; "List after deleting at the end: ";
+    traverse(head);
+
+    // Delete at a specific position
+    deleteAtPosition(head, 2);
+    cout &lt;&lt; "List after deleting at position 2: ";
+    traverse(head);
+
+    // Search for an element
+    int key = 7;
+    if (search(head, key)) {
+        cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " found in the list\n";
+    } else {
+        cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " not found in the list\n";
+    }
+
+    // Reverse the list
+    reverse(head);
+    cout &lt;&lt; "List after reversing: ";
+    traverse(head);
+
+    // Sort the list
+    sort(head);
+    cout &lt;&lt; "Sorted list: ";
+    traverse(head);
+
+    // Get the size of the list
+    cout &lt;&lt; "Size of the list: " &lt;&lt; size(head) &lt;&lt; endl;
+
+    // Clear the list
+    clear(head);
+    cout &lt;&lt; "List after clearing: ";
+    traverse(head);
+
+    return 0;
+}</code></pre>
+		
+		<p>Here is the Non-Generic singly linked list implementation in Java:</p>
+		
+		<pre><code class="language-java hljs">public class LinkedList {
+
+    // Node structure for singly linked list
+    static class Node {
+        int data;
+        Node next;
+
+        // Constructor to create a new node
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    // Insert at the beginning
+    public static Node insertAtBeginning(Node head, int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        return newNode;
+    }
+
+    // Insert at the end
+    public static Node insertAtEnd(Node head, int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            return newNode;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+        return head;
+    }
+
+    // Insert at a specific position
+    public static Node insertAtPosition(Node head, int data, int position) {
+        Node newNode = new Node(data);
+        if (position == 0) {
+            newNode.next = head;
+            return newNode;
+        }
+
+        Node temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != null; i++) {
+            temp = temp.next;
+        }
+
+        if (temp == null) {
+            System.out.println("Position out of bounds");
+            return head;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+        return head;
+    }
+
+    // Delete at the beginning
+    public static Node deleteAtBeginning(Node head) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return null;
+        }
+        return head.next;
+    }
+
+    // Delete at the end
+    public static Node deleteAtEnd(Node head) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return null;
+        }
+
+        if (head.next == null) {
+            return null;
+        }
+
+        Node temp = head;
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+        temp.next = null;
+        return head;
+    }
+
+    // Delete at a specific position
+    public static Node deleteAtPosition(Node head, int position) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return null;
+        }
+
+        if (position == 0) {
+            return head.next;
+        }
+
+        Node temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != null; i++) {
+            temp = temp.next;
+        }
+
+        if (temp == null || temp.next == null) {
+            System.out.println("Position out of bounds");
+            return head;
+        }
+
+        temp.next = temp.next.next;
+        return head;
+    }
+
+    // Traverse the list
+    public static void traverse(Node head) {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("NULL");
+    }
+
+    // Search for an element
+    public static boolean search(Node head, int key) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.data == key) {
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
+    }
+
+    // Reverse the list
+    public static Node reverse(Node head) {
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }
+
+    // Get the size of the list
+    public static int size(Node head) {
+        int count = 0;
+        Node temp = head;
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+
+    // Clear the list
+    public static Node clear(Node head) {
+        return null;
+    }
+
+    // Main method to test
+    public static void main(String[] args) {
+        Node head = null;
+
+        // Insert elements at the beginning
+        head = insertAtBeginning(head, 5);
+        head = insertAtBeginning(head, 10);
+        head = insertAtBeginning(head, 3);
+
+        System.out.println("List after inserting at the beginning: ");
+        traverse(head);
+
+        // Insert element at the end
+        head = insertAtEnd(head, 7);
+        head = insertAtEnd(head, 2);
+
+        System.out.println("List after inserting at the end: ");
+        traverse(head);
+
+        // Insert at a specific position
+        head = insertAtPosition(head, 4, 2);
+        System.out.println("List after inserting at position 2: ");
+        traverse(head);
+
+        // Delete at the beginning
+        head = deleteAtBeginning(head);
+        System.out.println("List after deleting at the beginning: ");
+        traverse(head);
+
+        // Delete at the end
+        head = deleteAtEnd(head);
+        System.out.println("List after deleting at the end: ");
+        traverse(head);
+
+        // Delete at a specific position
+        head = deleteAtPosition(head, 2);
+        System.out.println("List after deleting at position 2: ");
+        traverse(head);
+
+        // Search for an element
+        int key = 7;
+        if (search(head, key)) {
+            System.out.println("Element " + key + " found in the list");
+        } else {
+            System.out.println("Element " + key + " not found in the list");
+        }
+
+        // Reverse the list
+        head = reverse(head);
+        System.out.println("List after reversing: ");
+        traverse(head);
+
+        // Get the size of the list
+        System.out.println("Size of the list: " + size(head));
+
+        // Clear the list
+        head = clear(head);
+        System.out.println("List after clearing: ");
+        traverse(head);
+    }
+}</code></pre>
+		
+		<p>Here is the Non-Generic singly linked list implementation in C#:</p>
+		
+		<pre><code class="language-java hljs">using System;
+
+public class LinkedList
+{
+    // Node structure for singly linked list
+    public class Node
+    {
+        public int Data;
+        public Node Next;
+
+        // Constructor to create a new node
+        public Node(int data)
+        {
+            Data = data;
+            Next = null;
+        }
+    }
+
+    // Insert at the beginning
+    public static Node InsertAtBeginning(Node head, int data)
+    {
+        Node newNode = new Node(data)
+        {
+            Next = head
+        };
+        return newNode;
+    }
+
+    // Insert at the end
+    public static Node InsertAtEnd(Node head, int data)
+    {
+        Node newNode = new Node(data);
+        if (head == null)
+        {
+            return newNode;
+        }
+        Node temp = head;
+        while (temp.Next != null)
+        {
+            temp = temp.Next;
+        }
+        temp.Next = newNode;
+        return head;
+    }
+
+    // Insert at a specific position
+    public static Node InsertAtPosition(Node head, int data, int position)
+    {
+        Node newNode = new Node(data);
+        if (position == 0)
+        {
+            newNode.Next = head;
+            return newNode;
+        }
+
+        Node temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != null; i++)
+        {
+            temp = temp.Next;
+        }
+
+        if (temp == null)
+        {
+            Console.WriteLine("Position out of bounds");
+            return head;
+        }
+
+        newNode.Next = temp.Next;
+        temp.Next = newNode;
+        return head;
+    }
+
+    // Delete at the beginning
+    public static Node DeleteAtBeginning(Node head)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return null;
+        }
+        return head.Next;
+    }
+
+    // Delete at the end
+    public static Node DeleteAtEnd(Node head)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return null;
+        }
+
+        if (head.Next == null)
+        {
+            return null;
+        }
+
+        Node temp = head;
+        while (temp.Next.Next != null)
+        {
+            temp = temp.Next;
+        }
+        temp.Next = null;
+        return head;
+    }
+
+    // Delete at a specific position
+    public static Node DeleteAtPosition(Node head, int position)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return null;
+        }
+
+        if (position == 0)
+        {
+            return head.Next;
+        }
+
+        Node temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != null; i++)
+        {
+            temp = temp.Next;
+        }
+
+        if (temp == null || temp.Next == null)
+        {
+            Console.WriteLine("Position out of bounds");
+            return head;
+        }
+
+        temp.Next = temp.Next.Next;
+        return head;
+    }
+
+    // Traverse the list
+    public static void Traverse(Node head)
+    {
+        Node temp = head;
+        while (temp != null)
+        {
+            Console.Write(temp.Data + " -> ");
+            temp = temp.Next;
+        }
+        Console.WriteLine("NULL");
+    }
+
+    // Search for an element
+    public static bool Search(Node head, int key)
+    {
+        Node temp = head;
+        while (temp != null)
+        {
+            if (temp.Data == key)
+            {
+                return true;
+            }
+            temp = temp.Next;
+        }
+        return false;
+    }
+
+    // Reverse the list
+    public static Node Reverse(Node head)
+    {
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+
+        while (current != null)
+        {
+            next = current.Next;
+            current.Next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }
+
+    // Get the size of the list
+    public static int Size(Node head)
+    {
+        int count = 0;
+        Node temp = head;
+        while (temp != null)
+        {
+            count++;
+            temp = temp.Next;
+        }
+        return count;
+    }
+
+    // Clear the list
+    public static Node Clear(Node head)
+    {
+        return null;
+    }
+
+    // Main method to test
+    public static void Main(string[] args)
+    {
+        Node head = null;
+
+        // Insert elements at the beginning
+        head = InsertAtBeginning(head, 5);
+        head = InsertAtBeginning(head, 10);
+        head = InsertAtBeginning(head, 3);
+
+        Console.WriteLine("List after inserting at the beginning:");
+        Traverse(head);
+
+        // Insert element at the end
+        head = InsertAtEnd(head, 7);
+        head = InsertAtEnd(head, 2);
+
+        Console.WriteLine("List after inserting at the end:");
+        Traverse(head);
+
+        // Insert at a specific position
+        head = InsertAtPosition(head, 4, 2);
+        Console.WriteLine("List after inserting at position 2:");
+        Traverse(head);
+
+        // Delete at the beginning
+        head = DeleteAtBeginning(head);
+        Console.WriteLine("List after deleting at the beginning:");
+        Traverse(head);
+
+        // Delete at the end
+        head = DeleteAtEnd(head);
+        Console.WriteLine("List after deleting at the end:");
+        Traverse(head);
+
+        // Delete at a specific position
+        head = DeleteAtPosition(head, 2);
+        Console.WriteLine("List after deleting at position 2:");
+        Traverse(head);
+
+        // Search for an element
+        int key = 7;
+        Console.WriteLine(Search(head, key)
+            ? $"Element {key} found in the list"
+            : $"Element {key} not found in the list");
+
+        // Reverse the list
+        head = Reverse(head);
+        Console.WriteLine("List after reversing:");
+        Traverse(head);
+
+        // Get the size of the list
+        Console.WriteLine("Size of the list: " + Size(head));
+
+        // Clear the list
+        head = Clear(head);
+        Console.WriteLine("List after clearing:");
+        Traverse(head);
+    }
+}</code></pre>
+		
+		<h3>Generic Singly Linked List Implementation</h3>
+		
+		<p>Here is the Generic singly linked list implementation in C:</p>
         
         <pre><code class="language-cpp hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -1005,99 +1816,72 @@ void set(Node* head, int index, StackElement element) {
     printf("Index out of range\n"); // Handle case where index exceeds list length
 }
 
-// Comparison function
-int compare(const void *arg1, const void *arg2) {
-    StackElement *elem1 = (StackElement *)arg1;
-    StackElement *elem2 = (StackElement *)arg2;
-    return strcasecmp(elem1-&gt;toString, elem2-&gt;toString);
-}
-
-StackElement* linkedListToArray(Node* head, int* length) {
-    int count = 0;
-    Node* temp = head;
-
-    // Count number of nodes in the list
-    while (temp != NULL) {
-        count++;
-        temp = temp-&gt;next;
+// Function to merge two lists
+void merge(Node** headRef, Node* head1, Node* head2) {
+    if (head1 == NULL) {
+        while (head2 != NULL) {
+            Node* newNode = createNode(head2-&gt;element); // Create a new node
+            *headRef = newNode;
+            headRef = &((*headRef)-&gt;next);
+            head2 = head2-&gt;next;
+        }
+        return;
+    }
+    if (head2 == NULL) {
+        while (head1 != NULL) {
+            Node* newNode = createNode(head1-&gt;element); // Create a new node
+            *headRef = newNode;
+            headRef = &((*headRef)-&gt;next);
+            head1 = head1-&gt;next;
+        }
+        return;
     }
 
-    // Create an array of StackElements
-    StackElement* array = (StackElement*)malloc(count * sizeof(StackElement));
-    temp = head;
-    for (int i = 0; i &lt; count; i++) {
-        array[i] = temp-&gt;element;
-        temp = temp-&gt;next;
+    if (strcasecmp(head1-&gt;element.toString, head2-&gt;element.toString) &lt; 0) {
+        Node* newNode = createNode(head1-&gt;element); // Create a new node
+        *headRef = newNode;
+        merge(&((*headRef)-&gt;next), head1-&gt;next, head2);
+    } else {
+        Node* newNode = createNode(head2-&gt;element); // Create a new node
+        *headRef = newNode;
+        merge(&((*headRef)-&gt;next), head1, head2-&gt;next);
     }
-
-    *length = count;
-    return array;
 }
 
-void arrayToLinkedList(StackElement* array, int length, Node** head) {
-    *head = NULL;
-    for (int i = 0; i &lt; length; i++) {
-        Node* newNode = createNode(array[i]); // Create a new node
 
-        if (*head == NULL) {
-            // If the list is empty, make the new node the head
-            *head = newNode;
-        } else {
-            // Traverse to the end of the list and append the new node
-            Node* temp = *head;
-            while (temp-&gt;next != NULL) {
-                temp = temp-&gt;next;
-            }
-            temp-&gt;next = newNode; // Link the new node
+// Function to get the middle of the linked list
+Node* middle(Node* head) {
+    if (head == NULL) return head;
+    Node* slow = head;
+    Node* fast = head-&gt;next;
+    while (fast != NULL) {
+        fast = fast-&gt;next;
+        if (fast != NULL) {
+            slow = slow-&gt;next;
+            fast = fast-&gt;next;
         }
     }
+    return slow;
 }
 
+// Function to sort the linked list (using Merge Sort)
+void sort(Node** headRef) {
+    if (*headRef == NULL || (*headRef)-&gt;next == NULL)
+        return;
 
-// Function to sort the linked list
-Node* sortLinkedList(Node* head) {
-    if (head == NULL) {
-        return NULL;  // If the list is empty, return NULL
-    }
+    Node* head = *headRef;
+    Node* mid = middle(head);
+    Node* nextToMid = mid-&gt;next;
+    mid-&gt;next = NULL;
 
-    int length = 0;
-    StackElement* array = linkedListToArray(head, &length);
-    
-    // Sort the array using qsort and the comparison function
-    qsort(array, length, sizeof(StackElement), compare);
-    
-    // Convert the sorted array back to a linked list
-    Node* sortedHead = NULL;
-    arrayToLinkedList(array, length, &sortedHead);
-    
-    // Free the array as it's no longer needed
-    free(array);
+    // Sort the two halves
+    sort(&head);
+    sort(&nextToMid);
 
-    // Return the new sorted head of the list
-    return sortedHead;
+    // Merge the sorted halves
+    merge(headRef, head, nextToMid);
 }
 
-// Function to merge two lists
-Node* merge(Node* a, Node* b) {
-    // Combine the two linked lists into one list by linking them
-    if (a == NULL) return b;
-    if (b == NULL) return a;
-
-    Node* merged = NULL;
-
-    // Merge both lists
-    while (a != NULL) {
-        insertAtEnd(&merged, a-&gt;element);
-        a = a-&gt;next;
-    }
-
-    while (b != NULL) {
-        insertAtEnd(&merged, b-&gt;element);
-        b = b-&gt;next;
-    }
-
-    return sortLinkedList(merged);
-}
 
 // Function to clear the entire linked list and free memory
 void clear(Node** head) {
@@ -1181,9 +1965,20 @@ int main() {
     // Print the original person list
     printf("\nOriginal Person List:\n");
     traverse(personList);
-
+    
+    // Sort the list
+    sort(&personList);
+    sort(&carList);
+    
+    printf("\nSorted Person List:\n");
+    traverse(personList);
+    
+    printf("\nSorted Car List:\n");
+    traverse(carList);
+    
+    Node* mergedList = NULL;
     // Merge the two lists and sort the combined list
-    Node* mergedList = merge(personList, carList);
+    merge(&mergedList, personList, carList);
 
     // Print the merged and sorted list
     printf("\nMerged and Sorted List:\n");
@@ -1197,1292 +1992,358 @@ int main() {
     return 0;
 }</code></pre>
 		
-		<p>Here is an implementation of a simple singly linked list in C++:</p>
-
-        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+		<p>Here is the Generic singly linked list implementation in C++:</p>
+		
+		<pre><code class="language-cpp hljs">#include &lt;iostream&gt;
 
 using namespace std;
 
-// Node structure for singly linked list
-struct Node {
-    int data;
-    Node* next;
-
-    // Constructor to create a new node
-    Node(int data) {
-        this-&gt;data = data;
-        this-&gt;next = nullptr;
-    }
-};
-
-// Class to manage linked list operations
-class LinkedList {
-private:
-    Node* head;
-
-public:
-    // Constructor to initialize the linked list
-    LinkedList() : head(nullptr) {}
-
-    // Function to insert a node at the beginning of the list
-    void insertAtBeginning(int data) {
-        Node* newNode = new Node(data);
-        newNode-&gt;next = head;
-        head = newNode;
-    }
-
-    // Function to insert a node at the end of the list
-    void insertAtEnd(int data) {
-        Node* newNode = new Node(data);
-        if (head == nullptr) {
-            head = newNode;
-            return;
-        }
-        Node* temp = head;
-        while (temp-&gt;next != nullptr) {
-            temp = temp-&gt;next;
-        }
-        temp-&gt;next = newNode;
-    }
-
-    // Function to insert a new node after a given previous node
-    void insertAfterNode(Node* prevNode, int data) {
-        if (head == nullptr) {
-            cout &lt;&lt; "The list cannot be empty\n";
-            return;
-        }
-
-        if (prevNode == nullptr) {
-            cout &lt;&lt; "The given previous node cannot be NULL\n";
-            return;
-        }
-
-        Node* newNode = new Node(data);
-        newNode-&gt;next = prevNode-&gt;next;
-        prevNode-&gt;next = newNode;
-    }
-
-    // Function to insert a node before a given node
-    void insertBeforeNode(Node* nextNode, int data) {
-        if (head == nullptr) {
-            cout &lt;&lt; "The list cannot be empty\n";
-            return;
-        }
-
-        if (nextNode == nullptr) {
-            cout &lt;&lt; "The given next node cannot be NULL\n";
-            return;
-        }
-
-        Node* newNode = new Node(data);
-        if (head == nextNode) {
-            newNode-&gt;next = head;
-            head = newNode;
-            return;
-        }
-
-        Node* temp = head;
-        while (temp != nullptr && temp-&gt;next != nextNode) {
-            temp = temp-&gt;next;
-        }
-
-        if (temp == nullptr) {
-            cout &lt;&lt; "The given next node is not found in the list\n";
-            delete newNode;
-            return;
-        }
-
-        newNode-&gt;next = temp-&gt;next;
-        temp-&gt;next = newNode;
-    }
-
-    // Function to insert a node at a specific position (0-based index)
-    void insertAtPosition(int data, int position) {
-        Node* newNode = new Node(data);
-
-        if (position == 0) {
-            newNode-&gt;next = head;
-            head = newNode;
-            return;
-        }
-
-        Node* temp = head;
-        for (int i = 0; i &lt; position - 1 && temp != nullptr; i++) {
-            temp = temp-&gt;next;
-        }
-
-        if (temp == nullptr) {
-            cout &lt;&lt; "Position out of bounds\n";
-            delete newNode;
-            return;
-        }
-
-        newNode-&gt;next = temp-&gt;next;
-        temp-&gt;next = newNode;
-    }
-
-    // Function to delete a node at the beginning of the list
-    void deleteAtBeginning() {
-        if (head == nullptr) {
-            cout &lt;&lt; "List is empty\n";
-            return;
-        }
-        Node* temp = head;
-        head = head-&gt;next;
-        delete temp;
-    }
-
-    // Function to delete a node at the end of the list
-    void deleteAtEnd() {
-        if (head == nullptr) {
-            cout &lt;&lt; "List is empty\n";
-            return;
-        }
-
-        Node* temp = head;
-
-        // If there's only one node in the list
-        if (temp-&gt;next == nullptr) {
-            delete temp;
-            head = nullptr;
-            return;
-        }
-
-        // Traverse to the second last node
-        while (temp-&gt;next-&gt;next != nullptr) {
-            temp = temp-&gt;next;
-        }
-
-        // Free the last node
-        delete temp-&gt;next;
-        temp-&gt;next = nullptr;
-    }
-
-    // Function to delete a node at a specific position (0-based index)
-    void deleteAtPosition(int position) {
-        if (head == nullptr) {
-            cout &lt;&lt; "List is empty\n";
-            return;
-        }
-
-        Node* temp = head;
-
-        // If head needs to be removed
-        if (position == 0) {
-            head = temp-&gt;next; // Change head
-            delete temp; // Free old head
-            return;
-        }
-
-        // Find previous node of the node to be deleted
-        for (int i = 0; temp != nullptr && i &lt; position - 1; i++) {
-            temp = temp-&gt;next;
-        }
-
-        // If position is more than the number of nodes
-        if (temp == nullptr || temp-&gt;next == nullptr) {
-            cout &lt;&lt; "Position out of bounds\n";
-            return;
-        }
-
-        // Node temp-&gt;next is the node to be deleted
-        Node* nextNode = temp-&gt;next-&gt;next;
-        delete temp-&gt;next; // Free memory
-        temp-&gt;next = nextNode; // Unlink the deleted node from the list
-    }
-
-    // Function to traverse the list and print all elements
-    void traverse() {
-        Node* temp = head;
-        while (temp != nullptr) {
-            cout &lt;&lt; temp-&gt;data &lt;&lt; " -&gt; ";
-            temp = temp-&gt;next;
-        }
-        cout &lt;&lt; "NULL\n";
-    }
-
-    // Function to search for an element in the list
-    bool search(int key) {
-        Node* temp = head;
-        while (temp != nullptr) {
-            if (temp-&gt;data == key)
-                return true; // Key found
-            temp = temp-&gt;next;
-        }
-        return false; // Key not found
-    }
-
-    // Function to reverse the linked list
-    void reverse() {
-        Node *prev = nullptr, *current = head, *next = nullptr;
-        while (current != nullptr) {
-            next = current-&gt;next; // Store next
-            current-&gt;next = prev; // Reverse current node's pointer
-            prev = current;       // Move pointers one position ahead
-            current = next;
-        }
-        head = prev;
-    }
-
-    // Function to get the size of the linked list
-    int size() {
-        int size = 0;
-        Node* temp = head;
-        while (temp != nullptr) {
-            size++;
-            temp = temp-&gt;next;
-        }
-        return size;
-    }
-
-    // Function to check if the list is empty
-    bool isEmpty() {
-        return head == nullptr;
-    }
-
-    // Function to access an element at a specific index (0-based)
-    int get(int index) {
-        int count = 0;
-        Node* temp = head;
-        while (temp != nullptr) {
-            if (count == index)
-                return temp-&gt;data;
-            count++;
-            temp = temp-&gt;next;
-        }
-        return -1; // Index out of range
-    }
-
-    // Function to set an element at a specific index (0-based)
-    void set(int index, int newValue) {
-        Node* current = head;
-        int count = 0;
-
-        // Traverse the list until the specified index
-        while (current != nullptr) {
-            if (count == index) {
-                current-&gt;data = newValue;  // Update the node's value
-                return;                    // Exit the function after the update
-            }
-            count++;
-            current = current-&gt;next;      // Move to the next node
-        }
-
-        cout &lt;&lt; "Index out of range\n"; // Handle case where index exceeds list length
-    }
-
-    // Function to merge two lists
-    Node* merge(Node* head1, Node* head2) {
-        if (head1 == nullptr) return head2;
-        if (head2 == nullptr) return head1;
-
-        Node* mergedHead = nullptr;
-        if (head1-&gt;data &lt;= head2-&gt;data) {
-            mergedHead = head1;
-            mergedHead-&gt;next = merge(head1-&gt;next, head2);
-        } else {
-            mergedHead = head2;
-            mergedHead-&gt;next = merge(head1, head2-&gt;next);
-        }
-        return mergedHead;
-    }
-
-    // Function to get the middle of the linked list
-    Node* middle(Node* head) {
-        if (head == nullptr) return head;
-        Node* slow = head;
-        Node* fast = head-&gt;next;
-        while (fast != nullptr) {
-            fast = fast-&gt;next;
-            if (fast != nullptr) {
-                slow = slow-&gt;next;
-                fast = fast-&gt;next;
-            }
-        }
-        return slow;
-    }
-
-    // Function to sort the linked list (using Merge Sort)
-    Node* sort(Node* head) {
-        if (head == nullptr || head-&gt;next == nullptr)
-            return head;
-
-        Node* mid = middle(head);
-        Node* nextToMid = mid-&gt;next;
-        mid-&gt;next = nullptr;
-
-        Node* left = sort(head);
-        Node* right = sort(nextToMid);
-
-        return merge(left, right);
-    }
-
-    // Function to clear the entire linked list and free memory
-    void clear() {
-        Node* current = head;
-        Node* next;
-
-        while (current != nullptr) {
-            next = current-&gt;next;
-            delete current;
-            current = next;
-        }
-
-        head = nullptr;
-    }
-
-    // Destructor to free the memory when the linked list is destroyed
-    ~LinkedList() {
-        clear();
-    }
-};
-
-// Main function to test the linked list operations
-int main() {
-    LinkedList list;
-
-    // Insert at beginning
-    list.insertAtBeginning(10);
-    list.insertAtBeginning(20);
-    list.insertAtBeginning(30);
-    cout &lt;&lt; "After inserting at the beginning: ";
-    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; NULL
-
-    // Insert at end
-    list.insertAtEnd(40);
-    cout &lt;&lt; "After inserting at the end: ";
-    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
-
-    // Insert at position
-    list.insertAtPosition(25, 2);  // Insert 25 at position 2
-    cout &lt;&lt; "After inserting at position 2: ";
-    list.traverse();  // Output: 30 -&gt; 20 -&gt; 25 -&gt; 10 -&gt; 40 -&gt; NULL
-
-    // Delete at position
-    list.deleteAtPosition(2);  // Delete node at position 2
-    cout &lt;&lt; "After deleting at position 2: ";
-    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
-
-    // Reverse the list
-    list.reverse();
-    cout &lt;&lt; "After reversing the list: ";
-    list.traverse();  // Output: 40 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
-
-    // Search for a value
-    bool found = list.search(20);
-    cout &lt;&lt; "Is 20 in the list? " &lt;&lt; (found ? "Yes" : "No") &lt;&lt; endl;  // Output: Yes
-
-    // Get size of the list
-    cout &lt;&lt; "Size of the list: " &lt;&lt; list.size() &lt;&lt; endl;  // Output: 4
-
-    // Sort the list
-    Node* sortedHead = list.sort(list.head);
-    list.clear(); // Clear the current list before assigning sorted list
-    list.head = sortedHead; // Set the head to the sorted list
-    cout &lt;&lt; "After sorting the list: ";
-    list.traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
-
-    // Clear the list
-    list.clear();
-    cout &lt;&lt; "After clearing the list: ";
-    list.traverse();  // Output: NULL
-
-    return 0;
-}</code></pre>
-
-		<p>Here is an implementation of a generic singly linked list in C++:</p>
-
-        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
-
-using namespace std;
-
-// Node structure for singly linked list
+// Node structure for singly linked list template
 template &lt;typename T&gt;
 struct Node {
     T data;
     Node* next;
 
     // Constructor to create a new node
-    Node(T data) {
-        this-&gt;data = data;
-        this-&gt;next = nullptr;
-    }
+    Node(T data) : data(data), next(nullptr) {}
 };
 
-// Class to manage linked list operations
+// Insert at the beginning
 template &lt;typename T&gt;
-class LinkedList {
-private:
-    Node&lt;T&gt;* head;
+void insertAtBeginning(Node&lt;T&gt;*& head, T data) {
+    Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+    newNode-&gt;next = head;
+    head = newNode;
+}
 
-public:
-    // Constructor to initialize the linked list
-    LinkedList() : head(nullptr) {}
+// Insert at the end
+template &lt;typename T&gt;
+void insertAtEnd(Node&lt;T&gt;*& head, T data) {
+    Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+    if (head == nullptr) {
+        head = newNode;
+        return;
+    }
+    Node&lt;T&gt;* temp = head;
+    while (temp-&gt;next != nullptr) {
+        temp = temp-&gt;next;
+    }
+    temp-&gt;next = newNode;
+}
 
-    // Function to insert a node at the beginning of the list
-    void insertAtBeginning(T data) {
-        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+// Insert at a specific position
+template &lt;typename T&gt;
+void insertAtPosition(Node&lt;T&gt;*& head, T data, int position) {
+    Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+    if (position == 0) {
         newNode-&gt;next = head;
         head = newNode;
+        return;
     }
 
-    // Function to insert a node at the end of the list
-    void insertAtEnd(T data) {
-        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
-        if (head == nullptr) {
-            head = newNode;
-            return;
-        }
-        Node&lt;T&gt;* temp = head;
-        while (temp-&gt;next != nullptr) {
-            temp = temp-&gt;next;
-        }
-        temp-&gt;next = newNode;
+    Node&lt;T&gt;* temp = head;
+    for (int i = 0; i &lt; position - 1 && temp != nullptr; i++) {
+        temp = temp-&gt;next;
     }
 
-    // Function to insert a new node after a given previous node
-    void insertAfterNode(Node&lt;T&gt;* prevNode, T data) {
-        if (head == nullptr) {
-            cout &lt;&lt; "The list cannot be empty\n";
-            return;
-        }
-
-        if (prevNode == nullptr) {
-            cout &lt;&lt; "The given previous node cannot be NULL\n";
-            return;
-        }
-
-        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
-        newNode-&gt;next = prevNode-&gt;next;
-        prevNode-&gt;next = newNode;
+    if (temp == nullptr) {
+        cout &lt;&lt; "Position out of bounds\n";
+        delete newNode;
+        return;
     }
 
-    // Function to insert a node before a given node
-    void insertBeforeNode(Node&lt;T&gt;* nextNode, T data) {
-        if (head == nullptr) {
-            cout &lt;&lt; "The list cannot be empty\n";
-            return;
-        }
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
 
-        if (nextNode == nullptr) {
-            cout &lt;&lt; "The given next node cannot be NULL\n";
-            return;
-        }
+// Delete at the beginning
+template &lt;typename T&gt;
+void deleteAtBeginning(Node&lt;T&gt;*& head) {
+    if (head == nullptr) {
+        cout &lt;&lt; "List is empty\n";
+        return;
+    }
+    Node&lt;T&gt;* temp = head;
+    head = head-&gt;next;
+    delete temp;
+}
 
-        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
-        if (head == nextNode) {
-            newNode-&gt;next = head;
-            head = newNode;
-            return;
-        }
-
-        Node&lt;T&gt;* temp = head;
-        while (temp != nullptr && temp-&gt;next != nextNode) {
-            temp = temp-&gt;next;
-        }
-
-        if (temp == nullptr) {
-            cout &lt;&lt; "The given next node is not found in the list\n";
-            delete newNode;
-            return;
-        }
-
-        newNode-&gt;next = temp-&gt;next;
-        temp-&gt;next = newNode;
+// Delete at the end
+template &lt;typename T&gt;
+void deleteAtEnd(Node&lt;T&gt;*& head) {
+    if (head == nullptr) {
+        cout &lt;&lt; "List is empty\n";
+        return;
     }
 
-    // Function to insert a node at a specific position (0-based index)
-    void insertAtPosition(T data, int position) {
-        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
-
-        if (position == 0) {
-            newNode-&gt;next = head;
-            head = newNode;
-            return;
-        }
-
-        Node&lt;T&gt;* temp = head;
-        for (int i = 0; i &lt; position - 1 && temp != nullptr; i++) {
-            temp = temp-&gt;next;
-        }
-
-        if (temp == nullptr) {
-            cout &lt;&lt; "Position out of bounds\n";
-            delete newNode;
-            return;
-        }
-
-        newNode-&gt;next = temp-&gt;next;
-        temp-&gt;next = newNode;
+    if (head-&gt;next == nullptr) {
+        delete head;
+        head = nullptr;
+        return;
     }
 
-    // Function to delete a node at the beginning of the list
-    void deleteAtBeginning() {
-        if (head == nullptr) {
-            cout &lt;&lt; "List is empty\n";
-            return;
-        }
+    Node&lt;T&gt;* temp = head;
+    while (temp-&gt;next-&gt;next != nullptr) {
+        temp = temp-&gt;next;
+    }
+
+    delete temp-&gt;next;
+    temp-&gt;next = nullptr;
+}
+
+// Delete at a specific position
+template &lt;typename T&gt;
+void deleteAtPosition(Node&lt;T&gt;*& head, int position) {
+    if (head == nullptr) {
+        cout &lt;&lt; "List is empty\n";
+        return;
+    }
+
+    if (position == 0) {
         Node&lt;T&gt;* temp = head;
         head = head-&gt;next;
         delete temp;
+        return;
     }
 
-    // Function to delete a node at the end of the list
-    void deleteAtEnd() {
-        if (head == nullptr) {
-            cout &lt;&lt; "List is empty\n";
-            return;
-        }
-
-        Node&lt;T&gt;* temp = head;
-
-        // If there's only one node in the list
-        if (temp-&gt;next == nullptr) {
-            delete temp;
-            head = nullptr;
-            return;
-        }
-
-        // Traverse to the second last node
-        while (temp-&gt;next-&gt;next != nullptr) {
-            temp = temp-&gt;next;
-        }
-
-        // Free the last node
-        delete temp-&gt;next;
-        temp-&gt;next = nullptr;
+    Node&lt;T&gt;* temp = head;
+    for (int i = 0; i &lt; position - 1 && temp != nullptr; i++) {
+        temp = temp-&gt;next;
     }
 
-    // Function to delete a node at a specific position (0-based index)
-    void deleteAtPosition(int position) {
-        if (head == nullptr) {
-            cout &lt;&lt; "List is empty\n";
-            return;
-        }
-
-        Node&lt;T&gt;* temp = head;
-
-        // If head needs to be removed
-        if (position == 0) {
-            head = temp-&gt;next; // Change head
-            delete temp; // Free old head
-            return;
-        }
-
-        // Find previous node of the node to be deleted
-        for (int i = 0; temp != nullptr && i &lt; position - 1; i++) {
-            temp = temp-&gt;next;
-        }
-
-        // If position is more than the number of nodes
-        if (temp == nullptr || temp-&gt;next == nullptr) {
-            cout &lt;&lt; "Position out of bounds\n";
-            return;
-        }
-
-        // Node temp-&gt;next is the node to be deleted
-        Node&lt;T&gt;* nextNode = temp-&gt;next-&gt;next;
-        delete temp-&gt;next; // Free memory
-        temp-&gt;next = nextNode; // Unlink the deleted node from the list
+    if (temp == nullptr || temp-&gt;next == nullptr) {
+        cout &lt;&lt; "Position out of bounds\n";
+        return;
     }
 
-    // Function to traverse the list and print all elements
-    void traverse() {
-        Node&lt;T&gt;* temp = head;
-        while (temp != nullptr) {
-            cout &lt;&lt; temp-&gt;data &lt;&lt; " -&gt; ";
-            temp = temp-&gt;next;
-        }
-        cout &lt;&lt; "NULL\n";
+    Node&lt;T&gt;* nextNode = temp-&gt;next-&gt;next;
+    delete temp-&gt;next;
+    temp-&gt;next = nextNode;
+}
+
+// Traverse the list
+template &lt;typename T&gt;
+void traverse(Node&lt;T&gt;* head) {
+    Node&lt;T&gt;* temp = head;
+    while (temp != nullptr) {
+        cout &lt;&lt; temp-&gt;data &lt;&lt; " -&gt; ";
+        temp = temp-&gt;next;
+    }
+    cout &lt;&lt; "NULL\n";
+}
+
+// Search for an element
+template &lt;typename T&gt;
+bool search(Node&lt;T&gt;* head, T key) {
+    Node&lt;T&gt;* temp = head;
+    while (temp != nullptr) {
+        if (temp-&gt;data == key)
+            return true;
+        temp = temp-&gt;next;
+    }
+    return false;
+}
+
+// Reverse the list
+template &lt;typename T&gt;
+void reverse(Node&lt;T&gt;*& head) {
+    Node&lt;T&gt;* prev = nullptr;
+    Node&lt;T&gt;* current = head;
+    Node&lt;T&gt;* next = nullptr;
+
+    while (current != nullptr) {
+        next = current-&gt;next;
+        current-&gt;next = prev;
+        prev = current;
+        current = next;
     }
 
-    // Function to search for an element in the list
-    bool search(T key) {
-        Node&lt;T&gt;* temp = head;
-        while (temp != nullptr) {
-            if (temp-&gt;data == key)
-                return true; // Key found
-            temp = temp-&gt;next;
-        }
-        return false; // Key not found
+    head = prev;
+}
+
+// Get the size of the list
+template &lt;typename T&gt;
+int size(Node&lt;T&gt;* head) {
+    int count = 0;
+    Node&lt;T&gt;* temp = head;
+    while (temp != nullptr) {
+        count++;
+        temp = temp-&gt;next;
     }
+    return count;
+}
 
-    // Function to reverse the linked list
-    void reverse() {
-        Node&lt;T&gt;* prev = nullptr;
-        Node&lt;T&gt;* current = head;
-        Node&lt;T&gt;* next = nullptr;
-        while (current != nullptr) {
-            next = current-&gt;next; // Store next
-            current-&gt;next = prev; // Reverse current node's pointer
-            prev = current;       // Move pointers one position ahead
-            current = next;
-        }
-        head = prev;
+// Clear the list
+template &lt;typename T&gt;
+void clear(Node&lt;T&gt;*& head) {
+    Node&lt;T&gt;* current = head;
+    while (current != nullptr) {
+        Node&lt;T&gt;* next = current-&gt;next;
+        delete current;
+        current = next;
     }
+    head = nullptr;
+}
 
-    // Function to get the size of the linked list
-    int size() {
-        int size = 0;
-        Node&lt;T&gt;* temp = head;
-        while (temp != nullptr) {
-            size++;
-            temp = temp-&gt;next;
-        }
-        return size;
-    }
-
-    // Function to check if the list is empty
-    bool isEmpty() {
-        return head == nullptr;
-    }
-
-    // Function to access an element at a specific index (0-based)
-    T get(int index) {
-        int count = 0;
-        Node&lt;T&gt;* temp = head;
-        while (temp != nullptr) {
-            if (count == index)
-                return temp-&gt;data;
-            count++;
-            temp = temp-&gt;next;
-        }
-        throw out_of_range("Index out of range"); // Using exception handling
-    }
-
-    // Function to set an element at a specific index (0-based)
-    void set(int index, T newValue) {
-        Node&lt;T&gt;* current = head;
-        int count = 0;
-
-        // Traverse the list until the specified index
-        while (current != nullptr) {
-            if (count == index) {
-                current-&gt;data = newValue;  // Update the node's value
-                return;                    // Exit the function after the update
-            }
-            count++;
-            current = current-&gt;next;      // Move to the next node
-        }
-
-        cout &lt;&lt; "Index out of range\n"; // Handle case where index exceeds list length
-    }
-
-    // Function to merge two lists
-    Node&lt;T&gt;* merge(Node&lt;T&gt;* head1, Node&lt;T&gt;* head2) {
-        if (head1 == nullptr) return head2;
-        if (head2 == nullptr) return head1;
-
-        Node&lt;T&gt;* mergedHead = nullptr;
-        if (head1-&gt;data &lt;= head2-&gt;data) {
-            mergedHead = head1;
-            mergedHead-&gt;next = merge(head1-&gt;next, head2);
-        } else {
-            mergedHead = head2;
-            mergedHead-&gt;next = merge(head1, head2-&gt;next);
-        }
-        return mergedHead;
-    }
-
-    // Function to get the middle of the linked list
-    Node&lt;T&gt;* middle(Node&lt;T&gt;* head) {
-        if (head == nullptr) return head;
-        Node&lt;T&gt;* slow = head;
-        Node&lt;T&gt;* fast = head-&gt;next;
-        while (fast != nullptr) {
-            fast = fast-&gt;next;
-            if (fast != nullptr) {
-                slow = slow-&gt;next;
-                fast = fast-&gt;next;
-            }
-        }
-        return slow;
-    }
-
-    // Function to sort the linked list (using Merge Sort)
-    Node&lt;T&gt;* sort(Node&lt;T&gt;* head) {
-        if (head == nullptr || head-&gt;next == nullptr)
-            return head;
-
-        Node&lt;T&gt;* mid = middle(head);
-        Node&lt;T&gt;* nextToMid = mid-&gt;next;
-        mid-&gt;next = nullptr;
-
-        Node&lt;T&gt;* left = sort(head);
-        Node&lt;T&gt;* right = sort(nextToMid);
-
-        return merge(left, right);
-    }
-
-    // Function to clear the entire linked list and free memory
-    void clear() {
-        Node&lt;T&gt;* current = head;
-        Node&lt;T&gt;* next;
-
-        while (current != nullptr) {
-            next = current-&gt;next;
-            delete current;
-            current = next;
-        }
-
-        head = nullptr;
-    }
-
-    // Destructor to free the memory when the linked list is destroyed
-    ~LinkedList() {
-        clear();
-    }
-};
-
-// Main function to test the linked list operations
 int main() {
-    LinkedList&lt;int&gt; list;
+    Node&lt;int&gt;* head = nullptr;
 
-    // Insert at beginning
-    list.insertAtBeginning(10);
-    list.insertAtBeginning(20);
-    list.insertAtBeginning(30);
-    cout &lt;&lt; "After inserting at the beginning: ";
-    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; NULL
+    // Insert elements at the beginning
+    insertAtBeginning(head, 5);
+    insertAtBeginning(head, 10);
+    insertAtBeginning(head, 3);
 
-    // Insert at end
-    list.insertAtEnd(40);
-    cout &lt;&lt; "After inserting at the end: ";
-    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
+    cout &lt;&lt; "List after inserting at the beginning: ";
+    traverse(head);
 
-    // Insert at position
-    list.insertAtPosition(25, 2);  // Insert 25 at position 2
-    cout &lt;&lt; "After inserting at position 2: ";
-    list.traverse();  // Output: 30 -&gt; 20 -&gt; 25 -&gt; 10 -&gt; 40 -&gt; NULL
+    // Insert element at the end
+    insertAtEnd(head, 7);
+    insertAtEnd(head, 2);
 
-    // Delete at position
-    list.deleteAtPosition(2);  // Delete node at position 2
-    cout &lt;&lt; "After deleting at position 2: ";
-    list.traverse();  // Output: 30 -&gt; 20 -&gt; 10 -&gt; 40 -&gt; NULL
+    cout &lt;&lt; "List after inserting at the end: ";
+    traverse(head);
+
+    // Insert at a specific position
+    insertAtPosition(head, 4, 2);
+    cout &lt;&lt; "List after inserting at position 2: ";
+    traverse(head);
+
+    // Delete at the beginning
+    deleteAtBeginning(head);
+    cout &lt;&lt; "List after deleting at the beginning: ";
+    traverse(head);
+
+    // Delete at the end
+    deleteAtEnd(head);
+    cout &lt;&lt; "List after deleting at the end: ";
+    traverse(head);
+
+    // Delete at a specific position
+    deleteAtPosition(head, 2);
+    cout &lt;&lt; "List after deleting at position 2: ";
+    traverse(head);
+
+    // Search for an element
+    int key = 7;
+    if (search(head, key)) {
+        cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " found in the list\n";
+    } else {
+        cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " not found in the list\n";
+    }
 
     // Reverse the list
-    list.reverse();
-    cout &lt;&lt; "After reversing the list: ";
-    list.traverse();  // Output: 40 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
+    reverse(head);
+    cout &lt;&lt; "List after reversing: ";
+    traverse(head);
 
-    // Search for a value
-    bool found = list.search(20);
-    cout &lt;&lt; "Is 20 in the list? " &lt;&lt; (found ? "Yes" : "No") &lt;&lt; endl;  // Output: Yes
-
-    // Get size of the list
-    cout &lt;&lt; "Size of the list: " &lt;&lt; list.size() &lt;&lt; endl;  // Output: 4
-
-    // Sort the list
-    Node&lt;int&gt;* sortedHead = list.sort(list.head);
-    list.clear(); // Clear the current list before assigning sorted list
-    list.head = sortedHead; // Set the head to the sorted list
-    cout &lt;&lt; "After sorting the list: ";
-    list.traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+    // Get the size of the list
+    cout &lt;&lt; "Size of the list: " &lt;&lt; size(head) &lt;&lt; endl;
 
     // Clear the list
-    list.clear();
-    cout &lt;&lt; "After clearing the list: ";
-    list.traverse();  // Output: NULL
-	
-	LinkedList&lt;string&gt; list;
+    clear(head);
+    cout &lt;&lt; "List after clearing: ";
+    traverse(head);
 
-    // Insert at beginning
-    list.insertAtBeginning("World");
-    list.insertAtBeginning("Hello");
-    cout &lt;&lt; "After inserting at the beginning: ";
-    list.traverse();  // Output: Hello -&gt; World -&gt; NULL
-
-    // Insert at end
-    list.insertAtEnd("!");
-    cout &lt;&lt; "After inserting at the end: ";
-    list.traverse();  // Output: Hello -&gt; World -&gt; ! -&gt; NULL
-
-    // Delete at beginning
-    list.deleteAtBeginning();
-    cout &lt;&lt; "After deleting at the beginning: ";
-    list.traverse();  // Output: World -&gt; ! -&gt; NULL
-
-    // Clear the list
-    list.clear();
-    cout &lt;&lt; "After clearing the list: ";
-    list.traverse();  // Output: NULL
-	
     return 0;
 }</code></pre>
 		
-		<p>Here is an implementation of a simple singly linked list in Java:</p>
+		<p>Here is the Generic singly linked list implementation in Java:</p>
+		
+		<pre><code class="language-java hljs">public class LinkedList&lt;T&gt; {
 
-        <pre><code class="language-java hljs">class Node {
-    int data;
-    Node next;
+    // Node structure for singly linked list
+    static class Node&lt;T&gt; {
+        T data;
+        Node&lt;T&gt; next;
 
-    // Constructor to create a new node
-    Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
-// Class to manage linked list operations
-class LinkedList {
-    private Node head;
-
-    // Constructor to initialize the linked list
-    public LinkedList() {
-        head = null;
-    }
-
-    // Function to insert a node at the beginning of the list
-    public void insertAtBeginning(int data) {
-        Node newNode = new Node(data);
-        newNode.next = head;
-        head = newNode;
-    }
-
-    // Function to insert a node at the end of the list
-    public void insertAtEnd(int data) {
-        Node newNode = new Node(data);
-        if (head == null) {
-            head = newNode;
-            return;
+        // Constructor to create a new node
+        Node(T data) {
+            this.data = data;
+            this.next = null;
         }
-        Node temp = head;
+    }
+
+    // Insert at the beginning
+    public static &lt;T&gt; Node&lt;T&gt; insertAtBeginning(Node&lt;T&gt; head, T data) {
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+        newNode.next = head;
+        return newNode;
+    }
+
+    // Insert at the end
+    public static &lt;T&gt; Node&lt;T&gt; insertAtEnd(Node&lt;T&gt; head, T data) {
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+        if (head == null) {
+            return newNode;
+        }
+        Node&lt;T&gt; temp = head;
         while (temp.next != null) {
             temp = temp.next;
         }
         temp.next = newNode;
+        return head;
     }
 
-    // Function to insert a new node after a given previous node
-    public void insertAfterNode(Node prevNode, int data) {
-        if (head == null) {
-            System.out.println("The list cannot be empty");
-            return;
-        }
-
-        if (prevNode == null) {
-            System.out.println("The given previous node cannot be null");
-            return;
-        }
-
-        Node newNode = new Node(data);
-        newNode.next = prevNode.next;
-        prevNode.next = newNode;
-    }
-
-    // Function to insert a node before a given node
-    public void insertBeforeNode(Node nextNode, int data) {
-        if (head == null) {
-            System.out.println("The list cannot be empty");
-            return;
-        }
-
-        if (nextNode == null) {
-            System.out.println("The given next node cannot be null");
-            return;
-        }
-
-        Node newNode = new Node(data);
-        if (head == nextNode) {
-            newNode.next = head;
-            head = newNode;
-            return;
-        }
-
-        Node temp = head;
-        while (temp != null && temp.next != nextNode) {
-            temp = temp.next;
-        }
-
-        if (temp == null) {
-            System.out.println("The given next node is not found in the list");
-            return;
-        }
-
-        newNode.next = temp.next;
-        temp.next = newNode;
-    }
-
-    // Function to insert a node at a specific position (0-based index)
-    public void insertAtPosition(int data, int position) {
-        Node newNode = new Node(data);
-
+    // Insert at a specific position
+    public static &lt;T&gt; Node&lt;T&gt; insertAtPosition(Node&lt;T&gt; head, T data, int position) {
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
         if (position == 0) {
             newNode.next = head;
-            head = newNode;
-            return;
+            return newNode;
         }
 
-        Node temp = head;
+        Node&lt;T&gt; temp = head;
         for (int i = 0; i &lt; position - 1 && temp != null; i++) {
             temp = temp.next;
         }
 
         if (temp == null) {
             System.out.println("Position out of bounds");
-            return;
-        }
-
-        newNode.next = temp.next;
-        temp.next = newNode;
-    }
-
-    // Function to delete a node at the beginning of the list
-    public void deleteAtBeginning() {
-        if (head == null) {
-            System.out.println("List is empty");
-            return;
-        }
-        Node temp = head;
-        head = head.next;
-        temp = null; // Helps with garbage collection
-    }
-
-    // Function to delete a node at the end of the list
-    public void deleteAtEnd() {
-        if (head == null) {
-            System.out.println("List is empty");
-            return;
-        }
-
-        Node temp = head;
-
-        // If there's only one node in the list
-        if (temp.next == null) {
-            head = null;
-            return;
-        }
-
-        // Traverse to the second last node
-        while (temp.next.next != null) {
-            temp = temp.next;
-        }
-
-        // Free the last node
-        temp.next = null;
-    }
-
-    // Function to delete a node at a specific position (0-based index)
-    public void deleteAtPosition(int position) {
-        if (head == null) {
-            System.out.println("List is empty");
-            return;
-        }
-
-        Node temp = head;
-
-        // If head needs to be removed
-        if (position == 0) {
-            head = temp.next; // Change head
-            temp = null; // Helps with garbage collection
-            return;
-        }
-
-        // Find previous node of the node to be deleted
-        for (int i = 0; temp != null && i &lt; position - 1; i++) {
-            temp = temp.next;
-        }
-
-        // If position is more than the number of nodes
-        if (temp == null || temp.next == null) {
-            System.out.println("Position out of bounds");
-            return;
-        }
-
-        // Node temp.next is the node to be deleted
-        Node nextNode = temp.next.next;
-        temp.next = nextNode; // Unlink the deleted node from the list
-    }
-
-    // Function to traverse the list and print all elements
-    public void traverse() {
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(temp.data + " -&gt; ");
-            temp = temp.next;
-        }
-        System.out.println("NULL");
-    }
-
-    // Function to search for an element in the list
-    public boolean search(int key) {
-        Node temp = head;
-        while (temp != null) {
-            if (temp.data == key)
-                return true; // Key found
-            temp = temp.next;
-        }
-        return false; // Key not found
-    }
-
-    // Function to reverse the linked list
-    public void reverse() {
-        Node prev = null, current = head, next = null;
-        while (current != null) {
-            next = current.next; // Store next
-            current.next = prev; // Reverse current node's pointer
-            prev = current;       // Move pointers one position ahead
-            current = next;
-        }
-        head = prev;
-    }
-
-    // Function to get the size of the linked list
-    public int size() {
-        int size = 0;
-        Node temp = head;
-        while (temp != null) {
-            size++;
-            temp = temp.next;
-        }
-        return size;
-    }
-
-    // Function to check if the list is empty
-    public boolean isEmpty() {
-        return head == null;
-    }
-
-    // Function to access an element at a specific index (0-based)
-    public int get(int index) {
-        int count = 0;
-        Node temp = head;
-        while (temp != null) {
-            if (count == index)
-                return temp.data;
-            count++;
-            temp = temp.next;
-        }
-        return -1; // Index out of range
-    }
-
-    // Function to set an element at a specific index (0-based)
-    public void set(int index, int newValue) {
-        Node current = head;
-        int count = 0;
-
-        // Traverse the list until the specified index
-        while (current != null) {
-            if (count == index) {
-                current.data = newValue;  // Update the node's value
-                return;                    // Exit the function after the update
-            }
-            count++;
-            current = current.next;      // Move to the next node
-        }
-
-        System.out.println("Index out of range"); // Handle case where index exceeds list length
-    }
-
-    // Function to merge two lists
-    private Node merge(Node head1, Node head2) {
-        if (head1 == null) return head2;
-        if (head2 == null) return head1;
-
-        Node mergedHead;
-        if (head1.data &lt;= head2.data) {
-            mergedHead = head1;
-            mergedHead.next = merge(head1.next, head2);
-        } else {
-            mergedHead = head2;
-            mergedHead.next = merge(head1, head2.next);
-        }
-        return mergedHead;
-    }
-
-    // Function to get the middle of the linked list
-    private Node middle(Node head) {
-        if (head == null) return head;
-        Node slow = head;
-        Node fast = head.next;
-        while (fast != null) {
-            fast = fast.next;
-            if (fast != null) {
-                slow = slow.next;
-                fast = fast.next;
-            }
-        }
-        return slow;
-    }
-
-    // Function to sort the linked list (using Merge Sort)
-    public Node sort(Node head) {
-        if (head == null || head.next == null)
             return head;
-
-        Node mid = middle(head);
-        Node nextToMid = mid.next;
-        mid.next = null;
-
-        Node left = sort(head);
-        Node right = sort(nextToMid);
-
-        return merge(left, right);
-    }
-
-    // Function to clear the entire linked list and free memory
-    public void clear() {
-        head = null; // Helps with garbage collection
-    }
-
-    // Main method to test the linked list operations
-    public static void main(String[] args) {
-        LinkedList list = new LinkedList();
-
-        // Insert elements
-        list.insertAtEnd(10);
-        list.insertAtEnd(20);
-        list.insertAtEnd(30);
-        System.out.print("After inserting at the end: ");
-        list.traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; NULL
-
-        // Insert at the beginning
-        list.insertAtBeginning(5);
-        System.out.print("After inserting at the beginning: ");
-        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
-
-        // Insert at the end
-        list.insertAtEnd(40);
-        System.out.print("After inserting at the end: ");
-        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
-
-        // Insert at position
-        list.insertAtPosition(25, 3);  // Insert 25 at position 3
-        System.out.print("After inserting at position 3: ");
-        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 25 -&gt; 30 -&gt; 40 -&gt; NULL
-
-        // Delete at position
-        list.deleteAtPosition(3);  // Delete node at position 3
-        System.out.print("After deleting at position 3: ");
-        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
-
-        // Reverse the list
-        list.reverse();
-        System.out.print("After reversing the list: ");
-        list.traverse();  // Output: 40 -&gt; 30 -&gt; 20 -&gt; 10 -&gt; 5 -&gt; NULL
-
-        // Search for a value
-        boolean found = list.search(20);
-        System.out.println("Is 20 in the list? " + (found ? "Yes" : "No"));  // Output: Yes
-
-        // Get size of the list
-        System.out.println("Size of the list: " + list.size());  // Output: 5
-
-        // Sort the list
-        Node sortedHead = list.sort(list.head);
-        list.clear(); // Clear the current list before assigning sorted list
-        list.head = sortedHead; // Set the head to the sorted list
-        System.out.print("After sorting the list: ");
-        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
-
-        // Clear the list
-        list.clear();
-        System.out.print("After clearing the list: ");
-        list.traverse();  // Output: NULL
-    }
-}</code></pre>
-
-        <p>Here is an implementation of a generic singly linked list in Java:</p>
-
-        <pre><code class="language-java hljs">class Node&lt;T&gt; {
-    T data;
-    Node&lt;T&gt; next;
-
-    // Constructor to create a new node
-    Node(T data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
-// Class to manage linked list operations
-class LinkedList&lt;T&gt; {
-    private Node&lt;T&gt; head;
-
-    // Constructor to initialize the linked list
-    public LinkedList() {
-        head = null;
-    }
-
-    // Function to insert a node at the beginning of the list
-    public void insertAtBeginning(T data) {
-        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
-        newNode.next = head;
-        head = newNode;
-    }
-
-    // Function to insert a node at the end of the list
-    public void insertAtEnd(T data) {
-        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
-        if (head == null) {
-            head = newNode;
-            return;
-        }
-        Node&lt;T&gt; temp = head;
-        while (temp.next != null) {
-            temp = temp.next;
-        }
-        temp.next = newNode;
-    }
-
-    // Function to insert a new node after a given previous node
-    public void insertAfterNode(Node&lt;T&gt; prevNode, T data) {
-        if (head == null) {
-            System.out.println("The list cannot be empty");
-            return;
-        }
-
-        if (prevNode == null) {
-            System.out.println("The given previous node cannot be null");
-            return;
-        }
-
-        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
-        newNode.next = prevNode.next;
-        prevNode.next = newNode;
-    }
-
-    // Function to insert a node before a given node
-    public void insertBeforeNode(Node&lt;T&gt; nextNode, T data) {
-        if (head == null) {
-            System.out.println("The list cannot be empty");
-            return;
-        }
-
-        if (nextNode == null) {
-            System.out.println("The given next node cannot be null");
-            return;
-        }
-
-        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
-        if (head == nextNode) {
-            newNode.next = head;
-            head = newNode;
-            return;
-        }
-
-        Node&lt;T&gt; temp = head;
-        while (temp != null && temp.next != nextNode) {
-            temp = temp.next;
-        }
-
-        if (temp == null) {
-            System.out.println("The given next node is not found in the list");
-            return;
         }
 
         newNode.next = temp.next;
         temp.next = newNode;
+        return head;
     }
 
-    // Function to insert a node at a specific position (0-based index)
-    public void insertAtPosition(T data, int position) {
-        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+    // Delete at the beginning
+    public static &lt;T&gt; Node&lt;T&gt; deleteAtBeginning(Node&lt;T&gt; head) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return null;
+        }
+        return head.next;
+    }
+
+    // Delete at the end
+    public static &lt;T&gt; Node&lt;T&gt; deleteAtEnd(Node&lt;T&gt; head) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return null;
+        }
+
+        if (head.next == null) {
+            return null;
+        }
+
+        Node&lt;T&gt; temp = head;
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+        temp.next = null;
+        return head;
+    }
+
+    // Delete at a specific position
+    public static &lt;T&gt; Node&lt;T&gt; deleteAtPosition(Node&lt;T&gt; head, int position) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return null;
+        }
 
         if (position == 0) {
-            newNode.next = head;
-            head = newNode;
-            return;
+            return head.next;
         }
 
         Node&lt;T&gt; temp = head;
@@ -2490,84 +2351,17 @@ class LinkedList&lt;T&gt; {
             temp = temp.next;
         }
 
-        if (temp == null) {
-            System.out.println("Position out of bounds");
-            return;
-        }
-
-        newNode.next = temp.next;
-        temp.next = newNode;
-    }
-
-    // Function to delete a node at the beginning of the list
-    public void deleteAtBeginning() {
-        if (head == null) {
-            System.out.println("List is empty");
-            return;
-        }
-        Node&lt;T&gt; temp = head;
-        head = head.next;
-        temp = null; // Helps with garbage collection
-    }
-
-    // Function to delete a node at the end of the list
-    public void deleteAtEnd() {
-        if (head == null) {
-            System.out.println("List is empty");
-            return;
-        }
-
-        Node&lt;T&gt; temp = head;
-
-        // If there's only one node in the list
-        if (temp.next == null) {
-            head = null;
-            return;
-        }
-
-        // Traverse to the second last node
-        while (temp.next.next != null) {
-            temp = temp.next;
-        }
-
-        // Free the last node
-        temp.next = null;
-    }
-
-    // Function to delete a node at a specific position (0-based index)
-    public void deleteAtPosition(int position) {
-        if (head == null) {
-            System.out.println("List is empty");
-            return;
-        }
-
-        Node&lt;T&gt; temp = head;
-
-        // If head needs to be removed
-        if (position == 0) {
-            head = temp.next; // Change head
-            temp = null; // Helps with garbage collection
-            return;
-        }
-
-        // Find previous node of the node to be deleted
-        for (int i = 0; temp != null && i &lt; position - 1; i++) {
-            temp = temp.next;
-        }
-
-        // If position is more than the number of nodes
         if (temp == null || temp.next == null) {
             System.out.println("Position out of bounds");
-            return;
+            return head;
         }
 
-        // Node temp.next is the node to be deleted
-        Node&lt;T&gt; nextNode = temp.next.next;
-        temp.next = nextNode; // Unlink the deleted node from the list
+        temp.next = temp.next.next;
+        return head;
     }
 
-    // Function to traverse the list and print all elements
-    public void traverse() {
+    // Traverse the list
+    public static &lt;T&gt; void traverse(Node&lt;T&gt; head) {
         Node&lt;T&gt; temp = head;
         while (temp != null) {
             System.out.print(temp.data + " -&gt; ");
@@ -2576,748 +2370,169 @@ class LinkedList&lt;T&gt; {
         System.out.println("NULL");
     }
 
-    // Function to search for an element in the list
-    public boolean search(T key) {
+    // Search for an element
+    public static &lt;T&gt; boolean search(Node&lt;T&gt; head, T key) {
         Node&lt;T&gt; temp = head;
         while (temp != null) {
-            if (temp.data.equals(key)) // Use equals for object comparison
-                return true; // Key found
+            if (temp.data.equals(key)) {
+                return true;
+            }
             temp = temp.next;
         }
-        return false; // Key not found
+        return false;
     }
 
-    // Function to reverse the linked list
-    public void reverse() {
-        Node&lt;T&gt; prev = null, current = head, next = null;
-        while (current != null) {
-            next = current.next; // Store next
-            current.next = prev; // Reverse current node's pointer
-            prev = current;       // Move pointers one position ahead
-            current = next;
-        }
-        head = prev;
-    }
-
-    // Function to get the size of the linked list
-    public int size() {
-        int size = 0;
-        Node&lt;T&gt; temp = head;
-        while (temp != null) {
-            size++;
-            temp = temp.next;
-        }
-        return size;
-    }
-
-    // Function to check if the list is empty
-    public boolean isEmpty() {
-        return head == null;
-    }
-
-    // Function to access an element at a specific index (0-based)
-    public T get(int index) {
-        int count = 0;
-        Node&lt;T&gt; temp = head;
-        while (temp != null) {
-            if (count == index)
-                return temp.data;
-            count++;
-            temp = temp.next;
-        }
-        return null; // Index out of range
-    }
-
-    // Function to set an element at a specific index (0-based)
-    public void set(int index, T newValue) {
+    // Reverse the list
+    public static &lt;T&gt; Node&lt;T&gt; reverse(Node&lt;T&gt; head) {
+        Node&lt;T&gt; prev = null;
         Node&lt;T&gt; current = head;
-        int count = 0;
+        Node&lt;T&gt; next = null;
 
-        // Traverse the list until the specified index
         while (current != null) {
-            if (count == index) {
-                current.data = newValue;  // Update the node's value
-                return;                    // Exit the function after the update
-            }
-            count++;
-            current = current.next;      // Move to the next node
-        }
-
-        System.out.println("Index out of range"); // Handle case where index exceeds list length
-    }
-
-    // Function to merge two lists
-    private Node&lt;T&gt; merge(Node&lt;T&gt; head1, Node&lt;T&gt; head2) {
-        if (head1 == null) return head2;
-        if (head2 == null) return head1;
-
-        Node&lt;T&gt; mergedHead;
-        if (((Comparable&lt;T&gt;) head1.data).compareTo(head2.data) &lt;= 0) {
-            mergedHead = head1;
-            mergedHead.next = merge(head1.next, head2);
-        } else {
-            mergedHead = head2;
-            mergedHead.next = merge(head1, head2.next);
-        }
-        return mergedHead;
-    }
-
-    // Function to get the middle of the linked list
-    private Node&lt;T&gt; middle(Node&lt;T&gt; head) {
-        if (head == null) return head;
-        Node&lt;T&gt; slow = head;
-        Node&lt;T&gt; fast = head.next;
-        while (fast != null) {
-            fast = fast.next;
-            if (fast != null) {
-                slow = slow.next;
-                fast = fast.next;
-            }
-        }
-        return slow;
-    }
-
-    // Function to sort the linked list (using Merge Sort)
-    public Node&lt;T&gt; sort(Node&lt;T&gt; head) {
-        if (head == null || head.next == null)
-            return head;
-
-        Node&lt;T&gt; mid = middle(head);
-        Node&lt;T&gt; nextToMid = mid.next;
-        mid.next = null;
-
-        Node&lt;T&gt; left = sort(head);
-        Node&lt;T&gt; right = sort(nextToMid);
-
-        return merge(left, right);
-    }
-
-    // Function to clear the entire linked list and free memory
-    public void clear() {
-        head = null; // Helps with garbage collection
-    }
-
-    // Main method to test the linked list operations
-    public static void main(String[] args) {
-        LinkedList&lt;Integer&gt; list = new LinkedList&lt;&gt;();
-
-        // Insert elements
-        list.insertAtEnd(10);
-        list.insertAtEnd(20);
-        list.insertAtEnd(30);
-        System.out.print("After inserting at the end: ");
-        list.traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; NULL
-
-        // Insert at the beginning
-        list.insertAtBeginning(5);
-        System.out.print("After inserting at the beginning: ");
-        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
-
-        // Insert at the end
-        list.insertAtEnd(40);
-        System.out.print("After inserting at the end: ");
-        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
-
-        // Insert at position
-        list.insertAtPosition(25, 3);  // Insert 25 at position 3
-        System.out.print("After inserting at position 3: ");
-        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 25 -&gt; 30 -&gt; 40 -&gt; NULL
-
-        // Delete at position
-        list.deleteAtPosition(3);  // Delete node at position 3
-        System.out.print("After deleting at position 3: ");
-        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
-
-        // Reverse the list
-        list.reverse();
-        System.out.print("After reversing the list: ");
-        list.traverse();  // Output: 40 -&gt; 30 -&gt; 20 -&gt; 10 -&gt; 5 -&gt; NULL
-
-        // Search for a value
-        boolean found = list.search(20);
-        System.out.println("Is 20 in the list? " + (found ? "Yes" : "No"));  // Output: Yes
-
-        // Get size of the list
-        System.out.println("Size of the list: " + list.size());  // Output: 5
-
-        // Sort the list
-        Node&lt;Integer&gt; sortedHead = list.sort(list.head);
-        list.clear(); // Clear the current list before assigning sorted list
-        list.head = sortedHead; // Set the head to the sorted list
-        System.out.print("After sorting the list: ");
-        list.traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
-
-        // Clear the list
-        list.clear();
-        System.out.print("After clearing the list: ");
-        list.traverse();  // Output: NULL
-    }
-}</code></pre>
-
-        <p>Here is an implementation of a simple singly linked list in C#:</p>
-
-        <pre><code class="language-java hljs">using System;
-
-class Node
-{
-    public int Data;
-    public Node Next;
-
-    // Constructor to create a new node
-    public Node(int data)
-    {
-        Data = data;
-        Next = null;
-    }
-}
-
-// Class to manage linked list operations
-class LinkedList
-{
-    private Node head;
-
-    // Constructor to initialize the linked list
-    public LinkedList()
-    {
-        head = null;
-    }
-
-    // Function to insert a node at the beginning of the list
-    public void InsertAtBeginning(int data)
-    {
-        Node newNode = new Node(data)
-        {
-            Next = head
-        };
-        head = newNode;
-    }
-
-    // Function to insert a node at the end of the list
-    public void InsertAtEnd(int data)
-    {
-        Node newNode = new Node(data);
-        if (head == null)
-        {
-            head = newNode;
-            return;
-        }
-        Node temp = head;
-        while (temp.Next != null)
-        {
-            temp = temp.Next;
-        }
-        temp.Next = newNode;
-    }
-
-    // Function to insert a new node after a given previous node
-    public void InsertAfterNode(Node prevNode, int data)
-    {
-        if (head == null)
-        {
-            Console.WriteLine("The list cannot be empty");
-            return;
-        }
-
-        if (prevNode == null)
-        {
-            Console.WriteLine("The given previous node cannot be null");
-            return;
-        }
-
-        Node newNode = new Node(data)
-        {
-            Next = prevNode.Next
-        };
-        prevNode.Next = newNode;
-    }
-
-    // Function to insert a node before a given node
-    public void InsertBeforeNode(Node nextNode, int data)
-    {
-        if (head == null)
-        {
-            Console.WriteLine("The list cannot be empty");
-            return;
-        }
-
-        if (nextNode == null)
-        {
-            Console.WriteLine("The given next node cannot be null");
-            return;
-        }
-
-        Node newNode = new Node(data);
-        if (head == nextNode)
-        {
-            newNode.Next = head;
-            head = newNode;
-            return;
-        }
-
-        Node temp = head;
-        while (temp != null && temp.Next != nextNode)
-        {
-            temp = temp.Next;
-        }
-
-        if (temp == null)
-        {
-            Console.WriteLine("The given next node is not found in the list");
-            return;
-        }
-
-        newNode.Next = temp.Next;
-        temp.Next = newNode;
-    }
-
-    // Function to insert a node at a specific position (0-based index)
-    public void InsertAtPosition(int data, int position)
-    {
-        Node newNode = new Node(data);
-
-        if (position == 0)
-        {
-            newNode.Next = head;
-            head = newNode;
-            return;
-        }
-
-        Node temp = head;
-        for (int i = 0; i &lt; position - 1 && temp != null; i++)
-        {
-            temp = temp.Next;
-        }
-
-        if (temp == null)
-        {
-            Console.WriteLine("Position out of bounds");
-            return;
-        }
-
-        newNode.Next = temp.Next;
-        temp.Next = newNode;
-    }
-
-    // Function to delete a node at the beginning of the list
-    public void DeleteAtBeginning()
-    {
-        if (head == null)
-        {
-            Console.WriteLine("List is empty");
-            return;
-        }
-        Node temp = head;
-        head = head.Next;
-        temp = null; // Helps with garbage collection
-    }
-
-    // Function to delete a node at the end of the list
-    public void DeleteAtEnd()
-    {
-        if (head == null)
-        {
-            Console.WriteLine("List is empty");
-            return;
-        }
-
-        Node temp = head;
-
-        // If there's only one node in the list
-        if (temp.Next == null)
-        {
-            head = null;
-            return;
-        }
-
-        // Traverse to the second last node
-        while (temp.Next.Next != null)
-        {
-            temp = temp.Next;
-        }
-
-        // Free the last node
-        temp.Next = null;
-    }
-
-    // Function to delete a node at a specific position (0-based index)
-    public void DeleteAtPosition(int position)
-    {
-        if (head == null)
-        {
-            Console.WriteLine("List is empty");
-            return;
-        }
-
-        Node temp = head;
-
-        // If head needs to be removed
-        if (position == 0)
-        {
-            head = temp.Next; // Change head
-            temp = null; // Helps with garbage collection
-            return;
-        }
-
-        // Find previous node of the node to be deleted
-        for (int i = 0; temp != null && i &lt; position - 1; i++)
-        {
-            temp = temp.Next;
-        }
-
-        // If position is more than the number of nodes
-        if (temp == null || temp.Next == null)
-        {
-            Console.WriteLine("Position out of bounds");
-            return;
-        }
-
-        // Node temp.Next is the node to be deleted
-        Node nextNode = temp.Next.Next;
-        temp.Next = nextNode; // Unlink the deleted node from the list
-    }
-
-    // Function to traverse the list and print all elements
-    public void Traverse()
-    {
-        Node temp = head;
-        while (temp != null)
-        {
-            Console.Write(temp.Data + " -&gt; ");
-            temp = temp.Next;
-        }
-        Console.WriteLine("NULL");
-    }
-
-    // Function to search for an element in the list
-    public bool Search(int key)
-    {
-        Node temp = head;
-        while (temp != null)
-        {
-            if (temp.Data == key)
-                return true; // Key found
-            temp = temp.Next;
-        }
-        return false; // Key not found
-    }
-
-    // Function to reverse the linked list
-    public void Reverse()
-    {
-        Node prev = null, current = head, next = null;
-        while (current != null)
-        {
-            next = current.Next; // Store next
-            current.Next = prev; // Reverse current node's pointer
-            prev = current;       // Move pointers one position ahead
+            next = current.next;
+            current.next = prev;
+            prev = current;
             current = next;
         }
-        head = prev;
+        return prev;
     }
 
-    // Function to get the size of the linked list
-    public int Size()
-    {
-        int size = 0;
-        Node temp = head;
-        while (temp != null)
-        {
-            size++;
-            temp = temp.Next;
-        }
-        return size;
-    }
-
-    // Function to check if the list is empty
-    public bool IsEmpty()
-    {
-        return head == null;
-    }
-
-    // Function to access an element at a specific index (0-based)
-    public int Get(int index)
-    {
+    // Get the size of the list
+    public static &lt;T&gt; int size(Node&lt;T&gt; head) {
         int count = 0;
-        Node temp = head;
-        while (temp != null)
-        {
-            if (count == index)
-                return temp.Data;
+        Node&lt;T&gt; temp = head;
+        while (temp != null) {
             count++;
-            temp = temp.Next;
+            temp = temp.next;
         }
-        return -1; // Index out of range
+        return count;
     }
 
-    // Function to set an element at a specific index (0-based)
-    public void Set(int index, int newValue)
-    {
-        Node current = head;
-        int count = 0;
+    // Clear the list
+    public static &lt;T&gt; Node&lt;T&gt; clear(Node&lt;T&gt; head) {
+        return null;
+    }
 
-        // Traverse the list until the specified index
-        while (current != null)
-        {
-            if (count == index)
-            {
-                current.Data = newValue;  // Update the node's value
-                return;                    // Exit the function after the update
-            }
-            count++;
-            current = current.Next;      // Move to the next node
+    // Main method to test
+    public static void main(String[] args) {
+        Node&lt;Integer&gt; head = null;
+
+        // Insert elements at the beginning
+        head = insertAtBeginning(head, 5);
+        head = insertAtBeginning(head, 10);
+        head = insertAtBeginning(head, 3);
+
+        System.out.println("List after inserting at the beginning: ");
+        traverse(head);
+
+        // Insert element at the end
+        head = insertAtEnd(head, 7);
+        head = insertAtEnd(head, 2);
+
+        System.out.println("List after inserting at the end: ");
+        traverse(head);
+
+        // Insert at a specific position
+        head = insertAtPosition(head, 4, 2);
+        System.out.println("List after inserting at position 2: ");
+        traverse(head);
+
+        // Delete at the beginning
+        head = deleteAtBeginning(head);
+        System.out.println("List after deleting at the beginning: ");
+        traverse(head);
+
+        // Delete at the end
+        head = deleteAtEnd(head);
+        System.out.println("List after deleting at the end: ");
+        traverse(head);
+
+        // Delete at a specific position
+        head = deleteAtPosition(head, 2);
+        System.out.println("List after deleting at position 2: ");
+        traverse(head);
+
+        // Search for an element
+        int key = 7;
+        if (search(head, key)) {
+            System.out.println("Element " + key + " found in the list");
+        } else {
+            System.out.println("Element " + key + " not found in the list");
         }
-
-        Console.WriteLine("Index out of range"); // Handle case where index exceeds list length
-    }
-
-    // Function to merge two lists
-    private Node Merge(Node head1, Node head2)
-    {
-        if (head1 == null) return head2;
-        if (head2 == null) return head1;
-
-        Node mergedHead;
-        if (head1.Data &lt;= head2.Data)
-        {
-            mergedHead = head1;
-            mergedHead.Next = Merge(head1.Next, head2);
-        }
-        else
-        {
-            mergedHead = head2;
-            mergedHead.Next = Merge(head1, head2.Next);
-        }
-        return mergedHead;
-    }
-
-    // Function to get the middle of the linked list
-    private Node Middle(Node head)
-    {
-        if (head == null) return head;
-        Node slow = head;
-        Node fast = head.Next;
-        while (fast != null)
-        {
-            fast = fast.Next;
-            if (fast != null)
-            {
-                slow = slow.Next;
-                fast = fast.Next;
-            }
-        }
-        return slow;
-    }
-
-    // Function to sort the linked list (using Merge Sort)
-    public Node Sort(Node head)
-    {
-        if (head == null || head.Next == null)
-            return head;
-
-        Node mid = Middle(head);
-        Node nextToMid = mid.Next;
-        mid.Next = null;
-
-        Node left = Sort(head);
-        Node right = Sort(nextToMid);
-
-        return Merge(left, right);
-    }
-
-    // Function to clear the entire linked list and free memory
-    public void Clear()
-    {
-        head = null; // Helps with garbage collection
-    }
-
-    // Main method to test the linked list operations
-    public static void Main(string[] args)
-    {
-        LinkedList list = new LinkedList();
-
-        // Insert elements
-        list.InsertAtEnd(10);
-        list.InsertAtEnd(20);
-        list.InsertAtEnd(30);
-        Console.Write("After inserting at the end: ");
-        list.Traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; NULL
-
-        // Insert at the beginning
-        list.InsertAtBeginning(5);
-        Console.Write("After inserting at the beginning: ");
-        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
-
-        // Insert at the end
-        list.InsertAtEnd(40);
-        Console.Write("After inserting at the end: ");
-        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
-
-        // Insert at position
-        list.InsertAtPosition(25, 3);  // Insert 25 at position 3
-        Console.Write("After inserting at position 3: ");
-        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 25 -&gt; 30 -&gt; 40 -&gt; NULL
-
-        // Delete at position
-        list.DeleteAtPosition(3);  // Delete node at position 3
-        Console.Write("After deleting at position 3: ");
-        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
 
         // Reverse the list
-        list.Reverse();
-        Console.Write("After reversing the list: ");
-        list.Traverse();  // Output: 40 -&gt; 30 -&gt; 20 -&gt; 10 -&gt; 5 -&gt; NULL
+        head = reverse(head);
+        System.out.println("List after reversing: ");
+        traverse(head);
 
-        // Search for a value
-        bool found = list.Search(20);
-        Console.WriteLine("Is 20 in the list? " + (found ? "Yes" : "No"));  // Output: Yes
-
-        // Get size of the list
-        Console.WriteLine("Size of the list: " + list.Size());  // Output: 5
-
-        // Sort the list
-        Node sortedHead = list.Sort(list.head);
-        list.Clear(); // Clear the current list before assigning sorted list
-        list.head = sortedHead; // Set the head to the sorted list
-        Console.Write("After sorting the list: ");
-        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+        // Get the size of the list
+        System.out.println("Size of the list: " + size(head));
 
         // Clear the list
-        list.Clear();
-        Console.Write("After clearing the list: ");
-        list.Traverse();  // Output: NULL
+        head = clear(head);
+        System.out.println("List after clearing: ");
+        traverse(head);
     }
 }</code></pre>
+		
+		<p>Here is the Generic singly linked list implementation in C#:</p>
+		
+		<pre><code class="language-csharp hljs">using System;
 
-        <p>Here is an implementation of a generic singly linked list in C#:</p>
-
-        <pre><code class="language-csharp hljs">using System;
-
-// Generic Node class
-class Node&lt;T&gt;
+public class LinkedList&lt;T&gt;
 {
-    public T Data;
-    public Node&lt;T&gt; Next;
-
-    // Constructor to create a new node
-    public Node(T data)
+    // Node structure for singly linked list
+    public class Node
     {
-        Data = data;
-        Next = null;
-    }
-}
+        public T Data;
+        public Node Next;
 
-// Generic LinkedList class
-class LinkedList&lt;T&gt;
-{
-    private Node&lt;T&gt; head;
-
-    // Constructor to initialize the linked list
-    public LinkedList()
-    {
-        head = null;
+        // Constructor to create a new node
+        public Node(T data)
+        {
+            Data = data;
+            Next = null;
+        }
     }
 
-    // Function to insert a node at the beginning of the list
-    public void InsertAtBeginning(T data)
+    // Insert at the beginning
+    public static Node InsertAtBeginning(Node head, T data)
     {
-        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data)
+        Node newNode = new Node(data)
         {
             Next = head
         };
-        head = newNode;
+        return newNode;
     }
 
-    // Function to insert a node at the end of the list
-    public void InsertAtEnd(T data)
+    // Insert at the end
+    public static Node InsertAtEnd(Node head, T data)
     {
-        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
+        Node newNode = new Node(data);
         if (head == null)
         {
-            head = newNode;
-            return;
+            return newNode;
         }
-        Node&lt;T&gt; temp = head;
+        Node temp = head;
         while (temp.Next != null)
         {
             temp = temp.Next;
         }
         temp.Next = newNode;
+        return head;
     }
 
-    // Function to insert a new node after a given previous node
-    public void InsertAfterNode(Node&lt;T&gt; prevNode, T data)
+    // Insert at a specific position
+    public static Node InsertAtPosition(Node head, T data, int position)
     {
-        if (head == null)
-        {
-            Console.WriteLine("The list cannot be empty");
-            return;
-        }
-
-        if (prevNode == null)
-        {
-            Console.WriteLine("The given previous node cannot be null");
-            return;
-        }
-
-        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data)
-        {
-            Next = prevNode.Next
-        };
-        prevNode.Next = newNode;
-    }
-
-    // Function to insert a node before a given node
-    public void InsertBeforeNode(Node&lt;T&gt; nextNode, T data)
-    {
-        if (head == null)
-        {
-            Console.WriteLine("The list cannot be empty");
-            return;
-        }
-
-        if (nextNode == null)
-        {
-            Console.WriteLine("The given next node cannot be null");
-            return;
-        }
-
-        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
-        if (head == nextNode)
-        {
-            newNode.Next = head;
-            head = newNode;
-            return;
-        }
-
-        Node&lt;T&gt; temp = head;
-        while (temp != null && temp.Next != nextNode)
-        {
-            temp = temp.Next;
-        }
-
-        if (temp == null)
-        {
-            Console.WriteLine("The given next node is not found in the list");
-            return;
-        }
-
-        newNode.Next = temp.Next;
-        temp.Next = newNode;
-    }
-
-    // Function to insert a node at a specific position (0-based index)
-    public void InsertAtPosition(T data, int position)
-    {
-        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
-
+        Node newNode = new Node(data);
         if (position == 0)
         {
             newNode.Next = head;
-            head = newNode;
-            return;
+            return newNode;
         }
 
-        Node&lt;T&gt; temp = head;
+        Node temp = head;
         for (int i = 0; i &lt; position - 1 && temp != null; i++)
         {
             temp = temp.Next;
@@ -3326,95 +2541,82 @@ class LinkedList&lt;T&gt;
         if (temp == null)
         {
             Console.WriteLine("Position out of bounds");
-            return;
+            return head;
         }
 
         newNode.Next = temp.Next;
         temp.Next = newNode;
+        return head;
     }
 
-    // Function to delete a node at the beginning of the list
-    public void DeleteAtBeginning()
+    // Delete at the beginning
+    public static Node DeleteAtBeginning(Node head)
     {
         if (head == null)
         {
             Console.WriteLine("List is empty");
-            return;
+            return null;
         }
-        Node&lt;T&gt; temp = head;
-        head = head.Next;
-        temp = null; // Helps with garbage collection
+        return head.Next;
     }
 
-    // Function to delete a node at the end of the list
-    public void DeleteAtEnd()
+    // Delete at the end
+    public static Node DeleteAtEnd(Node head)
     {
         if (head == null)
         {
             Console.WriteLine("List is empty");
-            return;
+            return null;
         }
 
-        Node&lt;T&gt; temp = head;
-
-        // If there's only one node in the list
-        if (temp.Next == null)
+        if (head.Next == null)
         {
-            head = null;
-            return;
+            return null;
         }
 
-        // Traverse to the second last node
+        Node temp = head;
         while (temp.Next.Next != null)
         {
             temp = temp.Next;
         }
-
-        // Free the last node
         temp.Next = null;
+        return head;
     }
 
-    // Function to delete a node at a specific position (0-based index)
-    public void DeleteAtPosition(int position)
+    // Delete at a specific position
+    public static Node DeleteAtPosition(Node head, int position)
     {
         if (head == null)
         {
             Console.WriteLine("List is empty");
-            return;
+            return null;
         }
 
-        Node&lt;T&gt; temp = head;
-
-        // If head needs to be removed
         if (position == 0)
         {
-            head = temp.Next; // Change head
-            temp = null; // Helps with garbage collection
-            return;
+            return head.Next;
         }
 
-        // Find previous node of the node to be deleted
-        for (int i = 0; temp != null && i &lt; position - 1; i++)
+        Node temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != null; i++)
         {
             temp = temp.Next;
         }
 
-        // If position is more than the number of nodes
         if (temp == null || temp.Next == null)
         {
             Console.WriteLine("Position out of bounds");
-            return;
+            return head;
         }
 
-        // Node temp.Next is the node to be deleted
-        Node&lt;T&gt; nextNode = temp.Next.Next;
-        temp.Next = nextNode; // Unlink the deleted node from the list
+        temp.Next = temp.Next.Next;
+        return head;
     }
 
-    // Function to traverse the list and print all elements
-    public void Traverse()
+    // Traverse the list
+    public static void Traverse(Node head)
     {
-        Node&lt;T&gt; temp = head;
+        Node temp = head;
         while (temp != null)
         {
             Console.Write(temp.Data + " -&gt; ");
@@ -3423,206 +2625,117 @@ class LinkedList&lt;T&gt;
         Console.WriteLine("NULL");
     }
 
-    // Function to search for an element in the list
-    public bool Search(T key)
+    // Search for an element
+    public static bool Search(Node head, T key)
     {
-        Node&lt;T&gt; temp = head;
+        Node temp = head;
         while (temp != null)
         {
             if (temp.Data.Equals(key))
-                return true; // Key found
+            {
+                return true;
+            }
             temp = temp.Next;
         }
-        return false; // Key not found
+        return false;
     }
 
-    // Function to reverse the linked list
-    public void Reverse()
+    // Reverse the list
+    public static Node Reverse(Node head)
     {
-        Node&lt;T&gt; prev = null, current = head, next = null;
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+
         while (current != null)
         {
-            next = current.Next; // Store next
-            current.Next = prev; // Reverse current node's pointer
-            prev = current;       // Move pointers one position ahead
+            next = current.Next;
+            current.Next = prev;
+            prev = current;
             current = next;
         }
-        head = prev;
+        return prev;
     }
 
-    // Function to get the size of the linked list
-    public int Size()
-    {
-        int size = 0;
-        Node&lt;T&gt; temp = head;
-        while (temp != null)
-        {
-            size++;
-            temp = temp.Next;
-        }
-        return size;
-    }
-
-    // Function to check if the list is empty
-    public bool IsEmpty()
-    {
-        return head == null;
-    }
-
-    // Function to access an element at a specific index (0-based)
-    public T Get(int index)
+    // Get the size of the list
+    public static int Size(Node head)
     {
         int count = 0;
-        Node&lt;T&gt; temp = head;
+        Node temp = head;
         while (temp != null)
         {
-            if (count == index)
-                return temp.Data;
             count++;
             temp = temp.Next;
         }
-        throw new IndexOutOfRangeException("Index out of range");
+        return count;
     }
 
-    // Function to set an element at a specific index (0-based)
-    public void Set(int index, T newValue)
+    // Clear the list
+    public static Node Clear(Node head)
     {
-        Node&lt;T&gt; current = head;
-        int count = 0;
-
-        // Traverse the list until the specified index
-        while (current != null)
-        {
-            if (count == index)
-            {
-                current.Data = newValue;  // Update the node's value
-                return;                    // Exit the function after the update
-            }
-            count++;
-            current = current.Next;      // Move to the next node
-        }
-
-        Console.WriteLine("Index out of range"); // Handle case where index exceeds list length
+        return null;
     }
 
-    // Function to merge two lists
-    private Node&lt;T&gt; Merge(Node&lt;T&gt; head1, Node&lt;T&gt; head2)
-    {
-        if (head1 == null) return head2;
-        if (head2 == null) return head1;
-
-        Node&lt;T&gt; mergedHead;
-        if (Comparer&lt;T&gt;.Default.Compare(head1.Data, head2.Data) &lt;= 0)
-        {
-            mergedHead = head1;
-            mergedHead.Next = Merge(head1.Next, head2);
-        }
-        else
-        {
-            mergedHead = head2;
-            mergedHead.Next = Merge(head1, head2.Next);
-        }
-        return mergedHead;
-    }
-
-    // Function to get the middle of the linked list
-    private Node&lt;T&gt; Middle(Node&lt;T&gt; head)
-    {
-        if (head == null) return head;
-        Node&lt;T&gt; slow = head;
-        Node&lt;T&gt; fast = head.Next;
-        while (fast != null)
-        {
-            fast = fast.Next;
-            if (fast != null)
-            {
-                slow = slow.Next;
-                fast = fast.Next;
-            }
-        }
-        return slow;
-    }
-
-    // Function to sort the linked list (using Merge Sort)
-    public Node&lt;T&gt; Sort(Node&lt;T&gt; head)
-    {
-        if (head == null || head.Next == null)
-            return head;
-
-        Node&lt;T&gt; mid = Middle(head);
-        Node&lt;T&gt; nextToMid = mid.Next;
-        mid.Next = null;
-
-        Node&lt;T&gt; left = Sort(head);
-        Node&lt;T&gt; right = Sort(nextToMid);
-
-        return Merge(left, right);
-    }
-
-    // Function to clear the entire linked list and free memory
-    public void Clear()
-    {
-        head = null; // Helps with garbage collection
-    }
-
-    // Main method to test the linked list operations
+    // Main method to test
     public static void Main(string[] args)
     {
-        LinkedList&lt;int&gt; list = new LinkedList&lt;int&gt;();
+        Node head = null;
 
-        // Insert elements
-        list.InsertAtEnd(10);
-        list.InsertAtEnd(20);
-        list.InsertAtEnd(30);
-        Console.Write("After inserting at the end: ");
-        list.Traverse();  // Output: 10 -&gt; 20 -&gt; 30 -&gt; NULL
+        // Insert elements at the beginning
+        head = InsertAtBeginning(head, 5);
+        head = InsertAtBeginning(head, 10);
+        head = InsertAtBeginning(head, 3);
 
-        // Insert at the beginning
-        list.InsertAtBeginning(5);
-        Console.Write("After inserting at the beginning: ");
-        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; NULL
+        Console.WriteLine("List after inserting at the beginning:");
+        Traverse(head);
 
-        // Insert at the end
-        list.InsertAtEnd(40);
-        Console.Write("After inserting at the end: ");
-        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+        // Insert element at the end
+        head = InsertAtEnd(head, 7);
+        head = InsertAtEnd(head, 2);
 
-        // Insert at position
-        list.InsertAtPosition(25, 3);  // Insert 25 at position 3
-        Console.Write("After inserting at position 3: ");
-        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 25 -&gt; 30 -&gt; 40 -&gt; NULL
+        Console.WriteLine("List after inserting at the end:");
+        Traverse(head);
 
-        // Delete at position
-        list.DeleteAtPosition(3);  // Delete node at position 3
-        Console.Write("After deleting at position 3: ");
-        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+        // Insert at a specific position
+        head = InsertAtPosition(head, 4, 2);
+        Console.WriteLine("List after inserting at position 2:");
+        Traverse(head);
+
+        // Delete at the beginning
+        head = DeleteAtBeginning(head);
+        Console.WriteLine("List after deleting at the beginning:");
+        Traverse(head);
+
+        // Delete at the end
+        head = DeleteAtEnd(head);
+        Console.WriteLine("List after deleting at the end:");
+        Traverse(head);
+
+        // Delete at a specific position
+        head = DeleteAtPosition(head, 2);
+        Console.WriteLine("List after deleting at position 2:");
+        Traverse(head);
+
+        // Search for an element
+        T key = (T)(object)7; // Example for an integer type
+        Console.WriteLine(Search(head, key)
+            ? $"Element {key} found in the list"
+            : $"Element {key} not found in the list");
 
         // Reverse the list
-        list.Reverse();
-        Console.Write("After reversing the list: ");
-        list.Traverse();  // Output: 40 -&gt; 30 -&gt; 20 -&gt; 10 -&gt; 5 -&gt; NULL
+        head = Reverse(head);
+        Console.WriteLine("List after reversing:");
+        Traverse(head);
 
-        // Search for a value
-        bool found = list.Search(20);
-        Console.WriteLine("Is 20 in the list? " + (found ? "Yes" : "No"));  // Output: Yes
-
-        // Get size of the list
-        Console.WriteLine("Size of the list: " + list.Size());  // Output: 5
-
-        // Sort the list
-        Node&lt;int&gt; sortedHead = list.Sort(list.head);
-        list.Clear(); // Clear the current list before assigning sorted list
-        list.head = sortedHead; // Set the head to the sorted list
-        Console.Write("After sorting the list: ");
-        list.Traverse();  // Output: 5 -&gt; 10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; NULL
+        // Get the size of the list
+        Console.WriteLine("Size of the list: " + Size(head));
 
         // Clear the list
-        list.Clear();
-        Console.Write("After clearing the list: ");
-        list.Traverse();  // Output: NULL
+        head = Clear(head);
+        Console.WriteLine("List after clearing:");
+        Traverse(head);
     }
 }</code></pre>
-
     </article>
 
     {% include post-tags.html %}

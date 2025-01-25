@@ -16,6 +16,9 @@ tags: ["data structure", "array", "dynamic array"]
     {% include post-header.html %}
 
     <article class="post-content">
+		
+		<h3>Dynamic Array</h3>
+		
         <p>A dynamic array is unlike a regular array with a fixed size, can automatically resize itself when elements are added or removed. This allows for more flexible use, especially when the number of elements is not known in advance. Dynamic arrays are commonly implemented by allocating a larger array when needed and copying the elements from the old array to the new one.</p>
 
         <p>Dynamic arrays have many key features that make them a popular choice among programmers. Some of the key features of dynamic arrays are:</p>
@@ -29,8 +32,8 @@ tags: ["data structure", "array", "dynamic array"]
 			<li><b>Index-Based Insertions and Deletions</b>: Inserting or deleting elements at specific indices can be done in a dynamic array, but these operations require shifting elements, making them \(O(n)\) in the worst case. Inserting at the end (append) is faster, while inserting or deleting in the middle requires moving elements to maintain the order.</li>
 			<li><b>Contiguous Memory Allocation</b>: Like regular arrays, elements in a dynamic array are stored in a contiguous block of memory. This provides cache-friendly access to data, improving performance when iterating over the elements.</li>
 		</ul>
-
-        <p>The following are some common operations implemented on the dynamic array:</p>
+		
+		<p>Here's a detailed breakdown of common dynamic array operations:</p>
 
         <ul>
             <li><code>add()</code>:<br>
@@ -124,11 +127,15 @@ tags: ["data structure", "array", "dynamic array"]
 				</ul>
 			</li>
         </ul>
-
-        <p>In C, there is no built-in dynamic array like in languages such as C++, Java or C#.</p>
 		
-		<p>In C++, the built-in dynamic array is provided by the std::vector class, which is part of the Standard Template Library (STL). Vectors in C++ provide a dynamic array implementation that automatically resizes as elements are added or removed.</p>
+		<p>Most current programming languages include built-in or standard library functions for creating and managing dynamic arrays.</p>
         
+		<p>In C, there is no built-in dynamic array type like in higher-level languages (e.g., C++, Java, C#).</p>
+		
+		<p>In C++, the built-in dynamic array is provided by the <code>std::vector</code> class, which is part of the Standard Template Library (STL). Vectors in C++ provide a dynamic array implementation that automatically resizes as elements are added or removed.</p>
+        
+		<p>Here is the basic example of using <code>std::vector</code>:</p>
+		
         <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
 #include &lt;vector&gt;
 
@@ -191,6 +198,8 @@ int main() {
 
         <p>In Java, the built-in dynamic array is represented by the <code>ArrayList</code> class, which is part of the Java Collections Framework.</p>
         
+		<p>Here is the basic example of using <code>ArrayList</code>:</p>
+		
         <pre><code class="language-java hljs">import java.util.ArrayList;
 
 public class Main {
@@ -221,6 +230,8 @@ public class Main {
 
         <p>In C#, the built-in dynamic array is represented by the <code>List&lt;T&gt;</code> class from the <code>System.Collections.Generic</code> namespace. The <code>List&lt;T&gt;</code> is similar to an array but with the ability to automatically resize itself when more elements are added, much like dynamic arrays in other languages such as Java's <code>ArrayList</code>.</p>
         
+		<p>Here is the basic example of using <code>List&lt;T&gt;</code>:</p>
+		
         <pre><code class="language-csharp hljs">using System;
 using System.Collections.Generic;
 
@@ -267,7 +278,10 @@ class Program
     }
 }</code></pre>
         
-		<p>Here is an implementation of a simple dynamic array in C:</p>
+		
+		<h3>Non-Generic Dynamic Array Implementation</h3>
+		
+		<p>Here is the Non-Generic Dynamic Array implementation in C:</p>
 
         <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -405,9 +419,464 @@ int main() {
     return 0;
 }</code></pre>
 		
-		<p>Here is an implementation of a generic dynamic array in C:</p>
+		<p>Here is the Non-Generic Dynamic Array implementation in C++:</p>
+		
+		<pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+#include &lt;stdexcept&gt; // For exception handling
 
-        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+class DynamicArray {
+private:
+    int* array;
+    int capacity;
+    int currentSize;
+
+    // Resize the array when it reaches capacity
+    void resize() {
+        capacity *= 2;
+        int* newArray = new int[capacity];
+
+        // Manually copy elements from the old array to the new array
+        for (int i = 0; i &lt; currentSize; ++i) {
+            newArray[i] = array[i];
+        }
+
+        delete[] array; // Free the old array
+        array = newArray; // Assign the new array
+    }
+
+public:
+    // Constructor to initialize the dynamic array with an initial capacity
+    DynamicArray(int initialCapacity = 2) {
+        capacity = initialCapacity;
+        array = new int[capacity];
+        currentSize = 0;
+    }
+
+    // Destructor to free allocated memory
+    ~DynamicArray() {
+        delete[] array;
+    }
+
+    // Add an element to the array
+    void add(int element) {
+        if (currentSize == capacity) {
+            resize();
+        }
+        array[currentSize++] = element;
+    }
+
+    // Get an element at a specific index
+    int get(int index) const {
+        if (index &lt; 0 || index &gt;= currentSize) {
+            throw std::out_of_range("Index out of range");
+        }
+        return array[index];
+    }
+
+    // Set (update) an element at a specific index
+    void set(int index, int element) {
+        if (index &lt; 0 || index &gt;= currentSize) {
+            throw std::out_of_range("Index out of range");
+        }
+        array[index] = element;
+    }
+
+    // Remove an element at a specific index
+    void remove(int index) {
+        if (index &lt; 0 || index &gt;= currentSize) {
+            throw std::out_of_range("Index out of range");
+        }
+        for (int i = index; i &lt; currentSize - 1; ++i) {
+            array[i] = array[i + 1];
+        }
+        --currentSize;
+    }
+
+    // Insert an element at a specific index
+    void insert(int index, int element) {
+        if (index &lt; 0 || index &gt; currentSize) {
+            throw std::out_of_range("Index out of range");
+        }
+        if (currentSize == capacity) {
+            resize();
+        }
+        for (int i = currentSize; i &gt; index; --i) {
+            array[i] = array[i - 1];
+        }
+        array[index] = element;
+        ++currentSize;
+    }
+
+    // Get the current size of the dynamic array
+    int size() const {
+        return currentSize;
+    }
+
+    // Clear the array
+    void clear() {
+        currentSize = 0;
+        std::cout &lt;&lt; "Array cleared!" &lt;&lt; std::endl;
+    }
+
+    // Display all elements in the dynamic array
+    void display() const {
+        if (currentSize == 0) {
+            std::cout &lt;&lt; "Array is empty" &lt;&lt; std::endl;
+        } else {
+            for (int i = 0; i &lt; currentSize; ++i) {
+                std::cout &lt;&lt; array[i] &lt;&lt; " ";
+            }
+            std::cout &lt;&lt; std::endl;
+        }
+    }
+};
+
+int main() {
+    DynamicArray dynamicArray;
+
+    // Adding elements
+    dynamicArray.add(1);
+    dynamicArray.add(2);
+    dynamicArray.add(3);
+    dynamicArray.add(4);
+    dynamicArray.display(); // Output: Array elements: 1 2 3 4
+
+    // Get element at index 2
+    std::cout &lt;&lt; "Element at index 2: " &lt;&lt; dynamicArray.get(2) &lt;&lt; std::endl; // Output: 3
+
+    // Set element at index 1
+    dynamicArray.set(1, 20);
+    dynamicArray.display(); // Output: Array elements: 1 20 3 4
+
+    // Insert an element at index 2
+    dynamicArray.insert(2, 100);
+    dynamicArray.display(); // Output: Array elements: 1 20 100 3 4
+
+    // Remove an element at index 3
+    dynamicArray.remove(3);
+    dynamicArray.display(); // Output: Array elements: 1 20 100 4
+
+    // Get the current size of the array
+    std::cout &lt;&lt; "Size: " &lt;&lt; dynamicArray.size() &lt;&lt; std::endl; // Output: Size: 4
+
+    // Clear the array
+    dynamicArray.clear();
+    dynamicArray.display(); // Output: Array is empty
+
+    return 0;
+}</code></pre>
+		
+		<p>Here is the Non-Generic Dynamic Array implementation in Java:</p>
+		
+		<pre><code class="language-java hljs">class DynamicArray {
+    private int[] array;
+    private int size;
+    private int capacity;
+
+    // Constructor to initialize array with a specified capacity
+    public DynamicArray(int initialCapacity) {
+        this.capacity = initialCapacity;
+        this.array = new int[capacity];
+        this.size = 0;
+    }
+
+    // Default constructor with an initial capacity of 2
+    public DynamicArray() {
+        this(2);
+    }
+
+    // Add an element to the dynamic array
+    public void add(int element) {
+        if (size == capacity) {
+            resize();
+        }
+        array[size++] = element;
+    }
+
+    // Get an element at a specific index
+    public int get(int index) {
+        if (index &gt;= size || index &lt; 0) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        return array[index];
+    }
+
+    // Set (update) an element at a specific index
+    public void set(int index, int element) {
+        if (index &gt;= size || index &lt; 0) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        array[index] = element;
+    }
+
+    // Remove an element at a specific index
+    public void remove(int index) {
+        if (index &gt;= size || index &lt; 0) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        for (int i = index; i &lt; size - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        array[--size] = 0;  // Clear last element
+    }
+
+    // Insert an element at a specific index
+    public void insert(int index, int element) {
+        if (index &gt; size || index &lt; 0) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+        if (size == capacity) {
+            resize();
+        }
+        for (int i = size; i &gt; index; i--) {
+            array[i] = array[i - 1];
+        }
+        array[index] = element;
+        size++;
+    }
+
+    // Get the current size of the array
+    public int size() {
+        return size;
+    }
+
+    // Resize the array when capacity is reached
+    private void resize() {
+        capacity *= 2;
+        int[] newArray = new int[capacity];
+        
+        // Manually copy elements from the old array to the new array
+        for (int i = 0; i &lt; size; i++) {
+            newArray[i] = array[i];
+        }
+        
+        array = newArray;
+    }
+
+    // Clear the array by setting the size to 0
+    public void clear() {
+        for (int i = 0; i &lt; size; i++) {
+            array[i] = 0;
+        }
+        size = 0;
+        System.out.println("Array cleared!");
+    }
+
+    // Display all elements in the dynamic array
+    public void display() {
+        if (size == 0) {
+            System.out.println("Array is empty");
+        } else {
+            for (int i = 0; i &lt; size; i++) {
+                System.out.print(array[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        DynamicArray dynamicArray = new DynamicArray();
+
+        // Adding elements
+        dynamicArray.add(1);
+        dynamicArray.add(2);
+        dynamicArray.add(3);
+        dynamicArray.add(4);
+        dynamicArray.display(); // Output: Array elements: 1 2 3 4
+
+        // Get element at index 2
+        System.out.println("Element at index 2: " + dynamicArray.get(2)); // Output: 3
+
+        // Set element at index 1
+        dynamicArray.set(1, 20);
+        dynamicArray.display(); // Output: Array elements: 1 20 3 4
+
+        // Insert an element at index 2
+        dynamicArray.insert(2, 100);
+        dynamicArray.display(); // Output: Array elements: 1 20 100 3 4
+
+        // Remove an element at index 3
+        dynamicArray.remove(3);
+        dynamicArray.display(); // Output: Array elements: 1 20 100 4
+
+        // Get the current size of the array
+        System.out.println("Size: " + dynamicArray.size()); // Output: Size: 4
+
+        // Clear the array
+        dynamicArray.clear();
+        dynamicArray.display(); // Output: Array is empty
+    }
+}</code></pre>
+		
+		<p>Here is the Non-Generic Dynamic Array implementation in C#:</p>
+		
+		<pre><code class="language-csharp hljs">using System;
+
+class DynamicArray
+{
+    private int[] array;      // Internal array to store elements
+    private int capacity;     // Capacity of the array
+    private int size;         // Current number of elements
+
+    // Constructor to initialize array with a default capacity
+    public DynamicArray(int initialCapacity = 2)
+    {
+        capacity = initialCapacity;
+        array = new int[capacity];
+        size = 0;
+    }
+
+    // Add an element to the dynamic array
+    public void Add(int element)
+    {
+        if (size == capacity)
+        {
+            Resize(); // Resize the array if it's full
+        }
+        array[size++] = element;
+    }
+
+    // Get an element at a specific index
+    public int Get(int index)
+    {
+        if (index &lt; 0 || index &gt;= size)
+        {
+            throw new IndexOutOfRangeException("Index out of range");
+        }
+        return array[index];
+    }
+
+    // Set (update) an element at a specific index
+    public void Set(int index, int element)
+    {
+        if (index &lt; 0 || index &gt;= size)
+        {
+            throw new IndexOutOfRangeException("Index out of range");
+        }
+        array[index] = element;
+    }
+
+    // Remove an element at a specific index
+    public void Remove(int index)
+    {
+        if (index &lt; 0 || index &gt;= size)
+        {
+            throw new IndexOutOfRangeException("Index out of range");
+        }
+        for (int i = index; i &lt; size - 1; i++)
+        {
+            array[i] = array[i + 1]; // Shift elements to the left
+        }
+        size--;
+    }
+
+    // Insert an element at a specific index
+    public void Insert(int index, int element)
+    {
+        if (index &lt; 0 || index &gt; size)
+        {
+            throw new IndexOutOfRangeException("Index out of range");
+        }
+        if (size == capacity)
+        {
+            Resize(); // Resize if array is full
+        }
+        for (int i = size; i &gt; index; i--)
+        {
+            array[i] = array[i - 1]; // Shift elements to the right
+        }
+        array[index] = element;
+        size++;
+    }
+
+    // Get the current size of the array
+    public int Size()
+    {
+        return size;
+    }
+
+    // Resize the array when it's full
+    private void Resize()
+    {
+        capacity *= 2;
+        int[] newArray = new int[capacity];
+        for (int i = 0; i &lt; size; i++)
+        {
+            newArray[i] = array[i]; // Copy elements to the new array
+        }
+        array = newArray;
+    }
+
+    // Clear the array by setting size to 0
+    public void Clear()
+    {
+        size = 0;
+        Console.WriteLine("Array cleared!");
+    }
+
+    // Display all elements in the dynamic array
+    public void Display()
+    {
+        if (size == 0)
+        {
+            Console.WriteLine("Array is empty");
+        }
+        else
+        {
+            for (int i = 0; i &lt; size; i++)
+            {
+                Console.Write(array[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        DynamicArray dynamicArray = new DynamicArray();
+
+        // Adding elements
+        dynamicArray.Add(1);
+        dynamicArray.Add(2);
+        dynamicArray.Add(3);
+        dynamicArray.Add(4);
+        dynamicArray.Display(); // Output: Array elements: 1 2 3 4
+
+        // Get element at index 2
+        Console.WriteLine("Element at index 2: " + dynamicArray.Get(2)); // Output: 3
+
+        // Set element at index 1
+        dynamicArray.Set(1, 20);
+        dynamicArray.Display(); // Output: Array elements: 1 20 3 4
+
+        // Insert an element at index 2
+        dynamicArray.Insert(2, 100);
+        dynamicArray.Display(); // Output: Array elements: 1 20 100 3 4
+
+        // Remove an element at index 3
+        dynamicArray.Remove(3);
+        dynamicArray.Display(); // Output: Array elements: 1 20 100 4
+
+        // Get the current size of the array
+        Console.WriteLine("Size: " + dynamicArray.Size()); // Output: Size: 4
+
+        // Clear the array
+        dynamicArray.Clear();
+        dynamicArray.Display(); // Output: Array is empty
+    }
+}</code></pre>
+		
+		
+		<h3>Generic Dynamic Array Implementation</h3>
+		
+		<p>Here is the Generic Dynamic Array implementation in C:</p>
+		
+		<pre><code class="language-c hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
 
@@ -607,157 +1076,10 @@ int main() {
 
     return 0;
 }</code></pre>
-
-		<p>Here is a custom implementation of a simple dynamic array in C++:</p>
-
-        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
-#include &lt;stdexcept&gt; // For exception handling
-
-class DynamicArray {
-private:
-    int* array;
-    int capacity;
-    int currentSize;
-
-    // Resize the array when it reaches capacity
-    void resize() {
-        capacity *= 2;
-        int* newArray = new int[capacity];
-
-        // Manually copy elements from the old array to the new array
-        for (int i = 0; i &lt; currentSize; ++i) {
-            newArray[i] = array[i];
-        }
-
-        delete[] array; // Free the old array
-        array = newArray; // Assign the new array
-    }
-
-public:
-    // Constructor to initialize the dynamic array with an initial capacity
-    DynamicArray(int initialCapacity = 2) {
-        capacity = initialCapacity;
-        array = new int[capacity];
-        currentSize = 0;
-    }
-
-    // Destructor to free allocated memory
-    ~DynamicArray() {
-        delete[] array;
-    }
-
-    // Add an element to the array
-    void add(int element) {
-        if (currentSize == capacity) {
-            resize();
-        }
-        array[currentSize++] = element;
-    }
-
-    // Get an element at a specific index
-    int get(int index) const {
-        if (index &lt; 0 || index &gt;= currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        return array[index];
-    }
-
-    // Set (update) an element at a specific index
-    void set(int index, int element) {
-        if (index &lt; 0 || index &gt;= currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        array[index] = element;
-    }
-
-    // Remove an element at a specific index
-    void remove(int index) {
-        if (index &lt; 0 || index &gt;= currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        for (int i = index; i &lt; currentSize - 1; ++i) {
-            array[i] = array[i + 1];
-        }
-        --currentSize;
-    }
-
-    // Insert an element at a specific index
-    void insert(int index, int element) {
-        if (index &lt; 0 || index &gt; currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        if (currentSize == capacity) {
-            resize();
-        }
-        for (int i = currentSize; i &gt; index; --i) {
-            array[i] = array[i - 1];
-        }
-        array[index] = element;
-        ++currentSize;
-    }
-
-    // Get the current size of the dynamic array
-    int size() const {
-        return currentSize;
-    }
-
-    // Clear the array
-    void clear() {
-        currentSize = 0;
-        std::cout &lt;&lt; "Array cleared!" &lt;&lt; std::endl;
-    }
-
-    // Display all elements in the dynamic array
-    void display() const {
-        if (currentSize == 0) {
-            std::cout &lt;&lt; "Array is empty" &lt;&lt; std::endl;
-        } else {
-            for (int i = 0; i &lt; currentSize; ++i) {
-                std::cout &lt;&lt; array[i] &lt;&lt; " ";
-            }
-            std::cout &lt;&lt; std::endl;
-        }
-    }
-};
-
-int main() {
-    DynamicArray dynamicArray;
-
-    // Adding elements
-    dynamicArray.add(1);
-    dynamicArray.add(2);
-    dynamicArray.add(3);
-    dynamicArray.add(4);
-    dynamicArray.display(); // Output: Array elements: 1 2 3 4
-
-    // Get element at index 2
-    std::cout &lt;&lt; "Element at index 2: " &lt;&lt; dynamicArray.get(2) &lt;&lt; std::endl; // Output: 3
-
-    // Set element at index 1
-    dynamicArray.set(1, 20);
-    dynamicArray.display(); // Output: Array elements: 1 20 3 4
-
-    // Insert an element at index 2
-    dynamicArray.insert(2, 100);
-    dynamicArray.display(); // Output: Array elements: 1 20 100 3 4
-
-    // Remove an element at index 3
-    dynamicArray.remove(3);
-    dynamicArray.display(); // Output: Array elements: 1 20 100 4
-
-    // Get the current size of the array
-    std::cout &lt;&lt; "Size: " &lt;&lt; dynamicArray.size() &lt;&lt; std::endl; // Output: Size: 4
-
-    // Clear the array
-    dynamicArray.clear();
-    dynamicArray.display(); // Output: Array is empty
-
-    return 0;
-}</code></pre>
 		
-		<p>Here is a custom implementation of a generic dynamic array in C++:</p>
-
-        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+		<p>Here is the Generic Dynamic Array implementation in C++:</p>
+		
+		<pre><code class="language-cpp hljs">#include &lt;iostream&gt;
 #include &lt;stdexcept&gt; // For exception handling
 
 template &lt;typename T&gt;
@@ -900,154 +1222,10 @@ int main() {
 
     return 0;
 }</code></pre>
-
-        <p>Here is a custom implementation of a simple dynamic array in Java:</p>
-
-        <pre><code class="language-java hljs">class DynamicArray {
-    private int[] array;
-    private int size;
-    private int capacity;
-
-    // Constructor to initialize array with a specified capacity
-    public DynamicArray(int initialCapacity) {
-        this.capacity = initialCapacity;
-        this.array = new int[capacity];
-        this.size = 0;
-    }
-
-    // Default constructor with an initial capacity of 2
-    public DynamicArray() {
-        this(2);
-    }
-
-    // Add an element to the dynamic array
-    public void add(int element) {
-        if (size == capacity) {
-            resize();
-        }
-        array[size++] = element;
-    }
-
-    // Get an element at a specific index
-    public int get(int index) {
-        if (index &gt;= size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        return array[index];
-    }
-
-    // Set (update) an element at a specific index
-    public void set(int index, int element) {
-        if (index &gt;= size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        array[index] = element;
-    }
-
-    // Remove an element at a specific index
-    public void remove(int index) {
-        if (index &gt;= size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        for (int i = index; i &lt; size - 1; i++) {
-            array[i] = array[i + 1];
-        }
-        array[--size] = 0;  // Clear last element
-    }
-
-    // Insert an element at a specific index
-    public void insert(int index, int element) {
-        if (index &gt; size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        if (size == capacity) {
-            resize();
-        }
-        for (int i = size; i &gt; index; i--) {
-            array[i] = array[i - 1];
-        }
-        array[index] = element;
-        size++;
-    }
-
-    // Get the current size of the array
-    public int size() {
-        return size;
-    }
-
-    // Resize the array when capacity is reached
-    private void resize() {
-        capacity *= 2;
-        int[] newArray = new int[capacity];
-        
-        // Manually copy elements from the old array to the new array
-        for (int i = 0; i &lt; size; i++) {
-            newArray[i] = array[i];
-        }
-        
-        array = newArray;
-    }
-
-    // Clear the array by setting the size to 0
-    public void clear() {
-        for (int i = 0; i &lt; size; i++) {
-            array[i] = 0;
-        }
-        size = 0;
-        System.out.println("Array cleared!");
-    }
-
-    // Display all elements in the dynamic array
-    public void display() {
-        if (size == 0) {
-            System.out.println("Array is empty");
-        } else {
-            for (int i = 0; i &lt; size; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        }
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        DynamicArray dynamicArray = new DynamicArray();
-
-        // Adding elements
-        dynamicArray.add(1);
-        dynamicArray.add(2);
-        dynamicArray.add(3);
-        dynamicArray.add(4);
-        dynamicArray.display(); // Output: Array elements: 1 2 3 4
-
-        // Get element at index 2
-        System.out.println("Element at index 2: " + dynamicArray.get(2)); // Output: 3
-
-        // Set element at index 1
-        dynamicArray.set(1, 20);
-        dynamicArray.display(); // Output: Array elements: 1 20 3 4
-
-        // Insert an element at index 2
-        dynamicArray.insert(2, 100);
-        dynamicArray.display(); // Output: Array elements: 1 20 100 3 4
-
-        // Remove an element at index 3
-        dynamicArray.remove(3);
-        dynamicArray.display(); // Output: Array elements: 1 20 100 4
-
-        // Get the current size of the array
-        System.out.println("Size: " + dynamicArray.size()); // Output: Size: 4
-
-        // Clear the array
-        dynamicArray.clear();
-        dynamicArray.display(); // Output: Array is empty
-    }
-}</code></pre>
-
-        <p>Here is a custom implementation of a generic dynamic array in Java:</p>
-
-        <pre><code class="language-java hljs">class DynamicArray&lt;T&gt; {
+		
+		<p>Here is the Generic Dynamic Array implementation in Java:</p>
+		
+		<pre><code class="language-java hljs">class DynamicArray&lt;T&gt; {
     private Object[] array;
     private int size;
     private int capacity;
@@ -1188,170 +1366,9 @@ public class Main {
     }
 }</code></pre>
 
-        <p>Here is a custom implementation of a simple dynamic array in C#:</p>
+		<p>Here is the Generic Dynamic Array implementation in C#:</p>
 
-        <pre><code class="language-csharp hljs">using System;
-
-class DynamicArray
-{
-    private int[] array;      // Internal array to store elements
-    private int capacity;     // Capacity of the array
-    private int size;         // Current number of elements
-
-    // Constructor to initialize array with a default capacity
-    public DynamicArray(int initialCapacity = 2)
-    {
-        capacity = initialCapacity;
-        array = new int[capacity];
-        size = 0;
-    }
-
-    // Add an element to the dynamic array
-    public void Add(int element)
-    {
-        if (size == capacity)
-        {
-            Resize(); // Resize the array if it's full
-        }
-        array[size++] = element;
-    }
-
-    // Get an element at a specific index
-    public int Get(int index)
-    {
-        if (index &lt; 0 || index &gt;= size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        return array[index];
-    }
-
-    // Set (update) an element at a specific index
-    public void Set(int index, int element)
-    {
-        if (index &lt; 0 || index &gt;= size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        array[index] = element;
-    }
-
-    // Remove an element at a specific index
-    public void Remove(int index)
-    {
-        if (index &lt; 0 || index &gt;= size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        for (int i = index; i &lt; size - 1; i++)
-        {
-            array[i] = array[i + 1]; // Shift elements to the left
-        }
-        size--;
-    }
-
-    // Insert an element at a specific index
-    public void Insert(int index, int element)
-    {
-        if (index &lt; 0 || index &gt; size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        if (size == capacity)
-        {
-            Resize(); // Resize if array is full
-        }
-        for (int i = size; i &gt; index; i--)
-        {
-            array[i] = array[i - 1]; // Shift elements to the right
-        }
-        array[index] = element;
-        size++;
-    }
-
-    // Get the current size of the array
-    public int Size()
-    {
-        return size;
-    }
-
-    // Resize the array when it's full
-    private void Resize()
-    {
-        capacity *= 2;
-        int[] newArray = new int[capacity];
-        for (int i = 0; i &lt; size; i++)
-        {
-            newArray[i] = array[i]; // Copy elements to the new array
-        }
-        array = newArray;
-    }
-
-    // Clear the array by setting size to 0
-    public void Clear()
-    {
-        size = 0;
-        Console.WriteLine("Array cleared!");
-    }
-
-    // Display all elements in the dynamic array
-    public void Display()
-    {
-        if (size == 0)
-        {
-            Console.WriteLine("Array is empty");
-        }
-        else
-        {
-            for (int i = 0; i &lt; size; i++)
-            {
-                Console.Write(array[i] + " ");
-            }
-            Console.WriteLine();
-        }
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        DynamicArray dynamicArray = new DynamicArray();
-
-        // Adding elements
-        dynamicArray.Add(1);
-        dynamicArray.Add(2);
-        dynamicArray.Add(3);
-        dynamicArray.Add(4);
-        dynamicArray.Display(); // Output: Array elements: 1 2 3 4
-
-        // Get element at index 2
-        Console.WriteLine("Element at index 2: " + dynamicArray.Get(2)); // Output: 3
-
-        // Set element at index 1
-        dynamicArray.Set(1, 20);
-        dynamicArray.Display(); // Output: Array elements: 1 20 3 4
-
-        // Insert an element at index 2
-        dynamicArray.Insert(2, 100);
-        dynamicArray.Display(); // Output: Array elements: 1 20 100 3 4
-
-        // Remove an element at index 3
-        dynamicArray.Remove(3);
-        dynamicArray.Display(); // Output: Array elements: 1 20 100 4
-
-        // Get the current size of the array
-        Console.WriteLine("Size: " + dynamicArray.Size()); // Output: Size: 4
-
-        // Clear the array
-        dynamicArray.Clear();
-        dynamicArray.Display(); // Output: Array is empty
-    }
-}</code></pre>
-
-        <p>Here is a custom implementation of a generic dynamic array in C#:</p>
-
-        <pre><code class="language-csharp hljs">using System;
+		<pre><code class="language-csharp hljs">using System;
 
 class DynamicArray&lt;T&gt;
 {

@@ -16,33 +16,45 @@ tags: ["data structure", "stack", "linear stack", "fixed sized linear stack", "d
     {% include post-header.html %}
 
     <article class="post-content">
+		
+		<h3>Linear Stack</h3>
+		
         <p>A Stack is a fundamental data structure in computer science that follows the Last In, First Out (LIFO) principle. This means that the last element added to the stack is the first one to be removed. A stack is used in scenarios where you need to manage data in a reverse or nested order, such as function call management in programming, undo/redo features, and expression evaluation.</p>
+		
+		<p>A stack has several key characteristics that make it unique and useful in various computational scenarios. Here are its main characteristics:</p>
 
+        <ul>
+            <li><b>LIFO Principle</b>: Stacks operate based on the Last In, First Out (LIFO) principle, where the most recently added element is the first one to be removed.</li>
+            <li><b>Single Access Point</b>: Stacks have a single access point, typically referred to as the top of the stack, where all push and pop operations occur.</li>
+            <li><b>Efficient Operations</b>: Push, pop, and peek operations on stacks typically have a time complexity of \(O(1)\), making them efficient for certain applications.</li>
+            <li><b>Limited Access</b>: Stacks support limited access to elements. In most cases, only the top element of the stack is accessible for modification or removal.</li>
+        </ul>
+		
         <p>Suppose we want to store the elements in a stack and let's assume that stack is empty. We have taken the stack of size 3 in which we are pushing the elements one by one until the stack becomes full.</p>
 
         <p>Since our stack is full as the size of the stack is 3. In the above cases, we can observe that it goes from the top to the bottom when we were entering the new element in the stack. The stack gets filled up from the bottom to the top.</p>
     
         <p>When we perform the delete operation on the stack, there is only one way for entry and exit as the other end is closed. It follows the LIFO pattern, which means that the value entered first will be removed last. In the above case, the value 3 is entered first, so it will be removed only after the deletion of all the other elements.</p>
 
-        <p>There are two types of Linear Stack Data Structure:</p>
-
+        <p>When classifying Linear Stacks based on their implementation, there are two main types:</p>
+		
         <ul>
             <li><b>Fixed Size Linear Stack</b>: A fixed size linear stack has a fixed size and cannot grow or shrink dynamically. If the stack is full and an attempt is made to add an element to it, an overflow error occurs. If the stack is empty and an attempt is made to remove an element from it, an underflow error occurs. This type of stack is implemented using an array. The array size is fixed, so elements are added sequentially in the array.</li>
             <li><b>Dynamic Size Linear Stack</b>: A dynamic size linear stack can grow or shrink dynamically. When the stack is full, it automatically increases its size to accommodate the new element, and when the stack is empty, it decreases its size. This type of stack is implemented using a linked list, as it allows for easy resizing of the stack.</li>
         </ul>
-
-        <p>A stack is a data structure with several key characteristics that make it unique and useful in various computational scenarios. Here are its main characteristics:</p>
+		
+		<p>When classifying Linear Stacks based on the types of data they handle, they can be categorized into:</p>
 
         <ul>
-            <li><b>LIFO Principle</b>: Stacks operate based on the Last In, First Out (LIFO) principle, where the most recently added element is the first one to be removed.</li>
-            <li><b>Single Access Point</b>: Stacks have a single access point, typically referred to as the top of the stack, where all push and pop operations occur.</li>
-            <li><b>Efficient Operations</b>: Push, pop, and peek operations on stacks typically have a time complexity of O(1), making them efficient for certain applications.</li>
-            <li><b>Limited Access</b>: Stacks support limited access to elements. In most cases, only the top element of the stack is accessible for modification or removal.</li>
+            <li><b>Homogeneous Stack</b>: A stack where all the elements are of the same data type.</li>
+            <li><b>Heterogeneous Stack (Generic Stack)</b>:  A stack that can handle different data types, allowing elements of various types (e.g., integers, floats, strings, or custom objects) to coexist.</li>
         </ul>
-
-        <p>In an array-based stack implementation, the push operation is implemented by incrementing the index of the top element and storing the new element at that index. The pop operation is implemented by returning the value stored at the top index and then decrementing the index of the top element.</p>
 		
-		<p>The following are some common operations implemented on the stack using an array:</p>
+        <h3>Array-based Linear Stack</h3>
+		
+		<p>An Array-based Linear Stack is a stack implementation that uses an array to store elements in a linear order.</p>
+		
+		<p>Here's a detailed breakdown of common stack operations implemented using an array-based stack:</p>
 
         <ul>
             <li><code>push()</code>:<br> 
@@ -103,7 +115,9 @@ tags: ["data structure", "stack", "linear stack", "fixed sized linear stack", "d
 			</li>
         </ul>
 		
-        <p>C array-based simple stack implementation:</p>
+		<h4>Array-based Homogeneous Linear Stack Implementation</h4>
+		
+        <p>Here is the Array-based Homogeneous Linear Stack implementation in C:</p>
   
         <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -183,9 +197,244 @@ void freeStack(struct Stack* s) {
     free(s);
 }</code></pre>
 		
-		<p>To implement a generic stack in C requires using <code>void*</code> pointers and function pointers to manage various data types since C does not support generics directly (like in C++ or Java). C array-based generic stack implementation:</p>
+		<p>Here is the Array-based Homogeneous Linear Stack implementation in C++:</p>
+        
+        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+using namespace std;
 
-        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+class Stack {
+    private:
+        int* stack;
+        int top;
+        int maxSize;
+
+    public:
+        Stack(int size) {
+            maxSize = size;
+            stack = new int[maxSize];
+            top = -1;
+        }
+
+        ~Stack() {
+            delete[] stack;
+        }
+
+        void push(int element) {
+            if (top == maxSize - 1) {
+                cout &lt;&lt; "Stack Overflow" &lt;&lt; endl;
+                return;
+            }
+            cout &lt;&lt; "Pushed " &lt;&lt; element &lt;&lt; " to stack" &lt;&lt; endl;
+            stack[++top] = element;
+        }
+
+        int pop() {
+            if (IsEmpty()) {
+                cout &lt;&lt; "Stack Underflow" &lt;&lt; endl;
+                return -1;
+            }
+            cout &lt;&lt; "Popped " &lt;&lt; stack[top] &lt;&lt; " from stack" &lt;&lt; endl;
+            return stack[top--];
+        }
+
+        bool isFull() {
+            return top == maxSize - 1;
+        }
+
+        bool isEmpty() {
+            return top == -1;
+        }
+
+        int peek() {
+            if (IsEmpty()) {
+                return -1;
+            }
+            return stack[top];
+        }
+
+        int size() {
+            return top + 1;
+        }
+
+        void clear() {
+            top = -1;
+            cout &lt;&lt; "Stack is cleared!" &lt;&lt; endl;
+        }
+
+        void display() {
+            if (IsEmpty()) {
+                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+            } else {
+                for (int i = 0; i &lt;= top; i++) {
+                    if (i == top)
+                        cout &lt;&lt; stack[i];
+                    else
+                        cout &lt;&lt; stack[i] &lt;&lt; ", ";
+                }
+                cout &lt;&lt; endl;
+            }
+        }
+}</code></pre>
+		
+        <p>Here is the Array-based Homogeneous Linear Stack implementation in Java:</p>
+        
+        <pre><code class="language-java hljs">import java.lang;
+
+public class Stack {
+    private int[] stack;
+    private int top;
+    private int maxSize;
+
+    public Stack(int size) {
+        maxSize = size;
+        stack = new int[maxSize];
+        top = -1;
+    }
+
+    public void push(int element) {
+        if (top == maxSize - 1) {
+            System.out.println("Stack Overflow");
+            return;
+        }
+        System.out.println("Pushed " + element + " to stack");
+        stack[++top] = element;
+    }
+
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow");
+            return -1;
+        }
+        System.out.println("Popped " + stack[top] + " from stack");
+        return stack[top--];
+    }
+
+    public boolean isFull() {
+        return top == maxSize - 1;
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return stack[top];
+    }
+
+    public int size() {
+        return top + 1;
+    }
+
+    public void clear() {
+        top = -1;
+        System.out.println("Stack is cleared!");
+    }
+
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+        } else {
+            for (int i = 0; i &lt;= top; i++) {
+                if (i == top)
+                    System.out.print(stack[i]);
+                else
+                    System.out.print(stack[i] + ", ");
+            }
+            System.out.println();
+        }
+    }
+}</code></pre>
+		
+	
+        <p>Here is the Array-based Homogeneous Linear Stack implementation in C#:</p>
+
+        <pre><code class="language-csharp hljs">using System;
+
+class Stack {
+    private int[] stack;
+    private int top;
+    private int maxSize;
+
+    public Stack(int size) {
+        maxSize = size;
+        stack = new int[maxSize];
+        top = -1;
+    }
+
+    public void Push(int element) {
+        if (top == maxSize - 1) {
+            Console.WriteLine("Stack Overflow");
+            return;
+        }
+        Console.WriteLine($"Pushed {element} to stack");
+        stack[++top] = element;
+    }
+
+    public int Pop() {
+        if (isEmpty()) {
+            Console.WriteLine("Stack Underflow");
+            return -1;
+        }
+        Console.WriteLine($"Popped {stack[top]} from stack");
+        return stack[top--];
+    }
+
+    public bool IsFull() {
+        return top == maxSize - 1;
+    }
+
+    public bool IsEmpty() {
+        return top == -1;
+    }
+
+    public int Peek() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return stack[top];
+    }
+
+    public int Size()
+    {
+        return top + 1;
+    }
+
+    public void Clear()
+    {
+        top = -1; // Reset the stack to its initial empty state
+        Console.WriteLine("Stack is cleared!");
+    }
+
+    public void Display()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("Stack is empty!");
+        }
+        else
+        {
+            for (int i = 0; i &lt;= top; i++)
+            {
+                if (i == top)
+                    Console.Write(stack[i]);
+                else
+                    Console.Write(stack[i] + ", ");
+            }
+            Console.WriteLine();
+        }
+    }
+}</code></pre>
+
+        <h4>Array-based Heterogeneous/Generic Linear Stack Implementation</h4>
+		
+		<p>C does not support generics directly, unlike languages such as C++ or Java. However, you can still implement generic-like behavior in C by using <code>void*</code> pointers and other techniques, like function pointers, to achieve flexibility with different data types.</p>
+		
+		<p>Here is the Array-based Generic Linear Stack implementation in C:</p>
+		
+		<pre><code class="language-c hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
 struct StackElement {
@@ -341,89 +590,12 @@ int main() {
 	
     return 0;
 }</code></pre>
-
-        <p>C++ array-based simple stack implementation:</p>
-        
-        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
-using namespace std;
-
-class Stack {
-    private:
-        int* stack;
-        int top;
-        int maxSize;
-
-    public:
-        Stack(int size) {
-            maxSize = size;
-            stack = new int[maxSize];
-            top = -1;
-        }
-
-        ~Stack() {
-            delete[] stack;
-        }
-
-        void push(int element) {
-            if (top == maxSize - 1) {
-                cout &lt;&lt; "Stack Overflow" &lt;&lt; endl;
-                return;
-            }
-            cout &lt;&lt; "Pushed " &lt;&lt; element &lt;&lt; " to stack" &lt;&lt; endl;
-            stack[++top] = element;
-        }
-
-        int pop() {
-            if (IsEmpty()) {
-                cout &lt;&lt; "Stack Underflow" &lt;&lt; endl;
-                return -1;
-            }
-            cout &lt;&lt; "Popped " &lt;&lt; stack[top] &lt;&lt; " from stack" &lt;&lt; endl;
-            return stack[top--];
-        }
-
-        bool isFull() {
-            return top == maxSize - 1;
-        }
-
-        bool isEmpty() {
-            return top == -1;
-        }
-
-        int peek() {
-            if (IsEmpty()) {
-                return -1;
-            }
-            return stack[top];
-        }
-
-        int size() {
-            return top + 1;
-        }
-
-        void clear() {
-            top = -1;
-            cout &lt;&lt; "Stack is cleared!" &lt;&lt; endl;
-        }
-
-        void display() {
-            if (IsEmpty()) {
-                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
-            } else {
-                for (int i = 0; i &lt;= top; i++) {
-                    if (i == top)
-                        cout &lt;&lt; stack[i];
-                    else
-                        cout &lt;&lt; stack[i] &lt;&lt; ", ";
-                }
-                cout &lt;&lt; endl;
-            }
-        }
-}</code></pre>
 		
-		<p>To implement a generic stack in C++ that can store any type of object or data type, you can use generics. In C++, generics are implemented using templates. Templates allow the creation of classes, functions, and even member functions that can work with any data type, specified when the object or function is instantiated. Templates in C++ allow you to define generic classes and functions that can work with any data type. C++ array-based generic stack implementation:</p>
-
-        <pre><code class="language-csharp hljs">#include &lt;iostream&gt;
+		<p>In C++, you can easily implement a generic stack using templates. Templates allow the creation of classes, functions, and even member functions that can work with any data type, specified when the object or function is instantiated. Templates in C++ allow you to define generic classes and functions that can work with any data type.</p>
+		
+		<p>Here is the Array-based Generic Linear Stack implementation in C++:</p>
+		
+		<pre><code class="language-csharp hljs">#include &lt;iostream&gt;
 using namespace std;
 
 template &lt;typename T&gt;
@@ -529,82 +701,12 @@ int main() {
 
     return 0;
 }</code></pre>
-
-        <p>Java array-based simple stack implementation:</p>
-        
-        <pre><code class="language-java hljs">import java.lang;
-
-public class Stack {
-    private int[] stack;
-    private int top;
-    private int maxSize;
-
-    public Stack(int size) {
-        maxSize = size;
-        stack = new int[maxSize];
-        top = -1;
-    }
-
-    public void push(int element) {
-        if (top == maxSize - 1) {
-            System.out.println("Stack Overflow");
-            return;
-        }
-        System.out.println("Pushed " + element + " to stack");
-        stack[++top] = element;
-    }
-
-    public int pop() {
-        if (isEmpty()) {
-            System.out.println("Stack Underflow");
-            return -1;
-        }
-        System.out.println("Popped " + stack[top] + " from stack");
-        return stack[top--];
-    }
-
-    public boolean isFull() {
-        return top == maxSize - 1;
-    }
-
-    public boolean isEmpty() {
-        return top == -1;
-    }
-
-    public int peek() {
-        if (isEmpty()) {
-            return -1;
-        }
-        return stack[top];
-    }
-
-    public int size() {
-        return top + 1;
-    }
-
-    public void clear() {
-        top = -1;
-        System.out.println("Stack is cleared!");
-    }
-
-    public void display() {
-        if (isEmpty()) {
-            System.out.println("Stack is empty!");
-        } else {
-            for (int i = 0; i &lt;= top; i++) {
-                if (i == top)
-                    System.out.print(stack[i]);
-                else
-                    System.out.print(stack[i] + ", ");
-            }
-            System.out.println();
-        }
-    }
-}</code></pre>
 		
-		<p>To implement a generic stack in Java that can store any type of object or data type, you can use generics. Generics allow you to create classes and methods that work with any data type while maintaining type safety. Java array-based generic stack implementation:</p>
-
-        <pre><code class="language-java hljs">import java.lang;
+		<p>In Java, you can create a generic stack using Generics, which allows you to define a stack that can hold elements of any type.</p>
+		
+		<p>Here is the Array-based Generic Linear Stack implementation in Java:</p>
+		
+		<pre><code class="language-java hljs">import java.lang;
 
 public class Stack&lt;T&gt; {
     private T[] stack;
@@ -685,89 +787,12 @@ class Program {
         personStack.Push(p2);
     }
 }</code></pre>
-
-        <p>C# array-based simple stack implementation:</p>
-
-        <pre><code class="language-csharp hljs">using System;
-
-class Stack {
-    private int[] stack;
-    private int top;
-    private int maxSize;
-
-    public Stack(int size) {
-        maxSize = size;
-        stack = new int[maxSize];
-        top = -1;
-    }
-
-    public void Push(int element) {
-        if (top == maxSize - 1) {
-            Console.WriteLine("Stack Overflow");
-            return;
-        }
-        Console.WriteLine($"Pushed {element} to stack");
-        stack[++top] = element;
-    }
-
-    public int Pop() {
-        if (isEmpty()) {
-            Console.WriteLine("Stack Underflow");
-            return -1;
-        }
-        Console.WriteLine($"Popped {stack[top]} from stack");
-        return stack[top--];
-    }
-
-    public bool IsFull() {
-        return top == maxSize - 1;
-    }
-
-    public bool IsEmpty() {
-        return top == -1;
-    }
-
-    public int Peek() {
-        if (isEmpty()) {
-            return -1;
-        }
-        return stack[top];
-    }
-
-    public int Size()
-    {
-        return top + 1;
-    }
-
-    public void Clear()
-    {
-        top = -1; // Reset the stack to its initial empty state
-        Console.WriteLine("Stack is cleared!");
-    }
-
-    public void Display()
-    {
-        if (IsEmpty())
-        {
-            Console.WriteLine("Stack is empty!");
-        }
-        else
-        {
-            for (int i = 0; i &lt;= top; i++)
-            {
-                if (i == top)
-                    Console.Write(stack[i]);
-                else
-                    Console.Write(stack[i] + ", ");
-            }
-            Console.WriteLine();
-        }
-    }
-}</code></pre>
-
-        <p>To implement a generic stack in C# that can store any type of object or data type, you can use generics. Generics allow you to create classes and methods that work with any data type while maintaining type safety. C# array-based generic stack implementation:</p>
-
-        <pre><code class="language-csharp hljs">using System;
+		
+		<p>In C#, you can implement a generic stack using generics, which allows the stack to hold elements of any data type.</p>
+		
+		<p>Here is the Array-based Generic Linear Stack implementation in C#:</p>
+		
+		<pre><code class="language-csharp hljs">using System;
 
 class Stack&lt;T&gt;
 {
@@ -872,10 +897,12 @@ class Program
         stringStack.Pop(); 
     }
 }</code></pre>
-
-        <p>In a linked list-based implementation, the push operation is implemented by creating a new node with the new element and setting the next pointer of the current top node to the new node. The pop operation is implemented by setting the next pointer of the current top node to the next node and returning the value of the current top node.</p>
 		
-		<p>The following are some common operations implemented on the stack using a linked list:</p>
+		<h3>Linked list-based Linear Stack</h3>
+		
+		<p>A linked list-based linear stack is a stack implementation that uses a linked list to store elements instead of an array. This type of stack offers dynamic memory allocation, meaning the size of the stack can grow or shrink dynamically as elements are pushed and popped, unlike array-based stacks which have a fixed size.</p>
+		
+		<p>Here's a detailed breakdown of common stack operations implemented using an array-based stack:</p>
 
         <ul>
             <li><code>push()</code>:<br> 
@@ -929,7 +956,9 @@ class Program
 			</li>
         </ul>
 		
-        <p>C Linked List-based Simple Stack Implementation:</p>
+		<h4>Linked list-based Homogeneous Linear Stack Implementation</h4>
+
+        <p>Here is the Linked list-based Homogeneous Linear Stack implementation in C:</p>
 
         <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -1045,9 +1074,322 @@ int main() {
     return 0;
 }</code></pre>
 		
-		<p>To implement a generic stack in C requires using <code>void*</code> pointers and function pointers to manage various data types since C does not support generics directly (like in C++ or Java). C Linked List-based generic stack implementation:</p>
+		<p>Here is the Linked list-based Homogeneous Linear Stack implementation in C++:</p>
 
-        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+class Stack {
+    private:
+        Node* top;
+        int size;
+
+    public:
+        Stack() {
+            top = nullptr;
+            size = 0;
+        }
+
+        ~Stack() {
+            while (top != nullptr) {
+                pop();
+            }
+        }
+
+        void push(int element) {
+            Node* newNode = new Node();
+            newNode-&gt;data = element;
+            newNode-&gt;next = top;
+            top = newNode;
+            size++;
+            cout &lt;&lt; "Pushed " &lt;&lt; element &lt;&lt; " to stack" &lt;&lt; endl;
+        }
+
+        int pop() {
+            if (isEmpty()) {
+                cout &lt;&lt; "Stack Underflow" &lt;&lt; endl;
+                return -1;
+            }
+
+            Node* temp = top;
+            int poppedData = temp-&gt;data;
+            top = top-&gt;next;
+            delete temp;
+            size--;
+            cout &lt;&lt; "Popped " &lt;&lt; poppedData &lt;&lt; " from stack" &lt;&lt; endl;
+            return poppedData;
+        }
+
+        int peek() {
+            if (isEmpty()) {
+                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+                return -1;
+            }
+            return top-&gt;data;
+        }
+
+        bool isEmpty() {
+            return top == nullptr;
+        }
+
+        void clear() {
+            while (!isEmpty()) {
+                pop();
+            }
+            cout &lt;&lt; "Stack is cleared!" &lt;&lt; endl;
+        }
+
+        void display() {
+            if (isEmpty()) {
+                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
+            } else {
+                Node* current = top;
+                while (current != nullptr) {
+                    cout &lt;&lt; current-&gt;data;
+                    if (current-&gt;next != nullptr)
+                        cout &lt;&lt; ", ";
+                    current = current-&gt;next;
+                }
+                cout &lt;&lt; endl;
+            }
+        }
+
+        int getSize() {
+            return size;
+        }
+};
+
+int main() {
+    Stack stack;
+
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+    stack.display();  // Outputs: 30, 20, 10
+
+    stack.pop();      // Outputs: Popped 30 from stack
+    stack.display();  // Outputs: 20, 10
+
+    cout &lt;&lt; "Top element is: " &lt;&lt; stack.peek() &lt;&lt; endl;  // Outputs: 20
+    cout &lt;&lt; "Stack size is: " &lt;&lt; stack.getSize() &lt;&lt; endl;   // Outputs: 2
+
+    stack.clear();
+    stack.display();  // Outputs: Stack is empty!
+
+    return 0;
+}</code></pre>
+        
+		<p>Here is the Linked list-based Homogeneous Linear Stack implementation in C#:</p>
+
+        <pre><code class="language-cs hljs">using System;
+
+class Node {
+    public int data;
+    public Node next;
+}
+
+class Stack {
+    private Node top;
+    private int size;
+
+    public Stack() {
+        top = null;
+        size = 0;
+    }
+
+    public void Push(int element) {
+        Node newNode = new Node();
+        newNode.data = element;
+        newNode.next = top;
+        top = newNode;
+        size++;
+        Console.WriteLine($"Pushed {element} to stack");
+    }
+
+    public int Pop() {
+        if (IsEmpty()) {
+            Console.WriteLine("Stack Underflow");
+            return -1;
+        }
+
+        int poppedData = top.data;
+        top = top.next;
+        size--;
+        Console.WriteLine($"Popped {poppedData} from stack");
+        return poppedData;
+    }
+
+    public int Peek() {
+        if (IsEmpty()) {
+            Console.WriteLine("Stack is empty!");
+            return -1;
+        }
+        return top.data;
+    }
+
+    public bool IsEmpty() {
+        return top == null;
+    }
+
+    public int Size() {
+        return size;
+    }
+
+    public void Clear() {
+        top = null;
+        size = 0;
+        Console.WriteLine("Stack is cleared!");
+    }
+
+    public void Display() {
+        if (IsEmpty()) {
+            Console.WriteLine("Stack is empty!");
+        } else {
+            Node current = top;
+            while (current != null) {
+                Console.Write(current.data);
+                if (current.next != null) {
+                    Console.Write(", ");
+                }
+                current = current.next;
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+class Program {
+    static void Main() {
+        Stack stack = new Stack();
+
+        stack.Push(10);
+        stack.Push(20);
+        stack.Push(30);
+        stack.Display();  // Outputs: 30, 20, 10
+
+        stack.Pop();      // Outputs: Popped 30 from stack
+        stack.Display();  // Outputs: 20, 10
+
+        Console.WriteLine("Top element is: " + stack.Peek());  // Outputs: 20
+        Console.WriteLine("Stack size is: " + stack.Size());   // Outputs: 2
+
+        stack.Clear();
+        stack.Display();  // Outputs: Stack is empty!
+    }
+}</code></pre>
+		
+        <p>Here is the Linked list-based Homogeneous Linear Stack implementation in Java:</p>
+        
+        <pre><code class="language-java hljs">import java.lang;
+
+public class Node {
+    public int data;
+    public Node next;
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+public class Stack {
+    private Node top;
+    private int size;
+
+    public Stack() {
+        top = null;
+        size = 0;
+    }
+
+    public void push(int element) {
+        Node newNode = new Node(element);
+        newNode.next = top;
+        top = newNode;
+        size++; 
+        System.out.println("Pushed " + element + " to stack");
+    }
+
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow");
+            return -1;  // Return -1 if the stack is empty
+        }
+
+        int poppedData = top.data;
+        top = top.next;
+        size--;
+        System.out.println("Popped " + poppedData + " from stack");
+        return poppedData;
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+            return -1;
+        }
+        return top.data;
+    }
+
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public void clear() {
+        top = null;
+        size = 0;
+        System.out.println("Stack is cleared!");
+    }
+
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty!");
+        } else {
+            Node current = top;
+            while (current != null) {
+                System.out.print(current.data);
+                if (current.next != null) {
+                    System.out.print(", ");
+                }
+                current = current.next;
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.display();  // Outputs: 30, 20, 10
+
+        stack.pop();      // Outputs: Popped 30 from stack
+        stack.display();  // Outputs: 20, 10
+
+        System.out.println("Top element is: " + stack.peek());  // Outputs: 20
+        System.out.println("Stack size is: " + stack.size());   // Outputs: 2
+
+        stack.clear();
+        stack.display();  // Outputs: Stack is empty!
+    }
+}</code></pre>
+        
+		
+		<h4>Linked list-based Heterogeneous/Generic Linear Stack Implementation</h4>
+
+        <p>Here is the Linked list-based Heterogeneous/Generic Linear Stack implementation in C:</p>
+		
+		<pre><code class="language-c hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
 struct StackElement {
@@ -1212,119 +1554,9 @@ int main() {
     return 0;
 }</code></pre>
 
-        <p>C++ Linked List-based Simple Stack Implementation:</p>
-
-        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
-using namespace std;
-
-struct Node {
-    int data;
-    Node* next;
-};
-
-class Stack {
-    private:
-        Node* top;
-        int size;
-
-    public:
-        Stack() {
-            top = nullptr;
-            size = 0;
-        }
-
-        ~Stack() {
-            while (top != nullptr) {
-                pop();
-            }
-        }
-
-        void push(int element) {
-            Node* newNode = new Node();
-            newNode-&gt;data = element;
-            newNode-&gt;next = top;
-            top = newNode;
-            size++;
-            cout &lt;&lt; "Pushed " &lt;&lt; element &lt;&lt; " to stack" &lt;&lt; endl;
-        }
-
-        int pop() {
-            if (isEmpty()) {
-                cout &lt;&lt; "Stack Underflow" &lt;&lt; endl;
-                return -1;
-            }
-
-            Node* temp = top;
-            int poppedData = temp-&gt;data;
-            top = top-&gt;next;
-            delete temp;
-            size--;
-            cout &lt;&lt; "Popped " &lt;&lt; poppedData &lt;&lt; " from stack" &lt;&lt; endl;
-            return poppedData;
-        }
-
-        int peek() {
-            if (isEmpty()) {
-                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
-                return -1;
-            }
-            return top-&gt;data;
-        }
-
-        bool isEmpty() {
-            return top == nullptr;
-        }
-
-        void clear() {
-            while (!isEmpty()) {
-                pop();
-            }
-            cout &lt;&lt; "Stack is cleared!" &lt;&lt; endl;
-        }
-
-        void display() {
-            if (isEmpty()) {
-                cout &lt;&lt; "Stack is empty!" &lt;&lt; endl;
-            } else {
-                Node* current = top;
-                while (current != nullptr) {
-                    cout &lt;&lt; current-&gt;data;
-                    if (current-&gt;next != nullptr)
-                        cout &lt;&lt; ", ";
-                    current = current-&gt;next;
-                }
-                cout &lt;&lt; endl;
-            }
-        }
-
-        int getSize() {
-            return size;
-        }
-};
-
-int main() {
-    Stack stack;
-
-    stack.push(10);
-    stack.push(20);
-    stack.push(30);
-    stack.display();  // Outputs: 30, 20, 10
-
-    stack.pop();      // Outputs: Popped 30 from stack
-    stack.display();  // Outputs: 20, 10
-
-    cout &lt;&lt; "Top element is: " &lt;&lt; stack.peek() &lt;&lt; endl;  // Outputs: 20
-    cout &lt;&lt; "Stack size is: " &lt;&lt; stack.getSize() &lt;&lt; endl;   // Outputs: 2
-
-    stack.clear();
-    stack.display();  // Outputs: Stack is empty!
-
-    return 0;
-}</code></pre>
-        
-		<p>To implement a generic stack in C++ that can store any type of object or data type, you can use generics. In C++, generics are implemented using templates. Templates allow the creation of classes, functions, and even member functions that can work with any data type, specified when the object or function is instantiated. Templates in C++ allow you to define generic classes and functions that can work with any data type. C++ Linked List-based generic stack implementation:</p>
-
-        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+		<p>Here is the Linked list-based Heterogeneous/Generic Linear Stack implementation in C++:</p>
+		
+		<pre><code class="language-cpp hljs">#include &lt;iostream&gt;
 using namespace std;
 
 template &lt;typename T&gt;
@@ -1444,108 +1676,9 @@ int main() {
     return 0;
 }</code></pre>
 
-        <p>C# Linked List-based Simple Stack Implementation:</p>
-
-        <pre><code class="language-cs hljs">using System;
-
-class Node {
-    public int data;
-    public Node next;
-}
-
-class Stack {
-    private Node top;
-    private int size;
-
-    public Stack() {
-        top = null;
-        size = 0;
-    }
-
-    public void Push(int element) {
-        Node newNode = new Node();
-        newNode.data = element;
-        newNode.next = top;
-        top = newNode;
-        size++;
-        Console.WriteLine($"Pushed {element} to stack");
-    }
-
-    public int Pop() {
-        if (IsEmpty()) {
-            Console.WriteLine("Stack Underflow");
-            return -1;
-        }
-
-        int poppedData = top.data;
-        top = top.next;
-        size--;
-        Console.WriteLine($"Popped {poppedData} from stack");
-        return poppedData;
-    }
-
-    public int Peek() {
-        if (IsEmpty()) {
-            Console.WriteLine("Stack is empty!");
-            return -1;
-        }
-        return top.data;
-    }
-
-    public bool IsEmpty() {
-        return top == null;
-    }
-
-    public int Size() {
-        return size;
-    }
-
-    public void Clear() {
-        top = null;
-        size = 0;
-        Console.WriteLine("Stack is cleared!");
-    }
-
-    public void Display() {
-        if (IsEmpty()) {
-            Console.WriteLine("Stack is empty!");
-        } else {
-            Node current = top;
-            while (current != null) {
-                Console.Write(current.data);
-                if (current.next != null) {
-                    Console.Write(", ");
-                }
-                current = current.next;
-            }
-            Console.WriteLine();
-        }
-    }
-}
-
-class Program {
-    static void Main() {
-        Stack stack = new Stack();
-
-        stack.Push(10);
-        stack.Push(20);
-        stack.Push(30);
-        stack.Display();  // Outputs: 30, 20, 10
-
-        stack.Pop();      // Outputs: Popped 30 from stack
-        stack.Display();  // Outputs: 20, 10
-
-        Console.WriteLine("Top element is: " + stack.Peek());  // Outputs: 20
-        Console.WriteLine("Stack size is: " + stack.Size());   // Outputs: 2
-
-        stack.Clear();
-        stack.Display();  // Outputs: Stack is empty!
-    }
-}</code></pre>
+		<p>Here is the Linked list-based Heterogeneous/Generic Linear Stack implementation in C#:</p>
 		
-		<p>To implement a generic stack in C# that can store any type of object or data type, you can use generics. Generics allow you to create classes and methods that work with any data type while maintaining type safety. C# Linked List-based generic stack implementation:</p>
-
-        <pre><code class="language-csharp hljs">using System;
+		<pre><code class="language-csharp hljs">using System;
 
 class Node&lt;T&gt;
 {
@@ -1666,111 +1799,9 @@ class Program
     }
 }</code></pre>
 
-        
-        <p>Java Linked List-based Simple Stack implementation:</p>
-        
-        <pre><code class="language-java hljs">import java.lang;
-
-public class Node {
-    public int data;
-    public Node next;
-
-    public Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
-public class Stack {
-    private Node top;
-    private int size;
-
-    public Stack() {
-        top = null;
-        size = 0;
-    }
-
-    public void push(int element) {
-        Node newNode = new Node(element);
-        newNode.next = top;
-        top = newNode;
-        size++; 
-        System.out.println("Pushed " + element + " to stack");
-    }
-
-    public int pop() {
-        if (isEmpty()) {
-            System.out.println("Stack Underflow");
-            return -1;  // Return -1 if the stack is empty
-        }
-
-        int poppedData = top.data;
-        top = top.next;
-        size--;
-        System.out.println("Popped " + poppedData + " from stack");
-        return poppedData;
-    }
-
-    public int peek() {
-        if (isEmpty()) {
-            System.out.println("Stack is empty!");
-            return -1;
-        }
-        return top.data;
-    }
-
-    public boolean isEmpty() {
-        return top == null;
-    }
-
-    public int size() {
-        return size;
-    }
-
-    public void clear() {
-        top = null;
-        size = 0;
-        System.out.println("Stack is cleared!");
-    }
-
-    public void display() {
-        if (isEmpty()) {
-            System.out.println("Stack is empty!");
-        } else {
-            Node current = top;
-            while (current != null) {
-                System.out.print(current.data);
-                if (current.next != null) {
-                    System.out.print(", ");
-                }
-                current = current.next;
-            }
-            System.out.println();
-        }
-    }
-
-    public static void main(String[] args) {
-        Stack stack = new Stack();
-
-        stack.push(10);
-        stack.push(20);
-        stack.push(30);
-        stack.display();  // Outputs: 30, 20, 10
-
-        stack.pop();      // Outputs: Popped 30 from stack
-        stack.display();  // Outputs: 20, 10
-
-        System.out.println("Top element is: " + stack.peek());  // Outputs: 20
-        System.out.println("Stack size is: " + stack.size());   // Outputs: 2
-
-        stack.clear();
-        stack.display();  // Outputs: Stack is empty!
-    }
-}</code></pre>
-        
-		<p>To implement a generic stack in Java that can store any type of object or data type, you can use generics. Generics allow you to create classes and methods that work with any data type while maintaining type safety. Java linked list-based generic stack implementation:</p>
-
-        <pre><code class="language-java hljs">import java.lang;
+		<p>Here is the Linked list-based Heterogeneous/Generic Linear Stack implementation in Java:</p>
+		
+		<pre><code class="language-java hljs">import java.lang;
 
 public class Node&lt;T&gt; {
     public T data;
@@ -1881,7 +1912,6 @@ public class Program {
         personStack.display();  // Displays the stack after pop
     }
 }</code></pre>
-
     </article>
 
     {% include post-tags.html %}
