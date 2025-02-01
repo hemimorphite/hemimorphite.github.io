@@ -2,114 +2,119 @@
 layout: post
 lang: en
 locale: en
-title: "Singly Linked List Data Structure"
-thumb: "singlylinked.jpg"
+title: "Doubly Linked List Data Structure"
+thumb: "doublylinked.jpg"
 eyebrow: "Tutorial"
-description: "Discover the essential concepts of singly linked list data structures in this detailed tutorial designed for both beginners and experienced learners. This guide offers a thorough exploration of the implementation process, complete with illustrative examples that demonstrate key operations such as node creation, insertion, deletion, sorting, searching, and traversal."
-date: 2024-10-14 17:20:00 +0700
+description: "A Doubly Linked List is a dynamic data structure where each node contains data and two pointers, one pointing to the next node and another to the previous node. This bidirectional linking enables efficient insertion, deletion, and traversal in both directions, making it ideal for applications like undo/redo functionality, navigation systems, and memory management. Unlike singly linked lists, doubly linked lists allow easier manipulation of elements at both ends but require extra memory for storing an additional pointer. Learn how doubly linked lists work, their advantages, and implementations in this comprehensive guide."
+date: 2025-02-01 21:20:00 +0700
 author: Samuel Yang
-categories: ["Tutorial", "year-2024", "month-10", "day-14"]
-tags: ["data structure", "linked list", "singly linked list"]
+categories: ["Tutorial", "year-2025", "month-02", "day-01"]
+tags: ["data structure", "linked list", "doubly linked list"]
 ---
 
 <div class="blog-post">
     {% include post-header.html %}
 
     <article class="post-content">
-		<h3 class="post-subtitle">Singly Linked List</h3>
+		<h3 class="post-subtitle">Doubly Linked List</h3>
 		
-        <p>A singly linked list is a linear data structure consisting of a sequence of elements, called nodes, where each node points to the next node in the sequence. Unlike arrays, elements in a linked list are not stored in contiguous memory locations. Each node contains two fields:</p>
+        <p>A doubly linked list is a linear data structure consisting of a sequence of elements, called nodes, where each node points to both its previous and next nodes in the sequence. Unlike arrays, elements in a linked list are not stored in contiguous memory locations. Each node contains three fields:</p>
 
         <ul>
 			<li><b>Data</b>: The value or information stored in the node.</li>
 			<li><b>Next Pointer</b>: A reference (or pointer) to the next node in the sequence.</li>
+			<li><b>Previous Pointer</b>: A reference (or pointer) to the previous node in the sequence.</li>
 		</ul>
 
-        <p>The singly linked list forms a linear collection of elements where each node points to its successor, and the last node points to <code>NULL</code>, indicating the end of the list. It is a dynamic data structure, meaning it can grow or shrink in size during runtime, as nodes can be added or removed without requiring memory to be reallocated.</p>
+        <p>The doubly linked list forms a linear collection of elements where each node points to both its successor and its predecessor. The first node, known as the head, has a <code>NULL</code> reference for its previous pointer, indicating the beginning of the list. The last node has a <code>NULL</code> reference for its next pointer, marking the end of the list.</p>
 		
 		<p>The head is the first node in the list, and it serves as the entry point for traversing the list. If the list is empty, the head points to <code>NULL</code>.</p>
 		
-		<p>Unlike arrays that have a fixed size, a singly linked list dynamically allocates memory for each node when it is created. This means the size of the list can grow or shrink as nodes are added or removed at runtime.</p>
+		<p>Insertions and deletions of nodes, particularly at the beginning, middle, or end of the list, are more efficient compared to arrays since you do not need to shift elements. However, managing both the previous and next pointers requires extra attention.</p>
 		
-		<p>Insertions and deletions of nodes, particularly at the beginning or middle of the list, are more efficient compared to arrays since you do not need to shift elements.</p>
-		
-		<p>Singly linked lists can only be traversed in one direction, from the head to the tail. There is no way to traverse backward from the tail to the head, which can be a limitation in some use cases.</p>
-		
-		<p>The nodes in a singly linked list do not need to be stored in contiguous memory locations, unlike arrays. Each node is linked to the next through pointers, and they can be located anywhere in memory.</p>
+		<p>The nodes in a doubly linked list do not need to be stored in contiguous memory locations, unlike arrays. Each node is linked to the next and previous nodes through pointers, and they can be located anywhere in memory.</p>
 		
 		<p>The size of the linked list is not fixed, and it is determined by the number of nodes present in the list at any given time. This makes it more flexible for applications where the number of elements is unknown or changes frequently.</p>
 		
-		<p>Each node in a singly linked list requires extra memory for the pointer (next reference), which slightly increases memory usage compared to arrays.</p>
+		<p>Each node in a doubly linked list requires extra memory for the two pointers (next and previous references), which slightly increases memory usage compared to arrays or singly linked lists.</p>
 		
-		<p>The last node in a singly linked list is called the tail. Its next pointer is set to <code>NULL</code>, indicating that it is the end of the list.</p>
+		<p>Here's a visual representation of a doubly linked list:</p>
 		
-		<p>Here's a visual representation of a singly linked list:</p>
-		
-		<pre><code class="language-bash hljs">Head -&gt; [Data | Next] -&gt; [Data | Next] -&gt; [Data | NULL]</code></pre>
+		<pre><code class="language-bash hljs">HEAD -&gt; [NULL | Data | Next] &lt;-&gt;  [Prev | Data | Next] &lt;-&gt;  [Prev | Data | NULL]</code></pre>
 		
 		<p>In the above representation:</p>
 		
 		<ul>
-			<li>The <code>Head</code> points to the first node of the list.</li>
-			<li>Each node contains <code>Data</code> and a <code>Next</code> pointer to the next node.</li>
-			<li>The last node in the list has its <code>Next</code> pointer set to <code>NULL</code>, indicating the end of the list.</li>
+			<li>The <code>Head</code> points to the first node of the list, providing quick access to the start of the list.</li>
+			<li>Each node contains <code>Data</code>, a <code>Next</code> pointer to the next node, and a <code>Previous</code> pointer to the previous node.</li>
+			<li>The last node in the list has its <code>Next</code> pointer set to <code>NULL</code>, indicating the end of the list. Its <code>Prev</code> pointer points to the previous node.</li>
+			<li>The <code>Prev</code> pointer of the first node is <code>NULL</code>, as there is no node before it.</li>
 		</ul>
 		
-		<p>A simple singly linked list with three nodes could look like this:</p>
+		<p>A simple doubly linked list with three nodes could look like this:</p>
 		
-		<pre><code class="language-bash hljs">Head -> [10 | Next] -> [20 | Next] -> [30 | NULL]</code></pre>
+		<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 		
 		<p>In the above example:</p>
 		
 		<ul>
-			<li>The head points to the first node containing the data <code>10</code>.</li>
-			<li>The second node contains the data <code>20</code> and points to the third node.</li>
-			<li>The third node contains the data <code>30</code> and points to <code>NULL</code>, indicating the end of the list.</li>
+			<li>The head points to the first node containing the data <code>10</code>. The <code>Prev</code> pointer of this node is <code>NULL</code>, as there is no node before it.</li>
+			<li>The second node contains the data <code>20</code>. Its <code>Prev</code> pointer points to the first node, and its <code>Next</code> pointer points to the third node.</li>
+			<li>The third node contains the data <code>30</code>. Its <code>Prev</code> pointer points to the second node, and its <code>Next</code> pointer is <code>NULL</code>, indicating the end of the list.</li>
 		</ul>
 		
-		<p>Here's a detailed breakdown of common singly linked list operations:</p>
+		<p>Here's a detailed breakdown of common doubly linked list operations:</p>
 		
         <ul>
             <li><code>insertAtBeginning()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Inserts a new node at the start (or head) of a singly linked list.</li>
+					<li><b>Description</b>: Inserts a new node at the start (or head) of a doubly linked list.</li>
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 							<li>You want to insert the value <code>5</code> at the beginning of the list. After calling <code>insertAtBeginning()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [5 | Next] -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 5 | Next] &lt;-&gt; [Prev | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 						</ul>
 					</li>
-					<li><b>Time complexity</b>: The time complexity of inserting a node at the beginning of a singly linked list is \(O(1)\) (constant time). The following steps are performed:<br>
+					<li><b>Time complexity</b>: The time complexity of inserting a node at the beginning of a doubly linked list is \(O(1)\) (constant time). If the list is empty, the following steps are performed:<br>
 						<ul>
 							<li>Create a new node.</li>
-							<li>If the list is not empty, set the <code>next</code> pointer of the new node to point to the current head node (the first node in the list). If the list is empty, set the <code>next</code> pointer of the new node to point to <code>NULL</code>.</li>
+							<li>Set the <code>next</code> pointer of the new node to <code>NULL</code>, as there is no node after it.</li>
+							<li>Set the <code>prev</code> pointer of the new node to <code>NULL</code>, as it will become the first node.</li>
+							<li>Update the head pointer to point to the new node.</li>
+						</ul><br>
+						If the list is not empty, the following steps are performed:<br>
+						<ul>
+							<li>Create a new node.</li>
+							<li>Set the <code>next</code> pointer of the new node to point to the current head node (the first node in the list).</li>
+							<li>If the list is not empty, set the <code>prev</code> pointer of the current head node to point to the new node.</li>
+							<li>Set the <code>prev</code> pointer of the new node to <code>NULL</code>, as it will become the first node.</li>
 							<li>Update the head pointer to point to the new node.</li>
 						</ul><br>
 						Since no traversal is required, this operation takes constant time, \(O(1)\).
 					</li>
-					<li><b>Space complexity</b>: The space complexity of inserting a node at the beginning of a singly linked list is \(O(1)\) (constant space). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+					<li><b>Space complexity</b>: The space complexity of inserting a node at the beginning of a doubly linked list is \(O(1)\) (constant space). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
 				</ul>
 			</li>
             <li><code>insertAtEnd()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Inserts a new node at the end (or tail) of a singly linked list.</li>
+					<li><b>Description</b>: Inserts a new node at the end (or tail) of a doubly linked list.</li>
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 							<li>You want to insert the value <code>40</code> at the end of the list. After calling <code>insertAtEnd()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] -&gt; [40 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | Next] &lt;-&gt; [Prev | 40 | NULL]</code></pre>
 							</li>
 						</ul>
 					</li>
 					<li><b>Time complexity</b>: The time complexity of inserting a node at the end of a singly linked list is \(O(n)\) (linear time) in the general case.<br>
 						<ul>
-							<li><b>Best Case (Empty List)</b>: If the list is empty, inserting a new node at the end is the same as inserting at the beginning. The following steps are performed:<br>
+							<li><b>Best Case (Empty List)</b>: If the list is empty, inserting a new node at the end is the same as inserting at the beginning.  The following steps are performed:<br>
 								<ul>
 									<li>Create a new node.</li>
 									<li>Set the <code>next</code> pointer of the new node <code>NULL</code>, as it will be the only node in the list.</li>
@@ -138,115 +143,122 @@ tags: ["data structure", "linked list", "singly linked list"]
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 							<li>You want to insert the value <code>25</code> after the node containing <code>20</code>. After calling <code>insertAfterNode()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [25 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 25 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 						</ul>
 					</li>
-					<li><b>Time complexity</b>: The time complexity for inserting a node after a node in a singly linked list is \(O(1)\) (constant time). The following steps are performed:<br>
+					<li><b>Time complexity</b>: The time complexity of inserting a node after a node in a doubly linked list is \(O(1)\) (constant time). The following steps are performed:<br>
 						<ul>
 							<li>Create a new node.</li>
 							<li>Set the <code>next</code> pointer of the new node to point to the node that follows the given node.</li>
+							<li>Set the <code>prev</code> pointer of the new node to point to the given node.</li>
+							<li>Update its <code>prev</code> pointer of the node following the given node to point to the new node.</li>
 							<li>Update the <code>next</code> pointer of the given node to point to the new node.</li>
 						</ul><br>
 						Since no traversal is required, this operation takes constant time, \(O(1)\).
 					</li>
-					<li><b>Space complexity</b>: The space complexity for inserting a node after a node in a singly linked list is \(O(1)\) (constant time). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+					<li><b>Space complexity</b>: The space complexity of inserting a node after a node in a doubly linked list is \(O(1)\) (constant time). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
 				</ul>
 			</li>
             <li><code>insertBeforeNode()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Inserts a new node before a given node in a singly linked list. If the target node doesn't exist, you may opt to do nothing and just return control to the caller without modifying the list.</li>
+					<li><b>Description</b>: Inserts a new node in a singly linked list immediately before a given node. If the target node doesn't exist, you may opt to do nothing and just return control to the caller without modifying the list.</li>
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 							<li>You want to insert the value <code>25</code> before the node containing <code>20</code>. After calling <code>insertBeforeNode()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [25 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] -&gt; [NULL | 25 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 						</ul>
 					</li>
-					<li><b>Time complexity</b>: The time complexity for inserting a node before a node in a singly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
+					<li><b>Time complexity</b>: The time complexity for inserting a node before a node in a doubly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
 						<ul>
 							<li>Create a new node.</li>
 							<li>Locate the preceding node (the node whose <code>next</code> pointer points to the target node).</li>
-							<li>Update the <code>next</code> pointer of the new node to point to the target node.</li>
+							<li>Set the <code>prev</code> pointer of the new node to point to the preceding node.</li>
+							<li>Set the <code>next</code> pointer of the new node to point to the target node.</li>
+							<li>Update the <code>prev</code> pointer of the target node to point to the new node.</li>
 							<li>Update the <code>next</code> pointer of the preceding node to point to the new node.</li>
 						</ul><br>
 						The traversal takes \(O(n)\) time, where \(n\) is the number of nodes in the list. Updating the pointer takes \(O(1)\).
 					</li>
-					<li><b>Space complexity</b>: The space complexity for inserting a node before a node in a singly linked list is \(O(1)\) (constant time). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+					<li><b>Space complexity</b>: The space complexity for inserting a node before a node in a doubly linked list is \(O(1)\) (constant time). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
 				</ul>
 			</li>
             <li><code>insertAtPosition()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Inserts a new node at a specified position in a linked list. Positions are usually indexed starting from 0 or 1. If the position is 1 (or 0, based on indexing), this implies insertion at the beginning of the list. If the position is greater than the size of the list or less than 1, the function may return an error or take no action since the insertion would be out of range.</li>
+					<li><b>Description</b>: Inserts a new node at a specified position in a doubly linked list. Positions are usually indexed starting from 0 or 1. If the position is 1 (or 0, based on indexing), this implies insertion at the beginning of the list. If the position is greater than the size of the list or less than 1, the function may return an error or take no action since the insertion would be out of range.</li>
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 							<li>You want to insert a new node with value <code>35</code> at position <code>3</code>. After calling <code>insertAtPosition()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [35 | NULL] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 35 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 						</ul>
 					</li>
-					<li><b>Time complexity</b>: The time complexity for inserting a new node at a specified position in a singly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
+					<li><b>Time complexity</b>: The time complexity for inserting a new node at a specified position in a doubly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
 						<ul>
 							<li>Create a new node.</li>
 							<li>Locate the preceding node (the node whose <code>next</code> pointer points to the target node).</li>
-							<li>Update the <code>next</code> pointer of the new node to point to the target node.</li>
+							<li>Set the <code>prev</code> pointer of the new node to point to the preceding node.</li>
+							<li>Set the <code>next</code> pointer of the new node to point to the target node.</li>
+							<li>Update the <code>prev</code> pointer of the target node to point to the new node.</li>
 							<li>Update the <code>next</code> pointer of the preceding node to point to the new node.</li>
 						</ul><br>
 						The traversal takes \(O(n)\) time, where \(n\) is the number of nodes in the list. Updating the pointer takes \(O(1)\).
 					</li>
-					<li><b>Space complexity</b>: The space complexity of inserting a new node at a specified position in a linked list is \(O(1)\) (constant space). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+					<li><b>Space complexity</b>: The space complexity for removing a node at the beginning of a doubly linked list is \(O(1)\) (constant space). Only a fixed amount of space is used to store references to the head node and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
 				</ul>
 			</li>
             <li><code>deleteAtBeginning()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Removes a node at the start (or head) of a singly linked list. If the list is empty, it prints a message "List is empty" and returns, since there is no node to delete.</li>
+					<li><b>Description</b>: Removes a node at the start (or head) of a doubly linked list. If the list is empty, it prints a message "List is empty" and returns, since there is no node to delete.</li>
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 							<li>You want to delete the value <code>10</code> at the beginning of the list. After calling <code>deleteAtBeginning()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 						</ul>
 					</li>
-					<li><b>Time complexity</b>: The time complexity for removing a node at the beginning of a singly linked list is \(O(1)\) (constant time). The following steps are performed:<br>
+					<li><b>Time complexity</b>: The time complexity of inserting a new node at a specified position in a linked list is \(O(n)\) (linear time). The following steps are performed:<br>
 						<ul>
 							<li>Set the head pointer to the next node</li>
+							<li>Set the <code>prev</code> pointer of the new head node (if it exists) to <code>NULL</code>.</li>
 							<li>Deallocate the memory for the old head node.</li>
 						</ul><br>
 						Since no traversal is required, this operation takes constant time, \(O(1)\).
 					</li>
-					<li><b>Space complexity</b>: The space complexity for removing a node at the beginning of a singly linked list is \(O(1)\) (constant space). Only a fixed amount of space is used to store references to the head node and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+					<li><b>Space complexity</b>: The space complexity for removing a node at the beginning of a doubly linked list is \(O(1)\) (constant space). Only a fixed amount of space is used to store references to the head node and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
 				</ul>
 			</li>
             <li><code>deleteAtEnd()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Removes a node at the end (or tail) of a singly linked list. If the list is empty, it prints a message "List is empty" and returns, since there is no node to delete.</li>
+					<li><b>Description</b>: Removes a node at the end (or tail) of a doubly linked list. If the list is empty, it prints a message "List is empty" and returns, since there is no node to delete.</li>
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 							<li>You want to remove the value <code>30</code> at the end of the list. After calling <code>deleteAtEnd()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | NULL]</code></pre>
 							</li>
 						</ul>
 					</li>
-					<li><b>Time complexity</b>: The time complexity for removing a node at the end of a singly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
+					<li><b>Time complexity</b>: The time complexity for removing a node at the end of a doubly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
 						<ul>
 							<li>Start at the head node.</li>
 							<li>Traverse until reaching the second-to-last node.</li>
-							<li>Update the <code>next</code> pointer of the second-to-last node to <code>null</code>.</li>
+							<li>Set the <code>next</code> pointer of the second-to-last node to <code>null</code>.</li>
 							<li>Deallocate the memory for the old last node.</li>
 						</ul><br>
 					</li>
@@ -259,102 +271,103 @@ tags: ["data structure", "linked list", "singly linked list"]
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 							<li>You want to remove a node at position <code>3</code>. After calling <code>deleteAtPosition()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | NULL]</code></pre>
 							</li>
 						</ul>
 					</li>
-					<li><b>Time complexity</b>: The time complexity for removing a node at a specified position in a singly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
+					<li><b>Time complexity</b>: The time complexity for removing a node at a specified position in a doubly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
 						<ul>
 							<li>Start at the head node.</li>
 							<li>Traverse until reaching the node before the target position.</li>
-							<li>Update the <code>next</code> pointer of the preceding node to point to the node after the target node.</li>
+							<li>Update the <code>next</code> pointer of the preceding node to point to the node after the target node (if it exists).</li>
+							<li>Update the <code>prev</code> pointer of the node after the target node (if it exists) to point to the preceding node.</li>
 							<li>Deallocate the memory for the removed node.</li>
 						</ul><br>
 					</li>
-					<li><b>Space complexity</b>: The space complexity for removing a node at a specified position in a singly linked list is \(O(1)\) (constant space). Only a fixed amount of space is used to store references to the head node and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+					<li><b>Space complexity</b>: The space complexity for removing a node at a specified position in a doubly linked list is \(O(1)\) (constant space). Only a fixed amount of space is used to store references to the head node and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
 				</ul>
 			</li>
 			<li><code>traverse()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Visits each node in a singly linked list and perform an action, such as printing the node's value.</li>
+					<li><b>Description</b>: Visits each node in a doubly linked list and perform an action, such as printing the node's value.</li>
 					<li><b>Time complexity</b>: The time complexity of traverse function in a linked list is \(O(n)\) (linear time). The function iterates through each node in the linked list exactly once, from the head to the end (<code>NULL</code>). Thus, the number of operations performed is directly proportional to the number of nodes.</li>
 					<li><b>Space complexity</b>: The space complexity of traverse function in a linked list is \(O(1)\) (constant space). The function only uses a constant amount of space to store variables such as the current node reference during the traversal. Regardless of the size of the linked list, the amount of extra space used does not change.</li>
 				</ul>
 			</li>
 			<li><code>reverse()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Reverses the order of nodes in a singly linked list.</li>
+					<li><b>Description</b>: Reverses the order of nodes in a doubly linked list.</li>
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
 							</li>
 							<li>After calling <code>reverse()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [30 | Next] -&gt; [20 | Next] -&gt; [10 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">Head -&gt; [NULL | 30 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 10 | NULL]</code></pre>
 							</li>
 						</ul>
 					</li>
-					<li><b>Time complexity</b>: The time complexity of reverse function in a linked list is \(O(n)\) (linear time). The function traverses each node of the linked list exactly once. Thus, the number of operations performed is directly proportional to the number of nodes.</li>
-					<li><b>Space complexity</b>: The space complexity of reverse function in a linked list is \(O(1)\) (constant space).  The function only uses a fixed amount of extra space for variables, such as pointers for the current, previous, and next nodes. This amount of space does not depend on the size of the linked list.</li>
+					<li><b>Time complexity</b>: The time complexity of reverse function in a doubly linked list is \(O(n)\) (linear time). The function traverses each node of the linked list exactly once. Thus, the number of operations performed is directly proportional to the number of nodes.</li>
+					<li><b>Space complexity</b>: The space complexity of reverse function in a doubly linked list is \(O(1)\) (constant space).  The function only uses a fixed amount of extra space for variables, such as pointers for the current, previous, and next nodes. This amount of space does not depend on the size of the linked list.</li>
 				</ul>
 			</li>
 			<li><code>search()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Finds whether a specific element (or key) exists in a singly linked list.</li>
-					<li><b>Time complexity</b>: The time complexity of search function in a singly linked list is \(O(n)\) (linear time).The search function traverses the linked list node by node. In the worst case, it may need to look at every node in the list to find the key (or determine that it is not present).</li>
-					<li><b>Space complexity</b>: The space complexity of search function in a singly linked list is \(O(1)\) (constant space). The function uses a constant amount of extra space to store variables, such as pointers for the current node. The space required does not depend on the size of the list because the function does not use any additional data structures or dynamic memory allocations for the search process.</li>
+					<li><b>Description</b>: Finds whether a specific element (or key) exists in a doubly linked list.</li>
+					<li><b>Time complexity</b>: The time complexity of search function in a linked list is \(O(n)\) (linear time).The search function traverses the linked list node by node. In the worst case, it may need to look at every node in the list to find the key (or determine that it is not present).</li>
+					<li><b>Space complexity</b>: The space complexity of search function in a linked list is \(O(1)\) (constant space). The function uses a constant amount of extra space to store variables, such as pointers for the current node. The space required does not depend on the size of the list because the function does not use any additional data structures or dynamic memory allocations for the search process.</li>
 				</ul>
 			</li>
 			<li><code>size()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Calculates and returns the number of nodes in a singly linked list.</li>
-					<li><b>Time complexity</b>: The time complexity of size function in a singly linked list is \(O(n)\) (linear time). The function traverses the entire linked list to count the number of nodes, where \(n\) is the number of nodes in the list.</li>
-					<li><b>Space complexity</b>: The space complexity of size function in a singly linked list is \(O(1)\) (constant space). The function uses a constant amount of space for variables regardless of the size of the linked list.</li>
+					<li><b>Description</b>: Calculates and returns the number of nodes in a doubly linked list.</li>
+					<li><b>Time complexity</b>: The time complexity of size function in a linked list is \(O(n)\) (linear time). The function traverses the entire linked list to count the number of nodes, where \(n\) is the number of nodes in the list.</li>
+					<li><b>Space complexity</b>: The space complexity of size function in a doubly linked list is \(O(1)\) (constant space). The function uses a constant amount of space for variables regardless of the size of the linked list.</li>
 				</ul>
 			</li>
 			<li><code>get()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Retrieves the value of a node in a singly linked list at a specified index. If the end of the list is reached before finding the specified index, a message is printed indicating that the index is out of range.</li>
-					<li><b>Time complexity</b>: The time complexity of get function in a singly linked list is \(O(n)\) (linear time). The function traverses the linked list until it reaches the specified index. In the worst case, it might have to go through all the nodes if the index is at the end of the list or if the list is very long.</li>
-					<li><b>Space complexity</b>: The space complexity of get function in a singly linked list is \(O(1)\) (constant space). The function only uses a constant amount of space for variables, such as the pointer to the current node and the index being tracked. This space requirement does not depend on the size of the list.</li>
+					<li><b>Description</b>: Retrieves the value of a node in a doubly linked list at a specified index. If the end of the list is reached before finding the specified index, a message is printed indicating that the index is out of range.</li>
+					<li><b>Time complexity</b>: The time complexity of get function in a doubly linked list is \(O(n)\) (linear time). The function traverses the linked list until it reaches the specified index. In the worst case, it might have to go through all the nodes if the index is at the end of the list or if the list is very long.</li>
+					<li><b>Space complexity</b>: The space complexity of get function in a doubly linked list is \(O(1)\) (constant space). The function only uses a constant amount of space for variables, such as the pointer to the current node and the index being tracked. This space requirement does not depend on the size of the list.</li>
 				</ul>
 			</li>
 			<li><code>set()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Updates the value of a node at a specified index in a singly linked list. If the end of the list is reached before finding the specified index, a message is printed indicating that the index is out of range.</li>
-					<li><b>Time complexity</b>: The time complexity of set function in a singly linked list is \(O(n)\) (linear time). The function traverses the linked list until it reaches the specified index. In the worst case, it might have to go through all the nodes if the index is at the end of the list or if the list is very long.</li>
-					<li><b>Space complexity</b>: The space complexity of set function in a singly linked list is \(O(1)\) (constant space). The function only uses a constant amount of space for variables, such as the pointer to the current node and the index being tracked. This space requirement does not depend on the size of the list.</li>
+					<li><b>Description</b>: Updates the value of a node at a specified index in a doubly linked list. If the end of the list is reached before finding the specified index, a message is printed indicating that the index is out of range.</li>
+					<li><b>Time complexity</b>: The time complexity of set function in a doubly linked list is \(O(n)\) (linear time). The function traverses the linked list until it reaches the specified index. In the worst case, it might have to go through all the nodes if the index is at the end of the list or if the list is very long.</li>
+					<li><b>Space complexity</b>: The space complexity of set function in a doubly linked list is \(O(1)\) (constant space). The function only uses a constant amount of space for variables, such as the pointer to the current node and the index being tracked. This space requirement does not depend on the size of the list.</li>
 				</ul>
 			</li>
 			<li><code>isEmpty()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Checks whether a singly linked list is empty.</li>
-					<li><b>Time complexity</b>: The time complexity of isEmpty function in a singly linked list is \(O(1)\) (constant time). The <code>isEmpty</code> function checks whether the head pointer of the linked list is <code>NULL</code>. This operation is performed in constant time since it only involves a simple comparison, regardless of the size of the linked list.</li>
-					<li><b>Space complexity</b>: The space complexity of isEmpty function in a singly linked list is \(O(1)\) (constant space). The function uses a fixed amount of space to store the result of the comparison (typically a boolean value), regardless of the size of the linked list.</li>
+					<li><b>Description</b>: Checks whether a doubly linked list is empty.</li>
+					<li><b>Time complexity</b>: The time complexity of <code>isEmpty</code> function in a doubly linked list is \(O(1)\) (constant time). The <code>isEmpty</code> function checks whether the head pointer of the linked list is <code>NULL</code>. This operation is performed in constant time since it only involves a simple comparison, regardless of the size of the linked list.</li>
+					<li><b>Space complexity</b>: The space complexity of <code>isEmpty</code> function in a doubly linked list is \(O(1)\) (constant space). The function uses a fixed amount of space to store the result of the comparison (typically a boolean value), regardless of the size of the linked list.</li>
 				</ul>
 			</li>
 			<li><code>merge()</code>:<br>
 				<ul>
 					<li><b>Description</b>: Combines two sorted linked lists into a single sorted linked list. </li>
-					<li><b>Time complexity</b>: The time complexity of merge function in a singly linked list is \(O(n + m)\) (linear time). The reason for this complexity is that each node from both lists is visited exactly once. In the worst case, the function will traverse both lists entirely, performing comparisons and linking nodes. Where \(n\) is the number of nodes in the first linked list and \(m\) is the number of nodes in the second linked list.</li>
-					<li><b>Space complexity</b>: The space complexity of merge function in a singly linked list is \(O(n + m)\) (linear space) due to the call stack storing recursive calls. In the worst case, the maximum depth of recursion will be equal to the total number of nodes in both lists combined, leading to \(n + m\) recursive calls.</li>
+					<li><b>Time complexity</b>: The time complexity of merge function in a doubly linked list is \(O(n + m)\) (linear time). The reason for this complexity is that each node from both lists is visited exactly once. In the worst case, the function will traverse both lists entirely, performing comparisons and linking nodes. Where \(n\) is the number of nodes in the first linked list and \(m\) is the number of nodes in the second linked list.</li>
+					<li><b>Space complexity</b>: The space complexity of merge function in a doubly linked list is \(O(n + m)\) (linear space) due to the call stack storing recursive calls. In the worst case, the maximum depth of recursion will be equal to the total number of nodes in both lists combined, leading to \(n + m\) recursive calls.</li>
 				</ul>
 			</li>
 			<li><code>sort()</code>:<br>
 				<ul>
-					<li><b>Description</b>: Arranges the elements of a singly linked list, in a specific order (typically ascending or descending).</li>
-					<li><b>Time complexity</b>: The time complexity of sort function in a singly linked list, when using merge sort is \(O(n \log n)\) (linearithmic time) because the algorithm consistently divides the list into halves and requires a linear amount of time \(O(n)\) to merge those halves back together. The logarithmic factor \(\log n\) comes from the number of times the list can be divided in half (depth of recursion).</li>
-					<li><b>Space complexity</b>: The space complexity of sort function in a singly linked list, specifically Merge Sort, is \(O(n)\) (linear space) because it requires additional space for the temporary arrays or linked lists used during the merge process. When merging two halves, the algorithm needs space to hold the merged elements before copying them back to the original array or linked list.</li>
+					<li><b>Description</b>: Arranges the elements of a doubly linked list, in a specific order (typically ascending or descending).</li>
+					<li><b>Time complexity</b>: The time complexity of sort function in a doubly linked list, when using merge sort is \(O(n \log n)\) (linearithmic time) because the algorithm consistently divides the list into halves and requires a linear amount of time \(O(n)\) to merge those halves back together. The logarithmic factor \(\log n\) comes from the number of times the list can be divided in half (depth of recursion).</li>
+					<li><b>Space complexity</b>: The space complexity of sort function in a doubly linked list, specifically Merge Sort, is \(O(n)\) (linear space) because it requires additional space for the temporary arrays or linked lists used during the merge process. When merging two halves, the algorithm needs space to hold the merged elements before copying them back to the original array or linked list.</li>
 				</ul>
 			</li>
 			<li><code>clear()</code>:<br>
 				<ul>
 					<li><b>Description</b>: Removes all nodes from the list and free up the memory they occupy, effectively making the list empty.</li>
-					<li><b>Time complexity</b>: The time complexity of clear function in a singly linked list is \(O(n)\) (linear time). The function iterates through each node exactly once, freeing its memory. Since it processes all nodes in the list, the time complexity is proportional to the number of nodes.</li>
-					<li><b>Space complexity</b>: The space complexity of clear function in a singly linked list is \(O(1)\) (constant space). The function only requires a fixed amount of extra memory for the iteration, typically for a pointer to traverse the list. No additional memory structures are needed, regardless of the size of the linked list.</li>
+					<li><b>Time complexity</b>: The time complexity of clear function in a doubly linked list is \(O(n)\) (linear time). The function iterates through each node exactly once, freeing its memory. Since it processes all nodes in the list, the time complexity is proportional to the number of nodes.</li>
+					<li><b>Space complexity</b>: The space complexity of clear function in a doubly linked list is \(O(1)\) (constant space). The function only requires a fixed amount of extra memory for the iteration, typically for a pointer to traverse the list. No additional memory structures are needed, regardless of the size of the linked list.</li>
 				</ul>
 			</li>
         </ul>
@@ -366,10 +379,11 @@ tags: ["data structure", "linked list", "singly linked list"]
         <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
-// defines a structure to represent a node in a singly linked list
+// defines a structure to represent a node in a doubly linked list
 typedef struct Node {
     int data;
     struct Node* next;
+    struct Node* prev;
 } Node;
 
 // Function to create a new node
@@ -377,12 +391,16 @@ Node* createNode(int data) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode-&gt;data = data;
     newNode-&gt;next = NULL;
+    newNode-&gt;prev = NULL;
     return newNode;
 }
 
 // Function to insert a node at the beginning of the list
 void insertAtBeginning(Node** headRef, int data) {
     Node* newNode = createNode(data);
+    if (*headRef != NULL) {
+        (*headRef)-&gt;prev = newNode;
+    }
     newNode-&gt;next = *headRef;
     *headRef = newNode;
 }
@@ -399,20 +417,22 @@ void insertAtEnd(Node** headRef, int data) {
         temp = temp-&gt;next;
     }
     temp-&gt;next = newNode;
+    newNode-&gt;prev = temp;
 }
 
 // Function to insert a new node after a given previous node
 void insertAfterNode(Node* prevNode, int data) {
-    // Check if the previous node is NULL
     if (prevNode == NULL) {
         printf("The given previous node cannot be NULL.\n");
         return;
     }
-	
-	Node* newNode = createNode(data);
-	
-    // Insert the new node after the previous node
+
+    Node* newNode = createNode(data);
     newNode-&gt;next = prevNode-&gt;next;
+    newNode-&gt;prev = prevNode;
+    if (prevNode-&gt;next != NULL) {
+        prevNode-&gt;next-&gt;prev = newNode;
+    }
     prevNode-&gt;next = newNode;
 }
 
@@ -422,44 +442,36 @@ void insertBeforeNode(Node** headRef, Node* nextNode, int data) {
         printf("The list cannot be empty\n");
         return;
     }
-    
-	if (nextNode == NULL) {
+    if (nextNode == NULL) {
         printf("The given next node cannot be NULL\n");
         return;
     }
-	
-	Node* newNode = createNode(data);
-	
-    // If the nextNode is the head node, handle the insertion at beginning
+
+    Node* newNode = createNode(data);
     if (*headRef == nextNode) {
         newNode-&gt;next = *headRef;
+        (*headRef)-&gt;prev = newNode;
         *headRef = newNode;
         return;
     }
 
-    // Find the node just before the nextNode
-    Node* temp = *headRef;
-    while (temp != NULL && temp-&gt;next != nextNode) {
-        temp = temp-&gt;next;
+    newNode-&gt;next = nextNode;
+    newNode-&gt;prev = nextNode-&gt;prev;
+    if (nextNode-&gt;prev != NULL) {
+        nextNode-&gt;prev-&gt;next = newNode;
     }
-
-    if (temp == NULL) {
-        printf("The given next node is not found in the list\n");
-        free(newNode);
-        return;
-    }
-
-    newNode-&gt;next = temp-&gt;next;
-    temp-&gt;next = newNode;
+    nextNode-&gt;prev = newNode;
 }
 
 // Function to insert a node at a specific position (0-based index)
 void insertAtPosition(Node** headRef, int data, int position) {
     Node* newNode = createNode(data);
     
-    // If position is at the beginning
     if (position == 0) {
         newNode-&gt;next = *headRef;
+        if (*headRef != NULL) {
+            (*headRef)-&gt;prev = newNode;
+        }
         *headRef = newNode;
         return;
     }
@@ -469,7 +481,6 @@ void insertAtPosition(Node** headRef, int data, int position) {
         temp = temp-&gt;next;
     }
 
-    // If position is greater than the number of nodes
     if (temp == NULL) {
         printf("Position out of bounds\n");
         free(newNode);
@@ -477,6 +488,10 @@ void insertAtPosition(Node** headRef, int data, int position) {
     }
 
     newNode-&gt;next = temp-&gt;next;
+    newNode-&gt;prev = temp;
+    if (temp-&gt;next != NULL) {
+        temp-&gt;next-&gt;prev = newNode;
+    }
     temp-&gt;next = newNode;
 }
 
@@ -488,6 +503,9 @@ void deleteAtBeginning(Node** headRef) {
     }
     Node* temp = *headRef;
     *headRef = (*headRef)-&gt;next;
+    if (*headRef != NULL) {
+        (*headRef)-&gt;prev = NULL;
+    }
     free(temp);
 }
 
@@ -499,22 +517,16 @@ void deleteAtEnd(Node** headRef) {
     }
 
     Node* temp = *headRef;
-    
-    // If there's only one node in the list
-    if (temp-&gt;next == NULL) {
-        free(temp);
-        *headRef = NULL;
-        return;
-    }
-
-    // Traverse to the second last node
-    while (temp-&gt;next-&gt;next != NULL) {
+    while (temp-&gt;next != NULL) {
         temp = temp-&gt;next;
     }
 
-    // Free the last node
-    free(temp-&gt;next);
-    temp-&gt;next = NULL;
+    if (temp-&gt;prev != NULL) {
+        temp-&gt;prev-&gt;next = NULL;
+    } else {
+        *headRef = NULL; // List has only one element
+    }
+    free(temp);
 }
 
 // Function to delete a node at a specific position (0-based index)
@@ -526,35 +538,37 @@ void deleteAtPosition(Node** headRef, int position) {
 
     Node* temp = *headRef;
 
-    // If head needs to be removed
     if (position == 0) {
-        *headRef = temp-&gt;next; // Change head
-        free(temp); // Free old head
+        *headRef = temp-&gt;next;
+        if (*headRef != NULL) {
+            (*headRef)-&gt;prev = NULL;
+        }
+        free(temp);
         return;
     }
 
-    // Find previous node of the node to be deleted
     for (int i = 0; temp != NULL && i &lt; position - 1; i++) {
         temp = temp-&gt;next;
     }
 
-    // If position is more than number of nodes
     if (temp == NULL || temp-&gt;next == NULL) {
         printf("Position out of bounds\n");
         return;
     }
 
-    // Node temp-&gt;next is the node to be deleted
-    Node* nextNode = temp-&gt;next-&gt;next;
-    free(temp-&gt;next); // Free memory
-    temp-&gt;next = nextNode; // Unlink the deleted node from the list
+    Node* nodeToDelete = temp-&gt;next;
+    temp-&gt;next = nodeToDelete-&gt;next;
+    if (nodeToDelete-&gt;next != NULL) {
+        nodeToDelete-&gt;next-&gt;prev = temp;
+    }
+    free(nodeToDelete);
 }
 
 // Function to traverse the list and print all elements
 void traverse(Node* head) {
     Node* temp = head;
     while (temp != NULL) {
-        printf("%d -&gt; ", temp-&gt;data);
+        printf("%d &lt;-&gt; ", temp-&gt;data);
         temp = temp-&gt;next;
     }
     printf("NULL\n");
@@ -573,14 +587,19 @@ int search(Node* head, int key) {
 
 // Function to reverse the linked list
 void reverse(Node** headRef) {
-    Node *prev = NULL, *current = *headRef, *next = NULL;
+    Node *temp = NULL;
+    Node* current = *headRef;
+    
     while (current != NULL) {
-        next = current-&gt;next; // Store next
-        current-&gt;next = prev; // Reverse current node's pointer
-        prev = current;       // Move pointers one position ahead
-        current = next;
+        temp = current-&gt;prev;
+        current-&gt;prev = current-&gt;next;
+        current-&gt;next = temp;
+        current = current-&gt;prev;
     }
-    *headRef = prev;
+
+    if (temp != NULL) {
+        *headRef = temp-&gt;prev;
+    }
 }
 
 // Function to get the size of the linked list
@@ -617,52 +636,32 @@ void set(Node* head, int index, int newValue) {
     Node* current = head;
     int count = 0;
 
-    // Traverse the list until the specified index
     while (current != NULL) {
         if (count == index) {
-            current-&gt;data = newValue;  // Update the node's value
-            return;                    // Exit the function after the update
+            current-&gt;data = newValue;
+            return;
         }
         count++;
-        current = current-&gt;next;      // Move to the next node
+        current = current-&gt;next;
+    }
+
+    printf("Index out of range\n");
+}
+
+// Function to clear the entire linked list and free memory
+void clear(Node** headRef) {
+    Node* current = *headRef;
+    Node* next;
+    
+    while (current != NULL) {
+        next = current-&gt;next;
+        free(current);
+        current = next;
     }
     
-    printf("Index out of range\n"); // Handle case where index exceeds list length
+    *headRef = NULL;
 }
 
-// Function to merge two lists
-void merge(Node** headRef, Node* head1, Node* head2) {
-    if (head1 == NULL) {
-		//while (head2 != NULL) {
-            Node* newNode = createNode(head2-&gt;data); // Create a new node
-            *headRef = newNode;
-            //headRef = &((*headRef)-&gt;next);
-            //head2 = head2-&gt;next;
-			merge(&((*headRef)-&gt;next), head1, head2-&gt;next);
-        //}
-        return;
-    }
-    if (head2 == NULL) {
-        //while (head1 != NULL) {
-            Node* newNode = createNode(head1-&gt;data); // Create a new node
-            *headRef = newNode;
-            //headRef = &((*headRef)-&gt;next);
-            //head1 = head1-&gt;next;
-			merge(&((*headRef)-&gt;next), head1-&gt;next, head2);
-        //}
-        return;
-    }
-
-    if (head1-&gt;data &lt;= head2-&gt;data) {
-        Node* newNode = createNode(head1-&gt;data); // Create a new node
-        *headRef = newNode;
-        merge(&((*headRef)-&gt;next), head1-&gt;next, head2);
-    } else {
-        Node* newNode = createNode(head2-&gt;data); // Create a new node
-        *headRef = newNode;
-        merge(&((*headRef)-&gt;next), head1, head2-&gt;next);
-    }
-}
 // Function to get the middle of the linked list
 void middle(Node** mid, Node* head) {
     if (head == NULL) return;
@@ -681,7 +680,61 @@ void middle(Node** mid, Node* head) {
     *mid = slow; // Update the pointer to the middle node
 }
 
-// Function to sort the linked list (using Merge Sort)
+// Function to merge two lists
+void merge(Node** headRef, Node* head1, Node* head2) {
+    // Log the current state of head1 and head2
+    //printf("Merging: head1 data = %d, head2 data = %d\n", 
+    //       head1 ? head1-&gt;data : -1, head2 ? head2-&gt;data : -1);
+
+    // Base case when one of the lists is empty
+    if (head1 == NULL) {
+        // Log when head1 is NULL and remaining head2 is being added
+        if (head2 != NULL) {
+            printf("head1 is NULL, adding remaining head2 data: %d\n", head2-&gt;data);
+            Node* newNode = createNode(head2-&gt;data); // Create a new node
+            *headRef = newNode;
+            merge(&((*headRef)-&gt;next), head1, head2-&gt;next);
+        }
+        return;
+    }
+    if (head2 == NULL) {
+        // Log when head2 is NULL and remaining head1 is being added
+        if (head1 != NULL) {
+            //printf("head2 is NULL, adding remaining head1 data: %d\n", head1-&gt;data);
+            Node* newNode = createNode(head1-&gt;data); // Create a new node
+            *headRef = newNode;
+            merge(&((*headRef)-&gt;next), head1-&gt;next, head2);
+        }
+        return;
+    }
+
+    // Compare the data of head1 and head2 and merge accordingly
+    if (head1-&gt;data &lt;= head2-&gt;data) {
+        // Log when adding data from head1
+        //printf("Adding head1 data: %d\n", head1-&gt;data);
+        Node* newNode = createNode(head1-&gt;data); // Create a new node
+        *headRef = newNode;
+        merge(&((*headRef)-&gt;next), head1-&gt;next, head2);
+        if ((*headRef)-&gt;next != NULL) {
+            (*headRef)-&gt;next-&gt;prev = *headRef;
+        }
+    } else {
+        // Log when adding data from head2
+        //printf("Adding head2 data: %d\n", head2-&gt;data);
+        Node* newNode = createNode(head2-&gt;data); // Create a new node
+        *headRef = newNode;
+        merge(&((*headRef)-&gt;next), head1, head2-&gt;next);
+        if ((*headRef)-&gt;next != NULL) {
+            (*headRef)-&gt;next-&gt;prev = *headRef;
+        }
+    }
+
+    // Log when merge is completed for this recursion
+    //printf("Merge step completed. headRef data = %d\n", (*headRef)-&gt;data);
+}
+
+
+// Function to sort the doubly linked list (using Merge Sort)
 void sort(Node** headRef) {
     if (*headRef == NULL || (*headRef)-&gt;next == NULL)
         return;
@@ -691,7 +744,12 @@ void sort(Node** headRef) {
     middle(&mid, head);
     Node* nextToMid = mid-&gt;next;
     mid-&gt;next = NULL;
-  
+	
+	// Properly handle the 'prev' pointers for a doubly linked list
+    if (nextToMid != nullptr) {
+        nextToMid-&gt;prev = nullptr;  // Set 'prev' of the second half to null
+    }
+	
     // Sort the two halves
     sort(&head);
     sort(&nextToMid);
@@ -700,25 +758,10 @@ void sort(Node** headRef) {
     merge(headRef, head, nextToMid);
 }
 
-// Function to clear the entire linked list and free memory
-void clear(Node** headRef) {
-    Node* current = *headRef;
-    Node* next;
-    
-    while (current != NULL) {
-        next = current-&gt;next;
-        free(current);
-        current = next;
-    }
-    
-    *headRef = NULL;
-}
-
-// Main function to test the linked list operations
+// Main function to test the doubly linked list operations
 int main() {
-    Node* list = NULL; // Initialize an empty linked list
+    Node* list = NULL;
 
-    // Insert elements at the beginning
     insertAtBeginning(&list, 5);
     insertAtBeginning(&list, 3);
     insertAtBeginning(&list, 1);
@@ -726,27 +769,23 @@ int main() {
     printf("List after inserting at the beginning: ");
     traverse(list);
 
-    // Insert elements at the end
     insertAtEnd(&list, 7);
     insertAtEnd(&list, 9);
 
     printf("List after inserting at the end: ");
     traverse(list);
 
-    // Insert element at position 2
     insertAtPosition(&list, 4, 2);
 
     printf("List after inserting 4 at position 2: ");
     traverse(list);
 
-    // Insert element after the second node
     Node* secondNode = list-&gt;next;
     insertAfterNode(secondNode, 6);
 
     printf("List after inserting 6 after the second node: ");
     traverse(list);
 
-    // Insert element before the node with value 7
     Node* temp = list;
     while (temp != NULL && temp-&gt;data != 7) {
         temp = temp-&gt;next;
@@ -756,25 +795,21 @@ int main() {
     printf("List after inserting 8 before the node with value 7: ");
     traverse(list);
 
-    // Delete the first node
     deleteAtBeginning(&list);
 
     printf("List after deleting the first node: ");
     traverse(list);
 
-    // Delete the last node
     deleteAtEnd(&list);
 
     printf("List after deleting the last node: ");
     traverse(list);
 
-    // Delete the node at position 2
     deleteAtPosition(&list, 2);
 
     printf("List after deleting the node at position 2: ");
     traverse(list);
 
-    // Search for an element
     int key = 6;
     if (search(list, key)) {
         printf("Element %d found in the list.\n", key);
@@ -782,7 +817,6 @@ int main() {
         printf("Element %d not found in the list.\n", key);
     }
 
-    // Reverse the list
     reverse(&list);
 
     printf("List after reversing: ");
@@ -794,10 +828,8 @@ int main() {
     printf("List after sorting: ");
     traverse(list);
 
-    // Get the size of the list
     printf("Size of the list: %d\n", size(list));
 
-    // Access an element at a specific index
     int index = 2;
     int value = get(list, index);
     if (value != -1) {
@@ -806,12 +838,16 @@ int main() {
         printf("Index %d is out of range.\n", index);
     }
 
-    // Set a new value at a specific index
     set(list, 2, 10);
     printf("List after setting value 10 at index 2: ");
     traverse(list);
 
-    // Clear the list
+    Node* list1 = NULL;
+
+    insertAtBeginning(&list1, 25);
+    insertAtBeginning(&list1, 35);
+    insertAtBeginning(&list1, 14);
+    
     clear(&list);
 
     printf("List after clearing: ");
@@ -826,19 +862,23 @@ int main() {
 
 using namespace std;
 
-// Node structure for singly linked list
+// Node structure for doubly linked list
 struct Node {
     int data;
     Node* next;
+    Node* prev;
 
     // Constructor to create a new node
-    Node(int data) : data(data), next(nullptr) {}
+    Node(int data) : data(data), next(nullptr), prev(nullptr) {}
 };
 
 // Insert at the beginning
 void insertAtBeginning(Node*& head, int data) {
     Node* newNode = new Node(data);
     newNode-&gt;next = head;
+    if (head != nullptr) {
+        head-&gt;prev = newNode;
+    }
     head = newNode;
 }
 
@@ -854,6 +894,7 @@ void insertAtEnd(Node*& head, int data) {
         temp = temp-&gt;next;
     }
     temp-&gt;next = newNode;
+    newNode-&gt;prev = temp;
 }
 
 // Function to insert a new node after a given previous node
@@ -868,7 +909,11 @@ void insertAfterNode(Node* prevNode, int data) {
 
     // Insert the new node after the previous node
     newNode-&gt;next = prevNode-&gt;next;
+    if (prevNode-&gt;next != nullptr) {
+        prevNode-&gt;next-&gt;prev = newNode;
+    }
     prevNode-&gt;next = newNode;
+    newNode-&gt;prev = prevNode;
 }
 
 // Function to insert a new node before a given next node
@@ -888,6 +933,7 @@ void insertBeforeNode(Node*& headRef, Node* nextNode, int data) {
     // If the nextNode is the head node, handle the insertion at the beginning
     if (headRef == nextNode) {
         newNode-&gt;next = headRef;
+        headRef-&gt;prev = newNode;
         headRef = newNode;
         return;
     }
@@ -905,7 +951,11 @@ void insertBeforeNode(Node*& headRef, Node* nextNode, int data) {
     }
 
     newNode-&gt;next = temp-&gt;next;
+    if (temp-&gt;next != nullptr) {
+        temp-&gt;next-&gt;prev = newNode;
+    }
     temp-&gt;next = newNode;
+    newNode-&gt;prev = temp;
 }
 
 // Insert at a specific position
@@ -913,6 +963,9 @@ void insertAtPosition(Node*& head, int data, int position) {
     Node* newNode = new Node(data);
     if (position == 0) {
         newNode-&gt;next = head;
+        if (head != nullptr) {
+            head-&gt;prev = newNode;
+        }
         head = newNode;
         return;
     }
@@ -929,7 +982,11 @@ void insertAtPosition(Node*& head, int data, int position) {
     }
 
     newNode-&gt;next = temp-&gt;next;
+    if (temp-&gt;next != nullptr) {
+        temp-&gt;next-&gt;prev = newNode;
+    }
     temp-&gt;next = newNode;
+    newNode-&gt;prev = temp;
 }
 
 
@@ -941,6 +998,9 @@ void deleteAtBeginning(Node*& head) {
     }
     Node* temp = head;
     head = head-&gt;next;
+    if (head != nullptr) {
+        head-&gt;prev = nullptr;
+    }
     delete temp;
 }
 
@@ -959,12 +1019,12 @@ void deleteAtEnd(Node*& head) {
     }
 
     Node* temp = head;
-    while (temp-&gt;next-&gt;next != nullptr) {
+    while (temp-&gt;next != nullptr) {
         temp = temp-&gt;next;
     }
 
-    delete temp-&gt;next;
-    temp-&gt;next = nullptr;
+    temp-&gt;prev-&gt;next = nullptr;
+    delete temp;
 }
 
 
@@ -978,6 +1038,9 @@ void deleteAtPosition(Node*& head, int position) {
     if (position == 0) {
         Node* temp = head;
         head = head-&gt;next;
+        if (head != nullptr) {
+            head-&gt;prev = nullptr;
+        }
         delete temp;
         return;
     }
@@ -994,23 +1057,63 @@ void deleteAtPosition(Node*& head, int position) {
 
     Node* nextNode = temp-&gt;next-&gt;next;
     delete temp-&gt;next;
+    if (nextNode != nullptr) {
+        nextNode-&gt;prev = temp;
+    }
     temp-&gt;next = nextNode;
 }
 
-// Function to access an element at a specific index (0-based)
+// Function to reverse a doubly linked list
+void reverse(Node*& head) {
+    Node* prev = nullptr;
+    Node* current = head;
+    Node* next = nullptr;
+
+    while (current != nullptr) {
+        // Swap next and prev for the current node
+        next = current-&gt;next;
+        current-&gt;next = prev;
+        current-&gt;prev = next;
+
+        // Move to the next node in the original list
+        prev = current;
+        current = next;
+    }
+
+    // Update head to the last node (new head after reverse)
+    head = prev;
+}
+
+// Function to get the size of a doubly linked list
+int size(Node* head) {
+    int count = 0;
+    Node* temp = head;
+
+    while (temp != nullptr) {
+        count++;  // Increment count for each node
+        temp = temp-&gt;next;  // Move to the next node
+    }
+
+    return count;
+}
+
+// Function to access an element at a specific index (0-based) in a doubly linked list
 int get(Node* head, int index) {
     int count = 0;
     Node* temp = head;
+
+    // Traverse the list to find the node at the specified index
     while (temp != nullptr) {
         if (count == index)
-            return temp-&gt;data;
+            return temp-&gt;data;  // Return the data at the index
         count++;
-        temp = temp-&gt;next;
+        temp = temp-&gt;next;  // Move to the next node
     }
-    return -1; // Index out of range
+
+    return -1;  // Index out of range
 }
 
-// Function to set an element at a specific index (0-based)
+// Function to set an element at a specific index (0-based) in a doubly linked list
 void set(Node* head, int index, int newValue) {
     Node* current = head;
     int count = 0;
@@ -1019,98 +1122,35 @@ void set(Node* head, int index, int newValue) {
     while (current != nullptr) {
         if (count == index) {
             current-&gt;data = newValue;  // Update the node's value
-            return;                    // Exit the function after the update
+            return;  // Exit the function after the update
         }
         count++;
-        current = current-&gt;next;      // Move to the next node
+        current = current-&gt;next;  // Move to the next node
     }
-    
-    cout &lt;&lt; "Index out of range\n"; // Handle case where index exceeds list length
+
+    cout &lt;&lt; "Index out of range\n";  // Handle case where index exceeds list length
 }
 
-// Traverse the list
-void traverse(Node* head) {
-    Node* temp = head;
-    while (temp != nullptr) {
-        cout &lt;&lt; temp-&gt;data &lt;&lt; " -&gt; ";
-        temp = temp-&gt;next;
-    }
-    cout &lt;&lt; "NULL\n";
-}
-
-
-// Search for an element
+// Search for an element in a doubly linked list
 bool search(Node* head, int key) {
     Node* temp = head;
     while (temp != nullptr) {
         if (temp-&gt;data == key)
-            return true;
+            return true;  // Element found
         temp = temp-&gt;next;
     }
-    return false;
+    return false;  // Element not found
 }
 
-
-// Reverse the list
-void reverse(Node*& head) {
-    Node* prev = nullptr;
-    Node* current = head;
-    Node* next = nullptr;
-
-    while (current != nullptr) {
-        next = current-&gt;next;
-        current-&gt;next = prev;
-        prev = current;
-        current = next;
-    }
-
-    head = prev;
-}
-
-
-// Get the size of the list
-int size(Node* head) {
-    int count = 0;
+// Traverse the list (forward)
+void traverse(Node* head) {
     Node* temp = head;
     while (temp != nullptr) {
-        count++;
+        cout &lt;&lt; temp-&gt;data &lt;&lt; " &lt;-&gt; ";
         temp = temp-&gt;next;
     }
-    return count;
+    cout &lt;&lt; "NULL\n";
 }
-
-// Merge two sorted lists
-void merge(Node*& headRef, Node* head1, Node* head2) {
-    // Handle base cases for empty lists
-    if (head1 == nullptr) {
-        if (head2 != nullptr) {
-            //std::cout &lt;&lt; "head1 is null, adding node from head2 with data: " &lt;&lt; head2-&gt;data &lt;&lt; std::endl;
-            headRef = new Node(head2-&gt;data);
-            merge(headRef-&gt;next, head1, head2-&gt;next); // Continue merging head2
-        }
-        return;
-    }
-    if (head2 == nullptr) {
-        if (head1 != nullptr) {
-            //std::cout &lt;&lt; "head2 is null, adding node from head1 with data: " &lt;&lt; head1-&gt;data &lt;&lt; std::endl;
-            headRef = new Node(head1-&gt;data);
-            merge(headRef-&gt;next, head1-&gt;next, head2); // Continue merging head1
-        }
-        return;
-    }
-
-    // Merge the two lists
-    if (head1-&gt;data &lt;= head2-&gt;data) {
-        //std::cout &lt;&lt; "Choosing node from head1 with data: " &lt;&lt; head1-&gt;data &lt;&lt; std::endl;
-        headRef = new Node(head1-&gt;data);
-        merge(headRef-&gt;next, head1-&gt;next, head2); // Move head1 forward
-    } else {
-        //std::cout &lt;&lt; "Choosing node from head2 with data: " &lt;&lt; head2-&gt;data &lt;&lt; std::endl;
-        headRef = new Node(head2-&gt;data);
-        merge(headRef-&gt;next, head1, head2-&gt;next); // Move head2 forward
-    }
-}
-
 
 // Find the middle of the list
 void middle(Node*& mid, Node* head) {
@@ -1130,6 +1170,31 @@ void middle(Node*& mid, Node* head) {
     mid = slow;
 }
 
+// Merge two sorted lists
+void merge(Node*& headRef, Node* head1, Node* head2) {
+    if (head1 == nullptr) {
+        headRef = head2;
+        return;
+    }
+    if (head2 == nullptr) {
+        headRef = head1;
+        return;
+    }
+
+    if (head1-&gt;data &lt;= head2-&gt;data) {
+        headRef = head1;
+        merge(headRef-&gt;next, head1-&gt;next, head2);
+        if (headRef-&gt;next != nullptr) {
+            headRef-&gt;next-&gt;prev = headRef;
+        }
+    } else {
+        headRef = head2;
+        merge(headRef-&gt;next, head1, head2-&gt;next);
+        if (headRef-&gt;next != nullptr) {
+            headRef-&gt;next-&gt;prev = headRef;
+        }
+    }
+}
 
 // Sort the list using merge sort
 void sort(Node*& head) {
@@ -1141,7 +1206,12 @@ void sort(Node*& head) {
 
     Node* nextToMid = mid-&gt;next;
     mid-&gt;next = nullptr;
-
+	
+	// Properly handle the 'prev' pointers for a doubly linked list
+    if (nextToMid != nullptr) {
+        nextToMid->prev = nullptr;  // Set 'prev' of the second half to null
+    }
+	
     Node* left = head;
     Node* right = nextToMid;
 
@@ -1163,34 +1233,34 @@ void clear(Node*& head) {
 }
 
 int main() {
-    Node* list = nullptr;  // Initialize an empty linked list
+    Node* list = nullptr;  // Initialize an empty doubly linked list
 
     // Insert elements at the beginning
     insertAtBeginning(list, 5);
     insertAtBeginning(list, 3);
     insertAtBeginning(list, 1);
 
-    std::cout &lt;&lt; "List after inserting at the beginning: ";
+    cout &lt;&lt; "List after inserting at the beginning: ";
     traverse(list);
 
     // Insert elements at the end
     insertAtEnd(list, 7);
     insertAtEnd(list, 9);
 
-    std::cout &lt;&lt; "List after inserting at the end: ";
+    cout &lt;&lt; "List after inserting at the end: ";
     traverse(list);
 
     // Insert element at position 2
     insertAtPosition(list, 4, 2);
 
-    std::cout &lt;&lt; "List after inserting 4 at position 2: ";
+    cout &lt;&lt; "List after inserting 4 at position 2: ";
     traverse(list);
 
     // Insert element after the second node
     Node* secondNode = list-&gt;next;
     insertAfterNode(secondNode, 6);
 
-    std::cout &lt;&lt; "List after inserting 6 after the second node: ";
+    cout &lt;&lt; "List after inserting 6 after the second node: ";
     traverse(list);
 
     // Insert element before the node with value 7
@@ -1200,68 +1270,48 @@ int main() {
     }
     insertBeforeNode(list, temp, 8);
 
-    std::cout &lt;&lt; "List after inserting 8 before the node with value 7: ";
+    cout &lt;&lt; "List after inserting 8 before the node with value 7: ";
     traverse(list);
 
     // Delete the first node
     deleteAtBeginning(list);
 
-    std::cout &lt;&lt; "List after deleting the first node: ";
+    cout &lt;&lt; "List after deleting the first node: ";
     traverse(list);
 
     // Delete the last node
     deleteAtEnd(list);
 
-    std::cout &lt;&lt; "List after deleting the last node: ";
+    cout &lt;&lt; "List after deleting the last node: ";
     traverse(list);
 
     // Delete the node at position 2
     deleteAtPosition(list, 2);
 
-    std::cout &lt;&lt; "List after deleting the node at position 2: ";
+    cout &lt;&lt; "List after deleting the node at position 2: ";
     traverse(list);
 
     // Search for an element
     int key = 6;
     if (search(list, key)) {
-        std::cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " found in the list." &lt;&lt; std::endl;
+        cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " found in the list." &lt;&lt; endl;
     } else {
-        std::cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " not found in the list." &lt;&lt; std::endl;
+        cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " not found in the list." &lt;&lt; endl;
     }
 
     // Reverse the list
     reverse(list);
 
-    std::cout &lt;&lt; "List after reversing: ";
-    traverse(list);
-
-    // Sort the list
-    sort(list);
-
-    std::cout &lt;&lt; "List after sorting: ";
+    cout &lt;&lt; "List after reversing: ";
     traverse(list);
 
     // Get the size of the list
-    std::cout &lt;&lt; "Size of the list: " &lt;&lt; size(list) &lt;&lt; std::endl;
-
-    // Access an element at a specific index
-    int index = 2;
-    int value = get(list, index);
-    if (value != -1) {
-        std::cout &lt;&lt; "Element at index " &lt;&lt; index &lt;&lt; ": " &lt;&lt; value &lt;&lt; std::endl;
-    } else {
-        std::cout &lt;&lt; "Index " &lt;&lt; index &lt;&lt; " is out of range." &lt;&lt; std::endl;
-    }
-
-    // Set a new value at a specific index
-    set(list, 2, 10);
-    std::cout &lt;&lt; "List after setting value 10 at index 2: ";
-    traverse(list);
+    cout &lt;&lt; "Size of the list: " &lt;&lt; size(list) &lt;&lt; endl;
 
     // Clear the list
     clear(list);
 
-    std::cout &lt;&lt; "List after clearing: ";
+    cout &lt;&lt; "List after clearing: ";
     traverse(list);
 
     return 0;
@@ -1269,23 +1319,28 @@ int main() {
 		
 		<p>Here is the Non-Generic singly linked list implementation in Java:</p>
 		
-		<pre><code class="language-java hljs">public class LinkedList {
+		<pre><code class="language-java hljs">public class DoublyLinkedList {
 
-    // Node structure for singly linked list
+    // Node structure for doubly linked list
     static class Node {
         int data;
         Node next;
+        Node prev;
 
         // Constructor to create a new node
         Node(int data) {
             this.data = data;
             this.next = null;
+            this.prev = null;
         }
     }
 
     // Insert at the beginning
     public static Node insertAtBeginning(Node head, int data) {
         Node newNode = new Node(data);
+        if (head != null) {
+            head.prev = newNode;
+        }
         newNode.next = head;
         return newNode;
     }
@@ -1301,6 +1356,7 @@ int main() {
             temp = temp.next;
         }
         temp.next = newNode;
+        newNode.prev = temp;
         return head;
     }
 
@@ -1308,6 +1364,9 @@ int main() {
     public static Node insertAtPosition(Node head, int data, int position) {
         Node newNode = new Node(data);
         if (position == 0) {
+            if (head != null) {
+                head.prev = newNode;
+            }
             newNode.next = head;
             return newNode;
         }
@@ -1323,53 +1382,44 @@ int main() {
         }
 
         newNode.next = temp.next;
+        if (temp.next != null) {
+            temp.next.prev = newNode;
+        }
         temp.next = newNode;
+        newNode.prev = temp;
         return head;
     }
 	
 	// Insert after a given node
     public static void insertAfterNode(Node prevNode, int data) {
         if (prevNode == null) {
-            System.out.println("The given previous node cannot be NULL.");
+            System.out.println("The given previous node cannot be null");
             return;
         }
-
         Node newNode = new Node(data);
         newNode.next = prevNode.next;
         prevNode.next = newNode;
+        newNode.prev = prevNode;
+        if (newNode.next != null) {
+            newNode.next.prev = newNode;
+        }
     }
 
     // Insert before a given node
     public static Node insertBeforeNode(Node head, Node nextNode, int data) {
-        if (head == null) {
-            System.out.println("The list cannot be empty");
-            return head;
-        }
-
         if (nextNode == null) {
-            System.out.println("The given next node cannot be NULL");
+            System.out.println("The given next node cannot be null");
             return head;
         }
-
         Node newNode = new Node(data);
-
-        if (head == nextNode) {
-            newNode.next = head;
-            return newNode;
+        newNode.prev = nextNode.prev;
+        newNode.next = nextNode;
+        nextNode.prev = newNode;
+        if (newNode.prev != null) {
+            newNode.prev.next = newNode;
+        } else {
+            head = newNode;
         }
-
-        Node temp = head;
-        while (temp != null && temp.next != nextNode) {
-            temp = temp.next;
-        }
-
-        if (temp == null) {
-            System.out.println("The given next node is not found in the list");
-            return head;
-        }
-
-        newNode.next = temp.next;
-        temp.next = newNode;
         return head;
     }
 	
@@ -1379,7 +1429,11 @@ int main() {
             System.out.println("List is empty");
             return null;
         }
-        return head.next;
+        Node newHead = head.next;
+        if (newHead != null) {
+            newHead.prev = null;
+        }
+        return newHead;
     }
 
     // Delete at the end
@@ -1394,10 +1448,10 @@ int main() {
         }
 
         Node temp = head;
-        while (temp.next.next != null) {
+        while (temp.next != null) {
             temp = temp.next;
         }
-        temp.next = null;
+        temp.prev.next = null;
         return head;
     }
 
@@ -1409,7 +1463,7 @@ int main() {
         }
 
         if (position == 0) {
-            return head.next;
+            return deleteAtBeginning(head);
         }
 
         Node temp = head;
@@ -1422,11 +1476,15 @@ int main() {
             return head;
         }
 
-        temp.next = temp.next.next;
+        Node toDelete = temp.next;
+        temp.next = toDelete.next;
+        if (toDelete.next != null) {
+            toDelete.next.prev = temp;
+        }
         return head;
     }
-	
-	// Get element at a specific index
+
+    // Get element at a specific index
     public static int get(Node head, int index) {
         int count = 0;
         Node temp = head;
@@ -1464,7 +1522,7 @@ int main() {
     public static void traverse(Node head) {
         Node temp = head;
         while (temp != null) {
-            System.out.print(temp.data + " -> ");
+            System.out.print(temp.data + " &lt;-&gt; ");
             temp = temp.next;
         }
         System.out.println("NULL");
@@ -1484,29 +1542,41 @@ int main() {
 
     // Reverse the list
     public static Node reverse(Node head) {
-        Node prev = null;
+        Node temp = null;
         Node current = head;
-        Node next = null;
 
+        // Swap next and prev pointers for each node
         while (current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
         }
-        return prev;
+
+        // After the loop, temp will be the last node, so update head
+        if (temp != null) {
+            head = temp.prev;
+        }
+
+        return head;
     }
-	
-	// Merge two sorted lists
+
+    // Merge two sorted lists
     public static Node merge(Node head1, Node head2) {
         if (head1 == null) return head2;
         if (head2 == null) return head1;
 
         if (head1.data &lt;= head2.data) {
             head1.next = merge(head1.next, head2);
+            if (head1.next != null) {
+                head1.next.prev = head1;
+            }
             return head1;
         } else {
             head2.next = merge(head1, head2.next);
+            if (head2.next != null) {
+                head2.next.prev = head2;
+            }
             return head2;
         }
     }
@@ -1534,7 +1604,12 @@ int main() {
         Node mid = middle(head);
         Node nextToMid = mid.next;
         mid.next = null;
-
+		
+		// Properly break the list into two halves
+		if (nextToMid != null) {
+			nextToMid.prev = null;  // Set the 'prev' pointer of the second half to null
+		}
+	
         // Recursively split and sort both halves
         Node left = sort(head);
         Node right = sort(nextToMid);
@@ -1542,7 +1617,7 @@ int main() {
         // Merge the sorted halves
         return merge(left, right);
     }
-	
+
     // Get the size of the list
     public static int size(Node head) {
         int count = 0;
@@ -1582,15 +1657,14 @@ int main() {
         head = insertAtPosition(head, 4, 2);
         System.out.println("List after inserting at position 2: ");
         traverse(head);
-		
-		// Insert after a specific node
-        insertAfterNode(head.next, 8);
-        System.out.println("List after inserting 8 after second node: ");
+		    
+		    Node second = new Node(20);
+		    insertAfterNode(second, 25);
+        System.out.println("List after inserting 25 after 20:");
         traverse(head);
-
-        // Insert before a specific node
-        head = insertBeforeNode(head, head.next, 12);
-        System.out.println("List after inserting 12 before second node: ");
+        
+        head = insertBeforeNode(head, second, 15);
+        System.out.println("List after inserting 15 before 20:");
         traverse(head);
 		
         // Delete at the beginning
@@ -1623,13 +1697,13 @@ int main() {
 
         // Get the size of the list
         System.out.println("Size of the list: " + size(head));
-		
-		// Sort the list
+
+        // Sort the list
         head = sort(head);
 
         System.out.println("Sorted list:");
-		traverse(head);
-		
+        traverse(head);
+
         // Clear the list
         head = clear(head);
         System.out.println("List after clearing: ");
@@ -1639,31 +1713,35 @@ int main() {
 		
 		<p>Here is the Non-Generic singly linked list implementation in C#:</p>
 		
-		<pre><code class="language-java hljs">using System;
+		<pre><code class="language-csharp hljs">using System;
 
-public class LinkedList
+public class DoublyLinkedList
 {
-    // Node structure for singly linked list
+    // Node structure for doubly linked list
     public class Node
     {
-        public int Data;
-        public Node Next;
+        public int data;
+        public Node next;
+        public Node prev;
 
         // Constructor to create a new node
         public Node(int data)
         {
-            Data = data;
-            Next = null;
+            this.data = data;
+            this.next = null;
+            this.prev = null;
         }
     }
 
     // Insert at the beginning
     public static Node InsertAtBeginning(Node head, int data)
     {
-        Node newNode = new Node(data)
+        Node newNode = new Node(data);
+        newNode.next = head;
+        if (head != null)
         {
-            Next = head
-        };
+            head.prev = newNode;
+        }
         return newNode;
     }
 
@@ -1676,11 +1754,12 @@ public class LinkedList
             return newNode;
         }
         Node temp = head;
-        while (temp.Next != null)
+        while (temp.next != null)
         {
-            temp = temp.Next;
+            temp = temp.next;
         }
-        temp.Next = newNode;
+        temp.next = newNode;
+        newNode.prev = temp;
         return head;
     }
 
@@ -1690,14 +1769,18 @@ public class LinkedList
         Node newNode = new Node(data);
         if (position == 0)
         {
-            newNode.Next = head;
+            newNode.next = head;
+            if (head != null)
+            {
+                head.prev = newNode;
+            }
             return newNode;
         }
 
         Node temp = head;
         for (int i = 0; i &lt; position - 1 && temp != null; i++)
         {
-            temp = temp.Next;
+            temp = temp.next;
         }
 
         if (temp == null)
@@ -1706,52 +1789,82 @@ public class LinkedList
             return head;
         }
 
-        newNode.Next = temp.Next;
-        temp.Next = newNode;
+        newNode.next = temp.next;
+        if (temp.next != null)
+        {
+            temp.next.prev = newNode;
+        }
+        temp.next = newNode;
+        newNode.prev = temp;
         return head;
     }
 	
-	// Insert after a given node
-    public static void InsertAfterNode(Node prevNode, int data)
-    {
-        if (prevNode == null)
-        {
-            Console.WriteLine("The given previous node cannot be null");
-            return;
-        }
-        Node newNode = new Node(data);
-        newNode.Next = prevNode.Next;
-        prevNode.Next = newNode;
-    }
+	// Insert a new node after a given node
+	public static Node InsertAfterNode(Node head, int target, int data)
+	{
+		Node temp = head;
+		while (temp != null && temp.data != target)
+		{
+			temp = temp.next;
+		}
 
-    // Insert before a given node
-    public static Node InsertBeforeNode(Node head, Node nextNode, int data)
-    {
-        if (nextNode == null)
-        {
-            Console.WriteLine("The given next node cannot be null");
-            return head;
-        }
-        if (head == nextNode)
-        {
-            return InsertAtBeginning(head, data);
-        }
-        Node temp = head;
-        while (temp != null && temp.Next != nextNode)
-        {
-            temp = temp.Next;
-        }
-        if (temp == null)
-        {
-            Console.WriteLine("The given next node is not present in the list");
-            return head;
-        }
-        Node newNode = new Node(data);
-        newNode.Next = nextNode;
-        temp.Next = newNode;
-        return head;
-    }
+		if (temp == null)
+		{
+			Console.WriteLine($"Node with value {target} not found.");
+			return head;
+		}
 
+		Node newNode = new Node(data);
+		newNode.next = temp.next;
+		newNode.prev = temp;
+		
+		if (temp.next != null)
+		{
+			temp.next.prev = newNode;
+		}
+		temp.next = newNode;
+		
+		return head;
+	}
+
+	// Insert a new node before a given node
+	public static Node InsertBeforeNode(Node head, int target, int data)
+	{
+		if (head == null)
+		{
+			Console.WriteLine("List is empty.");
+			return null;
+		}
+
+		if (head.data == target)
+		{
+			return InsertAtBeginning(head, data);
+		}
+
+		Node temp = head;
+		while (temp != null && temp.data != target)
+		{
+			temp = temp.next;
+		}
+
+		if (temp == null)
+		{
+			Console.WriteLine($"Node with value {target} not found.");
+			return head;
+		}
+
+		Node newNode = new Node(data);
+		newNode.next = temp;
+		newNode.prev = temp.prev;
+
+		if (temp.prev != null)
+		{
+			temp.prev.next = newNode;
+		}
+		temp.prev = newNode;
+
+		return head;
+	}
 
     // Delete at the beginning
     public static Node DeleteAtBeginning(Node head)
@@ -1761,7 +1874,11 @@ public class LinkedList
             Console.WriteLine("List is empty");
             return null;
         }
-        return head.Next;
+        if (head.next != null)
+        {
+            head.next.prev = null;
+        }
+        return head.next;
     }
 
     // Delete at the end
@@ -1773,17 +1890,20 @@ public class LinkedList
             return null;
         }
 
-        if (head.Next == null)
+        if (head.next == null)
         {
             return null;
         }
 
         Node temp = head;
-        while (temp.Next.Next != null)
+        while (temp.next != null)
         {
-            temp = temp.Next;
+            temp = temp.next;
         }
-        temp.Next = null;
+        if (temp.prev != null)
+        {
+            temp.prev.next = null;
+        }
         return head;
     }
 
@@ -1798,61 +1918,68 @@ public class LinkedList
 
         if (position == 0)
         {
-            return head.Next;
+            return DeleteAtBeginning(head);
         }
 
         Node temp = head;
         for (int i = 0; i &lt; position - 1 && temp != null; i++)
         {
-            temp = temp.Next;
+            temp = temp.next;
         }
 
-        if (temp == null || temp.Next == null)
+        if (temp == null || temp.next == null)
         {
             Console.WriteLine("Position out of bounds");
             return head;
         }
 
-        temp.Next = temp.Next.Next;
+        if (temp.next.next != null)
+        {
+            temp.next.next.prev = temp;
+        }
+        temp.next = temp.next.next;
         return head;
     }
-	
-	// Function to access an element at a specific index (0-based)
-	public static int Get(Node head, int index)
-	{
-		int count = 0;
-		Node temp = head;
-		while (temp != null)
-		{
-			if (count == index)
-				return temp.Data;
-			count++;
-			temp = temp.Next;
-		}
-		Console.WriteLine("Index out of range");
-		return -1; // Index out of range
-	}
 
-	// Function to set an element at a specific index (0-based)
-	public static void Set(Node head, int index, int newValue)
-	{
-		Node current = head;
-		int count = 0;
+    // Get element at a specific index
+    public static int Get(Node head, int index)
+    {
+        int count = 0;
+        Node temp = head;
 
-		// Traverse the list until the specified index
-		while (current != null)
-		{
-			if (count == index)
-			{
-				current.Data = newValue; // Update the node's value
-				return;                 // Exit the function after the update
-			}
-			count++;
-			current = current.Next;     // Move to the next node
-		}
+        while (temp != null)
+        {
+            if (count == index)
+            {
+                return temp.data;
+            }
+            count++;
+            temp = temp.next;
+        }
 
-		Console.WriteLine("Index out of range"); // Handle case where index exceeds list length
-	}
+        Console.WriteLine("Index out of range");
+        return -1;
+    }
+
+    // Set element at a specific index
+    public static void Set(Node head, int index, int newValue)
+    {
+        int count = 0;
+        Node temp = head;
+
+        while (temp != null)
+        {
+            if (count == index)
+            {
+                temp.data = newValue;
+                return;
+            }
+            count++;
+            temp = temp.next;
+        }
+
+        Console.WriteLine("Index out of range");
+    }
 
     // Traverse the list
     public static void Traverse(Node head)
@@ -1860,8 +1987,8 @@ public class LinkedList
         Node temp = head;
         while (temp != null)
         {
-            Console.Write(temp.Data + " -> ");
-            temp = temp.Next;
+            Console.Write(temp.data + " &lt;-&gt; ");
+            temp = temp.next;
         }
         Console.WriteLine("NULL");
     }
@@ -1872,11 +1999,11 @@ public class LinkedList
         Node temp = head;
         while (temp != null)
         {
-            if (temp.Data == key)
+            if (temp.data == key)
             {
                 return true;
             }
-            temp = temp.Next;
+            temp = temp.next;
         }
         return false;
     }
@@ -1884,19 +2011,86 @@ public class LinkedList
     // Reverse the list
     public static Node Reverse(Node head)
     {
-        Node prev = null;
+        Node temp = null;
         Node current = head;
-        Node next = null;
 
         while (current != null)
         {
-            next = current.Next;
-            current.Next = prev;
-            prev = current;
-            current = next;
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
         }
-        return prev;
+
+        if (temp != null)
+        {
+            head = temp.prev;
+        }
+        return head;
     }
+
+    // Find the middle of the list
+	public static Node Middle(Node head)
+	{
+		if (head == null) return null;
+
+		Node slow = head, fast = head;
+		
+		while (fast.next != null && fast.next.next != null)
+		{
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+
+		return slow;
+	}
+
+	// Sort the list using merge sort
+	public static Node Sort(Node head)
+	{
+		if (head == null || head.next == null) return head;
+
+		Node mid = Middle(head);
+		Node nextToMid = mid.next;
+
+		// Properly break the list into two halves
+		mid.next = null;
+		if (nextToMid != null) 
+		{
+			nextToMid.prev = null;
+		}
+
+		Node left = Sort(head);
+		Node right = Sort(nextToMid);
+
+		return Merge(left, right);
+	}
+
+	// Merge two sorted lists
+	public static Node Merge(Node head1, Node head2)
+	{
+		if (head1 == null) return head2;
+		if (head2 == null) return head1;
+
+		if (head1.data &lt;= head2.data)
+		{
+			head1.next = Merge(head1.next, head2);
+			if (head1.next != null)
+			{
+				head1.next.prev = head1;
+			}
+			return head1;
+		}
+		else
+		{
+			head2.next = Merge(head1, head2.next);
+			if (head2.next != null)
+			{
+				head2.next.prev = head2;
+			}
+			return head2;
+		}
+	}
 
     // Get the size of the list
     public static int Size(Node head)
@@ -1906,72 +2100,15 @@ public class LinkedList
         while (temp != null)
         {
             count++;
-            temp = temp.Next;
+            temp = temp.next;
         }
         return count;
     }
-	
-	 // Merge two sorted lists
-    public static Node Merge(Node head1, Node head2)
-    {
-        if (head1 == null) return head2;
-        if (head2 == null) return head1;
 
-        if (head1.Data &lt;= head2.Data)
-        {
-            head1.Next = Merge(head1.Next, head2);
-            return head1;
-        }
-        else
-        {
-            head2.Next = Merge(head1, head2.Next);
-            return head2;
-        }
-    }
-
-    // Find the middle of the list
-    public static Node Middle(Node head)
-    {
-        if (head == null) return null;
-
-        Node slow = head;
-        Node fast = head;
-
-        while (fast.Next != null && fast.Next.Next != null)
-        {
-            slow = slow.Next;
-            fast = fast.Next.Next;
-        }
-
-        return slow;
-    }
-
-    // Sort the list using merge sort
-    public static Node Sort(Node head)
-    {
-        if (head == null || head.Next == null)
-            return head;
-
-        // Find the middle of the list
-        Node middle = Middle(head);
-        Node nextToMiddle = middle.Next;
-
-        // Split the list into two halves
-        middle.Next = null;
-
-        // Recursively sort the two halves
-        Node left = Sort(head);
-        Node right = Sort(nextToMiddle);
-
-        // Merge the sorted halves
-        return Merge(left, right);
-    }
-	
     // Clear the list
     public static Node Clear(Node head)
     {
-        head = null;
-        return head;
+        return null;
     }
 
     // Main method to test
@@ -1984,61 +2121,72 @@ public class LinkedList
         head = InsertAtBeginning(head, 10);
         head = InsertAtBeginning(head, 3);
 
-        Console.WriteLine("List after inserting at the beginning:");
+        Console.WriteLine("List after inserting at the beginning: ");
         Traverse(head);
 
         // Insert element at the end
         head = InsertAtEnd(head, 7);
         head = InsertAtEnd(head, 2);
 
-        Console.WriteLine("List after inserting at the end:");
+        Console.WriteLine("List after inserting at the end: ");
         Traverse(head);
 
         // Insert at a specific position
         head = InsertAtPosition(head, 4, 2);
-        Console.WriteLine("List after inserting at position 2:");
+        Console.WriteLine("List after inserting at position 2: ");
         Traverse(head);
 		
-		head = InsertAfterNode(head, 4, 8);
-		Console.WriteLine("List after inserting 8 after 4:");
-		Traverse(head);
-
-		head = InsertBeforeNode(head, 4, 6);
-		Console.WriteLine("List after inserting 6 before 4:");
-		Traverse(head);
+  		head = InsertAfterNode(head, 4, 8);
+  		Console.WriteLine("List after inserting 8 after 4:");
+  		Traverse(head);
+  
+  		head = InsertBeforeNode(head, 4, 6);
+  		Console.WriteLine("List after inserting 6 before 4:");
+  		Traverse(head);
 
         // Delete at the beginning
         head = DeleteAtBeginning(head);
-        Console.WriteLine("List after deleting at the beginning:");
+        Console.WriteLine("List after deleting at the beginning: ");
         Traverse(head);
 
         // Delete at the end
         head = DeleteAtEnd(head);
-        Console.WriteLine("List after deleting at the end:");
+        Console.WriteLine("List after deleting at the end: ");
         Traverse(head);
 
         // Delete at a specific position
         head = DeleteAtPosition(head, 2);
-        Console.WriteLine("List after deleting at position 2:");
+        Console.WriteLine("List after deleting at position 2: ");
         Traverse(head);
 
         // Search for an element
         int key = 7;
-        Console.WriteLine(Search(head, key)
-            ? $"Element {key} found in the list"
-            : $"Element {key} not found in the list");
+        if (Search(head, key))
+        {
+            Console.WriteLine("Element " + key + " found in the list");
+        }
+        else
+        {
+            Console.WriteLine("Element " + key + " not found in the list");
+        }
 
         // Reverse the list
         head = Reverse(head);
-        Console.WriteLine("List after reversing:");
+        Console.WriteLine("List after reversing: ");
         Traverse(head);
 
         // Get the size of the list
         Console.WriteLine("Size of the list: " + Size(head));
 
+        // Sort the list
+        head = Sort(head);
+
+        Console.WriteLine("Sorted list:");
+        Traverse(head);
+
         // Clear the list
         head = Clear(head);
-        Console.WriteLine("List after clearing:");
+        Console.WriteLine("List after clearing: ");
         Traverse(head);
     }
 }</code></pre>
@@ -2047,7 +2195,7 @@ public class LinkedList
 		
 		<p>Here is the Generic singly linked list implementation in C:</p>
         
-        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+        <pre><code class="language-cpp hljs">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
 
@@ -2057,10 +2205,11 @@ typedef struct {
     char* toString;       // This will be modified to hold the string representation
 } StackElement;
 
-// Node structure for singly linked list
+// Node structure for doubly linked list
 typedef struct Node {
-    StackElement element;
-    struct Node* next;     // Pointer to the next node
+    StackElement element;     // Stack element data
+    struct Node* next;        // Pointer to the next node
+    struct Node* prev;        // Pointer to the previous node
 } Node;
 
 // Function to create a new node
@@ -2068,17 +2217,23 @@ Node* createNode(StackElement element) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode-&gt;element = element;
     newNode-&gt;next = NULL;
+    newNode-&gt;prev = NULL;
     return newNode;
 }
 
 // Function to insert a node at the beginning of the list
 void insertAtBeginning(Node** head, StackElement element) {
     Node* newNode = createNode(element);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
     newNode-&gt;next = *head;
+    (*head)-&gt;prev = newNode;
     *head = newNode;
 }
 
-// Function to insert a node at the end of the list (generic)
+// Function to insert a node at the end of the list
 void insertAtEnd(Node** head, StackElement element) {
     Node* newNode = createNode(element);
     if (*head == NULL) {
@@ -2090,108 +2245,59 @@ void insertAtEnd(Node** head, StackElement element) {
         temp = temp-&gt;next;
     }
     temp-&gt;next = newNode;
+    newNode-&gt;prev = temp;
 }
 
 // Function to insert a node after a given previous node
 void insertAfterNode(Node** head, Node* prevNode, StackElement element) {
-    // Check if the head is NULL (list is empty)
-    if (*head == NULL) {
-        printf("The list cannot be empty\n");
+    if (*head == NULL || prevNode == NULL) {
+        printf("The list cannot be empty or the previous node cannot be NULL\n");
         return;
     }
 
-    // Check if the previous node is NULL
-    if (prevNode == NULL) {
-        printf("The given previous node cannot be NULL\n");
-        return;
-    }
-
-    // Create the new node with the given StackElement
     Node* newNode = createNode(element);
-
-    // Check if prevNode is the head node
-    if (*head == prevNode) {
-        // Insert the new node after the head
-        newNode-&gt;next = (*head)-&gt;next;
-        (*head)-&gt;next = newNode;
-        return;
-    }
-
-    // Traverse the list to find prevNode if it's not the head
-    Node* temp = *head;
-    while (temp != NULL && temp != prevNode) {
-        temp = temp-&gt;next;
-    }
-
-    // If prevNode is not found in the list, return an error
-    if (temp == NULL) {
-        printf("The given previous node is not found in the list\n");
-        free(newNode);
-        return;
-    }
-
-    // Insert the new node after prevNode
     newNode-&gt;next = prevNode-&gt;next;
+    if (prevNode-&gt;next != NULL) {
+        prevNode-&gt;next-&gt;prev = newNode;
+    }
     prevNode-&gt;next = newNode;
+    newNode-&gt;prev = prevNode;
 }
 
 // Function to insert a node before a given next node
 void insertBeforeNode(Node** head, Node* nextNode, StackElement element) {
-    // Check if the head is NULL (list is empty)
-    if (*head == NULL) {
-        printf("The list cannot be empty\n");
+    if (*head == NULL || nextNode == NULL) {
+        printf("The list cannot be empty or the next node cannot be NULL\n");
         return;
     }
 
-    // Check if the nextNode is NULL
-    if (nextNode == NULL) {
-        printf("The given next node cannot be NULL\n");
-        return;
-    }
-
-    // Create the new node with the given StackElement
     Node* newNode = createNode(element);
+    newNode-&gt;prev = nextNode-&gt;prev;
+    if (nextNode-&gt;prev != NULL) {
+        nextNode-&gt;prev-&gt;next = newNode;
+    }
+    nextNode-&gt;prev = newNode;
+    newNode-&gt;next = nextNode;
 
-    // If the nextNode is the head node, handle the insertion at beginning
-    if (*head == nextNode) {
-        newNode-&gt;next = *head;
+    // If nextNode is the head node
+    if (newNode-&gt;prev == NULL) {
         *head = newNode;
-        return;
     }
-
-    Node* temp = *head;
-    while (temp != NULL && temp-&gt;next != nextNode) {
-        temp = temp-&gt;next;
-    }
-
-    // If temp is NULL, then nextNode is not found in the list
-    if (temp == NULL) {
-        printf("The given next node is not found in the list\n");
-        free(newNode);
-        return;
-    }
-
-    newNode-&gt;next = temp-&gt;next;
-    temp-&gt;next = newNode;
 }
 
 // Function to insert a node at a specific position
 void insertAtPosition(Node** head, StackElement element, int position) {
-    Node* newNode = createNode(element);
-    
-    // If position is at the beginning
     if (position == 0) {
-        newNode-&gt;next = *head;
-        *head = newNode;
+        insertAtBeginning(head, element);
         return;
     }
 
+    Node* newNode = createNode(element);
     Node* temp = *head;
-    for (int i = 0; i &lt; position - 1 && temp != NULL; i++) {
+    for (int i = 0; temp != NULL && i &lt; position - 1; i++) {
         temp = temp-&gt;next;
     }
 
-    // If position is greater than the number of nodes
     if (temp == NULL) {
         printf("Position out of bounds\n");
         free(newNode);
@@ -2199,7 +2305,11 @@ void insertAtPosition(Node** head, StackElement element, int position) {
     }
 
     newNode-&gt;next = temp-&gt;next;
+    if (temp-&gt;next != NULL) {
+        temp-&gt;next-&gt;prev = newNode;
+    }
     temp-&gt;next = newNode;
+    newNode-&gt;prev = temp;
 }
 
 // Function to delete a node at the beginning of the list
@@ -2209,13 +2319,15 @@ void deleteAtBeginning(Node** head) {
         return;
     }
     
-    Node* temp = *head;           // Temporary pointer to the head node
-    *head = (*head)-&gt;next;        // Move the head to the next node
-    
-    free(temp);                   // Free the node
+    Node* temp = *head;
+    *head = (*head)-&gt;next;
+    if (*head != NULL) {
+        (*head)-&gt;prev = NULL;
+    }
+    free(temp);
 }
 
-/// Function to delete a node at the end of the list
+// Function to delete a node at the end of the list
 void deleteAtEnd(Node** head) {
     if (*head == NULL) {
         printf("List is empty\n");
@@ -2223,21 +2335,16 @@ void deleteAtEnd(Node** head) {
     }
 
     Node* temp = *head;
-
-    // If there's only one node in the list
-    if (temp-&gt;next == NULL) {
-        free(temp);                 // Free the node
-        *head = NULL;
-        return;
-    }
-
-    // Traverse to the second last node
-    while (temp-&gt;next-&gt;next != NULL) {
+    while (temp-&gt;next != NULL) {
         temp = temp-&gt;next;
     }
 
-    free(temp-&gt;next);                 // Free the last node
-    temp-&gt;next = NULL;                // Set the second last node's next to NULL
+    if (temp-&gt;prev != NULL) {
+        temp-&gt;prev-&gt;next = NULL;
+    } else {
+        *head = NULL; // Only one element in the list
+    }
+    free(temp);
 }
 
 // Function to delete a node at a given position
@@ -2249,40 +2356,72 @@ void deleteAtPosition(Node** head, int position) {
 
     Node* temp = *head;
 
-    // If head needs to be removed
     if (position == 0) {
-        *head = temp-&gt;next; // Change head
-        free(temp); // Free old head
+        *head = temp-&gt;next;
+        if (*head != NULL) {
+            (*head)-&gt;prev = NULL;
+        }
+        free(temp);
         return;
     }
 
-    // Find previous node of the node to be deleted
     for (int i = 0; temp != NULL && i &lt; position - 1; i++) {
         temp = temp-&gt;next;
     }
 
-    // If position is more than number of nodes
     if (temp == NULL || temp-&gt;next == NULL) {
         printf("Position out of bounds\n");
         return;
     }
 
-    // Node temp-&gt;next is the node to be deleted
     Node* nextNode = temp-&gt;next-&gt;next;
-
-    free(temp-&gt;next);                 // Free the node
-    temp-&gt;next = nextNode;            // Unlink the deleted node from the list
+    if (nextNode != NULL) {
+        nextNode-&gt;prev = temp;
+    }
+    free(temp-&gt;next);
+    temp-&gt;next = nextNode;
 }
 
 // Function to traverse the list and print all elements
 void traverse(Node* head) {
     Node* temp = head;
     while (temp != NULL) {
-        char* str = temp-&gt;element.toString;
-        printf("%s -&gt; ", str);
+        printf("%s &lt;-&gt; ", temp-&gt;element.toString);
         temp = temp-&gt;next;
     }
     printf("NULL\n");
+}
+
+// Function to reverse the linked list
+void reverse(Node** head) {
+    Node* temp = NULL;
+    Node* current = *head;
+    
+    while (current != NULL) {
+        temp = current-&gt;prev;
+        current-&gt;prev = current-&gt;next;
+        current-&gt;next = temp;
+        current = current-&gt;prev;
+    }
+    
+    if (temp != NULL) {
+        *head = temp-&gt;prev;
+    }
+}
+
+
+// Function to clear the entire linked list and free memory
+void clear(Node** head) {
+    Node* current = *head;
+    Node* next;
+    
+    while (current != NULL) {
+        next = current-&gt;next;
+        free(current);
+        current = next;
+    }
+    
+    *head = NULL;
 }
 
 // Function to search for an element in the list
@@ -2298,23 +2437,11 @@ int search(Node* head, StackElement keyElement) {
         if (strcmp(currentStr, keyStr) == 0) {
             return 1; // Key found
         }
-		
+
         temp = temp-&gt;next;
     }
 
     return 0; // Key not found
-}
-
-// Function to reverse the linked list
-void reverse(Node** head) {
-    Node *prev = NULL, *current = *head, *next = NULL;
-    while (current != NULL) {
-        next = current-&gt;next; // Store next
-        current-&gt;next = prev; // Reverse current node's pointer
-        prev = current;       // Move pointers one position ahead
-        current = next;
-    }
-    *head = prev;
 }
 
 // Function to get the size of the linked list
@@ -2390,10 +2517,16 @@ void merge(Node** headRef, Node* head1, Node* head2) {
         Node* newNode = createNode(head1-&gt;element); // Create a new node
         *headRef = newNode;
         merge(&((*headRef)-&gt;next), head1-&gt;next, head2);
+        if ((*headRef)-&gt;next != NULL) {
+            (*headRef)-&gt;next-&gt;prev = *headRef;
+        }
     } else {
         Node* newNode = createNode(head2-&gt;element); // Create a new node
         *headRef = newNode;
         merge(&((*headRef)-&gt;next), head1, head2-&gt;next);
+        if ((*headRef)-&gt;next != NULL) {
+            (*headRef)-&gt;next-&gt;prev = *headRef;
+        }
     }
 }
 
@@ -2405,13 +2538,13 @@ void middle(Node* head, Node** middle) {
     }
 
     Node* slow = head;
-    Node* fast = head->next;
+    Node* fast = head-&gt;next;
 
     while (fast != NULL) {
-        fast = fast->next;
+        fast = fast-&gt;next;
         if (fast != NULL) {
-            slow = slow->next;
-            fast = fast->next;
+            slow = slow-&gt;next;
+            fast = fast-&gt;next;
         }
     }
 
@@ -2425,9 +2558,14 @@ void sort(Node** headRef) {
 
     Node* head = *headRef;
     Node* mid = NULL;
-	middle(head, &mid);
+    middle(head, &mid);
     Node* nextToMid = mid-&gt;next;
     mid-&gt;next = NULL;
+
+    // Properly handle the 'prev' pointers for a doubly linked list
+    if (nextToMid != NULL) {
+        nextToMid-&gt;prev = NULL;  // Set 'prev' of the second half to null
+    }
 
     // Sort the two halves
     sort(&head);
@@ -2437,20 +2575,6 @@ void sort(Node** headRef) {
     merge(headRef, head, nextToMid);
 }
 
-
-// Function to clear the entire linked list and free memory
-void clear(Node** head) {
-    Node* current = *head;
-    Node* next;
-    
-    while (current != NULL) {
-        next = current-&gt;next;
-        free(current);
-        current = next;
-    }
-    
-    *head = NULL;
-}
 
 struct Car {
     char model[20];
@@ -2462,7 +2586,7 @@ struct Person {
     int age;
 };
 
-// Main function to test the linked list operations
+// Main function to test the doubly linked list operations
 int main() {
     // Create People
     struct Person alice = {"Alice", 30};
@@ -2494,12 +2618,12 @@ int main() {
     traverse(personList);
 
     // 3. **Insert before a node**
-    insertBeforeNode(&personList, personList->next, newElement);
+    insertBeforeNode(&personList, personList-&gt;next, newElement);
     printf("\nList after inserting before second node:\n");
     traverse(personList);
 
     // 4. **Insert after a node**
-    insertAfterNode(&personList, personList->next, newElement);
+    insertAfterNode(&personList, personList-&gt;next, newElement);
     printf("\nList after inserting after second node:\n");
     traverse(personList);
 
@@ -2565,14 +2689,15 @@ int main() {
 
 using namespace std;
 
-// Node structure for singly linked list template
+// Node structure for doubly linked list
 template &lt;typename T&gt;
 struct Node {
     T data;
     Node* next;
+    Node* prev; // Add prev pointer
 
     // Constructor to create a new node
-    Node(T data) : data(data), next(nullptr) {}
+    Node(T data) : data(data), next(nullptr), prev(nullptr) {}
 };
 
 // Insert at the beginning
@@ -2580,6 +2705,9 @@ template &lt;typename T&gt;
 void insertAtBeginning(Node&lt;T&gt;*& head, T data) {
     Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
     newNode-&gt;next = head;
+    if (head != nullptr) {
+        head-&gt;prev = newNode;
+    }
     head = newNode;
 }
 
@@ -2596,6 +2724,7 @@ void insertAtEnd(Node&lt;T&gt;*& head, T data) {
         temp = temp-&gt;next;
     }
     temp-&gt;next = newNode;
+    newNode-&gt;prev = temp;
 }
 
 // Function to insert a node after a given previous node
@@ -2608,6 +2737,11 @@ void insertAfterNode(Node&lt;T&gt;* prevNode, T element) {
 
     Node&lt;T&gt;* newNode = new Node&lt;T&gt;(element);
     newNode-&gt;next = prevNode-&gt;next;
+    newNode-&gt;prev = prevNode;
+
+    if (prevNode-&gt;next != nullptr) {
+        prevNode-&gt;next-&gt;prev = newNode;
+    }
     prevNode-&gt;next = newNode;
 }
 
@@ -2628,6 +2762,7 @@ void insertBeforeNode(Node&lt;T&gt;*& head, Node&lt;T&gt;* nextNode, T element) 
     
     if (head == nextNode) {
         newNode-&gt;next = head;
+        head-&gt;prev = newNode;
         head = newNode;
         return;
     }
@@ -2644,7 +2779,11 @@ void insertBeforeNode(Node&lt;T&gt;*& head, Node&lt;T&gt;* nextNode, T element) 
     }
 
     newNode-&gt;next = temp-&gt;next;
+    if (temp-&gt;next != nullptr) {
+        temp-&gt;next-&gt;prev = newNode;
+    }
     temp-&gt;next = newNode;
+    newNode-&gt;prev = temp;
 }
 
 // Insert at a specific position
@@ -2653,6 +2792,9 @@ void insertAtPosition(Node&lt;T&gt;*& head, T data, int position) {
     Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
     if (position == 0) {
         newNode-&gt;next = head;
+        if (head != nullptr) {
+            head-&gt;prev = newNode;
+        }
         head = newNode;
         return;
     }
@@ -2669,7 +2811,11 @@ void insertAtPosition(Node&lt;T&gt;*& head, T data, int position) {
     }
 
     newNode-&gt;next = temp-&gt;next;
+    if (temp-&gt;next != nullptr) {
+        temp-&gt;next-&gt;prev = newNode;
+    }
     temp-&gt;next = newNode;
+    newNode-&gt;prev = temp;
 }
 
 // Delete at the beginning
@@ -2681,6 +2827,9 @@ void deleteAtBeginning(Node&lt;T&gt;*& head) {
     }
     Node&lt;T&gt;* temp = head;
     head = head-&gt;next;
+    if (head != nullptr) {
+        head-&gt;prev = nullptr;
+    }
     delete temp;
 }
 
@@ -2699,12 +2848,12 @@ void deleteAtEnd(Node&lt;T&gt;*& head) {
     }
 
     Node&lt;T&gt;* temp = head;
-    while (temp-&gt;next-&gt;next != nullptr) {
+    while (temp-&gt;next != nullptr) {
         temp = temp-&gt;next;
     }
 
-    delete temp-&gt;next;
-    temp-&gt;next = nullptr;
+    temp-&gt;prev-&gt;next = nullptr;
+    delete temp;
 }
 
 // Delete at a specific position
@@ -2718,6 +2867,9 @@ void deleteAtPosition(Node&lt;T&gt;*& head, int position) {
     if (position == 0) {
         Node&lt;T&gt;* temp = head;
         head = head-&gt;next;
+        if (head != nullptr) {
+            head-&gt;prev = nullptr;
+        }
         delete temp;
         return;
     }
@@ -2733,6 +2885,9 @@ void deleteAtPosition(Node&lt;T&gt;*& head, int position) {
     }
 
     Node&lt;T&gt;* nextNode = temp-&gt;next-&gt;next;
+    if (nextNode != nullptr) {
+        nextNode-&gt;prev = temp;
+    }
     delete temp-&gt;next;
     temp-&gt;next = nextNode;
 }
@@ -2742,39 +2897,30 @@ template &lt;typename T&gt;
 void traverse(Node&lt;T&gt;* head) {
     Node&lt;T&gt;* temp = head;
     while (temp != nullptr) {
-        cout &lt;&lt; (temp-&gt;data).toString() &lt;&lt; " -&gt; ";  // Using toString()
+        cout &lt;&lt; (temp-&gt;data).toString() &lt;&lt; " &lt;-&gt; ";
         temp = temp-&gt;next;
     }
     cout &lt;&lt; "NULL\n";
 }
 
-// Search for an element
-template &lt;typename T&gt;
-bool search(Node&lt;T&gt;* head, T key) {
-    Node&lt;T&gt;* temp = head;
-    while (temp != nullptr) {
-        if (temp-&gt;data == key)
-            return true;
-        temp = temp-&gt;next;
-    }
-    return false;
-}
-
 // Reverse the list
 template &lt;typename T&gt;
 void reverse(Node&lt;T&gt;*& head) {
-    Node&lt;T&gt;* prev = nullptr;
     Node&lt;T&gt;* current = head;
-    Node&lt;T&gt;* next = nullptr;
+    Node&lt;T&gt;* temp = nullptr;
 
+    // Reverse the next and prev pointers of all nodes
     while (current != nullptr) {
-        next = current-&gt;next;
-        current-&gt;next = prev;
-        prev = current;
-        current = next;
+        temp = current-&gt;prev;
+        current-&gt;prev = current-&gt;next;
+        current-&gt;next = temp;
+        current = current-&gt;prev;
     }
 
-    head = prev;
+    // Reset the head to the last node
+    if (temp != nullptr) {
+        head = temp-&gt;prev;
+    }
 }
 
 // Get the size of the list
@@ -2824,6 +2970,21 @@ void set(Node&lt;T&gt;* head, int index, T element) {
     throw out_of_range("Index out of range"); // Throw exception if index is invalid
 }
 
+template &lt;typename T&gt;
+bool search(Node&lt;T&gt;* head, T key) {
+    Node&lt;T&gt;* temp = head;
+    
+    // Traverse the list in the forward direction
+    while (temp != nullptr) {
+        if (temp-&gt;data == key)
+            return true;  // Element found
+        temp = temp-&gt;next;
+    }
+
+    // If not found, return false
+    return false;
+}
+
 // Function to merge two lists
 template &lt;typename T&gt;
 void merge(Node&lt;T&gt;*& headRef, Node&lt;T&gt;* head1, Node&lt;T&gt;* head2) {
@@ -2841,9 +3002,17 @@ void merge(Node&lt;T&gt;*& headRef, Node&lt;T&gt;* head1, Node&lt;T&gt;* head2) 
     if (head1-&gt;data &lt; head2-&gt;data) {
         headRef = head1;
         merge(headRef-&gt;next, head1-&gt;next, head2);
+        // Update the prev pointer of the next node in the merged list
+        if (headRef-&gt;next != nullptr) {
+            headRef-&gt;next-&gt;prev = headRef;
+        }
     } else {
         headRef = head2;
         merge(headRef-&gt;next, head1, head2-&gt;next);
+        // Update the prev pointer of the next node in the merged list
+        if (headRef-&gt;next != nullptr) {
+            headRef-&gt;next-&gt;prev = headRef;
+        }
     }
 }
 
@@ -2879,7 +3048,12 @@ void sort(Node&lt;T&gt;*& headRef) {
     middle(headRef, mid);
     Node&lt;T&gt;* nextToMid = mid-&gt;next;
     mid-&gt;next = nullptr;
-
+    
+    // Properly handle the 'prev' pointers for the second half of the list
+    if (nextToMid != nullptr) {
+        nextToMid-&gt;prev = nullptr;  // Set 'prev' of the second half to null
+    }
+    
     // Sort the two halves
     sort(headRef);
     sort(nextToMid);
@@ -2928,7 +3102,6 @@ public:
     }
 };
 
-// Testing the Person class with merge
 int main() {
     // Create Person objects
     Person alice("Alice", 30);
@@ -3006,13 +3179,13 @@ int main() {
     sort(head);
     cout &lt;&lt; "\nList after sorting:\n";
     traverse(head);
-	
-	// Clear the list
+    
+    // Clear the list
     clear(head);
 
     cout &lt;&lt; "\nList after clearing:" &lt;&lt; endl;
     traverse(head);  // Should print NULL, as the list is cleared
-	
+    
     return 0;
 }</code></pre>
 		
@@ -3020,21 +3193,26 @@ int main() {
 		
 		<pre><code class="language-java hljs">class LinkedList&lt;T&gt; {
 
-    // Node structure for singly linked list
+    // Node structure for doubly linked list
     static class Node&lt;T&gt; {
         T data;
         Node&lt;T&gt; next;
+        Node&lt;T&gt; prev;
 
         // Constructor to create a new node
         Node(T data) {
             this.data = data;
             this.next = null;
+            this.prev = null;
         }
     }
 
     // Insert at the beginning
     public static &lt;T&gt; Node&lt;T&gt; insertAtBeginning(Node&lt;T&gt; head, T data) {
         Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+        if (head != null) {
+            head.prev = newNode;
+        }
         newNode.next = head;
         return newNode;
     }
@@ -3050,6 +3228,7 @@ int main() {
             temp = temp.next;
         }
         temp.next = newNode;
+        newNode.prev = temp;
         return head;
     }
 
@@ -3058,6 +3237,9 @@ int main() {
         Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
         if (position == 0) {
             newNode.next = head;
+            if (head != null) {
+                head.prev = newNode;
+            }
             return newNode;
         }
 
@@ -3072,7 +3254,11 @@ int main() {
         }
 
         newNode.next = temp.next;
+        if (temp.next != null) {
+            temp.next.prev = newNode;
+        }
         temp.next = newNode;
+        newNode.prev = temp;
         return head;
     }
 
@@ -3092,7 +3278,11 @@ int main() {
         if (temp != null) {
             Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
             newNode.next = temp.next;
+            if (temp.next != null) {
+                temp.next.prev = newNode;
+            }
             temp.next = newNode;
+            newNode.prev = temp;
         }
         return head;
     }
@@ -3103,7 +3293,11 @@ int main() {
 
         Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
         newNode.next = node.next;
+        if (node.next != null) {
+            node.next.prev = newNode;
+        }
         node.next = newNode;
+        newNode.prev = node;
     }
 
     // Delete at the beginning
@@ -3111,6 +3305,9 @@ int main() {
         if (head == null) {
             System.out.println("List is empty");
             return null;
+        }
+        if (head.next != null) {
+            head.next.prev = null;
         }
         return head.next;
     }
@@ -3127,10 +3324,10 @@ int main() {
         }
 
         Node&lt;T&gt; temp = head;
-        while (temp.next.next != null) {
+        while (temp.next != null) {
             temp = temp.next;
         }
-        temp.next = null;
+        temp.prev.next = null;
         return head;
     }
 
@@ -3194,20 +3391,25 @@ int main() {
     public static &lt;T&gt; void traverse(Node&lt;T&gt; head) {
         Node&lt;T&gt; temp = head;
         while (temp != null) {
-            System.out.print(temp.data + " -&gt; ");
+            System.out.print(temp.data + " &lt;-&gt; ");
             temp = temp.next;
         }
         System.out.println("NULL");
     }
 
-    // Sort the list (by name first, then by age)
+    // Sort the list
     public static &lt;T extends Comparable&lt;T&gt;&gt; Node&lt;T&gt; sort(Node&lt;T&gt; head) {
         if (head == null || head.next == null) return head;
 
         Node&lt;T&gt; mid = middle(head);
         Node&lt;T&gt; nextToMid = mid.next;
         mid.next = null;
-
+        
+        // Properly handle the 'prev' pointers for a doubly linked list
+        if (nextToMid != null) {
+            nextToMid.prev = null;  // Set 'prev' of the second half to null
+        }
+    
         Node&lt;T&gt; left = sort(head);
         Node&lt;T&gt; right = sort(nextToMid);
 
@@ -3221,9 +3423,15 @@ int main() {
 
         if (left.data.compareTo(right.data) &lt;= 0) {
             left.next = merge(left.next, right);
+            if (left.next != null) {
+                left.next.prev = left;
+            }
             return left;
         } else {
             right.next = merge(left, right.next);
+            if (right.next != null) {
+                right.next.prev = right;
+            }
             return right;
         }
     }
@@ -3242,34 +3450,35 @@ int main() {
 
         return slow;
     }
-    
-	public static &lt;T&gt; void clear(Node&lt;T&gt; head) {
+
+    // Clear the list by removing all nodes
+    public static &lt;T&gt; void clear(Node&lt;T&gt; head) {
         Node&lt;T&gt; current = head;
         while (current != null) {
             Node&lt;T&gt; next = current.next;
-            current = next;
+            current.next = null;  // Disconnect the current node
+            current.prev = null;  // Disconnect the previous node
+            current = next;       // Move to the next node
         }
-        head = null;
     }
-	
+    
     // Person class
     static class Person implements Comparable&lt;Person&gt; {
         String name;
         int age;
-    
+
         public Person(String name, int age) {
             this.name = name;
             this.age = age;
         }
-    
+
         @Override
         public String toString() {
             return "Person{name: " + name + ", age: " + age + "}";
         }
-    
+
         @Override
         public int compareTo(Person other) {
-            // Compare by name first, then by age
             int nameComparison = this.name.compareTo(other.name);
             if (nameComparison != 0) {
                 return nameComparison;
@@ -3277,7 +3486,7 @@ int main() {
             return Integer.compare(this.age, other.age);
         }
     }
-    
+
     public static void main(String[] args) {
         // Create Person objects
         Person alice = new Person("Alice", 30);
@@ -3355,13 +3564,12 @@ int main() {
         head = sort(head);
         System.out.println("\nList after sorting:");
         traverse(head);
-		
-		// Clear the list
+        
+        // Clear the list
         clear(head);
         System.out.println("After clearing the list:");
         traverse(head);  // This should print "NULL" as the list is now empty
     }
-    
 }</code></pre>
 		
 		<p>Here is the Generic singly linked list implementation in C#:</p>
@@ -3372,24 +3580,25 @@ class Node&lt;T&gt;
 {
     public T Data;
     public Node&lt;T&gt; Next;
+    public Node&lt;T&gt; Prev;
 
     public Node(T data)
     {
         Data = data;
         Next = null;
+        Prev = null;
     }
 }
 
 class Program
 {
-    // Insert at beginning
     static Node&lt;T&gt; InsertAtBeginning&lt;T&gt;(Node&lt;T&gt; head, T data)
     {
         Node&lt;T&gt; newNode = new Node&lt;T&gt;(data) { Next = head };
+        if (head != null) head.Prev = newNode;
         return newNode;
     }
 
-    // Insert at end
     static Node&lt;T&gt; InsertAtEnd&lt;T&gt;(Node&lt;T&gt; head, T data)
     {
         Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
@@ -3397,23 +3606,24 @@ class Program
         Node&lt;T&gt; temp = head;
         while (temp.Next != null) temp = temp.Next;
         temp.Next = newNode;
+        newNode.Prev = temp;
         return head;
     }
 
-    // Insert at position
     static Node&lt;T&gt; InsertAtPosition&lt;T&gt;(Node&lt;T&gt; head, T data, int position)
     {
         Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
-        if (position == 0) { newNode.Next = head; return newNode; }
+        if (position == 0) { newNode.Next = head; if (head != null) head.Prev = newNode; return newNode; }
         Node&lt;T&gt; temp = head;
         for (int i = 0; i &lt; position - 1 && temp != null; i++) temp = temp.Next;
         if (temp == null) { Console.WriteLine("Position out of bounds"); return head; }
         newNode.Next = temp.Next;
+        newNode.Prev = temp;
+        if (temp.Next != null) temp.Next.Prev = newNode;
         temp.Next = newNode;
         return head;
     }
 
-    // Insert before node
     static Node&lt;T&gt; InsertBeforeNode&lt;T&gt;(Node&lt;T&gt; head, Node&lt;T&gt; targetNode, T data)
     {
         if (head == null) return null;
@@ -3422,35 +3632,35 @@ class Program
         while (temp != null && temp.Next != targetNode) temp = temp.Next;
         if (temp != null)
         {
-            Node&lt;T&gt; newNode = new Node&lt;T&gt;(data) { Next = temp.Next };
+            Node&lt;T&gt; newNode = new Node&lt;T&gt;(data) { Next = temp.Next, Prev = temp };
+            if (temp.Next != null) temp.Next.Prev = newNode;
             temp.Next = newNode;
         }
         return head;
     }
 
-    // Insert after node
     static void InsertAfterNode&lt;T&gt;(Node&lt;T&gt; node, T data)
     {
         if (node == null) return;
-        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data) { Next = node.Next };
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data) { Next = node.Next, Prev = node };
+        if (node.Next != null) node.Next.Prev = newNode;
         node.Next = newNode;
     }
 
-    // Delete at beginning
     static Node&lt;T&gt; DeleteAtBeginning&lt;T&gt;(Node&lt;T&gt; head)
     {
         if (head == null) { Console.WriteLine("List is empty"); return null; }
-        return head.Next;
+        head = head.Next;
+        if (head != null) head.Prev = null;
+        return head;
     }
 
-    // Delete at end
     static Node&lt;T&gt; DeleteAtEnd&lt;T&gt;(Node&lt;T&gt; head)
     {
-        if (head == null) { Console.WriteLine("List is empty"); return null; }
-        if (head.Next == null) return null;
+        if (head == null || head.Next == null) return null;
         Node&lt;T&gt; temp = head;
-        while (temp.Next.Next != null) temp = temp.Next;
-        temp.Next = null;
+        while (temp.Next != null) temp = temp.Next;
+        temp.Prev.Next = null;
         return head;
     }
 
@@ -3485,7 +3695,7 @@ class Program
         Node&lt;T&gt; temp = head;
         while (temp != null)
         {
-            Console.Write(temp.Data + " -&gt; ");
+            Console.Write(temp.Data + " &lt;-&gt; ");
             temp = temp.Next;
         }
         Console.WriteLine("NULL");
@@ -3522,7 +3732,7 @@ class Program
         }
         throw new Exception("Index out of range");
     }
-
+    
     // Sort the linked list (Merge Sort)
     static Node&lt;T&gt; Sort&lt;T&gt;(Node&lt;T&gt; head) where T : IComparable&lt;T&gt;
     {
@@ -3532,6 +3742,7 @@ class Program
         Node&lt;T&gt; mid = Middle(head);
         Node&lt;T&gt; nextToMid = mid.Next;
         mid.Next = null;
+        if (nextToMid != null) nextToMid.Prev = null;
 
         // Recursively sort both halves
         Node&lt;T&gt; left = Sort(head);
@@ -3550,11 +3761,13 @@ class Program
         if (left.Data.CompareTo(right.Data) &lt;= 0)
         {
             left.Next = Merge(left.Next, right);
+            if (left.Next != null) left.Next.Prev = left;
             return left;
         }
         else
         {
             right.Next = Merge(left, right.Next);
+            if (right.Next != null) right.Next.Prev = right;
             return right;
         }
     }
@@ -3573,14 +3786,14 @@ class Program
 
         return slow;
     }
-	
-	// Clear the linked list
+    
+    // Clear the linked list
     static Node&lt;T&gt; Clear&lt;T&gt;(Node&lt;T&gt; head)
     {
         head = null;
         return head;
     }
-	
+    
     static void Main()
     {
         // Create Person objects
@@ -3665,8 +3878,8 @@ class Program
         head = Sort(head);
         Console.WriteLine("\nList after sorting:");
         Traverse(head);
-		
-		// Clear the list
+        
+        // Clear the list
         head = Clear(head);
         Console.WriteLine("\nList after clearing:");
         Traverse(head);
