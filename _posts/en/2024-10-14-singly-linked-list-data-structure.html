@@ -718,7 +718,7 @@ void clear(Node** headRef) {
 int main() {
     Node* list = NULL; // Initialize an empty linked list
 
-    // Insert elements at the beginning
+    // 1. Insert elements at the beginning
     insertAtBeginning(&list, 5);
     insertAtBeginning(&list, 3);
     insertAtBeginning(&list, 1);
@@ -726,27 +726,27 @@ int main() {
     printf("List after inserting at the beginning: ");
     traverse(list);
 
-    // Insert elements at the end
+    // 2. Insert elements at the end
     insertAtEnd(&list, 7);
     insertAtEnd(&list, 9);
 
     printf("List after inserting at the end: ");
     traverse(list);
 
-    // Insert element at position 2
+    // 3. Insert element at position 2
     insertAtPosition(&list, 4, 2);
 
     printf("List after inserting 4 at position 2: ");
     traverse(list);
 
-    // Insert element after the second node
+    // 4. Insert element after the second node
     Node* secondNode = list-&gt;next;
     insertAfterNode(secondNode, 6);
 
     printf("List after inserting 6 after the second node: ");
     traverse(list);
 
-    // Insert element before the node with value 7
+    // 5. Insert element before the node with value 7
     Node* temp = list;
     while (temp != NULL && temp-&gt;data != 7) {
         temp = temp-&gt;next;
@@ -756,25 +756,33 @@ int main() {
     printf("List after inserting 8 before the node with value 7: ");
     traverse(list);
 
-    // Delete the first node
+    // 6. Delete the first node
     deleteAtBeginning(&list);
 
     printf("List after deleting the first node: ");
     traverse(list);
 
-    // Delete the last node
+    // 7. Delete the last node
     deleteAtEnd(&list);
 
     printf("List after deleting the last node: ");
     traverse(list);
 
-    // Delete the node at position 2
+    // 8. Delete the node at position 2
     deleteAtPosition(&list, 2);
 
     printf("List after deleting the node at position 2: ");
     traverse(list);
+	
+	// 9. Check if list is empty
+	if (isEmpty(list)) {
+		printf("The list is empty.\n");
+	} else {
+		printf("The list is not empty.\n");
+	}
 
-    // Search for an element
+
+    // 10. Search for an element
     int key = 6;
     if (search(list, key)) {
         printf("Element %d found in the list.\n", key);
@@ -782,22 +790,22 @@ int main() {
         printf("Element %d not found in the list.\n", key);
     }
 
-    // Reverse the list
+    // 11. Reverse the list
     reverse(&list);
 
     printf("List after reversing: ");
     traverse(list);
 
-    // Sort the list
+    // 12. Sort the list
     sort(&list);
 
     printf("List after sorting: ");
     traverse(list);
 
-    // Get the size of the list
+    // 13. Get the size of the list
     printf("Size of the list: %d\n", size(list));
 
-    // Access an element at a specific index
+    // 14. Access an element at a specific index
     int index = 2;
     int value = get(list, index);
     if (value != -1) {
@@ -806,12 +814,12 @@ int main() {
         printf("Index %d is out of range.\n", index);
     }
 
-    // Set a new value at a specific index
+    // 15. Set a new value at a specific index
     set(list, 2, 10);
     printf("List after setting value 10 at index 2: ");
     traverse(list);
 
-    // Clear the list
+    // 16. Clear the list
     clear(&list);
 
     printf("List after clearing: ");
@@ -1028,6 +1036,11 @@ void set(Node* head, int index, int newValue) {
     cout &lt;&lt; "Index out of range\n"; // Handle case where index exceeds list length
 }
 
+// Function to check if the list is empty
+bool isEmpty(Node* head) {
+    return head == nullptr;
+}
+
 // Traverse the list
 void traverse(Node* head) {
     Node* temp = head;
@@ -1165,7 +1178,7 @@ void clear(Node*& head) {
 int main() {
     Node* list = nullptr;  // Initialize an empty linked list
 
-    // Insert elements at the beginning
+    // 1. Insert elements at the beginning
     insertAtBeginning(list, 5);
     insertAtBeginning(list, 3);
     insertAtBeginning(list, 1);
@@ -1173,27 +1186,27 @@ int main() {
     std::cout &lt;&lt; "List after inserting at the beginning: ";
     traverse(list);
 
-    // Insert elements at the end
+    // 2. Insert elements at the end
     insertAtEnd(list, 7);
     insertAtEnd(list, 9);
 
     std::cout &lt;&lt; "List after inserting at the end: ";
     traverse(list);
 
-    // Insert element at position 2
+    // 3. Insert element at position 2
     insertAtPosition(list, 4, 2);
 
     std::cout &lt;&lt; "List after inserting 4 at position 2: ";
     traverse(list);
 
-    // Insert element after the second node
+    // 4. Insert element after the second node
     Node* secondNode = list-&gt;next;
     insertAfterNode(secondNode, 6);
 
     std::cout &lt;&lt; "List after inserting 6 after the second node: ";
     traverse(list);
 
-    // Insert element before the node with value 7
+    // 5. Insert element before the node with value 7
     Node* temp = list;
     while (temp != nullptr && temp-&gt;data != 7) {
         temp = temp-&gt;next;
@@ -1203,25 +1216,32 @@ int main() {
     std::cout &lt;&lt; "List after inserting 8 before the node with value 7: ";
     traverse(list);
 
-    // Delete the first node
+    // 6. Delete the first node
     deleteAtBeginning(list);
 
     std::cout &lt;&lt; "List after deleting the first node: ";
     traverse(list);
 
-    // Delete the last node
+    // 7. Delete the last node
     deleteAtEnd(list);
 
     std::cout &lt;&lt; "List after deleting the last node: ";
     traverse(list);
 
-    // Delete the node at position 2
+    // 8. Delete the node at position 2
     deleteAtPosition(list, 2);
 
     std::cout &lt;&lt; "List after deleting the node at position 2: ";
     traverse(list);
-
-    // Search for an element
+	
+	// 9. Check if the list is empty
+    if (isEmpty(list)) {
+        cout &lt;&lt; "The list is empty." &lt;&lt; endl;
+    } else {
+		cout &lt;&lt; "The list is not empty." &lt;&lt; endl;
+	}
+	
+    // 10. Search for an element
     int key = 6;
     if (search(list, key)) {
         std::cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " found in the list." &lt;&lt; std::endl;
@@ -1229,22 +1249,22 @@ int main() {
         std::cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " not found in the list." &lt;&lt; std::endl;
     }
 
-    // Reverse the list
+    // 11. Reverse the list
     reverse(list);
 
     std::cout &lt;&lt; "List after reversing: ";
     traverse(list);
 
-    // Sort the list
+    // 12. Sort the list
     sort(list);
 
     std::cout &lt;&lt; "List after sorting: ";
     traverse(list);
 
-    // Get the size of the list
+    // 13. Get the size of the list
     std::cout &lt;&lt; "Size of the list: " &lt;&lt; size(list) &lt;&lt; std::endl;
 
-    // Access an element at a specific index
+    // 14. Access an element at a specific index
     int index = 2;
     int value = get(list, index);
     if (value != -1) {
@@ -1253,12 +1273,12 @@ int main() {
         std::cout &lt;&lt; "Index " &lt;&lt; index &lt;&lt; " is out of range." &lt;&lt; std::endl;
     }
 
-    // Set a new value at a specific index
+    // 15. Set a new value at a specific index
     set(list, 2, 10);
     std::cout &lt;&lt; "List after setting value 10 at index 2: ";
     traverse(list);
 
-    // Clear the list
+    // 16. Clear the list
     clear(list);
 
     std::cout &lt;&lt; "List after clearing: ";
@@ -1469,6 +1489,11 @@ int main() {
         }
         System.out.println("NULL");
     }
+	
+	// Check if the list is empty
+	public static boolean isEmpty(Node head) {
+		return head == null;
+	}
 
     // Search for an element
     public static boolean search(Node head, int key) {
@@ -1554,16 +1579,23 @@ int main() {
         return count;
     }
 
-    // Clear the list
-    public static Node clear(Node head) {
-        return null;
-    }
+    // Clear the entire list
+	public static Node clear(Node head) {
+		Node current = head;
+		while (current != null) {
+			Node nextNode = current.next;  // Save reference to the next node
+			current.next = null;           // Break the link to the next node
+			current = nextNode;            // Move to the next node
+		}
+		return null;  // Set head to null to indicate the list is empty
+	}
+
 
     // Main method to test
     public static void main(String[] args) {
         Node head = null;
 
-        // Insert elements at the beginning
+        // 1. Insert elements at the beginning
         head = insertAtBeginning(head, 5);
         head = insertAtBeginning(head, 10);
         head = insertAtBeginning(head, 3);
@@ -1571,44 +1603,51 @@ int main() {
         System.out.println("List after inserting at the beginning: ");
         traverse(head);
 
-        // Insert element at the end
+        // 2. Insert element at the end
         head = insertAtEnd(head, 7);
         head = insertAtEnd(head, 2);
 
         System.out.println("List after inserting at the end: ");
         traverse(head);
 
-        // Insert at a specific position
+        // 3. Insert at a specific position
         head = insertAtPosition(head, 4, 2);
         System.out.println("List after inserting at position 2: ");
         traverse(head);
 		
-		// Insert after a specific node
+		// 4. Insert after a specific node
         insertAfterNode(head.next, 8);
         System.out.println("List after inserting 8 after second node: ");
         traverse(head);
 
-        // Insert before a specific node
+        // 5. Insert before a specific node
         head = insertBeforeNode(head, head.next, 12);
         System.out.println("List after inserting 12 before second node: ");
         traverse(head);
 		
-        // Delete at the beginning
+        // 6. Delete at the beginning
         head = deleteAtBeginning(head);
         System.out.println("List after deleting at the beginning: ");
         traverse(head);
 
-        // Delete at the end
+        // 7. Delete at the end
         head = deleteAtEnd(head);
         System.out.println("List after deleting at the end: ");
         traverse(head);
 
-        // Delete at a specific position
+        // 8. Delete at a specific position
         head = deleteAtPosition(head, 2);
         System.out.println("List after deleting at position 2: ");
         traverse(head);
-
-        // Search for an element
+		
+		// 9. Check if the list is empty
+		if (isEmpty(head)) {
+			System.out.println("The list is empty.");
+		} else {
+			System.out.println("The list is not empty.");
+		}
+	
+        // 10. Search for an element
         int key = 7;
         if (search(head, key)) {
             System.out.println("Element " + key + " found in the list");
@@ -1616,21 +1655,37 @@ int main() {
             System.out.println("Element " + key + " not found in the list");
         }
 
-        // Reverse the list
+        // 11. Reverse the list
         head = reverse(head);
         System.out.println("List after reversing: ");
         traverse(head);
 
-        // Get the size of the list
+        // 12. Get the size of the list
         System.out.println("Size of the list: " + size(head));
 		
-		// Sort the list
+		// 13. Get element at a specific index
+		int indexToGet = 2;
+		int value = get(head, indexToGet);
+		if (value != -1) {
+			System.out.println("Element at index " + indexToGet + ": " + value);
+		}
+
+		// 14. Set value at a specific index
+		int indexToSet = 1;
+		int newValue = 25;
+		System.out.println("Setting value at index " + indexToSet + " to " + newValue);
+		set(head, indexToSet, newValue);
+		
+		System.out.println("Updated list after set operation:");
+		traverse(head);
+	
+		// 15. Sort the list
         head = sort(head);
 
         System.out.println("Sorted list:");
 		traverse(head);
 		
-        // Clear the list
+        // 16. Clear the list
         head = clear(head);
         System.out.println("List after clearing: ");
         traverse(head);
@@ -1853,6 +1908,12 @@ public class LinkedList
 
 		Console.WriteLine("Index out of range"); // Handle case where index exceeds list length
 	}
+	
+	// Check if the list is empty
+	public static bool IsEmpty(Node head)
+	{
+		return head == null;
+	}
 
     // Traverse the list
     public static void Traverse(Node head)
@@ -1967,19 +2028,26 @@ public class LinkedList
         return Merge(left, right);
     }
 	
-    // Clear the list
-    public static Node Clear(Node head)
-    {
-        head = null;
-        return head;
-    }
+    // Clear the entire list
+	public static Node Clear(Node head)
+	{
+		Node current = head;
+		while (current != null)
+		{
+			Node nextNode = current.Next;  // Save reference to the next node
+			current.Next = null;           // Break the link to the next node
+			current = nextNode;            // Move to the next node
+		}
+		return null;  // Return null to indicate the list is empty
+	}
+
 
     // Main method to test
     public static void Main(string[] args)
     {
         Node head = null;
 
-        // Insert elements at the beginning
+        // 1. Insert elements at the beginning
         head = InsertAtBeginning(head, 5);
         head = InsertAtBeginning(head, 10);
         head = InsertAtBeginning(head, 3);
@@ -1987,56 +2055,91 @@ public class LinkedList
         Console.WriteLine("List after inserting at the beginning:");
         Traverse(head);
 
-        // Insert element at the end
+        // 2. Insert element at the end
         head = InsertAtEnd(head, 7);
         head = InsertAtEnd(head, 2);
 
         Console.WriteLine("List after inserting at the end:");
         Traverse(head);
 
-        // Insert at a specific position
+        // 3. Insert at a specific position
         head = InsertAtPosition(head, 4, 2);
         Console.WriteLine("List after inserting at position 2:");
         Traverse(head);
-		
-		head = InsertAfterNode(head, 4, 8);
-		Console.WriteLine("List after inserting 8 after 4:");
-		Traverse(head);
 
-		head = InsertBeforeNode(head, 4, 6);
-		Console.WriteLine("List after inserting 6 before 4:");
-		Traverse(head);
+        // 4. Insert after a specific node
+        InsertAfterNode(head.Next, 8);
+        Console.WriteLine("List after inserting 8 after second node:");
+        Traverse(head);
 
-        // Delete at the beginning
+        // 5. Insert before a specific node
+        head = InsertBeforeNode(head, head.Next, 12);
+        Console.WriteLine("List after inserting 12 before second node:");
+        Traverse(head);
+
+        // 6. Delete at the beginning
         head = DeleteAtBeginning(head);
         Console.WriteLine("List after deleting at the beginning:");
         Traverse(head);
 
-        // Delete at the end
+        // 7. Delete at the end
         head = DeleteAtEnd(head);
         Console.WriteLine("List after deleting at the end:");
         Traverse(head);
 
-        // Delete at a specific position
+        // 8. Delete at a specific position
         head = DeleteAtPosition(head, 2);
         Console.WriteLine("List after deleting at position 2:");
         Traverse(head);
+		
+		// 9. Check if the list is empty
+		if (IsEmpty(head))
+		{
+			Console.WriteLine("The list is empty.");
+		}
+		else
+		{
+			Console.WriteLine("The list is not empty.");
+		}
 
-        // Search for an element
+        // 10. Search for an element
         int key = 7;
-        Console.WriteLine(Search(head, key)
-            ? $"Element {key} found in the list"
-            : $"Element {key} not found in the list");
+        if (Search(head, key))
+        {
+            Console.WriteLine($"Element {key} found in the list");
+        }
+        else
+        {
+            Console.WriteLine($"Element {key} not found in the list");
+        }
 
-        // Reverse the list
+        // 11. Reverse the list
         head = Reverse(head);
         Console.WriteLine("List after reversing:");
         Traverse(head);
 
-        // Get the size of the list
+        // 12. Get the size of the list
         Console.WriteLine("Size of the list: " + Size(head));
+		
+		// 13. Get value at a specific index
+		int indexToGet = 2;  // 0-based index
+		int value = Get(head, indexToGet);
+		Console.WriteLine($"Value at index {indexToGet}: {value}");
 
-        // Clear the list
+		// 14. Set a new value at a specific index
+		int indexToSet = 2;  // 0-based index
+		int newValue = 99;
+		Set(head, indexToSet, newValue);
+
+		Console.WriteLine($"List after setting index {indexToSet} to {newValue}:");
+		Traverse(head);
+	
+        // 15. Sort the list
+        head = Sort(head);
+        Console.WriteLine("Sorted list:");
+        Traverse(head);
+
+        // 16. Clear the list
         head = Clear(head);
         Console.WriteLine("List after clearing:");
         Traverse(head);
@@ -2093,13 +2196,7 @@ void insertAtEnd(Node** head, StackElement element) {
 }
 
 // Function to insert a node after a given previous node
-void insertAfterNode(Node** head, Node* prevNode, StackElement element) {
-    // Check if the head is NULL (list is empty)
-    if (*head == NULL) {
-        printf("The list cannot be empty\n");
-        return;
-    }
-
+void insertAfterNode(Node* prevNode, StackElement element) {
     // Check if the previous node is NULL
     if (prevNode == NULL) {
         printf("The given previous node cannot be NULL\n");
@@ -2109,30 +2206,9 @@ void insertAfterNode(Node** head, Node* prevNode, StackElement element) {
     // Create the new node with the given StackElement
     Node* newNode = createNode(element);
 
-    // Check if prevNode is the head node
-    if (*head == prevNode) {
-        // Insert the new node after the head
-        newNode-&gt;next = (*head)-&gt;next;
-        (*head)-&gt;next = newNode;
-        return;
-    }
-
-    // Traverse the list to find prevNode if it's not the head
-    Node* temp = *head;
-    while (temp != NULL && temp != prevNode) {
-        temp = temp-&gt;next;
-    }
-
-    // If prevNode is not found in the list, return an error
-    if (temp == NULL) {
-        printf("The given previous node is not found in the list\n");
-        free(newNode);
-        return;
-    }
-
     // Insert the new node after prevNode
-    newNode-&gt;next = prevNode-&gt;next;
-    prevNode-&gt;next = newNode;
+    newNode->next = prevNode->next;
+    prevNode->next = newNode;
 }
 
 // Function to insert a node before a given next node
@@ -2452,11 +2528,6 @@ void clear(Node** head) {
     *head = NULL;
 }
 
-struct Car {
-    char model[20];
-    int year;
-};
-
 struct Person {
     char name[20];
     int age;
@@ -2479,78 +2550,80 @@ int main() {
     // Initialize Linked List
     Node* personList = NULL;
 
-    // 1. **Insert elements into the list**
+    // 1. **Insert elements at the beginning**
     insertAtBeginning(&personList, personElement1);
-    insertAtEnd(&personList, personElement2);
+    insertAtBeginning(&personList, personElement2);
+	
+	// 2. **Insert elements at the beginning**
     insertAtEnd(&personList, personElement3);
     insertAtEnd(&personList, personElement4);
     printf("\nList after inserting elements:\n");
     traverse(personList);
 
-    // 2. **Insert at a specific position**
+    // 3. **Insert at a specific position**
     StackElement newElement = {&alice, "Person{name:\"Eve\", age:22}"};
     insertAtPosition(&personList, newElement, 2);
     printf("\nList after inserting at position 2:\n");
     traverse(personList);
 
-    // 3. **Insert before a node**
+    // 4. **Insert before a node**
     insertBeforeNode(&personList, personList->next, newElement);
     printf("\nList after inserting before second node:\n");
     traverse(personList);
 
-    // 4. **Insert after a node**
-    insertAfterNode(&personList, personList->next, newElement);
+    // 5. **Insert after a node**
+    insertAfterNode(personList->next, newElement);
     printf("\nList after inserting after second node:\n");
     traverse(personList);
 
-    // 5. **Delete the first node**
+    // 6. **Delete the first node**
     deleteAtBeginning(&personList);
     printf("\nList after deleting first node:\n");
     traverse(personList);
 
-    // 6. **Delete the last node**
+    // 7. **Delete the last node**
     deleteAtEnd(&personList);
     printf("\nList after deleting last node:\n");
     traverse(personList);
 
-    // 7. **Delete at a specific position**
+    // 8. **Delete at a specific position**
     deleteAtPosition(&personList, 1);
     printf("\nList after deleting node at position 1:\n");
     traverse(personList);
 
-    // 8. **Search for an element**
+    // 9. **Search for an element**
     int found = search(personList, personElement3);
     printf("\nSearch result for 'Albert': %s\n", found ? "Found" : "Not Found");
 
-    // 9. **Get size of list**
+    // 10. **Get size of list**
     printf("\nSize of the list: %d\n", size(personList));
 
-    // 10. **Check if list is empty**
+    // 11. **Check if list is empty**
     printf("\nIs the list empty? %s\n", isEmpty(personList) ? "Yes" : "No");
 
-    // 11. **Access an element by index**
+    // 12. **Access an element by index**
     StackElement retrievedElement = get(personList, 1);
     printf("\nElement at index 1: %s\n", retrievedElement.toString);
 
-    // 12. **Modify an element at an index**
+    // 13. **Modify an element at an index**
     StackElement modifiedElement = {&john, "Person{name:\"Updated John\", age:25}"};
     set(personList, 1, modifiedElement);
     printf("\nList after updating element at index 1:\n");
     traverse(personList);
 
-    // 13. **Sort the linked list**
+    // 14. **Sort the linked list**
     printf("\nList before sorting:\n");
     traverse(personList);
     sort(&personList);
     printf("\nList after sorting:\n");
     traverse(personList);
 
-    // 14. **Reverse the linked list**
+    // 15. **Reverse the linked list**
     reverse(&personList);
     printf("\nList after reversing:\n");
     traverse(personList);
 
-    // 15. **Clear the list**
+    // 16. **Clear the list**
     clear(&personList);
     printf("\nList after clearing:\n");
     traverse(personList);
@@ -2824,6 +2897,12 @@ void set(Node&lt;T&gt;* head, int index, T element) {
     throw out_of_range("Index out of range"); // Throw exception if index is invalid
 }
 
+// Function to check if the list is empty
+template &lt;typename T&gt;
+bool isEmpty(Node&lt;T&gt;* head) {
+    return head == nullptr;
+}
+
 // Function to merge two lists
 template &lt;typename T&gt;
 void merge(Node&lt;T&gt;*& headRef, Node&lt;T&gt;* head1, Node&lt;T&gt;* head2) {
@@ -2939,50 +3018,66 @@ int main() {
     // Initialize the linked list
     Node&lt;Person&gt;* head = nullptr;
 
-    // Insert elements into the list
+    // 1. Insert elements at the beginning
     insertAtBeginning(head, alice);
     insertAtBeginning(head, john);
+	
+	// 2. Insert elements at the beginning
     insertAtEnd(head, albert);
     insertAtEnd(head, robert);
 
     cout &lt;&lt; "\nList after inserting elements:\n";
     traverse(head);
 
-    // Insert at a specific position
+    // 3. Insert at a specific position
     Person eve("Eve", 22);
     insertAtPosition(head, eve, 2);
     cout &lt;&lt; "\nList after inserting at position 2:\n";
     traverse(head);
 
-    // Insert before a node (insert before the second node)
+    // 4. Insert before a node (insert before the second node)
     Node&lt;Person&gt;* secondNode = head-&gt;next; // Find the second node
-    insertBeforeNode(head, secondNode, eve);
+    Person george("George", 32);
+    insertBeforeNode(head, secondNode, george);
     cout &lt;&lt; "\nList after inserting before second node:\n";
     traverse(head);
 
-    // Insert after a node (insert after the second node)
-    insertAfterNode(secondNode, eve);  // Insert after the second node
+    // 5. Insert after a node (insert after the second node)
+    Person joyce("Joyce", 27);
+    insertAfterNode(secondNode, joyce);  // Insert after the second node
     cout &lt;&lt; "\nList after inserting after second node:\n";
     traverse(head);
 
-    // Delete the first node
+    // 6. Delete the first node
     deleteAtBeginning(head);
     cout &lt;&lt; "\nList after deleting first node:\n";
     traverse(head);
 
-    // Delete the last node
+    // 7. Delete the last node
     deleteAtEnd(head);
     cout &lt;&lt; "\nList after deleting last node:\n";
     traverse(head);
-
-    // Search for an element
+	
+	// 8. Delete at a specific position
+	deleteAtPosition(head, 2);
+    cout &lt;&lt; "\nList after deleting node at position 2:\n";
+    traverse(head);
+	
+    // 9. Search for an element
     bool found = search(head, albert);
     cout &lt;&lt; "\nSearch result for 'Albert': " &lt;&lt; (found ? "Found" : "Not Found") &lt;&lt; endl;
 
-    // Get size of the list
+    // 10. Get size of the list
     cout &lt;&lt; "\nSize of the list: " &lt;&lt; size(head) &lt;&lt; endl;
+	
+	// 11. Check if list is empty
+	if (isEmpty(head)) {
+		cout &lt;&lt; "The linked list is empty.\n";
+	} else {
+		cout &lt;&lt; "The linked list is not empty.\n";
+	}
 
-    // Get an element
+    // 12. Get an element
     try {
         Person p = get(head, 2);
         cout &lt;&lt; "\nElement at index 2: " &lt;&lt; p.toString() &lt;&lt; endl;
@@ -2990,7 +3085,7 @@ int main() {
         cout &lt;&lt; e.what() &lt;&lt; endl;
     }
 
-    // Set (modify) an element
+    // 13. Set (modify) an element
     try {
         Person updatedJohn("John", 25);
         set(head, 1, updatedJohn);
@@ -3000,14 +3095,19 @@ int main() {
         cout &lt;&lt; e.what() &lt;&lt; endl;
     }
 
-    // Sort the linked list (by name first, then by age)
-    cout &lt;&lt; "\nList before sorting:\n";
-    traverse(head);
+    // 14. Sort the linked list (by name first, then by age)
     sort(head);
-    cout &lt;&lt; "\nList after sorting:\n";
+    cout &lt;&lt; "\nList after sorting:" &lt;&lt; endl;
     traverse(head);
 	
-	// Clear the list
+	// 15. Reverse the list
+    reverse(head);
+
+    cout &lt;&lt; "\nReversed List:" &lt;&lt; endl;
+    traverse(head);
+
+
+	// 16. Clear the list
     clear(head);
 
     cout &lt;&lt; "\nList after clearing:" &lt;&lt; endl;
@@ -3133,6 +3233,36 @@ int main() {
         temp.next = null;
         return head;
     }
+	
+	// Delete at a specific position
+	public static &lt;T&gt; Node&lt;T&gt; deleteAtPosition(Node&lt;T&gt; head, int position) {
+		if (head == null) {
+			System.out.println("List is empty");
+			return null;
+		}
+
+		if (position == 0) {
+			return head.next;
+		}
+
+		Node&lt;T&gt; temp = head;
+		for (int i = 0; i &lt; position - 1 && temp.next != null; i++) {
+			temp = temp.next;
+		}
+
+		if (temp.next == null) {
+			System.out.println("Position out of bounds");
+			return head;
+		}
+
+		temp.next = temp.next.next;
+		return head;
+	}
+	
+	// check if the list is empty
+	public static &lt;T&gt; boolean isEmpty(Node&lt;T&gt; head) {
+		return head == null;
+	}
 
     // Search for an element
     public static &lt;T&gt; boolean search(Node&lt;T&gt; head, T key) {
@@ -3199,6 +3329,22 @@ int main() {
         }
         System.out.println("NULL");
     }
+	
+	// reverse the list
+	public static &lt;T&gt; Node&lt;T&gt; reverse(Node&lt;T&gt; head) {
+		Node&lt;T&gt; prev = null;
+		Node&lt;T&gt; current = head;
+		Node&lt;T&gt; next = null;
+
+		while (current != null) {
+			next = current.next;  // Store next node
+			current.next = prev;  // Reverse current node's pointer
+			prev = current;       // Move prev forward
+			current = next;       // Move current forward
+		}
+
+		return prev;  // New head of the reversed list
+	}
 
     // Sort the list (by name first, then by age)
     public static &lt;T extends Comparable&lt;T&gt;&gt; Node&lt;T&gt; sort(Node&lt;T&gt; head) {
@@ -3243,13 +3389,14 @@ int main() {
         return slow;
     }
     
-	public static &lt;T&gt; void clear(Node&lt;T&gt; head) {
+	public static &lt;T&gt; Node&lt;T&gt; clear(Node&lt;T&gt; head) {
         Node&lt;T&gt; current = head;
-        while (current != null) {
-            Node&lt;T&gt; next = current.next;
-            current = next;
+        while (current != null) {  // Traverse the list until we reach the end
+            Node&lt;T&gt; next = current.next;  // Save reference to the next node
+            current.next = null;          // Break the link to the next node
+            current = next;               // Move to the next node
         }
-        head = null;
+        return null;  // Set the head to null to indicate the list is empty
     }
 	
     // Person class
@@ -3288,50 +3435,65 @@ int main() {
         // Initialize the linked list
         Node&lt;Person&gt; head = null;
 
-        // Insert elements into the list
+        // 1. Insert elements at the beginning
         head = insertAtBeginning(head, alice);
         head = insertAtBeginning(head, john);
+		
+		// 2. Insert elements at the end
         head = insertAtEnd(head, albert);
         head = insertAtEnd(head, robert);
 
         System.out.println("\nList after inserting elements:");
         traverse(head);
 
-        // Insert at a specific position
+        // 3. Insert at a specific position
         Person eve = new Person("Eve", 22);
         head = insertAtPosition(head, eve, 2);
         System.out.println("\nList after inserting at position 2:");
         traverse(head);
 
-        // Insert before a node (insert before the second node)
+        // 4. Insert before a node (insert before the second node)
         Node&lt;Person&gt; secondNode = head.next; // Find the second node
         head = insertBeforeNode(head, secondNode, eve);
         System.out.println("\nList after inserting before second node:");
         traverse(head);
 
-        // Insert after a node (insert after the second node)
+        // 5. Insert after a node (insert after the second node)
         insertAfterNode(secondNode, eve);  // Insert after the second node
         System.out.println("\nList after inserting after second node:");
         traverse(head);
 
-        // Delete the first node
+        // 6. Delete the first node
         head = deleteAtBeginning(head);
         System.out.println("\nList after deleting first node:");
         traverse(head);
 
-        // Delete the last node
+        // 7. Delete the last node
         head = deleteAtEnd(head);
         System.out.println("\nList after deleting last node:");
         traverse(head);
+		
+		// 8. Delete at a specific position
+		head = deleteAtPosition(head, 2);
+		System.out.println("\nList after deleting node at position 2:");
+		traverse(head);
 
-        // Search for an element
+        // 9. Search for an element
         boolean found = search(head, albert);
         System.out.println("\nSearch result for 'Albert': " + (found ? "Found" : "Not Found"));
 
-        // Get size of the list
+        // 10. Get size of the list
         System.out.println("\nSize of the list: " + size(head));
+		
+		// 11. Check if list is empty
+		if (isEmpty(head)) {
+			System.out.println("The list is empty.");
+		} else {
+			System.out.println("The list is not empty.");
+		}
 
-        // Get an element
+
+        // 12. Get an element
         try {
             Person p = get(head, 2);
             System.out.println("\nElement at index 2: " + p.toString());
@@ -3339,7 +3501,7 @@ int main() {
             System.out.println(e.getMessage());
         }
 
-        // Set (modify) an element
+        // 13. Set (modify) an element
         try {
             Person updatedJohn = new Person("John", 25);
             set(head, 1, updatedJohn);
@@ -3349,15 +3511,19 @@ int main() {
             System.out.println(e.getMessage());
         }
 
-        // Sort the linked list (by name first, then by age)
-        System.out.println("\nList before sorting:");
-        traverse(head);
+        // 14. Sort the linked list (by name first, then by age)
         head = sort(head);
         System.out.println("\nList after sorting:");
         traverse(head);
 		
-		// Clear the list
-        clear(head);
+		// 15. Reverse the list
+		head = reverse(head);
+
+		System.out.println("\nList after reversing:");
+		traverse(head);
+
+		// 16. Clear the list
+        head = clear(head);
         System.out.println("After clearing the list:");
         traverse(head);  // This should print "NULL" as the list is now empty
     }
@@ -3453,6 +3619,37 @@ class Program
         temp.Next = null;
         return head;
     }
+    
+    // Delete at a specific position
+    static Node&lt;T&gt; DeleteAtPosition&lt;T&gt;(Node&lt;T&gt; head, int position)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return null;
+        }
+    
+        if (position == 0) // Deleting the first node
+        {
+            return head.Next;
+        }
+    
+        Node&lt;T&gt; temp = head;
+        for (int i = 0; i &lt; position - 1 && temp != null; i++)
+        {
+            temp = temp.Next;
+        }
+    
+        if (temp == null || temp.Next == null)
+        {
+            Console.WriteLine("Position out of bounds");
+            return head;
+        }
+    
+        temp.Next = temp.Next.Next; // Remove the node at the given position
+        return head;
+    }
+
 
     // Search for an element
     static bool Search&lt;T&gt;(Node&lt;T&gt; head, T key)
@@ -3540,6 +3737,29 @@ class Program
         // Merge the sorted halves
         return Merge(left, right);
     }
+    
+    static bool IsEmpty&lt;T&gt;(Node&lt;T&gt; head) {
+        return head == null;
+    }
+
+    // Reverse the linked list
+    static Node&lt;T&gt; Reverse&lt;T&gt;(Node&lt;T&gt; head)
+    {
+        Node&lt;T&gt; prev = null;
+        Node&lt;T&gt; current = head;
+        Node&lt;T&gt; next = null;
+        
+        while (current != null)
+        {
+            next = current.Next;  // Store next node
+            current.Next = prev;  // Reverse the current node's pointer
+            prev = current;       // Move prev and current one step forward
+            current = next;
+        }
+        
+        head = prev;  // Set the new head to the last node
+        return head;
+    }
 
     // Merge two sorted lists
     static Node&lt;T&gt; Merge&lt;T&gt;(Node&lt;T&gt; left, Node&lt;T&gt; right) where T : IComparable&lt;T&gt;
@@ -3574,12 +3794,22 @@ class Program
         return slow;
     }
 	
-	// Clear the linked list
-    static Node&lt;T&gt; Clear&lt;T&gt;(Node&lt;T&gt; head)
+	  // Clear the linked list
+    public static Node&lt;T&gt; Clear&lt;T&gt;(Node&lt;T&gt; head)
     {
-        head = null;
-        return head;
+        if (head == null) return null;  // If the list is already empty, return null
+        
+        Node&lt;T&gt; current = head;
+        while (current != null)  // Traverse the list until we reach the end
+        {
+            Node&lt;T&gt; next = current.Next;  // Save reference to next node
+            current.Next = null;          // Break the link to the next node
+            current = next;               // Move to the next node
+        }
+        
+        return null;  // Return null to indicate the list is empty
     }
+
 	
     static void Main()
     {
@@ -3588,54 +3818,72 @@ class Program
         Person john = new Person("John", 19);
         Person albert = new Person("Albert", 28);
         Person robert = new Person("Robert", 20);
-
+        
         // Initialize the linked list
         Node&lt;Person&gt; head = null;
-
-        // Insert elements into the list
+        
+        // 1. Insert elements at the beginning
         head = InsertAtBeginning(head, alice);
         head = InsertAtBeginning(head, john);
+        
+        // 2. Insert elements at the end
         head = InsertAtEnd(head, albert);
         head = InsertAtEnd(head, robert);
-
+        
         Console.WriteLine("\nList after inserting elements:");
         Traverse(head);
-
-        // Insert at a specific position
+        
+        // 3. Insert at a specific position
         Person eve = new Person("Eve", 22);
         head = InsertAtPosition(head, eve, 2);
         Console.WriteLine("\nList after inserting at position 2:");
         Traverse(head);
-
-        // Insert before a node (insert before the second node)
+        
+        // 4. Insert before a node (insert before the second node)
         Node&lt;Person&gt; secondNode = head.Next; // Find the second node
-        head = InsertBeforeNode(head, secondNode, eve);
+        Person jack = new Person("Jack", 29);
+        head = InsertBeforeNode(head, secondNode, jack);
         Console.WriteLine("\nList after inserting before second node:");
         Traverse(head);
-
-        // Insert after a node (insert after the second node)
+        
+        // 5. Insert after a node (insert after the second node)
         InsertAfterNode(secondNode, eve);  // Insert after the second node
         Console.WriteLine("\nList after inserting after second node:");
         Traverse(head);
-
-        // Delete the first node
+        
+        // 6. Delete the first node
         head = DeleteAtBeginning(head);
         Console.WriteLine("\nList after deleting first node:");
         Traverse(head);
-
-        // Delete the last node
+        
+        // 7. Delete the last node
         head = DeleteAtEnd(head);
         Console.WriteLine("\nList after deleting last node:");
         Traverse(head);
+        
+        // 8. Delete node at position 2
+        head = DeleteAtPosition(head, 2);
+        Console.WriteLine("\nList after deleting at position 2:");
+        Traverse(head);
 
-        // Search for an element
+        // 9. Search for an element
         bool found = Search(head, albert);
         Console.WriteLine("\nSearch result for 'Albert': " + (found ? "Found" : "Not Found"));
-
-        // Get size of the list
+        
+        // 10. Get size of the list
         Console.WriteLine("\nSize of the list: " + Size(head));
-
-        // Get an element
+        
+        // 11. Check if the list is empty
+        if (IsEmpty(head))
+        {
+            Console.WriteLine("The list is empty.");
+        }
+        else
+        {
+            Console.WriteLine("The list is not empty.");
+        }
+    
+        // 12. Get an element
         try
         {
             Person p = Get(head, 2);
@@ -3645,8 +3893,8 @@ class Program
         {
             Console.WriteLine(e.Message);
         }
-
-        // Set (modify) an element
+        
+        // 13. Set (modify) an element
         try
         {
             Person updatedJohn = new Person("John", 25);
@@ -3658,15 +3906,19 @@ class Program
         {
             Console.WriteLine(e.Message);
         }
-
-        // Sort the linked list (by name first, then by age)
-        Console.WriteLine("\nList before sorting:");
-        Traverse(head);
+        
+        // 14. Sort the linked list (by name first, then by age)
         head = Sort(head);
         Console.WriteLine("\nList after sorting:");
         Traverse(head);
-		
-		// Clear the list
+        
+        // 15. Reverse the list
+        head = Reverse(head);
+    
+        Console.WriteLine("\nList after reversing:");
+        Traverse(head);
+    
+        // 16. Clear the list
         head = Clear(head);
         Console.WriteLine("\nList after clearing:");
         Traverse(head);
@@ -3683,7 +3935,7 @@ class Person : IComparable&lt;Person&gt;
         // Sort by Name, then Age
         return Name.CompareTo(other.Name) != 0 ? Name.CompareTo(other.Name) : Age.CompareTo(other.Age);
     }
-    public override string ToString() =&gt; {% raw %}$"Person{{name: {Name}, age: {Age}}}"{% endraw %};
+    public override string ToString() =&gt; $"Person{{name: {Name}, age: {Age}}}";
 }</code></pre>
     </article>
 
