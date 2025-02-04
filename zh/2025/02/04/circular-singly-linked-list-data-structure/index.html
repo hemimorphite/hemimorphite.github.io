@@ -1,0 +1,6727 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="A Circular Singly Linked List is a type of linked list where each node points to the next node, and the last node links back to the first, forming a continuous loop. This structure allows efficient insertion, deletion, and traversal without a null reference at the end. It is commonly used in scenarios requiring continuous iteration over elements. Learn about its implementation, operations, and properties in this detailed guide.">
+	    <meta name="author" content="Samuel Yang">
+	    <link rel="canonical" href="https://hemimorphite.github.io/zh/2025/02/04/circular-singly-linked-list-data-structure/">
+	    <link rel="icon" type="image/x-icon" href="https://hemimorphite.github.io/zh/favicon.ico">
+	    <meta property="fb:app_id" content="771418017802270">
+		<meta property="og:title" content="Circular Singly Linked List Data Structure">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Hemimorphite">
+		<meta property="og:url" content="https://hemimorphite.github.io/zh/2025/02/04/circular-singly-linked-list-data-structure/">
+		<meta property="og:description" content="A Circular Singly Linked List is a type of linked list where each node points to the next node, and the last node links back to the first, forming a continuous loop. This structure allows efficient insertion, deletion, and traversal without a null reference at the end. It is commonly used in scenarios requiring continuous iteration over elements. Learn about its implementation, operations, and properties in this detailed guide.">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/circularsinglylinked.jpg">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="Circular Singly Linked List Data Structure">
+		<meta name="twitter:description" content="A Circular Singly Linked List is a type of linked list where each node points to the next node, and the last node links back to the first, forming a continuous loop. This structure allows efficient insertion, deletion, and traversal without a null reference at the end. It is commonly used in scenarios requiring continuous iteration over elements. Learn about its implementation, operations, and properties in this detailed guide.">
+		<meta name="twitter:creator" content="Samuel Yang">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/circularsinglylinked.jpg">
+	
+	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+	    <title>Circular Singly Linked List Data Structure</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/bootstrap/css/bootstrap.css">
+
+	    <!-- Additional CSS Files -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/default.min.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/highlight.js/css/themes/monokai-sublime.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/fontawesome.css">
+		<link rel="stylesheet" href="https://hemimorphite.github.io/assets/vendor/latex-css/custom.css">
+	    <link rel="stylesheet" href="https://hemimorphite.github.io/assets/css/hemimorphite.css">
+  	</head>
+
+  	<body>
+  		<!-- ***** Preloader Start ***** -->
+	    <!--<div id="preloader">
+	        <div class="jumper">
+	            <div></div>
+	            <div></div>
+	            <div></div>
+	        </div>
+	    </div>-->  
+	    <!-- ***** Preloader End ***** -->
+	    
+	    <!-- Header -->
+	    <header>
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<h2 class="navbar-brand"><a href="https://hemimorphite.github.io/zh/">Hemimorphite</a></h2>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/">Home
+									
+								</a>
+							</li>
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	<li class="nav-item ">
+								<a class="nav-link" href="https://hemimorphite.github.io/zh/about">About
+									
+								</a>
+							</li>
+						  	
+						  	
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						</ul>
+					</div>
+				</div>
+			</nav>
+	    </header>
+	    
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '9cf40e8a46ab80f525196d3376630858',
+								'format' : 'iframe',
+								'height' : 90,
+								'width' : 728,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <!-- Page Content -->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<script type="text/javascript">
+					atOptions = {
+						'key' : '9cf40e8a46ab80f525196d3376630858',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.topcreativeformat.com/9cf40e8a46ab80f525196d3376630858/invoke.js"></script>
+			</div>
+			<div class="col-lg-2">
+				<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto"><i class="fa-solid fa-arrow-left"></i> All posts</a>
+
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '038e6b1f96b2e2f8ee26abfaebf2b477',
+							'format' : 'iframe',
+							'height' : 300,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/038e6b1f96b2e2f8ee26abfaebf2b477/invoke.js"></script>
+				</div>
+				<div>
+					<script type="text/javascript">
+						atOptions = {
+							'key' : '49182664b5d567ebee9725d9737c0006',
+							'format' : 'iframe',
+							'height' : 600,
+							'width' : 160,
+							'params' : {}
+						};
+					</script>
+					<script type="text/javascript" src="//www.topcreativeformat.com/49182664b5d567ebee9725d9737c0006/invoke.js"></script>
+				</div>
+			</div>
+			<div class="col-lg-10">
+				<div class="blog-post">
+    <h2 class="post-title">Circular Singly Linked List Data Structure</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published February 04, 2025</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/circularsinglylinked.jpg" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+		<h3 class="post-subtitle">Circular Singly Linked List</h3>
+
+		<p>A circular singly linked list is a variation of a singly linked list where the last node points back to the first node, forming a circular structure. It is a linear data structure consisting of a sequence of elements, called nodes, where each node points to the next node in the sequence. Unlike arrays, elements in a linked list are not stored in contiguous memory locations. Each node contains two fields:</p>
+
+		<ul>
+			<li><b>Data</b>: The value or information stored in the node.</li>
+			<li><b>Next Pointer</b>: A reference (or pointer) to the next node in the sequence. In the case of the last node, the next pointer points back to the first node.</li>
+		</ul>
+
+        <p>The circular singly linked list forms a linear collection of elements where each node points to its successor, and the last node points back to the first node, creating a circular structure. It is a dynamic data structure, meaning it can grow or shrink in size during runtime, as nodes can be added or removed without requiring memory to be reallocated.</p>
+
+		<p>The head is the first node in the list, and it serves as the entry point for traversing the list. In a circular singly linked list, the last node points back to the head, forming a loop. If the list is empty, the head points to <code>NULL</code>.</p>
+
+		<p>Unlike arrays that have a fixed size, a circular singly linked list dynamically allocates memory for each node when it is created. This means the size of the list can grow or shrink as nodes are added or removed at runtime.</p>
+
+		<p>Insertions and deletions of nodes, particularly at the beginning or middle of the list, are more efficient compared to arrays since you do not need to shift elements.</p>
+
+		<p>Circular singly linked lists can be traversed in a loop starting from the head and continuing back to the head after reaching the tail. However, there is no way to traverse backward, which can be a limitation in some use cases.</p>
+
+		<p>The nodes in a circular singly linked list do not need to be stored in contiguous memory locations, unlike arrays. Each node is linked to the next through pointers, and they can be located anywhere in memory.</p>
+
+		<p>The size of the linked list is not fixed, and it is determined by the number of nodes present in the list at any given time. This makes it more flexible for applications where the number of elements is unknown or changes frequently.</p>
+
+		<p>Each node in a circular singly linked list requires extra memory for the pointer (next reference), which slightly increases memory usage compared to arrays.</p>
+
+		<p>The last node in a circular singly linked list points back to the head, instead of having its next pointer set to <code>NULL</code>.</p>
+
+		<p>Here's a visual representation of a circular singly linked list:</p>
+
+		<pre><code class="language-bash hljs">Head -&gt; [Data | Next] -&gt; [Data | Next] -&gt; [Data | Next] -&gt; Head</code></pre>
+
+		<p>In the above representation:</p>
+
+		<ul>
+			<li>The <code>Head</code> points to the first node of the list.</li>
+			<li>Each node contains <code>Data</code> and a <code>Next</code> pointer to the next node.</li>
+			<li>The last node's <code>Next</code> pointer points back to the <code>Head</code>, indicating the circular structure.</li>
+		</ul>
+
+		
+		<p>A simple circular singly linked list with three nodes could look like this:</p>
+
+		<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] -&gt; Head</code></pre>
+
+		<p>In the above example:</p>
+
+		<ul>
+			<li>The <code>Head</code> points to the first node containing the data <code>10</code>.</li>
+			<li>The second node contains the data <code>20</code> and points to the third node.</li>
+			<li>The third node contains the data <code>30</code> and points back to the <code>Head</code>, indicating the circular structure of the list.</li>
+		</ul>
+
+		
+		<p>Here's a detailed breakdown of common circular singly linked list operations:</p>
+		
+        <ul>
+            <li><code>insertAtBeginning()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Inserts a new node at the start (or head) of a circular singly linked list.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following circular singly linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] -&gt; Head</code></pre>
+							</li>
+							<li>You want to insert the value <code>5</code> at the beginning of the list. After calling <code>insertAtBeginning()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [5 | Next] -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] -&gt; Head</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of inserting a node at the beginning of a circular singly linked list is \(O(1)\) (constant time). The following steps are performed:<br>
+						<ul>
+							<li>Create a new node.</li>
+							<li>If the list is not empty, set the <code>next</code> pointer of the new node to point to the current head node (the first node in the list). If the list is empty, set the <code>next</code> pointer of the new node to point to itself, creating a circular structure.</li>
+							<li>Update the head pointer to point to the new node.</li>
+							<li>If the list is not empty, the last node's <code>next</code> pointer should be updated to point to the new head.</li>
+						</ul><br>
+						Since no traversal is required, this operation takes constant time, \(O(1)\).
+					</li>
+					<li><b>Space complexity</b>: The space complexity of inserting a node at the beginning of a circular singly linked list is \(O(1)\) (constant space). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+				</ul>
+			</li>
+            <li><code>insertAtEnd()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Inserts a new node at the end (or tail) of a circular singly linked list.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following circular singly linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] -&gt; Head</code></pre>
+							</li>
+							<li>You want to insert the value <code>40</code> at the end of the list. After calling <code>insertAtEnd()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] -&gt; [40 | Next] -&gt; Head</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of inserting a node at the end of a circular singly linked list is \(O(n)\) (linear time) in the general case.<br>
+						<ul>
+							<li><b>Best Case (Empty List)</b>: If the list is empty, inserting a new node at the end is the same as inserting at the beginning. The following steps are performed:<br>
+								<ul>
+									<li>Create a new node.</li>
+									<li>Set the <code>next</code> pointer of the new node to point to itself, as it will be the only node in the list.</li>
+									<li>Update the head pointer to point to the new node.</li>
+								</ul><br>
+								Since no traversal is required, this operation takes constant time, \(O(1)\).
+							</li>
+							<li><b>Average/Worst Case (Non-Empty List)</b>: If the list is not empty, you have to traverse the entire list to reach the last node. The following steps are performed:
+								<ul>
+									<li>Start from the head node.</li>
+									<li>Traverse the list by following the <code>next</code> pointers until you reach the last node (the node whose <code>next</code> pointer points to the head).</li>
+									<li>Create a new node.</li>
+									<li>Set the <code>next</code> pointer of the new node to point to the head.</li>
+									<li>Update the <code>next</code> pointer of the last node to point to the new node.</li>
+								</ul><br>
+								The traversal takes \(O(n)\) time, where \(n\) is the number of nodes in the list. Updating the pointer takes \(O(1)\).
+							</li>
+						</ul>
+					</li>
+					<li><b>Space complexity</b>: The space complexity of inserting a node at the end of a circular singly linked list is \(O(1)\) (constant space). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+				</ul>
+			</li>
+            <li><code>insertAfterNode()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Inserts a new node in a singly linked list immediately after a given node. If the target node doesn't exist, you may opt to do nothing and just return control to the caller without modifying the list.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | NULL]</code></pre>
+							</li>
+							<li>You want to insert the value <code>25</code> after the node containing <code>20</code>. After calling <code>insertAfterNode()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [25 | Next] -&gt; [30 | NULL]</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity for inserting a node after a node in a singly linked list is \(O(1)\) (constant time). The following steps are performed:<br>
+						<ul>
+							<li>Create a new node.</li>
+							<li>Set the <code>next</code> pointer of the new node to point to the node that follows the given node.</li>
+							<li>Update the <code>next</code> pointer of the given node to point to the new node.</li>
+						</ul><br>
+						Since no traversal is required, this operation takes constant time, \(O(1)\).
+					</li>
+					<li><b>Space complexity</b>: The space complexity for inserting a node after a node in a singly linked list is \(O(1)\) (constant time). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+				</ul>
+			</li>
+            <li><code>insertAfterNode()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Inserts a new node in a circular singly linked list immediately after a given node. If the target node doesn't exist, the function does nothing and simply returns control to the caller without modifying the list.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following circular singly linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] &gt; Head</code></pre>
+							</li>
+							<li>You want to insert the value <code>25</code> after the node containing <code>20</code>. After calling <code>insertAfterNode()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [25 | Next] -&gt; [30 | Next] -&gt; Head</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity for inserting a node after a given node in a circular singly linked list is \(O(1)\) (constant time). The following steps are performed:<br>
+						<ul>
+							<li>Create a new node.</li>
+							<li>Set the <code>next</code> pointer of the new node to point to the node that follows the given node.</li>
+							<li>Update the <code>next</code> pointer of the given node to point to the new node.</li>
+						</ul><br>
+						Since no traversal is required, this operation takes constant time, \(O(1)\).
+					</li>
+					<li><b>Space complexity</b>: The space complexity for inserting a node after a node in a circular singly linked list is \(O(1)\) (constant time). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+				</ul>
+			</li>
+            <li><code>insertAtPosition()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Inserts a new node at a specified position in a circular singly linked list. Positions are usually indexed starting from 0 or 1. If the position is 1 (or 0, based on indexing), this implies insertion at the beginning of the list. If the position is greater than the size of the list or less than 1, the function may return an error or take no action since the insertion would be out of range.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following circular singly linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] &gt; Head</code></pre>
+							</li>
+							<li>You want to insert a new node with value <code>35</code> at position <code>3</code>. After calling <code>insertAtPosition()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [35 | Next] -&gt; [30 | Next] -&gt; Head</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity for inserting a new node at a specified position in a circular singly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
+						<ul>
+							<li>Create a new node.</li>
+							<li>Locate the preceding node (the node whose <code>next</code> pointer points to the target position).</li>
+							<li>Update the <code>next</code> pointer of the new node to point to the next node in the sequence.</li>
+							<li>Update the <code>next</code> pointer of the preceding node to point to the new node.</li>
+						</ul><br>
+						The traversal takes \(O(n)\) time, where \(n\) is the number of nodes in the list. Updating the pointers takes \(O(1)\).
+					</li>
+					<li><b>Space complexity</b>: The space complexity of inserting a new node at a specified position in a circular singly linked list is \(O(1)\) (constant space). The space required to allocate the new node is a fixed amount and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+				</ul>
+			</li>
+
+            <li><code>deleteAtBeginning()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes a node at the start (or head) of a circular singly linked list. If the list is empty, it prints a message "List is empty" and returns, since there is no node to delete.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following circular singly linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] &gt; Head</code></pre>
+							</li>
+							<li>You want to delete the value <code>10</code> at the beginning of the list. After calling <code>deleteAtBeginning()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [20 | Next] -&gt; [30 | Next]-&gt; Head</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity for removing a node at the beginning of a circular singly linked list is \(O(1)\) (constant time). The following steps are performed:<br>
+						<ul>
+							<li>If the list is empty, return.</li>
+							<li>If there is only one node, set the head to <code>NULL</code> (empty list).</li>
+							<li>Otherwise:
+								<ul>
+									<li>Find the last node in the list (the node pointing to head).</li>
+									<li>Update the last node's <code>next</code> pointer to point to the second node.</li>
+									<li>Set the head pointer to the second node.</li>
+									<li>Deallocate the memory of the old head node.</li>
+								</ul>
+							</li>
+						</ul>
+						Since no traversal is required in the case of a one-node list, and only a single traversal is required for a multi-node list, this operation still takes \(O(1)\) on average.
+					</li>
+					<li><b>Space complexity</b>: The space complexity for removing a node at the beginning of a circular singly linked list is \(O(1)\) (constant space). Only a fixed amount of space is used to store references to the head node and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+				</ul>
+			</li>
+
+            <li><code>deleteAtEnd()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes a node at the end (or tail) of a circular singly linked list. If the list is empty, it prints a message "List is empty" and returns, since there is no node to delete.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following circular singly linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] &gt; Head</code></pre>
+							</li>
+							<li>You want to remove the value <code>30</code> at the end of the list. After calling <code>deleteAtEnd()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; Head</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity for removing a node at the end of a circular singly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
+						<ul>
+							<li>If the list is empty, return.</li>
+							<li>If there is only one node, set the head to <code>NULL</code> (empty list).</li>
+							<li>Otherwise:
+								<ul>
+									<li>Start from the head node.</li>
+									<li>Traverse the list to find the second-to-last node (the node whose <code>next</code> pointer points to the last node).</li>
+									<li>Update the <code>next</code> pointer of the second-to-last node to point to the head, maintaining the circular structure.</li>
+									<li>Deallocate the memory for the old last node.</li>
+								</ul>
+							</li>
+						</ul>
+						Since traversal is required to reach the second-to-last node, the worst-case time complexity is \(O(n)\), where \(n\) is the number of nodes in the list.
+					</li>
+					<li><b>Space complexity</b>: The space complexity for removing a node at the end of a circular singly linked list is \(O(1)\) (constant space). Only a fixed amount of space is used to store references and does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+				</ul>
+			</li>
+
+			<li><code>deleteAtPosition()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes a node at a specified position in a circular singly linked list. Positions are usually indexed starting from 0 or 1. If the position is 0 (or 1, based on indexing), it means the head node should be removed. If the specified position is out of bounds, a message is printed, and no changes are made to the list.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following circular singly linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] &gt; Head</code></pre>
+							</li>
+							<li>You want to remove the node at position <code>2</code>. After calling <code>deleteAtPosition()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [30 | Next] -&gt; Head</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity for removing a node at a specified position in a circular singly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
+						<ul>
+							<li>If the list is empty, return.</li>
+							<li>If the position is 0 (or 1, based on indexing), remove the head node:
+								<ul>
+									<li>If there is only one node, set <code>head = NULL</code>.</li>
+									<li>Otherwise, find the last node (the node whose <code>next</code> points to the head).</li>
+									<li>Update the head pointer to the next node.</li>
+									<li>Update the last node's <code>next</code> pointer to point to the new head.</li>
+									<li>Deallocate the memory of the removed node.</li>
+								</ul>
+							</li>
+							<li>If the position is greater than 0, traverse the list to find the node before the target node.</li>
+							<li>Update its <code>next</code> pointer to skip the target node and point to the node after it.</li>
+							<li>Deallocate the memory of the removed node.</li>
+						</ul>
+						Since traversal is required to reach the node before the target, the worst-case time complexity is \(O(n)\), where \(n\) is the number of nodes in the list.
+					</li>
+					<li><b>Space complexity</b>: The space complexity for removing a node at a specified position in a circular singly linked list is \(O(1)\) (constant space). Only a fixed amount of space is used to store references, and it does not depend on the size of the list. No additional data structures or auxiliary space are used in the process.</li>
+				</ul>
+			</li>
+
+			<li><code>traverse()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Visits each node in a circular singly linked list and performs an action, such as printing the node's value. Unlike a singly linked list, traversal starts at the head and continues until the head is encountered again, ensuring the circular structure is maintained.</li>
+					<li><b>Time complexity</b>: The time complexity of the <code>traverse()</code> function in a circular singly linked list is \(O(n)\) (linear time). The function iterates through each node exactly once, from the head back to the head. Since every node is visited once, the number of operations performed is directly proportional to the number of nodes.</li>
+					<li><b>Space complexity</b>: The space complexity of the <code>traverse()</code> function in a circular singly linked list is \(O(1)\) (constant space). The function only uses a constant amount of space to store variables such as the current node reference during the traversal. Regardless of the size of the linked list, the amount of extra space used does not change.</li>
+				</ul>
+			</li>
+
+			<li><code>reverse()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Reverses the order of nodes in a circular singly linked list. Unlike a regular singly linked list, the last node's <code>next</code> pointer must be correctly updated to point to the new head, ensuring the circular structure is maintained.</li>
+					<li><b>Example</b>:
+						<ul>
+							<li>Suppose you have the following circular linked list:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [10 | Next] -&gt; [20 | Next] -&gt; [30 | Next] -&gt; Head</code></pre>
+							</li>
+							<li>After calling <code>reverse()</code>, the list becomes:<br>
+								<pre><code class="language-bash hljs">Head -&gt; [30 | Next] -&gt; [20 | Next] -&gt; [10 | Next] -&gt; Head</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li><b>Time complexity</b>: The time complexity of the <code>reverse()</code> function in a circular singly linked list is \(O(n)\) (linear time). The function traverses each node exactly once and updates pointers accordingly.</li>
+					<li><b>Space complexity</b>: The space complexity of the <code>reverse()</code> function in a circular singly linked list is \(O(1)\) (constant space). The function only uses a fixed amount of extra space for variables, such as pointers for the current, previous, and next nodes, regardless of the list size.</li>
+				</ul>
+			</li>
+
+			<li><code>search()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Finds whether a specific element (or key) exists in a circular singly linked list. Unlike a regular singly linked list, the traversal must stop when the search wraps around back to the head, ensuring we do not loop indefinitely.</li>
+					<li><b>Time complexity</b>: The time complexity of the <code>search()</code> function in a circular singly linked list is \(O(n)\) (linear time). The function may need to examine every node in the list before finding the key (or determining that it is not present).</li>
+					<li><b>Space complexity</b>: The space complexity of the <code>search()</code> function in a circular singly linked list is \(O(1)\) (constant space). The function only uses a fixed amount of extra space to store variables, such as a pointer to the current node. No additional data structures are used.</li>
+				</ul>
+			</li>
+
+			<li><code>size()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Calculates and returns the number of nodes in a circular singly linked list. Unlike a regular singly linked list, traversal must stop when the function loops back to the head to avoid infinite loops.</li>
+					<li><b>Time complexity</b>: The time complexity of the <code>size()</code> function in a circular singly linked list is \(O(n)\) (linear time). The function traverses the entire linked list once to count the number of nodes, where \(n\) is the number of nodes in the list.</li>
+					<li><b>Space complexity</b>: The space complexity of the <code>size()</code> function in a circular singly linked list is \(O(1)\) (constant space). The function uses only a fixed amount of extra space for variables, regardless of the size of the list.</li>
+				</ul>
+			</li>
+
+			<li><code>get()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Retrieves the value of a node in a circular singly linked list at a specified index. Since the list is circular, traversal stops when the head is encountered again. If the index is out of range, a message is printed indicating that the index is invalid.</li>
+					<li><b>Time complexity</b>: The time complexity of the <code>get()</code> function in a circular singly linked list is \(O(n)\) (linear time). The function traverses the list until it reaches the specified index, stopping if it loops back to the head before finding the index.</li>
+					<li><b>Space complexity</b>: The space complexity of the <code>get()</code> function in a circular singly linked list is \(O(1)\) (constant space). The function only uses a fixed amount of extra space for variables, regardless of the list size.</li>
+				</ul>
+			</li>
+
+			<li><code>set()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Updates the value of a node at a specified index in a circular singly linked list. Since the list is circular, traversal stops when the head is encountered again. If the index is out of range, a message is printed indicating that the index is invalid.</li>
+					<li><b>Time complexity</b>: The time complexity of the <code>set()</code> function in a circular singly linked list is \(O(n)\) (linear time). The function traverses the list until it reaches the specified index, stopping if it loops back to the head before finding the index.</li>
+					<li><b>Space complexity</b>: The space complexity of the <code>set()</code> function in a circular singly linked list is \(O(1)\) (constant space). The function only uses a fixed amount of extra space for variables, regardless of the list size.</li>
+				</ul>
+			</li>
+
+			<li><code>isEmpty()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Checks whether a circular singly linked list is empty.</li>
+					<li><b>Time complexity</b>: The time complexity of the <code>isEmpty()</code> function in a circular singly linked list is \(O(1)\) (constant time). The function only checks if the head pointer is <code>NULL</code>, which takes constant time.</li>
+					<li><b>Space complexity</b>: The space complexity of the <code>isEmpty()</code> function in a circular singly linked list is \(O(1)\) (constant space). The function does not use any additional memory beyond a single pointer check.</li>
+				</ul>
+			</li>
+
+			<li><code>merge()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Combines two sorted circular singly linked lists into a single sorted circular singly linked list while maintaining circularity.</li>
+					<li><b>Time complexity</b>: The time complexity of the <code>merge()</code> function in a circular singly linked list is \(O(n + m)\) (linear time). Each node from both lists is visited exactly once, and linking operations are performed in constant time. Where \(n\) is the number of nodes in the first circular linked list and \(m\) is the number of nodes in the second circular linked list.</li>
+					<li><b>Space complexity</b>: The space complexity of the <code>merge()</code> function in a circular singly linked list is \(O(1)\) (constant space). The function uses a fixed number of pointers without any additional data structures, ensuring that the space required does not depend on the size of the input lists.</li>
+				</ul>
+			</li>
+
+			<li><code>sort()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Arranges the elements of a circular singly linked list in a specific order (typically ascending or descending) while maintaining its circular nature.</li>
+					<li><b>Time complexity</b>: The time complexity of the <code>sort()</code> function in a circular singly linked list, when using merge sort, is \(O(n \log n)\) (linearithmic time). The algorithm recursively divides the list into halves and requires \(O(n)\) time to merge them back together. The logarithmic factor \(\log n\) results from the number of times the list is split in half.</li>
+					<li><b>Space complexity</b>: The space complexity of the <code>sort()</code> function in a circular singly linked list, using Merge Sort, is \(O(\log n)\) (logarithmic space) due to recursion depth. If implemented iteratively, space complexity can be reduced to \(O(1)\), ensuring no extra space is used beyond a few pointers.</li>
+				</ul>
+			</li>
+
+			<li><code>clear()</code>:<br>
+				<ul>
+					<li><b>Description</b>: Removes all nodes from a circular singly linked list, freeing up the memory they occupy and making the list empty. The head pointer is set to <code>NULL</code>, breaking the circular link.</li>
+					<li><b>Time complexity</b>: The time complexity of the <code>clear()</code> function in a circular singly linked list is \(O(n)\) (linear time). The function traverses the list once, freeing each node's memory.</li>
+					<li><b>Space complexity</b>: The space complexity of the <code>clear()</code> function in a circular singly linked list is \(O(1)\) (constant space). The function only uses a fixed amount of space for temporary pointers during traversal, regardless of the list size.</li>
+				</ul>
+			</li>
+
+        </ul>
+		
+		<h3 class="post-subtitle">Non-Generic Circular Singly Linked List Implementation</h3>
+		
+		<p>Here is the Non-Generic circular singly linked list implementation in C:</p>
+        
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+// Defines a structure to represent a node in a circular singly linked list
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+// Function to create a new node
+Node* createNode(int data) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode-&gt;data = data;
+    newNode-&gt;next = newNode;  // Points to itself initially (circular behavior)
+    return newNode;
+}
+
+// Function to insert a node at the beginning of the list
+void insertAtBeginning(Node** headRef, int data) {
+    Node* newNode = createNode(data);
+    if (*headRef == NULL) {
+        *headRef = newNode;
+    } else {
+        Node* temp = *headRef;
+        while (temp-&gt;next != *headRef) {  // Traverse until we find the last node
+            temp = temp-&gt;next;
+        }
+        temp-&gt;next = newNode;  // Update last node's next to new node
+        newNode-&gt;next = *headRef;  // New node points to head
+        *headRef = newNode;  // Update head
+    }
+}
+
+// Function to insert a node at the end of the list
+void insertAtEnd(Node** headRef, int data) {
+    if (*headRef == NULL) {
+        *headRef = createNode(data);
+    } else {
+        Node* temp = *headRef;
+        while (temp-&gt;next != *headRef) {  // Traverse until we find the last node
+            temp = temp-&gt;next;
+        }
+        Node* newNode = createNode(data);
+        temp-&gt;next = newNode;
+        newNode-&gt;next = *headRef;  // Make the new node point to the head
+    }
+}
+
+// Function to insert a new node after a given previous node
+void insertAfterNode(Node* prevNode, int data) {
+    if (prevNode == NULL) {
+        printf("The given previous node cannot be NULL.\n");
+        return;
+    }
+    
+    Node* newNode = createNode(data);
+    newNode-&gt;next = prevNode-&gt;next;
+    prevNode-&gt;next = newNode;
+}
+
+// Function to insert a node before a given next node
+void insertBeforeNode(Node** headRef, Node* nextNode, int data) {
+    if (*headRef == NULL) {
+        printf("The list cannot be empty\n");
+        return;
+    }
+
+    if (nextNode == NULL) {
+        printf("The given next node cannot be NULL\n");
+        return;
+    }
+
+    Node* newNode = createNode(data);
+    
+    if (*headRef == nextNode) {  // If the nextNode is the head, insert at beginning
+        insertAtBeginning(headRef, data);
+        return;
+    }
+
+    Node* temp = *headRef;
+    while (temp != NULL && temp-&gt;next != nextNode) {
+        temp = temp-&gt;next;
+    }
+
+    if (temp == NULL) {
+        printf("The given next node is not found in the list\n");
+        free(newNode);
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Function to insert a node at a specific position (0-based index)
+void insertAtPosition(Node** headRef, int data, int position) {
+    Node* newNode = createNode(data);
+    
+    if (position == 0) {  // Insert at the beginning
+        insertAtBeginning(headRef, data);
+        return;
+    }
+
+    Node* temp = *headRef;
+    for (int i = 0; i &lt; position - 1 && temp != NULL; i++) {
+        temp = temp-&gt;next;
+    }
+
+    if (temp == NULL) {
+        printf("Position out of bounds\n");
+        free(newNode);
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Function to delete a node at the beginning of the list
+void deleteAtBeginning(Node** headRef) {
+    if (*headRef == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    
+    Node* temp = *headRef;
+    if (temp-&gt;next == *headRef) {  // If there's only one node
+        free(temp);
+        *headRef = NULL;
+        return;
+    }
+
+    // Traverse to the last node
+    Node* last = *headRef;
+    while (last-&gt;next != *headRef) {
+        last = last-&gt;next;
+    }
+
+    last-&gt;next = (*headRef)-&gt;next;  // Last node's next points to second node
+    *headRef = (*headRef)-&gt;next;  // Update head
+    free(temp);
+}
+
+// Function to delete a node at the end of the list
+void deleteAtEnd(Node** headRef) {
+    if (*headRef == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    Node* temp = *headRef;
+    if (temp-&gt;next == *headRef) {  // Only one node
+        free(temp);
+        *headRef = NULL;
+        return;
+    }
+
+    // Traverse to the second last node
+    Node* last = *headRef;
+    while (last-&gt;next != *headRef) {
+        last = last-&gt;next;
+    }
+
+    // Delete last node
+    Node* secondLast = *headRef;
+    while (secondLast-&gt;next != last) {
+        secondLast = secondLast-&gt;next;
+    }
+
+    secondLast-&gt;next = *headRef;  // Second last node points to head
+    free(last);
+}
+
+// Function to delete a node at a specific position (0-based index) in a circular singly linked list
+void deleteAtPosition(Node** headRef, int position) {
+    if (*headRef == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    Node* temp = *headRef;
+
+    // If the position is 0, we need to delete the head
+    if (position == 0) {
+        // If there is only one node in the list
+        if (temp-&gt;next == *headRef) {
+            free(temp);
+            *headRef = NULL;
+            return;
+        }
+
+        // Traverse to the last node
+        Node* last = *headRef;
+        while (last-&gt;next != *headRef) {
+            last = last-&gt;next;
+        }
+
+        // Update the head and unlink the node
+        last-&gt;next = temp-&gt;next;
+        *headRef = temp-&gt;next;
+        free(temp);
+        return;
+    }
+
+    // Find the previous node of the node to be deleted
+    for (int i = 0; temp != NULL && i &lt; position - 1; i++) {
+        temp = temp-&gt;next;
+        if (temp == *headRef) {
+            // If we have reached the head again, the position is out of bounds
+            printf("Position out of bounds\n");
+            return;
+        }
+    }
+
+    // If position is more than number of nodes or temp is NULL
+    if (temp == NULL || temp-&gt;next == *headRef) {
+        printf("Position out of bounds\n");
+        return;
+    }
+
+    // Node temp-&gt;next is the node to be deleted
+    Node* nodeToDelete = temp-&gt;next;
+    temp-&gt;next = nodeToDelete-&gt;next; // Unlink the node from the list
+    free(nodeToDelete); // Free the memory of the deleted node
+}
+
+// Function to traverse the circular list and print all elements
+void traverse(Node* head) {
+    if (head == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+
+    Node* temp = head;
+    do {
+        printf("%d -&gt; ", temp-&gt;data);
+        temp = temp-&gt;next;
+    } while (temp != head);  // Stop when we reach the head again
+    printf("(head)\n");
+}
+
+// Function to search for an element in the list
+int search(Node* head, int key) {
+    if (head == NULL) return 0;
+
+    Node* temp = head;
+    do {
+        if (temp-&gt;data == key)
+            return 1;
+        temp = temp-&gt;next;
+    } while (temp != head);
+    
+    return 0;
+}
+
+// Function to get the size of the circular linked list
+int size(Node* head) {
+    if (head == NULL) return 0;
+    
+    int size = 1;
+    Node* temp = head-&gt;next;
+    while (temp != head) {
+        size++;
+        temp = temp-&gt;next;
+    }
+    return size;
+}
+
+// Function to check if the list is empty
+int isEmpty(Node* head) {
+    return head == NULL;
+}
+
+// Function to access an element at a specific index (0-based)
+int get(Node* head, int index) {
+    if (head == NULL) return -1;
+
+    int count = 0;
+    Node* temp = head;
+    do {
+        if (count == index)
+            return temp-&gt;data;
+        count++;
+        temp = temp-&gt;next;
+    } while (temp != head);
+    
+    return -1; // Index out of range
+}
+
+// Function to set an element at a specific index (0-based)
+void set(Node* head, int index, int newValue) {
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    int count = 0;
+    Node* current = head;
+    do {
+        if (count == index) {
+            current-&gt;data = newValue;  // Update the node's value
+            return;
+        }
+        count++;
+        current = current-&gt;next;
+    } while (current != head);
+    
+    printf("Index out of range\n"); // Handle case where index exceeds list length
+}
+
+// Function to reverse the circular linked list
+void reverse(Node** headRef) {
+    if (*headRef == NULL || (*headRef)-&gt;next == *headRef) {
+        return;  // No need to reverse for empty or single node
+    }
+
+    Node *prev = NULL, *current = *headRef, *next = NULL;
+    do {
+        next = current-&gt;next;
+        current-&gt;next = prev;
+        prev = current;
+        current = next;
+    } while (current != *headRef);
+    
+    (*headRef)-&gt;next = prev;  // Make the last node point to the new head
+    *headRef = prev;
+}
+
+// Function to clear the entire circular linked list and free memory
+void clear(Node** headRef) {
+    if (*headRef == NULL) return;
+    
+    Node* current = *headRef;
+    Node* next;
+    do {
+        next = current-&gt;next;
+        free(current);
+        current = next;
+    } while (current != *headRef);
+
+    *headRef = NULL;
+}
+// Function to find the middle of a circular singly linked list
+void middle(Node** mid, Node* head) {
+    if (head == NULL || head-&gt;next == head) {
+        *mid = head;
+        return;
+    }
+
+    Node* slow = head;
+    Node* fast = head;
+
+    // Move fast two steps and slow one step
+    while (fast-&gt;next != head && fast-&gt;next-&gt;next != head) {
+        fast = fast-&gt;next-&gt;next;
+        slow = slow-&gt;next;
+    }
+
+    *mid = slow;
+}
+
+// Function to merge two circular linked lists
+void merge(Node** headRef, Node* head1, Node* head2) {
+    Node* tempHead = NULL, *last = NULL;
+    Node* first1 = head1, *first2 = head2;
+    
+    printf("Starting merge...\n");
+
+    if (head1 == NULL) {
+        printf("First list is empty. Returning a new node from the second list.\n");
+        Node* newNode = createNode(head2-&gt;data); // Create a new node with the data of the first node of head2
+        *headRef = newNode; // Set the new node as the head
+        head2 = head2-&gt;next;
+        if (head2 == first2) head2 = NULL; // Handle circular structure
+        return;
+    }
+    if (head2 == NULL) {
+        printf("Second list is empty. Returning a new node from the first list.\n");
+        Node* newNode = createNode(head1-&gt;data); // Create a new node with the data of the first node of head1
+        *headRef = newNode; // Set the new node as the head
+        head1 = head1-&gt;next;
+        if (head1 == first1) head1 = NULL; // Handle circular structure
+        return;
+    }
+
+    printf("Both lists are non-empty. Merging...\n");
+
+    do {
+        Node* newNode;
+        if (head1 && (head2 == NULL || head1-&gt;data &lt;= head2-&gt;data)) {
+            printf("Adding node from List 1: %d\n", head1-&gt;data);
+            newNode = createNode(head1-&gt;data);
+            head1 = head1-&gt;next;
+            if (head1 == first1) {
+                printf("End of List 1 reached.\n");
+                head1 = NULL;  // Stop merging this list
+            }
+        } else {
+            printf("Adding node from List 2: %d\n", head2-&gt;data);
+            newNode = createNode(head2-&gt;data);
+            head2 = head2-&gt;next;
+            if (head2 == first2) {
+                printf("End of List 2 reached.\n");
+                head2 = NULL;
+            }
+        }
+
+        if (!tempHead) {
+            tempHead = newNode;
+            printf("New head node created: %d\n", tempHead-&gt;data);
+        } else {
+            last-&gt;next = newNode;
+        }
+        last = newNode;
+    } while (head1 != NULL || head2 != NULL);
+
+    // Make the list circular
+    last-&gt;next = tempHead;
+    *headRef = tempHead;
+    printf("Merge completed. Circular list created with head: %d\n", (*headRef)-&gt;data);
+}
+
+// Function to sort a circular singly linked list (Merge Sort)
+void sort(Node** headRef) {
+    if (*headRef == NULL || (*headRef)-&gt;next == *headRef)
+        return;
+
+    Node* head = *headRef;
+    Node* mid = NULL;
+    middle(&mid, head);
+
+    Node* nextToMid = mid-&gt;next;
+    mid-&gt;next = head; // Break circularity for first half
+    Node* secondHalf = nextToMid;
+
+    // Find last node of second half
+    while (secondHalf-&gt;next != head)
+        secondHalf = secondHalf-&gt;next;
+    
+    secondHalf-&gt;next = nextToMid; // Break circularity for second half
+
+    // Sort both halves
+    sort(&head);
+    sort(&nextToMid);
+
+    // Merge sorted halves
+    merge(headRef, head, nextToMid);
+}
+
+// Main function to test the circular linked list operations
+int main() {
+    Node* list = NULL; // Initialize an empty linked list
+
+    // 1. Insert elements at the beginning
+    insertAtBeginning(&list, 5);
+    insertAtBeginning(&list, 3);
+    insertAtBeginning(&list, 1);
+
+    printf("List after inserting at the beginning: ");
+    traverse(list);
+
+    // 2. Insert elements at the end
+    insertAtEnd(&list, 7);
+    insertAtEnd(&list, 9);
+
+    printf("List after inserting at the end: ");
+    traverse(list);
+
+    // 3. Insert element at position 2
+    insertAtPosition(&list, 4, 2);
+
+    printf("List after inserting 4 at position 2: ");
+    traverse(list);
+
+    // 4. Insert element after the second node
+    Node* secondNode = list-&gt;next;
+    insertAfterNode(secondNode, 6);
+
+    printf("List after inserting 6 after the second node: ");
+    traverse(list);
+
+    // 5. Insert element before the node with value 7
+    Node* temp = list;
+    while (temp != NULL && temp-&gt;data != 7) {
+        temp = temp-&gt;next;
+    }
+    insertBeforeNode(&list, temp, 8);
+
+    printf("List after inserting 8 before the node with value 7: ");
+    traverse(list);
+
+    // 6. Delete the first node
+    deleteAtBeginning(&list);
+
+    printf("List after deleting the first node: ");
+    traverse(list);
+
+    // 7. Delete the last node
+    deleteAtEnd(&list);
+
+    printf("List after deleting the last node: ");
+    traverse(list);
+
+    // 8. Delete the node at position 2
+    deleteAtPosition(&list, 2);
+
+    printf("List after deleting the node at position 2: ");
+    traverse(list);
+	
+	// 9. Check if list is empty
+	if (isEmpty(list)) {
+		printf("The list is empty.\n");
+	} else {
+		printf("The list is not empty.\n");
+	}
+	
+    // 10. Search for an element
+    int key = 6;
+    if (search(list, key)) {
+        printf("Element %d found in the list.\n", key);
+    } else {
+        printf("Element %d not found in the list.\n", key);
+    }
+
+    // 11. Reverse the list
+    reverse(&list);
+
+    printf("List after reversing: ");
+    traverse(list);
+
+    // 12. Sort the list
+    sort(&list);
+
+    printf("List after sorting: ");
+    traverse(list);
+
+    // 13. Get the size of the list
+    printf("Size of the list: %d\n", size(list));
+
+    // 14. Access an element at a specific index
+    int index = 2;
+    int value = get(list, index);
+    if (value != -1) {
+        printf("Element at index %d: %d\n", index, value);
+    } else {
+        printf("Index %d is out of range.\n", index);
+    }
+
+    // 15. Set a new value at a specific index
+    set(list, 2, 10);
+    printf("List after setting value 10 at index 2: ");
+    traverse(list);
+
+    // 16. Clear the list
+    clear(&list);
+
+    printf("List after clearing: ");
+    traverse(list);
+
+    return 0;
+}</code></pre>
+
+		<p>Here is the Non-Generic circular singly linked list implementation in C++:</p>
+		
+		<pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+
+using namespace std;
+
+// Node structure for circular singly linked list
+struct Node {
+    int data;
+    Node* next;
+
+    // Constructor to create a new node
+    Node(int data) : data(data), next(nullptr) {}
+};
+
+// Insert at the beginning
+void insertAtBeginning(Node*& head, int data) {
+    Node* newNode = new Node(data);
+    if (!head) {
+        newNode-&gt;next = newNode;
+        head = newNode;
+        return;
+    }
+    Node* temp = head;
+    while (temp-&gt;next != head) temp = temp-&gt;next;
+    temp-&gt;next = newNode;
+    newNode-&gt;next = head;
+    head = newNode;
+}
+
+// Insert at the end
+void insertAtEnd(Node*& head, int data) {
+    Node* newNode = new Node(data);
+    if (!head) {
+        newNode-&gt;next = newNode;
+        head = newNode;
+        return;
+    }
+    Node* temp = head;
+    while (temp-&gt;next != head) temp = temp-&gt;next;
+    temp-&gt;next = newNode;
+    newNode-&gt;next = head;
+}
+
+// Delete at the beginning
+void deleteAtBeginning(Node*& head) {
+    if (!head) {
+        cout &lt;&lt; "List is empty\n";
+        return;
+    }
+    if (head-&gt;next == head) {
+        delete head;
+        head = nullptr;
+        return;
+    }
+    Node* temp = head;
+    while (temp-&gt;next != head) temp = temp-&gt;next;
+    Node* toDelete = head;
+    temp-&gt;next = head-&gt;next;
+    head = head-&gt;next;
+    delete toDelete;
+}
+
+// Function to insert a new node after a given previous node
+void insertAfterNode(Node* prevNode, int data) {
+    if (prevNode == nullptr) {
+        cout &lt;&lt; "The given previous node cannot be NULL." &lt;&lt; endl;
+        return;
+    }
+
+    Node* newNode = new Node(data);
+
+    // Insert the new node after the previous node
+    newNode-&gt;next = prevNode-&gt;next;
+    prevNode-&gt;next = newNode;
+}
+
+// Function to insert a new node before a given next node
+void insertBeforeNode(Node*& headRef, Node* nextNode, int data) {
+    if (headRef == nullptr) {
+        cout &lt;&lt; "The list cannot be empty." &lt;&lt; endl;
+        return;
+    }
+
+    if (nextNode == nullptr) {
+        cout &lt;&lt; "The given next node cannot be NULL." &lt;&lt; endl;
+        return;
+    }
+
+    Node* newNode = new Node(data);
+
+    // If inserting before the head, update head reference
+    if (headRef == nextNode) {
+        // Find the last node to update its next pointer
+        Node* temp = headRef;
+        while (temp-&gt;next != headRef) {
+            temp = temp-&gt;next;
+        }
+
+        temp-&gt;next = newNode; // Update last node's next pointer
+        newNode-&gt;next = headRef;
+        headRef = newNode; // New node becomes the head
+        return;
+    }
+
+    // Find the node just before nextNode
+    Node* temp = headRef;
+    while (temp-&gt;next != headRef && temp-&gt;next != nextNode) {
+        temp = temp-&gt;next;
+    }
+
+    if (temp-&gt;next != nextNode) {
+        cout &lt;&lt; "The given next node is not found in the list." &lt;&lt; endl;
+        delete newNode;
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Function to insert at a specific position
+void insertAtPosition(Node*& head, int data, int position) {
+    Node* newNode = new Node(data);
+
+    // If inserting at position 0 (beginning)
+    if (position == 0) {
+        if (head == nullptr) {
+            newNode-&gt;next = newNode; // First node points to itself
+            head = newNode;
+        } else {
+            // Find the last node
+            Node* temp = head;
+            while (temp-&gt;next != head) {
+                temp = temp-&gt;next;
+            }
+
+            // Insert the new node at the beginning
+            newNode-&gt;next = head;
+            temp-&gt;next = newNode;
+            head = newNode;
+        }
+        return;
+    }
+
+    // Traverse to the (position-1)th node
+    Node* temp = head;
+    for (int i = 0; i &lt; position - 1 && temp-&gt;next != head; i++) {
+        temp = temp-&gt;next;
+    }
+
+    if (temp-&gt;next == head && position &gt; 0) {
+        cout &lt;&lt; "Position out of bounds.\n";
+        delete newNode;
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Delete at the end
+void deleteAtEnd(Node*& head) {
+    if (!head) {
+        cout &lt;&lt; "List is empty\n";
+        return;
+    }
+    if (head-&gt;next == head) {
+        delete head;
+        head = nullptr;
+        return;
+    }
+    Node* temp = head;
+    while (temp-&gt;next-&gt;next != head) temp = temp-&gt;next;
+    delete temp-&gt;next;
+    temp-&gt;next = head;
+}
+
+// Traverse the list
+void traverse(Node* head) {
+    if (!head) {
+        cout &lt;&lt; "List is empty\n";
+        return;
+    }
+    Node* temp = head;
+    do {
+        cout &lt;&lt; temp-&gt;data &lt;&lt; " -&gt; ";
+        temp = temp-&gt;next;
+    } while (temp != head);
+    cout &lt;&lt; "(head)\n";
+}
+
+// Function to delete a node at a specific position
+void deleteAtPosition(Node*& head, int position) {
+    if (head == nullptr) {
+        cout &lt;&lt; "List is empty\n";
+        return;
+    }
+
+    Node* temp = head;
+
+    // Case 1: Deleting the head node
+    if (position == 0) {
+        if (head-&gt;next == head) {
+            delete head; // Only one node in the list
+            head = nullptr;
+            return;
+        }
+
+        // Find the last node to update its next pointer
+        Node* last = head;
+        while (last-&gt;next != head) {
+            last = last-&gt;next;
+        }
+
+        last-&gt;next = head-&gt;next;
+        head = head-&gt;next;
+        delete temp;
+        return;
+    }
+
+    // Case 2: Deleting a node at position &gt; 0
+    Node* prev = nullptr;
+    for (int i = 0; i &lt; position; i++) {
+        prev = temp;
+        temp = temp-&gt;next;
+
+        // If we circle back to the head, position is out of bounds
+        if (temp == head) {
+            cout &lt;&lt; "Position out of bounds\n";
+            return;
+        }
+    }
+
+    prev-&gt;next = temp-&gt;next;
+    delete temp;
+}
+
+// Function to check if the list is empty
+bool isEmpty(Node* head) {
+    return head == nullptr;
+}
+
+// Function to access an element at a specific index (0-based)
+int get(Node* head, int index) {
+    if (head == nullptr) {
+        cout &lt;&lt; "List is empty\n";
+        return -1;
+    }
+
+    Node* temp = head;
+    int count = 0;
+
+    do {
+        if (count == index)
+            return temp-&gt;data;
+        count++;
+        temp = temp-&gt;next;
+    } while (temp != head);
+
+    cout &lt;&lt; "Index out of range\n";
+    return -1;
+}
+
+// Function to set an element at a specific index (0-based)
+void set(Node* head, int index, int newValue) {
+    if (head == nullptr) {
+        cout &lt;&lt; "List is empty\n";
+        return;
+    }
+
+    Node* temp = head;
+    int count = 0;
+
+    do {
+        if (count == index) {
+            temp-&gt;data = newValue;
+            return;
+        }
+        count++;
+        temp = temp-&gt;next;
+    } while (temp != head);
+
+    cout &lt;&lt; "Index out of range\n";
+}
+
+// Function to search for an element in a circular linked list
+bool search(Node* head, int key) {
+    if (head == nullptr) return false;
+
+    Node* temp = head;
+    do {
+        if (temp-&gt;data == key)
+            return true;
+        temp = temp-&gt;next;
+    } while (temp != head);
+
+    return false;
+}
+
+// Reverse the list
+void reverse(Node*& head) {
+    if (!head || head-&gt;next == head) return;
+    Node* prev = nullptr, *current = head, *next = nullptr, *tail = head;
+    do {
+        next = current-&gt;next;
+        current-&gt;next = prev;
+        prev = current;
+        current = next;
+    } while (current != head);
+    head-&gt;next = prev;
+    head = prev;
+}
+
+// Get size of the list
+int size(Node* head) {
+    if (!head) return 0;
+    int count = 0;
+    Node* temp = head;
+    do {
+        count++;
+        temp = temp-&gt;next;
+    } while (temp != head);
+    return count;
+}
+
+// Clear the list
+void clear(Node*& head) {
+    if (!head) return; // If the list is empty, return immediately.
+
+    Node* temp = head;
+    Node* nextNode;
+
+    // Traverse and delete each node
+    while (temp-&gt;next != head) {
+        nextNode = temp-&gt;next;
+        delete temp;
+        temp = nextNode;
+    }
+
+    // Delete the last remaining node
+    delete temp;
+
+    head = nullptr; // Set head to null after clearing the list
+}
+
+// Function to merge two sorted circular linked lists
+void merge(Node*& headRef, Node* head1, Node* head2) {
+    Node* tempHead = nullptr, *last = nullptr;
+    Node* first1 = head1, *first2 = head2;
+    
+    //std::cout &lt;&lt; "Starting merge...\n";
+
+    if (head1 == nullptr) {
+        //std::cout &lt;&lt; "First list is empty. Returning a new node from the second list.\n";
+        Node* newNode = new Node(head2-&gt;data); // Create a new node with the data of the first node of head2
+        headRef = newNode; // Set the new node as the head
+        head2 = head2-&gt;next;
+        if (head2 == first2) head2 = nullptr; // Handle circular structure
+        return;
+    }
+    if (head2 == nullptr) {
+        //std::cout &lt;&lt; "Second list is empty. Returning a new node from the first list.\n";
+        Node* newNode = new Node(head1-&gt;data); // Create a new node with the data of the first node of head1
+        headRef = newNode; // Set the new node as the head
+        head1 = head1-&gt;next;
+        if (head1 == first1) head1 = nullptr; // Handle circular structure
+        return;
+    }
+
+    //std::cout &lt;&lt; "Both lists are non-empty. Merging...\n";
+
+    do {
+        Node* newNode;
+        if (head1 && (head2 == nullptr || head1-&gt;data &lt;= head2-&gt;data)) {
+            //std::cout &lt;&lt; "Adding node from List 1: " &lt;&lt; head1-&gt;data &lt;&lt; "\n";
+            newNode = new Node(head1-&gt;data);
+            head1 = head1-&gt;next;
+            if (head1 == first1) {
+                //std::cout &lt;&lt; "End of List 1 reached.\n";
+                head1 = nullptr;  // Stop merging this list
+            }
+        } else {
+            //std::cout &lt;&lt; "Adding node from List 2: " &lt;&lt; head2-&gt;data &lt;&lt; "\n";
+            newNode = new Node(head2-&gt;data);
+            head2 = head2-&gt;next;
+            if (head2 == first2) {
+                //std::cout &lt;&lt; "End of List 2 reached.\n";
+                head2 = nullptr;
+            }
+        }
+
+        if (!tempHead) {
+            tempHead = newNode;
+            //std::cout &lt;&lt; "New head node created: " &lt;&lt; tempHead-&gt;data &lt;&lt; "\n";
+        } else {
+            last-&gt;next = newNode;
+        }
+        last = newNode;
+    } while (head1 != nullptr || head2 != nullptr);
+
+    // Make the list circular
+    last-&gt;next = tempHead;
+    headRef = tempHead;
+    //std::cout &lt;&lt; "Merge completed. Circular list created with head: " &lt;&lt; headRef-&gt;data &lt;&lt; "\n";
+}
+
+
+// Function to find the middle of a circular linked list
+void middle(Node*& mid, Node* head) {
+    if (head == nullptr || head-&gt;next == head) {  // Check if list is empty or contains one node
+        mid = head;
+        return;
+    }
+
+    Node* slow = head;
+    Node* fast = head;
+
+    // Move fast two steps and slow one step
+    while (fast-&gt;next != head && fast-&gt;next-&gt;next != head) {
+        fast = fast-&gt;next-&gt;next;
+        slow = slow-&gt;next;
+    }
+
+    mid = slow;  // Assign the slow pointer to mid (middle node)
+}
+
+void sort(Node*& headRef) {
+    // If the list is empty or contains a single node, no need to sort
+    if (headRef == nullptr || headRef-&gt;next == headRef)
+        return;
+
+    Node* head = headRef;
+    Node* mid = nullptr;
+
+    // Find the middle node
+    middle(mid, head);
+
+    Node* nextToMid = mid-&gt;next;
+    mid-&gt;next = head;  // Break circularity for first half
+    Node* secondHalf = nextToMid;
+
+    // Find the last node of the second half
+    while (secondHalf-&gt;next != head)
+        secondHalf = secondHalf-&gt;next;
+
+    secondHalf-&gt;next = nextToMid;  // Break circularity for second half
+
+    // Sort both halves recursively
+    sort(head);
+    sort(nextToMid);
+
+    // Merge the sorted halves
+    merge(headRef, head, nextToMid);
+}
+
+
+int main() {
+    Node* list = nullptr;  // Initialize an empty linked list
+
+    // 1. Insert elements at the beginning
+    insertAtBeginning(list, 5);
+    insertAtBeginning(list, 3);
+    insertAtBeginning(list, 1);
+
+    std::cout &lt;&lt; "List after inserting at the beginning: ";
+    traverse(list);
+
+    // 2. Insert elements at the end
+    insertAtEnd(list, 7);
+    insertAtEnd(list, 9);
+
+    std::cout &lt;&lt; "List after inserting at the end: ";
+    traverse(list);
+
+    // 3. Insert element at position 2
+    insertAtPosition(list, 4, 2);
+
+    std::cout &lt;&lt; "List after inserting 4 at position 2: ";
+    traverse(list);
+
+    // 4. Insert element after the second node
+    Node* secondNode = list-&gt;next;
+    insertAfterNode(secondNode, 6);
+
+    std::cout &lt;&lt; "List after inserting 6 after the second node: ";
+    traverse(list);
+
+    // 5. Insert element before the node with value 7
+    Node* temp = list;
+    while (temp != nullptr && temp-&gt;data != 7) {
+        temp = temp-&gt;next;
+    }
+    insertBeforeNode(list, temp, 8);
+
+    std::cout &lt;&lt; "List after inserting 8 before the node with value 7: ";
+    traverse(list);
+
+    // 6. Delete the first node
+    deleteAtBeginning(list);
+
+    std::cout &lt;&lt; "List after deleting the first node: ";
+    traverse(list);
+
+    // 7. Delete the last node
+    deleteAtEnd(list);
+
+    std::cout &lt;&lt; "List after deleting the last node: ";
+    traverse(list);
+
+    // 8. Delete the node at position 2
+    deleteAtPosition(list, 2);
+
+    std::cout &lt;&lt; "List after deleting the node at position 2: ";
+    traverse(list);
+	
+	// 9. Check if the list is empty
+    if (isEmpty(list)) {
+        cout &lt;&lt; "The list is empty." &lt;&lt; endl;
+    } else {
+		cout &lt;&lt; "The list is not empty." &lt;&lt; endl;
+	}
+	
+    // 10. Search for an element
+    int key = 6;
+    if (search(list, key)) {
+        std::cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " found in the list." &lt;&lt; std::endl;
+    } else {
+        std::cout &lt;&lt; "Element " &lt;&lt; key &lt;&lt; " not found in the list." &lt;&lt; std::endl;
+    }
+
+    // 11. Reverse the list
+    reverse(list);
+
+    std::cout &lt;&lt; "List after reversing: ";
+    traverse(list);
+
+    // 12. Sort the list
+    sort(list);
+
+    std::cout &lt;&lt; "List after sorting: ";
+    traverse(list);
+
+    // 13. Get the size of the list
+    std::cout &lt;&lt; "Size of the list: " &lt;&lt; size(list) &lt;&lt; std::endl;
+
+    // 14. Access an element at a specific index
+    int index = 2;
+    int value = get(list, index);
+    if (value != -1) {
+        std::cout &lt;&lt; "Element at index " &lt;&lt; index &lt;&lt; ": " &lt;&lt; value &lt;&lt; std::endl;
+    } else {
+        std::cout &lt;&lt; "Index " &lt;&lt; index &lt;&lt; " is out of range." &lt;&lt; std::endl;
+    }
+
+    // 15. Set a new value at a specific index
+    set(list, 2, 10);
+    std::cout &lt;&lt; "List after setting value 10 at index 2: ";
+    traverse(list);
+
+    // 16. Clear the list
+    clear(list);
+
+    std::cout &lt;&lt; "List after clearing: ";
+    traverse(list);
+
+    return 0;
+}</code></pre>
+		
+		<p>Here is the Non-Generic circular singly linked list implementation in Java:</p>
+		
+		<pre><code class="language-java hljs">public class CircularLinkedList {
+
+    // Node structure for a circular singly linked list
+    static class Node {
+        int data;
+        Node next;
+
+        // Constructor
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    // Insert at the beginning
+    public static Node insertAtBeginning(Node head, int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            newNode.next = newNode; // Make it circular
+            return newNode;
+        }
+
+        Node temp = head;
+        while (temp.next != head) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+        newNode.next = head;
+        return newNode; // New head
+    }
+
+    // Insert at the end
+    public static Node insertAtEnd(Node head, int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            newNode.next = newNode;
+            return newNode;
+        }
+
+        Node temp = head;
+        while (temp.next != head) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+        newNode.next = head;
+        return head; // Head remains the same
+    }
+    
+    // Function to insert a new node after a given previous node
+    public static void insertAfterNode(Node prevNode, int data) {
+        if (prevNode == null) {
+            System.out.println("The given previous node cannot be NULL.");
+            return;
+        }
+
+        Node newNode = new Node(data);
+        newNode.next = prevNode.next;
+        prevNode.next = newNode;
+    }
+
+    // Function to insert a new node before a given next node
+    public static Node insertBeforeNode(Node head, Node nextNode, int data) {
+        if (head == null) {
+            System.out.println("The list cannot be empty.");
+            return null;
+        }
+
+        if (nextNode == null) {
+            System.out.println("The given next node cannot be NULL.");
+            return head;
+        }
+
+        Node newNode = new Node(data);
+
+        // If inserting before the head, update head reference
+        if (head == nextNode) {
+            Node temp = head;
+            while (temp.next != head) {
+                temp = temp.next;
+            }
+
+            temp.next = newNode;  // Update last node's next pointer
+            newNode.next = head;
+            return newNode; // New node becomes the head
+        }
+
+        // Find the node just before nextNode
+        Node temp = head;
+        while (temp.next != head && temp.next != nextNode) {
+            temp = temp.next;
+        }
+
+        if (temp.next != nextNode) {
+            System.out.println("The given next node is not found in the list.");
+            return head;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+        return head;
+    }
+    
+    // Insert at a specific position
+    public static Node insertAtPosition(Node head, int data, int position) {
+        if (position == 0) {
+            return insertAtBeginning(head, data);
+        }
+
+        Node newNode = new Node(data);
+        Node temp = head;
+        for (int i = 0; i &lt; position - 1 && temp.next != head; i++) {
+            temp = temp.next;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+        return head;
+    }
+
+    // Delete at the beginning
+    public static Node deleteAtBeginning(Node head) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return null;
+        }
+
+        if (head.next == head) {
+            return null;
+        }
+
+        Node temp = head;
+        while (temp.next != head) {
+            temp = temp.next;
+        }
+
+        temp.next = head.next;
+        return head.next;
+    }
+
+    // Delete at the end
+    public static Node deleteAtEnd(Node head) {
+        if (head == null || head.next == head) {
+            return null;
+        }
+
+        Node temp = head;
+        while (temp.next.next != head) {
+            temp = temp.next;
+        }
+        temp.next = head;
+        return head;
+    }
+
+    // Delete at a specific position
+    public static Node deleteAtPosition(Node head, int position) {
+        if (head == null) {
+            return null;
+        }
+
+        if (position == 0) {
+            return deleteAtBeginning(head);
+        }
+
+        Node temp = head;
+        for (int i = 0; i &lt; position - 1 && temp.next != head; i++) {
+            temp = temp.next;
+        }
+
+        if (temp.next == head) {
+            return head;
+        }
+
+        temp.next = temp.next.next;
+        return head;
+    }
+
+    // Traverse the list
+    public static void traverse(Node head) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node temp = head;
+        do {
+            System.out.print(temp.data + " -&gt; ");
+            temp = temp.next;
+        } while (temp != head);
+        System.out.println("(head)");
+    }
+	
+	// Check if the list is empty
+	public static boolean isEmpty(Node head) {
+		return head == null;
+	}
+	
+    // Function to merge two sorted circular linked lists
+    public static Node merge(Node head1, Node head2) {
+        if (head1 == null) return head2;
+        if (head2 == null) return head1;
+
+        Node dummy = new Node(0); // Temporary dummy node
+        Node tail = dummy;
+        Node first1 = head1, first2 = head2;
+
+        do {
+            Node newNode;
+            if (head1 != null && (head2 == null || head1.data &lt;= head2.data)) {
+                newNode = new Node(head1.data);
+                head1 = head1.next;
+                if (head1 == first1) head1 = null;
+            } else {
+                newNode = new Node(head2.data);
+                head2 = head2.next;
+                if (head2 == first2) head2 = null;
+            }
+
+            tail.next = newNode;
+            tail = newNode;
+
+        } while (head1 != null || head2 != null);
+
+        // Make the merged list circular
+        tail.next = dummy.next;
+        return dummy.next;
+    }
+
+    // Function to find the middle node of a circular linked list
+    public static Node middle(Node head) {
+        if (head == null || head.next == head) return head;
+
+        Node slow = head, fast = head;
+        while (fast.next != head && fast.next.next != head) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    // Function to sort a circular linked list using merge sort
+    public static Node sort(Node head) {
+        if (head == null || head.next == head) return head;
+
+        Node mid = middle(head);
+        Node secondHalf = mid.next;
+        mid.next = head;  // Break circularity for the first half
+
+        // Find last node of second half and break circularity
+        Node temp = secondHalf;
+        while (temp.next != head) temp = temp.next;
+        temp.next = secondHalf;
+
+        // Recursively sort both halves
+        Node firstSorted = sort(head);
+        Node secondSorted = sort(secondHalf);
+
+        // Merge both halves
+        return merge(firstSorted, secondSorted);
+    }
+    
+    // Function to get an element at a specific index (0-based)
+    public static int get(Node head, int index) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return -1;
+        }
+
+        Node temp = head;
+        int count = 0;
+
+        do {
+            if (count == index)
+                return temp.data;
+            count++;
+            temp = temp.next;
+        } while (temp != head);
+
+        System.out.println("Index out of range");
+        return -1;
+    }
+
+    // Function to set an element at a specific index (0-based)
+    public static void set(Node head, int index, int newValue) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node temp = head;
+        int count = 0;
+
+        do {
+            if (count == index) {
+                temp.data = newValue;
+                return;
+            }
+            count++;
+            temp = temp.next;
+        } while (temp != head);
+
+        System.out.println("Index out of range");
+    }
+
+    // Function to search for an element in a circular linked list
+    public static boolean search(Node head, int key) {
+        if (head == null) return false;
+
+        Node temp = head;
+        do {
+            if (temp.data == key)
+                return true;
+            temp = temp.next;
+        } while (temp != head);
+
+        return false;
+    }
+
+    // Function to reverse a circular linked list
+    public static Node reverse(Node head) {
+        if (head == null || head.next == head) return head;
+
+        Node prev = null, current = head, next = null;
+        Node tail = head;
+
+        do {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        } while (current != head);
+
+        head.next = prev; // Fix circular link
+        return prev; // New head
+    }
+    
+    // Get the size of the list
+    public static int size(Node head) {
+        if (head == null) return 0;
+
+        int count = 0;
+        Node temp = head;
+        do {
+            count++;
+            temp = temp.next;
+        } while (temp != head);
+        return count;
+    }
+
+    // Clear the circular linked list
+	public static void clear(Node head) {
+		if (head == null) {
+			System.out.println("List is already empty.");
+			return null;
+		}
+
+		Node current = head;
+		do {
+			Node next = current.next; // Save the next node
+			current.next = null;      // Break the link to the next node
+			current = next;           // Move to the next node
+		} while (current != head);    // Loop until we reach the head node again
+
+		return null;  // Return null to indicate the list is empty
+	}
+
+
+    // Main method for testing
+    public static void main(String[] args) {
+        Node head = null;
+
+        // 1. Insert elements at the beginning
+        head = insertAtBeginning(head, 5);
+        head = insertAtBeginning(head, 10);
+        head = insertAtBeginning(head, 3);
+
+        System.out.println("List after inserting at the beginning: ");
+        traverse(head);
+
+        // 2. Insert element at the end
+        head = insertAtEnd(head, 7);
+        head = insertAtEnd(head, 2);
+
+        System.out.println("List after inserting at the end: ");
+        traverse(head);
+
+        // 3. Insert at a specific position
+        head = insertAtPosition(head, 4, 2);
+        System.out.println("List after inserting at position 2: ");
+        traverse(head);
+		
+		// 4. Insert after a specific node
+        insertAfterNode(head.next, 8);
+        System.out.println("List after inserting 8 after second node: ");
+        traverse(head);
+
+        // 5. Insert before a specific node
+        head = insertBeforeNode(head, head.next, 12);
+        System.out.println("List after inserting 12 before second node: ");
+        traverse(head);
+		
+        // 6. Delete at the beginning
+        head = deleteAtBeginning(head);
+        System.out.println("List after deleting at the beginning: ");
+        traverse(head);
+
+        // 7. Delete at the end
+        head = deleteAtEnd(head);
+        System.out.println("List after deleting at the end: ");
+        traverse(head);
+
+        // 8. Delete at a specific position
+        head = deleteAtPosition(head, 2);
+        System.out.println("List after deleting at position 2: ");
+        traverse(head);
+		
+		// 9. Check if the list is empty
+		if (isEmpty(head)) {
+			System.out.println("The list is empty.");
+		} else {
+			System.out.println("The list is not empty.");
+		}
+	
+        // 10. Search for an element
+        int key = 7;
+        if (search(head, key)) {
+            System.out.println("Element " + key + " found in the list");
+        } else {
+            System.out.println("Element " + key + " not found in the list");
+        }
+
+        // 11. Reverse the list
+        head = reverse(head);
+        System.out.println("List after reversing: ");
+        traverse(head);
+
+        // 12. Get the size of the list
+        System.out.println("Size of the list: " + size(head));
+		
+		// 13. Get element at a specific index
+		int indexToGet = 2;
+		int value = get(head, indexToGet);
+		if (value != -1) {
+			System.out.println("Element at index " + indexToGet + ": " + value);
+		}
+
+		// 14. Set value at a specific index
+		int indexToSet = 1;
+		int newValue = 25;
+		System.out.println("Setting value at index " + indexToSet + " to " + newValue);
+		set(head, indexToSet, newValue);
+		
+		System.out.println("Updated list after set operation:");
+		traverse(head);
+	
+		// 15. Sort the list
+        head = sort(head);
+
+        System.out.println("Sorted list:");
+		traverse(head);
+		
+        // 16. Clear the list
+        head = clear(head);
+        System.out.println("List after clearing: ");
+        traverse(head);
+    }
+}</code></pre>
+		
+		<p>Here is the Non-Generic circular singly linked list implementation in C#:</p>
+		
+		<pre><code class="language-java hljs">using System;
+
+public class CircularLinkedList
+{
+    // Node structure for circular singly linked list
+    public class Node
+    {
+        public int Data;
+        public Node Next;
+
+        // Constructor to create a new node
+        public Node(int data)
+        {
+            Data = data;
+            Next = null;
+        }
+    }
+
+    // Insert at the beginning
+    public static Node InsertAtBeginning(Node head, int data)
+    {
+        Node newNode = new Node(data);
+        if (head == null)
+        {
+            newNode.Next = newNode; // Circular link to itself if list is empty
+            return newNode;
+        }
+
+        Node temp = head;
+        // Traverse to the last node to point it to the new node
+        while (temp.Next != head)
+        {
+            temp = temp.Next;
+        }
+
+        temp.Next = newNode;
+        newNode.Next = head; // Link the new node to head
+        return newNode;
+    }
+
+    // Insert at the end
+    public static Node InsertAtEnd(Node head, int data)
+    {
+        Node newNode = new Node(data);
+        if (head == null)
+        {
+            newNode.Next = newNode; // Circular link to itself if list is empty
+            return newNode;
+        }
+
+        Node temp = head;
+        // Traverse to the last node
+        while (temp.Next != head)
+        {
+            temp = temp.Next;
+        }
+
+        temp.Next = newNode;
+        newNode.Next = head; // Link the new node to head
+        return head;
+    }
+
+    // Insert at a specific position
+    public static Node InsertAtPosition(Node head, int data, int position)
+    {
+        Node newNode = new Node(data);
+        if (position == 0)
+        {
+            return InsertAtBeginning(head, data);
+        }
+
+        Node temp = head;
+        int count = 0;
+        // Traverse to the position where new node should be inserted
+        while (temp.Next != head && count &lt; position - 1)
+        {
+            temp = temp.Next;
+            count++;
+        }
+
+        if (count != position - 1)
+        {
+            Console.WriteLine("Position out of bounds");
+            return head;
+        }
+
+        newNode.Next = temp.Next;
+        temp.Next = newNode;
+        return head;
+    }
+
+    // Insert after a given node
+    public static void InsertAfterNode(Node prevNode, int data)
+    {
+        if (prevNode == null)
+        {
+            Console.WriteLine("The given previous node cannot be null");
+            return;
+        }
+
+        Node newNode = new Node(data);
+        newNode.Next = prevNode.Next;
+        prevNode.Next = newNode;
+    }
+
+    // Insert before a given node
+    public static Node InsertBeforeNode(Node head, Node nextNode, int data)
+    {
+        if (nextNode == null)
+        {
+            Console.WriteLine("The given next node cannot be null");
+            return head;
+        }
+
+        if (head == nextNode)
+        {
+            return InsertAtBeginning(head, data);
+        }
+
+        Node temp = head;
+        while (temp.Next != head && temp.Next != nextNode)
+        {
+            temp = temp.Next;
+        }
+
+        if (temp.Next == nextNode)
+        {
+            Node newNode = new Node(data);
+            newNode.Next = nextNode;
+            temp.Next = newNode;
+        }
+        else
+        {
+            Console.WriteLine("The given next node is not present in the list");
+        }
+
+        return head;
+    }
+
+    // Delete at the beginning
+    public static Node DeleteAtBeginning(Node head)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return null;
+        }
+
+        if (head.Next == head) // Only one node in the list
+        {
+            return null;
+        }
+
+        Node temp = head;
+        // Traverse to the last node to point it to the second node
+        while (temp.Next != head)
+        {
+            temp = temp.Next;
+        }
+
+        temp.Next = head.Next;
+        return head.Next; // New head is the next node
+    }
+
+    // Delete at the end
+    public static Node DeleteAtEnd(Node head)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return null;
+        }
+
+        if (head.Next == head) // Only one node in the list
+        {
+            return null;
+        }
+
+        Node temp = head;
+        while (temp.Next.Next != head)
+        {
+            temp = temp.Next;
+        }
+
+        temp.Next = head; // Last node points to the head again
+        return head;
+    }
+
+    // Delete at a specific position
+    public static Node DeleteAtPosition(Node head, int position)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return null;
+        }
+
+        if (position == 0)
+        {
+            return DeleteAtBeginning(head);
+        }
+
+        Node temp = head;
+        int count = 0;
+        while (temp.Next != head && count &lt; position - 1)
+        {
+            temp = temp.Next;
+            count++;
+        }
+
+        if (count != position - 1)
+        {
+            Console.WriteLine("Position out of bounds");
+            return head;
+        }
+
+        temp.Next = temp.Next.Next;
+        return head;
+    }
+	
+	// Check if the list is empty
+	public static bool IsEmpty(Node head)
+	{
+		return head == null;
+	}
+	
+    // Traverse the circular list
+    public static void Traverse(Node head)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty.");
+            return;
+        }
+
+        Node temp = head;
+        do
+        {
+            Console.Write(temp.Data + " -&gt; ");
+            temp = temp.Next;
+        } while (temp != head);
+        Console.WriteLine("(head)");
+    }
+    
+    // Function to get an element at a specific index (0-based)
+    public static int Get(Node head, int index)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return -1;
+        }
+    
+        Node temp = head;
+        int count = 0;
+    
+        do
+        {
+            if (count == index)
+                return temp.Data;  // Return the data at the specified index
+            count++;
+            temp = temp.Next;
+        } while (temp != head);
+    
+        Console.WriteLine("Index out of range");
+        return -1;  // If index is out of bounds
+    }
+    
+    // Function to set an element at a specific index (0-based)
+    public static void Set(Node head, int index, int newValue)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");
+            return;
+        }
+    
+        Node temp = head;
+        int count = 0;
+    
+        do
+        {
+            if (count == index)
+            {
+                temp.Data = newValue;  // Set the new value at the specified index
+                return;
+            }
+            count++;
+            temp = temp.Next;
+        } while (temp != head);
+    
+        Console.WriteLine("Index out of range");  // If index is out of bounds
+    }
+
+    // Search for an element in the circular list
+    public static bool Search(Node head, int key)
+    {
+        if (head == null)
+        {
+            return false;
+        }
+
+        Node temp = head;
+        do
+        {
+            if (temp.Data == key)
+            {
+                return true;
+            }
+            temp = temp.Next;
+        } while (temp != head);
+
+        return false;
+    }
+
+    // Reverse the circular linked list
+    public static Node Reverse(Node head)
+    {
+        if (head == null || head.Next == head)
+        {
+            return head; // No reversal needed for empty or single-node list
+        }
+
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+
+        do
+        {
+            next = current.Next;
+            current.Next = prev;
+            prev = current;
+            current = next;
+        } while (current != head);
+
+        head.Next = prev; // Circular link
+        return prev; // New head
+    }
+
+    // Get the size of the circular list
+    public static int Size(Node head)
+    {
+        if (head == null)
+        {
+            return 0;
+        }
+
+        int count = 0;
+        Node temp = head;
+        do
+        {
+            count++;
+            temp = temp.Next;
+        } while (temp != head);
+
+        return count;
+    }
+    
+    // Function to merge two sorted circular linked lists
+    public static Node Merge(Node head1, Node head2)
+    {
+        if (head1 == null) return head2;
+        if (head2 == null) return head1;
+    
+        Node dummy = new Node(0); // Temporary dummy node
+        Node tail = dummy;
+        Node first1 = head1, first2 = head2;
+    
+        do
+        {
+            Node newNode;
+            if (head1 != null && (head2 == null || head1.Data &lt;= head2.Data))
+            {
+                newNode = new Node(head1.Data);
+                head1 = head1.Next;
+                if (head1 == first1) head1 = null;
+            }
+            else
+            {
+                newNode = new Node(head2.Data);
+                head2 = head2.Next;
+                if (head2 == first2) head2 = null;
+            }
+    
+            tail.Next = newNode;
+            tail = newNode;
+    
+        } while (head1 != null || head2 != null);
+    
+        // Make the merged list circular
+        tail.Next = dummy.Next;
+        return dummy.Next;
+    }
+    
+    // Function to find the middle node of a circular linked list
+    public static Node Middle(Node head)
+    {
+        if (head == null || head.Next == head) return head;
+    
+        Node slow = head, fast = head;
+        while (fast.Next != head && fast.Next.Next != head)
+        {
+            fast = fast.Next.Next;
+            slow = slow.Next;
+        }
+        return slow;
+    }
+    
+    // Function to sort a circular linked list using merge sort
+    public static Node Sort(Node head)
+    {
+        if (head == null || head.Next == head) return head;
+    
+        Node mid = Middle(head);
+        Node secondHalf = mid.Next;
+        mid.Next = head;  // Break circularity for the first half
+    
+        // Find last node of second half and break circularity
+        Node temp = secondHalf;
+        while (temp.Next != head) temp = temp.Next;
+        temp.Next = secondHalf;
+    
+        // Recursively sort both halves
+        Node firstSorted = Sort(head);
+        Node secondSorted = Sort(secondHalf);
+    
+        // Merge both halves
+        return Merge(firstSorted, secondSorted);
+    }
+
+    // Clear the circular linked list
+	public static Node Clear(Node head)
+	{
+		if (head == null)
+		{
+			Console.WriteLine("List is already empty.");
+			return null;
+		}
+
+		Node current = head;
+		do
+		{
+			Node next = current.Next; // Save the next node
+			current.Next = null;      // Break the link to the next node
+			current = next;           // Move to the next node
+		} while (current != head);    // Loop until we reach the head node again
+
+		return null;  // Return null to indicate the list is empty
+	}
+
+
+    // Main method to test
+    public static void Main(string[] args)
+    {
+        Node head = null;
+
+        // 1. Insert elements at the beginning
+        head = InsertAtBeginning(head, 5);
+        head = InsertAtBeginning(head, 10);
+        head = InsertAtBeginning(head, 3);
+
+        Console.WriteLine("List after inserting at the beginning:");
+        Traverse(head);
+
+        // 2. Insert element at the end
+        head = InsertAtEnd(head, 7);
+        head = InsertAtEnd(head, 2);
+
+        Console.WriteLine("List after inserting at the end:");
+        Traverse(head);
+
+        // 3. Insert at a specific position
+        head = InsertAtPosition(head, 4, 2);
+        Console.WriteLine("List after inserting at position 2:");
+        Traverse(head);
+
+        // 4. Insert after a specific node
+        InsertAfterNode(head.Next, 8);
+        Console.WriteLine("List after inserting 8 after second node:");
+        Traverse(head);
+
+        // 5. Insert before a specific node
+        head = InsertBeforeNode(head, head.Next, 12);
+        Console.WriteLine("List after inserting 12 before second node:");
+        Traverse(head);
+
+        // 6. Delete at the beginning
+        head = DeleteAtBeginning(head);
+        Console.WriteLine("List after deleting at the beginning:");
+        Traverse(head);
+
+        // 7. Delete at the end
+        head = DeleteAtEnd(head);
+        Console.WriteLine("List after deleting at the end:");
+        Traverse(head);
+
+        // 8. Delete at a specific position
+        head = DeleteAtPosition(head, 2);
+        Console.WriteLine("List after deleting at position 2:");
+        Traverse(head);
+		
+		// 9. Check if the list is empty
+		if (IsEmpty(head))
+		{
+			Console.WriteLine("The list is empty.");
+		}
+		else
+		{
+			Console.WriteLine("The list is not empty.");
+		}
+
+        // 10. Search for an element
+        int key = 7;
+        if (Search(head, key))
+        {
+            Console.WriteLine($"Element {key} found in the list");
+        }
+        else
+        {
+            Console.WriteLine($"Element {key} not found in the list");
+        }
+
+        // 11. Reverse the list
+        head = Reverse(head);
+        Console.WriteLine("List after reversing:");
+        Traverse(head);
+
+        // 12. Get the size of the list
+        Console.WriteLine("Size of the list: " + Size(head));
+		
+		// 13. Get value at a specific index
+		int indexToGet = 2;  // 0-based index
+		int value = Get(head, indexToGet);
+		Console.WriteLine($"Value at index {indexToGet}: {value}");
+
+		// 14. Set a new value at a specific index
+		int indexToSet = 2;  // 0-based index
+		int newValue = 99;
+		Set(head, indexToSet, newValue);
+
+		Console.WriteLine($"List after setting index {indexToSet} to {newValue}:");
+		Traverse(head);
+	
+        // 15. Sort the list
+        head = Sort(head);
+        Console.WriteLine("Sorted list:");
+        Traverse(head);
+
+        // 16. Clear the list
+        head = Clear(head);
+        Console.WriteLine("List after clearing:");
+        Traverse(head);
+    }
+}</code></pre>
+		
+		<h3 class="post-subtitle">Generic Circular Singly Linked List Implementation</h3>
+		
+		<p>Here is the Generic circular singly linked list implementation in C:</p>
+        
+        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+// StackElement structure to hold data and a toString function pointer
+typedef struct {
+    void* data;           // Pointer to hold the actual data
+    char* toString;       // This will be modified to hold the string representation
+} StackElement;
+
+// Node structure for circular singly linked list
+typedef struct Node {
+    StackElement element;
+    struct Node* next;     // Pointer to the next node
+} Node;
+
+// Function to create a new node
+Node* createNode(StackElement element) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode-&gt;element = element;
+    newNode-&gt;next = newNode; // In circular list, the node points to itself initially
+    return newNode;
+}
+
+// Function to insert a node at the beginning of the list (in a circular way)
+void insertAtBeginning(Node** head, StackElement element) {
+    Node* newNode = createNode(element);
+
+    if (*head == NULL) {
+        *head = newNode;
+    } else {
+        Node* temp = *head;
+        // Find the last node (which points to the head)
+        while (temp-&gt;next != *head) {
+            temp = temp-&gt;next;
+        }
+        temp-&gt;next = newNode;  // Set the last node's next to new node
+        newNode-&gt;next = *head; // New node points to head
+        *head = newNode;       // Update head to the new node
+    }
+}
+
+// Function to insert a node at the end of the list (in a circular way)
+void insertAtEnd(Node** head, StackElement element) {
+    Node* newNode = createNode(element);
+
+    if (*head == NULL) {
+        *head = newNode;
+    } else {
+        Node* temp = *head;
+        // Find the last node
+        while (temp-&gt;next != *head) {
+            temp = temp-&gt;next;
+        }
+        temp-&gt;next = newNode;  // Set the last node's next to new node
+        newNode-&gt;next = *head; // New node points to head
+    }
+}
+
+// Function to insert a node after a given previous node
+void insertAfterNode(Node* prevNode, StackElement element) {
+    // Check if the previous node is NULL
+    if (prevNode == NULL) {
+        printf("The given previous node cannot be NULL\n");
+        return;
+    }
+
+    // Create the new node with the given StackElement
+    Node* newNode = createNode(element);
+
+    // Insert the new node after prevNode
+    newNode-&gt;next = prevNode-&gt;next;
+    prevNode-&gt;next = newNode;
+}
+
+// Function to insert a node before a given next node
+void insertBeforeNode(Node** head, Node* nextNode, StackElement element) {
+    // Check if the head is NULL (list is empty)
+    if (*head == NULL) {
+        printf("The list cannot be empty\n");
+        return;
+    }
+
+    // Check if the nextNode is NULL
+    if (nextNode == NULL) {
+        printf("The given next node cannot be NULL\n");
+        return;
+    }
+
+    // Create the new node with the given StackElement
+    Node* newNode = createNode(element);
+
+    // If the nextNode is the head node, handle the insertion at beginning
+    if (*head == nextNode) {
+        // Insert the new node before the head node
+        Node* temp = *head;
+        while (temp-&gt;next != *head) { // Find the last node
+            temp = temp-&gt;next;
+        }
+        temp-&gt;next = newNode;
+        newNode-&gt;next = *head;
+        *head = newNode;
+        return;
+    }
+
+    Node* temp = *head;
+    while (temp != NULL && temp-&gt;next != nextNode) {
+        temp = temp-&gt;next;
+    }
+
+    // If temp is NULL, then nextNode is not found in the list
+    if (temp == NULL) {
+        printf("The given next node is not found in the list\n");
+        free(newNode);
+        return;
+    }
+
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Function to insert a node at a specific position in a circular singly linked list
+void insertAtPosition(Node** head, StackElement element, int position) {
+    // Create the new node with the given StackElement
+    Node* newNode = createNode(element);
+
+    // If the list is empty and position is 0, insert as the only node
+    if (*head == NULL) {
+        if (position == 0) {
+            *head = newNode;
+            newNode-&gt;next = *head; // Make it circular
+        } else {
+            printf("Position out of bounds\n");
+        }
+        return;
+    }
+
+    // If position is at the beginning (position 0)
+    if (position == 0) {
+        Node* temp = *head;
+        // Find the last node (that points to the head)
+        while (temp-&gt;next != *head) {
+            temp = temp-&gt;next;
+        }
+        // Insert the new node at the beginning
+        temp-&gt;next = newNode;
+        newNode-&gt;next = *head;
+        *head = newNode;
+        return;
+    }
+
+    // Traverse the list to find the correct position
+    Node* temp = *head;
+    for (int i = 0; i &lt; position - 1 && temp-&gt;next != *head; i++) {
+        temp = temp-&gt;next;
+    }
+
+    // If position is greater than the number of nodes in the list
+    if (temp-&gt;next == *head && position &gt; 0) {
+        printf("Position out of bounds\n");
+        free(newNode);
+        return;
+    }
+
+    // Insert the new node at the specified position
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+
+// Function to delete the first node
+void deleteAtBeginning(Node** head) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    if (*head == (*head)-&gt;next) {
+        free(*head);
+        *head = NULL;
+    } else {
+        Node* temp = *head;
+        // Find the last node
+        while (temp-&gt;next != *head) {
+            temp = temp-&gt;next;
+        }
+        temp-&gt;next = (*head)-&gt;next; // Last node points to the second node
+        free(*head);
+        *head = temp-&gt;next;
+    }
+}
+
+// Function to delete the last node
+void deleteAtEnd(Node** head) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    if (*head == (*head)-&gt;next) {
+        free(*head);
+        *head = NULL;
+    } else {
+        Node* temp = *head;
+        // Traverse to the second-last node
+        while (temp-&gt;next-&gt;next != *head) {
+            temp = temp-&gt;next;
+        }
+        free(temp-&gt;next);       // Free the last node
+        temp-&gt;next = *head;     // Set the second-last node's next to head
+    }
+}
+
+// Function to delete a node at a specific position
+void deleteAtPosition(Node** head, int position) {
+    if (*head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    if (position == 0) {
+        deleteAtBeginning(head);
+        return;
+    }
+
+    Node* temp = *head;
+    for (int i = 0; i &lt; position - 1 && temp != NULL; i++) {
+        temp = temp-&gt;next;
+    }
+
+    if (temp == NULL || temp-&gt;next == *head) {
+        printf("Position out of bounds\n");
+        return;
+    }
+
+    Node* nodeToDelete = temp-&gt;next;
+    temp-&gt;next = nodeToDelete-&gt;next;
+    free(nodeToDelete);
+}
+
+// Function to traverse the list and print all elements
+void traverse(Node* head) {
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    Node* temp = head;
+    do {
+        printf("%s -&gt; ", temp-&gt;element.toString);
+        temp = temp-&gt;next;
+    } while (temp != head);
+    printf("HEAD\n"); // To signify it's a circular list
+}
+
+// Function to search for an element in the list
+int search(Node* head, StackElement keyElement) {
+    if (head == NULL) {
+        return 0;
+    }
+
+    Node* temp = head;
+    do {
+        if (strcmp(temp-&gt;element.toString, keyElement.toString) == 0) {
+            return 1; // Found
+        }
+        temp = temp-&gt;next;
+    } while (temp != head);
+
+    return 0; // Not found
+}
+
+// Function to reverse the circular linked list (O(n) time complexity)
+void reverse(Node** head) {
+    if (*head == NULL || (*head)-&gt;next == *head) {
+        return;
+    }
+
+    Node *prev = NULL, *current = *head, *next = NULL;
+    do {
+        next = current-&gt;next;
+        current-&gt;next = prev;
+        prev = current;
+        current = next;
+    } while (current != *head);
+
+    (*head)-&gt;next = prev;
+    *head = prev;
+}
+
+// Function to get the size of the list
+int size(Node* head) {
+    int size = 0;
+    if (head == NULL) return size;
+
+    Node* temp = head;
+    do {
+        size++;
+        temp = temp-&gt;next;
+    } while (temp != head);
+
+    return size;
+}
+// Function to check if the list is empty
+int isEmpty(Node* head) {
+    return head == NULL;
+}
+// Function to access an element at a specific index (0-based)
+StackElement get(Node* head, int index) {
+    int count = 0;
+    Node* temp = head;
+
+    // If the list is empty
+    if (head == NULL) {
+        StackElement emptyElement = {NULL, ""};
+        return emptyElement; // Return empty element if the list is empty
+    }
+
+    // Traverse the list
+    do {
+        if (count == index) {
+            return temp-&gt;element;  // Found the element at the specified index
+        }
+        count++;
+        temp = temp-&gt;next;
+    } while (temp != head);  // Stop when we loop back to the head node
+
+    // If the index is out of range
+    StackElement emptyElement = {NULL, ""};
+    return emptyElement;
+}
+// Function to set an element at a specific index (0-based)
+void set(Node* head, int index, StackElement element) {
+    Node* current = head;
+    int count = 0;
+
+    // If the list is empty
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    // Traverse the list
+    do {
+        if (count == index) {
+            current-&gt;element = element;  // Update the node's value
+            return;  // Exit after updating
+        }
+        count++;
+        current = current-&gt;next;
+    } while (current != head);  // Stop when we loop back to the head node
+
+    printf("Index out of range\n");  // Handle case where index exceeds list length
+}
+// Function to find the middle of a circular singly linked list
+void middle(Node** mid, Node* head) {
+    if (head == NULL || head-&gt;next == head) {
+        *mid = head;
+        return;
+    }
+
+    Node* slow = head;
+    Node* fast = head;
+
+    // Move fast two steps and slow one step
+    while (fast-&gt;next != head && fast-&gt;next-&gt;next != head) {
+        fast = fast-&gt;next-&gt;next;
+        slow = slow-&gt;next;
+    }
+
+    *mid = slow;
+}
+
+// Function to merge two circular linked lists
+void merge(Node** headRef, Node* head1, Node* head2) {
+    Node* tempHead = NULL, *last = NULL;
+    Node* first1 = head1, *first2 = head2;
+    
+    printf("Starting merge...\n");
+
+    if (head1 == NULL) {
+        printf("First list is empty. Returning a new node from the second list.\n");
+        Node* newNode = createNode(head2-&gt;element); // Create a new node with the data of the first node of head2
+        *headRef = newNode; // Set the new node as the head
+        head2 = head2-&gt;next;
+        if (head2 == first2) head2 = NULL; // Handle circular structure
+        return;
+    }
+    if (head2 == NULL) {
+        printf("Second list is empty. Returning a new node from the first list.\n");
+        Node* newNode = createNode(head1-&gt;element); // Create a new node with the data of the first node of head1
+        *headRef = newNode; // Set the new node as the head
+        head1 = head1-&gt;next;
+        if (head1 == first1) head1 = NULL; // Handle circular structure
+        return;
+    }
+
+    printf("Both lists are non-empty. Merging...\n");
+
+    do {
+        Node* newNode;
+        if (head1 && (head2 == NULL || strcmp(head1-&gt;element.toString, head2-&gt;element.toString) &lt;= 0)) {
+            printf("Adding node from List 1: %s\n", head1-&gt;element.toString);
+            newNode = createNode(head1-&gt;element);
+            head1 = head1-&gt;next;
+            if (head1 == first1) {
+                printf("End of List 1 reached.\n");
+                head1 = NULL;  // Stop merging this list
+            }
+        } else {
+            printf("Adding node from List 2: %s\n", head2-&gt;element.toString);
+            newNode = createNode(head2-&gt;element);
+            head2 = head2-&gt;next;
+            if (head2 == first2) {
+                printf("End of List 2 reached.\n");
+                head2 = NULL;
+            }
+        }
+
+        if (!tempHead) {
+            tempHead = newNode;
+            printf("New head node created: %s\n", tempHead-&gt;element.toString);
+        } else {
+            last-&gt;next = newNode;
+        }
+        last = newNode;
+    } while (head1 != NULL || head2 != NULL);
+
+    // Make the list circular
+    last-&gt;next = tempHead;
+    *headRef = tempHead;
+    printf("Merge completed. Circular list created with head: %s\n", (*headRef)-&gt;element.toString);
+}
+
+// Function to sort a circular singly linked list (Merge Sort)
+void sort(Node** headRef) {
+    if (*headRef == NULL || (*headRef)-&gt;next == *headRef)
+        return;
+
+    Node* head = *headRef;
+    Node* mid = NULL;
+    middle(&mid, head);
+
+    Node* nextToMid = mid-&gt;next;
+    mid-&gt;next = head; // Break circularity for first half
+    Node* secondHalf = nextToMid;
+
+    // Find last node of second half
+    while (secondHalf-&gt;next != head)
+        secondHalf = secondHalf-&gt;next;
+    
+    secondHalf-&gt;next = nextToMid; // Break circularity for second half
+
+    // Sort both halves
+    sort(&head);
+    sort(&nextToMid);
+
+    // Merge sorted halves
+    merge(headRef, head, nextToMid);
+}
+// Function to clear the entire linked list and free memory
+void clear(Node** head) {
+    if (*head == NULL) return;
+
+    Node* current = *head;
+    Node* next = NULL;
+    do {
+        next = current-&gt;next;
+        free(current);
+        current = next;
+    } while (current != *head);
+
+    *head = NULL;
+}
+struct Person {
+    char name[20];
+    int age;
+};
+int main() {
+    // Create People
+    struct Person alice = {"Alice", 30};
+    struct Person john = {"John", 19};
+    struct Person albert = {"Albert", 28};
+    struct Person robert = {"Robert", 20};
+
+    // Create StackElement for people
+    StackElement personElement1 = {&alice, "Person{name:\"Alice\", age:30}"};
+    StackElement personElement2 = {&john, "Person{name:\"John\", age:19}"};
+    StackElement personElement3 = {&albert, "Person{name:\"Albert\", age:28}"};
+    StackElement personElement4 = {&robert, "Person{name:\"Robert\", age:20}"};
+
+    // Initialize Linked List
+    Node* personList = NULL;
+
+    // 1. **Insert elements at the beginning**
+    insertAtBeginning(&personList, personElement1);
+    insertAtBeginning(&personList, personElement2);
+	
+	// 2. Insert elements at the end
+    insertAtEnd(&personList, personElement3);
+    insertAtEnd(&personList, personElement4);
+    printf("\nList after inserting elements:\n");
+    traverse(personList);
+
+    // 3. **Insert at a specific position**
+    StackElement newElement = {&alice, "Person{name:\"Eve\", age:22}"};
+    insertAtPosition(&personList, newElement, 2);
+    printf("\nList after inserting at position 2:\n");
+    traverse(personList);
+
+    // 4. **Insert before a node**
+    insertBeforeNode(&personList, personList-&gt;next, newElement);
+    printf("\nList after inserting before second node:\n");
+    traverse(personList);
+
+    // 5. **Insert after a node**
+    insertAfterNode(personList-&gt;next, newElement);
+    printf("\nList after inserting after second node:\n");
+    traverse(personList);
+
+    // 6. **Delete the first node**
+    deleteAtBeginning(&personList);
+    printf("\nList after deleting first node:\n");
+    traverse(personList);
+
+    // 7. **Delete the last node**
+    deleteAtEnd(&personList);
+    printf("\nList after deleting last node:\n");
+    traverse(personList);
+
+    // 8. **Delete at a specific position**
+    deleteAtPosition(&personList, 1);
+    printf("\nList after deleting node at position 1:\n");
+    traverse(personList);
+
+    // 9. **Search for an element**
+    int found = search(personList, personElement3);
+    printf("\nSearch result for 'Albert': %s\n", found ? "Found" : "Not Found");
+
+    // 10. **Get size of list**
+    printf("\nSize of the list: %d\n", size(personList));
+
+    // 11. **Check if list is empty**
+    printf("\nIs the list empty? %s\n", isEmpty(personList) ? "Yes" : "No");
+
+    // 12. **Access an element by index**
+    StackElement retrievedElement = get(personList, 1);
+    printf("\nElement at index 1: %s\n", retrievedElement.toString);
+
+    // 13. **Modify an element at an index**
+    StackElement modifiedElement = {&john, "Person{name:\"Updated John\", age:25}"};
+    set(personList, 1, modifiedElement);
+    printf("\nList after updating element at index 1:\n");
+    traverse(personList);
+
+    // 14. **Sort the linked list**
+    sort(&personList);
+    printf("\nList after sorting:\n");
+    traverse(personList);
+
+    // 15. **Reverse the linked list**
+    reverse(&personList);
+    printf("\nList after reversing:\n");
+    traverse(personList);
+
+    // 16. **Clear the list**
+    clear(&personList);
+    printf("\nList after clearing:\n");
+    traverse(personList);
+
+    return 0;
+}</code></pre>
+		
+		<p>Here is the Generic circular singly linked list implementation in C++:</p>
+		
+		<pre><code class="language-cpp hljs">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+// Node structure for circular singly linked list template
+template &lt;typename T&gt;
+struct Node {
+    T data;
+    Node* next;
+
+    // Constructor to create a new node
+    Node(T data) : data(data), next(nullptr) {}
+};
+
+// Insert at the beginning
+template &lt;typename T&gt;
+void insertAtBeginning(Node&lt;T&gt;*& head, T data) {
+    Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+    if (!head) {
+        head = newNode;
+        newNode-&gt;next = head;
+    } else {
+        Node&lt;T&gt;* temp = head;
+        while (temp-&gt;next != head)
+            temp = temp-&gt;next;
+        temp-&gt;next = newNode;
+        newNode-&gt;next = head;
+        head = newNode;
+    }
+}
+
+// Insert at the end
+template &lt;typename T&gt;
+void insertAtEnd(Node&lt;T&gt;*& head, T data) {
+    Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+    if (!head) {
+        head = newNode;
+        newNode-&gt;next = head;
+    } else {
+        Node&lt;T&gt;* temp = head;
+        while (temp-&gt;next != head)
+            temp = temp-&gt;next;
+        temp-&gt;next = newNode;
+        newNode-&gt;next = head;
+    }
+}
+
+// Function to insert a node after a given previous node
+template &lt;typename T&gt;
+void insertAfterNode(Node&lt;T&gt;* prevNode, T element) {
+    if (prevNode == nullptr) {
+        cout &lt;&lt; "The given previous node cannot be NULL\n";
+        return;
+    }
+    Node&lt;T&gt;* newNode = new Node&lt;T&gt;(element);
+    newNode-&gt;next = prevNode-&gt;next;
+    prevNode-&gt;next = newNode;
+}
+
+// Function to insert a node before a given next node
+template &lt;typename T&gt;
+void insertBeforeNode(Node&lt;T&gt;*& head, Node&lt;T&gt;* nextNode, T element) {
+    if (head == nullptr) {
+        cout &lt;&lt; "The list cannot be empty\n";
+        return;
+    }
+    if (nextNode == nullptr) {
+        cout &lt;&lt; "The given next node cannot be NULL\n";
+        return;
+    }
+
+    Node&lt;T&gt;* newNode = new Node&lt;T&gt;(element);
+    if (head == nextNode) { // Insert before head
+        Node&lt;T&gt;* temp = head;
+        while (temp-&gt;next != head) {
+            temp = temp-&gt;next;
+        }
+        temp-&gt;next = newNode;
+        newNode-&gt;next = head;
+        head = newNode;
+        return;
+    }
+
+    Node&lt;T&gt;* temp = head;
+    do {
+        if (temp-&gt;next == nextNode) {
+            newNode-&gt;next = temp-&gt;next;
+            temp-&gt;next = newNode;
+            return;
+        }
+        temp = temp-&gt;next;
+    } while (temp != head);
+    
+    cout &lt;&lt; "The given next node is not found in the list\n";
+    delete newNode;
+}
+
+// Insert at a specific position
+template &lt;typename T&gt;
+void insertAtPosition(Node&lt;T&gt;*& head, T data, int position) {
+    Node&lt;T&gt;* newNode = new Node&lt;T&gt;(data);
+    if (position == 0) {
+        if (head == nullptr) {
+            head = newNode;
+            newNode-&gt;next = head; // Circular link
+        } else {
+            Node&lt;T&gt;* temp = head;
+            while (temp-&gt;next != head) {
+                temp = temp-&gt;next;
+            }
+            temp-&gt;next = newNode;
+            newNode-&gt;next = head;
+            head = newNode;
+        }
+        return;
+    }
+    
+    Node&lt;T&gt;* temp = head;
+    for (int i = 0; i &lt; position - 1; i++) {
+        temp = temp-&gt;next;
+        if (temp == head) {
+            cout &lt;&lt; "Position out of bounds\n";
+            delete newNode;
+            return;
+        }
+    }
+    newNode-&gt;next = temp-&gt;next;
+    temp-&gt;next = newNode;
+}
+
+// Delete at the beginning
+template &lt;typename T&gt;
+void deleteAtBeginning(Node&lt;T&gt;*& head) {
+    if (!head) return;
+    if (head-&gt;next == head) {
+        delete head;
+        head = nullptr;
+        return;
+    }
+    Node&lt;T&gt;* temp = head;
+    Node&lt;T&gt;* last = head;
+    while (last-&gt;next != head)
+        last = last-&gt;next;
+    head = head-&gt;next;
+    last-&gt;next = head;
+    delete temp;
+}
+
+// Delete at the end
+template &lt;typename T&gt;
+void deleteAtEnd(Node&lt;T&gt;*& head) {
+    if (!head) return;
+    if (head-&gt;next == head) {
+        delete head;
+        head = nullptr;
+        return;
+    }
+    Node&lt;T&gt;* temp = head;
+    while (temp-&gt;next-&gt;next != head)
+        temp = temp-&gt;next;
+    delete temp-&gt;next;
+    temp-&gt;next = head;
+}
+
+// Delete at a specific position in a Circular Singly Linked List
+template &lt;typename T&gt;
+void deleteAtPosition(Node&lt;T&gt;*& head, int position) {
+    if (head == nullptr) {
+        cout &lt;&lt; "List is empty\n";
+        return;
+    }
+
+    Node&lt;T&gt;* temp = head;
+    // If deleting the head node
+    if (position == 0) {
+        // If the list has only one node
+        if (head-&gt;next == head) {
+            delete head;
+            head = nullptr;
+            return;
+        }
+
+        // Find the last node to update its next pointer
+        Node&lt;T&gt;* last = head;
+        while (last-&gt;next != head) {
+            last = last-&gt;next;
+        }
+
+        last-&gt;next = head-&gt;next;
+        Node&lt;T&gt;* toDelete = head;
+        head = head-&gt;next;
+        delete toDelete;
+        return;
+    }
+
+    // Traverse to the node before the one to be deleted
+    Node&lt;T&gt;* prev = head;
+    for (int i = 0; i &lt; position - 1 && prev-&gt;next != head; i++) {
+        prev = prev-&gt;next;
+    }
+
+    if (prev-&gt;next == head) {
+        cout &lt;&lt; "Position out of bounds\n";
+        return;
+    }
+
+    // Delete the node
+    Node&lt;T&gt;* toDelete = prev-&gt;next;
+    prev-&gt;next = toDelete-&gt;next;
+    delete toDelete;
+}
+
+// check if the list is empty
+template &lt;typename T&gt;
+bool isEmpty(Node&lt;T&gt;* head) {
+    return head == nullptr;
+}
+
+// Traverse the list
+template &lt;typename T&gt;
+void traverse(Node&lt;T&gt;* head) {
+    if (!head) {
+        cout &lt;&lt; "NULL\n";
+        return;
+    }
+    Node&lt;T&gt;* temp = head;
+    do {
+        cout &lt;&lt; (temp-&gt;data).toString() &lt;&lt; " -&gt; ";
+        temp = temp-&gt;next;
+    } while (temp != head);
+    cout &lt;&lt; "(head)\n";
+}
+
+// Search for an element in a Circular Singly Linked List
+template &lt;typename T&gt;
+bool search(Node&lt;T&gt;* head, T key) {
+    if (head == nullptr) return false; // Empty list
+
+    Node&lt;T&gt;* temp = head;
+    do {
+        if (temp-&gt;data == key)
+            return true;
+        temp = temp-&gt;next;
+    } while (temp != head); // Loop until we reach the head again
+
+    return false;
+}
+
+// Reverse a Circular Singly Linked List
+template &lt;typename T&gt;
+void reverse(Node&lt;T&gt;*& head) {
+    if (head == nullptr || head-&gt;next == head) return; // Empty list or single node
+
+    Node&lt;T&gt;* prev = nullptr;
+    Node&lt;T&gt;* current = head;
+    Node&lt;T&gt;* next = nullptr;
+    Node&lt;T&gt;* tail = head; // Keep track of the last node
+
+    do {
+        next = current-&gt;next;
+        current-&gt;next = prev;
+        prev = current;
+        current = next;
+    } while (current != head);
+
+    // Fix head and tail pointers
+    head-&gt;next = prev;  // Make original head's next point to new head
+    head = prev;        // Update head to new first element
+}
+
+// Get the size of a Circular Singly Linked List
+template &lt;typename T&gt;
+int size(Node&lt;T&gt;* head) {
+    if (head == nullptr) return 0; // Empty list
+
+    int count = 0;
+    Node&lt;T&gt;* temp = head;
+    do {
+        count++;
+        temp = temp-&gt;next;
+    } while (temp != head);
+
+    return count;
+}
+
+// Get an element at a specific index in a Circular Singly Linked List
+template &lt;typename T&gt;
+T get(Node&lt;T&gt;* head, int index) {
+    if (head == nullptr) throw out_of_range("Index out of range");
+
+    Node&lt;T&gt;* temp = head;
+    int count = 0;
+
+    do {
+        if (count == index)
+            return temp-&gt;data;
+        count++;
+        temp = temp-&gt;next;
+    } while (temp != head);
+
+    throw out_of_range("Index out of range");
+}
+
+
+// Set an element at a specific index in a Circular Singly Linked List
+template &lt;typename T&gt;
+void set(Node&lt;T&gt;* head, int index, T element) {
+    if (head == nullptr) throw out_of_range("Index out of range");
+
+    Node&lt;T&gt;* temp = head;
+    int count = 0;
+
+    do {
+        if (count == index) {
+            temp-&gt;data = element;
+            return;
+        }
+        count++;
+        temp = temp-&gt;next;
+    } while (temp != head);
+
+    throw out_of_range("Index out of range");
+}
+
+// Clear the list
+template &lt;typename T&gt;
+void clear(Node&lt;T&gt;*& head) {
+    if (!head) return;
+    Node&lt;T&gt;* temp = head;
+    Node&lt;T&gt;* nextNode;
+    do {
+        nextNode = temp-&gt;next;
+        delete temp;
+        temp = nextNode;
+    } while (temp != head);
+    head = nullptr;
+}
+
+// Function to merge two sorted circular linked lists
+template &lt;typename T&gt;
+void merge(Node&lt;T&gt;*& headRef, Node&lt;T&gt;* head1, Node&lt;T&gt;* head2) {
+    Node&lt;T&gt;* tempHead = nullptr, *last = nullptr;
+    Node&lt;T&gt;* first1 = head1, *first2 = head2;
+
+    //std::cout &lt;&lt; "Starting merge...\n";
+
+    if (head1 == nullptr) {
+        //std::cout &lt;&lt; "First list is empty. Returning a new node from the second list.\n";
+        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(head2-&gt;data);
+        headRef = newNode;
+        head2 = head2-&gt;next;
+        if (head2 == first2) head2 = nullptr;
+        return;
+    }
+    if (head2 == nullptr) {
+        //std::cout &lt;&lt; "Second list is empty. Returning a new node from the first list.\n";
+        Node&lt;T&gt;* newNode = new Node&lt;T&gt;(head1-&gt;data);
+        headRef = newNode;
+        head1 = head1-&gt;next;
+        if (head1 == first1) head1 = nullptr;
+        return;
+    }
+
+    //std::cout &lt;&lt; "Both lists are non-empty. Merging...\n";
+
+    do {
+        Node&lt;T&gt;* newNode;
+        if (head1 && (head2 == nullptr || head1-&gt;data &lt;= head2-&gt;data)) {
+            //std::cout &lt;&lt; "Adding node from List 1: " &lt;&lt; (head1-&gt;data).toString() &lt;&lt; "\n";
+            newNode = new Node&lt;T&gt;(head1-&gt;data);
+            head1 = head1-&gt;next;
+            if (head1 == first1) {
+                head1 = nullptr;
+            }
+        } else {
+            //std::cout &lt;&lt; "Adding node from List 2: " &lt;&lt; (head2-&gt;data).toString() &lt;&lt; "\n";
+            newNode = new Node&lt;T&gt;(head2-&gt;data);
+            head2 = head2-&gt;next;
+            if (head2 == first2) {
+                head2 = nullptr;
+            }
+        }
+
+        if (!tempHead) {
+            tempHead = newNode;
+            //std::cout &lt;&lt; "New head node created: " &lt;&lt; (tempHead-&gt;data).toString() &lt;&lt; "\n";
+        } else {
+            last-&gt;next = newNode;
+        }
+        last = newNode;
+    } while (head1 != nullptr || head2 != nullptr);
+
+    // Make the list circular
+    last-&gt;next = tempHead;
+    headRef = tempHead;
+    //std::cout &lt;&lt; "Merge completed. Circular list created with head: " &lt;&lt; (headRef-&gt;data).toString() &lt;&lt; "\n";
+}
+// Function to find the middle of a circular linked list
+template &lt;typename T&gt;
+void middle(Node&lt;T&gt;*& mid, Node&lt;T&gt;* head) {
+    if (head == nullptr || head-&gt;next == head) {  // Check if list is empty or contains one node
+        mid = head;
+        return;
+    }
+
+    Node&lt;T&gt;* slow = head;
+    Node&lt;T&gt;* fast = head;
+
+    // Move fast two steps and slow one step
+    while (fast-&gt;next != head && fast-&gt;next-&gt;next != head) {
+        fast = fast-&gt;next-&gt;next;
+        slow = slow-&gt;next;
+    }
+
+    mid = slow;  // Assign the slow pointer to mid (middle node)
+}
+
+template &lt;typename T&gt;
+void sort(Node&lt;T&gt;*& headRef) {
+    // If the list is empty or contains a single node, no need to sort
+    if (headRef == nullptr || headRef-&gt;next == headRef) {
+        //std::cout &lt;&lt; "List is empty or has only one node. No sorting needed.\n";
+        return;
+    }
+
+    //std::cout &lt;&lt; "Starting sort...\n";
+
+    Node&lt;T&gt;* head = headRef;
+    Node&lt;T&gt;* mid = nullptr;
+
+    // Find the middle node
+    //std::cout &lt;&lt; "Finding middle node...\n";
+    middle(mid, head);
+    //std::cout &lt;&lt; "Middle node found: " &lt;&lt; mid-&gt;data.toString() &lt;&lt; "\n";
+
+    Node&lt;T&gt;* nextToMid = mid-&gt;next;
+    mid-&gt;next = head;  // Break circularity for first half
+    Node&lt;T&gt;* secondHalf = nextToMid;
+
+    // Find the last node of the second half
+    Node&lt;T&gt;* last = secondHalf;
+    while (last-&gt;next != head)
+        last = last-&gt;next;
+
+    last-&gt;next = nextToMid;  // Break circularity for second half
+
+    //std::cout &lt;&lt; "Splitting list into two halves:\n";
+    //std::cout &lt;&lt; "First half starts with: " &lt;&lt; head-&gt;data.toString() &lt;&lt; "\n";
+    //std::cout &lt;&lt; "Second half starts with: " &lt;&lt; secondHalf-&gt;data.toString() &lt;&lt; "\n";
+
+    // Sort both halves recursively
+    //std::cout &lt;&lt; "Sorting first half...\n";
+    sort(head);
+    //std::cout &lt;&lt; "Sorting second half...\n";
+    sort(nextToMid);
+
+    // Merge the sorted halves
+    //std::cout &lt;&lt; "Merging sorted halves...\n";
+    merge(headRef, head, nextToMid);
+    //std::cout &lt;&lt; "Merge completed. Circular list created with head: " &lt;&lt; headRef-&gt;data.toString() &lt;&lt; "\n";
+}
+
+// Person class to demonstrate
+class Person {
+public:
+    string name;
+    int age;
+
+    Person(string name, int age) : name(name), age(age) {}
+
+    // Define &lt; operator for sorting purposes (sort by name, then by age)
+    bool operator&lt;=(const Person& other) const {
+        if (name == other.name) {
+            return age &lt;= other.age;  // If names are the same, sort by age
+        }
+        return name &lt;= other.name;  // Otherwise, sort by name
+    }
+    
+    // Overload the equality operator to compare Person objects
+    bool operator==(const Person& other) const {
+        return name == other.name && age == other.age;
+    }
+    
+    string toString() const {
+        return "Person{name: " + name + ", age: " + to_string(age) + "}";
+    }
+};
+// Main function for testing
+int main() {
+    // Create Person objects
+    Person alice("Alice", 30);
+    Person john("John", 19);
+    Person albert("Albert", 28);
+    Person robert("Robert", 20);
+
+    // Initialize the linked list
+    Node&lt;Person&gt;* head = nullptr;
+
+    // 1. Insert elements at the beginning
+    insertAtBeginning(head, alice);
+    insertAtBeginning(head, john);
+	
+	// 2. Insert elements at the beginning
+    insertAtEnd(head, albert);
+    insertAtEnd(head, robert);
+
+    cout &lt;&lt; "\nList after inserting elements:\n";
+    traverse(head);
+
+    // 3. Insert at a specific position
+    Person eve("Eve", 22);
+    insertAtPosition(head, eve, 2);
+    cout &lt;&lt; "\nList after inserting at position 2:\n";
+    traverse(head);
+
+    // 4. Insert before a node (insert before the second node)
+    Node&lt;Person&gt;* secondNode = head-&gt;next; // Find the second node
+    Person george("George", 32);
+    insertBeforeNode(head, secondNode, george);
+    cout &lt;&lt; "\nList after inserting before second node:\n";
+    traverse(head);
+
+    // 5. Insert after a node (insert after the second node)
+    Person joyce("Joyce", 27);
+    insertAfterNode(secondNode, joyce);  // Insert after the second node
+    cout &lt;&lt; "\nList after inserting after second node:\n";
+    traverse(head);
+
+    // 6. Delete the first node
+    deleteAtBeginning(head);
+    cout &lt;&lt; "\nList after deleting first node:\n";
+    traverse(head);
+
+    // 7. Delete the last node
+    deleteAtEnd(head);
+    cout &lt;&lt; "\nList after deleting last node:\n";
+    traverse(head);
+	
+	// 8. Delete at a specific position
+	deleteAtPosition(head, 2);
+    cout &lt;&lt; "\nList after deleting node at position 2:\n";
+    traverse(head);
+	
+    // 9. Search for an element
+    bool found = search(head, albert);
+    cout &lt;&lt; "\nSearch result for 'Albert': " &lt;&lt; (found ? "Found" : "Not Found") &lt;&lt; endl;
+
+    // 10. Get size of the list
+    cout &lt;&lt; "\nSize of the list: " &lt;&lt; size(head) &lt;&lt; endl;
+	
+	// 11. Check if list is empty
+	if (isEmpty(head)) {
+		cout &lt;&lt; "The linked list is empty.\n";
+	} else {
+		cout &lt;&lt; "The linked list is not empty.\n";
+	}
+
+    // 12. Get an element
+    try {
+        Person p = get(head, 2);
+        cout &lt;&lt; "\nElement at index 2: " &lt;&lt; p.toString() &lt;&lt; endl;
+    } catch (const exception& e) {
+        cout &lt;&lt; e.what() &lt;&lt; endl;
+    }
+
+    // 13. Set (modify) an element
+    try {
+        Person updatedJohn("John", 25);
+        set(head, 1, updatedJohn);
+        cout &lt;&lt; "\nList after modifying index 1:\n";
+        traverse(head);
+    } catch (const exception& e) {
+        cout &lt;&lt; e.what() &lt;&lt; endl;
+    }
+
+    // 14. Sort the linked list (by name first, then by age)
+    sort(head);
+    cout &lt;&lt; "\nList after sorting:" &lt;&lt; endl;
+    traverse(head);
+	
+	// 15. Reverse the list
+    reverse(head);
+
+    cout &lt;&lt; "\nReversed List:" &lt;&lt; endl;
+    traverse(head);
+
+
+	// 16. Clear the list
+    clear(head);
+
+    cout &lt;&lt; "\nList after clearing:" &lt;&lt; endl;
+    traverse(head);  // Should print NULL, as the list is cleared
+	
+    return 0;
+}</code></pre>
+		
+		<p>Here is the Generic circular singly linked list implementation in Java:</p>
+		
+		<pre><code class="language-java hljs">class CircularLinkedList&lt;T&gt; {
+
+    // Node structure for circular singly linked list
+    static class Node&lt;T&gt; {
+        T data;
+        Node&lt;T&gt; next;
+
+        // Constructor to create a new node
+        Node(T data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    // Insert at the beginning
+    public static &lt;T&gt; Node&lt;T&gt; insertAtBeginning(Node&lt;T&gt; tail, T data) {
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+        if (tail == null) {
+            newNode.next = newNode; // Point to itself
+            return newNode;
+        }
+        newNode.next = tail.next;
+        tail.next = newNode;
+        return tail;
+    }
+
+    // Insert at the end
+    public static &lt;T&gt; Node&lt;T&gt; insertAtEnd(Node&lt;T&gt; tail, T data) {
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+        if (tail == null) {
+            newNode.next = newNode;
+            return newNode;
+        }
+        newNode.next = tail.next;
+        tail.next = newNode;
+        return newNode; // New tail
+    }
+
+    // Insert at a specific position
+    public static &lt;T&gt; Node&lt;T&gt; insertAtPosition(Node&lt;T&gt; tail, T data, int position) {
+        if (tail == null || position == 0) {
+            return insertAtBeginning(tail, data);
+        }
+
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+        Node&lt;T&gt; temp = tail.next;
+        for (int i = 0; i &lt; position - 1 && temp != tail; i++) {
+            temp = temp.next;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+
+        if (temp == tail) {
+            return newNode; // New tail
+        }
+        return tail;
+    }
+
+    // Function to insert a new node after a given previous node
+    public static &lt;T&gt; void insertAfterNode(Node&lt;T&gt; prevNode, T data) {
+        if (prevNode == null) {
+            System.out.println("The given previous node cannot be NULL.");
+            return;
+        }
+
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+        newNode.next = prevNode.next;
+        prevNode.next = newNode;
+    }
+
+    // Function to insert a new node before a given next node
+    public static &lt;T&gt; Node&lt;T&gt; insertBeforeNode(Node&lt;T&gt; head, Node&lt;T&gt; nextNode, T data) {
+        if (head == null) {
+            System.out.println("The list cannot be empty.");
+            return null;
+        }
+
+        if (nextNode == null) {
+            System.out.println("The given next node cannot be NULL.");
+            return head;
+        }
+
+        Node&lt;T&gt; newNode = new Node&lt;&gt;(data);
+
+        // If inserting before the head, update head reference
+        if (head == nextNode) {
+            Node&lt;T&gt; temp = head;
+            while (temp.next != head) {
+                temp = temp.next;
+            }
+
+            temp.next = newNode;  // Update last node's next pointer
+            newNode.next = head;
+            return newNode; // New node becomes the head
+        }
+
+        // Find the node just before nextNode
+        Node&lt;T&gt; temp = head;
+        while (temp.next != head && temp.next != nextNode) {
+            temp = temp.next;
+        }
+
+        if (temp.next != nextNode) {
+            System.out.println("The given next node is not found in the list.");
+            return head;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+        return head;
+    }
+
+    // Delete at the beginning
+    public static &lt;T&gt; Node&lt;T&gt; deleteAtBeginning(Node&lt;T&gt; tail) {
+        if (tail == null) {
+            System.out.println("List is empty");
+            return null;
+        }
+        if (tail.next == tail) { // Single node case
+            return null;
+        }
+        tail.next = tail.next.next;
+        return tail;
+    }
+
+    // Delete at the end
+    public static &lt;T&gt; Node&lt;T&gt; deleteAtEnd(Node&lt;T&gt; tail) {
+        if (tail == null) {
+            System.out.println("List is empty");
+            return null;
+        }
+        if (tail.next == tail) { // Single node case
+            return null;
+        }
+
+        Node&lt;T&gt; temp = tail.next;
+        while (temp.next != tail) {
+            temp = temp.next;
+        }
+        temp.next = tail.next; // Skip tail node
+        return temp; // New tail
+    }
+    
+    // Delete at a specific position (Generic)
+    public static &lt;T&gt; Node&lt;T&gt; deleteAtPosition(Node&lt;T&gt; tail, int position) {
+        if (tail == null) {
+            return null;
+        }
+    
+        if (position == 0) {
+            return deleteAtBeginning(tail);
+        }
+    
+        Node&lt;T&gt; temp = tail.next;
+        for (int i = 0; i &lt; position - 1 && temp.next != tail.next; i++) {
+            temp = temp.next;
+        }
+    
+        if (temp.next == tail.next) {
+            return tail; // Position out of bounds, return unchanged tail
+        }
+    
+        // If deleting the tail node, update tail reference
+        if (temp.next == tail) {
+            tail = temp;
+        }
+    
+        temp.next = temp.next.next;
+        return tail;
+    }
+    
+    // Function to get an element at a specific index (0-based)
+    public static &lt;T&gt; T get(Node&lt;T&gt; head, int index) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return null;
+        }
+    
+        Node&lt;T&gt; temp = head;
+        int count = 0;
+    
+        do {
+            if (count == index) {
+                return temp.data;
+            }
+            count++;
+            temp = temp.next;
+        } while (temp != head);
+    
+        System.out.println("Index out of range");
+        return null;
+    }
+    
+    // Function to set an element at a specific index (0-based)
+    public static &lt;T&gt; void set(Node&lt;T&gt; head, int index, T newValue) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+    
+        Node&lt;T&gt; temp = head;
+        int count = 0;
+    
+        do {
+            if (count == index) {
+                temp.data = newValue;
+                return;
+            }
+            count++;
+            temp = temp.next;
+        } while (temp != head);
+    
+        System.out.println("Index out of range");
+    }
+	
+	// check if the list is empty
+	public static &lt;T&gt; boolean isEmpty(Node&lt;T&gt; head) {
+		return head == null;
+	}
+	
+    // Search for an element
+    public static &lt;T&gt; boolean search(Node&lt;T&gt; tail, T key) {
+        if (tail == null) return false;
+
+        Node&lt;T&gt; temp = tail.next;
+        do {
+            if (temp.data.equals(key)) {
+                return true;
+            }
+            temp = temp.next;
+        } while (temp != tail.next);
+
+        return false;
+    }
+
+    // Get the size of the list
+    public static &lt;T&gt; int size(Node&lt;T&gt; tail) {
+        if (tail == null) return 0;
+
+        int count = 0;
+        Node&lt;T&gt; temp = tail.next;
+        do {
+            count++;
+            temp = temp.next;
+        } while (temp != tail.next);
+        return count;
+    }
+
+    // Traverse the list
+    public static &lt;T&gt; void traverse(Node&lt;T&gt; tail) {
+        if (tail == null) {
+            System.out.println("NULL");
+            return;
+        }
+
+        Node&lt;T&gt; temp = tail.next;
+        do {
+            System.out.print(temp.data + " -&gt; ");
+            temp = temp.next;
+        } while (temp != tail.next);
+        System.out.println("(back to head)");
+    }
+    
+	public static &lt;T&gt; Node&lt;T&gt; reverse(Node&lt;T&gt; head) {
+		if (head == null || head.next == head)
+			return head; // Empty list or single node remains the same
+
+		Node&lt;T&gt; prev = null;
+		Node&lt;T&gt; current = head;
+		Node&lt;T&gt; next = null;
+		Node&lt;T&gt; last = head;
+
+		// Find the last node
+		while (last.next != head)
+			last = last.next;
+
+		do {
+			next = current.next; // Store next node
+			current.next = prev; // Reverse pointer
+			prev = current;      // Move prev forward
+			current = next;      // Move current forward
+		} while (current != head);
+
+		// Adjust pointers to maintain circular nature
+		head.next = prev;  // Original head now points to the new last node
+		last.next = prev;  // Last node points to the new head
+		return prev;       // New head of the reversed circular list
+	}
+
+    // Function to find the middle node of a circular linked list
+	public static &lt;T&gt; Node&lt;T&gt; middle(Node&lt;T&gt; head) {
+		if (head == null || head.next == head) return head;
+
+		Node&lt;T&gt; slow = head, fast = head;
+		while (fast.next != head && fast.next.next != head) {
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+		return slow;
+	}
+
+	// Function to sort a circular linked list using merge sort (requires Comparable&lt;T&gt;)
+	public static &lt;T extends Comparable&lt;T&gt;&gt; Node&lt;T&gt; sort(Node&lt;T&gt; head) {
+		if (head == null || head.next == head) return head;
+
+		Node&lt;T&gt; mid = middle(head);
+		Node&lt;T&gt; secondHalf = mid.next;
+		mid.next = head;  // Break circularity for the first half
+
+		// Find last node of second half and break circularity
+		Node&lt;T&gt; temp = secondHalf;
+		while (temp.next != head) temp = temp.next;
+		temp.next = secondHalf;
+
+		// Recursively sort both halves
+		Node&lt;T&gt; firstSorted = sort(head);
+		Node&lt;T&gt; secondSorted = sort(secondHalf);
+
+		// Merge both halves
+		return merge(firstSorted, secondSorted);
+	}
+
+	public static &lt;T extends Comparable&lt;T&gt;&gt; Node&lt;T&gt; merge(Node&lt;T&gt; head1, Node&lt;T&gt; head2) {
+		if (head1 == null) return head2;
+		if (head2 == null) return head1;
+
+		Node&lt;T&gt; tempHead = null, last = null;
+		Node&lt;T&gt; first1 = head1, first2 = head2;
+
+		do {
+			Node&lt;T&gt; newNode;
+			if (head1 != null && (head2 == null || head1.data.compareTo(head2.data) &lt;= 0)) {
+				newNode = new Node&lt;&gt;(head1.data);
+				head1 = head1.next;
+				if (head1 == first1) head1 = null;
+			} else {
+				newNode = new Node&lt;&gt;(head2.data);
+				head2 = head2.next;
+				if (head2 == first2) head2 = null;
+			}
+
+			if (tempHead == null) {
+				tempHead = newNode;
+			} else {
+				last.next = newNode;
+			}
+			last = newNode;
+		} while (head1 != null || head2 != null);
+
+		// Make the list circular
+		last.next = tempHead;
+		return tempHead;
+	}
+
+
+	// Clear the list
+	public static &lt;T&gt; Node&lt;T&gt; clear(Node&lt;T&gt; head) {
+		if (head == null) return null;  // If the list is already empty, return null
+    
+		Node&lt;T&gt; current = head;
+		do {
+			Node&lt;T&gt; next = current.next; // Save reference to next node
+			current.next = null;            // Break the link to the next node
+			current = next;                   // Move to the next node
+		} while (current != head);            // Stop when we've looped back to the head
+		
+		return null;  // Return null to indicate the list is empty
+	}
+
+    // Person class
+    static class Person implements Comparable&lt;Person&gt; {
+        String name;
+        int age;
+
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return "Person{name: " + name + ", age: " + age + "}";
+        }
+
+        @Override
+        public int compareTo(Person other) {
+            // Compare by name first, then by age
+            int nameComparison = this.name.compareTo(other.name);
+            if (nameComparison != 0) {
+                return nameComparison;
+            }
+            return Integer.compare(this.age, other.age);
+        }
+    }
+
+    // Main method for testing
+    public static void main(String[] args) {
+        // Create Person objects
+        Person alice = new Person("Alice", 30);
+        Person john = new Person("John", 19);
+        Person albert = new Person("Albert", 28);
+        Person robert = new Person("Robert", 20);
+
+        // Initialize the linked list
+        Node&lt;Person&gt; head = null;
+
+        // 1. Insert elements at the beginning
+        head = insertAtBeginning(head, alice);
+        head = insertAtBeginning(head, john);
+		
+		// 2. Insert elements at the end
+        head = insertAtEnd(head, albert);
+        head = insertAtEnd(head, robert);
+
+        System.out.println("\nList after inserting elements:");
+        traverse(head);
+
+        // 3. Insert at a specific position
+        Person eve = new Person("Eve", 22);
+        head = insertAtPosition(head, eve, 2);
+        System.out.println("\nList after inserting at position 2:");
+        traverse(head);
+
+        // 4. Insert before a node (insert before the second node)
+        Node&lt;Person&gt; secondNode = head.next; // Find the second node
+        head = insertBeforeNode(head, secondNode, eve);
+        System.out.println("\nList after inserting before second node:");
+        traverse(head);
+
+        // 5. Insert after a node (insert after the second node)
+        insertAfterNode(secondNode, eve);  // Insert after the second node
+        System.out.println("\nList after inserting after second node:");
+        traverse(head);
+
+        // 6. Delete the first node
+        head = deleteAtBeginning(head);
+        System.out.println("\nList after deleting first node:");
+        traverse(head);
+
+        // 7. Delete the last node
+        head = deleteAtEnd(head);
+        System.out.println("\nList after deleting last node:");
+        traverse(head);
+		
+		// 8. Delete at a specific position
+		head = deleteAtPosition(head, 2);
+		System.out.println("\nList after deleting node at position 2:");
+		traverse(head);
+
+        // 9. Search for an element
+        boolean found = search(head, albert);
+        System.out.println("\nSearch result for 'Albert': " + (found ? "Found" : "Not Found"));
+
+        // 10. Get size of the list
+        System.out.println("\nSize of the list: " + size(head));
+		
+		// 11. Check if list is empty
+		if (isEmpty(head)) {
+			System.out.println("The list is empty.");
+		} else {
+			System.out.println("The list is not empty.");
+		}
+
+
+        // 12. Get an element
+        try {
+            Person p = get(head, 2);
+            System.out.println("\nElement at index 2: " + p.toString());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        // 13. Set (modify) an element
+        try {
+            Person updatedJohn = new Person("John", 25);
+            set(head, 1, updatedJohn);
+            System.out.println("\nList after modifying index 1:");
+            traverse(head);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        // 14. Sort the linked list (by name first, then by age)
+        head = sort(head);
+        System.out.println("\nList after sorting:");
+        traverse(head);
+		
+		// 15. Reverse the list
+		head = reverse(head);
+
+		System.out.println("\nList after reversing:");
+		traverse(head);
+
+		// 16. Clear the list
+        head = clear(head);
+        System.out.println("After clearing the list:");
+        traverse(head);  // This should print "NULL" as the list is now empty
+    }
+}</code></pre>
+		
+		<p>Here is the Generic circular singly linked list implementation in C#:</p>
+		
+		<pre><code class="language-csharp hljs">using System;
+
+class Node&lt;T&gt;
+{
+    public T Data;
+    public Node&lt;T&gt; Next;
+
+    public Node(T data)
+    {
+        Data = data;
+        Next = null;
+    }
+}
+
+class Program
+{
+    // Insert at beginning
+    static Node&lt;T&gt; InsertAtBeginning&lt;T&gt;(Node&lt;T&gt; head, T data)
+    {
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
+        if (head == null)
+        {
+            newNode.Next = newNode; // Point to itself in a circular list
+            return newNode;
+        }
+
+        Node&lt;T&gt; temp = head;
+        while (temp.Next != head) temp = temp.Next; // Find the last node
+        temp.Next = newNode;
+        newNode.Next = head;
+        return newNode;
+    }
+
+    // Insert at end
+    static Node&lt;T&gt; InsertAtEnd&lt;T&gt;(Node&lt;T&gt; head, T data)
+    {
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
+        if (head == null)
+        {
+            newNode.Next = newNode;
+            return newNode;
+        }
+
+        Node&lt;T&gt; temp = head;
+        while (temp.Next != head) temp = temp.Next; // Find the last node
+        temp.Next = newNode;
+        newNode.Next = head;
+        return head;
+    }
+
+    // Insert at position
+    static Node&lt;T&gt; InsertAtPosition&lt;T&gt;(Node&lt;T&gt; head, T data, int position)
+    {
+        if (position == 0) return InsertAtBeginning(head, data);
+        
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data);
+        Node&lt;T&gt; temp = head;
+        for (int i = 0; i &lt; position - 1 && temp.Next != head; i++) temp = temp.Next;
+
+        newNode.Next = temp.Next;
+        temp.Next = newNode;
+        return head;
+    }
+    
+    // Insert before node
+    static Node&lt;T&gt; InsertBeforeNode&lt;T&gt;(Node&lt;T&gt; head, Node&lt;T&gt; targetNode, T data)
+    {
+        if (head == null || targetNode == null) return head;
+        if (head == targetNode) return InsertAtBeginning(head, data);
+    
+        Node&lt;T&gt; temp = head;
+        do
+        {
+            if (temp.Next == targetNode)
+            {
+                Node&lt;T&gt; newNode = new Node&lt;T&gt;(data) { Next = targetNode };
+                temp.Next = newNode;
+                return head;
+            }
+            temp = temp.Next;
+        } while (temp != head);
+    
+        return head; // Target node not found
+    }
+    
+    // Insert after node
+    static void InsertAfterNode&lt;T&gt;(Node&lt;T&gt; node, T data)
+    {
+        if (node == null) return;
+    
+        Node&lt;T&gt; newNode = new Node&lt;T&gt;(data) { Next = node.Next };
+        node.Next = newNode;
+    }
+
+
+    // Delete at beginning
+    static Node&lt;T&gt; DeleteAtBeginning&lt;T&gt;(Node&lt;T&gt; head)
+    {
+        if (head == null) return null;
+        if (head.Next == head) return null; // Only one node
+
+        Node&lt;T&gt; temp = head;
+        while (temp.Next != head) temp = temp.Next; // Find last node
+        temp.Next = head.Next;
+        return head.Next;
+    }
+
+    // Delete at end
+    static Node&lt;T&gt; DeleteAtEnd&lt;T&gt;(Node&lt;T&gt; head)
+    {
+        if (head == null) return null;
+        if (head.Next == head) return null; // Only one node
+
+        Node&lt;T&gt; temp = head;
+        while (temp.Next.Next != head) temp = temp.Next; // Find second last node
+        temp.Next = head;
+        return head;
+    }
+    
+    // Delete at a specific position
+    static Node&lt;T&gt; DeleteAtPosition&lt;T&gt;(Node&lt;T&gt; head, int position)
+    {
+        if (head == null) return null; // Empty list
+    
+        Node&lt;T&gt; temp = head, prev = null;
+    
+        // If deleting the head node
+        if (position == 0)
+        {
+            if (head.Next == head) // Only one node in the list
+                return null;
+    
+            // Find the last node to update its `Next` pointer
+            while (temp.Next != head)
+                temp = temp.Next;
+    
+            temp.Next = head.Next; // Point last node to the new head
+            return head.Next;
+        }
+    
+        // Traverse to the position
+        int count = 0;
+        do
+        {
+            prev = temp;
+            temp = temp.Next;
+            count++;
+        } while (temp != head && count &lt; position);
+    
+        // If position is out of bounds
+        if (count != position)
+        {
+            Console.WriteLine("Position out of bounds");
+            return head;
+        }
+    
+        prev.Next = temp.Next; // Remove node by updating pointer
+        return head;
+    }
+
+    // Search for an element in a circular singly linked list
+    static bool Search&lt;T&gt;(Node&lt;T&gt; head, T key)
+    {
+        if (head == null) return false; // Handle case of empty list
+    
+        Node&lt;T&gt; temp = head;
+        do
+        {
+            if (temp.Data.Equals(key)) return true;
+            temp = temp.Next;
+        } while (temp != head); // Stop when we've looped back to the head
+    
+        return false;
+    }
+    
+    // Get size of a circular singly linked list
+    static int Size&lt;T&gt;(Node&lt;T&gt; head)
+    {
+        if (head == null) return 0; // Handle case of empty list
+    
+        int count = 0;
+        Node&lt;T&gt; temp = head;
+        do
+        {
+            count++;
+            temp = temp.Next;
+        } while (temp != head); // Stop when we've looped back to the head
+    
+        return count;
+    }
+
+    // Check if the circular singly linked list is empty
+    static bool IsEmpty&lt;T&gt;(Node&lt;T&gt; head)
+    {
+        return head == null;
+    }
+
+    // Get an element at a specific index in a circular singly linked list
+    static T Get&lt;T&gt;(Node&lt;T&gt; head, int index)
+    {
+        if (head == null) throw new Exception("List is empty");
+    
+        int count = 0;
+        Node&lt;T&gt; temp = head;
+        do
+        {
+            if (count == index) return temp.Data;
+            count++;
+            temp = temp.Next;
+        } while (temp != head); // Stop when we've looped back to the head
+    
+        throw new Exception("Index out of range");
+    }
+    
+    // Set (modify) an element at a specific index in a circular singly linked list
+    static void Set&lt;T&gt;(Node&lt;T&gt; head, int index, T newValue)
+    {
+        if (head == null) throw new Exception("List is empty");
+    
+        int count = 0;
+        Node&lt;T&gt; temp = head;
+        do
+        {
+            if (count == index)
+            {
+                temp.Data = newValue;
+                return;
+            }
+            count++;
+            temp = temp.Next;
+        } while (temp != head); // Stop when we've looped back to the head
+    
+        throw new Exception("Index out of range");
+    }
+
+
+    // Traverse the circular list
+    static void Traverse&lt;T&gt;(Node&lt;T&gt; head)
+    {
+        if (head == null)
+        {
+            Console.WriteLine("List is empty.");
+            return;
+        }
+
+        Node&lt;T&gt; temp = head;
+        do
+        {
+            Console.Write(temp.Data + " -&gt; ");
+            temp = temp.Next;
+        } while (temp != head);
+
+        Console.WriteLine("(back to head)");
+    }
+    
+    // Reverse a circular singly linked list
+    static Node&lt;T&gt; Reverse&lt;T&gt;(Node&lt;T&gt; head)
+	{
+		if (head == null || head.Next == head) return head; // Handle empty or single-element list
+		
+		Node&lt;T&gt; prev = null;
+		Node&lt;T&gt; current = head;
+		Node&lt;T&gt; next = null;
+		
+		// Traverse the list and reverse the links
+		do
+		{
+			next = current.Next; // Save the next node
+			current.Next = prev; // Reverse the current node's link
+			prev = current;      // Move prev to the current node
+			current = next;      // Move to the next node
+		} while (current != head); // Stop when we've looped back to the head
+		
+		// After the loop, `prev` is pointing to the new head
+		head = prev; // Update the head reference to the new first node
+		
+		// The last node's `Next` should point to the new head
+		current.Next = head; // The previous tail should point to the new head
+		
+		return head; // Return the new head
+	}
+    
+    public static Node&lt;T&gt; Merge&lt;T&gt;(Node&lt;T&gt; head1, Node&lt;T&gt; head2) where T : IComparable&lt;T&gt;
+    {
+        if (head1 == null) return head2;
+        if (head2 == null) return head1;
+    
+        Node&lt;T&gt; dummy = new Node&lt;T&gt;(default(T)); // Temporary dummy node
+        Node&lt;T&gt; tail = dummy;
+        Node&lt;T&gt; first1 = head1, first2 = head2;
+    
+        do
+        {
+            Node&lt;T&gt; newNode;
+            if (head1 != null && (head2 == null || head1.Data.CompareTo(head2.Data) &lt;= 0))
+            {
+                newNode = new Node&lt;T&gt;(head1.Data);
+                head1 = head1.Next;
+                if (head1 == first1) head1 = null;
+            }
+            else
+            {
+                newNode = new Node&lt;T&gt;(head2.Data);
+                head2 = head2.Next;
+                if (head2 == first2) head2 = null;
+            }
+    
+            tail.Next = newNode;
+            tail = newNode;
+    
+        } while (head1 != null || head2 != null);
+    
+        // Make the merged list circular
+        tail.Next = dummy.Next;
+        return dummy.Next;
+    }
+
+    
+    public static Node&lt;T&gt; Middle&lt;T&gt;(Node&lt;T&gt; head) where T : IComparable&lt;T&gt;
+    {
+        if (head == null || head.Next == head) return head;
+    
+        Node&lt;T&gt; slow = head, fast = head;
+        while (fast.Next != head && fast.Next.Next != head)
+        {
+            fast = fast.Next.Next;
+            slow = slow.Next;
+        }
+        return slow;
+    }
+
+    public static Node&lt;T&gt; Sort&lt;T&gt;(Node&lt;T&gt; head) where T : IComparable&lt;T&gt;
+    {
+        if (head == null || head.Next == head) return head;
+    
+        Node&lt;T&gt; mid = Middle(head);
+        Node&lt;T&gt; secondHalf = mid.Next;
+        mid.Next = head;  // Break circularity for the first half
+    
+        // Find last node of second half and break circularity
+        Node&lt;T&gt; temp = secondHalf;
+        while (temp.Next != head) temp = temp.Next;
+        temp.Next = secondHalf;
+    
+        // Recursively sort both halves
+        Node&lt;T&gt; firstSorted = Sort(head);
+        Node&lt;T&gt; secondSorted = Sort(secondHalf);
+    
+        // Merge both halves
+        return Merge(firstSorted, secondSorted);
+    }
+    
+    public static Node&lt;T&gt; Clear&lt;T&gt;(Node&lt;T&gt; head)
+    {
+        if (head == null) return null;  // If the list is already empty, return null
+        
+        Node&lt;T&gt; current = head;
+        do
+        {
+            Node&lt;T&gt; next = current.Next; // Save reference to next node
+            current.Next = null;         // Break the link to the next node
+            current = next;              // Move to the next node
+        } while (current != head);       // Stop when we've looped back to the head
+        
+        return null;  // Return null to indicate the list is empty
+    }
+
+
+
+    static void Main()
+    {
+        // Create Person objects
+        Person alice = new Person("Alice", 30);
+        Person john = new Person("John", 19);
+        Person albert = new Person("Albert", 28);
+        Person robert = new Person("Robert", 20);
+        
+        // Initialize the linked list
+        Node&lt;Person&gt; head = null;
+        
+        // 1. Insert elements at the beginning
+        head = InsertAtBeginning(head, alice);
+        head = InsertAtBeginning(head, john);
+        
+        // 2. Insert elements at the end
+        head = InsertAtEnd(head, albert);
+        head = InsertAtEnd(head, robert);
+        
+        Console.WriteLine("\nList after inserting elements:");
+        Traverse(head);
+        
+        // 3. Insert at a specific position
+        Person eve = new Person("Eve", 22);
+        head = InsertAtPosition(head, eve, 2);
+        Console.WriteLine("\nList after inserting at position 2:");
+        Traverse(head);
+        
+        // 4. Insert before a node (insert before the second node)
+        Node&lt;Person&gt; secondNode = head.Next; // Find the second node
+        Person jack = new Person("Jack", 29);
+        head = InsertBeforeNode(head, secondNode, jack);
+        Console.WriteLine("\nList after inserting before second node:");
+        Traverse(head);
+        
+        // 5. Insert after a node (insert after the second node)
+        InsertAfterNode(secondNode, eve);  // Insert after the second node
+        Console.WriteLine("\nList after inserting after second node:");
+        Traverse(head);
+        
+        // 6. Delete the first node
+        head = DeleteAtBeginning(head);
+        Console.WriteLine("\nList after deleting first node:");
+        Traverse(head);
+        
+        // 7. Delete the last node
+        head = DeleteAtEnd(head);
+        Console.WriteLine("\nList after deleting last node:");
+        Traverse(head);
+        
+        // 8. Delete node at position 2
+        head = DeleteAtPosition(head, 2);
+        Console.WriteLine("\nList after deleting at position 2:");
+        Traverse(head);
+
+        // 9. Search for an element
+        bool found = Search(head, albert);
+        Console.WriteLine("\nSearch result for 'Albert': " + (found ? "Found" : "Not Found"));
+        
+        // 10. Get size of the list
+        Console.WriteLine("\nSize of the list: " + Size(head));
+        
+        // 11. Check if the list is empty
+        if (IsEmpty(head))
+        {
+            Console.WriteLine("The list is empty.");
+        }
+        else
+        {
+            Console.WriteLine("The list is not empty.");
+        }
+    
+        // 12. Get an element
+        try
+        {
+            Person p = Get(head, 2);
+            Console.WriteLine("\nElement at index 2: " + p.ToString());
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        
+        // 13. Set (modify) an element
+        try
+        {
+            Person updatedJohn = new Person("John", 25);
+            Set(head, 1, updatedJohn);
+            Console.WriteLine("\nList after modifying index 1:");
+            Traverse(head);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        
+        // 14. Sort the linked list (by name first, then by age)
+        head = Sort(head);
+        Console.WriteLine("\nList after sorting:");
+        Traverse(head);
+        
+        // 15. Reverse the list
+        head = Reverse(head);
+    
+        Console.WriteLine("\nList after reversing:");
+        Traverse(head);
+    
+        // 16. Clear the list
+        head = Clear(head);
+        Console.WriteLine("\nList after clearing:");
+        Traverse(head);
+
+    }
+}
+
+class Person : IComparable&lt;Person&gt;
+{
+    public string Name;
+    public int Age;
+    public Person(string name, int age) { Name = name; Age = age; }
+    public int CompareTo(Person other)
+    {
+        // Sort by Name, then Age
+        return Name.CompareTo(other.Name) != 0 ? Name.CompareTo(other.Name) : Age.CompareTo(other.Age);
+    }
+    public override string ToString() =&gt; $"Person{{name: {Name}, age: {Age}}}";
+}</code></pre>
+    </article>
+
+    <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/data-structure" class="tag">data structure</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/linked-list" class="tag">linked list</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/circular-singly-linked-list" class="tag">circular singly linked list</a></li>
+		
+	</ul>
+</div>
+
+
+    <div class="post-share">
+	
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/zh/2025/02/04/circular-singly-linked-list-data-structure/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/zh/2025/02/04/circular-singly-linked-list-data-structure/" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/zh/2025/02/04/circular-singly-linked-list-data-structure/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>
+
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '24dfaf1e2babad270db4c0eae11415cc',
+									'format' : 'iframe',
+									'height' : 60,
+									'width' : 468,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/24dfaf1e2babad270db4c0eae11415cc/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+						<div class="col-md-6">
+							<script type="text/javascript">
+								atOptions = {
+									'key' : '08760f2487e830ed5039902de4007bec',
+									'format' : 'iframe',
+									'height' : 250,
+									'width' : 300,
+									'params' : {}
+								};
+							</script>
+							<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+						</div>
+					</div>
+				</div>
+				<div id="disqus_thread"></div>
+			</div>
+
+			<div class="col-12" style="border-bottom:0.1rem solid #eee;margin-top:2rem;margin-bottom:5rem;"></div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-heading d-flex align-items-center">  
+					<h2>Related Posts</h2>
+					<a href="https://hemimorphite.github.io/zh/" type="button" class="btn btn-all ms-auto">All posts <i class="fa-solid fa-arrow-right"></i></a>
+				</div>
+				<div class="related-posts">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2025/02/01/doubly-linked-list-data-structure/"><img src="https://hemimorphite.github.io/assets/images/doublylinked.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2025/02/01/doubly-linked-list-data-structure/">Doubly Linked List Data Structure</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/10/14/singly-linked-list-data-structure/"><img src="https://hemimorphite.github.io/assets/images/singlylinked.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/10/14/singly-linked-list-data-structure/">Singly Linked List Data Structure</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/10/11/dynamic-array-data-structure/"><img src="https://hemimorphite.github.io/assets/images/dynamicarray.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/10/11/dynamic-array-data-structure/">Dynamic Array Data Structure</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2024/09/26/linear-stack-data-structure/"><img src="https://hemimorphite.github.io/assets/images/linearstack.jpg" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2024/09/26/linear-stack-data-structure/">Linear Stack Data Structure</a></h4>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<script async="async" data-cfasync="false" src="//pl23622823.highrevenuenetwork.com/82849ac901fcdf553b99a113d233ce38/invoke.js"></script>
+						<div id="container-82849ac901fcdf553b99a113d233ce38"></div>
+					</div>
+					<div class="col-md-6">
+						<script type="text/javascript">
+							atOptions = {
+								'key' : '08760f2487e830ed5039902de4007bec',
+								'format' : 'iframe',
+								'height' : 250,
+								'width' : 300,
+								'params' : {}
+							};
+						</script>
+						<script type="text/javascript" src="//www.topcreativeformat.com/08760f2487e830ed5039902de4007bec/invoke.js"></script>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	    <footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright-text">
+						<p>&copy; 2025 Copyright hemimorphite. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="https://hemimorphite.github.io/assets/vendor/jquery/jquery.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	    <script src="https://hemimorphite.github.io/assets/vendor/highlight.js/js/highlight.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+	    <script>
+			//<![CDATA[
+			/* highlight.js | https://unpkg.com/highlightjs-badge@0.1.8/highlightjs-badge.min.js */
+			"use strict";!function(e,o){"object"==typeof module&&"object"==typeof module.exports?module.exports=e.document?o(e,!0):function(e){if(!e.document)throw new Error("A window with a document is required");return o(e)}:o(e)}("undefined"!=typeof window?window:this,function(y,e){if("boolean"!=typeof o)var o=!1;function t(e){var o,m={templateSelector:"#CodeBadgeTemplate",contentSelector:"body",loadDelay:0,copyIconClass:"fa fa-copy",copyIconContent:"",checkIconClass:"fa fa-check text-success",checkIconContent:"",onBeforeCodeCopied:null};function t(){m.loadDelay?setTimeout(n,loadDelay):n()}function n(){if(!document.querySelector(m.templateSelector)){var e=document.createElement("div");e.innerHTML=function(){for(var e=["<style>","@media print {","   .code-badge { display: none; }","}","    .code-badge-pre {","        position: relative;","    }","    .code-badge {","        display: flex;","        flex-direction: row;","        white-space: normal;","        background: transparent;","        background: #fff;","        color: #333;","        font-size: 0.875em;","        opacity: 0.5;","        transition: opacity linear 0.5s;","        border-radius: 0 0 0 7px;","        padding: 5px 8px 5px 8px;","        position: absolute;","        right: 0;","        top: 0;","    }","    .code-badge.active {","        opacity: 0.8;","    }","","    .code-badge:hover {","        opacity: .95;","    }","","    .code-badge a,","    .code-badge a:hover {","        text-decoration: none;","    }","","    .code-badge-language {","        margin-right: 10px;","        font-weight: 600;","        color: goldenrod;","    }","    .code-badge-copy-icon {","        font-size: 1.2em;","        cursor: pointer;","        padding: 0 7px;","    }","    .fa.text-success:{ color: limegreen !important }","</style>",'<div id="CodeBadgeTemplate" style="display:none">','    <div class="code-badge">','        <div class="code-badge-language" ></div>','        <div  title="Copy to clipboard">','            <i class=" code-badge-copy-icon"></i></i></a>',"        </div>","     </div>","</div>"],o="",t=0;t<e.length;t++)o+=e[t]+"\n";return o}();var o=e.querySelector("style"),t=e.querySelector(m.templateSelector);document.body.appendChild(o),document.body.appendChild(t)}for(var n=document.querySelector(m.templateSelector).innerHTML,c=document.querySelectorAll("pre>code.hljs"),a=0;a<c.length;a++){var r=c[a];if(!r.querySelector(".code-badge")){for(var d="",l=0;l<r.classList.length;l++){var i=r.classList[l];if("language-"===i.substr(0,9)){d=r.classList[l].replace("language-","");break}if("lang-"===i.substr(0,5)){d=r.classList[l].replace("lang-","");break}if(!d)for(var s=0;s<r.classList.length;s++)if("hljs"!=r.classList[s]){d=r.classList[s];break}}"ps"==(d=d?d.toLowerCase():"text")?d="powershell":"cs"==d?d="csharp":"js"==d?d="javascript":"ts"==d?d="typescript":"fox"==d&&(d="foxpro");var p=n.replace("",d).replace("",m.copyIconClass).trim(),u=document.createElement("div");u.innerHTML=p,u=u.querySelector(".code-badge");var g=r.parentElement;g.classList.add("code-badge-pre"),m.copyIconContent&&(u.querySelector(".code-badge-copy-icon").innerText=m.copyIconContent),g.insertBefore(u,r)}}document.querySelector(m.contentSelector).addEventListener("click",function(e){return e.srcElement.classList.contains("code-badge-copy-icon")&&(e.preventDefault(),e.cancelBubble=!0,function(e){var o=e.srcElement.parentElement.parentElement.parentElement,t=o.querySelector("pre>code"),n=t.textContent||t.innerText;m.onBeforeCodeCopied&&(n=m.onBeforeCodeCopied(n,t));var c=document.createElement("textarea");c.value=n.trim(),document.body.appendChild(c),c.style.display="block",y.document.documentMode?c.setSelectionRange(0,c.value.length):c.select();document.execCommand("copy"),document.body.removeChild(c),function(e){var o=m.copyIconClass.split(" "),t=m.checkIconClass.split(" "),n=e.querySelector(".code-badge-copy-icon");n.innerText=m.checkIconContent;for(var c=0;c<o.length;c++)n.classList.remove(o[c]);for(c=0;c<t.length;c++)n.classList.add(t[c]);setTimeout(function(){n.innerText=m.copyIconContent;for(var e=0;e<t.length;e++)n.classList.remove(t[e]);for(e=0;e<o.length;e++)n.classList.add(o[e])},2e3)}(o)}(e)),!1})}o=e,Object.assign(m,o),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",t):t()}y.highlightJsBadge=t,y.module&&y.module.exports&&(y.module.exports.highlightJsBadge=t),o&&t()});   
+			//]]>
+		</script>
+
+	    <!-- Additional Scripts -->
+	    <script src="https://hemimorphite.github.io/assets/js/custom.js"></script>
+	    <script>
+	    	let url = new URL("https://hemimorphite.github.io/zh/2025/02/04/circular-singly-linked-list-data-structure/");
+			let paths = url.pathname.split('/').slice(1);
+
+		    /**
+		    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+		    if(typeof paths[3] !== 'undefined') {
+		    	var disqus_config = function () {
+				    this.page.url = "https://hemimorphite.github.io/zh/2025/02/04/circular-singly-linked-list-data-structure/";  // Replace PAGE_URL with your page's canonical URL variable
+				    this.page.identifier = btoa(paths[3]); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    
+			    (function() { // DON'T EDIT BELOW THIS LINE
+			    var d = document, s = d.createElement('script');
+			    s.src = 'https://hemimorphite-github-io.disqus.com/embed.js';
+			    s.setAttribute('data-timestamp', +new Date());
+			    (d.head || d.body).appendChild(s);
+			    })();	
+		    }
+		    
+		</script>
+	    <script id="dsq-count-scr" src="https://hemimorphite-github-io.disqus.com/count.js" async></script>
+		
+  	</body>
+</html>
