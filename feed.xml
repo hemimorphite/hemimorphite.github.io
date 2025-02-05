@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2025-02-05T13:07:04+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Circular Singly Linked List Data Structure</title><link href="https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure/" rel="alternate" type="text/html" title="Circular Singly Linked List Data Structure" /><published>2025-02-04T16:20:00+00:00</published><updated>2025-02-04T16:20:00+00:00</updated><id>https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure</id><content type="html" xml:base="https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2025-02-05T13:17:41+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Circular Singly Linked List Data Structure</title><link href="https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure/" rel="alternate" type="text/html" title="Circular Singly Linked List Data Structure" /><published>2025-02-04T16:20:00+00:00</published><updated>2025-02-04T16:20:00+00:00</updated><id>https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure</id><content type="html" xml:base="https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Circular Singly Linked List Data Structure</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -4794,8 +4794,8 @@ class Person : IComparable&lt;Person&gt;
 		
 		<p>Here's a visual representation of a doubly linked list:</p>
 		
-		<pre><code class="language-bash hljs">
-               HEAD 
+<pre><code class="language-bash hljs">
+               HEAD
 		        ↓
 NULL ← [Prev | Data | Next] ⇄ [Prev | Data | Next] ⇄ [Prev | Data | Next] → NULL
 </code></pre>
@@ -4811,8 +4811,8 @@ NULL ← [Prev | Data | Next] ⇄ [Prev | Data | Next] ⇄ [Prev | Data | Next] 
 		
 		<p>A simple doubly linked list with three nodes could look like this:</p>
 		
-		<pre><code class="language-bash hljs">
-               HEAD 
+<pre><code class="language-bash hljs">
+               HEAD
 		        ↓
 NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
 </code></pre>
@@ -4834,8 +4834,8 @@ NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NU
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">
-               HEAD 
+<pre><code class="language-bash hljs">
+               HEAD
 		        ↓
 NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
 </code></pre>
