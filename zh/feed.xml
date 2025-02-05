@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2025-02-04T18:53:48+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Circular Singly Linked List Data Structure</title><link href="https://hemimorphite.github.io/zh/2025/02/04/circular-singly-linked-list-data-structure/" rel="alternate" type="text/html" title="Circular Singly Linked List Data Structure" /><published>2025-02-04T16:20:00+00:00</published><updated>2025-02-04T16:20:00+00:00</updated><id>https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure</id><content type="html" xml:base="https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2025-02-05T13:07:04+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Circular Singly Linked List Data Structure</title><link href="https://hemimorphite.github.io/zh/2025/02/04/circular-singly-linked-list-data-structure/" rel="alternate" type="text/html" title="Circular Singly Linked List Data Structure" /><published>2025-02-04T16:20:00+00:00</published><updated>2025-02-04T16:20:00+00:00</updated><id>https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure</id><content type="html" xml:base="https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Circular Singly Linked List Data Structure</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -4770,8 +4770,10 @@ class Person : IComparable&lt;Person&gt;
     <article class="post-content">
 		<h3 class="post-subtitle">Doubly Linked List</h3>
 		
-        <p>A doubly linked list is a linear data structure consisting of a sequence of elements, called nodes, where each node points to both its previous and next nodes in the sequence. Unlike arrays, elements in a linked list are not stored in contiguous memory locations. Each node contains three fields:</p>
-
+        <p>A doubly linked list is a linear data structure consisting of a sequence of elements, called nodes, where each node points to both its previous and next nodes in the sequence. Unlike arrays, elements in a linked list are not stored in contiguous memory locations.</p>
+		
+		<p>Each node in a doubly linked list contains three fields:</p>
+		
         <ul>
 			<li><b>Data</b>: The value or information stored in the node.</li>
 			<li><b>Next Pointer</b>: A reference (or pointer) to the next node in the sequence.</li>
@@ -4792,7 +4794,11 @@ class Person : IComparable&lt;Person&gt;
 		
 		<p>Here's a visual representation of a doubly linked list:</p>
 		
-		<pre><code class="language-bash hljs">HEAD -&gt; [NULL | Data | Next] &lt;-&gt;  [Prev | Data | Next] &lt;-&gt;  [Prev | Data | NULL]</code></pre>
+		<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | Data | Next] ⇄ [Prev | Data | Next] ⇄ [Prev | Data | Next] → NULL
+</code></pre>
 		
 		<p>In the above representation:</p>
 		
@@ -4805,7 +4811,11 @@ class Person : IComparable&lt;Person&gt;
 		
 		<p>A simple doubly linked list with three nodes could look like this:</p>
 		
-		<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+		<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 		
 		<p>In the above example:</p>
 		
@@ -4824,10 +4834,18 @@ class Person : IComparable&lt;Person&gt;
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 							<li>You want to insert the value <code>5</code> at the beginning of the list. After calling <code>insertAtBeginning()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 5 | Next] &lt;-&gt; [Prev | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+							<pre><code class="language-bash hljs">
+              HEAD 
+		       ↓
+NULL ← [Prev | 5 | Next] ⇄ [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 						</ul>
 					</li>
@@ -4857,10 +4875,18 @@ class Person : IComparable&lt;Person&gt;
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 							<li>You want to insert the value <code>40</code> at the end of the list. After calling <code>insertAtEnd()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | Next] &lt;-&gt; [Prev | 40 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] ⇄ [Prev | 40 | Next] → NULL
+</code></pre>
 							</li>
 						</ul>
 					</li>
@@ -4895,10 +4921,18 @@ class Person : IComparable&lt;Person&gt;
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 							<li>You want to insert the value <code>25</code> after the node containing <code>20</code>. After calling <code>insertAfterNode()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 25 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 25 | Next]  ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 						</ul>
 					</li>
@@ -4921,10 +4955,18 @@ class Person : IComparable&lt;Person&gt;
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 							<li>You want to insert the value <code>25</code> before the node containing <code>20</code>. After calling <code>insertBeforeNode()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] -&gt; [NULL | 25 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 25 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 						</ul>
 					</li>
@@ -4948,10 +4990,18 @@ class Person : IComparable&lt;Person&gt;
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 							<li>You want to insert a new node with value <code>35</code> at position <code>3</code>. After calling <code>insertAtPosition()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 35 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 35 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 						</ul>
 					</li>
@@ -4975,10 +5025,18 @@ class Person : IComparable&lt;Person&gt;
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 							<li>You want to delete the value <code>10</code> at the beginning of the list. After calling <code>deleteAtBeginning()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 						</ul>
 					</li>
@@ -4999,11 +5057,18 @@ class Person : IComparable&lt;Person&gt;
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 							<li>You want to remove the value <code>30</code> at the end of the list. After calling <code>deleteAtEnd()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | NULL]</code></pre>
-							</li>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] → NULL
+</code></pre>							</li>
 						</ul>
 					</li>
 					<li><b>Time complexity</b>: The time complexity for removing a node at the end of a doubly linked list is \(O(n)\) (linear time). The following steps are performed:<br>
@@ -5023,10 +5088,18 @@ class Person : IComparable&lt;Person&gt;
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 							<li>You want to remove a node at position <code>3</code>. After calling <code>deleteAtPosition()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | NULL]</code></pre>
+							<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] → NULL
+</code></pre>
 							</li>
 						</ul>
 					</li>
@@ -5055,10 +5128,18 @@ class Person : IComparable&lt;Person&gt;
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 10 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 30 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
+</code></pre>
 							</li>
 							<li>After calling <code>reverse()</code>, the list becomes:<br>
-								<pre><code class="language-bash hljs">Head -&gt; [NULL | 30 | Next] &lt;-&gt; [Prev | 20 | Next] &lt;-&gt; [Prev | 10 | NULL]</code></pre>
+								<pre><code class="language-bash hljs">
+               HEAD 
+		        ↓
+NULL ← [Prev | 30 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 10 | Next] → NULL
+</code></pre>
 							</li>
 						</ul>
 					</li>
@@ -5513,31 +5594,36 @@ void sort(Node** headRef) {
 // Main function to test the doubly linked list operations
 int main() {
     Node* list = NULL;
-
+	
+	// 1. Insert elements at the beginning
     insertAtBeginning(&list, 5);
     insertAtBeginning(&list, 3);
     insertAtBeginning(&list, 1);
 
     printf("List after inserting at the beginning: ");
     traverse(list);
-
+	
+	// 2. Insert elements at the end
     insertAtEnd(&list, 7);
     insertAtEnd(&list, 9);
 
     printf("List after inserting at the end: ");
     traverse(list);
-
+	
+	// 3. Insert element at position 2
     insertAtPosition(&list, 4, 2);
 
     printf("List after inserting 4 at position 2: ");
     traverse(list);
-
+	
+	// 4. Insert element after the second node
     Node* secondNode = list-&gt;next;
     insertAfterNode(secondNode, 6);
 
     printf("List after inserting 6 after the second node: ");
     traverse(list);
-
+	
+	// 5. Insert element before the node with value 7
     Node* temp = list;
     while (temp != NULL && temp-&gt;data != 7) {
         temp = temp-&gt;next;
@@ -5546,42 +5632,56 @@ int main() {
 
     printf("List after inserting 8 before the node with value 7: ");
     traverse(list);
-
+	
+	// 6. Delete the first node
     deleteAtBeginning(&list);
 
     printf("List after deleting the first node: ");
     traverse(list);
-
+	
+	// 7. Delete the last node
     deleteAtEnd(&list);
 
     printf("List after deleting the last node: ");
     traverse(list);
-
+	
+	// 8. Delete the node at position 2
     deleteAtPosition(&list, 2);
 
     printf("List after deleting the node at position 2: ");
     traverse(list);
-
+	
+	// 9. Check if list is empty
+	if (isEmpty(list)) {
+		printf("The list is empty.\n");
+	} else {
+		printf("The list is not empty.\n");
+	}
+	
+	// 10. Search for an element
     int key = 6;
     if (search(list, key)) {
         printf("Element %d found in the list.\n", key);
     } else {
         printf("Element %d not found in the list.\n", key);
     }
-
+	
+	// 11. Reverse the list
     reverse(&list);
 
     printf("List after reversing: ");
     traverse(list);
 
-    // Sort the list
+    // 12. Sort the list
     sort(&list);
 
     printf("List after sorting: ");
     traverse(list);
-
+	
+	// 13. Get the size of the list
     printf("Size of the list: %d\n", size(list));
-
+	
+	// 14. Access an element at a specific index
     int index = 2;
     int value = get(list, index);
     if (value != -1) {
@@ -5589,17 +5689,13 @@ int main() {
     } else {
         printf("Index %d is out of range.\n", index);
     }
-
+	
+	// 15. Set a new value at a specific index
     set(list, 2, 10);
     printf("List after setting value 10 at index 2: ");
     traverse(list);
-
-    Node* list1 = NULL;
-
-    insertAtBeginning(&list1, 25);
-    insertAtBeginning(&list1, 35);
-    insertAtBeginning(&list1, 14);
     
+	// 16. Clear the list
     clear(&list);
 
     printf("List after clearing: ");
