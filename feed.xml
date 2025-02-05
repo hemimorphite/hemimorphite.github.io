@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2025-02-05T13:17:41+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Circular Singly Linked List Data Structure</title><link href="https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure/" rel="alternate" type="text/html" title="Circular Singly Linked List Data Structure" /><published>2025-02-04T16:20:00+00:00</published><updated>2025-02-04T16:20:00+00:00</updated><id>https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure</id><content type="html" xml:base="https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2025-02-05T13:30:39+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Circular Singly Linked List Data Structure</title><link href="https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure/" rel="alternate" type="text/html" title="Circular Singly Linked List Data Structure" /><published>2025-02-04T16:20:00+00:00</published><updated>2025-02-04T16:20:00+00:00</updated><id>https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure</id><content type="html" xml:base="https://hemimorphite.github.io/2025/02/04/circular-singly-linked-list-data-structure/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Circular Singly Linked List Data Structure</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -4834,14 +4834,14 @@ NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NU
 					<li><b>Example</b>:
 						<ul>
 							<li>Suppose you have the following linked list:<br>
-<pre><code class="language-bash hljs">
+<pre><code class="language-plaintext hljs">
                HEAD
-		        ↓
+                ↓
 NULL ← [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
 </code></pre>
 							</li>
 							<li>You want to insert the value <code>5</code> at the beginning of the list. After calling <code>insertAtBeginning()</code>, the list becomes:<br>
-							<pre><code class="language-bash hljs">
+<pre><code class="language-plaintext hljs">
               HEAD 
 		       ↓
 NULL ← [Prev | 5 | Next] ⇄ [Prev | 10 | Next] ⇄ [Prev | 20 | Next] ⇄ [Prev | 30 | Next] → NULL
