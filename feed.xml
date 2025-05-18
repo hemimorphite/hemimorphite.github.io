@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2025-05-18T07:34:04+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Switch from Microsoft account to local account on Windows 11 After Installation</title><link href="https://hemimorphite.github.io/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11/" rel="alternate" type="text/html" title="Switch from Microsoft account to local account on Windows 11 After Installation" /><published>2025-05-18T06:38:50+00:00</published><updated>2025-05-18T06:38:50+00:00</updated><id>https://hemimorphite.github.io/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11</id><content type="html" xml:base="https://hemimorphite.github.io/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/" rel="alternate" type="text/html" /><updated>2025-05-18T07:39:43+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Switch from Microsoft account to local account on Windows 11 After Installation</title><link href="https://hemimorphite.github.io/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11/" rel="alternate" type="text/html" title="Switch from Microsoft account to local account on Windows 11 After Installation" /><published>2025-05-18T06:38:50+00:00</published><updated>2025-05-18T06:38:50+00:00</updated><id>https://hemimorphite.github.io/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11</id><content type="html" xml:base="https://hemimorphite.github.io/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Switch from Microsoft account to local account on Windows 11 After Installation</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -479,8 +479,10 @@ Retail</code></pre>
 		
 		<p>Here's a list of common Windows <code>EditionID</code> values that are used in <code>ei.cfg</code> files:</p>
 		
+		<p>Windows 10 Editions</p>
+		
 		<table class="table table-bordered border-primary">
-            <caption>Windows 10 Editions</caption>
+            
 			<thead>
 				<tr>
 					<th>Edition Name</th>
@@ -503,8 +505,10 @@ Retail</code></pre>
 			</tbody>
         </table>
 		
+		<p>Windows 11 Editions</p>
+		
 		<table class="table table-bordered border-primary">
-            <caption>Windows 11 Editions</caption>
+            
 			<thead>
 				<tr>
 					<th>Edition Name</th>
@@ -533,7 +537,7 @@ Retail</code></pre>
 		
 		<h5 class="post-subtitle">Step 3: Add an <code>PID.txt</code> file to your installation media</h5>
 		
-		<p>The <code>PID.txt</code> file tells the Windows installer which product key to use during installation. If your system has a pre-installed OEM key embedded in the BIOS/UEFI (such as for Windows 10 Home), and you want to install a different edition like Windows 10 Pro, including a <code>PID.txt</code> file with a valid Pro product key will override the embedded key and force the installer to proceed with the Pro edition.</p>
+		<p>The <code>PID.txt</code> file tells the Windows installer which product key to use during installation. If your system has a pre-installed OEM key embedded in the BIOS/UEFI (such as for Windows 11 Home), and you want to install a different edition like Windows 11 Pro, including a <code>PID.txt</code> file with a valid Pro product key will override the embedded key and force the installer to proceed with the Pro edition.</p>
 		
 		<p>Open Notepad and then copy and paste the following lines:</p>
 		
@@ -548,8 +552,10 @@ value=VK7JG-NPHTM-C97JM-9MPGT-3V66T</code></pre>
 		
 		<p>Here's a list of common Generic Keys values that can be used in <code>PID.txt</code> files:</p>
 		
+		<p>Windows 10 Editions</p>
+		
 		<table class="table table-bordered border-primary">
-            <caption>Windows 10 Editions</caption>
+            
 			<thead>
 				<tr>
 					<th>Edition Name</th>
@@ -576,8 +582,10 @@ value=VK7JG-NPHTM-C97JM-9MPGT-3V66T</code></pre>
 			</tbody>
         </table>
 		
+		<p>Windows 11 Editions</p>
+		
 		<table class="table table-bordered border-primary">
-            <caption>Windows 11 Editions</caption>
+            
 			<thead>
 				<tr>
 					<th>Edition Name</th>
