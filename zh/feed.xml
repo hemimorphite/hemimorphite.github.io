@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2025-05-18T07:29:12+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Switch from Microsoft account to local account on Windows 11 After Installation</title><link href="https://hemimorphite.github.io/zh/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11/" rel="alternate" type="text/html" title="Switch from Microsoft account to local account on Windows 11 After Installation" /><published>2025-05-18T06:38:50+00:00</published><updated>2025-05-18T06:38:50+00:00</updated><id>https://hemimorphite.github.io/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11</id><content type="html" xml:base="https://hemimorphite.github.io/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11/"><![CDATA[<div class="blog-post">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://hemimorphite.github.io/zh/feed.xml" rel="self" type="application/atom+xml" /><link href="https://hemimorphite.github.io/zh/" rel="alternate" type="text/html" /><updated>2025-05-18T07:34:04+00:00</updated><id>https://hemimorphite.github.io/feed.xml</id><title type="html">Hemimorphite</title><subtitle>Gain a better understanding of mathematics, chemistry, physics, and computer science. Our tutorials provide clear explanations and practical examples to help you learn and master these subjects. Helping learners of all levels to grasp fundamental concepts and hone their skills.</subtitle><entry xml:lang="en"><title type="html">Switch from Microsoft account to local account on Windows 11 After Installation</title><link href="https://hemimorphite.github.io/zh/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11/" rel="alternate" type="text/html" title="Switch from Microsoft account to local account on Windows 11 After Installation" /><published>2025-05-18T06:38:50+00:00</published><updated>2025-05-18T06:38:50+00:00</updated><id>https://hemimorphite.github.io/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11</id><content type="html" xml:base="https://hemimorphite.github.io/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Switch from Microsoft account to local account on Windows 11 After Installation</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -117,7 +117,128 @@
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/zh/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2025" /><category term="month-05" /><category term="day-18" /><category term="windows" /><category term="windows 11" /><summary type="html"><![CDATA[Easily switch from a Microsoft account to a local account on Windows 11 after setup. Follow this step-by-step guide to gain more privacy, work offline, and manage your PC without cloud integration.]]></summary></entry><entry xml:lang="en"><title type="html">Add or Remove Drivers on a Windows Image</title><link href="https://hemimorphite.github.io/zh/2025/05/17/add-or-remove-drivers-on-a-windows-offline-image/" rel="alternate" type="text/html" title="Add or Remove Drivers on a Windows Image" /><published>2025-05-17T16:58:50+00:00</published><updated>2025-05-17T16:58:50+00:00</updated><id>https://hemimorphite.github.io/2025/05/17/add-or-remove-drivers-on-a-windows-offline-image</id><content type="html" xml:base="https://hemimorphite.github.io/2025/05/17/add-or-remove-drivers-on-a-windows-offline-image/"><![CDATA[<div class="blog-post">
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2025" /><category term="month-05" /><category term="day-18" /><category term="windows" /><category term="windows 11" /><summary type="html"><![CDATA[Easily switch from a Microsoft account to a local account on Windows 11 after setup. Follow this step-by-step guide to gain more privacy, work offline, and manage your PC without cloud integration.]]></summary></entry><entry xml:lang="en"><title type="html">No Drives Can Be Found During Windows 10/11 Installation</title><link href="https://hemimorphite.github.io/zh/2025/05/18/no-drives-can-be-found-during-windows-11-installation/" rel="alternate" type="text/html" title="No Drives Can Be Found During Windows 10/11 Installation" /><published>2025-05-18T04:38:50+00:00</published><updated>2025-05-18T04:38:50+00:00</updated><id>https://hemimorphite.github.io/2025/05/18/no-drives-can-be-found-during-windows-11-installation</id><content type="html" xml:base="https://hemimorphite.github.io/2025/05/18/no-drives-can-be-found-during-windows-11-installation/"><![CDATA[<div class="blog-post">
+    <h2 class="post-title">No Drives Can Be Found During Windows 10/11 Installation</h2>
+<div class="post-author">
+    <span class="avatar"></span>
+    <span class="info"><span class="date">Published May 18, 2025</span><br><span class="name">By Samuel Yang</span></span>
+</div>
+
+<figure class="post-image">
+    <img src="/assets/images/loaddriver.png" alt="Blog Cover">
+</figure>
+
+    <article class="post-content">
+        <p>Intel 11th (Tiger Lake), 12th (Alder Lake), and 13th (Raptor Lake) generation processors use Intel Volume Management Device (VMD) technology to improve storage performance and power efficiency. On systems with VMD enabled by default (which is often not configurable in BIOS/UEFI), the Windows 10/11 retail installer cannot detect NVMe drives unless the Intel Rapid Storage Technology (IRST) driver is manually loaded during installation. To proceed, you must download the appropriate IRST (VMD) driver, place it on a USB drive, and load it when prompted by the installer to detect available storage devices.</p>
+
+        <p>In this tutorial, you will learn how to install windows 10/11 with Intel VMD technology enabled.</p>
+		
+		<h5 class="post-subtitle">Step 1: Download the Intel IRST/VMD driver from your laptop/pc manufacturer's site</h5>
+		
+        <p>Here are the official driver download pages for Acer, ASUS, Dell, Lenovo, and HP:</p> 
+		
+		<ul>
+			<li>
+				<strong>Acer:</strong>
+				<a href="https://www.acer.com/us-en/support/drivers-and-manuals" target="_blank">
+					https://www.acer.com/us-en/support/drivers-and-manuals
+				</a>
+			</li>
+			<li>
+				<strong>ASUS:</strong>
+				<a href="https://www.asus.com/support/download-center/" target="_blank">
+					https://www.asus.com/support/Download-Center/
+				</a>
+			</li>
+			<li>
+				<strong>Dell:</strong>
+				<a href="https://www.dell.com/support/home/en-id?app=drivers" target="_blank">
+					https://www.dell.com/support/home/en-id?app=drivers
+				</a>
+			</li>
+			<li>
+				<strong>Lenovo:</strong>
+				<a href="https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/3-series/ideapad-3-15iil05/81we/videos/vid100754-how-to-download-and-install-a-driver-from-the-lenovo-support-site" target="_blank">
+					https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/3-series/ideapad-3-15iil05/81we/videos/vid100754-how-to-download-and-install-a-driver-from-the-lenovo-support-site
+				</a>
+			</li>
+			<li>
+				<strong>HP:</strong>
+				<a href="https://support.hp.com/us-en/drivers" target="_blank">
+					https://support.hp.com/us-en/drivers
+				</a>
+			</li>
+		</ul>
+
+        <p>Most often the drivers come as a self-extracting executable (.exe) or archived (.zip) file. Extract the downloaded IRST driver files and copy to your USB installation media.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/irstdriver.png" alt="Copy IRST driver to USB installation media">
+        </figure>
+		
+		<h5 class="post-subtitle">Step 2: Boot into Windows Installation</h5>
+		
+        <p>Plug in your Windows USB installer and power on the laptop/PC.</p> 
+		
+        <p>During startup, press the boot menu key (this is usually F12, F9, Esc, or another key depending on your laptop/PC brand) to open the boot options menu.</p>
+		
+		<p>From the list, select the USB device to boot from your Windows installation media.</p>
+		
+		<p>When prompted where do you want to install Windows, click <strong>Load driver</strong>.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/loaddriver.png" alt="Load Driver">
+        </figure>
+		
+		<p>Click Browse.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/browse.png" alt="Browse">
+        </figure>
+        
+		<p>Navigate and select the folder where you placed the driver files, and click <strong>OK</strong>.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/selectdriver.png" alt="Select Driver">
+        </figure>
+		
+		<p>Choose the driver shown on the list, and click <strong>Install</strong>.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/installdriver.png" alt="Install Driver">
+        </figure>
+		
+		<p>Once the driver is loaded successfully, you should see your drives listed.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/installwindows.png" alt="Install Windows">
+        </figure>
+		
+		<p>You can now continue with the rest of the Windows installation as usual.</p>
+    </article>
+
+  <div class="post-tags">
+	<div class="title">Tags</div>
+	<ul class="tags">
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/windows" class="tag">windows</a></li>
+		
+		<li><a href="https://hemimorphite.github.io/zh/tag/windows-11" class="tag">windows 11</a></li>
+		
+	</ul>
+</div>
+
+
+  <div class="post-share">
+	
+    <div class="title">Share this post</div>
+    <ul class="rounded-social-buttons">
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/zh/2025/05/18/no-drives-can-be-found-during-windows-11-installation/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/zh/2025/05/18/no-drives-can-be-found-during-windows-11-installation/" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/zh/2025/05/18/no-drives-can-be-found-during-windows-11-installation/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</div>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorials" /><category term="year-2025" /><category term="month-05" /><category term="day-18" /><category term="windows" /><category term="windows 11" /><summary type="html"><![CDATA[Intel 11th (Tiger Lake), 12th (Alder Lake), and 13th (Raptor Lake) generation processors use Intel Volume Management Device (VMD) technology to improve storage performance and power efficiency. On systems with VMD enabled by default (which is often not configurable in BIOS/UEFI), the Windows 10/11 retail installer cannot detect NVMe drives unless the Intel Rapid Storage Technology (IRST) driver is manually loaded during installation. To proceed, you must download the appropriate IRST (VMD) driver, place it on a USB drive, and load it when prompted by the installer to detect available storage devices.]]></summary></entry><entry xml:lang="en"><title type="html">Add or Remove Drivers on a Windows Image</title><link href="https://hemimorphite.github.io/zh/2025/05/17/add-or-remove-drivers-on-a-windows-offline-image/" rel="alternate" type="text/html" title="Add or Remove Drivers on a Windows Image" /><published>2025-05-17T16:58:50+00:00</published><updated>2025-05-17T16:58:50+00:00</updated><id>https://hemimorphite.github.io/2025/05/17/add-or-remove-drivers-on-a-windows-offline-image</id><content type="html" xml:base="https://hemimorphite.github.io/2025/05/17/add-or-remove-drivers-on-a-windows-offline-image/"><![CDATA[<div class="blog-post">
     <h2 class="post-title">Add or Remove Drivers on a Windows Image</h2>
 <div class="post-author">
     <span class="avatar"></span>
@@ -125,7 +246,7 @@
 </div>
 
 <figure class="post-image">
-    <img src="/assets/images/adddrivers.jpg" alt="Blog Cover">
+    <img src="/assets/images/adddrivers.png" alt="Blog Cover">
 </figure>
 
     <article class="post-content">
@@ -177,7 +298,7 @@
 		<p>Create a folder to place all the downloaded drivers. In this example I create the folder on drive <code>D:</code> naming it <code>Drivers</code>.</p>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/drivers.jpg" alt="Drivers">
+            <img src="/assets/images/drivers.png" alt="Drivers">
         </figure>
 		
 		<h5 class="post-subtitle">Step 2: Add drivers to image</h5>
@@ -187,11 +308,11 @@
         <p>Mount the Windows 10/11 ISO file by double-clicking it to open it as a virtual DVD. In File Explorer, open the mounted ISO, press <code>Ctrl + A</code> to select all files and folders, then press <code>Ctrl + C</code> to copy them. Navigate to your <code>ISO_Files</code> folder and press <code>Ctrl + V</code> to paste the contents of the ISO.</p>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/virtualDVD.jpg" alt="Virtual DVD">
+            <img src="/assets/images/virtualDVD.png" alt="Virtual DVD">
         </figure>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/windowsisofiles.jpg" alt="Windows 11 ISO Files">
+            <img src="/assets/images/windowsisofiles.png" alt="Windows 11 ISO Files">
         </figure>
 		
 		<p>Create a folder to mount offline image. In this example I create the folder on drive <code>D:</code> naming it <code>Mount</code>.</p>
@@ -201,7 +322,7 @@
 		<pre><code class="language-plaintext hljs">Dism /Get-WimInfo /WimFile:D:\ISO_Files\Sources\install.wim</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/listalleditions.jpg" alt="List All Editions">
+            <img src="/assets/images/listalleditions.png" alt="List All Editions">
         </figure>
 		
 		<p>Mount the image of your preferred Windows 10/11 edition using its index number (retrieved from the previous step). Use the following command to mount the image:</p>
@@ -209,7 +330,7 @@
 		<pre><code class="language-plaintext hljs">Dism /Mount-Wim /WimFile:D:\ISO_Files\Sources\install.wim /index:6 /MountDir:D:\Mount</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/mountwindowsimage.jpg" alt="Mount Windwos Image">
+            <img src="/assets/images/mountwindowsimage.png" alt="Mount Windwos Image">
         </figure>
 		
 		<p>Replace <code>6</code> with the index number of the edition you want to mount.</p>
@@ -219,7 +340,7 @@
 		<pre><code class="language-plaintext hljs">Dism /Image:D:\Mount /Get-Drivers</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/listalldrivers.jpg" alt="List All Drivers">
+            <img src="/assets/images/listalldrivers.png" alt="List All Drivers">
         </figure>
 		
 		<p>You can now add all the drivers to the offline mounted Windows image using the following command:</p>
@@ -227,7 +348,7 @@
 		<pre><code class="language-plaintext hljs">Dism /Image:D:\Mount /Add-Driver /Driver:D:\Drivers /Recurse</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/adddrivers.jpg" alt="Add All Drivers">
+            <img src="/assets/images/adddrivers.png" alt="Add All Drivers">
         </figure>
 		
 		<p>If you prefer to add drivers one by one to your offline mounted Windows image, you can use the following command for each individual <code>.inf</code> file:</p>
@@ -243,7 +364,7 @@
 		<pre><code class="language-plaintext hljs">Dism /Unmount-Wim /MountDir:D:\Mount /Commit</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/unmountwindowsimage.jpg" alt="Unmount Windows Image">
+            <img src="/assets/images/unmountwindowsimage.png" alt="Unmount Windows Image">
         </figure>
 		
 		<h5 class="post-subtitle">Step 3: Create an Updated Windows ISO</h5>
@@ -259,7 +380,7 @@
 		<pre><code class="language-plaintext hljs">oscdimg.exe -m -o -u2 -udfver102 -bootdata:2#p0,e,bD:\ISO_files\boot\etfsboot.com#pEF,e,bD:\ISO_files\efi\microsoft\boot\efisys.bin D:\ISO_files D:\Win11_24H2_v2_English_x64.iso</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/createwindowsiso.jpg" alt="Create an Updated Windows ISO">
+            <img src="/assets/images/createwindowsiso.png" alt="Create an Updated Windows ISO">
         </figure>
 		
 		<table class="table table-bordered border-primary">
@@ -288,7 +409,7 @@
         </table>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/createwindowsiso.jpg" alt="Create an updated ISO">
+            <img src="/assets/images/createwindowsiso.png" alt="Create an updated ISO">
         </figure>
     </article>
 
@@ -16583,1559 +16704,4 @@ class Person : IComparable&lt;Person&gt;
         <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/zh/2024/10/14/singly-linked-list-data-structure/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
     </ul>
 </div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-10" /><category term="day-14" /><category term="data structure" /><category term="linked list" /><category term="singly linked list" /><summary type="html"><![CDATA[Discover the essential concepts of singly linked list data structures in this detailed tutorial designed for both beginners and experienced learners. This guide offers a thorough exploration of the implementation process, complete with illustrative examples that demonstrate key operations such as node creation, insertion, deletion, sorting, searching, and traversal.]]></summary></entry><entry xml:lang="en"><title type="html">Dynamic Array Data Structure</title><link href="https://hemimorphite.github.io/zh/2024/10/11/dynamic-array-data-structure/" rel="alternate" type="text/html" title="Dynamic Array Data Structure" /><published>2024-10-11T10:20:00+00:00</published><updated>2024-10-11T10:20:00+00:00</updated><id>https://hemimorphite.github.io/2024/10/11/dynamic-array-data-structure</id><content type="html" xml:base="https://hemimorphite.github.io/2024/10/11/dynamic-array-data-structure/"><![CDATA[<div class="blog-post">
-    <h2 class="post-title">Dynamic Array Data Structure</h2>
-<div class="post-author">
-    <span class="avatar"></span>
-    <span class="info"><span class="date">Published October 11, 2024</span><br><span class="name">By Samuel Yang</span></span>
-</div>
-
-<figure class="post-image">
-    <img src="/assets/images/dynamicarray.jpg" alt="Blog Cover">
-</figure>
-
-    <article class="post-content">
-		
-		<h3 class="post-subtitle">Dynamic Array</h3>
-		
-        <p>A dynamic array is unlike a regular array with a fixed size, can automatically resize itself when elements are added or removed. This allows for more flexible use, especially when the number of elements is not known in advance. Dynamic arrays are commonly implemented by allocating a larger array when needed and copying the elements from the old array to the new one.</p>
-
-        <p>Dynamic arrays have many key features that make them a popular choice among programmers. Some of the key features of dynamic arrays are:</p>
-		
-		<ul>
-			<li><b>Dynamic Resizing</b>: A dynamic array can automatically resize itself when its capacity is exceeded. Initially, a dynamic array starts with a small capacity, but as more elements are added, the array grows, typically by doubling its size. This allows it to accommodate more elements efficiently.</li>
-			<li><b>Efficient Element Access</b>: Dynamic arrays provide constant-time access to elements via indices. You can access any element in the array in \(O(1)\) time using its index, just like a regular array.</li>
-			<li><b>Flexible Size</b>: Unlike fixed-size arrays, which have a predetermined capacity, a dynamic array can grow or shrink based on the number of elements it holds.</li>
-			<li><b>Amortized Constant-Time Append</b>: Adding an element at the end of a dynamic array is efficient and usually takes \(O(1)\) time. When the array reaches its capacity, the array is resized (which takes \(O(n)\) time for the copy operation), but this happens infrequently. Therefore, the average time complexity for appending an element is amortized \(O(1)\).</li>
-			<li><b>Efficient Memory Management</b>: Dynamic arrays allocate memory only when needed. Although resizing (doubling the size of the array) may lead to some temporarily unused memory (as the array can grow to be larger than the number of elements), this approach minimizes memory reallocations and ensures that elements are stored contiguously in memory.</li>
-			<li><b>Index-Based Insertions and Deletions</b>: Inserting or deleting elements at specific indices can be done in a dynamic array, but these operations require shifting elements, making them \(O(n)\) in the worst case. Inserting at the end (append) is faster, while inserting or deleting in the middle requires moving elements to maintain the order.</li>
-			<li><b>Contiguous Memory Allocation</b>: Like regular arrays, elements in a dynamic array are stored in a contiguous block of memory. This provides cache-friendly access to data, improving performance when iterating over the elements.</li>
-		</ul>
-		
-		<p>Here's a detailed breakdown of common dynamic array operations:</p>
-
-        <ul>
-            <li><code>add()</code>:<br>
-				<ul>
-					<li><b>Description</b>: Adds an element to the end of the array. If the current size equals the capacity, the array is resized (usually doubled), and the element is added.</li>
-					<li><b>Time complexity</b>:<br>
-						<ul>
-							<li>If the dynamic array has enough capacity to accommodate the new element, adding the element is a simple operation, requiring constant time i.e. \(O(1)\) to place the new element at the end of the array.</li>
-							<li>If the dynamic array is full, a new larger array must be allocated (typically twice the current size), and all the existing elements must be copied to the new array. This resizing operation takes linear time (\(O(n)\), where \(n\) is the number of elements in the array).</li>
-						</ul>
-					</li>
-					<li><b>Space complexity</b>:<br>
-						<ul>
-							<li>If the dynamic array has enough capacity to accommodate the new element, no additional space is needed. This operation takes constant space i.e. \(O(1)\).</li>
-							<li>If the dynamic array is full, a new larger array must be allocated (typically twice the current size), and all the existing elements must be copied to the new array. The new array requires \(O(n)\) space (where \(n\) is the current number of elements).</li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-            <li><code>get()</code>:<br>
-				<ul>
-					<li><b>Description</b>: Retrieves an element at a specified index. Returns the element at the given index without modifying the array.</li>
-					<li><b>Time complexity</b>: Accessing an element in a dynamic array is straightforward since arrays allow random access. This means that you can directly access any element by its index in constant time i.e. \(O(1)\).</li>
-					<li><b>Space complexity</b>: Accessing an element does not require any additional space apart from the memory already allocated for the array itself. Therefore this operation takes constant space i.e. \(O(1)\).</li>
-				</ul>
-			</li>
-            <li><code>set()</code>:<br>
-				<ul>
-					<li><b>Description</b>: Adds an element to the end of the array. If the current size equals the capacity, the array is resized (usually doubled), and the element is added.</li>
-					<li><b>Time complexity</b>: Setting an element at any index is a constant-time operation i.e. \(O(1)\) because it directly changes the value at the memory location corresponding to the index.</li>
-					<li><b>Space complexity</b>: No extra memory is allocated; you are just modifying the existing space. This operation takes constant space i.e. \(O(1)\).</li>
-				</ul>
-			</li>
-            <li><code>remove()</code>:<br>
-				<ul>
-					<li><b>Description</b>: Deletes an element from a specified index. Removes the element and shifts the subsequent elements to fill the gap.</li>
-					<li><b>Time complexity</b>:<br>
-						<ul>
-							<li>Removing the last element does not require shifting any elements. This is straightforward as it involves just updating the size of the array by decreasing it by 1. This operation takes constatnt time (\(O(1)\).</li>
-							<li>Removing an element from any other position requires shifting all elements to the left to fill the gap left by the removed element. Every element after the removed element needs to be shifted one position to the left, resulting in a linear time complexity in the worst case. This operation requires linear time i.e. \(O(n)\) (where \(n\) is the number of elements after the removed element)</li>
-						</ul>
-					</li>
-					<li><b>Space complexity</b>: No additional space is required to remove an element from the array, as you are modifying the existing array structure. This operation takes constant space i.e. \(O(1)\).</li>
-				</ul>
-			</li>
-            <li><code>insert()</code>:<br>
-				<ul>
-					<li><b>Description</b>: Inserts an element at a specified index. If the array is full, it resizes the array. The specified index is filled, and subsequent elements are shifted to the right.</li>
-					<li><b>Time complexity</b>:<br>
-						<ul>
-							<li>If the dynamic array has enough capacity to accommodate the new element, inserting to the end of the array without any additional operations. This operation requires constant time i.e. \(O(1)\) to place the new element at the end of the array.</li>
-							<li>If the dynamic array is full, a new larger array must be allocated (typically twice the current size), and all the existing elements must be copied to the new array. This resizing operation takes linear time (\(O(n)\), where \(n\) is the number of elements in the array).</li>
-							<li>When an element is inserted anywhere other than the end (e.g., in the middle), all subsequent elements need to be shifted one position to the right to make space for the new element. This shifting operation requires time proportional to the number of elements after the insertion point, resulting in a linear time complexity \(O(n)\).</li>
-						</ul>
-					</li>
-					<li><b>Space complexity</b>:<br>
-						<ul>
-							<li>If the dynamic array has enough capacity to accommodate the new element, no additional space is needed. This operation takes constant space i.e. \(O(1)\).</li>
-							<li>If the dynamic array is full, a new larger array must be allocated (typically twice the current size), and all the existing elements must be copied to the new array. The new array requires \(O(n)\) space (where \(n\) is the current number of elements).</li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-            <li><code>size()</code>:<br>
-				<ul>
-					<li><b>Description</b>: Returns the number of elements currently stored in the array. Simply returns the <code>size</code> attribute.</li>
-					<li><b>Time complexity</b>: Retrieving the size of a dynamic array is an \(O(1)\) operation because the size is typically stored as a separate variable (e.g., size or length). When you call the size method, it simply returns this value without needing to iterate over the array or perform any additional calculations.</li>
-					<li><b>Space complexity</b>: The operation does not require any additional space beyond what is already used to store the size variable.</li>
-				</ul>
-			</li>
-			<li><code>resize()</code>:<br>
-				<ul>
-					<li><b>Description</b>: Changes the capacity of the array. Creates a new larger or smaller array and copies existing elements into it.</li>
-					<li><b>Time complexity</b>: The resize operation takes linear time because you need to copy all existing elements from the old array to the new one. If the current size of the array is \(n\), it will require \(n\) time to copy each element over. This operation takes linear time i.e. \(O(n)\).</li>
-					<li><b>Space complexity</b>: When you create a new array, it will require \(n\) space to hold the existing elements (where \(n\) is the number of elements in the current array). Additionally, the size of the new array is typically twice that of the old one, so the overall space allocation for the new array would also be proportional to \(n\). This operation takes linear time i.e. \(O(n)\).</li>
-				</ul>
-			</li>
-            <li><code>clear()</code>:<br>
-				<ul>
-					<li><b>Description</b>: Removes all elements from the array. Sets the size to zero, effectively clearing the contents, but the capacity may remain unchanged.</li>
-					<li><b>Time complexity</b>: The <code>clear</code> operation involves iterating through all elements to free up any dynamically allocated resources or simply resetting references, it takes linear time \(O(n)\), where \(n\) is the current number of elements in the array.
-					</li>
-					<li><b>Space complexity</b>: The <code>clear</code> operation does not allocate any new space or increase the overall memory usage. This operation takes constant space i.e. \(O(1)\).</li>
-				</ul>
-			</li>
-            <li><code>display()</code>:<br>
-				<ul>
-					<li><b>Description</b>: Displays all elements in the array. Iterates through the array and prints each element.</li>
-					<li><b>Time complexity</b>: The display operation involves iterating through all elements of the dynamic array from index <code>0</code> to <code>size - 1</code> to print each element. The time complexity of this operation is \(O(n)\), where \(n\) is the number of elements in the dynamic array.</li>
-					<li><b>Space complexity</b>: The display operation does not require any additional memory proportional to the number of elements, except for a fixed amount of space used for variables like the loop counter. Therefore, the space complexity is \(O(1)\).</li>
-				</ul>
-			</li>
-        </ul>
-		
-		<p>Most current programming languages include built-in or standard library functions for creating and managing dynamic arrays.</p>
-        
-		<p>In C, there is no built-in dynamic array type like in higher-level languages (e.g., C++, Java, C#).</p>
-		
-		<p>In C++, the built-in dynamic array is provided by the <code>std::vector</code> class, which is part of the Standard Template Library (STL). Vectors in C++ provide a dynamic array implementation that automatically resizes as elements are added or removed.</p>
-        
-		<p>Here is the basic example of using <code>std::vector</code>:</p>
-		
-        <pre><code class="language-cpp hljs">#include &lt;iostream&gt;
-#include &lt;vector&gt;
-
-int main() {
-    // Create a vector of integers
-    std::vector&lt;int&gt; dynamicArray;
-
-    // Add elements to the vector using push_back()
-    dynamicArray.push_back(10);
-    dynamicArray.push_back(20);
-    dynamicArray.push_back(30);
-    dynamicArray.push_back(40);
-
-    // Access elements using the [] operator or at() method
-    std::cout &lt;&lt; "Element at index 2: " &lt;&lt; dynamicArray[2] &lt;&lt; std::endl;
-
-    // Modify an element
-    dynamicArray[2] = 50;
-
-    std::cout &lt;&lt; "Array after modification: ";
-    for (int i = 0; i &lt; dynamicArray.size(); i++) {
-        std::cout &lt;&lt; dynamicArray[i] &lt;&lt; " ";
-    }
-    std::cout &lt;&lt; std::endl;
-
-    // Remove the last element using pop_back()
-    dynamicArray.pop_back();
-
-    std::cout &lt;&lt; "Array after removing the last element: ";
-    for (int i = 0; i &lt; dynamicArray.size(); i++) {
-        std::cout &lt;&lt; dynamicArray[i] &lt;&lt; " ";
-    }
-    std::cout &lt;&lt; std::endl;
-	
-	// Resize the vector to size 5, new elements initialized to 0
-    dynamicArray.resize(5);
-
-    std::cout &lt;&lt; "After resizing to larger size: ";
-    for (int i = 0; i &lt; dynamicArray.size(); i++) {
-        std::cout &lt;&lt; dynamicArray[i] &lt;&lt; " ";
-    }
-    std::cout &lt;&lt; std::endl;
-	
-	// Resize the vector to size 3, excess elements are truncated
-    dynamicArray.resize(3);
-	
-	std::cout &lt;&lt; "After resizing to smaller size: ";
-    for (int i = 0; i &lt; dynamicArray.size(); i++) {
-        std::cout &lt;&lt; dynamicArray[i] &lt;&lt; " ";
-    }
-    std::cout &lt;&lt; std::endl;
-	
-	// Clear all elements from the vector
-    dynamicArray.clear();
-
-    std::cout &lt;&lt; "Vector size after clear: " &lt;&lt; vec.size() &lt;&lt; std::endl;
-	
-    return 0;
-}</code></pre>
-
-        <p>In Java, the built-in dynamic array is represented by the <code>ArrayList</code> class, which is part of the Java Collections Framework.</p>
-        
-		<p>Here is the basic example of using <code>ArrayList</code>:</p>
-		
-        <pre><code class="language-java hljs">import java.util.ArrayList;
-
-public class Main {
-    public static void main(String[] args) {
-        ArrayList&lt;Integer&gt; arrayList = new ArrayList&lt;&gt;();
-
-        arrayList.add(1); // Adds 1 to the list
-        arrayList.add(2); // Adds 2 to the list
-        arrayList.add(3); // Adds 3 to the list
-		arrayList.add(4); // Adds 4 to the list
-        
-        System.out.println("ArrayList: " + arrayList);
-		
-		System.out.println("Element at index 1: " + arrayList.get(1));
-		
-		arrayList.set(1, 10); // Updates the element at index 1 to 10
-        System.out.println("Updated ArrayList: " + arrayList);
-		
-		arrayList.remove(1); // Removes the element at index 1
-        System.out.println("ArrayList after removal: " + arrayList);
-		
-		System.out.println("Size of ArrayList: " + arrayList.size());
-		
-		arrayList.clear(); // Clears all elements from the list
-        System.out.println("ArrayList after clear: " + arrayList);
-    }
-}</code></pre>
-
-        <p>In C#, the built-in dynamic array is represented by the <code>List&lt;T&gt;</code> class from the <code>System.Collections.Generic</code> namespace. The <code>List&lt;T&gt;</code> is similar to an array but with the ability to automatically resize itself when more elements are added, much like dynamic arrays in other languages such as Java's <code>ArrayList</code>.</p>
-        
-		<p>Here is the basic example of using <code>List&lt;T&gt;</code>:</p>
-		
-        <pre><code class="language-csharp hljs">using System;
-using System.Collections.Generic;
-
-class Program
-{
-    static void Main()
-    {
-        // Creating a List of integers with initial capacity
-        List&lt;int&gt; numbers = new List&lt;int&gt;();
-
-        // Adding elements to the List
-        numbers.Add(1);
-        numbers.Add(2);
-        numbers.Add(3);
-        numbers.Add(4);
-
-        // Accessing elements by index
-        Console.WriteLine("Element at index 2: " + numbers[2]);
-
-        // Modifying an element
-        numbers[2] = 10;
-        Console.WriteLine("After modification, element at index 2: " + numbers[2]);
-
-        // Iterating through the List
-        Console.WriteLine("Elements in List:");
-        foreach (int number in numbers)
-        {
-            Console.WriteLine(number);
-        }
-
-        // Checking the size of the List
-        Console.WriteLine("Size of List: " + numbers.Count);
-
-        // Removing an element
-        numbers.RemoveAt(2); // Remove element at index 2
-        Console.WriteLine("After removal, size of List: " + numbers.Count);
-        
-        // Displaying the elements after removal
-        Console.WriteLine("Elements in List after removal:");
-        foreach (int number in numbers)
-        {
-            Console.WriteLine(number);
-        }
-    }
-}</code></pre>
-        
-		
-		<h3 class="post-subtitle">Non-Generic Dynamic Array Implementation</h3>
-		
-		<p>Here is the Non-Generic Dynamic Array implementation in C:</p>
-
-        <pre><code class="language-c hljs">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-struct DynamicArray {
-    int *array;  // Array to hold elements
-    int capacity; // Capacity of the dynamic array
-    int size;     // Current number of elements
-};
-
-// Initialize dynamic array
-void init(struct DynamicArray *dArray, int capacity) {
-    dArray-&gt;array = (int *)malloc(capacity * sizeof(int));
-    dArray-&gt;capacity = capacity;
-    dArray-&gt;size = 0;
-}
-
-// Resize the dynamic array
-void resize(struct DynamicArray *dArray) {
-    int newCapacity = dArray-&gt;capacity * 2;
-    dArray-&gt;array = (int *)realloc(dArray-&gt;array, newCapacity * sizeof(int));
-    dArray-&gt;capacity = newCapacity;
-}
-
-// Add an element to the end
-void add(struct DynamicArray *dArray, int element) {
-    if (dArray-&gt;size == dArray-&gt;capacity) {
-        resize(dArray);
-    }
-    dArray-&gt;array[dArray-&gt;size++] = element;
-}
-
-// Get an element by index
-int get(struct DynamicArray *dArray, int index) {
-    if (index &lt; 0 || index &gt;= dArray-&gt;size) {
-        printf("Index out of bounds\n");
-        return -1;
-    }
-    return dArray-&gt;array[index];
-}
-
-// Set (update) an element at a specific index
-void set(struct DynamicArray *dArray, int index, int element) {
-    if (index &lt; 0 || index &gt;= dArray-&gt;size) {
-        printf("Index out of bounds\n");
-        return;
-    }
-    dArray-&gt;array[index] = element;
-}
-
-// Remove an element by index
-void remove(struct DynamicArray *dArray, int index) {
-    if (index &lt; 0 || index &gt;= dArray-&gt;size) {
-        printf("Index out of bounds\n");
-        return;
-    }
-    for (int i = index; i &lt; dArray-&gt;size - 1; i++) {
-        dArray-&gt;array[i] = dArray-&gt;array[i + 1];
-    }
-    dArray-&gt;size--;
-}
-
-// Insert an element at a specific index
-void insert(struct DynamicArray *dArray, int index, int element) {
-    if (index &lt; 0 || index &gt; dArray-&gt;size) {
-        printf("Index out of bounds\n");
-        return;
-    }
-    if (dArray-&gt;size == dArray-&gt;capacity) {
-        resize(dArray);
-    }
-    for (int i = dArray-&gt;size; i &gt; index; i--) {
-        dArray-&gt;array[i] = dArray-&gt;array[i - 1];
-    }
-    dArray-&gt;array[index] = element;
-    dArray-&gt;size++;
-}
-
-// Return the size of the array
-int size(struct DynamicArray *dArray) {
-    return dArray-&gt;size;
-}
-
-// Clear the array
-void clear(struct DynamicArray *dArray) {
-    dArray-&gt;size = 0;
-}
-
-// Display the array
-void display(struct DynamicArray *dArray) {
-    if (dArray-&gt;size == 0) {
-        printf("Array is empty\n");
-    } else {
-        for (int i = 0; i &lt; dArray-&gt;size; i++) {
-            printf("%d ", dArray-&gt;array[i]);
-        }
-        printf("\n");
-    }
-}
-
-// Free the memory allocated to the array
-void deallocate(struct DynamicArray *dArray) {
-    free(dArray-&gt;array);
-    dArray-&gt;array = NULL;
-    dArray-&gt;capacity = dArray-&gt;size = 0;
-}
-
-int main() {
-    struct DynamicArray dArray;
-    initArray(&dArray, 2);
-
-    add(&dArray, 10);
-    add(&dArray, 20);
-    add(&dArray, 30);
-    display(&dArray); // Output: 10 20 30
-
-    printf("Element at index 1: %d\n", get(&dArray, 1)); // Output: 20
-
-    set(&dArray, 1, 25);
-    display(&dArray); // Output: 10 25 30
-
-    insert(&dArray, 1, 15);
-    display(&dArray); // Output: 10 15 25 30
-
-    remove(&dArray, 2);
-    display(&dArray); // Output: 10 15 30
-
-    printf("Size: %d\n", size(&dArray)); // Output: 3
-
-    clear(&dArray);
-    display(&dArray); // Output: Array is empty
-
-    deallocate(&dArray);
-
-    return 0;
-}</code></pre>
-		
-		<p>Here is the Non-Generic Dynamic Array implementation in C++:</p>
-		
-		<pre><code class="language-cpp hljs">#include &lt;iostream&gt;
-#include &lt;stdexcept&gt; // For exception handling
-
-class DynamicArray {
-private:
-    int* array;
-    int capacity;
-    int currentSize;
-
-    // Resize the array when it reaches capacity
-    void resize() {
-        capacity *= 2;
-        int* newArray = new int[capacity];
-
-        // Manually copy elements from the old array to the new array
-        for (int i = 0; i &lt; currentSize; ++i) {
-            newArray[i] = array[i];
-        }
-
-        delete[] array; // Free the old array
-        array = newArray; // Assign the new array
-    }
-
-public:
-    // Constructor to initialize the dynamic array with an initial capacity
-    DynamicArray(int initialCapacity = 2) {
-        capacity = initialCapacity;
-        array = new int[capacity];
-        currentSize = 0;
-    }
-
-    // Destructor to free allocated memory
-    ~DynamicArray() {
-        delete[] array;
-    }
-
-    // Add an element to the array
-    void add(int element) {
-        if (currentSize == capacity) {
-            resize();
-        }
-        array[currentSize++] = element;
-    }
-
-    // Get an element at a specific index
-    int get(int index) const {
-        if (index &lt; 0 || index &gt;= currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        return array[index];
-    }
-
-    // Set (update) an element at a specific index
-    void set(int index, int element) {
-        if (index &lt; 0 || index &gt;= currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        array[index] = element;
-    }
-
-    // Remove an element at a specific index
-    void remove(int index) {
-        if (index &lt; 0 || index &gt;= currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        for (int i = index; i &lt; currentSize - 1; ++i) {
-            array[i] = array[i + 1];
-        }
-        --currentSize;
-    }
-
-    // Insert an element at a specific index
-    void insert(int index, int element) {
-        if (index &lt; 0 || index &gt; currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        if (currentSize == capacity) {
-            resize();
-        }
-        for (int i = currentSize; i &gt; index; --i) {
-            array[i] = array[i - 1];
-        }
-        array[index] = element;
-        ++currentSize;
-    }
-
-    // Get the current size of the dynamic array
-    int size() const {
-        return currentSize;
-    }
-
-    // Clear the array
-    void clear() {
-        currentSize = 0;
-        std::cout &lt;&lt; "Array cleared!" &lt;&lt; std::endl;
-    }
-
-    // Display all elements in the dynamic array
-    void display() const {
-        if (currentSize == 0) {
-            std::cout &lt;&lt; "Array is empty" &lt;&lt; std::endl;
-        } else {
-            for (int i = 0; i &lt; currentSize; ++i) {
-                std::cout &lt;&lt; array[i] &lt;&lt; " ";
-            }
-            std::cout &lt;&lt; std::endl;
-        }
-    }
-};
-
-int main() {
-    DynamicArray dynamicArray;
-
-    // Adding elements
-    dynamicArray.add(1);
-    dynamicArray.add(2);
-    dynamicArray.add(3);
-    dynamicArray.add(4);
-    dynamicArray.display(); // Output: Array elements: 1 2 3 4
-
-    // Get element at index 2
-    std::cout &lt;&lt; "Element at index 2: " &lt;&lt; dynamicArray.get(2) &lt;&lt; std::endl; // Output: 3
-
-    // Set element at index 1
-    dynamicArray.set(1, 20);
-    dynamicArray.display(); // Output: Array elements: 1 20 3 4
-
-    // Insert an element at index 2
-    dynamicArray.insert(2, 100);
-    dynamicArray.display(); // Output: Array elements: 1 20 100 3 4
-
-    // Remove an element at index 3
-    dynamicArray.remove(3);
-    dynamicArray.display(); // Output: Array elements: 1 20 100 4
-
-    // Get the current size of the array
-    std::cout &lt;&lt; "Size: " &lt;&lt; dynamicArray.size() &lt;&lt; std::endl; // Output: Size: 4
-
-    // Clear the array
-    dynamicArray.clear();
-    dynamicArray.display(); // Output: Array is empty
-
-    return 0;
-}</code></pre>
-		
-		<p>Here is the Non-Generic Dynamic Array implementation in Java:</p>
-		
-		<pre><code class="language-java hljs">class DynamicArray {
-    private int[] array;
-    private int size;
-    private int capacity;
-
-    // Constructor to initialize array with a specified capacity
-    public DynamicArray(int initialCapacity) {
-        this.capacity = initialCapacity;
-        this.array = new int[capacity];
-        this.size = 0;
-    }
-
-    // Default constructor with an initial capacity of 2
-    public DynamicArray() {
-        this(2);
-    }
-
-    // Add an element to the dynamic array
-    public void add(int element) {
-        if (size == capacity) {
-            resize();
-        }
-        array[size++] = element;
-    }
-
-    // Get an element at a specific index
-    public int get(int index) {
-        if (index &gt;= size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        return array[index];
-    }
-
-    // Set (update) an element at a specific index
-    public void set(int index, int element) {
-        if (index &gt;= size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        array[index] = element;
-    }
-
-    // Remove an element at a specific index
-    public void remove(int index) {
-        if (index &gt;= size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        for (int i = index; i &lt; size - 1; i++) {
-            array[i] = array[i + 1];
-        }
-        array[--size] = 0;  // Clear last element
-    }
-
-    // Insert an element at a specific index
-    public void insert(int index, int element) {
-        if (index &gt; size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        if (size == capacity) {
-            resize();
-        }
-        for (int i = size; i &gt; index; i--) {
-            array[i] = array[i - 1];
-        }
-        array[index] = element;
-        size++;
-    }
-
-    // Get the current size of the array
-    public int size() {
-        return size;
-    }
-
-    // Resize the array when capacity is reached
-    private void resize() {
-        capacity *= 2;
-        int[] newArray = new int[capacity];
-        
-        // Manually copy elements from the old array to the new array
-        for (int i = 0; i &lt; size; i++) {
-            newArray[i] = array[i];
-        }
-        
-        array = newArray;
-    }
-
-    // Clear the array by setting the size to 0
-    public void clear() {
-        for (int i = 0; i &lt; size; i++) {
-            array[i] = 0;
-        }
-        size = 0;
-        System.out.println("Array cleared!");
-    }
-
-    // Display all elements in the dynamic array
-    public void display() {
-        if (size == 0) {
-            System.out.println("Array is empty");
-        } else {
-            for (int i = 0; i &lt; size; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        }
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        DynamicArray dynamicArray = new DynamicArray();
-
-        // Adding elements
-        dynamicArray.add(1);
-        dynamicArray.add(2);
-        dynamicArray.add(3);
-        dynamicArray.add(4);
-        dynamicArray.display(); // Output: Array elements: 1 2 3 4
-
-        // Get element at index 2
-        System.out.println("Element at index 2: " + dynamicArray.get(2)); // Output: 3
-
-        // Set element at index 1
-        dynamicArray.set(1, 20);
-        dynamicArray.display(); // Output: Array elements: 1 20 3 4
-
-        // Insert an element at index 2
-        dynamicArray.insert(2, 100);
-        dynamicArray.display(); // Output: Array elements: 1 20 100 3 4
-
-        // Remove an element at index 3
-        dynamicArray.remove(3);
-        dynamicArray.display(); // Output: Array elements: 1 20 100 4
-
-        // Get the current size of the array
-        System.out.println("Size: " + dynamicArray.size()); // Output: Size: 4
-
-        // Clear the array
-        dynamicArray.clear();
-        dynamicArray.display(); // Output: Array is empty
-    }
-}</code></pre>
-		
-		<p>Here is the Non-Generic Dynamic Array implementation in C#:</p>
-		
-		<pre><code class="language-csharp hljs">using System;
-
-class DynamicArray
-{
-    private int[] array;      // Internal array to store elements
-    private int capacity;     // Capacity of the array
-    private int size;         // Current number of elements
-
-    // Constructor to initialize array with a default capacity
-    public DynamicArray(int initialCapacity = 2)
-    {
-        capacity = initialCapacity;
-        array = new int[capacity];
-        size = 0;
-    }
-
-    // Add an element to the dynamic array
-    public void Add(int element)
-    {
-        if (size == capacity)
-        {
-            Resize(); // Resize the array if it's full
-        }
-        array[size++] = element;
-    }
-
-    // Get an element at a specific index
-    public int Get(int index)
-    {
-        if (index &lt; 0 || index &gt;= size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        return array[index];
-    }
-
-    // Set (update) an element at a specific index
-    public void Set(int index, int element)
-    {
-        if (index &lt; 0 || index &gt;= size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        array[index] = element;
-    }
-
-    // Remove an element at a specific index
-    public void Remove(int index)
-    {
-        if (index &lt; 0 || index &gt;= size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        for (int i = index; i &lt; size - 1; i++)
-        {
-            array[i] = array[i + 1]; // Shift elements to the left
-        }
-        size--;
-    }
-
-    // Insert an element at a specific index
-    public void Insert(int index, int element)
-    {
-        if (index &lt; 0 || index &gt; size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        if (size == capacity)
-        {
-            Resize(); // Resize if array is full
-        }
-        for (int i = size; i &gt; index; i--)
-        {
-            array[i] = array[i - 1]; // Shift elements to the right
-        }
-        array[index] = element;
-        size++;
-    }
-
-    // Get the current size of the array
-    public int Size()
-    {
-        return size;
-    }
-
-    // Resize the array when it's full
-    private void Resize()
-    {
-        capacity *= 2;
-        int[] newArray = new int[capacity];
-        for (int i = 0; i &lt; size; i++)
-        {
-            newArray[i] = array[i]; // Copy elements to the new array
-        }
-        array = newArray;
-    }
-
-    // Clear the array by setting size to 0
-    public void Clear()
-    {
-        size = 0;
-        Console.WriteLine("Array cleared!");
-    }
-
-    // Display all elements in the dynamic array
-    public void Display()
-    {
-        if (size == 0)
-        {
-            Console.WriteLine("Array is empty");
-        }
-        else
-        {
-            for (int i = 0; i &lt; size; i++)
-            {
-                Console.Write(array[i] + " ");
-            }
-            Console.WriteLine();
-        }
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        DynamicArray dynamicArray = new DynamicArray();
-
-        // Adding elements
-        dynamicArray.Add(1);
-        dynamicArray.Add(2);
-        dynamicArray.Add(3);
-        dynamicArray.Add(4);
-        dynamicArray.Display(); // Output: Array elements: 1 2 3 4
-
-        // Get element at index 2
-        Console.WriteLine("Element at index 2: " + dynamicArray.Get(2)); // Output: 3
-
-        // Set element at index 1
-        dynamicArray.Set(1, 20);
-        dynamicArray.Display(); // Output: Array elements: 1 20 3 4
-
-        // Insert an element at index 2
-        dynamicArray.Insert(2, 100);
-        dynamicArray.Display(); // Output: Array elements: 1 20 100 3 4
-
-        // Remove an element at index 3
-        dynamicArray.Remove(3);
-        dynamicArray.Display(); // Output: Array elements: 1 20 100 4
-
-        // Get the current size of the array
-        Console.WriteLine("Size: " + dynamicArray.Size()); // Output: Size: 4
-
-        // Clear the array
-        dynamicArray.Clear();
-        dynamicArray.Display(); // Output: Array is empty
-    }
-}</code></pre>
-		
-		
-		<h3 class="post-subtitle">Generic Dynamic Array Implementation</h3>
-		
-		<p>Here is the Generic Dynamic Array implementation in C:</p>
-		
-		<pre><code class="language-c hljs">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;string.h&gt;
-
-// Define a structure for StackElement
-typedef struct {
-    void* data;           // Generic pointer to hold data
-    char* toString;       // String description of the element
-} StackElement;
-
-// Define a structure for the dynamic array of StackElements
-typedef struct {
-    StackElement* array;   // Array to store StackElements
-    int capacity;          // Capacity of the array
-    int size;              // Current number of elements
-} DynamicArray;
-
-// Function to initialize the dynamic array
-void init(DynamicArray* arr, int initialCapacity) {
-    arr-&gt;capacity = initialCapacity;
-    arr-&gt;size = 0;
-    arr-&gt;array = (StackElement*)malloc(initialCapacity * sizeof(StackElement));
-}
-
-// Function to resize the dynamic array
-void resize(DynamicArray* arr) {
-    arr-&gt;capacity *= 2;
-    StackElement* newArray = (StackElement*)malloc(arr-&gt;capacity * sizeof(StackElement));
-
-    // Copy elements from the old array to the new array
-    for (int i = 0; i &lt; arr-&gt;size; i++) {
-        newArray[i] = arr-&gt;array[i];
-    }
-
-    free(arr-&gt;array); // Free the old array memory
-    arr-&gt;array = newArray;
-}
-
-// Function to add an element to the dynamic array
-void add(DynamicArray* arr, void* data, const char* description) {
-    if (arr-&gt;size == arr-&gt;capacity) {
-        resize(arr);
-    }
-    arr-&gt;array[arr-&gt;size].data = data;
-    arr-&gt;array[arr-&gt;size].toString = strdup(description); // Duplicate the string description
-    arr-&gt;size++;
-}
-
-// Function to get an element at a specific index
-StackElement* get(DynamicArray* arr, int index) {
-    if (index &lt; 0 || index &gt;= arr-&gt;size) {
-        printf("Index out of range\n");
-        return NULL;
-    }
-    return &arr-&gt;array[index];
-}
-
-// Function to set an element at a specific index
-void set(DynamicArray* arr, int index, void* data, const char* description) {
-    if (index &lt; 0 || index &gt;= arr-&gt;size) {
-        printf("Index out of range\n");
-        return;
-    }
-    free(arr-&gt;array[index].data);
-    arr-&gt;array[index].data = data;
-    free(arr-&gt;array[index].toString);  // Free the old string memory
-    arr-&gt;array[index].toString = strdup(description);  // Duplicate the new string description
-}
-
-// Function to remove an element at a specific index
-void remove(DynamicArray* arr, int index) {
-    if (index &lt; 0 || index &gt;= arr-&gt;size) {
-        printf("Index out of range\n");
-        return;
-    }
-    free(arr-&gt;array[index].toString);  // Free the string memory
-    free(arr-&gt;array[index].data);       // Free the Car instance memory
-    for (int i = index; i &lt; arr-&gt;size - 1; i++) {
-        arr-&gt;array[i] = arr-&gt;array[i + 1];
-    }
-    arr-&gt;size--;
-}
-
-// Function to insert an element at a specific index
-void insert(DynamicArray* arr, int index, void* data, const char* description) {
-    if (index &lt; 0 || index &gt; arr-&gt;size) {
-        printf("Index out of range\n");
-        return;
-    }
-    if (arr-&gt;size == arr-&gt;capacity) {
-        resize(arr);
-    }
-    for (int i = arr-&gt;size; i &gt; index; i--) {
-        arr-&gt;array[i] = arr-&gt;array[i - 1];
-    }
-    arr-&gt;array[index].data = data;
-    arr-&gt;array[index].toString = strdup(description); // Duplicate the string description
-    arr-&gt;size++;
-}
-
-// Function to get the current size of the dynamic array
-int size(DynamicArray* arr) {
-    return arr-&gt;size;
-}
-
-// Function to clear the dynamic array
-void deallocate(DynamicArray* arr) {
-    for (int i = 0; i &lt; arr-&gt;size; i++) {
-        free(arr-&gt;array[i].toString);  // Free the string memory
-        free(arr-&gt;array[i].data);       // Free the Car instance memory
-    }
-    arr-&gt;size = 0;
-}
-
-// Function to display the dynamic array
-void display(DynamicArray* arr) {
-    for (int i = 0; i &lt; arr-&gt;size; i++) {
-        printf("%s ", arr-&gt;array[i].toString);
-    }
-}
-
-// Function to free the dynamic array
-void deallocate(DynamicArray* arr) {
-    for (int i = 0; i &lt; arr-&gt;size; i++) {
-        free(arr-&gt;array[i].toString);  // Free the string memory
-        free(arr-&gt;array[i].data);       // Free the Car instance memory
-    }
-    free(arr-&gt;array);  // Free the array memory
-}
-
-// A Car struct to demonstrate the use of StackElement in the dynamic array
-typedef struct {
-    char model[50];
-    int year;
-} Car;
-
-// A function to create a string description for a Car
-char* carToString(Car* car) {
-    char* result = (char*)malloc(100 * sizeof(char));  // Allocate memory for the string
-    sprintf(result, "Car{model:\"%s\",year:%d}", car-&gt;model, car-&gt;year);
-    return result;
-}
-
-// Main function for testing the implementation
-int main() {
-    DynamicArray carArray;
-    // Initialize the dynamic array for StackElements
-    init(&carArray, 2);
-
-    // Create cars dynamically and add them to the array
-    Car* car1 = (Car*)malloc(sizeof(Car));
-    strcpy(car1-&gt;model, "Toyota Camry");
-    car1-&gt;year = 2020;
-    add(&carArray, car1, carToString(car1));
-
-    Car* car2 = (Car*)malloc(sizeof(Car));
-    strcpy(car2-&gt;model, "Honda Accord");
-    car2-&gt;year = 2019;
-    add(&carArray, car2, carToString(car2));
-
-    Car* car3 = (Car*)malloc(sizeof(Car));
-    strcpy(car3-&gt;model, "Tesla Model S");
-    car3-&gt;year = 2022;
-    add(&carArray, car3, carToString(car3));
-
-    // Display the car array
-    printf("Car Array:\n");
-    display(&carArray);
-
-    // Demonstrate using getElement, setElement, removeElement, and insertElement
-    printf("Size before modifications: %d\n", size(&carArray));
-
-    // Insert a new car
-    Car* car4 = (Car*)malloc(sizeof(Car));
-    strcpy(car4-&gt;model, "Ford Mustang");
-    car4-&gt;year = 2021;
-    insert(&carArray, 1, car4, carToString(car4)); // Insert at index 1
-
-    printf("Car Array after insertion:\n");
-    display(&carArray);
-
-    // Set a car at index 2
-    Car* car5 = (Car*)malloc(sizeof(Car));
-    strcpy(car5-&gt;model, "Chevrolet Camaro");
-    car5-&gt;year = 2023;
-    set(&carArray, 2, car5, carToString(car5)); // Set at index 2
-
-    printf("Car Array after setting new car at index 2:\n");
-    display(&carArray);
-
-    // Remove the first car
-    remove(&carArray, 0);
-    printf("Car Array after removing the first car:\n");
-    display(&carArray);
-
-    // Clean up
-    deallocate(&carArray);
-
-    return 0;
-}</code></pre>
-		
-		<p>Here is the Generic Dynamic Array implementation in C++:</p>
-		
-		<pre><code class="language-cpp hljs">#include &lt;iostream&gt;
-#include &lt;stdexcept&gt; // For exception handling
-
-template &lt;typename T&gt;
-class DynamicArray {
-private:
-    T* array;           // Pointer to hold the dynamic array
-    int capacity;       // Capacity of the array
-    int currentSize;    // Current number of elements in the array
-
-    // Resize the array when capacity is full
-    void resize() {
-        capacity *= 2;
-        T* newArray = new T[capacity];  // Allocate new array with double capacity
-        for (int i = 0; i &lt; currentSize; ++i) {
-            newArray[i] = array[i];     // Copy elements from old array to new array
-        }
-        delete[] array;                 // Deallocate old array
-        array = newArray;               // Point to the new array
-    }
-
-public:
-    // Constructor to initialize dynamic array with an initial capacity
-    DynamicArray(int initialCapacity = 2) {
-        capacity = initialCapacity;
-        array = new T[capacity];
-        currentSize = 0;
-    }
-
-    // Destructor to clean up allocated memory
-    ~DynamicArray() {
-        delete[] array;
-    }
-
-    // Add an element to the array
-    void add(const T& element) {
-        if (currentSize == capacity) {
-            resize();
-        }
-        array[currentSize++] = element;
-    }
-
-    // Get an element at a specific index
-    T get(int index) const {
-        if (index &lt; 0 || index &gt;= currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        return array[index];
-    }
-
-    // Set (update) an element at a specific index
-    void set(int index, const T& element) {
-        if (index &lt; 0 || index &gt;= currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        array[index] = element;
-    }
-
-    // Remove an element at a specific index
-    void remove(int index) {
-        if (index &lt; 0 || index &gt;= currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        for (int i = index; i &lt; currentSize - 1; ++i) {
-            array[i] = array[i + 1];
-        }
-        --currentSize;
-    }
-
-    // Insert an element at a specific index
-    void insert(int index, const T& element) {
-        if (index &lt; 0 || index &gt; currentSize) {
-            throw std::out_of_range("Index out of range");
-        }
-        if (currentSize == capacity) {
-            resize();
-        }
-        for (int i = currentSize; i &gt; index; --i) {
-            array[i] = array[i - 1];  // Shift elements to the right
-        }
-        array[index] = element;
-        ++currentSize;
-    }
-
-    // Get the current size of the array
-    int size() const {
-        return currentSize;
-    }
-
-    // Clear the array by resetting the size
-    void clear() {
-        currentSize = 0;
-        std::cout &lt;&lt; "Array cleared!" &lt;&lt; std::endl;
-    }
-
-    // Display all elements in the dynamic array
-    void display() const {
-        if (currentSize == 0) {
-            std::cout &lt;&lt; "Array is empty" &lt;&lt; std::endl;
-        } else {
-            for (int i = 0; i &lt; currentSize; ++i) {
-                std::cout &lt;&lt; array[i] &lt;&lt; " ";
-            }
-            std::cout &lt;&lt; std::endl;
-        }
-    }
-};
-
-// Test the DynamicArray class
-int main() {
-    DynamicArray&lt;int&gt; dynamicArray;
-
-    // Adding elements
-    dynamicArray.add(1);
-    dynamicArray.add(2);
-    dynamicArray.add(3);
-    dynamicArray.add(4);
-    dynamicArray.display(); // Output: Array elements: 1 2 3 4
-
-    // Get element at index 2
-    std::cout &lt;&lt; "Element at index 2: " &lt;&lt; dynamicArray.get(2) &lt;&lt; std::endl; // Output: 3
-
-    // Set element at index 1
-    dynamicArray.set(1, 20);
-    dynamicArray.display(); // Output: Array elements: 1 20 3 4
-
-    // Insert an element at index 2
-    dynamicArray.insert(2, 100);
-    dynamicArray.display(); // Output: Array elements: 1 20 100 3 4
-
-    // Remove an element at index 3
-    dynamicArray.remove(3);
-    dynamicArray.display(); // Output: Array elements: 1 20 100 4
-
-    // Get the current size of the array
-    std::cout &lt;&lt; "Size: " &lt;&lt; dynamicArray.size() &lt;&lt; std::endl; // Output: Size: 4
-
-    // Clear the array
-    dynamicArray.clear();
-    dynamicArray.display(); // Output: Array is empty
-
-    return 0;
-}</code></pre>
-		
-		<p>Here is the Generic Dynamic Array implementation in Java:</p>
-		
-		<pre><code class="language-java hljs">class DynamicArray&lt;T&gt; {
-    private Object[] array;
-    private int size;
-    private int capacity;
-
-    // Constructor to initialize array with a specified capacity
-    public DynamicArray(int initialCapacity) {
-        this.capacity = initialCapacity;
-        this.array = new Object[capacity];
-        this.size = 0;
-    }
-
-    // Default constructor with an initial capacity of 2
-    public DynamicArray() {
-        this(2);
-    }
-
-    // Add an element to the dynamic array
-    public void add(T element) {
-        if (size == capacity) {
-            resize();
-        }
-        array[size++] = element;
-    }
-
-    // Get an element at a specific index
-    public T get(int index) {
-        if (index &gt;= size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        return (T) array[index];
-    }
-
-    // Set (update) an element at a specific index
-    public void set(int index, T element) {
-        if (index &gt;= size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        array[index] = element;
-    }
-
-    // Remove an element at a specific index
-    public void remove(int index) {
-        if (index &gt;= size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        for (int i = index; i &lt; size - 1; i++) {
-            array[i] = array[i + 1];
-        }
-        array[--size] = null;  // Clear last element
-    }
-
-    // Insert an element at a specific index
-    public void insert(int index, T element) {
-        if (index &gt; size || index &lt; 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        if (size == capacity) {
-            resize();
-        }
-        for (int i = size; i &gt; index; i--) {
-            array[i] = array[i - 1];
-        }
-        array[index] = element;
-        size++;
-    }
-
-    // Get the current size of the array
-    public int size() {
-        return size;
-    }
-
-    // Resize the array when capacity is reached
-    private void resize() {
-        capacity *= 2;
-        Object[] newArray = new Object[capacity];
-        
-        // Manually copy elements from the old array to the new array
-        for (int i = 0; i &lt; size; i++) {
-            newArray[i] = array[i];
-        }
-        array = newArray;
-    }
-
-    // Clear the array by setting the size to 0
-    public void clear() {
-        for (int i = 0; i &lt; size; i++) {
-            array[i] = null;
-        }
-        size = 0;
-        System.out.println("Array cleared!");
-    }
-
-    // Display all elements in the dynamic array
-    public void display() {
-        if (size == 0) {
-            System.out.println("Array is empty");
-        } else {
-            for (int i = 0; i &lt; size; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        }
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        DynamicArray&lt;Integer&gt; dynamicArray = new DynamicArray&lt;&gt;();
-
-        // Adding elements
-        dynamicArray.add(1);
-        dynamicArray.add(2);
-        dynamicArray.add(3);
-        dynamicArray.add(4);
-        dynamicArray.display(); // Output: Array elements: 1 2 3 4
-
-        // Get element at index 2
-        System.out.println("Element at index 2: " + dynamicArray.get(2)); // Output: 3
-
-        // Set element at index 1
-        dynamicArray.set(1, 20);
-        dynamicArray.display(); // Output: Array elements: 1 20 3 4
-
-        // Insert an element at index 2
-        dynamicArray.insert(2, 100);
-        dynamicArray.display(); // Output: Array elements: 1 20 100 3 4
-
-        // Remove an element at index 3
-        dynamicArray.remove(3);
-        dynamicArray.display(); // Output: Array elements: 1 20 100 4
-
-        // Get the current size of the array
-        System.out.println("Size: " + dynamicArray.size()); // Output: Size: 4
-
-        // Clear the array
-        dynamicArray.clear();
-        dynamicArray.display(); // Output: Array is empty
-    }
-}</code></pre>
-
-		<p>Here is the Generic Dynamic Array implementation in C#:</p>
-
-		<pre><code class="language-csharp hljs">using System;
-
-class DynamicArray&lt;T&gt;
-{
-    private T[] array;      // Internal array to store elements
-    private int capacity;   // Capacity of the array
-    private int size;       // Current number of elements
-
-    // Constructor to initialize array with a default capacity
-    public DynamicArray(int initialCapacity = 2)
-    {
-        capacity = initialCapacity;
-        array = new T[capacity];
-        size = 0;
-    }
-
-    // Add an element to the dynamic array
-    public void Add(T element)
-    {
-        if (size == capacity)
-        {
-            Resize(); // Resize the array if it's full
-        }
-        array[size++] = element;
-    }
-
-    // Get an element at a specific index
-    public T Get(int index)
-    {
-        if (index &lt; 0 || index &gt;= size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        return array[index];
-    }
-
-    // Set (update) an element at a specific index
-    public void Set(int index, T element)
-    {
-        if (index &lt; 0 || index &gt;= size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        array[index] = element;
-    }
-
-    // Remove an element at a specific index
-    public void Remove(int index)
-    {
-        if (index &lt; 0 || index &gt;= size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        for (int i = index; i &lt; size - 1; i++)
-        {
-            array[i] = array[i + 1]; // Shift elements to the left
-        }
-        size--;
-    }
-
-    // Insert an element at a specific index
-    public void Insert(int index, T element)
-    {
-        if (index &lt; 0 || index &gt; size)
-        {
-            throw new IndexOutOfRangeException("Index out of range");
-        }
-        if (size == capacity)
-        {
-            Resize(); // Resize the array if it's full
-        }
-        for (int i = size; i &gt; index; i--)
-        {
-            array[i] = array[i - 1]; // Shift elements to the right
-        }
-        array[index] = element;
-        size++;
-    }
-
-    // Get the current size of the array
-    public int Size()
-    {
-        return size;
-    }
-
-    // Resize the array when it's full
-    private void Resize()
-    {
-        capacity *= 2;
-        T[] newArray = new T[capacity];
-        for (int i = 0; i &lt; size; i++)
-        {
-            newArray[i] = array[i]; // Copy elements to the new array
-        }
-        array = newArray;
-    }
-
-    // Clear the array by setting size to 0
-    public void Clear()
-    {
-        size = 0;
-        Console.WriteLine("Array cleared!");
-    }
-
-    // Display all elements in the dynamic array
-    public void Display()
-    {
-        if (size == 0)
-        {
-            Console.WriteLine("Array is empty");
-        }
-        else
-        {
-            for (int i = 0; i &lt; size; i++)
-            {
-                Console.Write(array[i] + " ");
-            }
-            Console.WriteLine();
-        }
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        // Create a dynamic array for integers
-        DynamicArray&lt;int&gt; dynamicArray = new DynamicArray&lt;int&gt;();
-
-        // Adding elements
-        dynamicArray.Add(1);
-        dynamicArray.Add(2);
-        dynamicArray.Add(3);
-        dynamicArray.Add(4);
-        dynamicArray.Display(); // Output: Array elements: 1 2 3 4
-
-        // Get element at index 2
-        Console.WriteLine("Element at index 2: " + dynamicArray.Get(2)); // Output: 3
-
-        // Set element at index 1
-        dynamicArray.Set(1, 20);
-        dynamicArray.Display(); // Output: Array elements: 1 20 3 4
-
-        // Insert an element at index 2
-        dynamicArray.Insert(2, 100);
-        dynamicArray.Display(); // Output: Array elements: 1 20 100 3 4
-
-        // Remove an element at index 3
-        dynamicArray.Remove(3);
-        dynamicArray.Display(); // Output: Array elements: 1 20 100 4
-
-        // Get the current size of the array
-        Console.WriteLine("Size: " + dynamicArray.Size()); // Output: Size: 4
-
-        // Clear the array
-        dynamicArray.Clear();
-        dynamicArray.Display(); // Output: Array is empty
-
-        // Create a dynamic array for strings
-        DynamicArray&lt;string&gt; stringArray = new DynamicArray&lt;string&gt;();
-        stringArray.Add("Hello");
-        stringArray.Add("World");
-        stringArray.Display(); // Output: Array elements: Hello World
-    }
-}</code></pre>
-
-    </article>
-
-    <div class="post-tags">
-	<div class="title">Tags</div>
-	<ul class="tags">
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/data-structure" class="tag">data structure</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/array" class="tag">array</a></li>
-		
-		<li><a href="https://hemimorphite.github.io/zh/tag/dynamic-array" class="tag">dynamic array</a></li>
-		
-	</ul>
-</div>
-
-
-    <div class="post-share">
-	
-    <div class="title">Share this post</div>
-    <ul class="rounded-social-buttons">
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://hemimorphite.github.io/zh/2024/10/11/dynamic-array-data-structure/" class="social-button facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://twitter.com/share?text=Hey+guys%2c+check+this+out!&amp;url=https://hemimorphite.github.io/zh/2024/10/11/dynamic-array-data-structure/" class="social-button twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://hemimorphite.github.io/zh/2024/10/11/dynamic-array-data-structure/" class="social-button linkedin"><i class="fab fa-linkedin"></i></a></li>
-    </ul>
-</div>
-</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-10" /><category term="day-11" /><category term="data structure" /><category term="array" /><category term="dynamic array" /><summary type="html"><![CDATA[Discover the Dynamic Array Data Structure, a powerful solution for efficiently managing collections of data that require flexibility and scalability. Unlike static arrays, dynamic arrays automatically resize themselves, allowing for easy addition and removal of elements without the need for manual memory management. This versatile data structure supports essential operations such as initialization, element insertion, retrieval, updating, and deletion, enabling seamless manipulation of diverse data types.]]></summary></entry></feed>
+</div>]]></content><author><name>Samuel Yang</name></author><category term="Tutorial" /><category term="year-2024" /><category term="month-10" /><category term="day-14" /><category term="data structure" /><category term="linked list" /><category term="singly linked list" /><summary type="html"><![CDATA[Discover the essential concepts of singly linked list data structures in this detailed tutorial designed for both beginners and experienced learners. This guide offers a thorough exploration of the implementation process, complete with illustrative examples that demonstrate key operations such as node creation, insertion, deletion, sorting, searching, and traversal.]]></summary></entry></feed>

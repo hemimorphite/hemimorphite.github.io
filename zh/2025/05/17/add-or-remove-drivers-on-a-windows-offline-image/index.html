@@ -15,13 +15,13 @@
 		<meta property="og:site_name" content="Hemimorphite">
 		<meta property="og:url" content="https://hemimorphite.github.io/zh/2025/05/17/add-or-remove-drivers-on-a-windows-offline-image/">
 		<meta property="og:description" content="Learn how to add or remove drivers in a Windows image using DISM. This step-by-step guide helps you customize Windows installation media by integrating or deleting drivers for better compatibility with modern hardware.">
-		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/adddrivers.jpg">
+		<meta property="og:image" content="https://hemimorphite.github.io/assets/images/adddrivers.png">
 
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:title" content="Add or Remove Drivers on a Windows Image">
 		<meta name="twitter:description" content="Learn how to add or remove drivers in a Windows image using DISM. This step-by-step guide helps you customize Windows installation media by integrating or deleting drivers for better compatibility with modern hardware.">
 		<meta name="twitter:creator" content="Samuel Yang">
-		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/adddrivers.jpg">
+		<meta name="twitter:image:src" content="https://hemimorphite.github.io/assets/images/adddrivers.png">
 	
 	    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 
@@ -95,6 +95,20 @@
 						
 						
 
+						
+						
+						
+
+						
+						  	
+						  	
+						
+						
+						
+
+						
+						  	
+						  	
 						
 						
 						
@@ -1774,7 +1788,7 @@
 </div>
 
 <figure class="post-image">
-    <img src="/assets/images/adddrivers.jpg" alt="Blog Cover">
+    <img src="/assets/images/adddrivers.png" alt="Blog Cover">
 </figure>
 
     <article class="post-content">
@@ -1826,7 +1840,7 @@
 		<p>Create a folder to place all the downloaded drivers. In this example I create the folder on drive <code>D:</code> naming it <code>Drivers</code>.</p>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/drivers.jpg" alt="Drivers">
+            <img src="/assets/images/drivers.png" alt="Drivers">
         </figure>
 		
 		<h5 class="post-subtitle">Step 2: Add drivers to image</h5>
@@ -1836,11 +1850,11 @@
         <p>Mount the Windows 10/11 ISO file by double-clicking it to open it as a virtual DVD. In File Explorer, open the mounted ISO, press <code>Ctrl + A</code> to select all files and folders, then press <code>Ctrl + C</code> to copy them. Navigate to your <code>ISO_Files</code> folder and press <code>Ctrl + V</code> to paste the contents of the ISO.</p>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/virtualDVD.jpg" alt="Virtual DVD">
+            <img src="/assets/images/virtualDVD.png" alt="Virtual DVD">
         </figure>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/windowsisofiles.jpg" alt="Windows 11 ISO Files">
+            <img src="/assets/images/windowsisofiles.png" alt="Windows 11 ISO Files">
         </figure>
 		
 		<p>Create a folder to mount offline image. In this example I create the folder on drive <code>D:</code> naming it <code>Mount</code>.</p>
@@ -1850,7 +1864,7 @@
 		<pre><code class="language-plaintext hljs">Dism /Get-WimInfo /WimFile:D:\ISO_Files\Sources\install.wim</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/listalleditions.jpg" alt="List All Editions">
+            <img src="/assets/images/listalleditions.png" alt="List All Editions">
         </figure>
 		
 		<p>Mount the image of your preferred Windows 10/11 edition using its index number (retrieved from the previous step). Use the following command to mount the image:</p>
@@ -1858,7 +1872,7 @@
 		<pre><code class="language-plaintext hljs">Dism /Mount-Wim /WimFile:D:\ISO_Files\Sources\install.wim /index:6 /MountDir:D:\Mount</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/mountwindowsimage.jpg" alt="Mount Windwos Image">
+            <img src="/assets/images/mountwindowsimage.png" alt="Mount Windwos Image">
         </figure>
 		
 		<p>Replace <code>6</code> with the index number of the edition you want to mount.</p>
@@ -1868,7 +1882,7 @@
 		<pre><code class="language-plaintext hljs">Dism /Image:D:\Mount /Get-Drivers</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/listalldrivers.jpg" alt="List All Drivers">
+            <img src="/assets/images/listalldrivers.png" alt="List All Drivers">
         </figure>
 		
 		<p>You can now add all the drivers to the offline mounted Windows image using the following command:</p>
@@ -1876,7 +1890,7 @@
 		<pre><code class="language-plaintext hljs">Dism /Image:D:\Mount /Add-Driver /Driver:D:\Drivers /Recurse</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/adddrivers.jpg" alt="Add All Drivers">
+            <img src="/assets/images/adddrivers.png" alt="Add All Drivers">
         </figure>
 		
 		<p>If you prefer to add drivers one by one to your offline mounted Windows image, you can use the following command for each individual <code>.inf</code> file:</p>
@@ -1892,7 +1906,7 @@
 		<pre><code class="language-plaintext hljs">Dism /Unmount-Wim /MountDir:D:\Mount /Commit</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/unmountwindowsimage.jpg" alt="Unmount Windows Image">
+            <img src="/assets/images/unmountwindowsimage.png" alt="Unmount Windows Image">
         </figure>
 		
 		<h5 class="post-subtitle">Step 3: Create an Updated Windows ISO</h5>
@@ -1908,7 +1922,7 @@
 		<pre><code class="language-plaintext hljs">oscdimg.exe -m -o -u2 -udfver102 -bootdata:2#p0,e,bD:\ISO_files\boot\etfsboot.com#pEF,e,bD:\ISO_files\efi\microsoft\boot\efisys.bin D:\ISO_files D:\Win11_24H2_v2_English_x64.iso</code></pre>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/createwindowsiso.jpg" alt="Create an Updated Windows ISO">
+            <img src="/assets/images/createwindowsiso.png" alt="Create an Updated Windows ISO">
         </figure>
 		
 		<table class="table table-bordered border-primary">
@@ -1937,7 +1951,7 @@
         </table>
 		
 		<figure class="post-figure">
-            <img src="/assets/images/createwindowsiso.jpg" alt="Create an updated ISO">
+            <img src="/assets/images/createwindowsiso.png" alt="Create an updated ISO">
         </figure>
     </article>
 
@@ -2053,6 +2067,19 @@
 								</div>
 								<div class="blog-eyebrow">Tutorial</div>
 								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2025/05/18/switch-from-microsoft-account-to-local-account-on-windows-11/">Switch from Microsoft account to local account on Windows 11 After Installation</a></h4>
+							</div>
+						</div>
+						
+						
+						
+						
+						<div class="col-md-6 col-lg-4">
+							<div class="blog-post">
+								<div class="blog-thumb">
+									<a href="https://hemimorphite.github.io/zh/2025/05/18/no-drives-can-be-found-during-windows-11-installation/"><img src="https://hemimorphite.github.io/assets/images/loaddriver.png" alt=""></a>
+								</div>
+								<div class="blog-eyebrow">Tutorial</div>
+								<h4 class="blog-title"><a href="https://hemimorphite.github.io/zh/2025/05/18/no-drives-can-be-found-during-windows-11-installation/">No Drives Can Be Found During Windows 10/11 Installation</a></h4>
 							</div>
 						</div>
 						
