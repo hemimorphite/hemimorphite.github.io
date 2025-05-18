@@ -1,0 +1,180 @@
+---
+layout: post
+lang: en
+locale: en
+title: "Windows Edition Selection not Showing While Installing Windows 10/11"
+thumb: "windowsedition.jpg"
+eyebrow: "Tutorial"
+description: "Learn how to fix the common issue where the Windows Edition selection screen fails to appear during the installation of Windows 10 or Windows 11. This comprehensive guide provides clear, step-by-step solutions to help you troubleshoot and resolve the problem, ensuring you can select the correct Windows edition before the installation process completes."
+date: 2025-05-17 18:38:50 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2025", "month-05", "day-17"]
+tags: ["windows", "windows 10", "windows 11"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>When you install Windows 10 or 11 on a custom-built PC or a new PC without Windows pre-installed, users have the option to install the specific edition of Windows that matches the license key they have purchased(eg Windows Home, Pro, Education, etc.).</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/windowsedition.jpg" alt="Windows 11 Edition">
+        </figure>
+		
+        <p>However, on pre-installed Windows 10/11 PCs, users are not given the option to select a different edition during installation. The reason is that these PCs come with a Windows license key embedded in the BIOS/UEFI firmware, which the installer automatically detects. As a result, Windows installs the edition that matches the embedded key, without prompting the user to choose.</p>
+
+        <p>In this tutorial you will learn how to be able to install a different version of Windows than the one that is preinstalled.</p>
+		
+		<h5 class="post-subtitle">Step 1: Create a Windows 10/11 USB Installation media.</h5>
+
+        <p>For instructions, see this article: How to create a bootable Windows 10/11 USB installation media.</p>
+		
+		<h5 class="post-subtitle">Step 2: Add an <code>ei.cfg</code> file to your installation media</h5>
+		
+        <p>The <code>ei.cfg</code> file tells the Windows installer not to use the product key embedded in the BIOS/UEFI, allowing you to manually select the Windows edition during setup.</p>
+		
+		<p>Open Notepad and then copy and paste the following lines:</p>
+		
+		<pre><code class="language-plaintext hljs">[EditionID]
+Professional
+[Channel]
+Retail</code></pre>
+		
+		<p>Here's a list of common Windows <code>EditionID</code> values that are used in <code>ei.cfg</code> files:</p>
+		
+		<table class="table table-bordered border-primary">
+            <caption>Windows 10 Editions</caption>
+			<thead>
+				<tr>
+					<th>Edition Name</th>
+					<th>EditionID</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>Windows 10 Home</td><td><code>Core</code></td></tr>
+				<tr><td>Windows 10 Home N</td><td><code>CoreN</code></td></tr>
+				<tr><td>Windows 10 Home Single Language</td><td><code>CoreSingleLanguage</code></td></tr>
+				<tr><td>Windows 10 Pro</td><td><code>Professional</code></td></tr>
+				<tr><td>Windows 10 Pro N</td><td><code>ProfessionalN</code></td></tr>
+				<tr><td>Windows 10 Education</td><td><code>Education</code></td></tr>
+				<tr><td>Windows 10 Education N</td><td><code>EducationN</code></td></tr>
+				<tr><td>Windows 10 Enterprise</td><td><code>Enterprise</code></td></tr>
+				<tr><td>Windows 10 Enterprise N</td><td><code>EnterpriseN</code></td></tr>
+				<tr><td>Windows 10 Pro Education</td><td><code>ProfessionalEducation</code></td></tr>
+				<tr><td>Windows 10 Pro for Workstations</td><td><code>ProfessionalWorkstation</code></td></tr>
+				<tr><td>Windows 10 Pro N for Workstations</td><td><code>ProfessionalWorkstationN</code></td></tr>
+			</tbody>
+        </table>
+		
+		<table class="table table-bordered border-primary">
+            <caption>Windows 11 Editions</caption>
+			<thead>
+				<tr>
+					<th>Edition Name</th>
+					<th>EditionID</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>Windows 11 Home</td><td><code>Core</code></td></tr>
+				<tr><td>Windows 11 Home N</td><td><code>CoreN</code></td></tr>
+				<tr><td>Windows 11 Home Single Language</td><td><code>CoreSingleLanguage</code></td></tr>
+				<tr><td>Windows 11 Pro</td><td><code>Professional</code></td></tr>
+				<tr><td>Windows 11 Pro N</td><td><code>ProfessionalN</code></td></tr>
+				<tr><td>Windows 11 Education</td><td><code>Education</code></td></tr>
+				<tr><td>Windows 11 Education N</td><td><code>EducationN</code></td></tr>
+				<tr><td>Windows 11 Enterprise</td><td><code>Enterprise</code></td></tr>
+				<tr><td>Windows 11 Enterprise N</td><td><code>EnterpriseN</code></td></tr>
+				<tr><td>Windows 11 Pro Education</td><td><code>ProfessionalEducation</code></td></tr>
+				<tr><td>Windows 11 Pro for Workstations</td><td><code>ProfessionalWorkstation</code></td></tr>
+				<tr><td>Windows 11 Pro N for Workstations</td><td><code>ProfessionalWorkstationN</code></td></tr>
+			</tbody>
+        </table>
+		
+		<p>When you're finished creating the configuration file, go to the <code>File</code> menu and choose <code>Save As</code>. In the save dialog that appears, navigate to the Windows USB installation media on the left-hand panel. Once there, open the <code>sources</code> folder on the right side.</p>
+		
+		<p>In the File name field, type <code>"ei.cfg"</code> — make sure to include the quotation marks exactly as shown. This ensures the file is saved with the correct <code>.cfg</code> extension and not accidentally as a <code>.txt</code> file. Finally, click <code>Save</code> to complete the process.</p>
+		
+		<h5 class="post-subtitle">Step 3: Add an <code>PID.txt</code> file to your installation media</h5>
+		
+		<p>The <code>PID.txt</code> file tells the Windows installer which product key to use during installation. If your system has a pre-installed OEM key embedded in the BIOS/UEFI (such as for Windows 10 Home), and you want to install a different edition like Windows 10 Pro, including a <code>PID.txt</code> file with a valid Pro product key will override the embedded key and force the installer to proceed with the Pro edition.</p>
+		
+		<p>Open Notepad and then copy and paste the following lines:</p>
+		
+		<pre><code class="language-plaintext hljs">[PID]
+value=VK7JG-NPHTM-C97JM-9MPGT-3V66T</code></pre>
+		
+		<p>The PID value can be either a generic key or a KMS client key, depending on what you're trying to do.</p>
+		
+		<p>Generic Keys are default product keys provided by Microsoft that can be used to install and test Windows operating systems without activating them. These keys do not activate Windows, but allow you to complete the installation process.</p>
+		
+		<p>KMS Client Keys are special product keys provided by Microsoft that allow Windows computers to be activated via a Key Management Service (KMS). Instead of activating each PC individually via the internet, computers activate locally by talking to a KMS server inside the company network. This allows organizations to manage activations centrally for many machines.</p>
+		
+		<p>Here's a list of common Generic Keys values that can be used in <code>PID.txt</code> files:</p>
+		
+		<table class="table table-bordered border-primary">
+            <caption>Windows 10 Editions</caption>
+			<thead>
+				<tr>
+					<th>Edition Name</th>
+					<th>Generic Key</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>Windows 10 Home</td><td>YTMG3-N6DKC-DKB77-7M9GH-8HVX7</td></tr>
+				<tr><td>Windows 10 Home N</td><td>4CPRK-NM3K3-X6XXQ-RXX86-WXCHW</td></tr>
+				<tr><td>Windows 10 Home Single Language</td><td>BT79Q-G7N6G-PGBYW-4YWX6-6F4BT</td></tr>
+				<tr><td>Windows 10 Pro</td><td>VK7JG-NPHTM-C97JM-9MPGT-3V66T</td></tr>
+				<tr><td>Windows 10 Pro N</td><td>2B87N-8KFHP-DKV6R-Y2C8J-PKCKT</td></tr>
+				<tr><td>Windows 10 Pro for Workstations</td><td>DXG7C-N36C4-C4HTG-X4T3X-2YV77</td></tr>
+				<tr><td>Windows 10 Pro N for Workstations</td><td>WYPNQ-8C467-V2W6J-TX4WX-WT2RQ</td></tr>
+				<tr><td>Windows 10 S</td><td>3NF4D-GF9GY-63VKH-QRC3V-7QW8P</td></tr>
+				<tr><td>Windows 10 Education</td><td>YNMGQ-8RYV3-4PGQ3-C8XTP-7CFBY</td></tr>
+				<tr><td>Windows 10 Education N</td><td>84NGF-MHBT6-FXBX8-QWJK7-DRR8H</td></tr>
+				<tr><td>Windows 10 Pro Education</td><td>8PTT6-RNW4C-6V7J2-C2D3X-MHBPB</td></tr>
+				<tr><td>Windows 10 Pro Education N</td><td>GJTYN-HDMQY-FRR76-HVGC7-QPF8P</td></tr>
+				<tr><td>Windows 10 Enterprise</td><td>XGVPP-NMH47-7TTHJ-W3FW7-8HV2C</td></tr>
+				<tr><td>Windows 10 Enterprise G N</td><td>FW7NV-4T673-HF4VX-9X4MM-B4H4T</td></tr>
+				<tr><td>Windows 10 Enterprise N</td><td>WGGHN-J84D6-QYCPR-T7PJ7-X766F</td></tr>
+				<tr><td>Windows 10 Enterprise S</td><td>NK96Y-D9CD8-W44CQ-R8YTK-DYJWX</td></tr>
+			</tbody>
+        </table>
+		
+		<table class="table table-bordered border-primary">
+            <caption>Windows 11 Editions</caption>
+			<thead>
+				<tr>
+					<th>Edition Name</th>
+					<th>Generic Key</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>Windows 11 Home</td><td>YTMG3-N6DKC-DKB77-7M9GH-8HVX7</td></tr>
+				<tr><td>Windows 11 Home N</td><td>4CPRK-NM3K3-X6XXQ-RXX86-WXCHW</td></tr>
+				<tr><td>Windows 11 Home Single Language</td><td>BT79Q-G7N6G-PGBYW-4YWX6-6F4BT</td></tr>
+				<tr><td>Windows 11 Home Country Specific</td><td>N2434-X9D7W-8PF6X-8DV9T-8TYMD</td></tr>
+				<tr><td>Windows 11 Pro</td><td>VK7JG-NPHTM-C97JM-9MPGT-3V66T</td></tr>
+				<tr><td>Windows 11 Pro N</td><td>2B87N-8KFHP-DKV6R-Y2C8J-PKCKT</td></tr>
+				<tr><td>Windows 11 Pro for Workstations</td><td>DXG7C-N36C4-C4HTG-X4T3X-2YV77</td></tr>
+				<tr><td>Windows 11 Pro for Workstations N</td><td>WYPNQ-8C467-V2W6J-TX4WX-WT2RQ</td></tr>
+				<tr><td>Windows 11 Pro Education</td><td>8PTT6-RNW4C-6V7J2-C2D3X-MHBPB</td></tr>
+				<tr><td>Windows 11 Pro Education N</td><td>GJTYN-HDMQY-FRR76-HVGC7-QPF8P</td></tr>
+				<tr><td>Windows 11 Education</td><td>YNMGQ-8RYV3-4PGQ3-C8XTP-7CFBY</td></tr>
+				<tr><td>Windows 11 Education N</td><td>84NGF-MHBT6-FXBX8-QWJK7-DRR8H</td></tr>
+				<tr><td>Windows 11 Enterprise</td><td>XGVPP-NMH47-7TTHJ-W3FW7-8HV2C</td></tr>
+				<tr><td>Windows 11 Enterprise N</td><td>WGGHN-J84D6-QYCPR-T7PJ7-X766F</td></tr>
+				<tr><td>Windows 11 Enterprise G N</td><td>FW7NV-4T673-HF4VX-9X4MM-B4H4T</td></tr>
+			</tbody>
+        </table>
+		
+		<p>When you're finished creating the PID file, go to the <code>File</code> menu and choose <code>Save As</code>. In the save dialog that appears, navigate to the Windows USB installation media on the left-hand panel. Once there, open the <code>sources</code> folder on the right side.</p>
+		
+		<p>In the File name field, type <code>"PID.txt"</code> — make sure to include the quotation marks exactly as shown. This ensures the file is saved with the correct <code>.txt</code> extension and not accidentally as a <code>.txt.txt</code> file. Finally, click <code>Save</code> to complete the process.</p>
+		
+		<p>After setting up the <code>ei.cfg</code> and <code>PID.txt</code> files correctly in the sources folder of your USB installation media, boot your PC from the USB. During the clean installation process, you will now be able to choose the edition of Windows 11 or Windows 10 that you want to install.</p>
+    </article>
+		
+  {% include post-tags.html %}
+
+  {% include post-share.html %}
+</div>

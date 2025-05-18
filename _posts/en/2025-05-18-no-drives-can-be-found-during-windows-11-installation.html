@@ -1,0 +1,110 @@
+---
+layout: post
+lang: en
+locale: en
+title: "No Drives Can Be Found During Windows 10/11 Installation"
+thumb: "loaddriver.png"
+eyebrow: "Tutorial"
+description: "Intel 11th (Tiger Lake), 12th (Alder Lake), and 13th (Raptor Lake) generation processors use Intel Volume Management Device (VMD) technology to improve storage performance and power efficiency. On systems with VMD enabled by default (which is often not configurable in BIOS/UEFI), the Windows 10/11 retail installer cannot detect NVMe drives unless the Intel Rapid Storage Technology (IRST) driver is manually loaded during installation. To proceed, you must download the appropriate IRST (VMD) driver, place it on a USB drive, and load it when prompted by the installer to detect available storage devices."
+date: 2025-05-18 20:38:50 +0700
+author: Samuel Yang
+categories: ["Tutorials", "year-2025", "month-05", "day-18"]
+tags: ["windows", "windows 11"]
+---
+
+<div class="blog-post">
+    {% include post-header.html %}
+
+    <article class="post-content">
+        <p>Intel 11th (Tiger Lake), 12th (Alder Lake), and 13th (Raptor Lake) generation processors use Intel Volume Management Device (VMD) technology to improve storage performance and power efficiency. On systems with VMD enabled by default (which is often not configurable in BIOS/UEFI), the Windows 10/11 retail installer cannot detect NVMe drives unless the Intel Rapid Storage Technology (IRST) driver is manually loaded during installation. To proceed, you must download the appropriate IRST (VMD) driver, place it on a USB drive, and load it when prompted by the installer to detect available storage devices.</p>
+
+        <p>In this tutorial, you will learn how to install windows 10/11 with Intel VMD technology enabled.</p>
+		
+		<h5 class="post-subtitle">Step 1: Download the Intel IRST/VMD driver from your laptop/pc manufacturer's site</h5>
+		
+        <p>Here are the official driver download pages for Acer, ASUS, Dell, Lenovo, and HP:</p> 
+		
+		<ul>
+			<li>
+				<strong>Acer:</strong>
+				<a href="https://www.acer.com/us-en/support/drivers-and-manuals" target="_blank">
+					https://www.acer.com/us-en/support/drivers-and-manuals
+				</a>
+			</li>
+			<li>
+				<strong>ASUS:</strong>
+				<a href="https://www.asus.com/support/download-center/" target="_blank">
+					https://www.asus.com/support/Download-Center/
+				</a>
+			</li>
+			<li>
+				<strong>Dell:</strong>
+				<a href="https://www.dell.com/support/home/en-id?app=drivers" target="_blank">
+					https://www.dell.com/support/home/en-id?app=drivers
+				</a>
+			</li>
+			<li>
+				<strong>Lenovo:</strong>
+				<a href="https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/3-series/ideapad-3-15iil05/81we/videos/vid100754-how-to-download-and-install-a-driver-from-the-lenovo-support-site" target="_blank">
+					https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/3-series/ideapad-3-15iil05/81we/videos/vid100754-how-to-download-and-install-a-driver-from-the-lenovo-support-site
+				</a>
+			</li>
+			<li>
+				<strong>HP:</strong>
+				<a href="https://support.hp.com/us-en/drivers" target="_blank">
+					https://support.hp.com/us-en/drivers
+				</a>
+			</li>
+		</ul>
+
+        <p>Most often the drivers come as a self-extracting executable (.exe) or archived (.zip) file. Extract the downloaded IRST driver files and copy to your USB installation media.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/irstdriver.png" alt="Copy IRST driver to USB installation media">
+        </figure>
+		
+		<h5 class="post-subtitle">Step 2: Boot into Windows Installation</h5>
+		
+        <p>Plug in your Windows USB installer and power on the laptop/PC.</p> 
+		
+        <p>During startup, press the boot menu key (this is usually F12, F9, Esc, or another key depending on your laptop/PC brand) to open the boot options menu.</p>
+		
+		<p>From the list, select the USB device to boot from your Windows installation media.</p>
+		
+		<p>When prompted where do you want to install Windows, click <strong>Load driver</strong>.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/loaddriver.png" alt="Load Driver">
+        </figure>
+		
+		<p>Click Browse.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/browse.png" alt="Browse">
+        </figure>
+        
+		<p>Navigate and select the folder where you placed the driver files, and click <strong>OK</strong>.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/selectdriver.png" alt="Select Driver">
+        </figure>
+		
+		<p>Choose the driver shown on the list, and click <strong>Install</strong>.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/installdriver.png" alt="Install Driver">
+        </figure>
+		
+		<p>Once the driver is loaded successfully, you should see your drives listed.</p>
+		
+		<figure class="post-figure">
+            <img src="/assets/images/installwindows.png" alt="Install Windows">
+        </figure>
+		
+		<p>You can now continue with the rest of the Windows installation as usual.</p>
+    </article>
+
+  {% include post-tags.html %}
+
+  {% include post-share.html %}
+</div>
